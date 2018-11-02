@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "chroma-js": "^1.4.0",
+    "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",

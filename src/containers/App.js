@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { Flex, Box } from 'rebass';
 import NavBar from '../components/NavBar';
-import HistoryBar from '../components/HistoryBar';
+import Timeline from './Timeline';
 import Canvas from '../components/Canvas';
 
 class App extends Component {
 
+  state = {
+    designs: [1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0 , 0, 1, 2, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0 , 0 , 1, 2, 0, 0, 0],
 
+  }
+
+  componentDidMount() {
+    // setInterval(() => { this.update(); }, 1000);
+  }
+
+  update = () => {
+    this.setState({designs: [...this.state.designs, Math.floor(Math.random() * 3)]})
+  }
 
   render() {
 
@@ -22,7 +33,9 @@ class App extends Component {
             frameHeight={frameHeight}
           />
         </Flex>
-        <HistoryBar />
+        <Timeline 
+          items={this.state.designs}
+        />
       </Flex>
     );
   }
