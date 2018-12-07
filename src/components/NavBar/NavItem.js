@@ -6,14 +6,14 @@ const NavItem = styled(Flex)(props => ({
   borderTop: 'none',
   borderBottom: 'none',
   background: props.selected 
-    ? `linear-gradient(to bottom, ${props.theme.colors.black} 4px, ${props.theme.colors.nearwhite} 4px)`
+    ? `linear-gradient(to top, ${props.theme.colors.black} 4px, ${props.theme.colors.nearwhite} 4px)`
     : props.theme.colors.nearwhite,
   cursor: 'pointer',
   fontWeight: 'bold',
   fontSize: `${props.theme.fontSizes[1]}px`,
   '&:hover': {
     background: props.selected 
-      ? `linear-gradient(to bottom, ${props.theme.colors.black} 4px, ${props.theme.colors.nearwhite_darken} 4px)`
+      ? `linear-gradient(to top, ${props.theme.colors.black} 4px, ${props.theme.colors.nearwhite_darken} 4px)`
       : props.theme.colors.nearwhite_darken
   },
 }))

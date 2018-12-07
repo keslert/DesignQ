@@ -16,7 +16,9 @@ const theme = {
   },
   gradients: {
     mello_yellow: 'linear-gradient(145deg, #f8ff00 0%, #3ad59f 100%)',
-    purple: 'linear-gradient( 135deg, #FCCF31 10%, #F55555 100%)',
+    red: 'linear-gradient( 135deg, #FCCF31 10%, #F55555 100%)',
+    purple: 'linear-gradient(to bottom, #30cfd0 0%, #330867 100%)',
+    light: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
   },
   space: [
     0, 4, 8, 16, 32, 64, 128, 256

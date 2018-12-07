@@ -21,8 +21,8 @@ class App extends Component {
 
   render() {
 
-    const frameWidth = 850;
-    const frameHeight = 1100;
+    const frameWidth = 612;
+    const frameHeight = 792;
 
     return (
       <Flex flexDirection="column" style={{height: '100vh'}}>
