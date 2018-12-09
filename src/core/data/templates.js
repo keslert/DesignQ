@@ -134,76 +134,73 @@ export const e1 = {
 
 export const e2 = {
   title: 'Barry\'s',
-  px: 1,
-  py: 1,
+  px: 18,
+  py: 18,
   footer: null,
   header: null,
+  background: solidColor('#fff'),
   content: {
-    background: {
-      type: 'solid',
-      value: '#000',
-    },
+    width: unitValue(100, '%'),
+    flex: 1,
+    alignX: 'left',
+    alignY: 'center',
+    background: solidColor('#000'),
     elements: [
       { 
         type: 'image',
         flex: 1,
         bleed: true,
-        src: '/examples/img.jpg',
+        src: 'https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
         filters: [],
       },
       {
         type: 'dominant',
-        value: 'Barry\'s',
-        background: {
-          type: 'solid',
-          value: '#FFD2A7',
+        lines: ['Barry\'s'],
+        background: solidColor('#FFD2A7'),
+        color: solidColor('#000'),
+        font: {
+          transform: 'uppercase',
+          size: 1,
+          family: 'josefin-slab',
+          weight: 400,
+          style: 'normal',
+          lineHeight: 1,
         },
-        color: {
-          type: 'solid',
-          value: '#000',
-        },
-        textTransform: 'uppercase',
-        overlap: 50,
+        overlap: .5,
         marginBottom: 1,
       },
       {
         type: 'small',
-        value: 'stationary for the working professional',
-        color: {
-          type: 'solid',
-          value: '#fff',
-        },
-        fontSize: {
-          value: 16,
-          unit: 'px',
+        lines: ['stationary for the working professional'],
+        color: solidColor('#fff'),
+        font: {
+          size: 1,
+          family: 'josefin-slab',
+          weight: 400,
+          style: 'normal',
+          lineHeight: 1,
         },
         marginBottom: 1,
       },
       {
         type: 'bar',
-        width: {
-          value: 100,
-          unit: 'px',
-        },
-        background: {
-          type: 'solid',
-          value: '#FFD2A7',
-        },
+        width: unitValue(100, 'px'),
+        height: unitValue(6, 'px'),
+        background: solidColor('#FFD2A7'),
         marginBottom: 1,
       },
       {
         type: 'bridge',
-        value: 'Since 1989',
-        color: {
-          type: 'solid',
-          value: '#FFD2A7',
+        lines: ['Since 1989'],
+        color: solidColor('#FFD2A7'),
+        font: {
+          transform: 'uppercase',
+          size: 1,
+          family: 'josefin-slab',
+          weight: 400,
+          style: 'normal',
+          lineHeight: 1,
         },
-        fontSize: {
-          value: 12,
-          unit: 'px',
-        },
-        textTransform: 'uppercase',
-        fontWeight: 700,
       },
     ]
   }

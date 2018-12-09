@@ -5,15 +5,10 @@ import theme from '../../styles/theme';
 import NavItem from '../NavBar/NavItem';
 import Flyer from '../Flyer';
 
-import { e4 } from '../../core/data/templates';
-import { computeFlyer } from '../../core/generator';
-
-const flyer = computeFlyer(e4);
-
 class Frame extends React.Component {
 
   render() {
-    const { height, width, scale } = this.props;
+    const { height, width, scale, flyer } = this.props;
 
     const scaledHeight = height * scale;
     const scaledWidth = width * scale;

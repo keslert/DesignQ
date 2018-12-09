@@ -9,6 +9,7 @@ export function getBackgroundStyle(bg) {
 }
 
 export function getColorStyle(c) {
+  if(!c) return null;
   switch(c.type) {
     default: return c.color
   }
@@ -19,6 +20,8 @@ export function getUnitStyle({value, unit}) {
 }
 
 export function getBorderStyles(border) {
+  if(!border) return {};
+
   const value = `${border.width}px solid ${border.color}`;
   if(border.edges.all) {
     return {border: value}
@@ -78,5 +81,15 @@ const FONT_DETAILS = {
       [false]: -.25,
     },
   },
+  'josefin-slab': {
+    ascenders: {
+      [true]: -.13,
+      [false]: -.37,
+    },
+    descenders: {
+      [true]: .1,
+      [false]: -.17,
+    },
+  }
 }
 

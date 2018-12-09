@@ -6,6 +6,12 @@ import { withSize } from 'react-sizeme'
 import Frame from '../Frame';
 import FrameToolbar from '../Frame/Toolbar';
 
+import { e2, e4 } from '../../core/data/templates';
+import { computeFlyer } from '../../core/generator';
+
+const flyer1 = computeFlyer(e2);
+const flyer2 = computeFlyer(e4);
+
 const GUTTERS = 16;
 const BUTTON_HEIGHT = 80;
 const ACTIONS_WIDTH = 250;
@@ -34,11 +40,11 @@ class Canvas extends React.Component {
         </Box>
         <Flex p={GUTTERS} flexDirection="column" alignItems="center">
           <FrameToolbar text="Primary Design" favorited={true} />
-          <Frame scale={scale} width={frameWidth} height={frameHeight} />
+          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer1} />
         </Flex>
         <Flex p={GUTTERS} flexDirection="column" alignItems="center">
           <FrameToolbar text="Click to make this the primary" favorited={false} />
-          <Frame scale={scale} width={frameWidth} height={frameHeight} />
+          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer2} />
           <Box p={GUTTERS}>
             <Button 
               variant="subtle"

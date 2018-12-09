@@ -51,8 +51,6 @@ export function computeFlyer(structure, size={w: 612, h:792}) {
     el._computed.px = structure.px;
   })
 
-
-
   return structure;
 }
 

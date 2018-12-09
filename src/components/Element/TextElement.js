@@ -3,8 +3,6 @@ import { getColorStyle, getTextOffset } from '../../core/utils';
 
 
 function TextElement({element}) {
-
-  console.log(element.lines[0], element._computed)
   const style = {
     fontSize: element._computed.fontSize,
     fontFamily: element.font.family,
@@ -12,12 +10,20 @@ function TextElement({element}) {
     fontStyle: element.font.style,
     textTransform: element.font.transform,
     lineHeight: 1,
+    background: getColorStyle(element.background),
     color: getColorStyle(element.color),
     margin: `0 ${element._computed.px}px ${element._computed.marginBottom}px`,
   }
+  if(element.overlap) {
+    style.marginTop = `-${element._computed.fontSize * element.overlap}px`;
+  }
+  if(element.background) {
+    style.padding = `${element._computed.px}px`;
+  }
+
 
   const spacerStyle = { 
-    // background: '#f4f4f4',
+    // background: 'red',
     height: `${(element.font.lineHeight - 1) * element._computed.fontSize}px`,
   }
   const lastIndex = element.lines.length - 1;
