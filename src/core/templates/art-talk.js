@@ -10,8 +10,8 @@ export default {
     filters: [],
   },
   content: {
-    width: 'auto',
-    height: 'auto',
+    width: null,
+    height: null,
     alignX: 'left',
     alignY: 'center',
     background: solidColor('#fff'), 
@@ -19,7 +19,7 @@ export default {
       type: 'solid',
       color: '#EE445A',
       width: 12,
-      edges: { top: true, bottom: true },
+      sides: { top: true, bottom: true },
     },
     elements: [
       { 

@@ -1,16 +1,17 @@
 import { measureTextWidth } from "./text";
 import _ from 'lodash';
 
-export function computeFontSize(structure, boxSize) {
-  
+export function computeFontSize(structure) {
+  const bb = structure.content._computed.maxBB;
   const types = _.groupBy(structure.content.elements, el => el.type);
   
-  computeDominateFontSize(types.dominant[0], structure, boxSize);
+  computeDominateFontSize(types.dominant[0], structure, bb);
   
   // Smalls
   _computeFontSize(
     types.small, 
     types.dominant[0],
+    bb,
     MIN_FONT_SIZE, 
     types.dominant[0]._computed.fontSize / 4 // TODO: Why 4?
   )
@@ -18,6 +19,7 @@ export function computeFontSize(structure, boxSize) {
   _computeFontSize(
     types.bridge, 
     types.dominant[0],
+    bb,
     MIN_FONT_SIZE, 
     types.small[0]._computed.fontSize * 1.25,
   )
@@ -25,6 +27,7 @@ export function computeFontSize(structure, boxSize) {
   _computeFontSize(
     types.footer,
     types.dominant[0],
+    bb,
     types.small[0]._computed.fontSize, 
     types.small[0]._computed.fontSize,
   )
@@ -58,12 +61,12 @@ function computeDominateFontSize(dominant, structure, size) {
 
 }
 
-function _computeFontSize(items, dominant, minFontSize, maxFontSize) {
+function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
   if(!items || !items.length) return;
 
   const sizes = items.map(measureText)
   const widest = _.maxBy(sizes, s => s.width)
-  const maxWidth = dominant._computed.w * 1.1; // TODO: Why 1.1?
+  const maxWidth = Math.min(size.w, dominant._computed.w * 1.1); // TODO: Why 1.1?
 
   const fontSize = _.clamp(
     maxWidth / widest.width * items[0].font.size,

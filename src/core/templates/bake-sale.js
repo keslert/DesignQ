@@ -55,7 +55,7 @@ export default {
       {
         type: 'image',
         flex: 1,
-        bleed: true,
+        bleed: 'full',
         src: 'https://images.unsplash.com/photo-1513519683267-4ee6761728ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
         filters: [],
       },
@@ -65,7 +65,7 @@ export default {
         width: unitValue(100, '%'),
         background: solidColor('#D786D5'),
         color: solidColor('#fff'),
-        bleed: true,
+        bleed: 'full',
         font: {
           family: 'Muli',
           weight: 700,

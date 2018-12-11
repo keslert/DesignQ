@@ -17,7 +17,7 @@ export default {
       { 
         type: 'image',
         flex: 1,
-        bleed: true,
+        bleed: 'full',
         src: 'https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
         filters: [],
       },

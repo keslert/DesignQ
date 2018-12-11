@@ -4,8 +4,9 @@ import { getTextOffset } from '../../core/utils/text-utils';
 
 
 function TextElement({element}) {
+  const c = element._computed;
   const style = {
-    fontSize: element._computed.fontSize,
+    fontSize: c.fontSize,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
@@ -13,11 +14,19 @@ function TextElement({element}) {
     width: getUnitStyle(element.width),
     background: getColorStyle(element.background),
     color: getColorStyle(element.color),
-    margin: `${element._computed.mt || 0}px ${element._computed.mx}px ${element._computed.mb}px`,
-    padding: `${element._computed.py || 0}px ${element._computed.px || 0}px`,
+    margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
+    padding: `${c.py || 0}px ${c.px || 0}px`,
   }
   if(element.overlap) {
-    style.marginTop = `-${element._computed.h * element.overlap}px`;
+    style.marginTop = `-${c.h * element.overlap}px`;
+  }
+  if(element.bleed === 'left' || element.bleed === 'full') {
+    style.marginLeft = 0;
+    style.paddingLeft = `${c.mx}px`;
+  }
+  if(element.bleed === 'right' || element.bleed === 'full') {
+    style.marginRight = 0;
+    style.paddingRight = `${c.mx}px`;
   }
 
   const spacerStyle = { 

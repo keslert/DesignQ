@@ -3,6 +3,14 @@ import _ from 'lodash';
 export function computeSpacing(structure) {
   const elements = structure.content.elements;
 
+  elements.forEach(el => {
+    if(el.lines && el.background) {
+      el._computed.px = el._computed.fontSize * 0.6;
+      el._computed.py = el._computed.fontSize * 0.5;
+    }
+  })
+
+
   const groups = _.reduce(elements.slice(1), (res, el, i) => {
     if(isTextElement(el.type) && isTextElement(elements[i].type)) {
       res[res.length - 1].push(el);

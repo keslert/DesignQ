@@ -21,3 +21,4 @@ export { default as HallowHarvest } from './hallow-harvest';
 export { default as ArtTalk } from './art-talk';
 export { default as BakeSale } from './bake-sale';
 export { default as Barrys } from './barrys';
+export { default as CoconutResurgance } from './coconut-resurgance';

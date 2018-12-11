@@ -1,7 +1,8 @@
 import { measureTextWidth } from "./text";
 import { computeFontSize } from './font-size';
-import _ from 'lodash';
 import { computeSpacing } from "./spacing";
+import { computeContentSize } from './content-size';
+import _ from 'lodash';
 
 // Intentions object
   // abstract description of flyer
@@ -12,14 +13,10 @@ import { computeSpacing } from "./spacing";
 
 // Line breaks have already been determined at this point.
 export function computeFlyer(structure, size={w: 612, h:792}) {
-  const paddedSize = {
-    w: size.w - structure.px * 2 - (structure.border ? structure.border.width * 2 : 0),
-    h: size.h - structure.py * 2 - (structure.border ? structure.border.width * 2 : 0),
-  }
-
   
   initSetup(structure)
-  computeFontSize(structure, paddedSize);
+  computeContentSize(structure, size)
+  computeFontSize(structure);
   computeSpacing(structure);
   
   console.log(structure)
@@ -34,12 +31,15 @@ function initSetup(structure) {
     el._computed.index = i;
     el._computed.prev = elements[i - 1];
     el._computed.next = elements[i + 1];
+    el._computed.align = structure.content.textAlign;
     if(el.lines) {
       el._computed.lines = el.lines.map(line => 
         el.font.transform === 'uppercase' ? line.toUpperCase() : line
       )
     }
   })
+  structure._computed = {};
+  structure.content._computed = {};
 }
 
 

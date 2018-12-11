@@ -1,0 +1,2 @@
+Content BB can be dragged.
+Background images can be repositioned and scaled.

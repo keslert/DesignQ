@@ -4,12 +4,15 @@ import { getBackgroundStyle, getUnitStyle } from '../../core/utils/render-utils'
 function BarElement({element}) {
 
   const style = {
-    background: getBackgroundStyle(element.background),
+    ...getBackgroundStyle(element.background),
     width: getUnitStyle(element.width),
     height: getUnitStyle(element.height),
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: `${element._computed.mb}px`,
+    margin: `
+      0 
+      ${element._computed.align === 'right' ? `${element._computed.mx}px` : 'auto'}
+      ${element._computed.mb}px
+      ${element._computed.align === 'left' ? `${element._computed.mx}px` : 'auto'}
+    `,
   }
 
   return (

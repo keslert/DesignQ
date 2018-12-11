@@ -7,8 +7,8 @@ export default {
   background: solidColor('#150612'),
   border: {
     width: 80,
-    sides: {top: true, right: true, bottom: true, left: true},
-    color: solidColor('red'),
+    sides: {all: true},
+    color: 'rgba(255,255,255,0.2)',
     items: [
       { 
         src: 'img.jpg', 
