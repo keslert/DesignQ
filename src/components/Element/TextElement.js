@@ -1,5 +1,6 @@
 import React from 'react';
-import { getColorStyle, getTextOffset } from '../../core/utils';
+import { getColorStyle, getUnitStyle } from '../../core/utils/render-utils';
+import { getTextOffset } from '../../core/utils/text-utils';
 
 
 function TextElement({element}) {
@@ -8,19 +9,16 @@ function TextElement({element}) {
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
-    textTransform: element.font.transform,
     lineHeight: 1,
+    width: getUnitStyle(element.width),
     background: getColorStyle(element.background),
     color: getColorStyle(element.color),
-    margin: `0 ${element._computed.px}px ${element._computed.marginBottom}px`,
+    margin: `${element._computed.mt || 0}px ${element._computed.mx}px ${element._computed.mb}px`,
+    padding: `${element._computed.py || 0}px ${element._computed.px || 0}px`,
   }
   if(element.overlap) {
-    style.marginTop = `-${element._computed.fontSize * element.overlap}px`;
+    style.marginTop = `-${element._computed.h * element.overlap}px`;
   }
-  if(element.background) {
-    style.padding = `${element._computed.px}px`;
-  }
-
 
   const spacerStyle = { 
     // background: 'red',
@@ -30,7 +28,7 @@ function TextElement({element}) {
 
   return (
     <div style={style}>
-      {element.lines.map((line, i) =>
+      {element._computed.lines.map((line, i) =>
         <React.Fragment key={i}>
           <Line 
             element={element}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Element from './Element';
-import { getBackgroundStyle, getBorderStyles, getUnitStyle } from '../core/utils';
+import { getBackgroundStyle, getBorderStyles, getUnitStyle } from '../core/utils/render-utils';
 
 function Flyer({flyer}) {
   
@@ -18,9 +18,10 @@ function Flyer({flyer}) {
   const contentStyle = {
     display: 'flex',
     alignItems: 'center',
+    alignSelf: flyer.content.alignX,
     flexDirection: 'column',
-    paddingTop: `${flyer.py}px`,
-    paddingBottom: `${flyer.py}px`,
+    // paddingTop: `${flyer.py}px`,
+    // paddingBottom: `${flyer.py}px`,
     textAlign: 'center',
     width: getUnitStyle(flyer.content.width),
     flex: flyer.content.flex,
@@ -28,9 +29,11 @@ function Flyer({flyer}) {
     ...getBorderStyles(flyer.content.border),
   }
 
-  const firstElement = flyer.content.elements[0]
-  if(firstElement.type === 'image' && firstElement.bleed) {
+  if(flyer.content.elements[0].bleed) {
     contentStyle.paddingTop = 0;
+  }
+  if(flyer.content.elements[flyer.content.elements.length - 1].bleed) {
+    contentStyle.paddingBottom = 0;
   }
 
   return (

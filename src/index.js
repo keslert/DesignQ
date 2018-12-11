@@ -2,9 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './containers/App';
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, injectGlobal } from 'styled-components'
 import * as serviceWorker from './serviceWorker';
 import theme from './styles/theme';
+
+injectGlobal`
+  * {
+    box-sizing: border-box;
+  }
+`
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

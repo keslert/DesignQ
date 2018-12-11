@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBackgroundStyle, getUnitStyle } from '../../core/utils';
+import { getBackgroundStyle, getUnitStyle } from '../../core/utils/render-utils';
 
 function BarElement({element}) {
 
@@ -9,7 +9,7 @@ function BarElement({element}) {
     height: getUnitStyle(element.height),
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginBottom: `${element._computed.marginBottom}px`,
+    marginBottom: `${element._computed.mb}px`,
   }
 
   return (

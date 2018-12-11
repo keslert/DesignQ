@@ -6,11 +6,12 @@ import { withSize } from 'react-sizeme'
 import Frame from '../Frame';
 import FrameToolbar from '../Frame/Toolbar';
 
-import { e2, e4 } from '../../core/data/templates';
+import { HallowHarvest, Barrys, ArtTalk, BakeSale } from '../../core/templates';
 import { computeFlyer } from '../../core/generator';
 
-const flyer1 = computeFlyer(e2);
-const flyer2 = computeFlyer(e4);
+const flyer1 = computeFlyer(BakeSale);
+const flyer2 = computeFlyer(HallowHarvest);
+const flyer3 = computeFlyer(ArtTalk);
 
 const GUTTERS = 16;
 const BUTTON_HEIGHT = 80;
@@ -43,8 +44,12 @@ class Canvas extends React.Component {
           <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer1} />
         </Flex>
         <Flex p={GUTTERS} flexDirection="column" alignItems="center">
-          <FrameToolbar text="Click to make this the primary" favorited={false} />
+          <FrameToolbar text="Primary Design" favorited={true} />
           <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer2} />
+        </Flex>
+        <Flex p={GUTTERS} flexDirection="column" alignItems="center">
+          <FrameToolbar text="Click to make this the primary" favorited={false} />
+          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer3} />
           <Box p={GUTTERS}>
             <Button 
               variant="subtle"
