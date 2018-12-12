@@ -12,7 +12,6 @@ export const measureTextWidth = (text, font) => {
   } = font;
 
   ctx.font = `${weight} ${style} ${size}px ${family}`;
-  console.log(letterSpacing)
   return ctx.measureText(text).width
          + letterSpacing * size * .6635 * text.length
 }

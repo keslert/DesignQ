@@ -12,14 +12,13 @@ import _ from 'lodash';
 
 // Line breaks have already been determined at this point.
 export function computeFlyer(structure, size={w: 612, h:792}) {
-  
+  console.log(structure.title);
   initSetup(structure)
 
   computeContentSize(structure, size)
   computeFontSizes(structure);
   computeSpacing(structure);
   
-  console.log(structure)
   return structure;
 }
 
@@ -32,7 +31,6 @@ function initSetup(structure) {
 
 function initGroup(structure, group) {
   if(!group) return;
-  console.log(group)
   group._computed = {};
   group.elements.forEach((el, i) => {
     el._computed = {};

@@ -28,6 +28,7 @@ export default {
         type: 'dominant',
         lines: ['Holiday Bake Sale'],
         color: solidColor('#D786D5'),
+        // background: solidColor('#fff'),
         font: {
           family: 'Bebas Neue',
           weight: 700,
@@ -56,26 +57,9 @@ export default {
         type: 'image',
         flex: 1,
         bleed: 'full',
-        src: 'https://images.unsplash.com/photo-1513519683267-4ee6761728ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+        url: 'https://images.unsplash.com/photo-1513519683267-4ee6761728ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
         filters: [],
       },
-      // {
-      //   type: 'footer',
-      //   lines: ['Proceeds Benefit Spark High Spirit Squad'],
-      //   width: unitValue(100, '%'),
-      //   background: solidColor('#D786D5'),
-      //   color: solidColor('#fff'),
-      //   bleed: 'full',
-      //   font: {
-      //     family: 'Muli',
-      //     weight: 700,
-      //     size: 1,
-      //     fitToWidth: true,
-      //     style: 'normal',
-      //     transform: 'uppercase',
-      //     lineHeight: 1.2,
-      //   },
-      // }
     ]
   },
   footer: {
@@ -90,7 +74,7 @@ export default {
       font: {
         family: 'Muli',
         weight: 700,
-        size: 1,
+        size: 20,
         fitToWidth: true,
         style: 'normal',
         transform: 'uppercase',

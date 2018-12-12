@@ -63,7 +63,7 @@ export default {
           size: 20,
           style: 'normal',
           transform: 'uppercase',
-          lineHeight: 1.2,
+          lineHeight: 1.4,
         },
         oneItemPerRow: true,
         lineItemDecorations: null,

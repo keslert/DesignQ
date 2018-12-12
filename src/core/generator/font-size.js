@@ -33,14 +33,6 @@ function computeDominateFontSize(dominant, structure, size) {
   dominant._computed.fontSize = fontSize;
   dominant._computed.w = width * (fontSize / dominant.font.size);
   dominant._computed.h = height * (fontSize / dominant.font.size); // NOT SURE IF THIS IS CORRECT.
-  
-  // TODO: how much padding?
-  if(dominant.background) {
-    dominant._computed.px = fontSize * .2;
-    dominant._computed.py = fontSize * .15;
-    dominant._computed.fontSize = fontSize * .6;
-  }
-  
 }
   
 function computeGroupFontSizes(group, dominant, size) {

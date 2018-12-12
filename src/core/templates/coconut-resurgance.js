@@ -1,7 +1,7 @@
 import { solidColor, unitValue } from './'
 
 export default {
-  title: 'Art Talk',
+  title: 'Coconut Resurgance',
   px: 36,
   py: 36,
   background: {

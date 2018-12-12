@@ -6,20 +6,12 @@ import { withSize } from 'react-sizeme'
 import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 
-import { 
-  ArtTalk,
-  BakeSale,
-  Barrys,
-  CleanAndGreen,
-  CoconutResurgance,
-  HallowHarvest,
-  ValentinesDayMixer,
-} from '../core/templates';
+import { templates } from '../core/templates';
 import { computeFlyer } from '../core/generator';
 
-const flyer2 = computeFlyer(ValentinesDayMixer);
-const flyer1 = computeFlyer(CoconutResurgance);
-const flyer3 = computeFlyer(Barrys);
+const flyer2 = computeFlyer(templates.ValentinesDayMixer);
+const flyer1 = computeFlyer(templates.CoconutResurgance);
+const flyer3 = computeFlyer(templates.Barrys);
 
 const GUTTERS = 16;
 const BUTTON_HEIGHT = 80;
