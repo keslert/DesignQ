@@ -1,46 +1,28 @@
 import { measureTextWidth } from "./text";
 import _ from 'lodash';
 
-export function computeFontSize(structure) {
-  const bb = structure.content._computed.maxBB;
-  const types = _.groupBy(structure.content.elements, el => el.type);
-  
-  computeDominateFontSize(types.dominant[0], structure, bb);
-  
-  // Smalls
-  _computeFontSize(
-    types.small, 
-    types.dominant[0],
-    bb,
-    MIN_FONT_SIZE, 
-    types.dominant[0]._computed.fontSize / 4 // TODO: Why 4?
-  )
-  // Bridges
-  _computeFontSize(
-    types.bridge, 
-    types.dominant[0],
-    bb,
-    MIN_FONT_SIZE, 
-    types.small[0]._computed.fontSize * 1.25,
-  )
-  // Footer
-  _computeFontSize(
-    types.footer,
-    types.dominant[0],
-    bb,
-    types.small[0]._computed.fontSize, 
-    types.small[0]._computed.fontSize,
-  )
+export function computeFontSizes(structure) {
+  const size = structure.content._computed.maxBB;
+  const dominant = _.find(structure.content.elements, el => el.type === 'dominant');
+  computeDominateFontSize(dominant, structure, size);
+
+  computeGroupFontSizes(structure.header, dominant, size);
+  computeGroupFontSizes(structure.footer, dominant, size);
+
+  // TODO: Subtract the actual estimated size of the header and footer.
+  const contentSize = {...size};
+  contentSize.h -= (structure.header ? 75 : 0) + (structure.footer ? 75 : 0)
+  computeGroupFontSizes(structure.content, dominant, contentSize);
 }
 
 function computeDominateFontSize(dominant, structure, size) {
   const {width, height} = measureText(dominant);
-
+  
   // TODO: this maybe should include number of lines?
   const heightUsage = _.sumBy(structure.content.elements, el => HEIGHT_WEIGHT[el.type]) 
-    + (structure.header ? .1 : 0)
-    + (structure.footer ? .1 : 0)
-
+  + (structure.header ? .1 : 0)
+  + (structure.footer ? .1 : 0)
+  
   const maxWidth = size.w;
   const maxHeight = size.h * (1 - heightUsage);
   let fontSize = Math.min(
@@ -51,19 +33,41 @@ function computeDominateFontSize(dominant, structure, size) {
   dominant._computed.fontSize = fontSize;
   dominant._computed.w = width * (fontSize / dominant.font.size);
   dominant._computed.h = height * (fontSize / dominant.font.size); // NOT SURE IF THIS IS CORRECT.
-
+  
   // TODO: how much padding?
   if(dominant.background) {
     dominant._computed.px = fontSize * .2;
     dominant._computed.py = fontSize * .15;
     dominant._computed.fontSize = fontSize * .6;
   }
+  
+}
+  
+function computeGroupFontSizes(group, dominant, size) {
+  if(!group) return;
 
+  const types = _.groupBy(group.elements, el => el.type);
+  // Smalls
+  _computeFontSize(
+    types.small, 
+    dominant,
+    size,
+    MIN_FONT_SIZE, 
+    dominant._computed.fontSize * .25, // TODO: Why .25?
+  )
+  // Bridges
+  _computeFontSize(
+    types.bridge, 
+    dominant,
+    size,
+    MIN_FONT_SIZE, 
+    types.small[0]._computed.fontSize * 1.25, // TODO: Why 1.25?
+  )
 }
 
 function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
   if(!items || !items.length) return;
-
+    
   const sizes = items.map(measureText)
   const widest = _.maxBy(sizes, s => s.width)
   const maxWidth = Math.min(size.w, dominant._computed.w * 1.1); // TODO: Why 1.1?
@@ -96,9 +100,10 @@ function measureText(textObj) {
   const maxWidth = _.max(textObj._computed.lines.map(line => measureTextWidth(
     line,
     textObj.font.family,
-    `${textObj.font.size}px`,
+    textObj.font.size,
     textObj.font.weight,
     textObj.font.style,
+    textObj.font.letterSpacing,
   )));
 
   const lineCount = textObj.lines.length;
@@ -109,7 +114,7 @@ function measureText(textObj) {
 
   return {
     width: maxWidth,
-    height: height,
+    height: height * .8, // TODO: Use the font family to know the actual height difference.
   }
 }
 

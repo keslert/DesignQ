@@ -1,6 +1,6 @@
 // TODO: Generate ascenders and descenders offsets for each of the fonts
 
-const ascenderRegex = /[A-Z1-9hdfkl]/
+const ascenderRegex = /[A-Z1-9hdfkl&]/
 export function hasAscender(str) {
   return ascenderRegex.test(str);
 }
@@ -35,12 +35,12 @@ const FONT_DETAILS = {
   // ALL LETTERS ARE UPPERCASE
   'Bebas Neue': {
     ascenders: {
-      [true]: -.05,
-      [false]: -.05,
+      [true]: -.09,
+      [false]: -.09,
     },
     descenders: {
-      [true]: -.25, // 
-      [false]: -.25,
+      [true]: -.2, // 
+      [false]: -.2,
     },
   },
   'Josefin Slab': {

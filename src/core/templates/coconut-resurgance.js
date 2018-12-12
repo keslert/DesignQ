@@ -8,18 +8,14 @@ export default {
     type: 'image',
     url: 'https://images.pexels.com/photos/1030973/pexels-photo-1030973.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     size: 2.20,
-    x: .04,
+    x: .01,
     y: .69,
     filters: {
       sepia: 0.4,
-      // brightness: 1.5,
-      // contrast: 1.2,
     },
   },
   content: {
-    w: .7,
-    // h: null,
-    // alignX: 'left',
+    w: .70,
     alignY: 'center',
     textAlign: 'left',
     elements: [
@@ -41,7 +37,7 @@ export default {
       { 
         type: 'dominant', 
         lines: ['Resurgance', 'of Coconut'],
-        color: solidColor('#8F5B68'),
+        color: solidColor('#6b474f'),
         font: {
           family: 'Bebas Neue',
           weight: 400,
@@ -49,15 +45,14 @@ export default {
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
+          letterSpacing: .1,
         },
-        marginBottom: 1,
       },
       {
         type: 'bar',
         background: solidColor('#8F5B68'),
         width: unitValue(70, '%'),
         height: unitValue(8, 'px'),
-        marginBottom: 1,
       },
       { 
         type: 'bridge', 
@@ -69,7 +64,7 @@ export default {
           'coconut is a staple in the diet and provides',
           'the majority of the food eaten.'
         ],
-        color: solidColor('#8F5B68'),
+        color: solidColor('#6b474f'),
         font: {
           family: 'Muli',
           weight: 400,
@@ -77,10 +72,26 @@ export default {
           style: 'normal',
           lineHeight: 1.2,
         },
-        marginBottom: 1,
       },
     ],
   },
-  footer: null,
+  footer: {
+    type: 'basic',
+    overlay: true,
+    width: unitValue(100, '%'),
+    textAlign: 'left',
+    elements: [{
+      type: 'small',
+      lines: ['coconutfacts.net'],
+      color: solidColor('#8F5B68'),
+      font: {
+        family: 'Muli',
+        weight: 400,
+        size: 20,
+        style: 'normal',
+        lineHeight: 1.2,
+      },
+    }]
+  },
   header: null,
 }

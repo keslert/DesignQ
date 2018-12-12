@@ -17,8 +17,10 @@ export function unitValue(value, unit) {
 }
 
 
-export { default as HallowHarvest } from './hallow-harvest';
 export { default as ArtTalk } from './art-talk';
 export { default as BakeSale } from './bake-sale';
 export { default as Barrys } from './barrys';
+export { default as CleanAndGreen } from './clean-n-green';
 export { default as CoconutResurgance } from './coconut-resurgance';
+export { default as HallowHarvest } from './hallow-harvest';
+export { default as ValentinesDayMixer } from './valentines-day-mixer';

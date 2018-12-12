@@ -6,7 +6,7 @@ export function getBackgroundStyle(bg) {
   switch(bg.type) {
     case 'image': return {
       background: `url(${bg.url}) no-repeat`,
-      backgroundSize: `${(bg.size || 1) * 100}%`,
+      backgroundSize: `${bg.size ? `${bg.size * 100}%` : 'cover'}`,
       backgroundPosition: `${(bg.x || .5) * 100}% ${(bg.y || .5) * 100}%`,
       filter: _.map(bg.filters, (v, k) => `${k}(${v})`).join(' ')
     };

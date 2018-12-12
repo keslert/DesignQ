@@ -3,7 +3,7 @@ import { solidColor, unitValue } from './'
 export default {
   title: 'Barry\'s',
   px: 36,
-  py: 18,
+  py: 36,
   footer: null,
   header: null,
   background: solidColor('#fff'),
@@ -18,7 +18,7 @@ export default {
         type: 'image',
         flex: 1,
         bleed: 'full',
-        src: 'https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
+        url: 'https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
         filters: [],
       },
       {

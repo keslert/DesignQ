@@ -1,5 +1,4 @@
-import { measureTextWidth } from "./text";
-import { computeFontSize } from './font-size';
+import { computeFontSizes } from './font-size';
 import { computeSpacing } from "./spacing";
 import { computeContentSize } from './content-size';
 import _ from 'lodash';
@@ -15,8 +14,9 @@ import _ from 'lodash';
 export function computeFlyer(structure, size={w: 612, h:792}) {
   
   initSetup(structure)
+
   computeContentSize(structure, size)
-  computeFontSize(structure);
+  computeFontSizes(structure);
   computeSpacing(structure);
   
   console.log(structure)
@@ -24,22 +24,35 @@ export function computeFlyer(structure, size={w: 612, h:792}) {
 }
 
 function initSetup(structure) {
-  const elements = structure.content.elements;
-  elements.forEach((el, i) => {
+  structure._computed = {};
+  initGroup(structure, structure.content);
+  initGroup(structure, structure.header);
+  initGroup(structure, structure.footer);
+}
+
+function initGroup(structure, group) {
+  if(!group) return;
+  console.log(group)
+  group._computed = {};
+  group.elements.forEach((el, i) => {
     el._computed = {};
     el._computed.mx = structure.px;
     el._computed.index = i;
-    el._computed.prev = elements[i - 1];
-    el._computed.next = elements[i + 1];
-    el._computed.align = structure.content.textAlign;
+    el._computed.prev = group.elements[i - 1];
+    el._computed.next = group.elements[i + 1];
+    el._computed.align = group.textAlign;
     if(el.lines) {
       el._computed.lines = el.lines.map(line => 
-        el.font.transform === 'uppercase' ? line.toUpperCase() : line
+        Array.isArray(line) 
+          ? line.map(str => transformStr(str, el.font.transform))
+          : transformStr(line, el.font.transform)
       )
     }
   })
-  structure._computed = {};
-  structure.content._computed = {};
+}
+
+function transformStr(str, transform) {
+  return transform === 'uppercase' ? str.toUpperCase() : str;
 }
 
 

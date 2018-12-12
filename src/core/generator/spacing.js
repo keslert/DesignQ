@@ -1,18 +1,26 @@
 import _ from 'lodash';
 
 export function computeSpacing(structure) {
-  const elements = structure.content.elements;
+  computeGroupElementSpacing(structure.header, structure, {first: true});
+  computeGroupElementSpacing(structure.footer, structure, {last: true});
+  computeGroupElementSpacing(structure.content, structure, {first: !structure.header, last: !structure.footer});
+}
+
+function computeGroupElementSpacing(group, structure, options) {
+  if(!group) return;
+
+  const elements = group.elements;
 
   elements.forEach(el => {
     if(el.lines && el.background) {
-      el._computed.px = el._computed.fontSize * 0.6;
-      el._computed.py = el._computed.fontSize * 0.5;
+      // TODO: Why this? Relative padding, but more for smaller items.
+      el._computed.px = el._computed.fontSize / Math.log(el._computed.fontSize * .3);
+      el._computed.py = el._computed.fontSize / Math.log(el._computed.fontSize * .2);
     }
   })
 
-
-  const groups = _.reduce(elements.slice(1), (res, el, i) => {
-    if(isTextElement(el.type) && isTextElement(elements[i].type)) {
+  const subGroups = _.reduce(elements.slice(1), (res, el) => {
+    if(isTextElement(el.type) && isTextElement(el._computed.prev.type)) {
       res[res.length - 1].push(el);
     } else {
       res.push([el]);
@@ -20,27 +28,29 @@ export function computeSpacing(structure) {
     return res;
   }, [[elements[0]]])
   
-  groups.forEach(group => {
-    const firstItem = group[0];
+  const lastSubGroupIndex = subGroups.length - 1;
+  subGroups.forEach((subGroup, i) => {
+    const firstItem = subGroup[0];
+    const lastItem = subGroup[subGroup.length - 1];
     const isTextGroup = isTextElement(firstItem.type);
     if(isTextGroup) {
-      const largestFontSize = _.maxBy(group, item => item._computed.fontSize)._computed.fontSize;
-      const marginBottom = Math.min(structure.px, largestFontSize * .36);
-      group.forEach(item => {
-        item._computed.mt = 0;
+      const largestFontSize = _.maxBy(subGroup, item => item._computed.fontSize)._computed.fontSize;
+      const marginBottom = Math.min(
+        structure.px, 
+        largestFontSize / Math.log(largestFontSize * .3)
+      );
+      subGroup.forEach(item => {
         item._computed.mb = marginBottom;
       });
-      firstItem._computed.mt = structure.py;
-      group[group.length - 1].mb = structure.py;
-    } else if(isHeaderOrFooter(firstItem.type)) {
-      firstItem._computed.py = firstItem._computed.fontSize;
-      firstItem._computed.px = structure.px;
-      firstItem._computed.mx = 0;
-      firstItem._computed.mt = 0;
-      firstItem._computed.mb = 0;
-    }
+      
+      if((i === 0 && options.first) || group.background) {
+        firstItem._computed.mt = structure.py;
+      }
+      if((i === lastSubGroupIndex && options.last) || group.background) {
+        lastItem._computed.mb = structure.py;
+      }
+    } 
   })
-
 
 }
 

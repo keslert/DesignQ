@@ -1,16 +1,24 @@
 import React from 'react';
 
 import { Flex, Box, Text } from 'rebass';
-import Button from '../Button';
+import Button from './Button';
 import { withSize } from 'react-sizeme'
-import Frame from '../Frame';
-import FrameToolbar from '../Frame/Toolbar';
+import Frame from './Frame';
+import FrameToolbar from './Frame/Toolbar';
 
-import { HallowHarvest, CoconutResurgance, ArtTalk, BakeSale, Barrys } from '../../core/templates';
-import { computeFlyer } from '../../core/generator';
+import { 
+  ArtTalk,
+  BakeSale,
+  Barrys,
+  CleanAndGreen,
+  CoconutResurgance,
+  HallowHarvest,
+  ValentinesDayMixer,
+} from '../core/templates';
+import { computeFlyer } from '../core/generator';
 
+const flyer2 = computeFlyer(ValentinesDayMixer);
 const flyer1 = computeFlyer(CoconutResurgance);
-const flyer2 = computeFlyer(BakeSale);
 const flyer3 = computeFlyer(Barrys);
 
 const GUTTERS = 16;

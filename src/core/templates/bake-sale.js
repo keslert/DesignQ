@@ -26,10 +26,10 @@ export default {
       },
       {
         type: 'dominant',
-        lines: ['Bake Sale'],
+        lines: ['Holiday Bake Sale'],
         color: solidColor('#D786D5'),
         font: {
-          family: 'Muli',
+          family: 'Bebas Neue',
           weight: 700,
           size: 80,
           fitToWidth: true,
@@ -59,30 +59,45 @@ export default {
         src: 'https://images.unsplash.com/photo-1513519683267-4ee6761728ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
         filters: [],
       },
-      {
-        type: 'footer',
-        lines: ['Proceeds Benefit Spark High Spirit Squad'],
-        width: unitValue(100, '%'),
-        background: solidColor('#D786D5'),
-        color: solidColor('#fff'),
-        bleed: 'full',
-        font: {
-          family: 'Muli',
-          weight: 700,
-          size: 1,
-          fitToWidth: true,
-          style: 'normal',
-          transform: 'uppercase',
-          lineHeight: 1.2,
-        },
-      }
+      // {
+      //   type: 'footer',
+      //   lines: ['Proceeds Benefit Spark High Spirit Squad'],
+      //   width: unitValue(100, '%'),
+      //   background: solidColor('#D786D5'),
+      //   color: solidColor('#fff'),
+      //   bleed: 'full',
+      //   font: {
+      //     family: 'Muli',
+      //     weight: 700,
+      //     size: 1,
+      //     fitToWidth: true,
+      //     style: 'normal',
+      //     transform: 'uppercase',
+      //     lineHeight: 1.2,
+      //   },
+      // }
     ]
   },
   footer: {
     background: solidColor('#D978C9'),
     width: unitValue(100, '%'),
+    bleed: 'full',
     type: 'basic',
-    lines: ['Proceeds Benefit Spark High School Spirit Squad'],
+    elements: [{
+      type: 'small',
+      color: solidColor('#fff'),
+      lines: ['Proceeds Benefit Spark High School Spirit Squad'],
+      font: {
+        family: 'Muli',
+        weight: 700,
+        size: 1,
+        fitToWidth: true,
+        style: 'normal',
+        transform: 'uppercase',
+        lineHeight: 1.2,
+      },
+    }]
+    
     
   }
 }

@@ -16,6 +16,9 @@ function TextElement({element}) {
     color: getColorStyle(element.color),
     margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
     padding: `${c.py || 0}px ${c.px || 0}px`,
+    letterSpacing: `${element.font.letterSpacing || 0}em`,
+    // padding: 0,
+    // background: 'red',
   }
   if(element.overlap) {
     style.marginTop = `-${c.h * element.overlap}px`;

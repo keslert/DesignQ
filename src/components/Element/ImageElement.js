@@ -1,11 +1,13 @@
 import React from 'react';
+import { getBackgroundStyle } from '../../core/utils/render-utils';
 
 function ImageElement({element}) {
 
   const style = {
-    background: `url(${element.src})`,
-    backgroundSize: `${element.size ? `${element.size * 100}px` : 'cover'}`,
-    backgroundPosition: `${(element.x || .5) * 100}% ${(element.y || .5) * 100}%`,
+    ...getBackgroundStyle(element),
+    // background: `url(${element.src})`,
+    // backgroundSize: `${element.size ? `${element.size * 100}px` : 'cover'}`,
+    // backgroundPosition: `${(element.x || .5) * 100}% ${(element.y || .5) * 100}%`,
     flex: element.flex,
     width: '100%',
   }

@@ -1,11 +1,11 @@
 import React from 'react';
-import Element from './Element';
 import { 
   getBackgroundStyle, 
   getBorderStyles, 
   getUnitStyle,
   textAlignToFlexAlign,
 } from '../core/utils/render-utils';
+import ContentGroup from './ContentGroup';
 
 function Flyer({flyer}) {
   
@@ -14,13 +14,13 @@ function Flyer({flyer}) {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
+    // alignItems: 'flex-start',
     width: '100%',
     height: '100%',
     userSelect: 'none',
     overflow: 'hidden',
-    // ...getBackgroundStyle(flyer.background),
-    // ...getBorderStyles(flyer.border),
+    ...getBorderStyles(flyer.border),
+    // ...getFilterStyle?
   }
 
   const bgStyle = {
@@ -33,32 +33,48 @@ function Flyer({flyer}) {
   }
 
   const contentStyle = {
-    position: 'relative',
-    display: 'flex',
-    alignItems: textAlignToFlexAlign(flyer.content.textAlign),
-    alignSelf: flyer.content.alignX,
-    flexDirection: 'column',
-    textAlign: flyer.content.textAlign || 'center',
-    width: getUnitStyle(flyer.content.width),
-    flex: flyer.content.flex,
-    ...getBackgroundStyle(flyer.content.background),
-    ...getBorderStyles(flyer.content.border),
+    flex: 1, 
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'flex-start', 
+    justifyContent: 'center',
+  }
+
+  const footerStyle = {
+    /*
+    Possible layout options for footer 
+      1. Inline (unbalanced) [the content centering algorithm includes the footer]
+      2. Inline (balanced) [fake the header to be the same size]
+      4. Overlay (no space) [position: absolute]
+      3. Overlay (takes up space) [position: absolute] {I don't think this exists}
+    */
+  }
+
+  const headerStyle = {
+    /*
+    Possible layout options for header
+      1. Inline (takes up space)
+    */
   }
 
   return (
     <div style={flyerStyle}>
       <div style={bgStyle} />
-      <div></div>
+      <ContentGroup
+        group={flyer.header}
+      />
       <div style={contentStyle}>
-        {flyer.content.elements.map((el, i) => 
-          <Element 
-            key={i}
-            index={i}
-            element={el} 
-          />    
-        )}
+        <ContentGroup
+          group={flyer.content}
+        />
       </div>
-      <div></div>
+      <ContentGroup
+        group={flyer.footer}
+        style={{
+          bottom: 0,
+          left: 0,
+        }}
+      />
     </div>
   )
 }
