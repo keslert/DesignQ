@@ -95,22 +95,25 @@ function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
 // https://support.microsoft.com/en-us/help/200262/how-to-fit-text-in-a-rectangle
 // https://stackoverflow.com/questions/5833017/java-is-there-a-linear-correlation-between-a-fonts-point-size-and-its-rendered
 // These suggest that fonts don't scale perfectly linearly, but maybe close enough?
-function measureText(textObj) {
+function measureText(textEl) {
   // TODO: Text flourishes can change the ratio.
-  const maxWidth = _.max(textObj._computed.lines.map(line => measureTextWidth(
-    line,
-    textObj.font.family,
-    textObj.font.size,
-    textObj.font.weight,
-    textObj.font.style,
-    textObj.font.letterSpacing,
-  )));
+  const maxWidth = _.max(textEl._computed.lines.map(line => {
+    const isArray = Array.isArray(line);
+    const str = isArray ? line.join('') : line;
+    let width = measureTextWidth(str, textEl.font)
 
-  const lineCount = textObj.lines.length;
+    if(isArray && textEl.divider) {
+      width += (line.length - 1) * textEl.font.size * 2;
+    }
+
+    return width;
+  }));
+
+  const lineCount = textEl.lines.length;
   // Note: This height is only an estimate since the actual lineHeight may be different.
   const height = 
-    (textObj.font.size * textObj.font.lineHeight * lineCount - 1) 
-    + textObj.font.size // don't include the lineHeight on the last line
+    (textEl.font.size * textEl.font.lineHeight * lineCount - 1) 
+    + textEl.font.size // don't include the lineHeight on the last line
 
   return {
     width: maxWidth,

@@ -60,8 +60,9 @@ export default {
         ],
         color: solidColor('#fff'),
         divider: {
+          type: 'line',
+          px: 1,
           color: solidColor('#D1BC8B'),
-          type: '|',
         },
         font: {
           family: 'Muli',
@@ -70,6 +71,7 @@ export default {
           style: 'normal',
           lineHeight: 1.2,
           transform: 'uppercase',
+          letterSpacing: .3, // uses ems
         },
       },
     ],

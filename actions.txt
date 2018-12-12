@@ -1,2 +1,9 @@
 Content BB can be dragged.
 Background images can be repositioned and scaled.
+
+There's a lot of information we need about font families
+- Ascenders & Descenders
+  - characters
+  - actual bounding box
+- Looks good uppercase?
+- Needs letter spacing uppercase?

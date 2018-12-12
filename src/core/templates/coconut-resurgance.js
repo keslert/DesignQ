@@ -32,6 +32,7 @@ export default {
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
+          letterSpacing: .05,
         },
       },
       { 
@@ -45,7 +46,6 @@ export default {
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
-          letterSpacing: .1,
         },
       },
       {

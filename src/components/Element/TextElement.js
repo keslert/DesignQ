@@ -1,7 +1,7 @@
 import React from 'react';
 import { getColorStyle, getUnitStyle } from '../../core/utils/render-utils';
 import { getTextOffset } from '../../core/utils/text-utils';
-
+import ListDivider from '../ListDivider';
 
 function TextElement({element}) {
   const c = element._computed;
@@ -55,15 +55,31 @@ function TextElement({element}) {
 
 function Line({element, line}) {
   // TODO: if line is an array Array.isArray(line)
-  const offset = getTextOffset(line, element.font.family, element.font.transform);
+  const isList = Array.isArray(line)
+  const str = isList ? line.join(' ') : line;
+
+  const offset = getTextOffset(str, element.font.family, element.font.transform);
   const style = {
     marginTop: `${element._computed.fontSize * offset.top}px`,
-    marginBottom: `${element._computed.fontSize * offset.bottom}px`
+    marginBottom: `${element._computed.fontSize * offset.bottom}px`,
+    // display: 'flex',
+    // alignItems: 'flex-start',
   }
 
   return(
     <div style={style}>
-      {line}
+      {isList
+        ? 
+          <div style={{display: 'flex'}}>
+            {line.map((str, i) => 
+              <React.Fragment key={i}>
+                {i ? <ListDivider divider={element.divider} size={element.font.size} /> : null}
+                {str}
+              </React.Fragment>
+            )}
+          </div>
+        : line
+      }
     </div>
   )
 }

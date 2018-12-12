@@ -1,0 +1,5 @@
+#Letter Spacing
+- Every letter has spacing added to it, including the ending letter. It isn't just the space in between the letters. It's more like appending space to the end of a letter.
+- Letter spacing is independent of font size and font family.
+- The formula for letter spacing = num_of_characters * (letter_spacing_in_pixels) * .6635
+- If you choose to use relative letter spacing (such as ems) just convert the letter spacing from relative to pixels first by doing (letter_spacing_in_ems * font_size_in_pixels)
