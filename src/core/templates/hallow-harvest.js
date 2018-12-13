@@ -8,7 +8,7 @@ export default {
   border: {
     width: 80,
     sides: {all: true},
-    color: 'rgba(255,255,255,0.2)',
+    color: 'orange',
     items: [
       { 
         src: 'img.jpg', 

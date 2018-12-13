@@ -6,6 +6,7 @@ import ListDivider from '../ListDivider';
 function TextElement({element}) {
   const c = element._computed;
   const style = {
+    position: 'relative',
     fontSize: c.fontSize,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
@@ -40,6 +41,30 @@ function TextElement({element}) {
 
   return (
     <div style={style}>
+      {false && 
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0,255,0,.3)',
+          }}
+        />
+      }
+      {false && 
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: `${element._computed.w}px`,
+            height: `${element._computed.h}px`,
+            background: 'rgba(255,0,0,.3)',
+          }}
+        />
+      }
       {element._computed.lines.map((line, i) =>
         <React.Fragment key={i}>
           <Line 
@@ -62,8 +87,8 @@ function Line({element, line}) {
   const style = {
     marginTop: `${element._computed.fontSize * offset.top}px`,
     marginBottom: `${element._computed.fontSize * offset.bottom}px`,
-    // display: 'flex',
-    // alignItems: 'flex-start',
+    marginRight: `${element._computed.fontSize * -(element.font.letterSpacing || 0)}px`,
+    position: 'relative',
   }
 
   return(

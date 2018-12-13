@@ -1,39 +1,31 @@
 import { solidColor, unitValue } from './'
 
 export default {
-  title: 'Valentines Day Mixer',
+  title: 'Yard Sale',
   px: 36,
   py: 36,
-  border: {
-    width: 12,
-    sides: {all: true},
-    color: '#fff',
-  },
+  background: solidColor('#fed631'),
   content: {
-    // w: .70,
     width: unitValue(100, '%'),
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
-    background: solidColor('#31302c'),
+    background: solidColor('#fed631'),
     flex: 1,
     elements: [
       { 
         type: 'image',
         flex: 1,
         bleed: 'full',
-        url: 'https://images.unsplash.com/photo-1484678002699-0e7dc5fa52c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        filters: {
-          sepia: 0.3,
-        },
+        url: 'https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
       },
       { 
         type: 'small', 
-        color: solidColor('#fff'),
-        lines: ['Celebrate the Day of Hearts'],
+        color: solidColor('#031f52'),
+        lines: ['A huge assorted'],
         font: {
           family: 'Muli',
-          weight: 400,
+          weight: 700,
           size: 20,
           style: 'normal',
           transform: 'uppercase',
@@ -43,23 +35,25 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Valentine\'s', 'Day Mixer'],
-        color: solidColor('#D1BC8B'),
+        lines: ['Yard Sale'],
+        width: unitValue(100, '%'),
+        color: solidColor('#031f52'),
+        background: solidColor('#fff'),
+        bleed: true,
         font: {
-          family: 'Josefin Slab',
-          weight: 400,
+          family: 'Muli',
+          weight: 900,
           size: 40,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
+          letterSpacing: .1, // usTes ems
         },
       },
       { 
         type: 'small', 
-        lines: [
-          ['02.14.19', '7PM', '71 Park Lane'],
-        ],
-        color: solidColor('#fff'),
+        lines: ['September 22-25, 2019'],
+        color: solidColor('#031f52'),
         divider: {
           type: 'line',
           px: 1,
@@ -67,7 +61,7 @@ export default {
         },
         font: {
           family: 'Muli',
-          weight: 400,
+          weight: 700,
           size: 20,
           style: 'normal',
           lineHeight: 1.2,

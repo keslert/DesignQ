@@ -5,6 +5,7 @@ import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
+import { default as YardSale } from './yard-sale';
 // https://www.smashingmagazine.com/2015/02/design-principles-dominance-dominant-points-hierarchy/
 
 // https://en.wikipedia.org/wiki/Bar_form: Flyers are like western music
@@ -24,8 +25,9 @@ export function unitValue(value, unit) {
 }
 
 export const templates = {
-  ArtTalk,
   BakeSale,
+  YardSale,
+  ArtTalk,
   Barrys,
   CleanAndGreen,
   CoconutResurgance,

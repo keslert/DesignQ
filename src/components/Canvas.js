@@ -9,9 +9,9 @@ import FrameToolbar from './Frame/Toolbar';
 import { templates } from '../core/templates';
 import { computeFlyer } from '../core/generator';
 
-const flyer2 = computeFlyer(templates.ValentinesDayMixer);
-const flyer1 = computeFlyer(templates.CoconutResurgance);
-const flyer3 = computeFlyer(templates.Barrys);
+const flyer2 = 0//computeFlyer(templates.YardSale);
+const flyer1 = 0//computeFlyer(templates.YardSale);
+const flyer3 = 0//computeFlyer(templates.YardSale);
 
 const GUTTERS = 16;
 const BUTTON_HEIGHT = 80;
@@ -43,10 +43,10 @@ class Canvas extends React.Component {
           <FrameToolbar text="Primary Design" favorited={true} />
           <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer1} />
         </Flex>
-        <Flex p={GUTTERS} flexDirection="column" alignItems="center">
+        {false && <Flex p={GUTTERS} flexDirection="column" alignItems="center">
           <FrameToolbar text="Primary Design" favorited={true} />
           <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer2} />
-        </Flex>
+        </Flex>}
         <Flex p={GUTTERS} flexDirection="column" alignItems="center">
           <FrameToolbar text="Click to make this the primary" favorited={false} />
           <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer3} />

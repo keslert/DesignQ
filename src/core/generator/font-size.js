@@ -16,7 +16,7 @@ export function computeFontSizes(structure) {
 }
 
 function computeDominateFontSize(dominant, structure, size) {
-  const {width, height} = measureText(dominant);
+  const {width, height, widestLine} = measureText(dominant);
   
   // TODO: this maybe should include number of lines?
   const heightUsage = _.sumBy(structure.content.elements, el => HEIGHT_WEIGHT[el.type]) 
@@ -25,11 +25,15 @@ function computeDominateFontSize(dominant, structure, size) {
   
   const maxWidth = size.w;
   const maxHeight = size.h * (1 - heightUsage);
-  let fontSize = Math.min(
-    maxWidth / width * dominant.font.size,
-    maxHeight / height * dominant.font.size,
+  const fontSize = Math.min(
+    resizeLine(width, maxWidth, dominant.font.size),
+    resizeLine(height, maxHeight, dominant.font.size),
     MAX_FONT_SIZE,
   )
+
+  console.log('width:', width, dominant.font.size)
+  console.log('maxWidth:', maxWidth, fontSize)
+
   dominant._computed.fontSize = fontSize;
   dominant._computed.w = width * (fontSize / dominant.font.size);
   dominant._computed.h = height * (fontSize / dominant.font.size); // NOT SURE IF THIS IS CORRECT.
@@ -82,34 +86,52 @@ function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
 }
 
 
+function resizeLine(oldWidth, newWidth, fontSize) {
+  return newWidth * fontSize / oldWidth;
+}
+
+
 
 // Calculating width and height: https://github.com/rougier/freetype-gl/issues/177
 // https://support.microsoft.com/en-us/help/200262/how-to-fit-text-in-a-rectangle
 // https://stackoverflow.com/questions/5833017/java-is-there-a-linear-correlation-between-a-fonts-point-size-and-its-rendered
 // These suggest that fonts don't scale perfectly linearly, but maybe close enough?
-function measureText(textEl) {
-  // TODO: Text flourishes can change the ratio.
-  const maxWidth = _.max(textEl._computed.lines.map(line => {
+const LETTER_SPACING_RATIO = 1.0;
+function measureText(t) {
+  const font = t.font;
+
+  const lastIndex = t._computed.lines.length - 1;
+  const dimensions = t._computed.lines.map((line, i) => {
     const isArray = Array.isArray(line);
     const str = isArray ? line.join('') : line;
-    let width = measureTextWidth(str, textEl.font)
+    
+    const width = measureTextWidth(str, font)
+    // measured.originalWidth = measured.width;
+    const measured = { width };
 
-    if(isArray && textEl.divider) {
-      width += (line.length - 1) * textEl.font.size * 2;
+    if(font.letterSpacing) {
+      measured.letterSpacingWidth = (str.length - 1) * font.letterSpacing * font.size * LETTER_SPACING_RATIO;
+      console.log('letterSpacingWidth:', measured.letterSpacingWidth);
+      measured.width += measured.letterSpacingWidth;
     }
 
-    return width;
-  }));
+    // if(isArray && t.divider) {
+    //   measured.dividerWidth = (line.length - 1) * font.size * 2;
+    //   measured.width += measured.dividerWidth;
+    // }
 
-  const lineCount = textEl.lines.length;
-  // Note: This height is only an estimate since the actual lineHeight may be different.
-  const height = 
-    (textEl.font.size * textEl.font.lineHeight * lineCount - 1) 
-    + textEl.font.size // don't include the lineHeight on the last line
+    // TODO: Use the font family to know the actual height.
+    measured.height = font.size * .8 * (lastIndex !== i ? font.lineHeight : 1);
 
+    return measured;
+  });
+
+  // TODO: Text flourishes can change the ratio.
+  const widestLine = _.maxBy(dimensions, d => d.width)
   return {
-    width: maxWidth,
-    height: height * .8, // TODO: Use the font family to know the actual height difference.
+    width: widestLine.width,
+    height: _.sumBy(dimensions, d => d.height),
+    widestLine,
   }
 }
 
@@ -119,8 +141,7 @@ const HEIGHT_WEIGHT = {
   bridge: .07,
   image: .3,
   dominant: 0, // ignore this
-  footer: .1,
-  header: .1,
 }
+
 const MIN_FONT_SIZE = 14;
-const MAX_FONT_SIZE = 140;
+const MAX_FONT_SIZE = 180;

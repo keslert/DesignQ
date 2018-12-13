@@ -28,7 +28,7 @@ export default {
         type: 'dominant',
         lines: ['Holiday Bake Sale'],
         color: solidColor('#D786D5'),
-        // background: solidColor('#fff'),
+        background: solidColor('#fff'),
         font: {
           family: 'Bebas Neue',
           weight: 700,
@@ -37,6 +37,7 @@ export default {
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
+          letterSpacing: .1,
         },
       },
       {

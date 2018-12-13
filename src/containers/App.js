@@ -27,7 +27,6 @@ class App extends Component {
   }
 
   render() {
-
     const showGallery = true;
     const frameWidth = 612;
     const frameHeight = 792;
