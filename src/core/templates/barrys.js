@@ -26,9 +26,10 @@ export default {
         lines: ['Barry\'s'],
         background: solidColor('#FFD2A7'),
         color: solidColor('#000'),
+        bleed: 'full',
         font: {
           transform: 'uppercase',
-          size: 1,
+          size: 0.5,
           family: 'Josefin Slab',
           weight: 400,
           style: 'normal',
@@ -42,7 +43,7 @@ export default {
         lines: ['stationary for the working professional'],
         color: solidColor('#fff'),
         font: {
-          size: 1,
+          size: 1.2,
           family: 'Josefin Slab',
           weight: 400,
           style: 'normal',

@@ -30,7 +30,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 18,
+          size: 1,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -44,7 +44,7 @@ export default {
         font: {
           family: 'Yellowtail',
           weight: 400,
-          size: 40,
+          size: 1,
           style: 'normal',
           lineHeight: 1.2,
         },
@@ -60,7 +60,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 20,
+          size: 1,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.4,
@@ -77,7 +77,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 20,
+          size: 1,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,

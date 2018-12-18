@@ -50,7 +50,7 @@ export default {
         font: {
           family: 'Bebas Neue',
           weight: 400,
-          size: 1,
+          size: 0.8,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -64,7 +64,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 0.8, // based on the small size
+          size: 1, // based on the small size
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,

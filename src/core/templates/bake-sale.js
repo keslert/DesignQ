@@ -17,7 +17,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 20,
+          size: 1,
           fitToWidth: true,
           style: 'normal',
           transform: 'uppercase',
@@ -32,7 +32,7 @@ export default {
         font: {
           family: 'Bebas Neue',
           weight: 700,
-          size: 80,
+          size: 1,
           fitToWidth: true,
           style: 'normal',
           transform: 'uppercase',
@@ -47,7 +47,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 20,
+          size: 1,
           fitToWidth: true,
           style: 'normal',
           transform: 'uppercase',
@@ -75,7 +75,7 @@ export default {
       font: {
         family: 'Muli',
         weight: 700,
-        size: 20,
+        size: 1,
         fitToWidth: true,
         style: 'normal',
         transform: 'uppercase',

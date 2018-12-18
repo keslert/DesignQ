@@ -23,7 +23,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 400,
-          size: 20,
+          size: 1,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -36,7 +36,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 900,
-          size: 40,
+          size: 1,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -52,7 +52,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 400,
-          size: 20,
+          size: 1,
           style: 'normal',
           lineHeight: 1.2,
         },

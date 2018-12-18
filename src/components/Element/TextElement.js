@@ -1,6 +1,5 @@
 import React from 'react';
 import { getColorStyle, getUnitStyle } from '../../core/utils/render-utils';
-import { getTextOffset } from '../../core/utils/text-utils';
 import ListDivider from '../ListDivider';
 
 function TextElement({element}) {
@@ -53,7 +52,7 @@ function TextElement({element}) {
           }}
         />
       }
-      {false && 
+      {true && 
         <div
           style={{
             position: 'absolute',
@@ -70,6 +69,7 @@ function TextElement({element}) {
           <Line 
             element={element}
             line={line}
+            index={i}
           />
           {i !== lastIndex && <div style={spacerStyle} />}
         </React.Fragment>
@@ -78,12 +78,9 @@ function TextElement({element}) {
   )
 }
 
-function Line({element, line}) {
-  // TODO: if line is an array Array.isArray(line)
-  const isList = Array.isArray(line)
-  const str = isList ? line.join(' ') : line;
+function Line({element, line, index}) {
 
-  const offset = getTextOffset(str, element.font.family, element.font.transform);
+  const offset = element._computed.offsets[index];
   const style = {
     marginTop: `${element._computed.fontSize * offset.top}px`,
     marginBottom: `${element._computed.fontSize * offset.bottom}px`,
@@ -93,12 +90,12 @@ function Line({element, line}) {
 
   return(
     <div style={style}>
-      {isList
+      {Array.isArray(line)
         ? 
           <div style={{display: 'flex'}}>
             {line.map((str, i) => 
               <React.Fragment key={i}>
-                {i ? <ListDivider divider={element.divider} size={element.font.size} /> : null}
+                {i ? <ListDivider divider={element.divider} size={element._computed.fontSize} /> : null}
                 {str}
               </React.Fragment>
             )}

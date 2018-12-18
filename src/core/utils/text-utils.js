@@ -1,66 +1,41 @@
-// TODO: Generate ascenders and descenders offsets for each of the fonts
 
-const ascenderRegex = /[A-Z1-9hdfkl&]/
-export function hasAscender(str) {
-  return ascenderRegex.test(str);
-}
 
-// some fonts have descenders for 3, 4, 5, 7, and 9
-const descenderRegex = /[gjqpy]/
-export function hasDescender(str) {
-  return descenderRegex.test(str);
-}
 
-// TODO: 
 export function getTextOffset(str, family) {
   const font = FONT_DETAILS[family]
   return {
-    top: font.ascenders[hasAscender(str)],
-    bottom: font.descenders[hasDescender(str)],
+    top: font.ascenderOffsets[font.ascenders.test(str) ? 0 : 1],
+    bottom: font.descenderOffsets[font.descenders.test(str) ? 0 : 1],
   }
 }
 
-// TODO: Each font should define it's regex for ascenders and descenders.
+
+const defaultAscenders = /[A-Z1-9hdfkl&]/
+const defaultDescenders = /[gjqpy]/
 const FONT_DETAILS = {
   'Muli': {
-    ascenders: {
-      [true]: -.15,
-      [false]: -.37,
-    },
-    descenders: {
-      [true]: .1,
-      [false]: -.12,
-    },
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.15, -.37],
+    descenderOffsets: [.1, -.12],
   },
-  // ALL LETTERS ARE UPPERCASE
   'Bebas Neue': {
-    ascenders: {
-      [true]: -.09,
-      [false]: -.09,
-    },
-    descenders: {
-      [true]: -.2, // 
-      [false]: -.2,
-    },
+    supportsLowerCase: false,
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.09, -.09],
+    descenderOffsets: [-.2, -.2],
   },
   'Josefin Slab': {
-    ascenders: {
-      [true]: -.03,
-      [false]: -.37,
-    },
-    descenders: {
-      [true]: .1,
-      [false]: -.25,
-    },
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.03, -.37],
+    descenderOffsets: [.1, -.25],
   },
   'Yellowtail': {
-    ascenders: {
-      [true]: -.03,
-      [false]: -.37,
-    },
-    descenders: {
-      [true]: .1,
-      [false]: -.25,
-    },
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.03, -.37],
+    descenderOffsets: [.1, -.25],
   }
 }

@@ -7,3 +7,8 @@ There's a lot of information we need about font families
   - actual bounding box
 - Looks good uppercase?
 - Needs letter spacing uppercase?
+
+
+On Image Load
+- Get Image Ratio (needed for backgroundPosition scaling)
+- Get color palette
