@@ -29,6 +29,8 @@ export default {
         lines: ['Holiday Bake Sale'],
         color: solidColor('#D786D5'),
         background: solidColor('#fff'),
+        px: 1.5,
+        py: 1.1,
         font: {
           family: 'Bebas Neue',
           weight: 700,

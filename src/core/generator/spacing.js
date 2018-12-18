@@ -16,7 +16,12 @@ function computeGroupElementSpacing(group, structure, options) {
       // TODO: Why this? Relative padding, but more for smaller items.
       el._computed.px = el._computed.fontSize / Math.log(el._computed.fontSize * .3);
       el._computed.py = el._computed.fontSize / Math.log(el._computed.fontSize * .2);
+      if(el.px) el._computed.px *= el.px;
+      if(el.py) el._computed.py *= el.py;
+      
+      const oldFontSize = el._computed.fontSize;
       el._computed.fontSize *= (el._computed.w - el._computed.px * 2) / el._computed.w;
+      el._computed.h = el._computed.py * 2 + el._computed.h * (el._computed.fontSize / oldFontSize);
     }
   })
 

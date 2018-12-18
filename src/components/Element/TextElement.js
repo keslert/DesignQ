@@ -4,31 +4,39 @@ import ListDivider from '../ListDivider';
 
 function TextElement({element}) {
   const c = element._computed;
+
   const style = {
     position: 'relative',
     fontSize: c.fontSize,
+    width: `calc(${getUnitStyle(element.width)} - ${c.mx * 2}px)`,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
-    width: getUnitStyle(element.width),
     background: getColorStyle(element.background),
     color: getColorStyle(element.color),
-    margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
     padding: `${c.py || 0}px ${c.px || 0}px`,
+    margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
     letterSpacing: `${element.font.letterSpacing || 0}em`,
-    // padding: 0,
-    // background: 'red',
   }
   if(element.overlap) {
     style.marginTop = `-${c.h * element.overlap}px`;
   }
-  if(element.bleed === 'left' || element.bleed === 'full') {
+  if(element.bleed === 'full' || (element.bleed === 'left' && element.bleed === 'right')) {
     style.marginLeft = 0;
+    style.marginRight = 0;
+    style.width = '100%';
+    style.paddingLeft = `${c.mx}px`;
+    style.paddingRight = `${c.mx}px`;
+  }
+  if(element.bleed === 'left') {
+    style.marginLeft = 0;
+    style.width = `calc(100% - ${c.mx}px)`;
     style.paddingLeft = `${c.mx}px`;
   }
-  if(element.bleed === 'right' || element.bleed === 'full') {
+  if(element.bleed === 'right') {
     style.marginRight = 0;
+    style.width = `calc(100% - ${c.mx}px)`;
     style.paddingRight = `${c.mx}px`;
   }
 
@@ -52,7 +60,7 @@ function TextElement({element}) {
           }}
         />
       }
-      {true && 
+      {false && 
         <div
           style={{
             position: 'absolute',

@@ -26,7 +26,6 @@ export default {
         lines: ['Barry\'s'],
         background: solidColor('#FFD2A7'),
         color: solidColor('#000'),
-        bleed: 'full',
         font: {
           transform: 'uppercase',
           size: 0.5,

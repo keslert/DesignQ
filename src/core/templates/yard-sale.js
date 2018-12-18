@@ -39,7 +39,7 @@ export default {
         width: unitValue(100, '%'),
         color: solidColor('#031f52'),
         background: solidColor('#fff'),
-        bleed: true,
+        bleed: 'full',
         font: {
           family: 'Muli',
           weight: 900,
