@@ -37,5 +37,11 @@ const FONT_DETAILS = {
     descenders: defaultDescenders,
     ascenderOffsets: [-.03, -.37],
     descenderOffsets: [.1, -.25],
+  },
+  'Chewy': {
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.1, -.37],
+    descenderOffsets: [.1, -.15],
   }
 }

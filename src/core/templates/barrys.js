@@ -33,6 +33,7 @@ export default {
           weight: 400,
           style: 'normal',
           lineHeight: 1,
+          letterSpacing: .1,
         },
         overlap: .5,
         marginBottom: 1,
@@ -53,7 +54,7 @@ export default {
       {
         type: 'bar',
         width: unitValue(120, 'px'),
-        height: unitValue(4, 'px'),
+        height: unitValue(3, 'px'),
         background: solidColor('#FFD2A7'),
         marginBottom: 1,
       },

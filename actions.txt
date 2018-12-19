@@ -12,3 +12,7 @@ There's a lot of information we need about font families
 On Image Load
 - Get Image Ratio (needed for backgroundPosition scaling)
 - Get color palette
+
+
+Double-click text to edit (pops open a modal like Adobe Spark)
+Double-click image to edit mask

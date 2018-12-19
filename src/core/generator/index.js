@@ -1,6 +1,7 @@
 import { computeFontSizes } from './font-size';
 import { computeSpacing } from "./spacing";
 import { computeContentSize } from './content-size';
+import { computeBorders } from './borders'
 import _ from 'lodash';
 
 // Intentions object
@@ -16,6 +17,7 @@ export function computeFlyer(structure, size={w: 612, h:792}) {
   initSetup(structure)
 
   computeContentSize(structure, size)
+  computeBorders(structure, size);
   computeFontSizes(structure);
   computeSpacing(structure);
   

@@ -6,6 +6,7 @@ import {
   textAlignToFlexAlign,
 } from '../core/utils/render-utils';
 import ContentGroup from './ContentGroup';
+import Border from './Border';
 
 function Flyer({flyer}) {
   
@@ -69,6 +70,7 @@ function Flyer({flyer}) {
   return (
     <div style={flyerStyle}>
       <div style={bgStyle} />
+      {flyer.border && <Border border={flyer.border} />}
       <ContentGroup
         group={flyer.header}
       />

@@ -5,6 +5,7 @@ import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
+import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
 import { default as YardSale } from './yard-sale';
@@ -27,6 +28,7 @@ export function unitValue(value, unit) {
 }
 
 export const templates = {
+  JakesBirthdayParty,
   NewtonDoughnuts,
   HappyHour,
   BakeSale,
