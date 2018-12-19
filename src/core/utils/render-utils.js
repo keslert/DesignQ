@@ -5,7 +5,7 @@ export function getBackgroundStyle(bg) {
 
   return {
     background: `url(${bg.url}) no-repeat`,
-    backgroundSize: `${bg.size ? `${bg.size * 100}%` : 'cover'}`,
+    backgroundSize: `${bg.zoom ? `${bg.zoom * 100}%` : 'cover'}`,
     backgroundPositionX: `${(_.isNumber(bg.x) ? bg.x : .5) * 100}%`,
     backgroundPositionY: `${(_.isNumber(bg.y) ? bg.y : .5) * 100}%`,
     filter: _.map(bg.filters, (v, k) => `${k}(${v})`).join(' '),

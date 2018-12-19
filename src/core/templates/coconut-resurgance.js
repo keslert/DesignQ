@@ -7,7 +7,7 @@ export default {
   background: {
     type: 'image',
     url: 'https://images.pexels.com/photos/1030973/pexels-photo-1030973.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    size: 2.20,
+    zoom: 2.20,
     x: .01,
     y: .69,
     filters: {

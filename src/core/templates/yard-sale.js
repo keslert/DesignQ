@@ -5,6 +5,11 @@ export default {
   px: 36,
   py: 36,
   background: solidColor('#fed631'),
+  overlay: {
+    type: 'image',
+    url: '/grunge-2.png',
+    backgroundBlendMode: 'lighten',
+  },
   content: {
     width: unitValue(100, '%'),
     alignX: 'center',

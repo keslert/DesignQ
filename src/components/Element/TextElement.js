@@ -95,6 +95,7 @@ function Line({element, line, index}) {
     marginRight: `${element._computed.fontSize * -(element.font.letterSpacing || 0)}px`,
     position: 'relative',
   }
+  const height = element._computed.fontSize * (1 + offset.top + offset.bottom)
 
   return(
     <div style={style}>
@@ -103,7 +104,13 @@ function Line({element, line, index}) {
           <div style={{display: 'flex'}}>
             {line.map((str, i) => 
               <React.Fragment key={i}>
-                {i ? <ListDivider divider={element.divider} size={element._computed.fontSize} /> : null}
+                {i 
+                  ? <ListDivider 
+                      divider={element.divider} 
+                      fontSize={height}
+                    /> 
+                  : null
+                }
                 {str}
               </React.Fragment>
             )}

@@ -63,7 +63,7 @@ export default {
         color: solidColor('#fff'),
         divider: {
           type: 'line',
-          px: 1,
+          size: 2,
           color: solidColor('#D1BC8B'),
         },
         mb: 2,

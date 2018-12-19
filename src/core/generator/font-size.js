@@ -103,7 +103,7 @@ function computeGroupLogoSize(group, size) {
     const multiplier = Math.min(
       150 / logo.meta.height,
       size.w / 4 / logo.meta.width,
-    )
+    ) * (logo.size || 1)
 
     logo._computed.w = logo.meta.width * multiplier;
     logo._computed.h = logo.meta.height * multiplier;
@@ -135,7 +135,7 @@ function measureText(t) {
       measured.width += (str.length - 1) * t.font.letterSpacing * FONT_MEASURE_SIZE;
     }
     if(isArray && t.divider) {
-      measured.width += (line.length - 1) * FONT_MEASURE_SIZE * 2;
+      measured.width += (line.length - 1) * FONT_MEASURE_SIZE * t.divider.size;
     }
     // TODO: Text flourishes
 
