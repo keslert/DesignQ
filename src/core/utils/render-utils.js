@@ -3,16 +3,15 @@ import _ from 'lodash';
 export function getBackgroundStyle(bg) {
   if(!bg) return null;
 
-  switch(bg.type) {
-    case 'image': return {
-      background: `url(${bg.url}) no-repeat`,
-      backgroundSize: `${bg.size ? `${bg.size * 100}%` : 'cover'}`,
-      backgroundPosition: `${(bg.x || .5) * 100}% ${(bg.y || .5) * 100}%`,
-      filter: _.map(bg.filters, (v, k) => `${k}(${v})`).join(' ')
-    };
-    case 'solid': return {backgroundColor: bg.color};
-    default: return {};
-  }
+  return {
+    background: `url(${bg.url}) no-repeat`,
+    backgroundSize: `${bg.size ? `${bg.size * 100}%` : 'cover'}`,
+    backgroundPositionX: `${(_.isNumber(bg.x) ? bg.x : .5) * 100}%`,
+    backgroundPositionY: `${(_.isNumber(bg.y) ? bg.y : .5) * 100}%`,
+    filter: _.map(bg.filters, (v, k) => `${k}(${v})`).join(' '),
+    backgroundBlendMode: bg.backgroundBlendMode,
+    backgroundColor: bg.color
+  };
 }
 
 export function getColorStyle(c) {

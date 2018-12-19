@@ -7,6 +7,9 @@ export function computeFontSizes(structure) {
   const dominant = _.find(structure.content.elements, el => el.type === 'dominant');
   computeDominateFontSize(dominant, structure, size);
 
+  computeGroupLogoSize(structure.header, size);
+  computeGroupLogoSize(structure.footer, size);
+
   computeGroupFontSizes(structure.header, dominant, size);
   computeGroupFontSizes(structure.footer, dominant, size);
 
@@ -44,20 +47,23 @@ function computeGroupFontSizes(group, dominant, size) {
 
   const types = _.groupBy(group.elements, el => el.type);
   // Smalls
+  const maxSmallSize = dominant._computed.fontSize * .25; // TODO: Why .25?
   _computeFontSize(
     types.small, 
     dominant,
     size,
     MIN_FONT_SIZE, 
-    dominant._computed.fontSize * .25, // TODO: Why .25?
+    maxSmallSize
   )
+
+  const smallSize = types.small && types.small[0]._computed.fontSize
   // Bridges
   _computeFontSize(
     types.bridge, 
     dominant,
     size,
     MIN_FONT_SIZE, 
-    types.small[0]._computed.fontSize * 1.25, // TODO: Why 1.25?
+    (smallSize || maxSmallSize) * 1.25, // TODO: Why 1.25?
   )
 }
 
@@ -87,6 +93,22 @@ function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
     item._computed.maxFontSize = maxFontSize;
     item._computed.minFontSize = minFontSize;
   })
+}
+
+function computeGroupLogoSize(group, size) {
+  if(!group || !group.elements) return;
+
+  const logo = _.find(group.elements, el => el.type === 'logo');
+  if(logo) {
+    const multiplier = Math.min(
+      150 / logo.meta.height,
+      size.w / 4 / logo.meta.width,
+    )
+
+    logo._computed.w = logo.meta.width * multiplier;
+    logo._computed.h = logo.meta.height * multiplier;
+    logo._computed.fontSize = logo._computed.h;
+  }
 }
 
 

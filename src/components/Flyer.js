@@ -40,6 +40,15 @@ function Flyer({flyer}) {
     justifyContent: 'center',
   }
 
+  const overlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    ...getBackgroundStyle(flyer.overlay),
+  }
+
   const footerStyle = {
     /*
     Possible layout options for footer 
@@ -75,6 +84,7 @@ function Flyer({flyer}) {
           left: 0,
         }}
       />
+      <div id="overlay" style={overlayStyle} />
     </div>
   )
 }

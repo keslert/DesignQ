@@ -26,7 +26,7 @@ function computeGroupElementSpacing(group, structure, options) {
   })
 
   const subGroups = _.reduce(elements.slice(1), (res, el) => {
-    if(isTextElement(el.type) && isTextElement(el._computed.prev.type)) {
+    if(isInlineElement(el.type) && isInlineElement(el._computed.prev.type)) {
       res[res.length - 1].push(el);
     } else {
       res.push([el]);
@@ -38,15 +38,16 @@ function computeGroupElementSpacing(group, structure, options) {
   subGroups.forEach((subGroup, i) => {
     const firstItem = subGroup[0];
     const lastItem = subGroup[subGroup.length - 1];
-    const isTextGroup = isTextElement(firstItem.type);
-    if(isTextGroup) {
+    const isInlineGroup = isInlineElement(firstItem.type);
+    if(isInlineGroup) {
       const largestFontSize = _.maxBy(subGroup, item => item._computed.fontSize)._computed.fontSize;
       const marginBottom = Math.min(
         structure.px, 
         largestFontSize / Math.log(largestFontSize * .3)
       );
+
       subGroup.forEach(item => {
-        item._computed.mb = marginBottom;
+        item._computed.mb = marginBottom * (item.mb || 1);
       });
       
       if((i === 0 && options.first) || group.background) {
@@ -60,14 +61,15 @@ function computeGroupElementSpacing(group, structure, options) {
 
 }
 
-const TEXT_ELEMENT_TYPES = {
+const INLINE_ELEMENTS = {
   dominant: true,
   small: true,
   bridge: true,
   bar: true,
+  logo: true,
 }
-function isTextElement(type) {
-  return TEXT_ELEMENT_TYPES[type];
+function isInlineElement(type) {
+  return INLINE_ELEMENTS[type];
 }
 
 function isHeaderOrFooter(type) {

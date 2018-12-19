@@ -28,7 +28,7 @@ export default {
         color: solidColor('#000'),
         font: {
           transform: 'uppercase',
-          size: 0.5,
+          size: 0.6,
           family: 'Josefin Slab',
           weight: 400,
           style: 'normal',

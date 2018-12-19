@@ -31,6 +31,7 @@ export default {
         type: 'small', 
         color: solidColor('#fff'),
         lines: ['Celebrate the Day of Hearts'],
+        mb: 1,
         font: {
           family: 'Muli',
           weight: 400,
@@ -65,6 +66,7 @@ export default {
           px: 1,
           color: solidColor('#D1BC8B'),
         },
+        mb: 2,
         font: {
           family: 'Muli',
           weight: 400,

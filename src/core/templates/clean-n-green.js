@@ -2,6 +2,7 @@ import { solidColor, unitValue } from './'
 
 export default {
   title: 'Clean & Green',
+  version: 1,
   px: 36,
   py: 36,
   background: solidColor('#1B5C50'),
@@ -11,7 +12,6 @@ export default {
     color: '#B9E6BF',
   },
   content: {
-    // w: .70,
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
@@ -23,7 +23,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 400,
-          size: 1,
+          size: 0.6,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -36,7 +36,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 900,
-          size: 1,
+          size: 0.8,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -52,7 +52,7 @@ export default {
         font: {
           family: 'Muli',
           weight: 400,
-          size: 1,
+          size: 0.8,
           style: 'normal',
           lineHeight: 1.2,
         },

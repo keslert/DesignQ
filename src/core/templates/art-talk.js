@@ -10,8 +10,6 @@ export default {
     filters: [],
   },
   content: {
-    width: null,
-    height: null,
     alignX: 'left',
     alignY: 'center',
     background: solidColor('#fff'), 
@@ -34,14 +32,14 @@ export default {
           transform: 'uppercase',
           lineHeight: 1.2,
         },
-        marginBottom: 1,
+        mb: 1,
       },
       {
         type: 'bar',
         background: solidColor('#FECF82'),
         width: unitValue(80, 'px'),
         height: unitValue(8, 'px'),
-        marginBottom: 1,
+        mb: 1,
       },
       { 
         type: 'dominant', 
@@ -55,7 +53,7 @@ export default {
           transform: 'uppercase',
           lineHeight: 1.2,
         },
-        marginBottom: 1,
+        mb: 1,
       },
       { 
         type: 'bridge', 
@@ -69,14 +67,14 @@ export default {
           transform: 'uppercase',
           lineHeight: 1.2,
         },
-        marginBottom: 1,
+        mb: 1,
       },
       {
         type: 'bar',
         background: solidColor('#FECF82'),
         width: unitValue(80, 'px'),
         height: unitValue(8, 'px'),
-        marginBottom: 1,
+        mb: 1,
       },
       { 
         type: 'small', 

@@ -15,7 +15,7 @@ export default {
     },
   },
   content: {
-    w: .70,
+    w: .7,
     alignY: 'center',
     textAlign: 'left',
     elements: [
