@@ -7,6 +7,7 @@ export function computeFontSizes(structure) {
   const dominant = _.find(structure.content.elements, el => el.type === 'dominant');
   computeDominateFontSize(dominant, structure, size);
 
+
   computeGroupLogoSize(structure.header, size);
   computeGroupLogoSize(structure.footer, size);
 
@@ -30,11 +31,17 @@ function computeDominateFontSize(dominant, structure, size) {
   const maxWidth = size.w;
   const maxHeight = size.h * (1 - heightUsage);
   let fontSize = Math.min(
-    resizeLine(width, maxWidth, FONT_MEASURE_SIZE),
-    resizeLine(height, maxHeight, FONT_MEASURE_SIZE),
+    FONT_MEASURE_SIZE * maxWidth / width,
+    FONT_MEASURE_SIZE * maxHeight / height,
     MAX_FONT_SIZE,
   )
-  fontSize *= dominant.font.size;
+  
+  fontSize = lerp(
+    MIN_DOMINANT_FONT_SIZE,
+    fontSize,
+    Math.min(size.w / width, size.h / height) * fontSize,
+    dominant.font.size
+  )
 
   dominant._computed.fontSize = fontSize;
   dominant._computed.w = width * (fontSize / FONT_MEASURE_SIZE);
@@ -67,7 +74,7 @@ function computeGroupFontSizes(group, dominant, size) {
   )
 }
 
-function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
+function _computeFontSize(items, dominant, size, minOptimalFontSize, maxOptimalFontSize) {
   if(!items || !items.length) return;
     
   const sizes = items.map(measureText)
@@ -76,22 +83,23 @@ function _computeFontSize(items, dominant, size, minFontSize, maxFontSize) {
 
   const fontSize = _.clamp(
     maxWidth / widest.width * FONT_MEASURE_SIZE,
-    minFontSize,
-    maxFontSize,
+    minOptimalFontSize,
+    maxOptimalFontSize,
   )
+
+  const minFontSize = MIN_FONT_SIZE;
+  const maxFontSize = FONT_MEASURE_SIZE * size.w / widest.width;
+
 
   items.forEach((item, i) => {
     const _fontSize = item.font.fitToWidth
       ? dominant._computed.w / sizes[i].width * FONT_MEASURE_SIZE
-      : fontSize * item.font.size
+      : lerp(minFontSize, fontSize, maxFontSize, item.font.size)
 
     item._computed.fontSize = _fontSize;
     item._computed.w = sizes[i].width * (_fontSize / FONT_MEASURE_SIZE);
     item._computed.h = sizes[i].height * (_fontSize / FONT_MEASURE_SIZE);
     item._computed.offsets = sizes[i].offsets;
-
-    item._computed.maxFontSize = maxFontSize;
-    item._computed.minFontSize = minFontSize;
   })
 }
 
@@ -154,6 +162,13 @@ function measureText(t) {
   }
 }
 
+// x 0-1 scales between MIN & OPTIMUM; 1-2 scales between OPTIMUM & MAX
+function lerp(min, optimum, max, x) {
+  return x < 1
+    ? (1 - x) * min + x * optimum
+    : (2 - x) * optimum + (x - 1) * max
+}
+
 // https://github.com/FormidableLabs/measure-text/blob/master/src/index.js
 // https://developers.google.com/web/updates/2018/08/offscreen-canvas
 const canvas = new OffscreenCanvas(600, 600);
@@ -172,6 +187,8 @@ const HEIGHT_WEIGHT = {
   dominant: 0, // ignore this
 }
 
-const MIN_FONT_SIZE = 14;
+
+const MIN_DOMINANT_FONT_SIZE = 40;
+const MIN_FONT_SIZE = 16;
 const MAX_FONT_SIZE = 180;
 const FONT_MEASURE_SIZE = 20;

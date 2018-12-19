@@ -8,8 +8,15 @@ export function computeBorders(structure, size) {
   b._computed = {items: []};
 
   if(b.layout === 'confetti') {
+
+    const options = {
+      rotation: true, 
+      seed: b.seed,
+      gridX: b.gridX,
+      gridY: b.gridY,
+    };
+
     if(b.sides.all || b.sides.top || b.sides.bottom) {
-      const options = {rotation: true, seed: b.seed};
       const items = generateConfetti(b.items, {...size, h: b.width}, options)
       if(b.sides.all || b.sides.bottom) {
         // Reverse and mirror the items

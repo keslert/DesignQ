@@ -6,14 +6,14 @@ export default {
   py: 36,
   background: solidColor('#403B57'),
   border: {
-    width: 100,
+    width: 90,
     sides: {top: true, bottom: true},
     seed: 2,
     layout: 'confetti',
     items: [
-      {type: 'triangle', color: '#F26C46'},
-      {type: 'triangle', color: '#D7D55F'},
-      {type: 'triangle', color: '#5FD4CF'},
+      {type: 'party-hat', color: '#F26C46', size: 32},
+      {type: 'party-hat', color: '#D7D55F', size: 32},
+      {type: 'party-hat', color: '#5FD4CF', size: 32},
     ],
   },
   content: {
@@ -26,11 +26,11 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 1.0,
+          size: 0.9,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
-          letterSpacing: .05,
+          letterSpacing: .07,
         },
       },
       { 
@@ -54,20 +54,20 @@ export default {
         font: {
           family: 'Muli',
           weight: 700,
-          size: 1.0,
+          size: 0.9,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
-          letterSpacing: .05,
+          letterSpacing: .07,
         },
-        mb: 2,
+        mb: 1.5,
       },
       {
         type: 'bar',
         background: solidColor('#59D2CC'),
         width: unitValue(90, 'px'),
         height: unitValue(12, 'px'),
-        mb: 2,
+        mb: 1.5,
       },
       { 
         type: 'bridge', 

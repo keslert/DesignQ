@@ -26,9 +26,9 @@ function BorderItem({item}) {
     top: `${item.y}px`,
     left: `${item.x}px`,
     transform: `rotate(${item.rotate}deg)`,
-    width: '14px',
-    height: '14px',
-    borderRadius: '7px',
+    width: '21px',
+    height: '7px',
+    borderRadius: '21px',
     background: item.item.color,
   }
   return (

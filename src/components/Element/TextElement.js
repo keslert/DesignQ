@@ -7,8 +7,8 @@ function TextElement({element}) {
 
   const style = {
     position: 'relative',
-    fontSize: c.fontSize,
     width: `calc(${getUnitStyle(element.width)} - ${c.mx * 2}px)`,
+    fontSize: c.fontSize,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
@@ -87,12 +87,13 @@ function TextElement({element}) {
 }
 
 function Line({element, line, index}) {
-
-  const offset = element._computed.offsets[index];
+  const c = element._computed;
+  const offset = c.offsets[index];
   const style = {
-    marginTop: `${element._computed.fontSize * offset.top}px`,
-    marginBottom: `${element._computed.fontSize * offset.bottom}px`,
-    marginRight: `${element._computed.fontSize * -(element.font.letterSpacing || 0)}px`,
+    fontSize: (c.lineFontSizes && c.linesFontSizes[index]) || c.fontSize,
+    marginTop: `${c.fontSize * offset.top}px`,
+    marginBottom: `${c.fontSize * offset.bottom}px`,
+    marginRight: `${c.fontSize * -(element.font.letterSpacing || 0)}px`,
     position: 'relative',
   }
   const height = element._computed.fontSize * (1 + offset.top + offset.bottom)

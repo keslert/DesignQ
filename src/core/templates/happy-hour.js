@@ -23,7 +23,7 @@ export default {
         font: {
           family: 'Bebas Neue',
           weight: 400,
-          size: 0.8,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
