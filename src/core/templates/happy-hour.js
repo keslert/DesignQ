@@ -36,7 +36,7 @@ export default {
         font: {
           family: 'Bebas Neue',
           weight: 400,
-          size: 1,
+          size: 0.8,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.1,
@@ -47,7 +47,6 @@ export default {
         flex: 1,
         bleed: 'full',
         url: '/beer-pint.png',
-        // zoom: 1,
         y: 0.0,
         filters: [],
       },
@@ -61,6 +60,8 @@ export default {
       meta: {
         width: 152,
         height: 75,
+        colors: [],
+        filetype: 'png', // y = 0 if at bottom of page, y=1 if a top
       }
     }]  
   }

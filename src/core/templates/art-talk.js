@@ -10,7 +10,8 @@ export default {
     filters: [],
   },
   content: {
-    alignX: 'left',
+    w: .5,
+    alignX: 'flex-start',
     alignY: 'center',
     background: solidColor('#fff'), 
     border: {

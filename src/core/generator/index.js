@@ -1,6 +1,6 @@
-import { computeFontSizes } from './font-size';
+import { computeSizes } from './sizes';
 import { computeSpacing } from "./spacing";
-import { computeContentSize } from './content-size';
+import { computeContentSize, calculateBorderSize } from './content-size';
 import { computeBorders } from './borders'
 import _ from 'lodash';
 
@@ -18,8 +18,20 @@ export function computeFlyer(structure, size={w: 612, h:792}) {
 
   computeContentSize(structure, size)
   computeBorders(structure, size);
-  computeFontSizes(structure);
+
+
+
+  computeSizes(structure);
   computeSpacing(structure);
+
+  const height = calculateHeight(structure);
+  const ratio = structure.content._computed.maxBB.h / height;
+  if(ratio < 1) {
+    computeSizes(structure, ratio);
+    computeSpacing(structure);
+  }
+
+
   
   return structure;
 }
@@ -42,10 +54,12 @@ function initGroup(structure, group) {
     el._computed.next = group.elements[i + 1];
     el._computed.align = group.textAlign;
     if(el.lines) {
-      el._computed.lines = el.lines.map(line => 
-        Array.isArray(line) 
+      el._computed.lines = el.lines.map(line => ({
+        text: Array.isArray(line) 
           ? line.map(str => transformStr(str, el.font.transform))
           : transformStr(line, el.font.transform)
+      })
+        
       )
     }
   })
@@ -53,6 +67,23 @@ function initGroup(structure, group) {
 
 function transformStr(str, transform) {
   return transform === 'uppercase' ? str.toUpperCase() : str;
+}
+
+function calculateHeight(structure) {
+  const groups = [structure.header, structure.footer, structure.content];
+  let height = _.sumBy(groups, g => {
+    if(!g || !g.elements.length) return 0;
+
+    const elementHeight = _.sumBy(g.elements, el => 
+      _.sum([el._computed.h, el._computed.mt, el._computed.mb])
+    )
+    const borderHeight = calculateBorderSize(g.border).h;
+    
+    return elementHeight + borderHeight;
+  })
+
+
+  return height;
 }
 
 

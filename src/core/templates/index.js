@@ -28,12 +28,12 @@ export function unitValue(value, unit) {
 }
 
 export const templates = {
+  ArtTalk,
   JakesBirthdayParty,
   NewtonDoughnuts,
   HappyHour,
   BakeSale,
   YardSale,
-  ArtTalk,
   Barrys,
   CleanAndGreen,
   CoconutResurgance,

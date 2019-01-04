@@ -6,28 +6,30 @@ export function computeContentSize(structure, flyerSize) {
   if(structure.content.w) {
     bb.w = bb.w * structure.content.w;
   }
+  const borderSize = calculateBorderSize(structure.border);
 
-  bb.w -= (structure.px * 2)
-  bb.h -= (structure.py * 2)
-  computeBorder(structure, bb);  
+  bb.w -= (structure.px * 2) + borderSize.w
+  bb.h -= (structure.py * 2) + borderSize.h
   
   structure.content._computed.maxBB = bb;
 }
 
-function computeBorder(structure, bb) {
-  if(structure.border) {
-    const sides = structure.border.sides;
+export function calculateBorderSize(border) {
+  let h = 0, w = 0;
+  if(border) {
+    const sides = border.sides;
     if(sides.all || sides.left) {
-      bb.w -= structure.border.width;
+      w += border.width;
     }
     if(sides.all || sides.right) {
-      bb.w -= structure.border.width;
+      w += border.width;
     }
     if(sides.all || sides.top) {
-      bb.h -= structure.border.width;
+      h += border.width;
     }
     if(sides.all || sides.bottom) {
-      bb.h -= structure.border.width;
+      h += border.width;
     }
   }
+  return { w, h };
 }
