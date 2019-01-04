@@ -86,7 +86,7 @@ function Flyer({flyer}) {
           left: 0,
         }}
       />
-      <div id="overlay" style={overlayStyle} />
+      {flyer.overlay && <div id="overlay" style={overlayStyle} />}
     </div>
   )
 }

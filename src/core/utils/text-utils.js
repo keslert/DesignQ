@@ -43,5 +43,11 @@ const FONT_DETAILS = {
     descenders: defaultDescenders,
     ascenderOffsets: [-.1, -.37],
     descenderOffsets: [.1, -.15],
+  },
+  'Roboto Condensed': {
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.12, -.09],
+    descenderOffsets: [-.2, -.15],
   }
 }

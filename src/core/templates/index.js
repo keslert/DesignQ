@@ -8,6 +8,7 @@ import { default as HappyHour } from './happy-hour';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
+import { default as Urbana } from './urbana';
 import { default as YardSale } from './yard-sale';
 // https://www.smashingmagazine.com/2015/02/design-principles-dominance-dominant-points-hierarchy/
 
@@ -28,6 +29,7 @@ export function unitValue(value, unit) {
 }
 
 export const templates = {
+  Urbana,
   ArtTalk,
   JakesBirthdayParty,
   NewtonDoughnuts,
