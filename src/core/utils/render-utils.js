@@ -4,13 +4,13 @@ export function getBackgroundStyle(bg) {
   if(!bg) return null;
 
   return {
-    background: `url(${bg.url}) no-repeat`,
+    background: bg.url ? `url(${bg.url}) no-repeat` : bg.color,
     backgroundSize: `${bg.zoom ? `${bg.zoom * 100}%` : 'cover'}`,
     backgroundPositionX: `${(_.isNumber(bg.x) ? bg.x : .5) * 100}%`,
     backgroundPositionY: `${(_.isNumber(bg.y) ? bg.y : .5) * 100}%`,
     filter: _.map(bg.filters, (v, k) => `${k}(${v})`).join(' '),
     backgroundBlendMode: bg.backgroundBlendMode,
-    backgroundColor: bg.color
+    backgroundColor: bg.color,
   };
 }
 

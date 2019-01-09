@@ -14,6 +14,7 @@ function ContentGroup({group, style: propsStyle={}}) {
     display: 'flex',
     alignItems: textAlignToFlexAlign(group.textAlign),
     alignSelf: group.alignX,
+    justifyContent: group.alignY,
     flexDirection: 'column',
     textAlign: group.textAlign || 'center',
     width: getUnitStyle(group.width),

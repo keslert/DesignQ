@@ -16,3 +16,21 @@ On Image Load
 
 Double-click text to edit (pops open a modal like Adobe Spark)
 Double-click image to edit mask
+
+
+
+Select an element and press delete.
+- if it's not the dominant, remove it.
+
+If Group is selected, can select elements. Otherwise can only select flyer or group.
+
+Drag to reorder elements
+- lists elements can be reordered horizontally
+
+How to swap two elements?
+
+
+
+Lists 
+- Single line
+- One item per line

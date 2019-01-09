@@ -66,7 +66,7 @@ export default {
           size: 1, // based on the small size
           style: 'normal',
           transform: 'uppercase',
-          lineHeight: 1.2,
+          lineHeight: 1.4,
         },
         mb: 1,
       },

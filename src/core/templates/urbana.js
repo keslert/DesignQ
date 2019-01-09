@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { striped, solidColor, unitValue } from '.'
 
 export default {
   title: 'Urbana',
@@ -51,9 +51,7 @@ export default {
       },
       {
         type: 'bar',
-        background: {
-          color: '#f5d300',
-        },
+        background: striped(135, '#f5d300', 6, '#202020', 2),
         width: unitValue(33, '%'),
         height: unitValue(16, 'px'),
         mb: 2,

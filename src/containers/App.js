@@ -7,7 +7,7 @@ import Canvas from '../components/Canvas';
 import _ from 'lodash';
 import { templates as flyers } from '../core/templates';
 import Frame from '../components/Frame';
-import { computeFlyer } from '../core/generator';
+import { computeFlyer } from '../core/producer';
 
 _.forEach(flyers, flyer => computeFlyer(flyer));
 

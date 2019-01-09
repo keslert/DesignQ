@@ -22,7 +22,7 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#D7D55F'),
-        lines: ['Come Join Us For'],
+        lines: ['Come Join Us For A'],
         font: {
           family: 'Muli',
           weight: 700,

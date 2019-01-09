@@ -7,7 +7,7 @@ import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 
 import { templates } from '../core/templates';
-import { computeFlyer } from '../core/generator';
+import { computeFlyer } from '../core/producer';
 
 const flyer2 = 0//computeFlyer(templates.YardSale);
 const flyer1 = 0//computeFlyer(templates.YardSale);
