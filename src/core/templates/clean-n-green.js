@@ -36,7 +36,8 @@ export default {
         font: {
           family: 'Muli',
           weight: 900,
-          size: 0.8,
+          size: 1,
+          // fitToWidth: true,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -45,14 +46,14 @@ export default {
       { 
         type: 'bridge', 
         lines: [
-          'Providing organic and environmentally friendly',
-          'cleaning services since 2019',
+          'Providing organic and environmentally',
+          'friendly cleaning services since 2019',
         ],
         color: solidColor('#fff'),
         font: {
           family: 'Muli',
           weight: 400,
-          size: 0.8,
+          size: 1,
           style: 'normal',
           lineHeight: 1.2,
         },

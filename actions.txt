@@ -14,7 +14,7 @@ On Image Load
 - Get color palette
 
 
-Double-click text to edit (pops open a modal like Adobe Spark)
+Double-click text to edit (pops open a modal like Adobe Spark). Allow the user to reassign word breaks
 Double-click image to edit mask
 
 
@@ -29,7 +29,7 @@ Drag to reorder elements
 
 How to swap two elements?
 
-
+The user is going to be way better at seeing how foreground elements play with background elements. That's why we should allow them to resize and position the background image.
 
 Lists 
 - Single line

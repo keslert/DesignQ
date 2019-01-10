@@ -86,7 +86,7 @@ export default {
           weight: 400,
           size: 0.6,
           style: 'normal',
-          lineHeight: 1.2,
+          lineHeight: 1.4,
         },
       },
     ],

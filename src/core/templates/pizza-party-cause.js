@@ -5,7 +5,7 @@ export default {
   px: 48,
   py: 72,
   border: {
-    width: 8,
+    width: 10,
     color: '#fff',
     sides: {
       all: true,
@@ -18,9 +18,7 @@ export default {
   content: {
     w: .6,
     background: solidColor('rgba(156,34,16,.84)'),
-    // bleed: 'full',
     flex: 1,
-    // width: unitValue(100, '%'),
     alignX: 'flex-end',
     alignY: 'center',
     elements: [
@@ -49,6 +47,7 @@ export default {
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
+          // letterSpacing: .025,
         },
         mb: 2,
       },
@@ -87,4 +86,16 @@ export default {
       },
     ]
   },
+  _user: {
+    content: {
+      eventName: 'Pizza Party for a cause',
+      date: '09.18.19',
+      dayOfWeek: 'Saturday',
+      time: '12-6pm',
+      location: 'Gino\'s Pizzaria',
+      descriptiveText: [
+        'Help feed the kids!',
+      ]
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { generateLayout } from './layout';
 
 
 
@@ -23,10 +24,9 @@ const foci = {
 
 
 export function generateFlyer(flyer, history, focus, selection, action) {
-
+  generateLayout(flyer);
   
-
-
+  return [];
 }
 
 

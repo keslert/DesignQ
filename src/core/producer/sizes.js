@@ -35,7 +35,7 @@ function computeGroupSizes(group, dominant, size) {
   
   const smallsSettings = {
     maxWidth: size.w,
-    maxOptimalWidth: Math.min(size.w, dominant._computed.w * 1.25), // TODO: Why 1.25
+    maxOptimalWidth: Math.min(size.w, dominant._computed.w * 1.05), // TODO: Why 1.05
     maxOptimalFontSize: dominant._computed.fontSize * .25,
     minFontSize: MIN_FONT_SIZE,
     optimalWidth: dominant._computed.w,
@@ -44,11 +44,8 @@ function computeGroupSizes(group, dominant, size) {
     
   const smallSize = types.small && types.small[0]._computed.fontSize
   const bridgesSettings = {
-    maxWidth: size.w,
-    maxOptimalWidth: Math.min(dominant._computed.w * 1.25), // TODO: Why 1.25
+    ...smallsSettings,
     maxOptimalFontSize: (smallSize || smallsSettings.maxOptimalFontSize) * 1.25,
-    minFontSize: MIN_FONT_SIZE,
-    optimalWidth: dominant._computed.w,
   }
   computeElementsFontSizes(types.bridge, bridgesSettings)
 
@@ -166,6 +163,7 @@ export function scaleElementFontSizes(el, scale) {
   })
   el._computed.fontSize *= scale;
   el._computed.h = el._computed.py * 2 + el._computed.h * scale;
+  el._computed.w = el._computed.w * scale;
 }
 
 function computeGroupLogoSize(group, size) {

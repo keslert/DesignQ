@@ -13,7 +13,7 @@ export default {
   },
   content: {
     width: unitValue(100, '%'),
-    alignX: 'center',
+    // alignX: 'center',
     flex: 1,
     elements: [
       {
