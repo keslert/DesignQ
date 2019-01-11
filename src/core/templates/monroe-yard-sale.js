@@ -10,7 +10,7 @@ export default {
     seed: 2,
     layout: 'confetti',
     items: [
-      {type: 'party-hat', color: '#ff5145', size: 32},
+      {type: 'party-hat', color: '#ff5145', size: 16 },
     ],
   },
   content: {

@@ -4,6 +4,7 @@ import { default as BakeSale } from './bake-sale';
 import { default as Barrys } from './barrys';
 import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
+import { default as FallFestival } from './fall-festival';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
@@ -40,6 +41,7 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
 }
 
 export const templates = {
+  FallFestival,
   MonroeYardSale,
   NewtonDoughnuts,
   PizzaPartyCause,

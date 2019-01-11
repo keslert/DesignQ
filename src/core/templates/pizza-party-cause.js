@@ -6,7 +6,7 @@ export default {
   py: 72,
   border: {
     width: 10,
-    color: '#fff',
+    color: striped(45, '#000', 60, '#fff', 60).color,
     sides: {
       all: true,
     }
