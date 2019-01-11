@@ -9,6 +9,7 @@ import { default as FallFestival } from './fall-festival';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
 import { default as ILoveYouSo } from './i-love-you-so';
+import { default as ILoveYouMoreThan } from './i-love-you-more-than';
 import { default as InhaleExhale } from './inhale-exhale';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as MonroeYardSale } from './monroe-yard-sale';
@@ -45,21 +46,22 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
 }
 
 export const templates = {
-  InhaleExhale,
+  ILoveYouMoreThan,
   ILoveYouSo,
   WeAreLovely,
-  FallFestival,
-  MonroeYardSale,
   NewtonDoughnuts,
   PizzaPartyCause,
   Urbana,
   ArtTalk,
+  FallFestival,
   TraditionalGrace,
   JakesBirthdayParty,
   HappyHour,
+  MonroeYardSale,
   BakeSale,
   YardSale,
   Barrys,
+  InhaleExhale,
   CoconutResurgance,
   ValentinesDayMixer,
   BawresFallFestival,

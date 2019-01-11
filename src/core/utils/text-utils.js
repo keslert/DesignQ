@@ -23,7 +23,7 @@ const FONT_DETAILS = {
     ascenders: defaultAscenders,
     descenders: defaultDescenders,
     ascenderOffsets: [-.15, -.37],
-    descenderOffsets: [.1, -.12],
+    descenderOffsets: [.05, -.12],
   },
   'Bebas Neue': {
     supportsLowerCase: false,
@@ -67,5 +67,11 @@ const FONT_DETAILS = {
     descenders: defaultDescenders,
     ascenderOffsets: [-.142, -.335],
     descenderOffsets: [-.2, -.15],
+  },
+  'Londrina Sketch': {
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.142, -.335],
+    descenderOffsets: [-.2, -.13],
   },
 }
