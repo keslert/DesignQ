@@ -9,6 +9,7 @@ import { default as FallFestival } from './fall-festival';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
 import { default as ILoveYouSo } from './i-love-you-so';
+import { default as InhaleExhale } from './inhale-exhale';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as MonroeYardSale } from './monroe-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
@@ -44,6 +45,7 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
 }
 
 export const templates = {
+  InhaleExhale,
   ILoveYouSo,
   WeAreLovely,
   FallFestival,
