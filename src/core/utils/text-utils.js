@@ -1,11 +1,11 @@
 
 
 
-export function getTextOffset(str, family) {
+export function getTextOffset(str, family, ignoreAscendersDescenders) {
   const font = FONT_DETAILS[family]
   return {
-    top: font.ascenderOffsets[font.ascenders.test(str) ? 0 : 1],
-    bottom: font.descenderOffsets[font.descenders.test(str) ? 0 : 1],
+    top: font.ascenderOffsets[!ignoreAscendersDescenders && font.ascenders.test(str) ? 0 : 1],
+    bottom: font.descenderOffsets[!ignoreAscendersDescenders && font.descenders.test(str) ? 0 : 1],
   }
 }
 
@@ -47,7 +47,7 @@ const FONT_DETAILS = {
   'Chewy': {
     ascenders: defaultAscenders,
     descenders: defaultDescenders,
-    ascenderOffsets: [-.1, -.37],
+    ascenderOffsets: [-.1, -.27],
     descenderOffsets: [.1, -.15],
   },
   'Roboto Condensed': {
@@ -55,5 +55,17 @@ const FONT_DETAILS = {
     descenders: defaultDescenders,
     ascenderOffsets: [-.12, -.09],
     descenderOffsets: [-.2, -.15],
-  }
+  },
+  'Cormorant Unicase': {
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.19, -.15],
+    descenderOffsets: [-.2, -.18],
+  },
+  'Voga': {
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.142, -.335],
+    descenderOffsets: [-.2, -.15],
+  },
 }

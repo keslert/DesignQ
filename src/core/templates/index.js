@@ -2,11 +2,13 @@ import { default as AnnualHealthFair } from './annual-health-fair';
 import { default as ArtTalk } from './art-talk';
 import { default as BakeSale } from './bake-sale';
 import { default as Barrys } from './barrys';
+import { default as BawresFallFestival } from './bawres-fall-festival';
 import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
 import { default as FallFestival } from './fall-festival';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
+import { default as ILoveYouSo } from './i-love-you-so';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as MonroeYardSale } from './monroe-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
@@ -14,6 +16,7 @@ import { default as PizzaPartyCause } from './pizza-party-cause';
 import { default as TraditionalGrace } from './traditional-grace';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
 import { default as Urbana } from './urbana';
+import { default as WeAreLovely } from './we-are-lovely';
 import { default as YardSale } from './yard-sale';
 // https://www.smashingmagazine.com/2015/02/design-principles-dominance-dominant-points-hierarchy/
 
@@ -41,6 +44,8 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
 }
 
 export const templates = {
+  ILoveYouSo,
+  WeAreLovely,
   FallFestival,
   MonroeYardSale,
   NewtonDoughnuts,
@@ -55,6 +60,7 @@ export const templates = {
   Barrys,
   CoconutResurgance,
   ValentinesDayMixer,
+  BawresFallFestival,
   CleanAndGreen,
   AnnualHealthFair,
   HallowHarvest,

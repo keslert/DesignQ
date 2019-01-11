@@ -90,10 +90,12 @@ function Line({element, line}) {
   const style = {
     fontSize: line.fontSize,
     letterSpacing: `${element.font.letterSpacing || 0}em`,
-    marginTop: `${line.fontSize * line.offset.top}px`,
-    marginBottom: `${line.fontSize * line.offset.bottom}px`,
+    // marginTop: `${line.fontSize * line.offset.top}px`,
+    // marginBottom: `${line.fontSize * line.offset.bottom}px`,
     marginRight: `${line.fontSize * -(element.font.letterSpacing || 0)}px`,
+    height: `${line.h}px`,
     position: 'relative',
+    top: `${line.fontSize * line.offset.top}px`
   }
 
   const debugStyle = {
@@ -106,11 +108,12 @@ function Line({element, line}) {
   }
 
   return(
+    <div>
     <div style={style}>
       {debug && <div style={debugStyle} />}
       {Array.isArray(line.text)
         ? 
-          <div style={{display: 'flex'}}>
+          <div>
             {line.text.map((str, i) => 
               <React.Fragment key={i}>
                 {i 
@@ -126,6 +129,7 @@ function Line({element, line}) {
           </div>
         : line.text
       }
+    </div>
     </div>
   )
 }

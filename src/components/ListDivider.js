@@ -5,7 +5,8 @@ function ListDivider({divider, fontSize}) {
 
   const style = {
     width: `${fontSize * divider.size}px`,
-    height: `${fontSize}px`,
+    // height: `${fontSize}px`,
+    lineHeight: 0.5,
     textAlign: 'center',
     display: 'inline-block',
   }
@@ -16,7 +17,17 @@ function ListDivider({divider, fontSize}) {
         <div style={{
           display: 'inline-block',
           width: Math.ceil(fontSize * .05),
-          height: '100%',
+          height: `${fontSize}px`,
+          ...getBackgroundStyle(divider.color),
+        }}/>
+      }
+      {divider.type === 'dot' &&
+        <div style={{
+          display: 'inline-block',
+          width: Math.ceil(fontSize * .25 * divider.size),
+          height: Math.ceil(fontSize * .25 * divider.size),
+          verticalAlign: 'middle',
+          borderRadius: '9999px',
           ...getBackgroundStyle(divider.color),
         }}/>
       }

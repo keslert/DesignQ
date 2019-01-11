@@ -1,37 +1,27 @@
-import { solidColor, unitValue } from './'
+import { solidColor, unitValue } from '.'
 
 export default {
-  title: 'Valentines Day Mixer',
-  px: 36,
+  title: 'We are lovely',
+  px: 72,
   py: 36,
-  border: {
-    width: 12,
-    sides: {all: true},
-    color: '#fff',
+  background: {
+    type: 'image',
+    url: 'https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    filters: {
+      brightness: 0.8,
+    }
+    // x: 0,
   },
   content: {
-    // w: .70,
-    width: unitValue(100, '%'),
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
-    background: solidColor('#31302c'),
-    flex: 1,
     elements: [
-      { 
-        type: 'image',
-        flex: 1,
-        bleed: 'full',
-        url: 'https://images.unsplash.com/photo-1484678002699-0e7dc5fa52c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        filters: {
-          sepia: 0.3,
-        },
-      },
       { 
         type: 'small', 
         color: solidColor('#fff'),
         lines: [
-          {type: 'descriptiveText', text: 'Celebrate the Day of Hearts'},
+          {type: 'descriptiveText', text: 'Valentine\'s Celebration'},
         ],
         mb: 1,
         font: {
@@ -47,12 +37,12 @@ export default {
       { 
         type: 'dominant', 
         lines: [
-          {type: 'eventName', text: 'Valentine\'s'},
-          {type: 'eventName', text: 'Day Mixer'},
+          {type: 'eventName', text: 'We Are'},
+          {type: 'eventName', text: 'Lovely'},
         ],
-        color: solidColor('#D1BC8B'),
+        color: solidColor('#fff'),
         font: {
-          family: 'Josefin Slab',
+          family: 'Voga',
           weight: 400,
           size: 1,
           style: 'normal',
@@ -63,25 +53,25 @@ export default {
       { 
         type: 'small', 
         lines: [
+          {type: 'location', text: '540 Country Club Drive'},
           [
-            {type: 'date', text: '02.14.19', format: 'MM.DD.YY'}, 
-            {type: 'time', text: '7PM'},
-            {type: 'location', text: '71 Park Lane'},
+            {type: 'city-state', text: 'Dalton, GA 30721'},
+            {type: 'time', text: '6PM'},
           ],
         ],
         color: solidColor('#fff'),
         divider: {
           type: 'line',
           size: 2,
-          color: solidColor('#fff'),
+          color: solidColor('#D1BC8B'),
         },
         mb: 1,
         font: {
           family: 'Muli',
           weight: 400,
-          size: 1,
+          size: 0.8,
           style: 'normal',
-          lineHeight: 1.2,
+          lineHeight: 1.4,
           transform: 'uppercase',
           letterSpacing: .3, // uses ems
         },
