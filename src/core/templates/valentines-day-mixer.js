@@ -30,7 +30,9 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#fff'),
-        lines: ['Celebrate the Day of Hearts'],
+        lines: [
+          {type: 'descriptiveText', text: 'Celebrate the Day of Hearts'},
+        ],
         mb: 1,
         font: {
           family: 'Muli',
@@ -44,7 +46,10 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Valentine\'s', 'Day Mixer'],
+        lines: [
+          {type: 'eventName', text: 'Valentine\'s'},
+          {type: 'eventName', text: 'Day Mixer'},
+        ],
         color: solidColor('#D1BC8B'),
         font: {
           family: 'Josefin Slab',
@@ -58,7 +63,11 @@ export default {
       { 
         type: 'small', 
         lines: [
-          ['02.14.19', '7PM', '71 Park Lane'],
+          [
+            {type: 'date', text: '02.14.19', format: 'MM.DD.YY'}, 
+            {type: 'time', text: '7PM'},
+            {type: 'location', text: '71 Park Lane'},
+          ],
         ],
         color: solidColor('#fff'),
         divider: {

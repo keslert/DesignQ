@@ -17,7 +17,17 @@ export default {
     elements: [
       {
         type: 'small',
-        lines: ['Every Thursday 6pm-Closing'],
+        lines: [
+          [
+            {type: 'dayOfWeek', text: 'Every Thursday'},
+            {type: 'time', text: '6pm-Closing'},
+          ]
+        ],
+        divider: {
+          type: 'none',
+          size: 0.3,
+          color: solidColor('#fff'),
+        },
         color: solidColor('#fff'),
         mb: 0.5,
         font: {
@@ -31,7 +41,10 @@ export default {
       },
       {
         type: 'dominant',
-        lines: ['Happy', 'Hour'],
+        lines: [
+          {type: 'eventName', text: 'Happy'}, 
+          {type: 'eventName', text: 'Hour'},
+        ],
         color: solidColor('#FFDB00'),
         font: {
           family: 'Bebas Neue',

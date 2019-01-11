@@ -59,60 +59,6 @@ function computeGroupSizes(group, dominant, size) {
   })
 }
 
-// function computeDominateFontSize(dominant, structure, size) {
-//   const measuredWidth = measureText(dominant);
-//   const lines = dominant._computed.lines;
-
-//   // First ignore height restrictions and figure out width
-//   const optimalFontSize = _.clamp(
-//     FONT_MEASURE_SIZE * size.w / w,
-//     settings.minOptimalFontSize,
-//     settings.maxOptimalFontSize,
-//   );
-
-//   const fontSize = slerp(
-//     MIN_DOMINANT_FONT_SIZE,
-//     optimalFontSize,
-//     FONT_MEASURE_SIZE * (size.w / measuredWidth),
-//     dominant.font.size
-//   );
-  
-//   const width = measuredWidth * (fontSize / FONT_MEASURE_SIZE)
-//   lines.forEach(line => {
-//     if(dominant.font.fitToWidth) {
-//       line.fontSize = FONT_MEASURE_SIZE * (width / line.w);
-//       line.h = line.h * (width / line.w);
-//       line.w = width;
-//     } else {
-//       line.fontSize = fontSize;
-//       line.h = line.h * (fontSize / FONT_MEASURE_SIZE)
-//       line.w = line.w * (fontSize / FONT_MEASURE_SIZE)
-//     }
-//   })
-
-//   const spaceBetweenLines = fontSize * (1 - dominant.font.lineHeight);
-//   const height = _.sumBy(lines, line => line.h) + spaceBetweenLines * (lines.length - 1)
-
-
-//   // TODO: This might be better done after all font measurements have been assigned
-//   // if(size.h < height) {
-//   //   // TODO: This doesn't consider if fontSizes are too small now...
-//   //   const ratio = size.h / height;
-//   //   lines.forEach(line => {
-//   //     line.fontSize *= ratio;
-//   //     line.h *= ratio;
-//   //     line.w *= ratio;
-//   //   })
-//   //   height *= ratio;
-//   //   width *= ratio;
-//   //   fontSize *= ratio;
-//   // }
-  
-//   dominant._computed.fontSize = fontSize;
-//   dominant._computed.w = width;
-//   dominant._computed.h = height;
-// }
-
 function computeElementsFontSizes(elements, settings) {
   if(!elements || !elements.length) return;
     
@@ -188,6 +134,8 @@ function computeGroupLogoSize(group, size) {
 // These suggest that fonts don't scale perfectly linearly, but maybe close enough?
 function measureText(t) {
   const lines = t._computed.lines;
+  const allText = _.flatMap(lines, line => line.text).join('')
+  const offset = getTextOffset(allText, t.font.family)
   
   lines.forEach((line, i) => {
     const isArray = Array.isArray(line.text);
@@ -203,7 +151,8 @@ function measureText(t) {
       line.w += (line.text.length - 1) * FONT_MEASURE_SIZE * t.divider.size;
     }
 
-    line.offset = getTextOffset(str, t.font.family);
+    // line.offset = getTextOffset(str, t.font.family);
+    line.offset = offset;
     line.h = FONT_MEASURE_SIZE * (1 + line.offset.top + line.offset.bottom)
   });
 

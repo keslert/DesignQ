@@ -27,7 +27,9 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#031f52'),
-        lines: ['A huge assorted'],
+        lines: [
+          {type: 'descriptiveText', text: 'A huge assorted'},
+        ],
         font: {
           family: 'Muli',
           weight: 700,
@@ -40,7 +42,9 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Yard Sale'],
+        lines: [
+          {type: 'eventName', text: 'Yard Sale'},
+        ],
         width: unitValue(100, '%'),
         color: solidColor('#031f52'),
         background: solidColor('#fff'),
@@ -57,7 +61,9 @@ export default {
       },
       { 
         type: 'small', 
-        lines: ['September 22-25, 2019'],
+        lines: [
+          {type: 'date', text: 'September 22-25, 2019', format: 'MMMM D, YYYY'},
+        ],
         color: solidColor('#031f52'),
         divider: {
           type: 'line',

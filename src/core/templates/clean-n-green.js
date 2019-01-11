@@ -19,7 +19,9 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#fff'),
-        lines: ['#jointheearthmovement'],
+        lines: [
+          {type: 'descriptiveText', text: '#jointheearthmovement'},
+        ],
         font: {
           family: 'Muli',
           weight: 400,
@@ -31,7 +33,11 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Clean', '&', 'Green'],
+        lines: [
+          {type: 'eventName', text: 'Clean'}, 
+          {type: 'eventName', text: '&'}, 
+          {type: 'eventName', text: 'Green'}
+        ],
         color: solidColor('#F9CE00'),
         font: {
           family: 'Muli',
@@ -46,8 +52,8 @@ export default {
       { 
         type: 'bridge', 
         lines: [
-          'Providing organic and environmentally',
-          'friendly cleaning services since 2019',
+          {type: 'descriptiveText', text: 'Providing organic and environmentally'},
+          {type: 'descriptiveText', text: 'friendly cleaning services since 2019'},
         ],
         color: solidColor('#fff'),
         font: {

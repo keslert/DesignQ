@@ -7,7 +7,7 @@ export default {
   background: {
     type: 'image',
     url: 'https://images.unsplash.com/photo-1530016910220-faf7fab2125c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: '#00C9CC',
+    color: '#1c1611',
     zoom: 1.4,
     y: .0,
   },
@@ -18,7 +18,10 @@ export default {
     elements: [
       {
         type: 'dominant',
-        lines: ['Grand', 'Opening'],
+        lines: [
+          {type: 'eventName', text: 'Grand'}, 
+          {type: 'eventName', text: 'Opening'},
+        ],
         color: solidColor('#fff'),
         mb: 0.5,
         font: {
@@ -33,7 +36,12 @@ export default {
       },
       {
         type: 'small',
-        lines: [['October 20, 2019', '2nd Floor, SMC Mall']],
+        lines: [
+          [
+            {type: 'date', text: 'October 20, 2019', format: 'MMM D, YYYY'},
+            {type: 'location', text: '2nd Floor, SMC Mall'},
+          ]
+        ],
         divider: {
           type: 'line',
           size: 1,

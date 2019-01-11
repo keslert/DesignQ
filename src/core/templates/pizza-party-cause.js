@@ -24,7 +24,9 @@ export default {
     elements: [
       {
         type: 'small',
-        lines: ['Help feed the kids!'],
+        lines: [
+          {type: 'descriptiveText', text: 'Help feed the kids!'},
+        ],
         color: solidColor('#fff'),
         font: {
           family: 'Roboto Condensed',
@@ -38,7 +40,12 @@ export default {
       },
       {
         type: 'dominant',
-        lines: ['Pizza', 'Party', 'For A', 'Cause'],
+        lines: [
+          {type: 'eventName', text: 'Pizza'}, 
+          {type: 'eventName', text: 'Party'}, 
+          {type: 'eventName', text: 'For A'}, 
+          {type: 'eventName', text: 'Cause'},   
+        ],
         color: solidColor('#fff'),
         font: {
           family: 'Bebas Neue',
@@ -53,7 +60,9 @@ export default {
       },
       {
         type: 'bridge',
-        lines: ['09.18.19'],
+        lines: [
+          {type: 'date', text: '09.18.19', format: 'MM.DD.YY'},
+        ],
         color: solidColor('#fff'),
         font: {
           family: 'Bebas Neue',
@@ -68,7 +77,13 @@ export default {
       },
       {
         type: 'small',
-        lines: [['12-6pm', 'Saturday'], 'Gino\'s Pizzaria'],
+        lines: [
+          [
+            {type: 'time', text: '12-6pm'},
+            {type: 'dayOfWeek', text: 'Saturday'},
+          ],
+          {type: 'location', text: 'Gino\'s Pizzaria'},
+        ],
         divider: {
           type: 'line',
           size: 1,
@@ -86,16 +101,4 @@ export default {
       },
     ]
   },
-  _user: {
-    content: {
-      eventName: 'Pizza Party for a cause',
-      date: '09.18.19',
-      dayOfWeek: 'Saturday',
-      time: '12-6pm',
-      location: 'Gino\'s Pizzaria',
-      descriptiveText: [
-        'Help feed the kids!',
-      ]
-    }
-  }
 }

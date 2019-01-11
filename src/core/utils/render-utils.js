@@ -37,7 +37,7 @@ export function getUnitStyle(u) {
 export function getBorderStyles(border) {
   if(!border) return {};
 
-  const value = `${border.width}px solid ${border.color}`;
+  const value = `${border.width}px solid ${border.color || 'transparent'}`;
   if(border.sides.all) {
     return {border: value}
   }
@@ -46,5 +46,19 @@ export function getBorderStyles(border) {
     borderBottom: border.sides.bottom ? value : null,
     borderLeft: border.sides.left ? value : null,
     borderRight: border.sides.right ? value : null,
+  };
+}
+
+export function getBorderPadding(border) {
+  if(!border) return {};
+
+  const s = border.sides;
+  const value = `${border.width}px`;
+
+  return {
+    paddingTop: s.all || s.top ? value : null,
+    paddingBottom: s.all || s.bottom ? value : null,
+    paddingLeft: s.all || s.left ? value : null,
+    paddingRight: s.all || s.right ? value : null,
   };
 }

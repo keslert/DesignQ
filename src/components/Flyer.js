@@ -2,6 +2,7 @@ import React from 'react';
 import { 
   getBackgroundStyle, 
   getBorderStyles, 
+  getBorderPadding,
   getUnitStyle,
   textAlignToFlexAlign,
 } from '../core/utils/render-utils';
@@ -12,16 +13,22 @@ function Flyer({flyer}) {
   
   const flyerStyle = {
     position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    // alignItems: 'flex-start',
     width: '100%',
     height: '100%',
     userSelect: 'none',
     overflow: 'hidden',
-    ...getBorderStyles(flyer.border),
+    background: '#fff',
+    ...getBorderPadding(flyer.border),
     // ...getFilterStyle?
+  }
+
+  const innerStyle = {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   }
 
   const bgStyle = {
@@ -38,7 +45,9 @@ function Flyer({flyer}) {
     display: 'flex', 
     flexDirection: 'column', 
     alignItems: 'flex-start', 
-    justifyContent: 'center',
+    justifyContent: flyer.content.alignY || 'center',
+    // marginTop: flyer.border && (flyer.border.sides.top || flyer.border.sides.all) ? `${flyer.border.width}px` : 0,
+    // marginBottom: flyer.border && (flyer.border.sides.bottom || flyer.border.sides.all) ? `${flyer.border.width}px` : 0,
   }
 
   const overlayStyle = {
@@ -69,23 +78,25 @@ function Flyer({flyer}) {
 
   return (
     <div style={flyerStyle}>
-      <div style={bgStyle} />
       {flyer.border && <Border border={flyer.border} />}
-      <ContentGroup
-        group={flyer.header}
-      />
-      <div style={contentStyle}>
+      <div style={innerStyle}>
+        <div style={bgStyle} />
         <ContentGroup
-          group={flyer.content}
+          group={flyer.header}
+        />
+        <div style={contentStyle}>
+          <ContentGroup
+            group={flyer.content}
+          />
+        </div>
+        <ContentGroup
+          group={flyer.footer}
+          style={{
+            bottom: 0,
+            left: 0,
+          }}
         />
       </div>
-      <ContentGroup
-        group={flyer.footer}
-        style={{
-          bottom: 0,
-          left: 0,
-        }}
-      />
       {flyer.overlay && <div id="overlay" style={overlayStyle} />}
     </div>
   )

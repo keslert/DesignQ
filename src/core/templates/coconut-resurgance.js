@@ -24,7 +24,9 @@ export default {
         color: solidColor('#fff'),
         background: solidColor('#8F5B68'),
         bleed: 'left',
-        lines: ['Superfood Corner'],
+        lines: [
+          {type: 'descriptiveText', text: 'Superfood Corner'}
+        ],
         font: {
           family: 'Muli',
           weight: 400,
@@ -37,7 +39,10 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Resurgance', 'of Coconut'],
+        lines: [
+          {type: 'eventName', text: 'Resurgance'}, 
+          {type: 'eventName', text: 'of Coconut'},
+        ],
         color: solidColor('#6b474f'),
         font: {
           family: 'Bebas Neue',
@@ -57,12 +62,12 @@ export default {
       { 
         type: 'bridge', 
         lines: [
-          'The coconut provides a nutritious source',
-          'of meat, juice, milk, and oil that has fed',
-          'and nourished populations around the',
-          'world for generations. On many islands',
-          'coconut is a staple in the diet and provides',
-          'the majority of the food eaten.'
+          {type: 'descriptiveText', text: 'The coconut provides a nutritious source'},
+          {type: 'descriptiveText', text: 'of meat, juice, milk, and oil that has fed'},
+          {type: 'descriptiveText', text: 'and nourished populations around the'},
+          {type: 'descriptiveText', text: 'world for generations. On many islands'},
+          {type: 'descriptiveText', text: 'coconut is a staple in the diet and provides'},
+          {type: 'descriptiveText', text: 'the majority of the food eaten.'},
         ],
         color: solidColor('#6b474f'),
         font: {
@@ -82,7 +87,9 @@ export default {
     textAlign: 'left',
     elements: [{
       type: 'small',
-      lines: ['coconutfacts.net'],
+      lines: [
+        {type: 'website', text: 'coconutfacts.net'},
+      ],
       color: solidColor('#8F5B68'),
       font: {
         family: 'Muli',

@@ -22,7 +22,9 @@ export default {
     elements: [
       {
         type: 'dominant',
-        lines: ['Urbana'],
+        lines: [
+          {type: 'eventName', text: 'Urbana'},
+        ],
         color: solidColor('#f5d300'),
         font: {
           family: 'Roboto Condensed',
@@ -36,7 +38,11 @@ export default {
       },
       {
         type: 'bridge',
-        lines: ['A Street', 'Photography', 'Workshop'],
+        lines: [
+          {type: 'descriptiveText', text: 'A Street'},
+          {type: 'descriptiveText', text: 'Photography'},
+          {type: 'descriptiveText', text: 'Workshop'},  
+        ],
         color: solidColor('#fff'),
         font: {
           family: 'Roboto Condensed',
@@ -58,7 +64,10 @@ export default {
       },
       {
         type: 'small',
-        lines: ['Friday', 'June 5, 2019'],
+        lines: [
+          {type: 'dayOfWeek', text: 'Friday'}, 
+          {type: 'date', text: 'June 5, 2019', format: 'MMM D, YYYY'},
+        ],
         color: solidColor('#fff'),
         font: {
           family: 'Roboto Condensed',

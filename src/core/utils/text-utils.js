@@ -13,6 +13,12 @@ export function getTextOffset(str, family) {
 const defaultAscenders = /[A-Z1-9hdfkl&]/
 const defaultDescenders = /[gjqpy]/
 const FONT_DETAILS = {
+  'Permanent Marker': {
+    ascenders: defaultAscenders,
+    descenders: /[]/,
+    ascenderOffsets: [-.16, -.37],
+    descenderOffsets: [.1, -.09],
+  },
   'Muli': {
     ascenders: defaultAscenders,
     descenders: defaultDescenders,

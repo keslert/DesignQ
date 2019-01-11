@@ -2,7 +2,7 @@ import { solidColor, unitValue } from './'
 
 export default {
   title: 'Art Talk',
-  px: 36,
+  px: 48,
   py: 36,
   background: {
     type: 'image',
@@ -10,7 +10,7 @@ export default {
     filters: [],
   },
   content: {
-    w: .55,
+    w: 0.5,
     alignX: 'flex-start',
     alignY: 'center',
     background: solidColor('#fff'), 
@@ -24,7 +24,10 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#EF4260'),
-        lines: ['3rd of', 'September'],
+        lines: [
+          {type: 'date', text: '3rd of', format: 'Do of'}, 
+          {type: 'date', text: 'September', format: 'MMMM'}
+        ],
         font: {
           family: 'Bebas Neue',
           weight: 400,
@@ -44,12 +47,15 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Art', 'Talk'],
+        lines: [
+          {type: 'eventName', text: 'Art'}, 
+          {type: 'eventName', text: 'Talk'},
+        ],
         color: solidColor('#EF4260'),
         font: {
           family: 'Bebas Neue',
           weight: 400,
-          size: 0.8,
+          size: 1.0,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
@@ -58,7 +64,10 @@ export default {
       },
       { 
         type: 'bridge', 
-        lines: ['Things you need to know', 'about your art'],
+        lines: [
+          {type: 'descriptiveText', text: 'Things you need to know'}, 
+          {type: 'descriptiveText', text: 'about your art'},
+        ],
         color: solidColor('#8C8C8C'),
         font: {
           family: 'Muli',
@@ -80,7 +89,10 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#EF4260'),
-        lines: ['4-7pm', 'Athena Hall'],
+        lines: [
+          {type: 'time', text: '4-7pm'}, 
+          {type: 'location', text: 'Athena Hall'},
+        ],
         font: {
           family: 'Bebas Neue',
           weight: 400,

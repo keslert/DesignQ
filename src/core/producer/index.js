@@ -56,8 +56,8 @@ function initGroup(structure, group) {
     if(el.lines) {
       el._computed.lines = el.lines.map(line => ({
         text: Array.isArray(line) 
-          ? line.map(str => transformStr(str, el.font.transform))
-          : transformStr(line, el.font.transform)
+          ? line.map(l => transformStr(l.text, el.font.transform))
+          : transformStr(line.text, el.font.transform)
       })
         
       )

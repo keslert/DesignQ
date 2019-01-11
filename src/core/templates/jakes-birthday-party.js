@@ -9,6 +9,7 @@ export default {
     width: 90,
     sides: {top: true, bottom: true},
     seed: 2,
+    color: '#403B57',
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#F26C46', size: 32},
@@ -22,7 +23,9 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#D7D55F'),
-        lines: ['Come Join Us For A'],
+        lines: [
+          {type: 'eventNameIntro', text: 'Come Join Us For A'},
+        ],
         font: {
           family: 'Muli',
           weight: 700,
@@ -35,7 +38,10 @@ export default {
       },
       { 
         type: 'dominant', 
-        lines: ['Birthday', 'Party'],
+        lines: [
+          {type: 'eventName', text: 'Birthday'}, 
+          {type: 'eventName', text: 'Party'},
+        ],
         color: solidColor('#59D2CC'),
         font: {
           family: 'Chewy',
@@ -50,7 +56,9 @@ export default {
       { 
         type: 'small', 
         color: solidColor('#D7D55F'),
-        lines: ['Jake Is Turning 10!'],
+        lines: [
+          {type: 'descriptiveText', text: 'Jake Is Turning 10!'}
+        ],
         font: {
           family: 'Muli',
           weight: 700,
@@ -72,8 +80,12 @@ export default {
       { 
         type: 'bridge', 
         lines: [
-          ['Sunday', 'April 7 2018', '3PM'],
-          'RSVP to Lilia at 09 102 029',
+          [
+            {type: 'dayOfWeek', text: 'Sunday'}, 
+            {type: 'date', text: 'April 7, 2018', format: 'MMM D, YYYY'}, 
+            {type: 'time', text: '3PM'}
+          ],
+          {type: 'contact', text: 'RSVP to Lilia at 09 102 029'},
         ],
         divider: {
           type: 'line',

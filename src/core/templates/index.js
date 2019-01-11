@@ -1,3 +1,4 @@
+import { default as AnnualHealthFair } from './annual-health-fair';
 import { default as ArtTalk } from './art-talk';
 import { default as BakeSale } from './bake-sale';
 import { default as Barrys } from './barrys';
@@ -6,8 +7,10 @@ import { default as CoconutResurgance } from './coconut-resurgance';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
+import { default as MonroeYardSale } from './monroe-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as PizzaPartyCause } from './pizza-party-cause';
+import { default as TraditionalGrace } from './traditional-grace';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
 import { default as Urbana } from './urbana';
 import { default as YardSale } from './yard-sale';
@@ -30,23 +33,27 @@ export function unitValue(value, unit) {
 }
 
 export function striped(deg, colorA, widthA, colorB, widthB) {
-  const bg = {type: 'solid', color: `repeating-linear-gradient(${deg}deg, ${colorA}, ${colorA} ${widthA}px, ${colorB} ${widthA}px, ${colorB} ${widthA + widthB}px)`}
-  console.log(bg);
-  return bg;
+  return {
+    type: 'solid', 
+    color: `repeating-linear-gradient(${deg}deg, ${colorA}, ${colorA} ${widthA}px, ${colorB} ${widthA}px, ${colorB} ${widthA + widthB}px)`
+  }
 }
 
 export const templates = {
-  // PizzaPartyCause,
-  // Urbana,
-  // ArtTalk,
-  // NewtonDoughnuts,
-  // JakesBirthdayParty,
+  MonroeYardSale,
+  NewtonDoughnuts,
+  PizzaPartyCause,
+  Urbana,
+  ArtTalk,
+  TraditionalGrace,
+  JakesBirthdayParty,
   HappyHour,
-  // BakeSale,
-  // YardSale,
-  // Barrys,
-  // CleanAndGreen,
-  // CoconutResurgance,
-  // HallowHarvest,
-  // ValentinesDayMixer,
+  BakeSale,
+  YardSale,
+  Barrys,
+  CoconutResurgance,
+  ValentinesDayMixer,
+  CleanAndGreen,
+  AnnualHealthFair,
+  HallowHarvest,
 }

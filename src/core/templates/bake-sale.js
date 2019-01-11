@@ -12,7 +12,9 @@ export default {
     elements: [
       {
         type: 'small',
-        lines: ['Back to School'],
+        lines: [
+          {type: 'eventNameIntro', text: 'Back to School'},
+        ],
         color: solidColor('#D786D5'),
         font: {
           family: 'Muli',
@@ -26,7 +28,9 @@ export default {
       },
       {
         type: 'dominant',
-        lines: ['Holiday Bake Sale'],
+        lines: [
+          {type: 'eventName', text: 'Holiday Bake Sale'},
+        ],
         color: solidColor('#D786D5'),
         background: solidColor('#fff'),
         px: 1.5,
@@ -44,7 +48,9 @@ export default {
       },
       {
         type: 'bridge',
-        lines: ['Wednesday at 12pm'],
+        lines: [
+          {type: 'time', text: 'Wednesday at 12pm'}
+        ],
         color: solidColor('#fff'),
         font: {
           family: 'Muli',
@@ -73,7 +79,9 @@ export default {
     elements: [{
       type: 'small',
       color: solidColor('#fff'),
-      lines: ['Proceeds Benefit Spark High School Spirit Squad'],
+      lines: [
+        {type: 'descriptiveText', text: 'Proceeds Benefit Spark High School Spirit Squad'}
+      ],
       font: {
         family: 'Muli',
         weight: 700,
@@ -84,7 +92,5 @@ export default {
         lineHeight: 1.2,
       },
     }]
-    
-    
   }
 }

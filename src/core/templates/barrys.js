@@ -23,7 +23,9 @@ export default {
       },
       {
         type: 'dominant',
-        lines: ['Barry\'s'],
+        lines: [
+          {type: 'brandName', text: 'Barry\'s'}
+        ],
         background: solidColor('#FFD2A7'),
         color: solidColor('#000'),
         font: {
@@ -40,7 +42,9 @@ export default {
       },
       {
         type: 'bridge',
-        lines: ['stationary for the working professional'],
+        lines: [
+          {type: 'descriptiveText', text: 'stationary for the working professional'},
+        ],
         color: solidColor('#fff'),
         font: {
           size: 1.2,
@@ -60,7 +64,9 @@ export default {
       },
       {
         type: 'small',
-        lines: ['Since 1989'],
+        lines: [
+          {type: 'descriptiveText', text: 'Since 1989'},
+        ],
         color: solidColor('#FFD2A7'),
         font: {
           transform: 'uppercase',

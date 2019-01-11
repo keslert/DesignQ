@@ -9,6 +9,7 @@ import {
 
 function ContentGroup({group, style: propsStyle={}}) {
   if(!group) return <div />
+
   const style = {
     position: group.overlay ? 'absolute' : 'relative',
     display: 'flex',

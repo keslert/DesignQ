@@ -25,7 +25,9 @@ export default {
     elements: [
       {
         type: 'small',
-        lines: ['Charlotte, NC'],
+        lines: [
+          {type: 'descriptiveText', text: 'Charlotte, NC'},
+        ],
         color: solidColor('#AA4524'),
         font: {
           family: 'Muli',
@@ -38,7 +40,10 @@ export default {
       },
       {
         type: 'dominant',
-        lines: ['Hallow', 'Harvest'],
+        lines: [
+          {type: 'eventName', text: 'Hallow'},
+          {type: 'eventName', text: 'Harvest'},
+        ],
         color: solidColor('#D06000'),
         skewed: 20,
         font: {
@@ -53,9 +58,9 @@ export default {
         type: 'bridge',
         color: solidColor('#AA4524'),
         lines: [
-          'Join the Annual',
-          'Hallow Harvest this',
-          'Oct. 31, 2019',
+          {type: 'descriptiveText', text: 'Join the Annual'},
+          {type: 'descriptiveText', text: 'Hallow Harvest this'},
+          {type: 'date', text: 'Oct. 31, 2019', format: 'MMM. D, YYYY'},
         ],
         font: {
           family: 'Muli',
@@ -72,7 +77,9 @@ export default {
       },
       {
         type: 'small',
-        lines: ['Barnes Field'],
+        lines: [
+          {type: 'location', text: 'Barnes Field'},
+        ],
         color: solidColor('#D06000'),
         font: {
           family: 'Muli',
