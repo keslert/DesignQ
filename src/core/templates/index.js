@@ -1,3 +1,5 @@
+// https://www.canva.com/templates/flyers/event/
+
 import { default as AnnualHealthFair } from './annual-health-fair';
 import { default as ArtTalk } from './art-talk';
 import { default as BakeSale } from './bake-sale';
@@ -5,6 +7,7 @@ import { default as Barrys } from './barrys';
 import { default as BawresFallFestival } from './bawres-fall-festival';
 import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
+import { default as DessertDash } from './dessert-dash';
 import { default as FallFestival } from './fall-festival';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HappyHour } from './happy-hour';
@@ -46,6 +49,7 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
 }
 
 export const templates = {
+  DessertDash,
   ILoveYouMoreThan,
   ILoveYouSo,
   WeAreLovely,
@@ -65,7 +69,7 @@ export const templates = {
   CoconutResurgance,
   ValentinesDayMixer,
   BawresFallFestival,
-  CleanAndGreen,
   AnnualHealthFair,
+  CleanAndGreen,
   HallowHarvest,
 }

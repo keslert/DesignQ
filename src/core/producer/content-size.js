@@ -2,16 +2,16 @@ import _ from 'lodash';
 
 export function computeContentSize(structure, flyerSize) {
   const bb = {...flyerSize};
-
-  if(structure.content.w) {
-    bb.w = bb.w * structure.content.w;
-  }
   const borderSize = calculateBorderSize(structure.border);
 
   bb.w -= (structure.px * 2) + borderSize.w
   bb.h -= (structure.py * 2) + borderSize.h
   
-  structure.content._computed.maxBB = bb;
+  structure.content._computed.bb = bb;
+  structure.content._computed.contentBB = {
+    h: bb.h,
+    w: bb.w * (structure.content.w || 1),
+  };
 }
 
 export function calculateBorderSize(border) {

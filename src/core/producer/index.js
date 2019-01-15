@@ -25,7 +25,7 @@ export function computeFlyer(structure, size={w: 612, h:792}) {
   computeSpacing(structure);
 
   const height = calculateHeight(structure);
-  const ratio = structure.content._computed.maxBB.h / height;
+  const ratio = structure.content._computed.bb.h / height;
   if(ratio < 1) {
     computeSizes(structure, ratio);
     computeSpacing(structure);

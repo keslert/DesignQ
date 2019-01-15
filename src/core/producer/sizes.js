@@ -3,12 +3,12 @@ import { getTextOffset } from '../utils/text-utils';
 import _ from 'lodash';
 
 export function computeSizes(structure, scaleDominant) {
-  const size = {...structure.content._computed.maxBB}
+  const c = structure.content._computed;
   const dominant = _.find(structure.content.elements, el => el.type === 'dominant');
 
   const dominantSettings = {
-    maxWidth: size.w,
-    maxOptimalWidth: size.w,
+    maxWidth: c.contentBB.w,
+    maxOptimalWidth: c.contentBB.w,
     maxOptimalFontSize: 300,
     minFontSize: MIN_FONT_SIZE,
   }
@@ -20,12 +20,12 @@ export function computeSizes(structure, scaleDominant) {
     computeElementsFontSizes([dominant], dominantSettings);
   }
 
-  computeGroupLogoSize(structure.header, size);
-  computeGroupLogoSize(structure.footer, size);
+  computeGroupLogoSize(structure.header, c.bb);
+  computeGroupLogoSize(structure.footer, c.bb);
 
-  computeGroupSizes(structure.header, dominant, size);
-  computeGroupSizes(structure.footer, dominant, size);
-  computeGroupSizes(structure.content, dominant, size);
+  computeGroupSizes(structure.header, dominant, c.bb);
+  computeGroupSizes(structure.footer, dominant, c.bb);
+  computeGroupSizes(structure.content, dominant, c.contentBB);
 }
 
 function computeGroupSizes(group, dominant, size) {
@@ -64,8 +64,9 @@ function computeElementsFontSizes(elements, settings) {
     
   const maxMeasuredWidth = _.max(elements.map(measureText))
 
-  const optimalFontSize = Math.min(
+  const optimalFontSize = _.clamp(
     FONT_MEASURE_SIZE * (settings.maxOptimalWidth / maxMeasuredWidth),
+    settings.minFontSize,
     settings.maxOptimalFontSize,
   )
 
@@ -77,6 +78,8 @@ function computeElementsFontSizes(elements, settings) {
       FONT_MEASURE_SIZE * (settings.maxWidth / maxMeasuredWidth),
       el.font.size
     );
+
+    // const fontSize = optimalFontSize * el.font.size;
   
     const width = maxMeasuredWidth * (fontSize / FONT_MEASURE_SIZE)
 
@@ -85,12 +88,12 @@ function computeElementsFontSizes(elements, settings) {
       if(el.font.fitToWidth) {
         const _width = el.type === 'dominant' ? width : settings.optimalWidth
         line.fontSize = FONT_MEASURE_SIZE * (_width / line.w);
-        line.h = line.h * (width / line.w);
-        line.w = width;
+        line.h *= (_width / line.w);
+        line.w = _width;
       } else {
         line.fontSize = fontSize;
-        line.h = line.h * (fontSize / FONT_MEASURE_SIZE)
-        line.w = line.w * (fontSize / FONT_MEASURE_SIZE)
+        line.h *= (fontSize / FONT_MEASURE_SIZE)
+        line.w *= (fontSize / FONT_MEASURE_SIZE)
       }
     })
   
