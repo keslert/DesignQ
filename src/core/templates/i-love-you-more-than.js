@@ -9,7 +9,7 @@ export default {
     url: 'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
     filters: {
       brightness: .6,
-    }
+    },
   },
   content: {
     alignX: 'center',

@@ -7,18 +7,25 @@ import { default as Barrys } from './barrys';
 import { default as BawresFallFestival } from './bawres-fall-festival';
 import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
+import { default as ClothingYardSale } from './clothing-yard-sale';
 import { default as DessertDash } from './dessert-dash';
+import { default as DustysHandymanServices } from './dustys-handyman-services'
 import { default as FallFestival } from './fall-festival';
 import { default as HallowHarvest } from './hallow-harvest';
+import { default as HalloweenLanternFest } from './halloween-lantern-fest';
 import { default as HappyHour } from './happy-hour';
 import { default as ILoveYouSo } from './i-love-you-so';
 import { default as ILoveYouMoreThan } from './i-love-you-more-than';
 import { default as InhaleExhale } from './inhale-exhale';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
+import { default as JobFair2019 } from './job-fair-2019';
 import { default as MonroeYardSale } from './monroe-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as PizzaPartyCause } from './pizza-party-cause';
+import { default as SchoolSupplyDrive } from './school-supply-drive';
+import { default as TheHealthIsWealthFair } from './the-health-is-wealth-fair';
 import { default as TraditionalGrace } from './traditional-grace';
+import { default as TurnFatIntoFit } from './turn-fat-into-fit';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
 import { default as Urbana } from './urbana';
 import { default as WeAreLovely } from './we-are-lovely';
@@ -49,6 +56,9 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
 }
 
 export const templates = {
+  TheHealthIsWealthFair,
+  TurnFatIntoFit,
+  HalloweenLanternFest,
   DessertDash,
   ILoveYouMoreThan,
   ILoveYouSo,
@@ -72,4 +82,8 @@ export const templates = {
   AnnualHealthFair,
   CleanAndGreen,
   HallowHarvest,
+  SchoolSupplyDrive,
+  ClothingYardSale,
+  DustysHandymanServices,
+  JobFair2019,
 }

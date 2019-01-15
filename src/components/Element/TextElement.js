@@ -15,6 +15,7 @@ function TextElement({element}) {
     fontStyle: element.font.style,
     lineHeight: 1,
     background: getColorStyle(element.background),
+    borderRadius: getUnitStyle(element.borderRadius),
     color: getColorStyle(element.color),
     padding: `${c.py || 0}px ${c.px || 0}px`,
     margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
