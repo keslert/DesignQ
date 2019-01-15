@@ -57,7 +57,10 @@ export default {
       },
       {
         type: 'bar',
-        background: striped(135, '#f5d300', 6, '#202020', 2),
+        background: {
+          type: 'solid',
+          color: striped(135, '#f5d300', 6, '#202020', 2)
+        },
         width: unitValue(33, '%'),
         height: unitValue(16, 'px'),
         mb: 2,

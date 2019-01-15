@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { solidColor, unitValue, linear } from '.'
 
 export default {
   title: 'Inhale Exhale',

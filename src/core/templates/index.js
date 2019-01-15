@@ -5,6 +5,7 @@ import { default as ArtTalk } from './art-talk';
 import { default as BakeSale } from './bake-sale';
 import { default as Barrys } from './barrys';
 import { default as BawresFallFestival } from './bawres-fall-festival';
+import { default as BikeAroundTheCity } from './bike-around-the-city';
 import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
 import { default as ClothingYardSale } from './clothing-yard-sale';
@@ -49,13 +50,15 @@ export function unitValue(value, unit) {
 }
 
 export function striped(deg, colorA, widthA, colorB, widthB) {
-  return {
-    type: 'solid', 
-    color: `repeating-linear-gradient(${deg}deg, ${colorA}, ${colorA} ${widthA}px, ${colorB} ${widthA}px, ${colorB} ${widthA + widthB}px)`
-  }
+  return `repeating-linear-gradient(${deg}deg, ${colorA}, ${colorA} ${widthA}px, ${colorB} ${widthA}px, ${colorB} ${widthA + widthB}px)`
+}
+
+export function linear(deg, colorA, colorB) {
+  return `linear-gradient(${deg}deg, ${colorA}, ${colorB})`;
 }
 
 export const templates = {
+  BikeAroundTheCity,
   TheHealthIsWealthFair,
   TurnFatIntoFit,
   HalloweenLanternFest,

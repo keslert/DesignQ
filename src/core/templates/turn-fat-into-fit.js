@@ -16,7 +16,7 @@ export default {
   border: {
     width: 8,
     sides: {left: true, right: true},
-    color: striped(0, '#fb7c00', 10, '#303030', 10).color,
+    color: striped(0, '#fb7c00', 10, '#303030', 10),
   },
   content: {
     alignY: 'center',

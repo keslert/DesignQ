@@ -24,7 +24,7 @@ export default {
           style: 'normal',
           transform: 'normal',
           lineHeight: 1.2,
-          letterSpacing: .1,
+          letterSpacing: 0,
         },
         mb: 1,
       },
