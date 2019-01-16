@@ -45,7 +45,7 @@ export default {
         color: solidColor('#faa329'),
         font: {
           family: 'Londrina Sketch',
-          weight: 400,
+          weight: 700,
           size: 1,
           style: 'normal',
           transform: 'uppercase',

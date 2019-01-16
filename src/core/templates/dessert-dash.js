@@ -1,4 +1,4 @@
-import { striped, solidColor, unitValue } from '.'
+import { linear, solidColor, unitValue } from '.'
 
 export default {
   title: 'Dessert Dash',

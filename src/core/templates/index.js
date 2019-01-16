@@ -21,6 +21,7 @@ import { default as InhaleExhale } from './inhale-exhale';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as JobFair2019 } from './job-fair-2019';
 import { default as MonroeYardSale } from './monroe-yard-sale';
+import { default as NeonYardSale } from './neon-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as PizzaPartyCause } from './pizza-party-cause';
 import { default as SchoolSupplyDrive } from './school-supply-drive';
@@ -28,6 +29,7 @@ import { default as TheHealthIsWealthFair } from './the-health-is-wealth-fair';
 import { default as TraditionalGrace } from './traditional-grace';
 import { default as TurnFatIntoFit } from './turn-fat-into-fit';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
+import { default as ValentinesSale } from './valentines-sale';
 import { default as Urbana } from './urbana';
 import { default as WeAreLovely } from './we-are-lovely';
 import { default as YardSale } from './yard-sale';
@@ -57,7 +59,13 @@ export function linear(deg, colorA, colorB) {
   return `linear-gradient(${deg}deg, ${colorA}, ${colorB})`;
 }
 
+export function splitColor(deg, colorA, colorB) {
+  return `linear-gradient(${deg}deg, ${colorA}, ${colorA} 50%, ${colorB} 50%)`;
+}
+
 export const templates = {
+  NeonYardSale,
+  ValentinesSale,
   BikeAroundTheCity,
   TheHealthIsWealthFair,
   TurnFatIntoFit,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getColorStyle, getUnitStyle } from '../../core/utils/render-utils';
+import { getColorStyle, getUnitStyle, getBorderStyles } from '../../core/utils/render-utils';
 import ListDivider from '../ListDivider';
 
 const debug = false;
@@ -14,6 +14,7 @@ function TextElement({element}) {
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
+    ...getBorderStyles(element.border),
     background: getColorStyle(element.background),
     borderRadius: getUnitStyle(element.borderRadius),
     color: getColorStyle(element.color),

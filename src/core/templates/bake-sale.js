@@ -32,11 +32,11 @@ export default {
           {type: 'eventName', text: 'Holiday Bake Sale'},
         ],
         color: solidColor('#D786D5'),
-        background: solidColor('#fff'),
+        // background: solidColor('#fff'),
         px: 1.5,
         py: 1.1,
         font: {
-          family: 'Bebas Neue',
+          family: 'Muli',
           weight: 700,
           size: 1,
           fitToWidth: true,

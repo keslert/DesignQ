@@ -4,8 +4,8 @@ import { getBackgroundStyle, getUnitStyle } from '../../core/utils/render-utils'
 function ImageElement({element}) {
   const c = element._computed;
   const style = {
-    width: `${c.w ? `${c.w}px` : '100%'}`,
-    height: `${c.h ? `${c.h}px` : 'auto'}`,
+    width: c.w ? `${c.w}px` : `calc('100% - ${c.mx * 2}px)`,
+    height: c.h ? `${c.h}px` : 'auto',
     ...getBackgroundStyle(element),
     // background: `url(${element.src})`,
     // backgroundSize: `${element.size ? `${element.size * 100}px` : 'cover'}`,
@@ -13,9 +13,22 @@ function ImageElement({element}) {
     flex: element.flex,
     margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
   }
-  if(element.bleed) {
-    style.marginLeft = element.px;
-    style.marginRight = element.px;
+  if(element.bleed === 'full' || (element.bleed === 'left' && element.bleed === 'right')) {
+    style.marginLeft = 0;
+    style.marginRight = 0;
+    style.width = '100%';
+    style.paddingLeft = `${c.mx}px`;
+    style.paddingRight = `${c.mx}px`;
+  }
+  if(element.bleed === 'left') {
+    style.marginLeft = 0;
+    style.width = `calc(100% - ${c.mx}px)`;
+    style.paddingLeft = `${c.mx}px`;
+  }
+  if(element.bleed === 'right') {
+    style.marginRight = 0;
+    style.width = `calc(100% - ${c.mx}px)`;
+    style.paddingRight = `${c.mx}px`;
   }
 
 

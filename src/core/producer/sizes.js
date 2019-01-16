@@ -51,7 +51,14 @@ function computeGroupSizes(group, dominant, size) {
 
   // TODO: Handle better...
   _.forEach(types.image, img => {
-    img._computed.h = size.h * .3;
+    img._computed.w = size.w;
+    if(img.aspectRatio) {
+      img._computed.h = size.w * img.aspectRatio;
+    } else {
+      img._computed.h = size.h * .3;
+    }
+
+
   })
 
   _.forEach(types.bar, bar => {
