@@ -74,4 +74,10 @@ const FONT_DETAILS = {
     ascenderOffsets: [-.142, -.335],
     descenderOffsets: [-.2, -.13],
   },
+  'Playfair Display': {
+    ascenders: defaultAscenders,
+    descenders: defaultDescenders,
+    ascenderOffsets: [-.142, -.335],
+    descenderOffsets: [-.2, -.13],
+  },
 }

@@ -10,15 +10,14 @@ export default {
     filters: {
       grayscale: 1,
     }
-    // color: '#00C9CC',
-    // zoom: 1.4,
-    // y: .0,
   },
   content: {
     w: .6,
     background: solidColor('#202020'),
-    // width: unitValue(100, '%'),
     alignX: 'center',
+    alignY: 'center',
+    textAlign: 'center',
+    bleed: { all: true },
     elements: [
       {
         type: 'dominant',

@@ -18,12 +18,13 @@ export default {
     w: .7,
     alignY: 'center',
     textAlign: 'left',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 
         color: solidColor('#fff'),
         background: solidColor('#8F5B68'),
-        bleed: 'left',
+        bleed: { left: true },
         lines: [
           {type: 'descriptiveText', text: 'Superfood Corner'}
         ],
@@ -81,10 +82,10 @@ export default {
     ],
   },
   footer: {
-    type: 'basic',
     overlay: true,
     width: unitValue(100, '%'),
     textAlign: 'left',
+    bleed: { all: true },
     elements: [{
       type: 'small',
       lines: [

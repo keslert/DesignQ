@@ -7,7 +7,8 @@ export default {
   background: solidColor('#403B57'),
   border: {
     width: 90,
-    sides: {top: true, bottom: true},
+    top: true, 
+    bottom: true,
     seed: 2,
     color: '#403B57',
     layout: 'confetti',
@@ -19,6 +20,9 @@ export default {
   },
   content: {
     alignY: 'center',
+    alignX: 'center',
+    textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 

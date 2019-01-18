@@ -38,31 +38,32 @@ export function getUnitStyle(u) {
   return u.value + u.unit;
 }
 
+export function getWidth(width, {ml, mr}) {
+  return `calc(${getUnitStyle(width)} - ${ml + mr}px)`
+}
+
 export function getBorderStyles(border) {
   if(!border) return {};
 
   const value = `${border.width}px solid ${border.color || 'transparent'}`;
-  if(border.sides.all) {
-    return {border: value}
-  }
+
   return {
-    borderTop: border.sides.top ? value : null,
-    borderBottom: border.sides.bottom ? value : null,
-    borderLeft: border.sides.left ? value : null,
-    borderRight: border.sides.right ? value : null,
+    borderTop: border.top ? value : null,
+    borderBottom: border.bottom ? value : null,
+    borderLeft: border.left ? value : null,
+    borderRight: border.right ? value : null,
   };
 }
 
 export function getBorderPadding(border) {
   if(!border) return {};
 
-  const s = border.sides;
   const value = `${border.width}px`;
 
   return {
-    paddingTop: s.all || s.top ? value : null,
-    paddingBottom: s.all || s.bottom ? value : null,
-    paddingLeft: s.all || s.left ? value : null,
-    paddingRight: s.all || s.right ? value : null,
+    paddingTop: border.top ? value : null,
+    paddingBottom: border.bottom ? value : null,
+    paddingLeft: border.left ? value : null,
+    paddingRight: border.right ? value : null,
   };
 }

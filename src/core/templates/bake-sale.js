@@ -6,6 +6,7 @@ export default {
   py: 36,
   background: solidColor('#030F5B'),
   content: {
+    bleed: {all: true },
     background: solidColor('#030F5B'),
     width: unitValue(100, '%'),
     flex: 1,
@@ -64,18 +65,16 @@ export default {
       },
       {
         type: 'image',
-        flex: 1,
-        bleed: 'full',
         url: 'https://images.unsplash.com/photo-1513519683267-4ee6761728ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
-        filters: [],
+        bleed: {all: true},
+        flex: 1,
       },
     ]
   },
   footer: {
+    bleed: {all: true },
     background: solidColor('#D978C9'),
     width: unitValue(100, '%'),
-    bleed: 'full',
-    type: 'basic',
     elements: [{
       type: 'small',
       color: solidColor('#fff'),

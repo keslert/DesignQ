@@ -10,6 +10,7 @@ export default {
     alignY: 'flex-end',
     alignX: 'center',
     textAlign: 'left',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 

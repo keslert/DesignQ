@@ -7,9 +7,7 @@ export default {
   border: {
     width: 10,
     color: striped(45, '#000', 60, '#fff', 60),
-    sides: {
-      all: true,
-    }
+    all: true,
   },
   background: {
     type: 'image',
@@ -21,6 +19,7 @@ export default {
     flex: 1,
     alignX: 'flex-end',
     alignY: 'center',
+    bleed: {all: true, border: true},
     elements: [
       {
         type: 'small',

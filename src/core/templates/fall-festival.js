@@ -10,6 +10,9 @@ export default {
   },
   content: {
     alignY: 'center',
+    alignX: 'center',
+    textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'dominant', 
@@ -70,10 +73,10 @@ export default {
     ],
   },
   footer: {
-    type: 'basic',
     overlay: false,
     width: unitValue(100, '%'),
     background: solidColor('#d26d32'),
+    bleed: { all: true },
     elements: [{
       type: 'small',
       lines: [
@@ -91,10 +94,10 @@ export default {
     }]
   },
   header: {
-    type: 'basic',
     overlay: false,
     width: unitValue(100, '%'),
     background: solidColor('#d26d32'),
+    bleed: { all: true },
     elements: [{
       type: 'small',
       lines: [

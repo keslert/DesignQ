@@ -8,13 +8,15 @@ export default {
   background: solidColor('#1B5C50'),
   border: {
     width: 120,
-    sides: {top: true, bottom: true},
+    top: true, 
+    bottom: true,
     color: '#B9E6BF',
   },
   content: {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 

@@ -17,6 +17,7 @@ export default {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 
@@ -61,7 +62,7 @@ export default {
         background: solidColor('transparent'),
         border: {
           width: 2,
-          sides: {all: true},
+          all: true,
           color: '#00f8e6',
         },
         mb: 1.25,

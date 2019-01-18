@@ -6,16 +6,12 @@ export default {
   px: 36,
   py: 36,
   background: solidColor('#eaeff0'),
-  // border: {
-  //   width: 80,
-  //   sides: {bottom: true, right: true},
-  //   color: '#506974'
-  // },
   content: {
     w: .6,
     alignY: 'center',
     alignX: 'left',
     textAlign: 'left',
+    bleed: { all: true },
     elements: [
       { 
         type: 'dominant', 

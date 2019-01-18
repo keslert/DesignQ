@@ -1,64 +1,81 @@
 import { getTextOffset } from '../utils/text-utils';
-
 import _ from 'lodash';
 
 export function computeSizes(structure, scaleDominant) {
-  const c = structure.content._computed;
   const dominant = _.find(structure.content.elements, el => el.type === 'dominant');
 
+  computeDominant(structure, dominant, scaleDominant);
+
+  computeGroupLogoSize(structure.header);
+  computeGroupLogoSize(structure.footer);
+
+  computeGroupSizes(structure.header, dominant);
+  computeGroupSizes(structure.footer, dominant);
+  computeGroupSizes(structure.content, dominant);
+}
+
+function computeDominant(structure, dominant, scale) {
+  if(scale) {
+    scaleElementFontSizes(dominant, scale);
+    return;
+  }
+
+  const bb = structure.content._computed.bb;
   const dominantSettings = {
-    maxWidth: c.contentBB.w,
-    maxOptimalWidth: c.contentBB.w,
+    maxWidth: bb.w,
+    maxOptimalWidth: bb.w,
     maxOptimalFontSize: 300,
     minFontSize: MIN_FONT_SIZE,
   }
-
-  if(scaleDominant) {
-    scaleElementFontSizes(dominant, scaleDominant);
-  } 
-  else {
-    computeElementsFontSizes([dominant], dominantSettings);
-  }
-
-  computeGroupLogoSize(structure.header, c.bb);
-  computeGroupLogoSize(structure.footer, c.bb);
-
-  computeGroupSizes(structure.header, dominant, c.bb);
-  computeGroupSizes(structure.footer, dominant, c.bb);
-  computeGroupSizes(structure.content, dominant, c.contentBB);
+  computeElementsFontSizes([dominant], dominantSettings);
 }
 
-function computeGroupSizes(group, dominant, size) {
+function computeGroupSizes(group, dominant) {
   if(!group) return;
+
+
+  const bb = group._computed.bb;
 
   const types = _.groupBy(group.elements, el => el.type);
   
-  const smallsSettings = {
-    maxWidth: size.w,
-    maxOptimalWidth: Math.min(size.w, dominant._computed.w * 1.05), // TODO: Why 1.05
-    maxOptimalFontSize: dominant._computed.fontSize * .25,
+  const smallSettings = {
+    maxWidth: bb.w,
+    maxOptimalWidth: Math.min(bb.w, dominant._computed.w * 1.05), // TODO: Why 1.05
+    // maxOptimalFontSize: dominant._computed.fontSize * .25,
+    maxOptimalFontSize: Math.log(dominant._computed.fontSize) * 6, // TODO: This needs work.
     minFontSize: MIN_FONT_SIZE,
     optimalWidth: dominant._computed.w,
   }
-  computeElementsFontSizes(types.small, smallsSettings)
-    
+  computeElementsFontSizes(types.small, smallSettings)
   const smallSize = types.small && types.small[0]._computed.fontSize
-  const bridgesSettings = {
-    ...smallsSettings,
-    maxOptimalFontSize: (smallSize || smallsSettings.maxOptimalFontSize) * 1.25,
+    
+  
+  const paragraphSettings = {
+    ...smallSettings,
+    maxOptimalFontSize: (smallSize || smallSettings.maxOptimalFontSize) * 0.9,
   }
-  computeElementsFontSizes(types.bridge, bridgesSettings)
+  computeElementsFontSizes(types.paragraph, paragraphSettings)
+  
+  const bridgeSettings = {
+    ...smallSettings,
+    maxOptimalFontSize: (smallSize || smallSettings.maxOptimalFontSize) * 1.25,
+  }
+  computeElementsFontSizes(types.bridge, bridgeSettings)
+
+  const headingSettings = {
+    ...bridgeSettings,
+  }
+  computeElementsFontSizes(types.heading, headingSettings)
+
 
   // TODO: Handle better...
   _.forEach(types.image, img => {
-    img._computed.w = size.w;
+    img._computed.w = bb.w;
     if(img.aspectRatio) {
-      img._computed.h = size.w * img.aspectRatio;
+      img._computed.h = bb.w * img.aspectRatio;
     } else {
-      img._computed.h = size.h * .3;
+      img._computed.h = bb.h * .3;
     }
-
-
   })
 
   _.forEach(types.bar, bar => {
@@ -118,18 +135,18 @@ export function scaleElementFontSizes(el, scale) {
     line.w *= scale;
   })
   el._computed.fontSize *= scale;
-  el._computed.h = el._computed.py * 2 + el._computed.h * scale;
+  el._computed.h = el._computed.pt + el._computed.pb + el._computed.h * scale;
   el._computed.w = el._computed.w * scale;
 }
 
-function computeGroupLogoSize(group, size) {
+function computeGroupLogoSize(group) {
   if(!group || !group.elements) return;
 
   const logo = _.find(group.elements, el => el.type === 'logo');
   if(logo) {
     const multiplier = Math.min(
       150 / logo.meta.height,
-      size.w / 4 / logo.meta.width,
+      group._computed.bb.w / 4 / logo.meta.width,
     ) * (logo.size || 1)
 
     logo._computed.w = logo.meta.width * multiplier;

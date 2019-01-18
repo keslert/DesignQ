@@ -7,7 +7,8 @@ export default {
   background: solidColor('#191e3c'),
   border: {
     width: 100,
-    sides: {top: true, bottom: true},
+    top: true, 
+    bottom: true,
     seed: 2,
     color: '#191e3c',
     layout: 'confetti',
@@ -20,6 +21,7 @@ export default {
   content: {
     alignY: 'center',
     width: unitValue(100, '%'),
+    bleed: { all: true },
     elements: [
       {
         type: 'small', 

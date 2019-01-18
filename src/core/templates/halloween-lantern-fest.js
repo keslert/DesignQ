@@ -8,7 +8,8 @@ export default {
   background: solidColor('#4d3a6e'),
   border: {
     width: 150,
-    sides: {top: true, bottom: true},
+    top: true, 
+    bottom: true,
     seed: 2,
     color: '#4d3a6e',
     layout: 'confetti',
@@ -18,7 +19,9 @@ export default {
     ],
   },
   content: {
+    alignX: 'center',
     alignY: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 

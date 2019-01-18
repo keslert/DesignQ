@@ -12,8 +12,10 @@ export default {
   },
   content: {
     width: unitValue(100, '%'),
-    alignX: 'center',
     flex: 1,
+    alignX: 'center',
+    alignY: 'flex-start',
+    bleed: { all: true },
     elements: [
       {
         type: 'small',
@@ -58,7 +60,7 @@ export default {
       {
         type: 'image',
         flex: 1,
-        bleed: 'full',
+        bleed: { all: true },
         url: '/beer-pint.png',
         y: 0.0,
         filters: [],
@@ -66,7 +68,7 @@ export default {
     ]
   },
   header: {
-    type: 'basic',
+    bleed: { all: true },
     elements: [{
       type: 'logo',
       url: '/taverns.png',

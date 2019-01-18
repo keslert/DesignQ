@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import { scaleElementFontSizes } from './sizes';
 
+const MAX_MARGIN_BOTTOM = 40
+
 export function computeSpacing(structure) {
   computeGroupElementSpacing(structure.header, structure, {first: true});
   computeGroupElementSpacing(structure.footer, structure, {last: true});
@@ -11,17 +13,46 @@ function computeGroupElementSpacing(group, structure, options) {
   if(!group) return;
 
   const elements = group.elements;
+  const border = structure.border._computed;
+
+  
+  const bleed = group.bleed || {};
+  group._computed.ml = bleed && bleed.left ? bleed.border ? 0 : border.l : structure.pl;
+  group._computed.mr = bleed && bleed.right ? bleed.border ? 0 : border.r : structure.pr;
+  group._computed.mt = bleed && bleed.top ? bleed.border ? 0 : border.t : structure.pt;
+  group._computed.mb = bleed && bleed.bottom ? bleed.border ? 0 : border.b : structure.pb;
 
   elements.forEach(el => {
-    if(el.lines && el.background) {
+    const c = el._computed;
+    c.pl = c.pr = c.pt = c.pb = 0;
+    c.mt = c.mb = 0;
+    
+    c.ml = structure.px * (group.px || group.pl || 1);
+    c.mr = structure.px * (group.px || group.pr || 1);
+    
+    if(el.lines && el.background) { 
+      // We only consider el.{px, py} when it has a background
       // TODO: Why this? Relative padding, but more for smaller items.
-      el._computed.px = el._computed.fontSize / Math.log(el._computed.fontSize * .3);
-      el._computed.py = el._computed.fontSize / Math.log(el._computed.fontSize * .2);
-      if(el.px) el._computed.px *= el.px;
-      if(el.py) el._computed.py *= el.py;
+      c.pl = c.pr = c.fontSize / Math.log(c.fontSize * .3);
+      c.pt = c.pb = c.fontSize / Math.log(c.fontSize * .2);
+      
+      c.pl *= el.pl;
+      c.pr *= el.pr;
+      c.pt *= el.pt;
+      c.pb *= el.pb;
 
-      const scale = (el._computed.w - el._computed.px * 2) / el._computed.w;
+      const scale = (c.w - c.pr - c.pl) / c.w;
       scaleElementFontSizes(el, scale);
+    }
+  })
+
+  elements.forEach(el => {
+    const c = el._computed;
+    if(el.bleed) {
+      if(el.bleed.left) {c.pl += c.ml; c.ml = 0};
+      if(el.bleed.right) {c.pr += c.mr; c.mr = 0};
+      if(el.bleed.top) {c.pt += c.mt; c.mt = 0};
+      if(el.bleed.bottom) {c.pb += c.mb; c.mb = 0};
     }
   })
 
@@ -34,14 +65,6 @@ function computeGroupElementSpacing(group, structure, options) {
     return res;
   }, [[elements[0]]])
 
-  // TODO: I don't think this is 100% accurate.
-  // const images = _.filter(elements, el => el.type === 'image');
-  // images.forEach(img => {
-  //   img._computed.mx = structure.px;
-  //   img._computed.mb = structure.
-  // })
-
-  
   const lastSubGroupIndex = subGroups.length - 1;
   subGroups.forEach((subGroup, i) => {
     const firstItem = subGroup[0];
@@ -49,13 +72,13 @@ function computeGroupElementSpacing(group, structure, options) {
     const isInlineGroup = isInlineElement(firstItem);
     if(isInlineGroup) {
       const largestFontSize = _.maxBy(subGroup, item => item._computed.fontSize)._computed.fontSize;
-      const marginBottom = Math.min(
-        structure.px, 
+      const mb = Math.min(
+        MAX_MARGIN_BOTTOM,
         largestFontSize / Math.log(largestFontSize * .3)
-      );
+      ) * (group.mb || 1);
 
       subGroup.forEach(item => {
-        item._computed.mb = marginBottom * (item.mb || 1);
+        item._computed.mb = mb * (item.mb || 1);
       });
       
       if((options.first && i === 0) || group.background) {
@@ -71,19 +94,28 @@ function computeGroupElementSpacing(group, structure, options) {
     } 
   })
 
+  elements.forEach(el => {
+    const c = el._computed;
+    if(el.overlap) {
+      c.mt = -c.h * el.overlap;
+    }
+  })
+
 }
 
 const INLINE_ELEMENTS = {
   dominant: true,
   small: true,
+  paragraph: true,
+  heading: true,
   bridge: true,
   bar: true,
   logo: true,
 }
 function isInlineElement(el) {
-  return INLINE_ELEMENTS[el.type] || (el.type === 'image' && el.bleed !== 'full')
+  return INLINE_ELEMENTS[el.type] || !isFullBleedImage(el)
 }
 
 function isFullBleedImage(el) {
-  return el.type === 'image' && el.bleed === 'full';
+  return el.type === 'image' && el.bleed && (el.bleed.left && el.bleed.right);
 }

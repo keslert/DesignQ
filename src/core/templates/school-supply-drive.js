@@ -5,10 +5,10 @@ export default {
   tags: ['event', 'school'],
   px: 72,
   py: 48,
-
   content: {
     alignX: 'center',
     alignY: 'center',
+    bleed: { all: true },
     elements: [
       {
         type: 'small',

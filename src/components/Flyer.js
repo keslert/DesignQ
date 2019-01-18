@@ -3,8 +3,6 @@ import {
   getBackgroundStyle, 
   getBorderStyles, 
   getBorderPadding,
-  getUnitStyle,
-  textAlignToFlexAlign,
 } from '../core/utils/render-utils';
 import ContentGroup from './ContentGroup';
 import Border from './Border';
@@ -18,7 +16,7 @@ function Flyer({flyer}) {
     userSelect: 'none',
     overflow: 'hidden',
     background: '#fff',
-    ...getBorderPadding(flyer.border),
+    // ...getBorderPadding(flyer.border),
     // ...getFilterStyle?
   }
 
@@ -33,10 +31,10 @@ function Flyer({flyer}) {
 
   const bgStyle = {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
+    left: `${flyer.border._computed.l}px`,
+    right: `${flyer.border._computed.r}px`,
+    top: `${flyer.border._computed.t}px`,
+    bottom: `${flyer.border._computed.b}px`,
     ...getBackgroundStyle(flyer.background),
   }
 
@@ -46,8 +44,6 @@ function Flyer({flyer}) {
     flexDirection: 'column', 
     alignItems: 'flex-start', 
     justifyContent: flyer.content.alignY || 'center',
-    // marginTop: flyer.border && (flyer.border.sides.top || flyer.border.sides.all) ? `${flyer.border.width}px` : 0,
-    // marginBottom: flyer.border && (flyer.border.sides.bottom || flyer.border.sides.all) ? `${flyer.border.width}px` : 0,
   }
 
   const overlayStyle = {

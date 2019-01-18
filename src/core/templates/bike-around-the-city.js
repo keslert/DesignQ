@@ -16,6 +16,7 @@ export default {
   content: {
     alignY: 'center',
     alignX: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'dominant', 

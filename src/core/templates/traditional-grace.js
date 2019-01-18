@@ -11,6 +11,8 @@ export default {
   content: {
     textAlign: 'left',
     alignY: 'flex-end',
+    alignX: 'left',
+    bleed: { all: true },
     elements: [
       {
         type: 'small',

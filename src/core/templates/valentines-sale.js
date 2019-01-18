@@ -12,6 +12,7 @@ export default {
     // flex: 1,
     alignX: 'left',
     alignY: 'center',
+    bleed: { all: true },
     elements: [
       {
         type: 'dominant',
@@ -32,10 +33,8 @@ export default {
       },
       { 
         type: 'image',
-        // flex: 1,
         url: 'https://images.unsplash.com/photo-1505249961684-d696cc2bb301?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
         aspectRatio: 1,
-        // bleed: 'full',
       },
       {
         type: 'bridge',

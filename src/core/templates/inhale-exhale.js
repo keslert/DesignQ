@@ -20,6 +20,7 @@ export default {
     w: .7,
     alignY: 'center',
     textAlign: 'left',
+    bleed: {all: true },
     elements: [
       { 
         type: 'dominant', 
@@ -55,11 +56,11 @@ export default {
     ],
   },
   footer: {
-    type: 'basic',
     overlay: false,
-    width: unitValue(100, '%'),
     background: solidColor('#49065f'),
     textAlign: 'center',
+    width: unitValue(100, '%'),
+    bleed: {all: true },
     elements: [{
       type: 'small',
       lines: [
@@ -80,6 +81,7 @@ export default {
   header: {
     type: 'basic',
     overlay: false,
+    bleed: {all: true },
     width: unitValue(100, '%'),
     textAlign: 'right',
     elements: [{

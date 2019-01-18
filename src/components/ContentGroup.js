@@ -5,11 +5,13 @@ import {
   getBorderStyles, 
   getUnitStyle,
   textAlignToFlexAlign,
+  getWidth,
 } from '../core/utils/render-utils';
 
-function ContentGroup({group, style: propsStyle={}}) {
+function ContentGroup({group, style: extraStyle={}}) {
   if(!group) return <div />
 
+  const c = group._computed;
   const style = {
     position: group.overlay ? 'absolute' : 'relative',
     display: 'flex',
@@ -18,11 +20,12 @@ function ContentGroup({group, style: propsStyle={}}) {
     justifyContent: group.alignY,
     flexDirection: 'column',
     textAlign: group.textAlign || 'center',
-    width: getUnitStyle(group.width),
+    width: getWidth(group.width, c),
     flex: group.flex,
+    margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
     ...getBackgroundStyle(group.background),
     ...getBorderStyles(group.border),
-    ...propsStyle,
+    ...extraStyle,
   }
 
   return (

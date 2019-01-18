@@ -1,5 +1,6 @@
 // https://www.canva.com/templates/flyers/event/
 
+import { default as AnnualBeachTownFoodFest } from './annual-beechtown-food-fest';
 import { default as AnnualHealthFair } from './annual-health-fair';
 import { default as ArtTalk } from './art-talk';
 import { default as BakeSale } from './bake-sale';
@@ -25,6 +26,7 @@ import { default as NeonYardSale } from './neon-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as PizzaPartyCause } from './pizza-party-cause';
 import { default as SchoolSupplyDrive } from './school-supply-drive';
+import { default as SummerInBlackAndWhite } from './summer-in-black-and-white';
 import { default as TheHealthIsWealthFair } from './the-health-is-wealth-fair';
 import { default as TraditionalGrace } from './traditional-grace';
 import { default as TurnFatIntoFit } from './turn-fat-into-fit';
@@ -64,6 +66,10 @@ export function splitColor(deg, colorA, colorB) {
 }
 
 export const templates = {
+  BakeSale,
+  PizzaPartyCause,
+  AnnualBeachTownFoodFest,
+  SummerInBlackAndWhite,
   NeonYardSale,
   ValentinesSale,
   BikeAroundTheCity,
@@ -75,7 +81,6 @@ export const templates = {
   ILoveYouSo,
   WeAreLovely,
   NewtonDoughnuts,
-  PizzaPartyCause,
   Urbana,
   ArtTalk,
   FallFestival,
@@ -83,7 +88,6 @@ export const templates = {
   JakesBirthdayParty,
   HappyHour,
   MonroeYardSale,
-  BakeSale,
   YardSale,
   Barrys,
   InhaleExhale,

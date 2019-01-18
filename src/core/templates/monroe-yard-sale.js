@@ -6,7 +6,7 @@ export default {
   py: 36,
   border: {
     width: 120,
-    sides: {top: true},
+    top: true,
     seed: 2,
     layout: 'confetti',
     items: [
@@ -16,6 +16,8 @@ export default {
   content: {
     width: unitValue(100, '%'),
     alignX: 'center',
+    alignY: 'center',
+    bleed: { all: true },
     elements: [
       {
         type: 'dominant',

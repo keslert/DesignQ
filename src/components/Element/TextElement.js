@@ -8,42 +8,20 @@ function TextElement({element}) {
 
   const style = {
     position: 'relative',
-    width: `calc(${getUnitStyle(element.width)} - ${c.mx * 2}px)`,
-    // fontSize: c.fontSize,
+    // width: `calc(${getUnitStyle(element.width)} - ${c.mx * 2}px)`,
+    padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
+    margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
-    ...getBorderStyles(element.border),
     background: getColorStyle(element.background),
     borderRadius: getUnitStyle(element.borderRadius),
     color: getColorStyle(element.color),
-    padding: `${c.py || 0}px ${c.px || 0}px`,
-    margin: `${c.mt || 0}px ${c.mx}px ${c.mb}px`,
-  }
-  if(element.overlap) {
-    style.marginTop = `-${c.h * element.overlap}px`;
-  }
-  if(element.bleed === 'full' || (element.bleed === 'left' && element.bleed === 'right')) {
-    style.marginLeft = 0;
-    style.marginRight = 0;
-    style.width = '100%';
-    style.paddingLeft = `${c.mx}px`;
-    style.paddingRight = `${c.mx}px`;
-  }
-  if(element.bleed === 'left') {
-    style.marginLeft = 0;
-    style.width = `calc(100% - ${c.mx}px)`;
-    style.paddingLeft = `${c.mx}px`;
-  }
-  if(element.bleed === 'right') {
-    style.marginRight = 0;
-    style.width = `calc(100% - ${c.mx}px)`;
-    style.paddingRight = `${c.mx}px`;
+    ...getBorderStyles(element.border),
   }
 
-  const spacerStyle = { 
-    // background: 'red',
+  const spacerStyle = {
     height: `${(element.font.lineHeight - 1) * element._computed.fontSize}px`,
   }
   const lastIndex = element.lines.length - 1;

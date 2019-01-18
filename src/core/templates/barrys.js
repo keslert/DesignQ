@@ -13,11 +13,12 @@ export default {
     alignX: 'left',
     alignY: 'center',
     background: solidColor('#000'),
+    bleed: {all: true },
     elements: [
       { 
         type: 'image',
         flex: 1,
-        bleed: 'full',
+        bleed: {all: true},
         url: 'https://images.unsplash.com/photo-1454587399083-b11b22f48fb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
         filters: [],
       },

@@ -7,6 +7,7 @@ export default {
   py: 36,
   background: solidColor('#e54049'),
   content: {
+    bleed: {all: true },
     background: solidColor('#e54049'),
     textAlign: 'left',
     alignY: 'flex-end',
@@ -17,7 +18,7 @@ export default {
         type: 'image',
         url: 'https://images.unsplash.com/photo-1467627003363-f047333cbf44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
         flex: 1,
-        // bleed: 'full',
+        bleed: {all: true},
       },
       {
         type: 'small',

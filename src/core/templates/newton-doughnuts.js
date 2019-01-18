@@ -13,7 +13,10 @@ export default {
   },
   content: {
     width: unitValue(100, '%'),
-    // alignX: 'center',
+    alignX: 'center',
+    alignY: 'center',
+    textAlign: 'center',
+    bleed: { all: true },
     flex: 1,
     elements: [
       {
@@ -61,7 +64,9 @@ export default {
     ]
   },
   footer: {
-    type: 'basic',
+    textAlign: 'center',
+    alignX: 'center',
+    bleed: { all: true },
     elements: [{
       type: 'logo',
       url: '/newton-doughnuts.png',

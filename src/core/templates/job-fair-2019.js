@@ -7,12 +7,14 @@ export default {
   background: solidColor('#fff'),
   border: {
     color: '#ddd1e2',
-    sides: {top: true, bottom: true},
+    top: true, 
+    bottom: true,
     width: 80,
   },
   content: {
     alignY: 'center',
     alignX: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 

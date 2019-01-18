@@ -13,6 +13,7 @@ export default {
     background: solidColor('rgba(0,0,0,.9'),
     alignX: 'center',
     alignY: 'center',
+    bleed: { all: true },
     elements: [
       {
         type: 'dominant',
@@ -75,8 +76,7 @@ export default {
   footer: {
     background: solidColor('#000'),
     width: unitValue(100, '%'),
-    bleed: 'full',
-    type: 'basic',
+    bleed: { all: true },
     elements: [{
       type: 'small',
       color: solidColor('#fff'),

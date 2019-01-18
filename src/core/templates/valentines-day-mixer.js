@@ -6,7 +6,7 @@ export default {
   py: 36,
   border: {
     width: 12,
-    sides: {all: true},
+    all: true,
     color: '#fff',
   },
   content: {
@@ -16,12 +16,13 @@ export default {
     alignY: 'center',
     textAlign: 'center',
     background: solidColor('#31302c'),
+    bleed: {all: true},
     flex: 1,
     elements: [
       { 
         type: 'image',
         flex: 1,
-        bleed: 'full',
+        bleed: {all: true},
         url: 'https://images.unsplash.com/photo-1484678002699-0e7dc5fa52c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
         filters: {
           sepia: 0.3,

@@ -15,12 +15,15 @@ export default {
   },
   border: {
     width: 8,
-    sides: {left: true, right: true},
+    left: true, 
+    right: true,
     color: striped(0, '#fb7c00', 10, '#303030', 10),
   },
   content: {
     alignY: 'center',
     alignX: 'center',
+    textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'dominant', 

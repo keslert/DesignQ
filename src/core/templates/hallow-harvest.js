@@ -7,7 +7,7 @@ export default {
   background: solidColor('#150612'),
   border: {
     width: 80,
-    sides: {all: true},
+    all: true,
     color: 'orange',
     items: [
       { 
@@ -22,6 +22,7 @@ export default {
   content: {
     alignX: 'center',
     alignY: 'center',
+    bleed: { all: true },
     elements: [
       {
         type: 'small',

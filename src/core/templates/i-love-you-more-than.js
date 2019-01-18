@@ -15,6 +15,7 @@ export default {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 
@@ -50,7 +51,6 @@ export default {
           transform: 'uppercase',
           lineHeight: 1.2,
           letterSpacing: .05,
-          // ignoreAscendersDescenders: true,
         },
       },
       { 
@@ -86,26 +86,40 @@ export default {
           transform: 'uppercase',
         },
       },
+      {
+        type: 'paragraph',
+        lines: [
+          {type: 'location', text: 'Visit us at 334 Homestead Drive Mount Holly, NJ 08060'},
+        ],
+        color: solidColor('#fff'),
+        font: {
+          family: 'Muli',
+          weight: 400,
+          size: 2,
+          style: 'normal',
+          lineHeight: 1.2,
+        },
+      }
     ],
   },
-  footer: {
-    type: 'basic',
-    overlay: false,
-    width: unitValue(100, '%'),
-    textAlign: 'center',
-    elements: [{
-      type: 'small',
-      lines: [
-        {type: 'location', text: 'Visit us at 334 Homestead Drive Mount Holly, NJ 08060'},
-      ],
-      color: solidColor('#fff'),
-      font: {
-        family: 'Muli',
-        weight: 400,
-        size: 2,
-        style: 'normal',
-        lineHeight: 1.2,
-      },
-    }]
-  },
+  // footer: {
+  //   overlay: false,
+  //   width: unitValue(100, '%'),
+  //   textAlign: 'center',
+  //   bleed: { all: true },
+  //   elements: [{
+  //     type: 'small',
+  //     lines: [
+  //       {type: 'location', text: 'Visit us at 334 Homestead Drive Mount Holly, NJ 08060'},
+  //     ],
+  //     color: solidColor('#fff'),
+  //     font: {
+  //       family: 'Muli',
+  //       weight: 400,
+  //       size: 2,
+  //       style: 'normal',
+  //       lineHeight: 1.2,
+  //     },
+  //   }]
+  // },
 }

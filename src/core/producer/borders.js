@@ -1,11 +1,21 @@
 import _ from 'lodash';
 
 
-export function computeBorders(structure, size) {
-  if(!structure.border) return;
+export function computeBorder(structure) {
+  structure.border = structure.border || {};
 
   const b = structure.border;
-  b._computed = {items: []};
+  b._computed = {
+    l: b.left ? b.width : 0,
+    r: b.right ? b.width : 0,
+    t: b.top ? b.width : 0,
+    b: b.bottom ? b.width : 0,
+  };
+  b._computed.x = b._computed.l + b._computed.r;
+  b._computed.y = b._computed.t + b._computed.b;
+
+  const items = [];
+  b._computed.items = items;
 
   if(b.layout === 'confetti') {
 
@@ -16,15 +26,16 @@ export function computeBorders(structure, size) {
       gridY: b.gridY,
     };
 
-    if(b.sides.all || b.sides.top || b.sides.bottom) {
-      const items = generateConfetti(b.items, {...size, h: b.width}, options)
-      if(b.sides.all || b.sides.bottom) {
+    const bb = structure._computed.bb;
+    if(b.top || b.bottom) {
+      const confetti = generateConfetti(b.items, {...bb, h: b.width}, options)
+      if(b.bottom) {
         // Reverse and mirror the items
-        const bottomItems = items.map(i => ({...i, y: size.h - i.y, x: size.w - i.x}))
-        b._computed.items.push(...bottomItems)
+        const bottomItems = confetti.map(i => ({...i, y: bb.h - i.y, x: bb.w - i.x}))
+        items.push(...bottomItems)
       }
-      if(b.sides.all || b.sides.top) {
-        b._computed.items.push(...items);
+      if(b.top) {
+        items.push(...confetti);
       }
     }
   }
@@ -68,4 +79,15 @@ export function generateConfetti(items, size, options={}) {
   }
 
   return confetti;
+}
+
+
+export function calculateBorderSize(b) {
+  const w = b && b.left ? b.width : 0 
+          + b && b.right ? b.width : 0
+  
+  const h = b && b.top ? b.width : 0 
+          + b && b.bottom ? b.width : 0
+
+  return { w, h };
 }

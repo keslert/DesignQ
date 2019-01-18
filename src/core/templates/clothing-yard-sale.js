@@ -5,11 +5,9 @@ export default {
   tags: ['event', 'yard-sale'],
   px: 72,
   py: 48,
-  footer: null,
-  header: null,
   border: {
     width: 10,
-    sides: {bottom: true},
+    bottom: true,
     color: '#5ea9df',
   },
   content: {
@@ -18,11 +16,12 @@ export default {
     alignX: 'left',
     alignY: 'center',
     background: solidColor('#ffeeca'),
+    bleed: { all: true },
     elements: [
       { 
         type: 'image',
         flex: 1,
-        bleed: 'full',
+        bleed: { all: true },
         url: 'https://images.pexels.com/photos/325867/pexels-photo-325867.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
       },
       {

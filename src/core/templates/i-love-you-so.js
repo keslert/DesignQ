@@ -10,12 +10,12 @@ export default {
     filters: {
       brightness: 0.8,
     }
-    // x: 0,
   },
   content: {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 
@@ -32,7 +32,7 @@ export default {
           lineHeight: 1.2,
           letterSpacing: .3, // uses ems
         },
-        mb: 1.5,
+        mb: 2,
       },
       { 
         type: 'dominant', 
@@ -85,10 +85,10 @@ export default {
     ],
   },
   footer: {
-    type: 'basic',
     overlay: false,
     width: unitValue(100, '%'),
     textAlign: 'center',
+    bleed: { all: true },
     elements: [{
       type: 'small',
       lines: [

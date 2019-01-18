@@ -11,6 +11,7 @@ export default {
   },
   content: {
     w: 0.5,
+    bleed: {all: true },
     alignX: 'flex-start',
     alignY: 'center',
     background: solidColor('#fff'), 
@@ -18,7 +19,8 @@ export default {
       type: 'solid',
       color: '#EE445A',
       width: 12,
-      sides: { top: true, bottom: true },
+      top: true,
+      bottom: true,
     },
     elements: [
       { 
@@ -104,6 +106,4 @@ export default {
       },
     ],
   },
-  footer: null,
-  header: null,
 }

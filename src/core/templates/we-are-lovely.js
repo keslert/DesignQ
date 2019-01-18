@@ -10,12 +10,12 @@ export default {
     filters: {
       brightness: 0.8,
     }
-    // x: 0,
   },
   content: {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
+    bleed: { all: true },
     elements: [
       { 
         type: 'small', 
