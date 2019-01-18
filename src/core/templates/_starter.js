@@ -1,13 +1,12 @@
-import { solidColor } from '.'
+import { solidColor, unitValue } from '.'
 
 export default {
   title: '',
   px: 36,
   py: 36,
-  ps: 1,
   background: solidColor('#e54049'),
   content: {
-    bleed: {all: true },
+    bleed: { all: true },
     background: solidColor('#e54049'),
     alignX: 'center',
     alignY: 'center',
@@ -50,7 +49,7 @@ export default {
     ]
   },
   footer: {
-    bleed: {all: true },
+    bleed: { all: true },
     background: solidColor('#6b6f39'),
     width: unitValue(100, '%'),
     textAlign: 'left',
@@ -70,7 +69,7 @@ export default {
           transform: 'uppercase',
           weight: 400,
         },
-        mb: 1.5,
+        mb: 1,
       },
     ]
   }

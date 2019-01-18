@@ -78,6 +78,6 @@ const FONT_DETAILS = {
     ascenders: defaultAscenders,
     descenders: defaultDescenders,
     ascenderOffsets: [-.142, -.335],
-    descenderOffsets: [-.2, -.13],
+    descenderOffsets: [.1, -.08],
   },
 }

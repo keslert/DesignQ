@@ -9,9 +9,9 @@ function BarElement({element}) {
     height: getUnitStyle(element.height),
     margin: `
       0 
-      ${element._computed.align === 'right' ? `${element._computed.mx}px` : 'auto'}
+      ${element._computed.group.textAlign === 'right' ? `${element._computed.mr}px` : 'auto'}
       ${element._computed.mb}px
-      ${element._computed.align === 'left' ? `${element._computed.mx}px` : 'auto'}
+      ${element._computed.group.textAlign === 'left' ? `${element._computed.ml}px` : 'auto'}
     `,
   }
 

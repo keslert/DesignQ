@@ -17,10 +17,10 @@ function computeGroupElementSpacing(group, structure, options) {
 
   
   const bleed = group.bleed || {};
-  group._computed.ml = bleed && bleed.left ? bleed.border ? 0 : border.l : structure.pl;
-  group._computed.mr = bleed && bleed.right ? bleed.border ? 0 : border.r : structure.pr;
-  group._computed.mt = bleed && bleed.top ? bleed.border ? 0 : border.t : structure.pt;
-  group._computed.mb = bleed && bleed.bottom ? bleed.border ? 0 : border.b : structure.pb;
+  group._computed.ml = bleed && bleed.left ? bleed.border ? 0 : border.l : structure.pl + border.l;
+  group._computed.mr = bleed && bleed.right ? bleed.border ? 0 : border.r : structure.pr + border.r;
+  group._computed.mt = bleed && bleed.top ? bleed.border ? 0 : border.t : structure.pt + border.t;
+  group._computed.mb = bleed && bleed.bottom ? bleed.border ? 0 : border.b : structure.pb + border.b;
 
   elements.forEach(el => {
     const c = el._computed;
@@ -83,12 +83,12 @@ function computeGroupElementSpacing(group, structure, options) {
       
       if((options.first && i === 0) || group.background) {
         if(!isFullBleedImage(firstItem)) {
-          firstItem._computed.mt = structure.py;
+          firstItem._computed.mt = structure.pt * group.pt;
         }
       }
       if((i === lastSubGroupIndex && options.last) || group.background) {
         if(!isFullBleedImage(lastItem)) {
-          lastItem._computed.mb = structure.py;
+          lastItem._computed.mb = structure.pb * group.pb;
         }
       }
     } 

@@ -57,6 +57,7 @@ function initGroup(structure, group) {
     el._computed.index = i;
     el._computed.prev = group.elements[i - 1];
     el._computed.next = group.elements[i + 1];
+    el._computed.group = group;
     normalize(el);
 
     if(el.lines) {

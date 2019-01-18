@@ -1,5 +1,6 @@
 // https://www.canva.com/templates/flyers/event/
 
+import { default as AnnualGrise25th } from './25th-annual-grise';
 import { default as AnnualBeachTownFoodFest } from './annual-beechtown-food-fest';
 import { default as AnnualHealthFair } from './annual-health-fair';
 import { default as ArtTalk } from './art-talk';
@@ -13,6 +14,7 @@ import { default as ClothingYardSale } from './clothing-yard-sale';
 import { default as DessertDash } from './dessert-dash';
 import { default as DustysHandymanServices } from './dustys-handyman-services'
 import { default as FallFestival } from './fall-festival';
+import { default as GarnishDelightBakery } from './garnish-delight-bakery';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HalloweenLanternFest } from './halloween-lantern-fest';
 import { default as HappyHour } from './happy-hour';
@@ -21,6 +23,7 @@ import { default as ILoveYouMoreThan } from './i-love-you-more-than';
 import { default as InhaleExhale } from './inhale-exhale';
 import { default as JakesBirthdayParty } from './jakes-birthday-party';
 import { default as JobFair2019 } from './job-fair-2019';
+import { default as LearnHowToBrewYourBestCoffee } from './learn-to-brew-your-best-coffee';
 import { default as MonroeYardSale } from './monroe-yard-sale';
 import { default as NeonYardSale } from './neon-yard-sale';
 import { default as NewtonDoughnuts } from './newton-doughnuts';
@@ -66,17 +69,20 @@ export function splitColor(deg, colorA, colorB) {
 }
 
 export const templates = {
+  GarnishDelightBakery,
+  LearnHowToBrewYourBestCoffee,
   BakeSale,
   PizzaPartyCause,
-  AnnualBeachTownFoodFest,
   SummerInBlackAndWhite,
   NeonYardSale,
-  ValentinesSale,
   BikeAroundTheCity,
+  ValentinesSale,
+  AnnualGrise25th,
   TheHealthIsWealthFair,
   TurnFatIntoFit,
   HalloweenLanternFest,
   DessertDash,
+  AnnualBeachTownFoodFest,
   ILoveYouMoreThan,
   ILoveYouSo,
   WeAreLovely,

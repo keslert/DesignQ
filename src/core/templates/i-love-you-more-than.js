@@ -3,7 +3,7 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'I love you more than',
   px: 72,
-  py: 36,
+  py: 48,
   background: {
     type: 'image',
     url: 'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',

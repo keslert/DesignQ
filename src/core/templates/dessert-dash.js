@@ -77,6 +77,7 @@ export default {
     background: solidColor('#000'),
     width: unitValue(100, '%'),
     bleed: { all: true },
+    py: .75,
     elements: [{
       type: 'small',
       color: solidColor('#fff'),
