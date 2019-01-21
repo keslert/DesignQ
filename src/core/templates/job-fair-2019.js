@@ -7,9 +7,8 @@ export default {
   background: solidColor('#fff'),
   border: {
     color: '#ddd1e2',
-    top: true, 
-    bottom: true,
-    width: 80,
+    top: 80, 
+    bottom: 80,
   },
   content: {
     alignY: 'center',

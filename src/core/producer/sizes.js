@@ -8,6 +8,7 @@ export function computeSizes(structure, scaleDominant) {
 
   computeGroupLogoSize(structure.header);
   computeGroupLogoSize(structure.footer);
+  computeGroupLogoSize(structure.content);
 
   computeGroupSizes(structure.header, dominant);
   computeGroupSizes(structure.footer, dominant);
@@ -211,5 +212,5 @@ const HEIGHT_WEIGHT = {
   dominant: 0, // ignore this
 }
 
-const MIN_FONT_SIZE = 16;
+const MIN_FONT_SIZE = 14;
 const FONT_MEASURE_SIZE = 20;

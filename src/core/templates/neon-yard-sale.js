@@ -61,8 +61,7 @@ export default {
         color: solidColor('#00f8e6'),
         background: solidColor('transparent'),
         border: {
-          width: 2,
-          all: true,
+          all: 2,
           color: '#00f8e6',
         },
         mb: 1.25,

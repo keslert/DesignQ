@@ -1,9 +1,5 @@
 import React from 'react';
-import { 
-  getBackgroundStyle, 
-  getBorderStyles, 
-  getBorderPadding,
-} from '../core/utils/render-utils';
+import { getBackgroundStyle } from '../core/utils/render-utils';
 import ContentGroup from './ContentGroup';
 import Border from './Border';
 
@@ -56,6 +52,9 @@ function Flyer({flyer}) {
   }
 
   const footerStyle = {
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'flex-start', 
     /*
     Possible layout options for footer 
       1. Inline (unbalanced) [the content centering algorithm includes the footer]
@@ -66,6 +65,9 @@ function Flyer({flyer}) {
   }
 
   const headerStyle = {
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'flex-start', 
     /*
     Possible layout options for header
       1. Inline (takes up space)
@@ -77,21 +79,25 @@ function Flyer({flyer}) {
       {flyer.border && <Border border={flyer.border} />}
       <div style={innerStyle}>
         <div style={bgStyle} />
-        <ContentGroup
-          group={flyer.header}
-        />
+        <div style={headerStyle}>
+          <ContentGroup
+            group={flyer.header}
+          />
+        </div>
         <div style={contentStyle}>
           <ContentGroup
             group={flyer.content}
           />
         </div>
-        <ContentGroup
-          group={flyer.footer}
-          style={{
-            bottom: 0,
-            left: 0,
-          }}
-        />
+        <div style={footerStyle}>
+          <ContentGroup
+            group={flyer.footer}
+            style={{
+              bottom: 0,
+              left: 0,
+            }}
+          />
+        </div>
       </div>
       {flyer.overlay && <div id="overlay" style={overlayStyle} />}
     </div>

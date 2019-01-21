@@ -6,8 +6,7 @@ export default {
   px: 72,
   py: 48,
   border: {
-    width: 10,
-    bottom: true,
+    bottom: 10,
     color: '#5ea9df',
   },
   content: {

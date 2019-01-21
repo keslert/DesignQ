@@ -44,6 +44,15 @@ function computeGroupElementSpacing(group, structure, options) {
       const scale = (c.w - c.pr - c.pl) / c.w;
       scaleElementFontSizes(el, scale);
     }
+    if(el.type === 'logo' && el.color) {
+      c.pl = c.pr = c.height * .25;
+      c.pt = c.pb = c.height * .25;
+
+      c.pl *= el.pl;
+      c.pr *= el.pr;
+      c.pt *= el.pt;
+      c.pb *= el.pb;
+    }
   })
 
   elements.forEach(el => {
@@ -86,7 +95,7 @@ function computeGroupElementSpacing(group, structure, options) {
           firstItem._computed.mt = structure.pt * group.pt;
         }
       }
-      if((i === lastSubGroupIndex && options.last) || group.background) {
+      if((options.last && i === lastSubGroupIndex) || group.background) {
         if(!isFullBleedImage(lastItem)) {
           lastItem._computed.mb = structure.pb * group.pb;
         }

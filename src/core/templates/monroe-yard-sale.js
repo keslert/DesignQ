@@ -5,8 +5,7 @@ export default {
   px: 36,
   py: 36,
   border: {
-    width: 120,
-    top: true,
+    top: 120,
     seed: 2,
     layout: 'confetti',
     items: [

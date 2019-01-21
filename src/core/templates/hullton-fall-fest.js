@@ -1,71 +1,70 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: '25th Annual Grise',
+  title: 'Hullton Fall Fest',
+  tags: ['event', 'flyer'],
   px: 48,
   py: 48,
-  background: {
-    url: 'https://images.unsplash.com/photo-1523275033438-8c0a9239935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    filters: {
-      brightness: .8,
-    },
-  },
-  border: {
-    all: 40,
-    color: '#000',
-  },
+  background: solidColor('#23374a'),
   content: {
-    bleed: { left: true, right: true, border: true },
+    bleed: { all: true },
     background: solidColor('#fff'),
     alignX: 'center',
-    alignY: 'top',
+    alignY: 'flex-start',
+    width: unitValue(100, '%'),
     textAlign: 'center',
-    px: 1.5,
-    mb: 1.2,
+    flex: 1,
     elements: [
+      { 
+        type: 'image',
+        flex: 1,
+        bleed: {all: true},
+        url: '/hullton.png',
+        background: '#23374a'
+      },
       {
         type: 'small',
         lines: [
-          {type: 'time', text: 'Feed Someone In Need'},
+          {type: 'host', text: 'Hullton Village Presents'},
         ],
-        color: solidColor('#dc8120'),
+        color: solidColor('#23374a'),
         font: {
-          family: 'Muli',
+          family: 'Josefin Slab',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
         },
-        mb: 1,
+        mb: 2,
       },
       {
         type: 'dominant',
         lines: [
-          {type: 'eventName', text: '25th Annual Grise'},
-          {type: 'eventName', text: 'Fiord Food Drive'},
+          {type: 'eventName', text: 'The Hullton Fall'},
+          {type: 'eventName', text: 'Fest 2020'},
         ],
-        color: solidColor('#000'),
+        color: solidColor('#23374a'),
         font: {
-          family: 'Muli',
+          family: 'Bebas Neue',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 400,
         },
         mb: 1,
       },
       {
         type: 'bridge',
         lines: [
-          {type: 'time', text: 'A campaign by the Grise Fiord Fishermen\'s Assoc.' },
+          {type: 'descriptiveText', text: 'A fun and exciting festival for the whole family'},
         ],
-        color: solidColor('#dc8120'),
+        color: solidColor('#23374a'),
         font: {
-          family: 'Muli',
+          family: 'Josefin Slab',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -79,42 +78,42 @@ export default {
   },
   footer: {
     bleed: { all: true },
+    background: solidColor('#23374a'),
     width: unitValue(100, '%'),
     textAlign: 'center',
     elements: [
       {
         type: 'heading',
-        color: solidColor('#fff'),
+        color: solidColor('#ecda7d'),
         lines: [
-          [ 
-            {type: 'date', text: 'March 3-5, 2020', format: 'MMMM D, YYYY'},
-            {type: 'time', text: '8 am to 5 pm'},
+          [
+            {type: 'date', text: 'October 21, 2020'},
+            {type: 'time', text: '4 pm - 11 pm'},
           ],
-          {type: 'location', text: 'Grise Fiord Public Library'},
+          {type: 'price', text: 'Tickets at $5'},
         ],
         divider: {
-          size: 1,
           type: 'line',
-          color: solidColor('#fff'),
+          size: 1,
+          color: '#ecda7d',
         },
         font: {
-          family: 'Muli',
+          family: 'Josefin Slab',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 700,
         },
-        mb: 1.5,
+        mb: 1,
       },
       {
         type: 'paragraph',
         color: solidColor('#fff'),
         lines: [
-          {type: 'descriptiveText', text: 'Did you know that thousands of households struggle'},
-          {type: 'descriptiveText', text: 'with food security everyday? You can help change'},
-          {type: 'descriptiveText', text: 'those statistics.'},
+          {type: 'descriptiveText', text: 'See you all at the Hullton Village Park for a fun day of food'},
+          {type: 'descriptiveText', text: 'games, shopping and prizes! Bringing of pets is highly encouraged.'},
         ],
         font: {
           family: 'Muli',
@@ -125,7 +124,7 @@ export default {
           transform: 'normal',
           weight: 400,
         },
-        mb: 1.5,
+        mb: 1,
       },
     ]
   }

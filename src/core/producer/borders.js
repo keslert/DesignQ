@@ -6,10 +6,10 @@ export function computeBorder(structure) {
 
   const b = structure.border;
   b._computed = {
-    l: b.left ? b.width : 0,
-    r: b.right ? b.width : 0,
-    t: b.top ? b.width : 0,
-    b: b.bottom ? b.width : 0,
+    l: b.left || 0,
+    r: b.right || 0,
+    t: b.top || 0,
+    b: b.bottom || 0,
   };
   b._computed.x = b._computed.l + b._computed.r;
   b._computed.y = b._computed.t + b._computed.b;
@@ -28,7 +28,7 @@ export function computeBorder(structure) {
 
     const bb = structure._computed.bb;
     if(b.top || b.bottom) {
-      const confetti = generateConfetti(b.items, {...bb, h: b.width}, options)
+      const confetti = generateConfetti(b.items, {...bb, h: b.top || b.bottom}, options)
       if(b.bottom) {
         // Reverse and mirror the items
         const bottomItems = confetti.map(i => ({...i, y: bb.h - i.y, x: bb.w - i.x}))
@@ -83,11 +83,11 @@ export function generateConfetti(items, size, options={}) {
 
 
 export function calculateBorderSize(b) {
-  const w = b && b.left ? b.width : 0 
-          + b && b.right ? b.width : 0
+  const w = (b && b.left || 0)
+          + (b && b.right || 0)
   
-  const h = b && b.top ? b.width : 0 
-          + b && b.bottom ? b.width : 0
+  const h = (b && b.top || 0)
+          + (b && b.bottom || 0)
 
   return { w, h };
 }

@@ -16,11 +16,9 @@ export default {
     alignY: 'center',
     background: solidColor('#fff'), 
     border: {
-      type: 'solid',
       color: '#EE445A',
-      width: 12,
-      top: true,
-      bottom: true,
+      top: 12,
+      bottom: 12,
     },
     elements: [
       { 

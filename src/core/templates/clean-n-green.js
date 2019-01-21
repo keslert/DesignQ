@@ -7,9 +7,8 @@ export default {
   py: 36,
   background: solidColor('#1B5C50'),
   border: {
-    width: 120,
-    top: true, 
-    bottom: true,
+    top: 120, 
+    bottom: 120,
     color: '#B9E6BF',
   },
   content: {

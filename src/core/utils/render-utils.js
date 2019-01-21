@@ -45,25 +45,12 @@ export function getWidth(width, {ml, mr}) {
 export function getBorderStyles(border) {
   if(!border) return {};
 
-  const value = `${border.width}px solid ${border.color || 'transparent'}`;
+  const color = border.color || 'transparent';
 
   return {
-    borderTop: border.top ? value : null,
-    borderBottom: border.bottom ? value : null,
-    borderLeft: border.left ? value : null,
-    borderRight: border.right ? value : null,
-  };
-}
-
-export function getBorderPadding(border) {
-  if(!border) return {};
-
-  const value = `${border.width}px`;
-
-  return {
-    paddingTop: border.top ? value : null,
-    paddingBottom: border.bottom ? value : null,
-    paddingLeft: border.left ? value : null,
-    paddingRight: border.right ? value : null,
+    borderTop: border.top ? `${border.top}px solid ${color}` : null,
+    borderBottom: border.bottom ? `${border.bottom}px solid ${color}` : null,
+    borderLeft: border.left ? `${border.left}px solid ${color}` : null,
+    borderRight: border.right ? `${border.right}px solid ${color}` : null,
   };
 }

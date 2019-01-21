@@ -23,6 +23,7 @@ function ContentGroup({group, style: extraStyle={}}) {
     width: getWidth(group.width, c),
     flex: group.flex,
     margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
+    borderRadius: getUnitStyle(group.borderRadius),
     ...getBackgroundStyle(group.background),
     ...getBorderStyles(group.border),
     ...extraStyle,

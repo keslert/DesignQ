@@ -2,16 +2,18 @@ import React from 'react';
 import { getBackgroundStyle, getUnitStyle } from '../../core/utils/render-utils';
 
 function BarElement({element}) {
-
+  const c = element._computed;
   const style = {
     ...getBackgroundStyle(element.background),
-    width: getUnitStyle(element.width),
+    width: element.width.unit === '%' 
+      ? `calc(${getUnitStyle(element.width)} - ${c.ml + c.mr}px)`
+      : getUnitStyle(element.width),
     height: getUnitStyle(element.height),
     margin: `
       0 
-      ${element._computed.group.textAlign === 'right' ? `${element._computed.mr}px` : 'auto'}
-      ${element._computed.mb}px
-      ${element._computed.group.textAlign === 'left' ? `${element._computed.ml}px` : 'auto'}
+      ${c.group.textAlign === 'right' ? `${c.mr}px` : 'auto'}
+      ${c.mb}px
+      ${c.group.textAlign === 'left' ? `${c.ml}px` : 'auto'}
     `,
   }
 

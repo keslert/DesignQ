@@ -5,9 +5,8 @@ export default {
   px: 48,
   py: 72,
   border: {
-    width: 10,
     color: striped(45, '#000', 60, '#fff', 60),
-    all: true,
+    all: 10,
   },
   background: {
     type: 'image',

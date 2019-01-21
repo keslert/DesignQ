@@ -14,9 +14,8 @@ export default {
     }
   },
   border: {
-    width: 8,
-    left: true, 
-    right: true,
+    left: 8, 
+    right: 8,
     color: striped(0, '#fb7c00', 10, '#303030', 10),
   },
   content: {

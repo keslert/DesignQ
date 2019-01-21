@@ -1,23 +1,31 @@
 // https://www.canva.com/templates/flyers/event/
 
+import { default as AllWhiteHolidayFundraiser } from './all-white-holiday-fundraiser';
 import { default as AnnualGrise25th } from './25th-annual-grise';
 import { default as AnnualBeachTownFoodFest } from './annual-beechtown-food-fest';
 import { default as AnnualHealthFair } from './annual-health-fair';
 import { default as ArtTalk } from './art-talk';
+import { default as AustfamCharityFoodDrive } from './austfam-charity-food-drive';
 import { default as BakeSale } from './bake-sale';
+import { default as BarkInThePark } from './bark-in-the-park';
 import { default as Barrys } from './barrys';
 import { default as BawresFallFestival } from './bawres-fall-festival';
+import { default as BeachPartyMadness } from './beach-party-madness';
 import { default as BikeAroundTheCity } from './bike-around-the-city';
 import { default as CleanAndGreen } from './clean-n-green';
 import { default as CoconutResurgance } from './coconut-resurgance';
 import { default as ClothingYardSale } from './clothing-yard-sale';
 import { default as DessertDash } from './dessert-dash';
 import { default as DustysHandymanServices } from './dustys-handyman-services'
+import { default as ElDoradoBakeSale } from './el-dorado-bake-sale';
 import { default as FallFestival } from './fall-festival';
+import { default as FallfieldFoodDrive } from './fallfield-food-drive';
 import { default as GarnishDelightBakery } from './garnish-delight-bakery';
+import { default as GrandJobFair } from './grand-job-fair-2020';
 import { default as HallowHarvest } from './hallow-harvest';
 import { default as HalloweenLanternFest } from './halloween-lantern-fest';
 import { default as HappyHour } from './happy-hour';
+import { default as HultonFallFest } from './hullton-fall-fest';
 import { default as ILoveYouSo } from './i-love-you-so';
 import { default as ILoveYouMoreThan } from './i-love-you-more-than';
 import { default as InhaleExhale } from './inhale-exhale';
@@ -30,6 +38,7 @@ import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as PizzaPartyCause } from './pizza-party-cause';
 import { default as SchoolSupplyDrive } from './school-supply-drive';
 import { default as SummerInBlackAndWhite } from './summer-in-black-and-white';
+import { default as SundayNoonFootball } from './sunday-noon-football';
 import { default as SupportSandiosFoodDrive } from './support-sandios-food-drive';
 import { default as TheHealthIsWealthFair } from './the-health-is-wealth-fair';
 import { default as TheRunwayLife } from './the-runway-life';
@@ -71,10 +80,20 @@ export function splitColor(deg, colorA, colorB) {
 }
 
 export const templates = {
+  ElDoradoBakeSale,
+  HultonFallFest,
+  BeachPartyMadness,
+  AustfamCharityFoodDrive,
+  GrandJobFair,
+  AllWhiteHolidayFundraiser,
+  SundayNoonFootball,
+  BarkInThePark,
+  FallfieldFoodDrive,
+  LearnHowToBrewYourBestCoffee,
+  AnnualBeachTownFoodFest,
   SupportSandiosFoodDrive,
   TheRunwayLife,
   GarnishDelightBakery,
-  LearnHowToBrewYourBestCoffee,
   BakeSale,
   PizzaPartyCause,
   SummerInBlackAndWhite,
@@ -86,7 +105,6 @@ export const templates = {
   TurnFatIntoFit,
   HalloweenLanternFest,
   DessertDash,
-  AnnualBeachTownFoodFest,
   ILoveYouMoreThan,
   ILoveYouSo,
   WeAreLovely,

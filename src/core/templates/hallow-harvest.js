@@ -6,8 +6,7 @@ export default {
   py: 36,
   background: solidColor('#150612'),
   border: {
-    width: 80,
-    all: true,
+    all: 80,
     color: 'orange',
     items: [
       { 

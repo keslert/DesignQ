@@ -5,8 +5,7 @@ export default {
   px: 36,
   py: 36,
   border: {
-    width: 12,
-    all: true,
+    all: 12,
     color: '#fff',
   },
   content: {
