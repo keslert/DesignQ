@@ -30,7 +30,9 @@ import { default as NewtonDoughnuts } from './newton-doughnuts';
 import { default as PizzaPartyCause } from './pizza-party-cause';
 import { default as SchoolSupplyDrive } from './school-supply-drive';
 import { default as SummerInBlackAndWhite } from './summer-in-black-and-white';
+import { default as SupportSandiosFoodDrive } from './support-sandios-food-drive';
 import { default as TheHealthIsWealthFair } from './the-health-is-wealth-fair';
+import { default as TheRunwayLife } from './the-runway-life';
 import { default as TraditionalGrace } from './traditional-grace';
 import { default as TurnFatIntoFit } from './turn-fat-into-fit';
 import { default as ValentinesDayMixer } from './valentines-day-mixer';
@@ -69,6 +71,8 @@ export function splitColor(deg, colorA, colorB) {
 }
 
 export const templates = {
+  SupportSandiosFoodDrive,
+  TheRunwayLife,
   GarnishDelightBakery,
   LearnHowToBrewYourBestCoffee,
   BakeSale,

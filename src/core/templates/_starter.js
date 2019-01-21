@@ -2,6 +2,7 @@ import { solidColor, unitValue } from '.'
 
 export default {
   title: '',
+  tags: ['event', 'flyer'],
   px: 36,
   py: 36,
   background: solidColor('#e54049'),

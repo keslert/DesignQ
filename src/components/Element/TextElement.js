@@ -8,7 +8,7 @@ function TextElement({element}) {
 
   const style = {
     position: 'relative',
-    // width: `calc(${getUnitStyle(element.width)} - ${c.mx * 2}px)`,
+    width: `calc(${getUnitStyle(element.width)} - ${c.ml + c.mr}px)`,
     padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
     margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
     fontFamily: element.font.family,
