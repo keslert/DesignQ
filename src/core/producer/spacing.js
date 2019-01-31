@@ -30,28 +30,33 @@ function computeGroupElementSpacing(group, structure, options) {
     c.ml = structure.px * (group.px || group.pl || 1);
     c.mr = structure.px * (group.px || group.pr || 1);
     
-    if(el.lines && el.background) { 
-      // We only consider el.{px, py} when it has a background
-      // TODO: Why this? Relative padding, but more for smaller items.
-      c.pl = c.pr = c.fontSize / Math.log(c.fontSize * .3);
-      c.pt = c.pb = c.fontSize / Math.log(c.fontSize * .2);
+    if((el.lines && el.background) || (el.type === 'logo' && el.color)) { 
+
+      if(el.lines) {
+        if(!el.bleed || !el.bleed.left) {
+          c.pl = c.fontSize / Math.log(c.fontSize * .3);
+        }
+        if(!el.bleed || !el.bleed.right) {
+          c.pr = c.fontSize / Math.log(c.fontSize * .3);
+        }
+        c.pt = c.pb = c.fontSize / Math.log(c.fontSize * .2);
+      } else { 
+        c.pl = c.pr = c.fontSize / Math.log(c.fontSize * .3);
+        c.pt = c.pb = c.fontSize / Math.log(c.fontSize * .3);
+      }
       
       c.pl *= el.pl;
       c.pr *= el.pr;
       c.pt *= el.pt;
       c.pb *= el.pb;
 
-      const scale = (c.w - c.pr - c.pl) / c.w;
-      scaleElementFontSizes(el, scale);
-    }
-    if(el.type === 'logo' && el.color) {
-      c.pl = c.pr = c.height * .25;
-      c.pt = c.pb = c.height * .25;
-
-      c.pl *= el.pl;
-      c.pr *= el.pr;
-      c.pt *= el.pt;
-      c.pb *= el.pb;
+      if(el.lines) {
+        const scale = (c.w - c.pr - c.pl) / c.w;
+        scaleElementFontSizes(el, scale);
+      } else {
+        c.h += c.pt + c.pb;
+        c.w += c.pr + c.pl;
+      }
     }
   })
 

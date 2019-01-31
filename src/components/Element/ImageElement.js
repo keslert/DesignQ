@@ -1,7 +1,6 @@
 import React from 'react';
-import { getBackgroundStyle, getWidth } from '../../core/utils/render-utils';
+import { getBackgroundStyle, getWidth, getUnitStyle } from '../../core/utils/render-utils';
 import SVG from 'react-inlinesvg';
-import { unitValue } from '../../core/templates';
 
 function ImageElement({element}) {
   const c = element._computed;
@@ -11,8 +10,8 @@ function ImageElement({element}) {
     height: c.h ? `${c.h}px` : 'auto',
     padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
     margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
-    boxSizing: 'content-box',
-    borderRadius: unitValue(element.borderRadius),
+    boxSizing: isSVG ? 'border-box' : 'content-box',
+    borderRadius: getUnitStyle(element.borderRadius),
     ...getBackgroundStyle({...element, 
       url: isSVG ? null : element.url
     }),

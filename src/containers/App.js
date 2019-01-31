@@ -8,11 +8,7 @@ import _ from 'lodash';
 import { templates as flyers } from '../core/templates';
 import Frame from '../components/Frame';
 import { computeFlyer } from '../core/producer';
-import { generateFlyer } from '../core/generator';
 
-
-
-// const generatedFlyers = generateFlyer(flyers.PizzaPartyCause);
 _.forEach(flyers, flyer => computeFlyer(flyer));
 
 class App extends Component {

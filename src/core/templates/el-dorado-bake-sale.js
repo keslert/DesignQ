@@ -31,8 +31,8 @@ export default {
         size: 0.8,
         aspectRatio: 1,
         borderRadius: unitValue(50, '%'),
-        px: 2,
-        py: 2,
+        px: 1,
+        py: 1,
         meta: {
           width: 50,
           height: 50,

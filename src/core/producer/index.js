@@ -108,7 +108,12 @@ function getFirst(obj, arr) {
 
 
 function transformStr(str, transform) {
-  return transform === 'uppercase' ? str.toUpperCase() : str;
+  switch(transform) {
+    case 'uppercase': return str.toUpperCase();
+    case 'lowercase': return str.toLowerCase();
+    case 'capitalize': return _.capitalize(str);
+    default: return str;
+  }
 }
 
 function calculateHeight(structure) {

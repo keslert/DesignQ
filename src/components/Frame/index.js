@@ -14,7 +14,7 @@ class Frame extends React.Component {
     const scaledWidth = width * scale;
     return (
       <Box style={{width: scaledWidth, height: scaledHeight, boxShadow: theme.shadows.large}}>
-        <Box css={{transformOrigin: '0 0', transform: `scale(${scale})`}}>
+        <Box style={{transformOrigin: '0 0', transform: `scale(${scale})`}}>
           <Box style={{height, width, background: theme.gradients.light}}>
             <Flyer flyer={flyer} />
           </Box>

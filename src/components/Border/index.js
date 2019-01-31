@@ -1,10 +1,12 @@
 import React from 'react';
+import { getBackgroundStyle } from '../../core/utils/render-utils';
 
 function Border({border}) {
   const c = border._computed;
   const style = {
     position: 'absolute',
-    background: border.color,
+    ...getBackgroundStyle(border),
+    // background: border.color,
     top: 0,
     left: 0,
     height: '100%',

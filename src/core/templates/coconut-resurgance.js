@@ -25,13 +25,14 @@ export default {
         color: solidColor('#fff'),
         background: solidColor('#8F5B68'),
         bleed: { left: true },
+        width: unitValue(100, '%'),
         lines: [
           {type: 'descriptiveText', text: 'Superfood Corner'}
         ],
         font: {
           family: 'Muli',
           weight: 400,
-          size: 1,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
           lineHeight: 1.2,
