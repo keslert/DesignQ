@@ -13,12 +13,13 @@ export default {
     },
   },
   content: {
-    bleed: { left: true, top: true },
+    bleed: { left: true, top: true, bottom: true },
     background: solidColor('#692a3b'),
     alignX: 'center',
     alignY: 'center',
     textAlign: 'left',
     width: unitValue(100, '%'),
+    py: 2,
     elements: [
       {
         type: 'dominant',

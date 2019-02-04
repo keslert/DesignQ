@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { solidColor, unitValue, striped } from '.'
 
 export default {
   title: 'Football Varsity Tryouts',
@@ -6,7 +6,7 @@ export default {
   px: 36,
   py: 36,
   border: {
-    color: '#fff',
+    color: striped(30, '#000', 40, '#fff', 40),
     left: 50,
   },
   background: {

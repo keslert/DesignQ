@@ -6,14 +6,14 @@ export default {
   px: 36,
   py: 36,
   background: {
-    url: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    zoom: 2,
+    url: 'https://images.unsplash.com/photo-1538358755974-f350d26af7bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60',
+    zoom: 3,
     x: 0.3,
     y: 0.7,
     color: '#404040',
     backgroundBlendMode: 'multiply',
     filters: {
-      grayscale: 1,
+      grayscale: 0.4,
     },
   },
   content: {

@@ -20,6 +20,7 @@ export default {
     alignX: 'center',
     alignY: 'top',
     textAlign: 'center',
+    width: unitValue(100, '%'),
     px: 1.5,
     mb: 1.2,
     elements: [

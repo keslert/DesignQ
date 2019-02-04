@@ -1,36 +1,34 @@
-import { solidColor, unitValue, splitColor } from '.'
+import { solidColor, unitValue } from '.'
 
 export default {
-  title: 'Support Sandios Food Drive',
-  tags: ['event', 'flyer', 'food-drive'],
+  title: '',
+  tags: ['event', 'flyer'],
   px: 36,
-  py: 48,
+  py: 36,
   background: {
-    url: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: splitColor(0, 'transparent', '#fff1d9'),
-    backgroundBlendMode: 'lighten',
-    x: 0.3,
-    y: -.4,
-    zoom: 1.3,
+    url: 'https://images.unsplash.com/photo-1521374046855-cb3799ffbaab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    color: '#fbadc3',
+    backgroundBlendMode: 'overlay',
+    filters: {
+      brightness: 0.8,
+    }
   },
   content: {
-    bleed: { left: true },
-    background: solidColor('#251a4b'),
-    alignX: 'left',
-    alignY: 'flex-end',
+    bleed: { all: true },
+    alignX: 'center',
+    alignY: 'flex-start',
     textAlign: 'left',
-    pr: 3,
     mb: 2,
     elements: [
       {
         type: 'small',
         lines: [
-          {type: 'descriptiveText', text: 'We Need Volunteers!'},
+          {type: 'host', text: "Flora's Floral Society"},
         ],
-        color: solidColor('#fff1d9'),
+        color: solidColor('#fff'),
         font: {
           family: 'Muli',
-          letterSpacing: 0,
+          letterSpacing: 0.1,
           lineHeight: 1.4,
           size: 0.5,
           style: 'normal',
@@ -42,12 +40,11 @@ export default {
       {
         type: 'dominant',
         lines: [
-          {type: 'eventName', text: 'Support'},
-          {type: 'eventName', text: 'Sandio\'s'},
-          {type: 'eventName', text: 'Food Drive'},
-          {type: 'eventName', text: '2020'},
+          {type: 'eventName', text: 'A Flower and'},
+          {type: 'eventName', text: 'Garden'},
+          {type: 'eventName', text: 'Festival'},
         ],
-        color: solidColor('#fff1d9'),
+        color: solidColor('#fff'),
         font: {
           family: 'Muli',
           letterSpacing: 0,
@@ -62,14 +59,15 @@ export default {
       {
         type: 'bridge',
         lines: [
-          {type: 'descriptiveText', text: 'For the benefit of our less fortunate neighbors'},
+          {type: 'descriptiveText', text: 'Witness beauty in bloom at this year\'s'},
+          {type: 'descriptiveText', text: 'floral festival!'},
         ],
-        color: solidColor('#fff1d9'),
+        color: solidColor('#fff'),
         font: {
           family: 'Muli',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.5,
           style: 'normal',
           transform: 'normal',
           weight: 400,
@@ -86,16 +84,17 @@ export default {
     elements: [
       {
         type: 'heading',
-        color: solidColor('#251a4b'),
+        color: solidColor('#fff'),
         lines: [
-          {type: 'location', text: 'Located at 123 Anywhere St.'},
-          {type: 'descriptiveText', text: 'Any City, Open Daily.'},
+          {type: 'location', text: 'June 17-19, 2020', format: 'MMMM D, YYYY'},
+          {type: 'location', text: '8 am to 4 pm'},
+          {type: 'location', text: 'Stowbrook Gardens'},
         ],
         font: {
           family: 'Muli',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -104,20 +103,20 @@ export default {
       },
       {
         type: 'paragraph',
-        color: solidColor('#251a4b'),
+        color: solidColor('#fff'),
         lines: [
-          {type: 'descriptiveText', text: 'The food drive is sponsored by Sandio'},
-          {type: 'descriptiveText', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
-          {type: 'descriptiveText', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
+          {type: 'cost', text: 'Entrance Fee: $6'},
+          {type: 'descriptiveText', text: 'Includes free access to our food and beverage stalls.'},
+          {type: 'contact', text: 'Buy your tickets now at www.reallygreatsite.com!'},
         ],
         font: {
           family: 'Muli',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.1,
           style: 'normal',
           transform: 'normal',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },

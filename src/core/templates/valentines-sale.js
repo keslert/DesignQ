@@ -5,7 +5,7 @@ export default {
   px: 72,
   py: 48,
   background: {
-    color: splitColor(180, '#ff8c8c', '#fef6f0'),
+    color: splitColor(180, '#fef6f0', '#ff8c8c'),
   },
   content: {
     width: unitValue(100, '%'),

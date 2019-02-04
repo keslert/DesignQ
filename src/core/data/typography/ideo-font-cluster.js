@@ -2,7 +2,7 @@
 // http://fontmap.ideo.com/data/data_10_pp.json
 // story behind data 
 // https://medium.com/ideo-stories/organizing-the-world-of-fonts-with-ai-7d9e49ff2b25
-[
+export default [
   {
       "category": "sans-serif",
       "family": "Roboto",

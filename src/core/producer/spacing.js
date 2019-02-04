@@ -4,9 +4,9 @@ import { scaleElementFontSizes } from './sizes';
 const MAX_MARGIN_BOTTOM = 40
 
 export function computeSpacing(structure) {
-  computeGroupElementSpacing(structure.header, structure, {first: true});
-  computeGroupElementSpacing(structure.footer, structure, {last: true});
-  computeGroupElementSpacing(structure.content, structure, {first: !structure.header, last: !structure.footer});
+  computeGroupElementSpacing(structure.header, structure, {top: true});
+  computeGroupElementSpacing(structure.footer, structure, {bottom: true});
+  computeGroupElementSpacing(structure.content, structure, {top: true, bottom: true});
 }
 
 function computeGroupElementSpacing(group, structure, options) {
@@ -92,16 +92,19 @@ function computeGroupElementSpacing(group, structure, options) {
       ) * (group.mb || 1);
 
       subGroup.forEach(item => {
-        item._computed.mb = mb * (item.mb || 1);
+        if(!item.bleed || !item.bleed.bottom) {
+          item._computed.mb = mb * (item.mb || 1);
+        }
       });
       
-      if((options.first && i === 0) || group.background) {
-        if(!isFullBleedImage(firstItem)) {
+      if((options.top && i === 0) || group.background) {
+        if(!firstItem.bleed || !firstItem.bleed.top) {
           firstItem._computed.mt = structure.pt * group.pt;
         }
       }
-      if((options.last && i === lastSubGroupIndex) || group.background) {
-        if(!isFullBleedImage(lastItem)) {
+      
+      if((options.bottom && i === lastSubGroupIndex) || group.background) {
+        if(!lastItem.bleed || !lastItem.bleed.bottom) {
           lastItem._computed.mb = structure.pb * group.pb;
         }
       }

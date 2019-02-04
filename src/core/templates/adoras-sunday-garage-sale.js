@@ -1,38 +1,26 @@
-import { solidColor, unitValue } from '.'
+import { solidColor, unitValue, splitColor } from '.'
 
 export default {
-  title: 'El Dorado Bake Sale',
+  title: "Adora's Sunday Garage Sale",
   tags: ['event', 'flyer'],
   px: 48,
   py: 48,
-  background: solidColor('#fff4e9'),
+  border: {
+    all: 80,
+    color: splitColor(0, '#fec458', '#ed5744'),
+  },
+  background: solidColor('#fff'),
   content: {
     bleed: { all: true },
-    background: solidColor('#fff4e9'),
     alignX: 'center',
-    alignY: 'flex-start',
-    width: unitValue(100, '%'),
+    alignY: 'center',
     textAlign: 'center',
-    flex: 1,
     elements: [
-      { 
-        type: 'image',
-        flex: 1,
-        bleed: {all: true},
-        url: '/el-dorado.png',
-        background: '#c3996f'
-      },
       {
         type: 'logo',
+        size: 1,
         url: '/shop.svg',
-        fill: '#fff4e9',
-        color: '#c3996f',
-        overlap: 0.5,
-        size: 0.8,
-        aspectRatio: 1,
-        borderRadius: unitValue(50, '%'),
-        px: 1,
-        py: 1,
+        fill: '#fec458',
         meta: {
           width: 50,
           height: 50,
@@ -44,14 +32,14 @@ export default {
       {
         type: 'small',
         lines: [
-          {type: 'descriptiveText', text: 'Bread for a Cause'},
+          {type: 'descriptiveText', text: 'Everything Must Go!'},
         ],
-        color: solidColor('#c3996f'),
+        color: solidColor('#ed5744'),
         font: {
-          family: 'Muli',
+          family: 'Josefin Slab',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.3,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -61,46 +49,12 @@ export default {
       {
         type: 'dominant',
         lines: [
-          {type: 'eventName', text: 'El Dorado Bake Sale'},
-          {type: 'eventName', text: 'Bazaar'},
+          {type: 'eventName', text: "Adora's Sunday"},
+          {type: 'eventName', text: 'Garage Sale'},
         ],
-        color: solidColor('#c3996f'),
+        color: solidColor('#ed5744'),
         font: {
-          family: 'Bebas Neue',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'descriptiveText', text: 'Baked goodies from more than 10 concessionaires'},
-        ],
-        color: solidColor('#c3996f'),
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'heading',
-        color: solidColor('#c3996f'),
-        lines: [
-          {type: 'descriptiveText', text: 'See you there on July 8 at El Dorado Field', meta: ['date', 'location']},
-        ],
-        font: {
-          family: 'Muli',
+          family: 'Josefin Slab',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -111,12 +65,57 @@ export default {
         mb: 1,
       },
       {
-        type: 'paragraph',
-        color: solidColor('#c3996f'),
+        type: 'bridge',
         lines: [
-          {type: 'descriptiveText', text: 'All proceeds obtained from the Bazaar will be donated to El'},
-          {type: 'descriptiveText', text: 'Dorado Public Academy for their upcoming scholarship program.'},
+          {type: 'descriptiveText', text: 'Selling pre-loved clothes, appliances, and'},
+          {type: 'descriptiveText', text: 'gadgets!'},
         ],
+        color: solidColor('#ed5744'),
+        font: {
+          family: 'Muli',
+          letterSpacing: 0,
+          lineHeight: 1.4,
+          size: 0.5,
+          style: 'italic',
+          transform: 'normal',
+          weight: 400,
+        },
+        mb: 1,
+      },
+      {
+        type: 'heading',
+        lines: [
+          [
+            {type: 'time', text: '9 am to 6 pm'},
+            {type: 'date', text: 'Aug. 16, 2020', format: 'MMM. D, YYYY'},
+          ],
+          {type: 'location', text: '123 Anywhere St., Any City'},
+        ],
+        divider: {
+          type: 'line',
+          size: 1,
+          color: '#ed5744',
+        },
+        color: solidColor('#ed5744'),
+        font: {
+          family: 'Josefin Slab',
+          letterSpacing: 0,
+          lineHeight: 1.4,
+          size: 1,
+          style: 'normal',
+          transform: 'uppercase',
+          weight: 700,
+        },
+        mb: 2,
+      },
+      {
+        type: 'small',
+        lines: [
+          {type: 'descriptiveText', text: 'A garage sale where you can buy secondhand'},
+          {type: 'descriptiveText', text: 'clothes, gadgets, and appliances for cheap'},
+          {type: 'descriptiveText', text: 'prices. All items are in good condition!'},
+        ],
+        color: solidColor('#ed5744'),
         font: {
           family: 'Muli',
           letterSpacing: 0,

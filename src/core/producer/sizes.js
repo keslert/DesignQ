@@ -90,7 +90,7 @@ function computeElementsFontSizes(elements, settings) {
   const maxMeasuredWidth = _.max(elements.map(measureText))
 
   const optimalFontSize = _.clamp(
-    FONT_MEASURE_SIZE * (settings.maxOptimalWidth / maxMeasuredWidth),
+    FONT_MEASURE_SIZE * (settings.maxOptimalWidth / maxMeasuredWidth) * .99, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
     settings.minFontSize,
     settings.maxOptimalFontSize,
   )

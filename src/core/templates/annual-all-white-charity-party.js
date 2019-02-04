@@ -1,38 +1,22 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: 'El Dorado Bake Sale',
+  title: 'Annual All-White Charity Parity',
   tags: ['event', 'flyer'],
-  px: 48,
+  px: 36,
   py: 48,
-  background: solidColor('#fff4e9'),
+  background: solidColor('#fff'),
   content: {
     bleed: { all: true },
-    background: solidColor('#fff4e9'),
     alignX: 'center',
-    alignY: 'flex-start',
-    width: unitValue(100, '%'),
+    alignY: 'center',
     textAlign: 'center',
-    flex: 1,
     elements: [
-      { 
-        type: 'image',
-        flex: 1,
-        bleed: {all: true},
-        url: '/el-dorado.png',
-        background: '#c3996f'
-      },
       {
         type: 'logo',
-        url: '/shop.svg',
-        fill: '#fff4e9',
-        color: '#c3996f',
-        overlap: 0.5,
-        size: 0.8,
-        aspectRatio: 1,
-        borderRadius: unitValue(50, '%'),
-        px: 1,
-        py: 1,
+        size: 1,
+        url: '/yacht.svg',
+        fill: '#373737',
         meta: {
           width: 50,
           height: 50,
@@ -44,9 +28,9 @@ export default {
       {
         type: 'small',
         lines: [
-          {type: 'descriptiveText', text: 'Bread for a Cause'},
+          {type: 'host', text: 'Bijou Solutions, Inc.'},
         ],
-        color: solidColor('#c3996f'),
+        color: solidColor('#373737'),
         font: {
           family: 'Muli',
           letterSpacing: 0,
@@ -61,48 +45,14 @@ export default {
       {
         type: 'dominant',
         lines: [
-          {type: 'eventName', text: 'El Dorado Bake Sale'},
-          {type: 'eventName', text: 'Bazaar'},
+          {type: 'eventName', text: 'Annual All-White'},
+          {type: 'eventName', text: 'Charity Party'},
         ],
-        color: solidColor('#c3996f'),
+        color: solidColor('#373737'),
         font: {
           family: 'Bebas Neue',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'descriptiveText', text: 'Baked goodies from more than 10 concessionaires'},
-        ],
-        color: solidColor('#c3996f'),
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'heading',
-        color: solidColor('#c3996f'),
-        lines: [
-          {type: 'descriptiveText', text: 'See you there on July 8 at El Dorado Field', meta: ['date', 'location']},
-        ],
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
+          letterSpacing: 0.05,
+          lineHeight: 1.2,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
@@ -111,17 +61,16 @@ export default {
         mb: 1,
       },
       {
-        type: 'paragraph',
-        color: solidColor('#c3996f'),
+        type: 'bridge',
         lines: [
-          {type: 'descriptiveText', text: 'All proceeds obtained from the Bazaar will be donated to El'},
-          {type: 'descriptiveText', text: 'Dorado Public Academy for their upcoming scholarship program.'},
+          {type: 'descriptiveText', text: 'Break out your best all-white outfit and steal the show!'},
         ],
+        color: solidColor('#373737'),
         font: {
           family: 'Muli',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.6,
           style: 'normal',
           transform: 'normal',
           weight: 400,
@@ -130,4 +79,56 @@ export default {
       },
     ]
   },
+  footer: {
+    bleed: { all: true },
+    background: solidColor('#373737'),
+    width: unitValue(100, '%'),
+    textAlign: 'center',
+    elements: [
+      {
+        type: 'heading',
+        color: solidColor('#fff'),
+        lines: [
+          [
+            {type: 'date', text: 'October 12, 2020', format: 'MMMM D, YYYY'},
+            {type: 'time', text: '6:00pm'},
+          ],
+          {type: 'location', text: 'San Dias Party Place'},
+        ],
+        divider: {
+          type: 'line',
+          size: 1,
+          color: solidColor('#fff'),
+        },
+        font: {
+          family: 'Muli',
+          letterSpacing: 0,
+          lineHeight: 1.4,
+          size: .5,
+          style: 'normal',
+          transform: 'uppercase',
+          weight: 700,
+        },
+        mb: 2,
+      },
+      {
+        type: 'paragraph',
+        color: solidColor('#fff'),
+        lines: [
+          {type: 'descriptiveText', text: 'This year, all proceeds from this event will go to the George'},
+          {type: 'descriptiveText', text: 'Hewes Foundation. Come and party for a good cause!'},
+        ],
+        font: {
+          family: 'Muli',
+          letterSpacing: 0,
+          lineHeight: 1.4,
+          size: .5,
+          style: 'normal',
+          transform: 'normal',
+          weight: 400,
+        },
+        mb: 1,
+      },
+    ]
+  }
 }
