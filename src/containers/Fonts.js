@@ -10,7 +10,11 @@ import { Flex, Box } from 'rebass';
 import _ from 'lodash';
 import FontCanvas from '../components/FontCanvas';
 
-const defaultFamilies = ['Amiri', 'Merriweather'].map(f => ({family: f, value: f, label: f}))
+const defaultFamilies = [
+  'Amiri', 
+  'Merriweather',
+  'Lobster',
+].map(f => ({family: f, value: f, label: f}))
 
 const GOOGLE_FONTS = _.chain(ideaFonts)
   .filter(f => f.file.startsWith('http://fonts.gstatic'))
@@ -35,22 +39,24 @@ function Fonts() {
   
   return (
     <div>
-      <Select
-        isMulti={true}
-        value={families}
-        options={GOOGLE_FONTS}
-        onChange={handleFamilySelection}
-      />
-      <Box p={3}>
+      <Box style={{position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 200}} bg="#fff" p={2}>
+        <Select
+          isMulti={true}
+          value={families}
+          options={GOOGLE_FONTS}
+          onChange={handleFamilySelection}
+        />
+      </Box>
+      <Box p={3} pt={5}>
         {families.map(({family}) => activeFamilies[family] 
           ? (
             <Box mb={3} key={family}>
               <FontCanvas
-                text="Handglove"
+                text="Handglove x"
                 family={family}
                 loaded={activeFamilies[family]}
-                fontSize={100}
-                width={800}
+                fontSize={120}
+                width={1000}
               />
             </Box>
           )
