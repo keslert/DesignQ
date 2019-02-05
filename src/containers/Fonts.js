@@ -5,18 +5,26 @@ import React, {
 } from 'react';
 import WebFont from 'webfontloader';
 import Select from 'react-select';
-import ideaFonts from '../core/data/typography/ideo-font-cluster';
+import IDEO_FONTS from '../core/data/typography/ideo-font-cluster';
+import { DQ_FONTS } from '../core/utils/text-utils';
 import { Flex, Box } from 'rebass';
 import _ from 'lodash';
 import FontCanvas from '../components/FontCanvas';
+import FontManual from '../components/FontManual'
 
 const defaultFamilies = [
-  'Amiri', 
-  'Merriweather',
-  'Lobster',
+  'Playfair Display',
+  'Roboto Condensed',
+  'Cormorant Unicase',
+  'Londrina Sketch',
+  'Yellowtail',
+  'Chewy',
+  'Permanent Marker', 
+  'Muli',
+  'Josefin Slab',
 ].map(f => ({family: f, value: f, label: f}))
 
-const GOOGLE_FONTS = _.chain(ideaFonts)
+const GOOGLE_FONTS = _.chain(IDEO_FONTS)
   .filter(f => f.file.startsWith('http://fonts.gstatic'))
   .map(f => ({...f, value: f.family, label: f.family}))
   .value();
@@ -50,11 +58,12 @@ function Fonts() {
       <Box p={3} pt={5}>
         {families.map(({family}) => activeFamilies[family] 
           ? (
-            <Box mb={3} key={family}>
-              <FontCanvas
-                text="Handglove x"
+            <Box mb={4} key={family}>
+              <FontManual
+                text="abcdefghABCDEFGH"
                 family={family}
                 loaded={activeFamilies[family]}
+                offsets={DQ_FONTS[family]}
                 fontSize={120}
                 width={1000}
               />

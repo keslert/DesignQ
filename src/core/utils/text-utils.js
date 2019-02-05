@@ -2,82 +2,90 @@
 
 
 export function getTextOffset(str, family, ignoreAscendersDescenders) {
-  const font = FONT_DETAILS[family]
+  const font = DQ_FONTS[family]
+  const ascenders = font.ascenders || defaultAscenders;
+  const descenders = font.descenders || defaultDescenders;
+
   return {
-    top: font.ascenderOffsets[!ignoreAscendersDescenders && font.ascenders.test(str) ? 0 : 1],
-    bottom: font.descenderOffsets[!ignoreAscendersDescenders && font.descenders.test(str) ? 0 : 1],
+    top: !ignoreAscendersDescenders && ascenders.test(str)
+      ? font.ascender
+      : font.xHeight,
+    bottom: !ignoreAscendersDescenders && descenders.test(str)
+      ? font.descender
+      : font.baseline,
   }
 }
 
 
 const defaultAscenders = /[A-Z1-9hdfkl&]/
 const defaultDescenders = /[gjqpy]/
-const FONT_DETAILS = {
+export const DQ_FONTS = {
   'Permanent Marker': {
-    ascenders: defaultAscenders,
     descenders: /[]/,
-    ascenderOffsets: [-.16, -.37],
-    descenderOffsets: [.1, -.09],
+    ascender: -.16,
+    xHeight: -.31,
+    baseline: -.09,
+    descender: -.09,
   },
   'Muli': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.15, -.37],
-    descenderOffsets: [.05, -.12],
+    ascender: -.15,
+    xHeight: -.37,
+    baseline: -.125,
+    descender: .1,
+  },
+  'Josefin Slab': {
+    ascender: -.04,
+    xHeight: -.375,
+    baseline: -.25,
+    descender: .0,
+  },
+  'Yellowtail': {
+    ascender: -.13,
+    xHeight: -.44,
+    baseline: -.15,
+    descender: .1,
+  },
+  'Chewy': {
+    ascender: -.1,
+    xHeight: -.27,
+    baseline: -.15,
+    descender: .12,
+  },
+  'Roboto Condensed': {
+    ascender: -.125,
+    xHeight: -.315,
+    baseline: -.16,
+    descender: 0.05,
+  },
+  'Cormorant Unicase': {
+    ascender: -.185,
+    xHeight: -.35,
+    baseline: -.18,
+    descender: -.18,
+  },
+  'Londrina Sketch': {
+    ascender: -.142,
+    xHeight: -.35,
+    baseline: -.15,
+    descender: .07,
+  },
+  'Playfair Display': {
+    ascender: -.2,
+    xHeight: -.39,
+    baseline: -.08,
+    descender: .09,
   },
   'Bebas Neue': {
     supportsLowerCase: false,
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.09, -.09],
-    descenderOffsets: [-.2, -.2],
-  },
-  'Josefin Slab': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.03, -.37],
-    descenderOffsets: [.1, -.25],
-  },
-  'Yellowtail': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.03, -.37],
-    descenderOffsets: [.1, -.25],
-  },
-  'Chewy': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.1, -.27],
-    descenderOffsets: [.1, -.15],
-  },
-  'Roboto Condensed': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.12, -.09],
-    descenderOffsets: [-.2, -.15],
-  },
-  'Cormorant Unicase': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.19, -.15],
-    descenderOffsets: [-.2, -.18],
+    ascender: -.09,
+    xHeight: -.09,
+    baseline: -.2,
+    descender: -.2,
   },
   'Voga': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.142, -.335],
-    descenderOffsets: [-.2, -.15],
-  },
-  'Londrina Sketch': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.142, -.335],
-    descenderOffsets: [-.2, -.13],
-  },
-  'Playfair Display': {
-    ascenders: defaultAscenders,
-    descenders: defaultDescenders,
-    ascenderOffsets: [-.142, -.335],
-    descenderOffsets: [.1, -.08],
+    ascender: -.142,
+    xHeight: -.335,
+    baseline: -.2,
+    descender: .1,
   },
 }
