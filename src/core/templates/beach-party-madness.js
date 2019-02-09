@@ -3,6 +3,7 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'Beach Party Madness',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-maroon-and-yellow-beach-party-flyer-MAC5p09I7SY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 48,
   py: 48,
   background: {
@@ -26,10 +27,10 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Glacial Indifference',
+          letterSpacing: 0.15,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.4,
           style: 'normal',
           transform: 'uppercase',
           weight: 400,
@@ -44,13 +45,13 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Bebas Neue',
+          family: 'League Gothic',
           letterSpacing: 0,
           lineHeight: 1.2,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },
@@ -58,7 +59,7 @@ export default {
         type: 'bar',
         background: solidColor('#f7f1af'),
         width: unitValue(120, 'px'),
-        height: unitValue(10, 'px'),
+        height: unitValue(8, 'px'),
         mb: 1,
       },
       {
@@ -68,7 +69,7 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
@@ -85,6 +86,7 @@ export default {
     alignX: 'flex-right',
     textAlign: 'right',
     width: unitValue(100, '%'),
+    mb: 2,
     elements: [
       {
         type: 'heading',
@@ -103,10 +105,10 @@ export default {
         },
         color: solidColor('#fff'),
         font: {
-          family: 'Bebas Neue',
+          family: 'League Gothic',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 0.8,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
           weight: 400,
@@ -117,7 +119,7 @@ export default {
         type: 'bar',
         background: solidColor('#f7f1af'),
         width: unitValue(120, 'px'),
-        height: unitValue(10, 'px'),
+        height: unitValue(8, 'px'),
         mb: 1,
       },
       {
@@ -129,7 +131,7 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.2,

@@ -3,6 +3,7 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'A carol for the holiday season',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-christmas-birds-festive-holidays-flyer-MAC4XH26kEo.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 48,
   background: {
@@ -21,14 +22,14 @@ export default {
       {
         type: 'small',
         lines: [
-          {type: 'host', text: 'The Winslow Chapel'},
+          {type: 'host', text: 'The Winslough Chapel'},
         ],
         color: solidColor('#454a80'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.35,
           style: 'normal',
           transform: 'uppercase',
           weight: 400,
@@ -44,15 +45,15 @@ export default {
         ],
         color: solidColor('#f68464'),
         font: {
-          family: 'Josefin Slab',
+          family: 'Aleo',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
-        mb: 1,
+        mb: 0.5,
       },
       {
         type: 'bridge',
@@ -62,10 +63,10 @@ export default {
         ],
         color: solidColor('#454a80'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.3,
           style: 'normal',
           transform: 'normal',
           weight: 400,
@@ -87,11 +88,11 @@ export default {
         divider: {
           type: 'line',
           size: 1,
-          color: '#fff',
+          color: solidColor('#454a80'),
         },
         color: solidColor('#454a80'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -110,7 +111,7 @@ export default {
         ],
         color: solidColor('#454a80'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0,

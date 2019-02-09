@@ -2,6 +2,7 @@ import { solidColor, unitValue, striped } from '.'
 
 export default {
   title: 'The Health is Wealth Fair',
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-illustrated-heart-health-fair-flyer-MAC7m1QGUWA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   tags: ['event'],
   px: 48,
   py: 48,
@@ -19,8 +20,8 @@ export default {
           {type: 'host', text: 'Dr. Nathanial Morrison Presents'},
         ],
         font: {
-          family: 'Muli',
-          weight: 700,
+          family: 'Nunito',
+          weight: 400,
           size: 1,
           style: 'normal',
           transform: 'normal',
@@ -38,8 +39,8 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Roboto Condensed',
-          weight: 700,
+          family: 'Fredoka One',
+          weight: 400,
           size: 1,
           style: 'normal',
           transform: 'normal',
@@ -66,8 +67,8 @@ export default {
           color: solidColor('#fff'),
         },
         font: {
-          family: 'Muli',
-          weight: 700,
+          family: 'Nunito',
+          weight: 400,
           size: 1.2,
           style: 'normal',
           transform: 'normal',

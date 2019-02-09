@@ -1,13 +1,14 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: '',
+  title: 'Flower and Garden Festival',
   tags: ['event', 'flyer'],
-  px: 36,
-  py: 36,
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-pink-overlay-flower-festival-flyer-MAC4DWCq5Dk.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+  px: 50,
+  py: 50,
   background: {
     url: 'https://images.unsplash.com/photo-1521374046855-cb3799ffbaab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: '#fbadc3',
+    color: '#ffb2c4',
     backgroundBlendMode: 'overlay',
     filters: {
       brightness: 0.8,
@@ -15,7 +16,7 @@ export default {
   },
   content: {
     bleed: { all: true },
-    alignX: 'center',
+    alignX: 'flex-start',
     alignY: 'flex-start',
     textAlign: 'left',
     mb: 2,
@@ -27,13 +28,13 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0.1,
           lineHeight: 1.4,
           size: 0.5,
           style: 'normal',
           transform: 'uppercase',
-          weight: 400,
+          weight: 700,
         },
         mb: 1,
       },
@@ -46,7 +47,7 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
+          family: 'League Spartan',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -64,7 +65,7 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
@@ -91,10 +92,10 @@ export default {
           {type: 'location', text: 'Stowbrook Gardens'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.9,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -110,7 +111,7 @@ export default {
           {type: 'contact', text: 'Buy your tickets now at www.reallygreatsite.com!'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.1,

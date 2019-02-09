@@ -7,21 +7,15 @@ import WebFont from 'webfontloader';
 import Select from 'react-select';
 import IDEO_FONTS from '../core/data/typography/ideo-font-cluster';
 import { DQ_FONTS } from '../core/utils/text-utils';
-import { Flex, Box } from 'rebass';
+import { Box } from 'rebass';
 import _ from 'lodash';
 import FontCanvas from '../components/FontCanvas';
 import FontManual from '../components/FontManual'
 
 const defaultFamilies = [
+  'Kollektif',
   'Playfair Display',
-  'Roboto Condensed',
-  'Cormorant Unicase',
   'Londrina Sketch',
-  'Yellowtail',
-  'Chewy',
-  'Permanent Marker', 
-  'Muli',
-  'Josefin Slab',
 ].map(f => ({family: f, value: f, label: f}))
 
 const GOOGLE_FONTS = _.chain(IDEO_FONTS)
@@ -31,7 +25,7 @@ const GOOGLE_FONTS = _.chain(IDEO_FONTS)
 
 function Fonts() {
   const [families, setFamilies] = useState(defaultFamilies);
-  const [activeFamilies, setActiveFamilies] = useState({});
+  const [activeFamilies, setActiveFamilies] = useState({'Kollektif': true});
   const handleFamilySelection = useCallback(setFamilies)
   
   useEffect(() => {
@@ -60,11 +54,11 @@ function Fonts() {
           ? (
             <Box mb={4} key={family}>
               <FontManual
-                text="abcdefghABCDEFGH"
+                text="abcdefghi ABCDEFGHI"
                 family={family}
                 loaded={activeFamilies[family]}
                 offsets={DQ_FONTS[family]}
-                fontSize={120}
+                fontSize={100}
                 width={1000}
               />
             </Box>

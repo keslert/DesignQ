@@ -179,7 +179,6 @@ function measureText(t) {
       line.w += (line.text.length - 1) * FONT_MEASURE_SIZE * t.divider.size;
     }
 
-    // line.offset = getTextOffset(str, t.font.family);
     line.offset = offset;
     line.h = FONT_MEASURE_SIZE * (1 + line.offset.top + line.offset.bottom)
   });

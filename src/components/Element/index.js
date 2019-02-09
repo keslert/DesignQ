@@ -4,6 +4,7 @@ import TextElement from '../Element/TextElement';
 import BarElement from '../Element/BarElement';
 
 function Element({element, index}) {
+  
   switch(element.type) {
     case 'logo':
     case 'image': return <ImageElement element={element} index={index} />

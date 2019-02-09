@@ -2,6 +2,7 @@ import { solidColor, unitValue } from '.'
 
 export default {
   title: 'Newton Doughnuts',
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2F48.png?alt=media&token=7924fc95-7213-43cf-8882-470fb07d5175',
   px: 72,
   py: 72,
   background: {

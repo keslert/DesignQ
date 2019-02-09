@@ -3,6 +3,7 @@ import { solidColor, unitValue } from './'
 // TODO: Geometric borders
 export default {
   title: 'Annual Health Fair',
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-photo-health-fair-flyer-MAC4WqK5At4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 36,
   background: solidColor('#e54049'),

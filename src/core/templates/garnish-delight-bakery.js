@@ -2,6 +2,7 @@ import { solidColor, unitValue } from '.'
 
 export default {
   title: 'Garnish Delight Bakery',
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-modern-elegant-colorful-cupcakes-bake-sale-flyer-MAC4C0X6lvc.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 72,
   background: {
@@ -23,15 +24,15 @@ export default {
         ],
         color: solidColor('#DFE0EC'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0.1,
           lineHeight: 1.4,
           size: 0.3,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
-        mb: 1,
+        mb: 1.5,
       },
       {
         type: 'dominant',
@@ -47,7 +48,7 @@ export default {
           size: 1,
           style: 'normal',
           transform: 'normal  ',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },
@@ -58,10 +59,10 @@ export default {
         ],
         color: solidColor('#DFE0EC'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.8,
           style: 'normal',
           transform: 'normal',
           weight: 400,
@@ -72,7 +73,7 @@ export default {
         type: 'bar',
         background: solidColor('#fff'),
         width: unitValue(90, 'px'),
-        height: unitValue(8, 'px'),
+        height: unitValue(6, 'px'),
         mb: 1,
       },
       {
@@ -83,10 +84,10 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Glacial Indifference',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.7,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -102,7 +103,7 @@ export default {
         ],
         color: solidColor('#DFE0EC'),
         font: {
-          family: 'Muli',
+          family: 'Glacial Indifference',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,

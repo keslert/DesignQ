@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Box, Flex } from 'rebass';
 import _ from 'lodash';
 
 
 
 const DEFAULT_OFFSETS = {
-  ascender: 0,
-  xHeight: 0,
-  baseline: 0,
+  ascender: -0.1,
+  xHeight: -0.25,
+  baseline: -.1,
   descender: 0,
 }
 
@@ -18,8 +18,21 @@ function FontManual({
   offsets: propsOffsets = DEFAULT_OFFSETS,
 }) {
   const [offsets, setOffsets] = useState(propsOffsets)
+  const handleCopy = useCallback(() => {
+    const t = document.createElement('textarea')
+    t.value = `\'${family}\': {
+      ascender: ${offsets.ascender},
+      xHeight: ${offsets.xHeight},
+      baseline: ${offsets.baseline},
+      descender: ${offsets.descender},
+    },`;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+  }, [offsets])
 
-  const styles = {
+  const style = {
     position: 'relative',
     lineHeight: 1,
     fontFamily: family,
@@ -30,11 +43,12 @@ function FontManual({
     position: 'absolute',
     left: 0,
     width: '100%',
+    pointerEvents: 'none',
   }
 
   return (
     <div>
-      <Flex bg="white" color="black" style={styles}>
+      <Box bg="white" color="black" style={{position: 'relative'}}>
         <Box 
           bg="#00ADB5"
           style={{
@@ -53,11 +67,34 @@ function FontManual({
           }}
         />
         <Box 
-          style={{position: 'relative'}}
+          style={style}
           children={text}
         />
 
-      </Flex>
+        <Flex mt={3}>
+          {Object.entries(offsets).map(([k, v]) =>
+            <Box mr={2} key={k}>
+              <label key={k}>
+                {k}
+                <input 
+                  name={k}
+                  type="number" 
+                  step={.01} 
+                  value={v}
+                  onChange={e => setOffsets({...offsets, [k]: Number.parseFloat(e.target.value)})}
+                />
+              </label>
+            </Box>
+          )}
+          <button 
+            onClick={handleCopy}
+            children="Copy"
+          />
+
+        </Flex> 
+          
+
+      </Box>
     </div>
   )
 }

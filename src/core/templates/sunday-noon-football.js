@@ -3,8 +3,9 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'Sunday Noon Football',
   tags: ['event', 'flyer', 'football'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-icon-sports-flyer-MAC5t7rcTo0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
-  py: 36,
+  py: 48,
   background: solidColor('#fed23c'),
   content: {
     bleed: { all: true },
@@ -37,7 +38,7 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Raleway',
           letterSpacing: 0,
           lineHeight: 1.2,
           size: 1,
@@ -45,23 +46,23 @@ export default {
           transform: 'uppercase',
           weight: 900,
         },
-        mb: 0.5,
+        mb: 0.75,
       },
       {
         type: 'bar',
         background: solidColor('#000'),
         width: unitValue(100, '%'),
         height: unitValue(12, 'px'),
-        mb: 1,
+        mb: 1.5,
       },
       {
-        type: 'small',
+        type: 'bridge',
         lines: [
           {type: 'descriptiveText', text: 'Experience football like you never have before!'},
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Raleway',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -72,20 +73,20 @@ export default {
         mb: 1,
       },
       {
-        type: 'bridge',
+        type: 'heading',
         lines: [
           {type: 'date-time', text: 'February 26, 2020 from 12NN'},
           {type: 'location', text: 'at Cormoran Sports Pub'},
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Raleway',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
           style: 'normal',
           transform: 'normal',
-          weight: 700,
+          weight: 900,
         },
         mb: 1,
       },
@@ -98,7 +99,7 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Raleway',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -116,13 +117,13 @@ export default {
     textAlign: 'left',
     elements: [
       {
-        type: 'heading',
+        type: 'small',
         color: solidColor('#000'),
         lines: [
           {type: 'host', text: 'Cormoran Sports Pub'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Raleway',
           letterSpacing: 0.2,
           lineHeight: 1.4,
           size: 0,

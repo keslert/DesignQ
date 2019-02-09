@@ -1,7 +1,7 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: '',
+  title: 'Jakob Hansons Birthday',
   tags: ['event', 'flyer'],
   px: 48,
   py: 48,

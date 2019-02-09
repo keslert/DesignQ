@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "chroma-js": "^1.4.0",
+    "jsoneditor": "^5.28.2",
     "lodash": "^4.17.11",
     "pos": "^0.4.2",
     "react": "react@next",
