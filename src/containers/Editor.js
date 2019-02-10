@@ -15,7 +15,7 @@ import _ from 'lodash';
 import 'jsoneditor/dist/jsoneditor.css';
 
 
-const defaultTemplate = templates.HultonFallFest;
+const defaultTemplate = templates.WitchWars;
 // computeFlyer(defaultTemplate)
 function Editor() {
   const jsonDiv = useRef();

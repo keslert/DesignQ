@@ -3,6 +3,7 @@ import { solidColor, unitValue } from '.'
 export default {
   title: "Jacqueline's Birthday Party",
   tags: ['event', 'flyer'],
+  inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-coral-&-black-photo-birthday-flyer-MAC4Cw5ADUo.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
   px: 48,
   py: 36,
   background: {
@@ -48,10 +49,10 @@ export default {
         ],
         color: solidColor('#f17365'),
         font: {
-          family: 'Bebas Neue',
+          family: 'Oswald',
           letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 0.7,
+          size: 0.8,
           style: 'normal',
           transform: 'uppercase',
           weight: 400,
@@ -66,7 +67,7 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
+          family: 'Lato',
           letterSpacing: 0.1,
           lineHeight: 1.4,
           size: 1,
@@ -94,10 +95,10 @@ export default {
           {type: 'location', text: 'Venue: My House'},
         ],
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Lato',
+          letterSpacing: 0.15,
           lineHeight: 1.6,
-          size: 0.2,
+          size: 0.1,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -112,7 +113,7 @@ export default {
           {type: 'descriptiveText', text: 'can make it through hello@reallygreatsite.com'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Lato',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0,

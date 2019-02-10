@@ -14,12 +14,15 @@ function ListDivider({divider, fontSize}) {
   return (
     <div style={style}>
       {divider.type === 'line' &&
-        <div style={{
-          display: 'inline-block',
-          width: Math.ceil(fontSize * .05),
-          height: `${fontSize}px`,
-          ...getBackgroundStyle(divider.color),
-        }}/>
+        <div 
+          style={{
+            display: 'inline-block',
+            width: Math.ceil(fontSize * .05),
+            height: `${fontSize}px`,
+            ...getBackgroundStyle(divider.color),
+          }}
+          // children="|"
+        />
       }
       {divider.type === 'dot' &&
         <div style={{

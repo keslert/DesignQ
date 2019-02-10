@@ -2,8 +2,9 @@ import { solidColor, unitValue } from '.'
 
 export default {
   title: '25th Annual Grise',
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-bordered-photo-food-drive-flyer-MAC3TTAYPR8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 48,
-  py: 48,
+  py: 30,
   background: {
     url: 'https://images.unsplash.com/photo-1523275033438-8c0a9239935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
     filters: {
@@ -31,15 +32,15 @@ export default {
         ],
         color: solidColor('#dc8120'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Montserrat',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.7,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
-        mb: 1,
+        mb: 1.5,
       },
       {
         type: 'dominant',
@@ -49,13 +50,13 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'League Spartan',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 400,
         },
         mb: 1,
       },
@@ -66,7 +67,7 @@ export default {
         ],
         color: solidColor('#dc8120'),
         font: {
-          family: 'Muli',
+          family: 'Montserrat',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -82,6 +83,7 @@ export default {
     bleed: { all: true },
     width: unitValue(100, '%'),
     textAlign: 'center',
+    mb: 2,
     elements: [
       {
         type: 'heading',
@@ -99,15 +101,14 @@ export default {
           color: solidColor('#fff'),
         },
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
+          family: 'League Spartan',
+          letterSpacing: 0.1,
+          lineHeight: 1.6,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 400,
         },
-        mb: 1.5,
       },
       {
         type: 'paragraph',
@@ -118,7 +119,7 @@ export default {
           {type: 'descriptiveText', text: 'those statistics.'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Montserrat',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -126,7 +127,7 @@ export default {
           transform: 'normal',
           weight: 400,
         },
-        mb: 1.5,
+        mb: 1,
       },
     ]
   }

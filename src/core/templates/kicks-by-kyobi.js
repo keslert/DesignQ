@@ -1,28 +1,59 @@
-import { solidColor, unitValue } from '.'
+import { solidColor, unitValue, striped } from '.'
 
 export default {
-  title: '',
+  title: 'Kicks by Kyobi',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-white-collage-fashion-show-flyer-MAC4DkO_3zY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 36,
-  background: solidColor('#e54049'),
+  border: {
+    top: 70,
+    bottom: 70,
+    left: 70,
+    right: 70,
+    url: 'https://images.pexels.com/photos/9379/drinking-alley-fun-bowling-9379.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+  },
+  background: {
+    color: '#1a1a1a',
+  },
   content: {
     bleed: { all: true },
-    background: solidColor('#e54049'),
     alignX: 'center',
     alignY: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
+    width: unitValue(100, '%'),
+    mb: 1.5,
     elements: [
+      {
+        type: 'small',
+        lines: [
+          {type: 'descriptive', text: 'Calling All'},
+          {type: 'descriptive', text: 'Sneakerheads!'},
+        ],
+        color: solidColor('#ffffff'),
+        font: {
+          family: 'Montserrat',
+          letterSpacing: 0.2,
+          lineHeight: 1.6,
+          size: 0.8,
+          style: 'normal',
+          transform: 'uppercase',
+          weight: 700,
+        },
+        mb: 2,
+      },
       {
         type: 'dominant',
         lines: [
-          {type: 'eventName', text: 'Annual'},
+          {type: 'eventName', text: 'Kicks By'},
+          {type: 'eventName', text: 'Kyobi Sale is'},
+          {type: 'eventName', text: 'Here!'},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         font: {
-          family: '',
+          family: 'Oswald',
           letterSpacing: 0,
-          lineHeight: 1.4,
+          lineHeight: 1.2,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
@@ -31,47 +62,60 @@ export default {
         mb: 1,
       },
       {
-        type: 'small',
+        type: 'bridge',
         lines: [
-          {type: 'time', text: '10AM'},
+          {type: 'descriptiveText', text: 'Enjoy up to 70% off on all'},
+          {type: 'descriptiveText', text: 'shoe styles and trends!'},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         font: {
-          family: 'Muli',
+          family: 'Montserrat',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.5,
+          style: 'normal',
+          transform: 'normal',
+          weight: 400,
+        },
+        mb: 1,
+      },
+      {
+        type: 'heading',
+        lines: [
+          {type: 'time', text: 'Hurry! Sale runs from June 15 -'},
+          {type: 'time', text: 'August 15, 2020.'},
+        ],
+        color: solidColor('#ffffff'),
+        font: {
+          family: 'Oswald',
+          letterSpacing: 0.1,
+          lineHeight: 1.6,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
+          weight: 400,
+        },
+        mb: 1,
+      },
+      {
+        type: 'paragraph',
+        lines: [
+          {type: 'descriptiveText', text: 'Ditch your old shoes and snag some fresh'},
+          {type: 'descriptiveText', text: 'new ones at affordable prices! Shop in-'},
+          {type: 'descriptiveText', text: 'store at 123 Anywhere St., Any City today!'},
+        ],
+        color: solidColor('#ffffff'),
+        font: {
+          family: 'Montserrat',
+          letterSpacing: 0,
+          lineHeight: 1.4,
+          size: 0,
+          style: 'normal',
+          transform: 'normal',
           weight: 400,
         },
         mb: 1,
       },
     ]
   },
-  footer: {
-    bleed: { all: true },
-    background: solidColor('#6b6f39'),
-    width: unitValue(100, '%'),
-    textAlign: 'left',
-    elements: [
-      {
-        type: 'heading',
-        color: solidColor('#fff'),
-        lines: [
-          {type: 'location', text: '123 Anywhere St.'},
-        ],
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-    ]
-  }
 }

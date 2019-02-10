@@ -2,6 +2,8 @@ import { solidColor, unitValue } from '.'
 
 export default {
   title: 'Annual Beechtown Food Fest',
+  tags: ['flyer', 'event'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-vegetable-flatlay-food-flyer-MAC6lYFykfE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 36,
   ps: 1,
@@ -17,8 +19,8 @@ export default {
     aspectRatio: 1,
     px: 3,
     py: 3,
-    w: 0.75,
-    // width: unitValue(100, '%'),
+    w: 0.8,
+    mb: 1.5,
     borderRadius: unitValue(50, '%'),
     elements: [
       {
@@ -28,10 +30,10 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Kollektif',
+          letterSpacing: 0.15,
           lineHeight: 1.4,
-          size: 1,
+          size: 2,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -47,7 +49,7 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Bebas Neue',
+          family: 'Norwester',
           letterSpacing: 0,
           lineHeight: 1.2,
           size: 1,
@@ -65,9 +67,9 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
+          family: 'Kollektif',
+          letterSpacing: 0.1,
+          lineHeight: 1.6,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
@@ -92,13 +94,13 @@ export default {
           {type: 'location', text: '123 Anywhere St.'},
         ],
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.5,
+          family: 'Norwester',
+          letterSpacing: 0.15,
+          lineHeight: 1.6,
+          size: 0.2,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 2,
       },
@@ -110,7 +112,7 @@ export default {
           {type: 'descriptiveText', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Kollektif',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,

@@ -89,11 +89,11 @@ function computeGroupElementSpacing(group, structure, options) {
       const mb = Math.min(
         MAX_MARGIN_BOTTOM,
         largestFontSize / Math.log(largestFontSize * .3)
-      ) * (group.mb || 1);
+      ) * (group.mb !== undefined ? group.mb : 1);
 
       subGroup.forEach(item => {
         if(!item.bleed || !item.bleed.bottom) {
-          item._computed.mb = mb * (item.mb || 1);
+          item._computed.mb = mb * (item.mb !== undefined ? item.mb : 1);
         }
       });
       
@@ -134,5 +134,5 @@ function isInlineElement(el) {
 }
 
 function isFullBleedImage(el) {
-  return el.type === 'image' && el.bleed && (el.bleed.left && el.bleed.right);
+  return el.type === 'image' && el.bleed && (el.bleed.all || (el.bleed.left && el.bleed.right && el.bleed.top && el.bleed.bottom));
 }

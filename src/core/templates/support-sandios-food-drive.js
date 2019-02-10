@@ -3,6 +3,7 @@ import { solidColor, unitValue, splitColor } from '.'
 export default {
   title: 'Support Sandios Food Drive',
   tags: ['event', 'flyer', 'food-drive'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-cream-and-purple-icons-food-drive-flyer-MAC5t38U8lM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 48,
   background: {
@@ -11,7 +12,7 @@ export default {
     backgroundBlendMode: 'lighten',
     x: 0.3,
     y: -.4,
-    zoom: 1.3,
+    zoom: 1.35,
   },
   content: {
     bleed: { left: true },
@@ -29,10 +30,10 @@ export default {
         ],
         color: solidColor('#fff1d9'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Montserrat',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.2,
           style: 'normal',
           transform: 'uppercase',
           weight: 400,
@@ -49,13 +50,13 @@ export default {
         ],
         color: solidColor('#fff1d9'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'League Spartan',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.9,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 400,
         },
         mb: 1,
       },
@@ -66,7 +67,7 @@ export default {
         ],
         color: solidColor('#fff1d9'),
         font: {
-          family: 'Muli',
+          family: 'Montserrat',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -92,8 +93,8 @@ export default {
           {type: 'descriptiveText', text: 'Any City, Open Daily.'},
         ],
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Montserrat',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
           size: 1,
           style: 'normal',
@@ -111,7 +112,7 @@ export default {
           {type: 'descriptiveText', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Montserrat',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,

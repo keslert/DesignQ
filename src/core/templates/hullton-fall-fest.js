@@ -97,7 +97,7 @@ export default {
         divider: {
           type: 'line',
           size: 1,
-          color: '#ecda7d',
+          color: solidColor('#ecda7d'),
         },
         font: {
           family: 'Aleo',

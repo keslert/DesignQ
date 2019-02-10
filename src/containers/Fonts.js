@@ -13,7 +13,7 @@ import FontCanvas from '../components/FontCanvas';
 import FontManual from '../components/FontManual'
 
 const defaultFamilies = [
-  'Kollektif',
+  'Playlist',
   'Playfair Display',
   'Londrina Sketch',
 ].map(f => ({family: f, value: f, label: f}))
@@ -25,7 +25,7 @@ const GOOGLE_FONTS = _.chain(IDEO_FONTS)
 
 function Fonts() {
   const [families, setFamilies] = useState(defaultFamilies);
-  const [activeFamilies, setActiveFamilies] = useState({'Kollektif': true});
+  const [activeFamilies, setActiveFamilies] = useState({'Playlist': true});
   const handleFamilySelection = useCallback(setFamilies)
   
   useEffect(() => {

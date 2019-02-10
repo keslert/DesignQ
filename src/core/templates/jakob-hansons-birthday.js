@@ -3,6 +3,7 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'Jakob Hansons Birthday',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-with-monkey-llustration-birthday-flyer-MAC5t3-JpG8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 48,
   py: 48,
   border: {
@@ -15,7 +16,7 @@ export default {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
-    mb: 0.8,
+    mb: 0.75,
     elements: [
       {
         type: 'logo',
@@ -32,17 +33,17 @@ export default {
       {
         type: 'small',
         lines: [
-          {type: 'time', text: 'You Are Cordially Invited'},
+          {type: 'descriptive', text: 'You Are Cordially Invited'},
         ],
         color: solidColor('#66712c'),
         font: {
-          family: 'Josefin Slab',
-          letterSpacing: 0,
+          family: 'Aleo',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 0.8,
+          size: 0.5,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },
@@ -54,13 +55,13 @@ export default {
         ],
         color: solidColor('#fbd071'),
         font: {
-          family: 'Muli',
+          family: 'Lilita One',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 400,
         },
         mb: 1,
       },
@@ -71,7 +72,7 @@ export default {
         ],
         color: solidColor('#66712c'),
         font: {
-          family: 'Muli',
+          family: 'Aleo',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
@@ -103,13 +104,13 @@ export default {
         },
         color: solidColor('#fbd071'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Lilita One',
+          letterSpacing: 0.05,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.7,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 400,
         },
         mb: 1,
       },
@@ -121,7 +122,7 @@ export default {
         ],
         color: solidColor('#66712c'),
         font: {
-          family: 'Muli',
+          family: 'Aleo',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,

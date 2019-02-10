@@ -3,6 +3,7 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'Annual All-White Charity Parity',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-and-charcoal-all-white-party-flyer-MAC7mt5CsZA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 48,
   background: solidColor('#fff'),
@@ -11,6 +12,7 @@ export default {
     alignX: 'center',
     alignY: 'center',
     textAlign: 'center',
+    mb: 0.75,
     elements: [
       {
         type: 'logo',
@@ -32,10 +34,10 @@ export default {
         ],
         color: solidColor('#373737'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Aileron',
+          letterSpacing: 0.15,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.3,
           style: 'normal',
           transform: 'uppercase',
           weight: 700,
@@ -50,13 +52,13 @@ export default {
         ],
         color: solidColor('#373737'),
         font: {
-          family: 'Bebas Neue',
+          family: 'Norwester',
           letterSpacing: 0.05,
           lineHeight: 1.2,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },
@@ -67,7 +69,7 @@ export default {
         ],
         color: solidColor('#373737'),
         font: {
-          family: 'Muli',
+          family: 'Aileron',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.6,
@@ -101,7 +103,7 @@ export default {
           color: solidColor('#fff'),
         },
         font: {
-          family: 'Muli',
+          family: 'Aileron',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: .5,
@@ -119,7 +121,7 @@ export default {
           {type: 'descriptiveText', text: 'Hewes Foundation. Come and party for a good cause!'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Aileron',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: .5,

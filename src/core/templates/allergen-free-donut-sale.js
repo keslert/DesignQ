@@ -1,77 +1,118 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: '',
+  title: 'Allergen-Free Donut Sale',
   tags: ['event', 'flyer'],
-  px: 36,
-  py: 36,
-  background: solidColor('#e54049'),
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-with-donuts-bake-sale-flyer-MAC4CsQClwE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+  px: 50,
+  py: 50,
+  background: solidColor('#ffffff'),
   content: {
     bleed: { all: true },
-    background: solidColor('#e54049'),
     alignX: 'center',
     alignY: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
+    width: unitValue(100, '%'),
+    flex: 1,
     elements: [
+      { 
+        type: 'image',
+        flex: 1,
+        bleed: {top: true, left: true, right: true},
+        url: 'https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        zoom: 1,
+        y: 0.75,
+        filters: {
+          "brightness": 1.2
+        },
+        mb: 1.5,
+      },
+      {
+        type: 'small',
+        lines: [
+          {type: 'descriptive', text: 'Indulge the Safe Way'},
+        ],
+        color: solidColor('#d45e8f'),
+        font: {
+          family: 'Kollektif',
+          letterSpacing: 0.05,
+          lineHeight: 1.4,
+          size: 0.4,
+          style: 'normal',
+          transform: 'uppercase',
+          weight: 400,
+        },
+        mb: 1.25,
+      },
       {
         type: 'dominant',
         lines: [
-          {type: 'eventName', text: 'Annual'},
+          {type: 'eventName', text: "Cia's Allergen-Free"},
+          {type: 'eventName', text: 'Donut Sale'},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#d45e8f'),
         font: {
-          family: '',
+          family: 'Oswald',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0.9,
           style: 'normal',
           transform: 'uppercase',
+          weight: 700,
+        },
+        mb: 1,
+      },
+      {
+        type: 'bridge',
+        lines: [
+          [
+            {type: 'date', text: 'August 8-10'},
+            {type: 'time', text: '1-6PM'},
+          ],
+          {type: 'location', text: 'Beechtown Community Park'},
+
+        ],
+        divider: {
+          type: 'line',
+          size: 1,
+          color: solidColor('#d45e8f'),
+        },
+        color: solidColor('#d45e8f'),
+        font: {
+          family: 'Kollektif',
+          letterSpacing: 0,
+          lineHeight: 1.4,
+          size: 0.4,
+          style: 'normal',
+          transform: 'normal',
           weight: 400,
         },
         mb: 1,
       },
       {
-        type: 'small',
+        type: 'bar',
+        background: solidColor('#d45e8f'),
+        height: unitValue(6, 'px'),
+        width: unitValue(33, '%'),
+      },
+      {
+        type: 'paragraph',
         lines: [
-          {type: 'time', text: '10AM'},
+          {type: 'time', text: "Now's your chance to get a batch of these special homemade donuts"},
+          {type: 'time', text: "while they're still hot and fresh from the oven!"},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#d45e8f'),
         font: {
-          family: 'Muli',
+          family: 'Kollektif',
           letterSpacing: 0,
           lineHeight: 1.4,
-          size: 1,
+          size: 0,
           style: 'normal',
-          transform: 'uppercase',
+          transform: 'normal',
           weight: 400,
         },
         mb: 1,
       },
     ]
   },
-  footer: {
-    bleed: { all: true },
-    background: solidColor('#6b6f39'),
-    width: unitValue(100, '%'),
-    textAlign: 'left',
-    elements: [
-      {
-        type: 'heading',
-        color: solidColor('#fff'),
-        lines: [
-          {type: 'location', text: '123 Anywhere St.'},
-        ],
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-    ]
-  }
 }

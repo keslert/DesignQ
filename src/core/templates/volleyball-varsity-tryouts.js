@@ -3,11 +3,12 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'Volleyball Varsity Tryouts',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-volleyball-icons-sports-flyer-MAC3X5T2nN8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 36,
   border: {
-    top: 160,
-    right: 160,
+    top: 200,
+    right: 200,
     color: '#fcd352',
   },
   background: {
@@ -18,6 +19,7 @@ export default {
     alignX: 'flex-start',
     alignY: 'flex-end',
     textAlign: 'left',
+    width: unitValue(100, '%'),
     elements: [
       {
         type: 'small',
@@ -26,13 +28,13 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Open Sans',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 900,
+          weight: 700,
         },
         mb: 1,
       },
@@ -41,6 +43,7 @@ export default {
         height: unitValue(5, 'px'),
         width: unitValue(100, '%'),
         background: solidColor('#000'),
+        mb: 1.5,
       },
       {
         type: 'dominant',
@@ -51,13 +54,13 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Bebas Neue',
-          letterSpacing: 0.1,
-          lineHeight: 1.2,
-          size: 1,
+          family: 'Norwester',
+          letterSpacing: 0,
+          lineHeight: 1.3,
+          size: 0.9,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },
@@ -69,7 +72,7 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Open Sans',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
@@ -89,15 +92,15 @@ export default {
         type: 'heading',
         lines: [
           
-          {type: 'date', text: 'September 20, 2020', format: 'MMMM D, YYYY'},
+          {type: 'date', text: 'September 20, 2020 From', format: 'MMMM D, YYYY'},
           {type: 'time', text: '10 am - 3 pm at'},
           {type: 'location', text: 'Anouba Court'},
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
+          family: 'Open Sans',
+          letterSpacing: 0.1,
+          lineHeight: 1.6,
           size: 1.0,
           style: 'normal',
           transform: 'uppercase',
@@ -114,7 +117,7 @@ export default {
         ],
         color: solidColor('#000'),
         font: {
-          family: 'Muli',
+          family: 'Open Sans',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0,

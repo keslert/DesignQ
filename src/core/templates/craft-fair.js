@@ -1,8 +1,9 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: '',
+  title: 'Craft Fair',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-event-flyer-MADKJzVJFo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 48,
   background: {
@@ -22,7 +23,7 @@ export default {
         ],
         color: solidColor('#fef093'),
         font: {
-          family: 'Muli',
+          family: 'Kollektif',
           letterSpacing: 0,
           lineHeight: 1.2,
           size: 1,
@@ -39,7 +40,7 @@ export default {
         ],
         color: solidColor('#fef093'),
         font: {
-          family: 'Muli',
+          family: 'Quicksand',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 1,
@@ -58,7 +59,7 @@ export default {
         ],
         color: solidColor('#ffffffcc'),
         font: {
-          family: 'Muli',
+          family: 'Quicksand',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
@@ -71,7 +72,7 @@ export default {
       {
         type: 'bar',
         background: solidColor('#fef093'),
-        height: unitValue(3, 'px'),
+        height: unitValue(2, 'px'),
         width: unitValue(50, '%'),
       },
       {
@@ -98,7 +99,7 @@ export default {
         },
         color: solidColor('#ffffffcc'),
         font: {
-          family: 'Muli',
+          family: 'Quicksand',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.5,
@@ -115,7 +116,7 @@ export default {
         ],
         color: solidColor('#ffffffcc'),
         font: {
-          family: 'Muli',
+          family: 'Quicksand',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: 0.4,

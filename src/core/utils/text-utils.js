@@ -270,10 +270,19 @@ export const DQ_FONTS = {
     descender: 0.09,
   },
   'Kollektif': {
+    file: 'custom',
     ascender: -0.095,
     xHeight: -0.33,
     baseline: -0.19,
     descender: 0,
+  },
+  'Playlist': {
+    type: 'cursive',
+    file: 'custom',
+    ascender: -0.02,
+    xHeight: -0.39,
+    baseline: -0.16,
+    descender: 0.15,
   },
 }
 
