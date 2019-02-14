@@ -48,7 +48,7 @@ export default {
           size: 1,
           style: 'normal',
           transform: 'none',
-          lineHeight: 1.02,
+          lineHeight: 1.05,
           ignoreAscendersDescenders: true,
         },
       },

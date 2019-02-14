@@ -3,10 +3,11 @@ import { solidColor, unitValue } from '.'
 export default {
   title: "Let's Groove Jazz Night",
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-yellow-and-black-jazz-night-saxophone-illustration-concert-flyer-MAC4_opPoG0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,
   py: 48,
   border: {
-    right: 50,
+    right: 40,
     color: '#f3d030',
   },
   background: {
@@ -17,6 +18,7 @@ export default {
     alignX: 'flex-start',
     alignY: 'flex-start',
     textAlign: 'left',
+    pr: 3,
     elements: [
       {
         type: 'small',
@@ -25,13 +27,13 @@ export default {
         ],
         color: solidColor('#f4d55e'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Raleway',
+          letterSpacing: 0.2,
           lineHeight: 1.4,
-          size: 0.5,
+          size: 0.1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 2,
       },
@@ -44,13 +46,13 @@ export default {
         ],
         color: solidColor('#fff'),
         font: {
-          family: 'Bebas Neue',
+          family: 'Norwester',
           letterSpacing: 0.05,
           lineHeight: 1.2,
           size: 1,
           style: 'normal',
           transform: 'uppercase',
-          weight: 700,
+          weight: 400,
         },
         mb: 1,
       },
@@ -58,7 +60,8 @@ export default {
         type: 'bar',
         background: solidColor('#f4d55e'),
         height: unitValue(8, 'px'),
-        width: unitValue(33, '%'),
+        width: unitValue(40, '%'),
+        mb: 1.5,
       },
       {
         type: 'bridge',
@@ -68,10 +71,10 @@ export default {
         ],
         color: solidColor('#ffffffcc'),
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
+          family: 'Raleway',
+          letterSpacing: 0.1,
           lineHeight: 1.4,
-          size: 0.6,
+          size: 1.4,
           style: 'normal',
           transform: 'normal',
           weight: 400,
@@ -84,6 +87,7 @@ export default {
     bleed: { all: true },
     width: unitValue(100, '%'),
     textAlign: 'left',
+    mb: 2.5,
     elements: [
       {
         type: 'heading',
@@ -95,7 +99,7 @@ export default {
           {type: 'city-state', text: 'Any City'},
         ],
         font: {
-          family: 'Muli',
+          family: 'Raleway',
           letterSpacing: 0,
           lineHeight: 1.4,
           size: .3,
@@ -103,7 +107,6 @@ export default {
           transform: 'normal',
           weight: 700,
         },
-        mb: 2,
       },
       {
         type: 'paragraph',
@@ -116,10 +119,10 @@ export default {
           {type: 'descriptiveText', text: 'reallygreatsite.com'},
         ],
         font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: .2,
+          family: 'Raleway',
+          letterSpacing: 0.1,
+          lineHeight: 1.6,
+          size: .1,
           style: 'normal',
           transform: 'normal',
           weight: 400,

@@ -10,7 +10,7 @@ _.forEach(flyers, flyer => computeFlyer(flyer));
 function Gallery() {
 
   const frameWidth = 612;
-  const frameHeight = 792;
+  const frameHeight = 856;
   const scale = 0.55;
 
   return (
