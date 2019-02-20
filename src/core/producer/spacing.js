@@ -1,138 +1,76 @@
 import _ from 'lodash';
 import { scaleElementFontSizes } from './sizes';
+import { withGroups, withSides } from '.';
 
-const MAX_MARGIN_BOTTOM = 40
-
-export function computeSpacing(structure) {
-  computeGroupElementSpacing(structure.header, structure, {top: true});
-  computeGroupElementSpacing(structure.footer, structure, {bottom: true});
-  computeGroupElementSpacing(structure.content, structure, {top: true, bottom: true});
-}
-
-function computeGroupElementSpacing(group, structure, options) {
-  if(!group) return;
-
-  const elements = group.elements;
-  const border = structure.border._computed;
-
+export function computeSpacing(template) {
+  const dominant = _.find(template.content.body.elements, e => e.type === 'dominant');
+  // const groupSpacing = Math.log(dominant._computed.fontSize * .2) * 15;
+  const elementSpacing = Math.log(dominant._computed.fontSize * .2) * 15;
   
-  const bleed = group.bleed || {};
-  group._computed.ml = bleed && bleed.left ? bleed.border ? 0 : border.l : structure.pl + border.l;
-  group._computed.mr = bleed && bleed.right ? bleed.border ? 0 : border.r : structure.pr + border.r;
-  group._computed.mt = bleed && bleed.top ? bleed.border ? 0 : border.t : structure.pt + border.t;
-  group._computed.mb = bleed && bleed.bottom ? bleed.border ? 0 : border.b : structure.pb + border.b;
+
+  const c = template.content._computed;
+  withSides(s => c[`m${s}`] = _.sumBy(c.edges[s], e => e.value))
+
+  const groupSpacing = template.content._computed.pt / 2;
+  computeGroupSpacing(template, groupSpacing);
+
+  withGroups(template, g => computeGroupElementSpacing(g, elementSpacing));
+}
+
+function computeGroupSpacing(template, spacing) {
+  withGroups(template, g => {
+    g._computed.ml = _.sumBy(g._computed.edges.l, e => e.value)
+    g._computed.mr = _.sumBy(g._computed.edges.r, e => e.value)
+    g._computed.mt = 0;
+    g._computed.mb = 0;
+  })  
+  if(template.content.header) {
+    const header = template.content.header
+    header._computed.mb = spacing * header.mb
+  }
+  if(template.content.footer) {
+    const body = template.content.body;
+    body._computed.mb = spacing * body.mb;
+  }
+}
+
+function computeGroupElementSpacing(group, spacing) {
+  const elements = group.elements;
 
   elements.forEach(el => {
     const c = el._computed;
-    c.pl = c.pr = c.pt = c.pb = 0;
-    c.mt = c.mb = 0;
+    withSides(s => c[`p${s}`] = 0);
+    withSides(s => c[`m${s}`] = _.sumBy(c.edges[s], e => e.value), ['l', 'r']);
+    c.mt = 0;
+    c.mb = spacing * el.mb;
+
+    if(el.background && el.lines) {
+      const x = c.fontSize / Math.log(c.fontSize * .4);
+      const y = c.fontSize / Math.log(c.fontSize * .3);
+
+      withSides(s => c[`p${s}`] = x * el[`p${s}`], ['l', 'r'])
+      withSides(s => c[`p${s}`] = y * el[`p${s}`], ['t', 'b'])
+
+      const scale = (c.w - c.pr - c.pl) / c.w;
+      scaleElementFontSizes(el, scale);
+    }
     
-    c.ml = structure.px * (group.px || group.pl || 1);
-    c.mr = structure.px * (group.px || group.pr || 1);
-    
-    if((el.lines && el.background) || (el.type === 'logo' && el.color)) { 
-
-      if(el.lines) {
-        if(!el.bleed || !el.bleed.left) {
-          c.pl = c.fontSize / Math.log(c.fontSize * .3);
-        }
-        if(!el.bleed || !el.bleed.right) {
-          c.pr = c.fontSize / Math.log(c.fontSize * .3);
-        }
-        c.pt = c.pb = c.fontSize / Math.log(c.fontSize * .2);
-      } else { 
-        c.pl = c.pr = c.fontSize / Math.log(c.fontSize * .3);
-        c.pt = c.pb = c.fontSize / Math.log(c.fontSize * .3);
-      }
-      
-      c.pl *= el.pl;
-      c.pr *= el.pr;
-      c.pt *= el.pt;
-      c.pb *= el.pb;
-
-      if(el.lines) {
-        const scale = (c.w - c.pr - c.pl) / c.w;
-        scaleElementFontSizes(el, scale);
-      } else {
-        c.h += c.pt + c.pb;
-        c.w += c.pr + c.pl;
-      }
+    if(el.type === 'icon' && el.color) { 
+      const pad = c.fontSize / Math.log(c.fontSize * .3);
+      withSides(s => c[`p${s}`] = pad * el[`p${s}`])
+      c.h += c.pt + c.pb;
+      c.w += c.pr + c.pl;
     }
   })
+  _.last(elements)._computed.mb = 0;
 
   elements.forEach(el => {
-    const c = el._computed;
-    if(el.bleed) {
-      if(el.bleed.left) {c.pl += c.ml; c.ml = 0};
-      if(el.bleed.right) {c.pr += c.mr; c.mr = 0};
-      if(el.bleed.top) {c.pt += c.mt; c.mt = 0};
-      if(el.bleed.bottom) {c.pb += c.mb; c.mb = 0};
-    }
-  })
-
-  const subGroups = _.reduce(elements.slice(1), (res, el) => {
-    if(isInlineElement(el) && isInlineElement(el._computed.prev)) {
-      res[res.length - 1].push(el);
-    } else {
-      res.push([el]);
-    }
-    return res;
-  }, [[elements[0]]])
-
-  const lastSubGroupIndex = subGroups.length - 1;
-  subGroups.forEach((subGroup, i) => {
-    const firstItem = subGroup[0];
-    const lastItem = subGroup[subGroup.length - 1];
-    const isInlineGroup = isInlineElement(firstItem);
-    if(isInlineGroup) {
-      const largestFontSize = _.maxBy(subGroup, item => item._computed.fontSize)._computed.fontSize;
-      const mb = Math.min(
-        MAX_MARGIN_BOTTOM,
-        largestFontSize / Math.log(largestFontSize * .3)
-      ) * (group.mb !== undefined ? group.mb : 1);
-
-      subGroup.forEach(item => {
-        if(!item.bleed || !item.bleed.bottom) {
-          item._computed.mb = mb * (item.mb !== undefined ? item.mb : 1);
-        }
-      });
-      
-      if((options.top && i === 0) || group.background) {
-        if(!firstItem.bleed || !firstItem.bleed.top) {
-          firstItem._computed.mt = structure.pt * group.pt;
-        }
-      }
-      
-      if((options.bottom && i === lastSubGroupIndex) || group.background) {
-        if(!lastItem.bleed || !lastItem.bleed.bottom) {
-          lastItem._computed.mb = structure.pb * group.pb;
-        }
-      }
-    } 
-  })
-
-  elements.forEach(el => {
-    const c = el._computed;
     if(el.overlap) {
-      c.mt = -c.h * el.overlap;
+      el._computed.mt = el._computed.h * -el.overlap;
     }
   })
-
-}
-
-const INLINE_ELEMENTS = {
-  dominant: true,
-  small: true,
-  paragraph: true,
-  heading: true,
-  bridge: true,
-  bar: true,
-  logo: true,
-}
-function isInlineElement(el) {
-  return INLINE_ELEMENTS[el.type] || !isFullBleedImage(el)
 }
 
 function isFullBleedImage(el) {
-  return el.type === 'image' && el.bleed && (el.bleed.all || (el.bleed.left && el.bleed.right && el.bleed.top && el.bleed.bottom));
+  return el.type === 'image' && (el.bleed.left && el.bleed.right && el.bleed.top && el.bleed.bottom);
 }

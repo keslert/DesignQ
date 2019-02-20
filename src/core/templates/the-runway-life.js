@@ -13,114 +13,118 @@ export default {
     zoom: 2.49,
   },
   content: {
-    bleed: { all: true },
-    alignX: 'flex-start',
-    alignY: 'flex-start',
-    textAlign: 'left',
-    elements: [
-      {
-        type: 'small',
-        lines: [
-          {type: 'host', text: 'Baks Clothing Company'},
-        ],
-        color: solidColor('#000'),
-        background: solidColor('#fff'),
-        width: unitValue(100, '%'),
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.3,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 600,
+    height: 'flex',
+    width: 'flex',
+    body: {
+      bleed: { all: true },
+      alignX: 'flex-start',
+      alignY: 'flex-start',
+      textAlign: 'left',
+      elements: [
+        {
+          type: 'small',
+          lines: [
+            {type: 'host', text: 'Baks Clothing Company'},
+          ],
+          color: solidColor('#000'),
+          background: solidColor('#fff'),
+          width: unitValue(100, '%'),
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.3,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 600,
+          },
+          mb: 1.5,
+          pl: 2,
         },
-        mb: 1.5,
-        pl: 2,
-      },
-      {
-        type: 'dominant',
-        lines: [
-          {type: 'eventName', text: 'The Runway'},
-          {type: 'eventName', text: 'Life: Fierce'},
-          {type: 'eventName', text: '& Fabulous'},
-        ],
-        color: solidColor('#fff'),
-        font: {
-          family: 'Norwester',
-          letterSpacing: 0,
-          lineHeight: 1.2,
-          size: 0.7,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: 'The Runway'},
+            {type: 'eventName', text: 'Life: Fierce'},
+            {type: 'eventName', text: '& Fabulous'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Norwester',
+            letterSpacing: 0,
+            lineHeight: 1.2,
+            size: 0.7,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 0.75,
         },
-        mb: 0.75,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'time', text: 'A charity fashion show'},
-          {type: 'time', text: 'for the women of BWC'},
-        ],
-        color: solidColor('#fff'),
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.8,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
+        {
+          type: 'bridge',
+          lines: [
+            {type: 'time', text: 'A charity fashion show'},
+            {type: 'time', text: 'for the women of BWC'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.8,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-    ]
-  },
-  footer: {
-    bleed: { all: true },
-    width: unitValue(100, '%'),
-    textAlign: 'left',
-    elements: [
-      {
-        type: 'heading',
-        color: solidColor('#fff'),
-        lines: [
-          {type: 'price', text: 'Tickets: $5'},
-          {type: 'date', text: 'June 20, 2020'},
-          {type: 'time', text: '11 am'},
-          {type: 'location', text: 'Beechtown Community Center'},
-        ],
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0.1,
-          lineHeight: 1.4,
-          size: 0.0,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 700,
+      ]
+    },
+    footer: {
+      bleed: { all: true },
+      width: unitValue(100, '%'),
+      textAlign: 'left',
+      elements: [
+        {
+          type: 'heading',
+          color: solidColor('#fff'),
+          lines: [
+            {type: 'price', text: 'Tickets: $5'},
+            {type: 'date', text: 'June 20, 2020'},
+            {type: 'time', text: '11 am'},
+            {type: 'location', text: 'Beechtown Community Center'},
+          ],
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0.1,
+            lineHeight: 1.4,
+            size: 0.0,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 700,
+          },
+          mb: 2,
         },
-        mb: 2,
-      },
-      {
-        type: 'paragraph',
-        color: solidColor('#fff'),
-        lines: [
-          {type: 'descriptiveText', text: 'Watch the hottest trends go down the runway'},
-          {type: 'descriptiveText', text: 'with looks from our Spring/Summer \'20 collection.'},
-          {type: 'descriptiveText', text: '100% of the proceeds will go to BWC'},
-        ],
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.0,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
+        {
+          type: 'paragraph',
+          color: solidColor('#fff'),
+          lines: [
+            {type: 'descriptiveText', text: 'Watch the hottest trends go down the runway'},
+            {type: 'descriptiveText', text: 'with looks from our Spring/Summer \'20 collection.'},
+            {type: 'descriptiveText', text: '100% of the proceeds will go to BWC'},
+          ],
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.0,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-    ]
+      ]
+    }
   }
 }

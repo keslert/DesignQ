@@ -10,129 +10,133 @@ export default {
     color: '#fbab32',
   },
   content: {
-    bleed: { all: true },
-    alignX: 'left',
-    alignY: 'flex-start',
-    textAlign: 'left',
-    mb: 1.5,
-    elements: [
-      {
-        type: 'dominant',
-        lines: [
-          {type: 'eventName', text: 'Plan Your'},
-          {type: 'eventName', text: 'Career the'},
-          {type: 'eventName', text: 'Right Way.'},
-        ],
-        color: solidColor('#2b2b2b'),
-        font: {
-          family: 'League Spartan',
-          letterSpacing: 0.025,
-          lineHeight: 1.25,
-          size: 0.7,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'host', text: 'Come to the EDU Job Fair and get into your dream company.'},
-        ],
-        color: solidColor('#2b2b2b'),
-        font: {
-          family: 'Lato',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1.2,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
-        },
-        mb: 1,
-      },
-    ]
-  },
-  header: {
-    bleed: { all: true },
-    alignX: 'flex-right',
-    textAlign: 'left',
-    background: solidColor('#2b2b2b'),
-    width: unitValue(100, '%'),
-    mb: 2,
-    elements: [
-      {
-        type: 'small',
-        lines: [
-          {type: 'host', text: 'El Dorado University'},
-        ],
-        color: solidColor('#fff'),
-        font: {
-          family: 'Lato',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.0,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-    ]
-  },
-  footer: {
-    bleed: { all: true },
-    alignX: 'flex-right',
-    textAlign: 'right',
-    width: unitValue(100, '%'),
-    mb: 2,
-    elements: [
-      {
-        type: 'heading',
-        lines: [
-          {type: 'date', text: 'July 19, 2020'},
-          {type: 'time', text: '10 AM to 5 PM'},
-          [
-            {type: 'location', text: '123 Anywhere St.'},
-            {type: 'city-state', text: 'Any City'},
-          ]
-        ],
-        divider: {
-          type: 'comma',
-          size: 1,
+    height: 'flex',
+    width: 'flex',
+    body: {
+      bleed: { all: true },
+      alignX: 'left',
+      alignY: 'flex-start',
+      textAlign: 'left',
+      mb: 1.5,
+      elements: [
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: 'Plan Your'},
+            {type: 'eventName', text: 'Career the'},
+            {type: 'eventName', text: 'Right Way.'},
+          ],
           color: solidColor('#2b2b2b'),
+          font: {
+            family: 'League Spartan',
+            letterSpacing: 0.025,
+            lineHeight: 1.25,
+            size: 0.7,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1,
         },
-        color: solidColor('#2b2b2b'),
-        font: {
-          family: 'League Spartan',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.5,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
+        {
+          type: 'bridge',
+          lines: [
+            {type: 'host', text: 'Come to the EDU Job Fair and get into your dream company.'},
+          ],
+          color: solidColor('#2b2b2b'),
+          font: {
+            family: 'Lato',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1.2,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-      {
-        type: 'paragraph',
-        lines: [
-          {type: 'descriptiveText', text: 'The EDU Job Fair is an annual event where students can get to know'},
-          {type: 'descriptiveText', text: 'over 100 amazing companies in various fields of study.'},
-        ],
-        color: solidColor('#2b2b2b'),
-        font: {
-          family: 'Lato',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1.1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
+      ]
+    },
+    header: {
+      bleed: { all: true },
+      alignX: 'flex-right',
+      textAlign: 'left',
+      background: solidColor('#2b2b2b'),
+      width: unitValue(100, '%'),
+      mb: 2,
+      elements: [
+        {
+          type: 'small',
+          lines: [
+            {type: 'host', text: 'El Dorado University'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Lato',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.0,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-    ]
+      ]
+    },
+    footer: {
+      bleed: { all: true },
+      alignX: 'flex-right',
+      textAlign: 'right',
+      width: unitValue(100, '%'),
+      mb: 2,
+      elements: [
+        {
+          type: 'heading',
+          lines: [
+            {type: 'date', text: 'July 19, 2020'},
+            {type: 'time', text: '10 AM to 5 PM'},
+            [
+              {type: 'location', text: '123 Anywhere St.'},
+              {type: 'city-state', text: 'Any City'},
+            ]
+          ],
+          divider: {
+            type: 'comma',
+            size: 1,
+            color: solidColor('#2b2b2b'),
+          },
+          color: solidColor('#2b2b2b'),
+          font: {
+            family: 'League Spartan',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.5,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1,
+        },
+        {
+          type: 'paragraph',
+          lines: [
+            {type: 'descriptiveText', text: 'The EDU Job Fair is an annual event where students can get to know'},
+            {type: 'descriptiveText', text: 'over 100 amazing companies in various fields of study.'},
+          ],
+          color: solidColor('#2b2b2b'),
+          font: {
+            family: 'Lato',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1.1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
+        },
+      ]
+    }
   }
 }

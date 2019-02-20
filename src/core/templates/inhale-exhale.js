@@ -17,82 +17,86 @@ export default {
     backgroundBlendMode: 'luminosity',
   },
   content: {
-    w: .7,
-    alignY: 'center',
-    textAlign: 'left',
-    bleed: {all: true },
-    elements: [
-      { 
-        type: 'dominant', 
+    height: 'flex',
+    width: 'flex',
+    body: {
+      w: .7,
+      alignY: 'center',
+      textAlign: 'left',
+      bleed: {all: true },
+      elements: [
+        { 
+          type: 'dominant', 
+          lines: [
+            {type: 'eventName', text: 'Inhale'}, 
+            {type: 'eventName', text: 'Exhale'},
+          ],
+          color: solidColor('#fade77'),
+          font: {
+            family: 'Roboto Condensed',
+            weight: 700,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            lineHeight: 1.2,
+          },
+        },
+        { 
+          type: 'small', 
+          lines: [
+            {type: 'descriptiveText', text: 'Yoga Therapy'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Roboto Condensed',
+            weight: 700,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            lineHeight: 1.4,
+          },
+        },
+      ],
+    },
+    footer: {
+      overlay: false,
+      background: solidColor('#49065f'),
+      textAlign: 'center',
+      width: unitValue(100, '%'),
+      bleed: {all: true },
+      elements: [{
+        type: 'small',
         lines: [
-          {type: 'eventName', text: 'Inhale'}, 
-          {type: 'eventName', text: 'Exhale'},
+          {type: 'website', text: 'www.silkyoga.com'},
         ],
         color: solidColor('#fade77'),
         font: {
           family: 'Roboto Condensed',
-          weight: 700,
-          size: 1,
+          weight: 400,
+          size: 0.8,
           style: 'normal',
-          transform: 'normal',
-          lineHeight: 1.2,
-        },
-      },
-      { 
-        type: 'small', 
-        lines: [
-          {type: 'descriptiveText', text: 'Yoga Therapy'},
-        ],
-        color: solidColor('#fff'),
-        font: {
-          family: 'Roboto Condensed',
-          weight: 700,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
+          transform: 'uppercase', // TODO: I like the name appearance for this. carrd.co
           lineHeight: 1.4,
+          letterSpacing: .5,
         },
-      },
-    ],
-  },
-  footer: {
-    overlay: false,
-    background: solidColor('#49065f'),
-    textAlign: 'center',
-    width: unitValue(100, '%'),
-    bleed: {all: true },
-    elements: [{
-      type: 'small',
-      lines: [
-        {type: 'website', text: 'www.silkyoga.com'},
-      ],
-      color: solidColor('#fade77'),
-      font: {
-        family: 'Roboto Condensed',
-        weight: 400,
-        size: 0.8,
-        style: 'normal',
-        transform: 'uppercase', // TODO: I like the name appearance for this. carrd.co
-        lineHeight: 1.4,
-        letterSpacing: .5,
-      },
-    }]
-  },
-  header: {
-    type: 'basic',
-    overlay: false,
-    bleed: {all: true },
-    width: unitValue(100, '%'),
-    textAlign: 'right',
-    elements: [{
-      type: 'logo',
-      url: '/silk-yoga.png',
-      meta: {
-        width: 88,
-        height: 100,
-        colors: [],
-        filetype: 'png', // y = 0 if at bottom of page, y=1 if a top
-      }
-    }]
-  },
+      }]
+    },
+    header: {
+      type: 'basic',
+      overlay: false,
+      bleed: {all: true },
+      width: unitValue(100, '%'),
+      textAlign: 'right',
+      elements: [{
+        type: 'logo',
+        url: '/silk-yoga.png',
+        meta: {
+          width: 88,
+          height: 100,
+          colors: [],
+          filetype: 'png', // y = 0 if at bottom of page, y=1 if a top
+        }
+      }]
+    },
+  }
 }

@@ -13,69 +13,73 @@ export default {
     y: .0,
   },
   content: {
-    width: unitValue(100, '%'),
-    alignX: 'center',
-    alignY: 'center',
-    textAlign: 'center',
-    bleed: { all: true },
-    flex: 1,
-    elements: [
-      {
-        type: 'dominant',
-        lines: [
-          {type: 'eventName', text: 'Grand'}, 
-          {type: 'eventName', text: 'Opening'},
-        ],
-        color: solidColor('#fff'),
-        mb: 0.5,
-        font: {
-          family: 'Bebas Neue',
-          fitToWidth: true,
-          weight: 400,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          lineHeight: 1.1,
-        },
-      },
-      {
-        type: 'small',
-        lines: [
-          [
-            {type: 'date', text: 'October 20, 2019', format: 'MMM D, YYYY'},
-            {type: 'location', text: '2nd Floor, SMC Mall'},
-          ]
-        ],
-        divider: {
-          type: 'line',
-          size: 1,
+    height: 'flex',
+    width: 'flex',
+    body: {
+      width: unitValue(100, '%'),
+      alignX: 'center',
+      alignY: 'center',
+      textAlign: 'center',
+      bleed: { all: true },
+      flex: 1,
+      elements: [
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: 'Grand'}, 
+            {type: 'eventName', text: 'Opening'},
+          ],
           color: solidColor('#fff'),
+          mb: 0.5,
+          font: {
+            family: 'Bebas Neue',
+            fitToWidth: true,
+            weight: 400,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            lineHeight: 1.1,
+          },
         },
-        color: solidColor('#fff'),
-        font: {
-          family: 'Bebas Neue',
-          fitToWidth: true,
-          weight: 400,
-          size: 0.8,
-          style: 'normal',
-          transform: 'uppercase',
-          lineHeight: 1.2,
+        {
+          type: 'small',
+          lines: [
+            [
+              {type: 'date', text: 'October 20, 2019', format: 'MMM D, YYYY'},
+              {type: 'location', text: '2nd Floor, SMC Mall'},
+            ]
+          ],
+          divider: {
+            type: 'line',
+            size: 1,
+            color: solidColor('#fff'),
+          },
+          color: solidColor('#fff'),
+          font: {
+            family: 'Bebas Neue',
+            fitToWidth: true,
+            weight: 400,
+            size: 0.8,
+            style: 'normal',
+            transform: 'uppercase',
+            lineHeight: 1.2,
+          },
         },
-      },
-    ]
-  },
-  footer: {
-    textAlign: 'center',
-    alignX: 'center',
-    bleed: { all: true },
-    elements: [{
-      type: 'logo',
-      url: '/newton-doughnuts.png',
-      size: 2,
-      meta: {
-        width: 230,
-        height: 126,
-      }
-    }]  
+      ]
+    },
+    footer: {
+      textAlign: 'center',
+      alignX: 'center',
+      bleed: { all: true },
+      elements: [{
+        type: 'logo',
+        url: '/newton-doughnuts.png',
+        size: 2,
+        meta: {
+          width: 230,
+          height: 126,
+        }
+      }]  
+    }
   }
 }

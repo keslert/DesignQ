@@ -11,122 +11,126 @@ export default {
   },
   background: solidColor('#fff'),
   content: {
-    bleed: { all: true },
-    alignX: 'center',
-    alignY: 'center',
-    textAlign: 'center',
-    elements: [
-      {
-        type: 'logo',
-        size: 1,
-        url: '/shop.svg',
-        fill: '#fec458',
-        meta: {
-          width: 50,
-          height: 50,
-          colors: [],
-          filetype: 'svg',
-        },
-        mb: 1,
-      },
-      {
-        type: 'small',
-        lines: [
-          {type: 'descriptiveText', text: 'Everything Must Go!'},
-        ],
-        color: solidColor('#ed5744'),
-        font: {
-          family: 'Josefin Slab',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.3,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 700,
-        },
-        mb: 1,
-      },
-      {
-        type: 'dominant',
-        lines: [
-          {type: 'eventName', text: "Adora's Sunday"},
-          {type: 'eventName', text: 'Garage Sale'},
-        ],
-        color: solidColor('#ed5744'),
-        font: {
-          family: 'Josefin Slab',
-          letterSpacing: 0,
-          lineHeight: 1.4,
+    height: 'flex',
+    width: 'flex',
+    body: {
+      bleed: { all: true },
+      alignX: 'center',
+      alignY: 'center',
+      textAlign: 'center',
+      elements: [
+        {
+          type: 'logo',
           size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 700,
+          url: '/shop.svg',
+          fill: '#fec458',
+          meta: {
+            width: 50,
+            height: 50,
+            colors: [],
+            filetype: 'svg',
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'descriptiveText', text: 'Selling pre-loved clothes, appliances, and'},
-          {type: 'descriptiveText', text: 'gadgets!'},
-        ],
-        color: solidColor('#ed5744'),
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 0.5,
-          style: 'italic',
-          transform: 'normal',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'heading',
-        lines: [
-          [
-            {type: 'time', text: '9 am to 6 pm'},
-            {type: 'date', text: 'Aug. 16, 2020', format: 'MMM. D, YYYY'},
+        {
+          type: 'small',
+          lines: [
+            {type: 'descriptiveText', text: 'Everything Must Go!'},
           ],
-          {type: 'location', text: '123 Anywhere St., Any City'},
-        ],
-        divider: {
-          type: 'line',
-          size: 1,
-          color: '#ed5744',
+          color: solidColor('#ed5744'),
+          font: {
+            family: 'Josefin Slab',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.3,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 700,
+          },
+          mb: 1,
         },
-        color: solidColor('#ed5744'),
-        font: {
-          family: 'Josefin Slab',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 700,
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: "Adora's Sunday"},
+            {type: 'eventName', text: 'Garage Sale'},
+          ],
+          color: solidColor('#ed5744'),
+          font: {
+            family: 'Josefin Slab',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 700,
+          },
+          mb: 1,
         },
-        mb: 2,
-      },
-      {
-        type: 'small',
-        lines: [
-          {type: 'descriptiveText', text: 'A garage sale where you can buy secondhand'},
-          {type: 'descriptiveText', text: 'clothes, gadgets, and appliances for cheap'},
-          {type: 'descriptiveText', text: 'prices. All items are in good condition!'},
-        ],
-        color: solidColor('#ed5744'),
-        font: {
-          family: 'Muli',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
+        {
+          type: 'bridge',
+          lines: [
+            {type: 'descriptiveText', text: 'Selling pre-loved clothes, appliances, and'},
+            {type: 'descriptiveText', text: 'gadgets!'},
+          ],
+          color: solidColor('#ed5744'),
+          font: {
+            family: 'Muli',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 0.5,
+            style: 'italic',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-    ]
-  },
+        {
+          type: 'heading',
+          lines: [
+            [
+              {type: 'time', text: '9 am to 6 pm'},
+              {type: 'date', text: 'Aug. 16, 2020', format: 'MMM. D, YYYY'},
+            ],
+            {type: 'location', text: '123 Anywhere St., Any City'},
+          ],
+          divider: {
+            type: 'line',
+            size: 1,
+            color: '#ed5744',
+          },
+          color: solidColor('#ed5744'),
+          font: {
+            family: 'Josefin Slab',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 700,
+          },
+          mb: 2,
+        },
+        {
+          type: 'small',
+          lines: [
+            {type: 'descriptiveText', text: 'A garage sale where you can buy secondhand'},
+            {type: 'descriptiveText', text: 'clothes, gadgets, and appliances for cheap'},
+            {type: 'descriptiveText', text: 'prices. All items are in good condition!'},
+          ],
+          color: solidColor('#ed5744'),
+          font: {
+            family: 'Muli',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
+        },
+      ]
+    },
+  }
 }

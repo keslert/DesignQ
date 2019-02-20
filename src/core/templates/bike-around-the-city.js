@@ -14,47 +14,51 @@ export default {
     },
   },
   content: {
-    alignY: 'center',
-    alignX: 'center',
-    bleed: { all: true },
-    elements: [
-      { 
-        type: 'dominant', 
-        lines: [
-          {type: 'eventName', text: 'Bike'}, 
-          {type: 'eventName', text: 'Around'},
-          {type: 'eventName', text: 'The City'},
-        ],
-        color: solidColor('#fff'),
-        font: {
-          family: 'Bebas Neue',
-          weight: 700,
-          size: 0.6,
-          style: 'normal',
-          transform: 'uppercase',
-          lineHeight: 1.2,
-          letterSpacing: .05,
+    height: 'flex',
+    width: 'flex',
+    body: {
+      alignY: 'center',
+      alignX: 'center',
+      bleed: { all: true },
+      elements: [
+        { 
+          type: 'dominant', 
+          lines: [
+            {type: 'eventName', text: 'Bike'}, 
+            {type: 'eventName', text: 'Around'},
+            {type: 'eventName', text: 'The City'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Bebas Neue',
+            weight: 700,
+            size: 0.6,
+            style: 'normal',
+            transform: 'uppercase',
+            lineHeight: 1.2,
+            letterSpacing: .05,
+          },
+          mb: 2,
         },
-        mb: 2,
-      },
-      { 
-        type: 'small', 
-        color: solidColor('#fff'),
-        lines: [
-          {type: 'website', text: 'bikeclub.co'},
-        ],
-        font: {
-          family: 'Muli',
-          weight: 400,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          lineHeight: 1.4,
-          letterSpacing: .1,
+        { 
+          type: 'small', 
+          color: solidColor('#fff'),
+          lines: [
+            {type: 'website', text: 'bikeclub.co'},
+          ],
+          font: {
+            family: 'Muli',
+            weight: 400,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            lineHeight: 1.4,
+            letterSpacing: .1,
+          },
+          px: 2,
+          mb: 1,
         },
-        px: 2,
-        mb: 1,
-      },
-    ],
-  },
+      ],
+    },
+  }
 }

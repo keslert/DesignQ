@@ -70,44 +70,7 @@ const layouts = [
     frequency: .5,
     structure: ['dominant', 'small'],
   }
-
 ]
-
-
-
-// const flyer = [
-
-//   {
-//     types: 'header',
-//     content: {
-//       logo: 1,
-//     }
-//   },
-//   {
-//     type: 'small',
-//     content: {
-//       date: .1,
-//     }
-//   },
-//   {
-//     dominant: 
-//   }
-
-//   content: {
-//     dominant: {
-//       require: true,
-//       fields: {
-//         eventName: 1,
-//       }
-//     },
-
-//   }
-// }
-
-
-
-
-
 
 export function generateLayout(template, history) {
   generateDominant(template);

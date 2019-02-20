@@ -16,119 +16,123 @@ export default {
     color: '#000',
   },
   content: {
-    bleed: { left: true, right: true, border: true },
-    background: solidColor('#fff'),
-    alignX: 'center',
-    alignY: 'top',
-    textAlign: 'center',
-    width: unitValue(100, '%'),
-    px: 1.5,
-    mb: 1.2,
-    elements: [
-      {
-        type: 'small',
-        lines: [
-          {type: 'time', text: 'Feed Someone In Need'},
-        ],
-        color: solidColor('#dc8120'),
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0.1,
-          lineHeight: 1.4,
-          size: 0.7,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1.5,
-      },
-      {
-        type: 'dominant',
-        lines: [
-          {type: 'eventName', text: '25th Annual Grise'},
-          {type: 'eventName', text: 'Fiord Food Drive'},
-        ],
-        color: solidColor('#000'),
-        font: {
-          family: 'League Spartan',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
-        },
-        mb: 1,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'time', text: 'A campaign by the Grise Fiord Fishermen\'s Assoc.' },
-        ],
-        color: solidColor('#dc8120'),
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
-        },
-        mb: 1,
-      },
-    ]
-  },
-  footer: {
-    bleed: { all: true },
-    width: unitValue(100, '%'),
-    textAlign: 'center',
-    mb: 2,
-    elements: [
-      {
-        type: 'heading',
-        color: solidColor('#fff'),
-        lines: [
-          [ 
-            {type: 'date', text: 'March 3-5, 2020', format: 'MMMM D, YYYY'},
-            {type: 'time', text: '8 am to 5 pm'},
+    height: 'flex',
+    width: 'flex',
+    body: {
+      bleed: { left: true, right: true, border: true },
+      background: solidColor('#fff'),
+      alignX: 'center',
+      alignY: 'top',
+      textAlign: 'center',
+      width: unitValue(100, '%'),
+      px: 1.5,
+      mb: 1.2,
+      elements: [
+        {
+          type: 'small',
+          lines: [
+            {type: 'time', text: 'Feed Someone In Need'},
           ],
-          {type: 'location', text: 'Grise Fiord Public Library'},
-        ],
-        divider: {
-          size: 1,
-          type: 'line',
+          color: solidColor('#dc8120'),
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0.1,
+            lineHeight: 1.4,
+            size: 0.7,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1.5,
+        },
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: '25th Annual Grise'},
+            {type: 'eventName', text: 'Fiord Food Drive'},
+          ],
+          color: solidColor('#000'),
+          font: {
+            family: 'League Spartan',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1,
+        },
+        {
+          type: 'bridge',
+          lines: [
+            {type: 'time', text: 'A campaign by the Grise Fiord Fishermen\'s Assoc.' },
+          ],
+          color: solidColor('#dc8120'),
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
+        },
+      ]
+    },
+    footer: {
+      bleed: { all: true },
+      width: unitValue(100, '%'),
+      textAlign: 'center',
+      mb: 2,
+      elements: [
+        {
+          type: 'heading',
           color: solidColor('#fff'),
+          lines: [
+            [ 
+              {type: 'date', text: 'March 3-5, 2020', format: 'MMMM D, YYYY'},
+              {type: 'time', text: '8 am to 5 pm'},
+            ],
+            {type: 'location', text: 'Grise Fiord Public Library'},
+          ],
+          divider: {
+            size: 1,
+            type: 'line',
+            color: solidColor('#fff'),
+          },
+          font: {
+            family: 'League Spartan',
+            letterSpacing: 0.1,
+            lineHeight: 1.6,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
         },
-        font: {
-          family: 'League Spartan',
-          letterSpacing: 0.1,
-          lineHeight: 1.6,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
+        {
+          type: 'paragraph',
+          color: solidColor('#fff'),
+          lines: [
+            {type: 'descriptiveText', text: 'Did you know that thousands of households struggle'},
+            {type: 'descriptiveText', text: 'with food security everyday? You can help change'},
+            {type: 'descriptiveText', text: 'those statistics.'},
+          ],
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
         },
-      },
-      {
-        type: 'paragraph',
-        color: solidColor('#fff'),
-        lines: [
-          {type: 'descriptiveText', text: 'Did you know that thousands of households struggle'},
-          {type: 'descriptiveText', text: 'with food security everyday? You can help change'},
-          {type: 'descriptiveText', text: 'those statistics.'},
-        ],
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
-        },
-        mb: 1,
-      },
-    ]
+      ]
+    }
   }
 }

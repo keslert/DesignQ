@@ -15,113 +15,117 @@ export default {
     zoom: 1.35,
   },
   content: {
-    bleed: { left: true },
-    background: solidColor('#251a4b'),
-    alignX: 'left',
-    alignY: 'flex-end',
-    textAlign: 'left',
-    pr: 3,
-    mb: 2,
-    elements: [
-      {
-        type: 'small',
-        lines: [
-          {type: 'descriptiveText', text: 'We Need Volunteers!'},
-        ],
-        color: solidColor('#fff1d9'),
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0.1,
-          lineHeight: 1.4,
-          size: 0.2,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
+    height: 'flex',
+    width: 'flex',
+    body: {
+      bleed: { left: true },
+      background: solidColor('#251a4b'),
+      alignX: 'left',
+      alignY: 'flex-end',
+      textAlign: 'left',
+      pr: 3,
+      mb: 2,
+      elements: [
+        {
+          type: 'small',
+          lines: [
+            {type: 'descriptiveText', text: 'We Need Volunteers!'},
+          ],
+          color: solidColor('#fff1d9'),
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0.1,
+            lineHeight: 1.4,
+            size: 0.2,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-      {
-        type: 'dominant',
-        lines: [
-          {type: 'eventName', text: 'Support'},
-          {type: 'eventName', text: 'Sandio\'s'},
-          {type: 'eventName', text: 'Food Drive'},
-          {type: 'eventName', text: '2020'},
-        ],
-        color: solidColor('#fff1d9'),
-        font: {
-          family: 'League Spartan',
-          letterSpacing: 0.1,
-          lineHeight: 1.4,
-          size: 0.9,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 400,
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: 'Support'},
+            {type: 'eventName', text: 'Sandio\'s'},
+            {type: 'eventName', text: 'Food Drive'},
+            {type: 'eventName', text: '2020'},
+          ],
+          color: solidColor('#fff1d9'),
+          font: {
+            family: 'League Spartan',
+            letterSpacing: 0.1,
+            lineHeight: 1.4,
+            size: 0.9,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-      {
-        type: 'bridge',
-        lines: [
-          {type: 'descriptiveText', text: 'For the benefit of our less fortunate neighbors'},
-        ],
-        color: solidColor('#fff1d9'),
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 400,
+        {
+          type: 'bridge',
+          lines: [
+            {type: 'descriptiveText', text: 'For the benefit of our less fortunate neighbors'},
+          ],
+          color: solidColor('#fff1d9'),
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-    ]
-  },
-  footer: {
-    bleed: { all: true },
-    width: unitValue(100, '%'),
-    textAlign: 'left',
-    mb: 2,
-    elements: [
-      {
-        type: 'heading',
-        color: solidColor('#251a4b'),
-        lines: [
-          {type: 'location', text: 'Located at 123 Anywhere St.'},
-          {type: 'descriptiveText', text: 'Any City, Open Daily.'},
-        ],
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0.1,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'uppercase',
-          weight: 700,
+      ]
+    },
+    footer: {
+      bleed: { all: true },
+      width: unitValue(100, '%'),
+      textAlign: 'left',
+      mb: 2,
+      elements: [
+        {
+          type: 'heading',
+          color: solidColor('#251a4b'),
+          lines: [
+            {type: 'location', text: 'Located at 123 Anywhere St.'},
+            {type: 'descriptiveText', text: 'Any City, Open Daily.'},
+          ],
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0.1,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 700,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-      {
-        type: 'paragraph',
-        color: solidColor('#251a4b'),
-        lines: [
-          {type: 'descriptiveText', text: 'The food drive is sponsored by Sandio'},
-          {type: 'descriptiveText', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
-          {type: 'descriptiveText', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
-        ],
-        font: {
-          family: 'Montserrat',
-          letterSpacing: 0,
-          lineHeight: 1.4,
-          size: 1,
-          style: 'normal',
-          transform: 'normal',
-          weight: 700,
+        {
+          type: 'paragraph',
+          color: solidColor('#251a4b'),
+          lines: [
+            {type: 'descriptiveText', text: 'The food drive is sponsored by Sandio'},
+            {type: 'descriptiveText', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
+            {type: 'descriptiveText', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
+          ],
+          font: {
+            family: 'Montserrat',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 700,
+          },
+          mb: 1,
         },
-        mb: 1,
-      },
-    ]
+      ]
+    }
   }
 }

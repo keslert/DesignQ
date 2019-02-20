@@ -27,11 +27,14 @@ export function getColorStyle(c) {
 
 export function textAlignToFlexAlign(align) {
   switch(align) {
+    case 'top':
     case 'left': return 'flex-start';
+    case 'bottom':
     case 'right' : return 'flex-end';
     default: return 'center';
   }
 }
+
 
 export function getUnitStyle(u) {
   if(!u) return null;

@@ -1,45 +1,64 @@
-import _ from 'lodash';
+import { getNormalizedValue, withGroups } from './';
 
+export function computeBorders(template) {
+  const size = template._computed.size;
+  computeBorder(template.border, size);
+  computeBorder(template.content.border, size);
+  withGroups(template, group => {
+    computeBorder(group.border, size);
+    group.elements.forEach(e => {
+      computeBorder(e.border, size);
+    })
+  })
+}
 
-export function computeBorder(structure) {
-  structure.border = structure.border || {};
-
-  const b = structure.border;
+export function computeBorder(b, flyerSize) {
   b._computed = {
-    l: b.left || 0,
-    r: b.right || 0,
-    t: b.top || 0,
-    b: b.bottom || 0,
-  };
+    // the total space
+    l: getNormalizedValue(b.l + b.lOffset, flyerSize.w),
+    r: getNormalizedValue(b.r + b.rOffset, flyerSize.w),
+    t: getNormalizedValue(b.t + b.tOffset, flyerSize.w),
+    b: getNormalizedValue(b.b + b.bOffset, flyerSize.w),
+    
+    // helper variables for the individual parts
+    _l: getNormalizedValue(b.l, flyerSize.w),
+    _r: getNormalizedValue(b.r, flyerSize.w),
+    _t: getNormalizedValue(b.t, flyerSize.w),
+    _b: getNormalizedValue(b.b, flyerSize.w),
+    _lOffset: getNormalizedValue(b.lOffset, flyerSize.w),
+    _rOffset: getNormalizedValue(b.rOffset, flyerSize.w),
+    _tOffset: getNormalizedValue(b.tOffset, flyerSize.w),
+    _bOffset: getNormalizedValue(b.bOffset, flyerSize.w),
+  }
   b._computed.x = b._computed.l + b._computed.r;
   b._computed.y = b._computed.t + b._computed.b;
-
-  const items = [];
-  b._computed.items = items;
-
-  if(b.layout === 'confetti') {
-
-    const options = {
-      rotation: true, 
-      seed: b.seed,
-      gridX: b.gridX,
-      gridY: b.gridY,
-    };
-
-    const bb = structure._computed.bb;
-    if(b.top || b.bottom) {
-      const confetti = generateConfetti(b.items, {...bb, h: b.top || b.bottom}, options)
-      if(b.bottom) {
-        // Reverse and mirror the items
-        const bottomItems = confetti.map(i => ({...i, y: bb.h - i.y, x: bb.w - i.x}))
-        items.push(...bottomItems)
-      }
-      if(b.top) {
-        items.push(...confetti);
-      }
-    }
-  }
+  b._computed.hasBorder = (b._computed.x + b._computed.y) > 0;
 }
+
+// const items = [];
+// b._computed.items = items;
+// if(b.layout === 'confetti') {
+
+//   const options = {
+//     rotation: true, 
+//     seed: b.seed,
+//     gridX: b.gridX,
+//     gridY: b.gridY,
+//   };
+
+//   const bb = template._computed.bb;
+//   if(b.top || b.bottom) {
+//     const confetti = generateConfetti(b.items, {...bb, h: b.top || b.bottom}, options)
+//     if(b.bottom) {
+//       // Reverse and mirror the items
+//       const bottomItems = confetti.map(i => ({...i, y: bb.h - i.y, x: bb.w - i.x}))
+//       items.push(...bottomItems)
+//     }
+//     if(b.top) {
+//       items.push(...confetti);
+//     }
+//   }
+// }
 
 export function generateConfetti(items, size, options={}) {
   // https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
@@ -79,15 +98,4 @@ export function generateConfetti(items, size, options={}) {
   }
 
   return confetti;
-}
-
-
-export function calculateBorderSize(b) {
-  const w = (b && b.left || 0)
-          + (b && b.right || 0)
-  
-  const h = (b && b.top || 0)
-          + (b && b.bottom || 0)
-
-  return { w, h };
 }

@@ -1,48 +1,55 @@
 import { getTextOffset } from '../utils/text-utils';
 import _ from 'lodash';
+import { CONTENT_GROUPS, withGroups } from '.';
 
-export function computeSizes(structure, scaleDominant) {
-  const dominant = _.find(structure.content.elements, el => el.type === 'dominant');
 
-  computeDominant(structure, dominant, scaleDominant);
+// flyer
+  // - border
+  // - decor
+  // - padding
+  // flyerContent (doesn't constrain left & right & background is a separate div)
+    // header
+    // body
+    // footer
 
-  computeGroupLogoSize(structure.header);
-  computeGroupLogoSize(structure.footer);
-  computeGroupLogoSize(structure.content);
 
-  computeGroupSizes(structure.header, dominant);
-  computeGroupSizes(structure.footer, dominant);
-  computeGroupSizes(structure.content, dominant);
+
+
+
+
+
+export function computeSizes(template, scaleDominant) {
+  const dominant = _.find(template.content.body.elements, el => el.type === 'dominant');
+
+  computeDominant(template, dominant, scaleDominant);
+
+  withGroups(template, group => computeGroupSizes(template, group, dominant))
 }
 
-function computeDominant(structure, dominant, scale) {
+function computeDominant(template, dominant, scale) {
   if(scale) {
     scaleElementFontSizes(dominant, scale);
     return;
   }
 
-  const bb = structure.content._computed.bb;
+  const maxW = template.content.body._computed.maxW;
   const dominantSettings = {
-    maxWidth: bb.w,
-    maxOptimalWidth: bb.w,
+    maxWidth: maxW,
+    maxOptimalWidth: maxW,
     maxOptimalFontSize: 300,
     minFontSize: MIN_FONT_SIZE,
   }
   computeElementsFontSizes([dominant], dominantSettings);
 }
 
-function computeGroupSizes(group, dominant) {
-  if(!group) return;
-
-
-  const bb = group._computed.bb;
+function computeGroupSizes(template, group, dominant) {
+  const maxW = group._computed.maxW;
 
   const types = _.groupBy(group.elements, el => el.type);
   
   const smallSettings = {
-    maxWidth: bb.w,
-    maxOptimalWidth: Math.min(bb.w, dominant._computed.w * 1.05), // TODO: Why 1.05
-    // maxOptimalFontSize: dominant._computed.fontSize * .25,
+    maxWidth: maxW,
+    maxOptimalWidth: Math.min(maxW, dominant._computed.w * 1.05), // TODO: Why 1.05
     maxOptimalFontSize: Math.log(dominant._computed.fontSize) * 6, // TODO: This needs work.
     minFontSize: MIN_FONT_SIZE,
     optimalWidth: dominant._computed.w,
@@ -71,11 +78,11 @@ function computeGroupSizes(group, dominant) {
 
   // TODO: Handle better...
   _.forEach(types.image, img => {
-    img._computed.w = bb.w;
+    img._computed.w = maxW;
     if(img.aspectRatio) {
-      img._computed.h = bb.w * img.aspectRatio;
+      img._computed.h = maxW * img.aspectRatio;
     } else {
-      img._computed.h = bb.h * .3;
+      img._computed.h = template.size.h * .3;
     }
   })
 
@@ -87,10 +94,14 @@ function computeGroupSizes(group, dominant) {
 function computeElementsFontSizes(elements, settings) {
   if(!elements || !elements.length) return;
     
+  // the maximum lines measured width
   const maxMeasuredWidth = _.max(elements.map(measureText))
 
+  const minMaxWidth = _.sortBy(elements, el => el.maxW)[0]._computed.maxW;
+  const maxOptimalWidth = Math.min(minMaxWidth, settings.maxOptimalWidth);
+  
   const optimalFontSize = _.clamp(
-    FONT_MEASURE_SIZE * (settings.maxOptimalWidth / maxMeasuredWidth) * .99, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
+    FONT_MEASURE_SIZE * (maxOptimalWidth / maxMeasuredWidth) * .99, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
     settings.minFontSize,
     settings.maxOptimalFontSize,
   )
@@ -100,7 +111,7 @@ function computeElementsFontSizes(elements, settings) {
     const fontSize = slerp(
       settings.minFontSize,
       optimalFontSize,
-      FONT_MEASURE_SIZE * (settings.maxWidth / maxMeasuredWidth),
+      FONT_MEASURE_SIZE * (el._computed.maxW / maxMeasuredWidth),
       el.font.size
     );
 
@@ -203,13 +214,5 @@ export const measureTextWidth = (text, font) => {
   return ctx.measureText(text).width
 }
 
-const HEIGHT_WEIGHT = {
-  bar: .07,
-  small: .07,
-  bridge: .07,
-  image: .3,
-  dominant: 0, // ignore this
-}
-
-const MIN_FONT_SIZE = 14;
+const MIN_FONT_SIZE = 0;
 const FONT_MEASURE_SIZE = 20;

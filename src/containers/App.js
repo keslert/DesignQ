@@ -13,9 +13,11 @@ function App() {
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
         <Route path="/fonts" component={Fonts} />
-        <Route path="/gallery" component={Gallery} />
         <Route path="/editor" component={Editor} />
-        <Route component={Queue} />
+        <Route path="/app" component={Queue} />
+        <Route path="/gallery" component={Gallery} />
+        <Route component={Gallery} />
+        
       </Switch>
     </Suspense>
   )

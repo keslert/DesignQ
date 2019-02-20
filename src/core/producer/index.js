@@ -1,7 +1,9 @@
 import { computeSizes } from './sizes';
 import { computeSpacing } from "./spacing";
-import { computeBounds } from './bounds';
-import { computeBorder } from './borders'
+import { computeEdges } from './edges';
+import { computeBorders } from './borders'
+import { computeDecor } from './decor';
+import { computeBoundingBoxes } from './bounding-boxes';
 import _ from 'lodash';
 
 // Intentions object
@@ -10,55 +12,63 @@ import _ from 'lodash';
 // Instantiation of intentions object
   // detailed description of flyer
 
-export const GROUPS = ['content', 'footer', 'header']
+export const CONTENT_GROUPS = ['header', 'body', 'footer'];
 
 // Line breaks have already been determined at this point.
-export function computeFlyer(structure, size={w: 612, h:792}) {
-  console.log(`Computing ${structure.title}`);
+export function computeFlyer(template, size={w: 612, h:856}) {
+  console.log(`Computing ${template.title}`);
 
-  initSetup(structure)
-  structure._computed.bb = size;
+  initSetup(template)
+  template._computed.size = size;
   
-  computeBorder(structure);
-  computeBounds(structure)
-  computeSizes(structure);
-  computeSpacing(structure);
+  computeBorders(template);
+  computeDecor(template);
+  computeEdges(template);
+
+  computeSizes(template);
+  computeSpacing(template);
+  computeBoundingBoxes(template);
   
   // TODO: Need a better maxHeight calculation.
-  const maxHeight = size.h - structure.border._computed.y - structure.pt - structure.pb;
-  const height = calculateHeight(structure);
-  const ratio = maxHeight / (height - structure.border._computed.y);
+  const maxHeight = size.h - template.border._computed.y - template.pt - template.pb;
+  const height = calculateHeight(template);
+  const ratio = maxHeight / (height - template.border._computed.y);
   if(ratio < 1) {
-    computeSizes(structure, ratio);
-    computeSpacing(structure);
+    computeSizes(template, ratio);
+    computeSpacing(template);
   }
   
-  
-  
-  return structure;
+  return template;
 }
 
-function initSetup(structure) {
-  structure._computed = {};
-  normalize(structure);
+function initSetup(template) {
+  template._computed = {};
+  normalize(template);
+  normalizeDecor(template);
+  
+  template.content._computed = {};
+  normalize(template.content);
+  normalizeWidthAndHeight(template.content, 'fill', 'fill');
 
-  initGroup(structure, structure.content);
-  initGroup(structure, structure.header);
-  initGroup(structure, structure.footer);
+  withGroups(template, initGroup);
 }
 
-function initGroup(structure, group) {
-  if(!group) return;
+function initGroup(group, groupType) {
+  group.isGroup = true;
+  group.type = groupType;
   group._computed = {};
   normalize(group);
+  normalizeWidthAndHeight(group, 'fill', 'auto');
 
   group.elements.forEach((el, i) => {
+    el.isElement = true;
     el._computed = {};
     el._computed.index = i;
     el._computed.prev = group.elements[i - 1];
     el._computed.next = group.elements[i + 1];
     el._computed.group = group;
     normalize(el);
+    normalizeWidthAndHeight(group, 'auto', 'auto');
 
     if(el.lines) {
       el._computed.lines = el.lines.map(line => ({
@@ -77,33 +87,63 @@ function normalize(item) {
 }
 
 function normalizeBorder(item) {
-  if(!item.border) return;
+  item.border = item.border || {};
 
-  item.border.left = getFirst(item.border, ['left', 'all'])
-  item.border.right = getFirst(item.border, ['right', 'all'])
-  item.border.top = getFirst(item.border, ['top', 'all'])
-  item.border.bottom = getFirst(item.border, ['bottom', 'all'])
+  withSides(s => {
+    item.border[s] = getFirst(item.border, [s, 'x', 'a'], 0);
+    item.border[`${s}Offset`] = getFirst(item.border, [`${s}Offset`, 'xOffset', 'aOffset'], 0);
+  }, ['l', 'r'])
+
+  withSides(s => {
+    item.border[s] = getFirst(item.border, [s, 'y', 'a'], 0);
+    item.border[`${s}Offset`] = getFirst(item.border, [`${s}Offset`, 'yOffset', 'aOffset'], 0);
+  }, ['t', 'b'])
+}
+
+function normalizeDecor(item) {
+  item.decor = item.decor || {};
+
+  withSides(s => {
+    item.decor[s] = getFirst(item.decor, [s, 'x', 'a'], 0);
+    item.decor[`${s}Offset`] = getFirst(item.decor, [`${s}Offset`, 'xOffset', 'aOffset'], 0);
+  }, ['l', 'r'])
+
+  withSides(s => {
+    item.decor[s] = getFirst(item.decor, [s, 'y', 'a'], 0);
+    item.decor[`${s}Offset`] = getFirst(item.decor, [`${s}Offset`, 'yOffset', 'aOffset'], 0);
+  }, ['t', 'b'])
 }
 
 function normalizeBleed(item) {
-  if(!item.bleed) return;
+  item.bleed = item.bleed || {};
 
-  item.bleed.left = getFirst(item.bleed, ['left', 'all'])
-  item.bleed.right = getFirst(item.bleed, ['right', 'all'])
-  item.bleed.top = getFirst(item.bleed, ['top', 'all'])
-  item.bleed.bottom = getFirst(item.bleed, ['bottom', 'all'])
+  item.bleed.l = getFirst(item.bleed, ['l', 'x', 'a'], 0);
+  item.bleed.r = getFirst(item.bleed, ['r', 'x', 'a'], 0);
+  item.bleed.t = getFirst(item.bleed, ['t', 'y', 'a'], 0);
+  item.bleed.b = getFirst(item.bleed, ['b', 'y', 'a'], 0);
 }
 
 function normalizeSpacing(item) {
-  item.pl = getFirst(item, ['pl', 'px']) || 1
-  item.pr = getFirst(item, ['pr', 'px']) || 1
-  item.pt = getFirst(item, ['pt', 'py']) || 1
-  item.pb = getFirst(item, ['pb', 'py']) || 1
+  item.pl = getFirst(item, ['pl', 'px', 'pa'], 1)
+  item.pr = getFirst(item, ['pr', 'px', 'pa'], 1)
+  item.pt = getFirst(item, ['pt', 'py', 'pa'], 1)
+  item.pb = getFirst(item, ['pb', 'py', 'pa'], 1)
+
+  item.ml = getFirst(item, ['ml', 'mx', 'ma'], 1)
+  item.mr = getFirst(item, ['mr', 'mx', 'ma'], 1)
+  item.mt = getFirst(item, ['mt', 'my', 'ma'], 1)
+  item.mb = getFirst(item, ['mb', 'my', 'ma'], 1)
+}
+
+function normalizeWidthAndHeight(item, width, height) {
+  item.w = item.w || width;
+  item.h = item.h || height;
 }
 
 
-function getFirst(obj, arr) {
-  return obj[_.find(arr, a => obj[a] !== undefined)]
+function getFirst(obj, arr, _default) {
+  const ret = _.find(arr, a => obj[a] !== undefined);
+  return ret !== undefined ? obj[ret] : _default;
 }
 
 
@@ -116,38 +156,30 @@ function transformStr(str, transform) {
   }
 }
 
-function calculateHeight(structure) {
-  const groups = [structure.header, structure.footer, structure.content];
-  let height = _.sumBy(groups, g => {
-    if(!g || !g.elements.length) return 0;
-
-    const elementHeight = _.sumBy(g.elements, el => 
+function calculateHeight(template) {
+  
+  let height = 0;
+  withGroups(template, group => {
+    const elementHeight = _.sumBy(group.elements, el => 
       _.sum([el._computed.h, el._computed.mt, el._computed.mb])
     )
     
-    return elementHeight + structure.border._computed.y;
+    height += elementHeight + group.border._computed.y;
+
   })
-
-  // height -= structure[structure.header ? 'header' : 'content'].elements[0]._computed.mt;
-  // height -= _.last(structure[structure.footer ? 'footer' : 'content'].elements)._computed.mb;
-
   return height;
 }
 
+export function getNormalizedValue(value, fullValue) {
+  return value < 3 ? value * fullValue : value;
+}
 
+export function withSides(cb, sides=['l','r','t','b']) {
+  return sides.map(cb);
+}
 
-// Properties that effect size
-  // [x] line breaks
-  // [x] font size
-  // [x] font family
-  // [x] (font weight, font style)
-  // padding & margins
-
-  // base size
-    // padding
-
-  // line height is based on text size
-
-
-
-// The algorithm doesn't know when to break rules. That requires an expert?
+export function withGroups(template, cb, groups=CONTENT_GROUPS) {
+  return groups
+    .filter(g => template.content[g])
+    .map(g => cb(template.content[g]))
+}
