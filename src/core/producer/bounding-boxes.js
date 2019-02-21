@@ -78,6 +78,21 @@ function computeHorizontal(template) {
   computeElementLefts(template);
 }
 
+function computeVertical(template) {
+  computeElementAutoHeights(template);
+  computeGroupAutoHeights(template);
+  computeContentAutoHeight(template);
+
+  computeContentHeight(template);
+  computeContentTop(template);
+  
+  computeGroupHeights(template);
+  computeGroupTops(template);
+
+  computeElementHeights(template);
+  computeElementTops(template);
+}
+
 function computeElementAutoWidths(template) {
   withGroups(template, g => g.elements.forEach(el => {
     el._computed.bb.autoW = el._computed.w;
@@ -123,25 +138,21 @@ function computeGroupWidths(template) {
 function computeElementWidths(template) {
   withGroups(template, g => g.elements.forEach(el => {
     const c = el._computed;
-    c.bb.w = (el.w === 'fill') ? c.maxW : c.bb.autoW;
+    c.bb.w = (el.w === 'fill') 
+      ? template._computed.size.w - c.ml - c.mr
+      : c.bb.autoW
   }))
 }
 
-
-function computeVertical(template) {
-  computeGroupAutoHeights(template);
-  computeContentAutoHeight(template);
-
-  computeContentHeight(template);
-  computeContentTop(template);
-  
-  computeGroupHeights(template);
-  computeGroupTops(template);
+function computeElementAutoHeights(template) {
+  withGroups(template, g => g.elements.forEach(el => {
+    el._computed.bb.autoH = el._computed.h;
+  }))
 }
 
 function computeGroupAutoHeights(template) {
   withGroups(template, g => {
-    const elementHeight = _.sum(g.elements.map(el => el._computed.h + el._computed.mb));
+    const elementHeight = _.sum(g.elements.map(el => el._computed.bb.autoH + el._computed.mb));
     const borderHeight = g.border._computed.t + g.border._computed.b;
     const padHeight = g._computed.pt + g._computed.pb;
     g._computed.bb.autoH = elementHeight + borderHeight + padHeight;
@@ -176,6 +187,12 @@ function computeGroupHeights(template) {
   }
 }
 
+function computeElementHeights(template) {
+  withGroups(template, g => g.elements.forEach(el => {
+    el._computed.bb.h = el._computed.bb.autoH;
+  }))
+}
+
 function computeContentLeft(template) {
   const content = template.content;
   const c = content._computed;
@@ -202,11 +219,7 @@ function computeContentTop(template) {
   const diffB = diffH - diffT;
   const edgeUpdates = { t: diffT, b: diffB };
 
-  withGroups(template, g => {
-    updateEdges(g, 'flyer-padding', edgeUpdates);
-    // g.elements.forEach(el => updateEdges(el, 'flyer-padding', edgeUpdates));
-  })
-
+  withGroups(template, g => updateEdges(g, 'flyer-padding', edgeUpdates))
 }
 
 function computeGroupLefts(template) {
@@ -220,6 +233,14 @@ function computeGroupLefts(template) {
 
     g.elements.forEach(el => updateEdges(el, 'content-padding', edgeUpdates));
   })
+}
+
+function computeElementLefts(template) {
+  withGroups(template, g => g.elements.forEach(el => {
+    const c = el._computed;
+    const diffW = template._computed.bb.w - c.bb.w - c.ml - c.mr;
+    el._computed.bb.l = calculateLeft(g.itemsAlignX, c.ml, diffW);
+  }))
 }
 
 function computeGroupTops(template) {
@@ -253,6 +274,30 @@ function computeGroupTops(template) {
   body._computed.bb.t = calculateTop(body.alignY, start, space);
 }
 
+function computeElementTops(template) {
+  withGroups(template, g => {
+    const el = g.elements[0];
+
+    const pads = getEdgeValues(el, ['t', 'b'], 'group-padding');
+    const borders = getEdgeValues(el, ['t', 'b'], 'group-border');
+    const spaceTop = pads[0] + borders[0];
+    const spaceBottom = pads[1] + borders[1];
+
+    const totalAvailableSpace = g._computed.bb.h - spaceTop - spaceBottom;
+    const totalElementHeight = _.sumBy(g.elements, el => el._computed.bb.h + el._computed.mb);
+
+    const start = g._computed.bb.t + spaceTop;
+    const space = totalAvailableSpace - totalElementHeight;
+    
+    let y = calculateTop(g.itemsAlignY, start, space);
+
+    g.elements.forEach(el => {
+      el._computed.bb.t = y;
+      y += el._computed.bb.h + el._computed.mb;
+    })
+  })
+}
+
 function computeHeaderTop(template, header) {
   const mt = _.sumBy(header._computed.edges.t, e => e.value)
   header._computed.bb.t = mt
@@ -261,12 +306,6 @@ function computeHeaderTop(template, header) {
 function computeFooterTop(template, footer) {
   const mb = _.sumBy(footer._computed.edges.b, e => e.value)
   footer._computed.bb.t = template._computed.size.h - footer._computed.bb.h - mb;
-}
-
-function computeElementLefts(template) {
-  withGroups(template, g => g.elements.forEach(el => {
-    el._computed.bb.l = el._computed.ml;
-  }))
 }
 
 function calculateTop(alignY, start, space) {
@@ -286,12 +325,7 @@ function updateEdges(item, type, edgeUpdates) {
     const edge = getEdge(item, side, type);
     if(edge) {
       edge.value += v;
-      if(item.isElement && item.background) {
-        item._computed[`p${side}`] += v;
-      }
-      else {
-        item._computed[`m${side}`] += v;
-      }
+      item._computed[`m${side}`] += v;
     }
   })
 }

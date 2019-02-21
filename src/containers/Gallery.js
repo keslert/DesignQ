@@ -1,22 +1,24 @@
 import React from 'react';
 import Frame from '../components/Frame';
 import { Flex, Box } from 'rebass';
-// import { templates as flyers } from '../core/templates';
+import { templates as flyers } from '../core/templates';
 import { 
   bodyHeaderTests, 
   bodyFooterTests, 
   bodyHeaderFooterTests,
   bodyTests, 
+  elementTests,
 } from '../core/templates/test-flyers';
 import { computeFlyer } from '../core/producer';
 import _ from 'lodash';
 
-const flyers = [
-  // ...bodyTests,
-  // ...bodyHeaderTests,
-  // ...bodyFooterTests,
-  ...bodyHeaderFooterTests,
-]
+// const flyers = [
+//   // ...bodyTests,
+//   // ...bodyHeaderTests,
+//   // ...bodyFooterTests,
+//   // ...bodyHeaderFooterTests,
+//   // ...elementTests,
+// ]
 
 _.forEach(flyers, flyer => computeFlyer(flyer));
 

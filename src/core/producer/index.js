@@ -63,6 +63,7 @@ function initGroup(group, groupType) {
   group.elements.forEach((el, i) => {
     el.isElement = true;
     el._computed = {};
+    el._computed.id = group.type + '-' + i;
     el._computed.index = i;
     el._computed.prev = group.elements[i - 1];
     el._computed.next = group.elements[i + 1];

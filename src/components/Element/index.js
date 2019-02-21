@@ -4,12 +4,40 @@ import TextElement from '../Element/TextElement';
 import BarElement from '../Element/BarElement';
 
 function Element({element, index}) {
+  const c = element._computed;
+  const style = {
+    position: 'absolute',
+    top: c.bb.t + 'px',
+    left: c.bb.l + 'px',
+    width: c.bb.w + 'px',
+    height: c.bb.h + 'px',
+    paddingTop: c.pt + 'px',
+    paddingBottom: c.pb + 'px',
+    paddingLeft: c.pl + 'px',
+    paddingRight: c.pr + 'px',
+    boxSizing: 'border-box',
+    // background: '#fff',
+  }
+
+  const Component = getElement(element.type);
+  return (
+    <div 
+      key={c.id}
+      style={style}
+      children={<Component element={element} />}
+    />
+  )
+
   
-  switch(element.type) {
+  
+}
+
+function getElement(type) {
+  switch(type) {
     case 'logo':
-    case 'image': return <ImageElement element={element} index={index} />
-    case 'bar': return <BarElement element={element} index={index} />
-    default: return <TextElement element={element} index={index} />
+    case 'image': return ImageElement
+    case 'bar': return BarElement
+    default: return TextElement
   }
 }
 

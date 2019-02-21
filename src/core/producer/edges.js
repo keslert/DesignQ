@@ -108,8 +108,7 @@ function computeGroupEdges(template, group) {
 }
 
 function computeElementContentEdges(template, group, el) {
-  el._computed.edges = {t: [], b: []};
-  // el._computed.allEdges = {t: [], b: []};
+  el._computed.edges = {};
 
   withSides(s => {
     const edges = [...group._computed.edges[s]];
@@ -127,9 +126,8 @@ function computeElementContentEdges(template, group, el) {
       });
     }
 
-    // el._computed.allEdges[s] = edges;
     el._computed.edges[s] = spliceEdges(edges, el.bleed[s])
-  }, ['l', 'r']);
+  });
 
   el._computed.maxW = getWidth(template._computed.size.w, el._computed.edges);
 }

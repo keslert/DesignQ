@@ -8,17 +8,17 @@ function TextElement({element}) {
 
   const style = {
     position: 'relative',
-    width: `calc(${getUnitStyle(element.width)} - ${c.ml + c.mr}px)`,
-    padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
-    margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
+    // width: `calc(${getUnitStyle(element.width)} - ${c.ml + c.mr}px)`,
+    // padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
+    // margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
-    background: getColorStyle(element.background),
-    borderRadius: getUnitStyle(element.borderRadius),
     color: getColorStyle(element.color),
-    ...getBorderStyles(element.border),
+    // background: getColorStyle(element.background),
+    // borderRadius: getUnitStyle(element.borderRadius),
+    // ...getBorderStyles(element.border),
   }
 
   const spacerStyle = {
@@ -89,27 +89,27 @@ function Line({element, line}) {
 
   return(
     <div>
-    <div style={style}>
-      {debug && <div style={debugStyle} />}
-      {Array.isArray(line.text)
-        ? 
-          <div>
-            {line.text.map((str, i) => 
-              <React.Fragment key={i}>
-                {i 
-                  ? <ListDivider 
-                      divider={element.divider} 
-                      fontSize={line.h}
-                    /> 
-                  : null
-                }
-                {str}
-              </React.Fragment>
-            )}
-          </div>
-        : line.text
-      }
-    </div>
+      <div style={style}>
+        {debug && <div style={debugStyle} />}
+        {Array.isArray(line.text)
+          ? 
+            <div>
+              {line.text.map((str, i) => 
+                <React.Fragment key={i}>
+                  {i 
+                    ? <ListDivider 
+                        divider={element.divider} 
+                        fontSize={line.h}
+                      /> 
+                    : null
+                  }
+                  {str}
+                </React.Fragment>
+              )}
+            </div>
+          : line.text
+        }
+      </div>
     </div>
   )
 }
