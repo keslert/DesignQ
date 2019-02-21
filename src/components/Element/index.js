@@ -2,6 +2,7 @@ import React from 'react';
 import ImageElement from '../Element/ImageElement';
 import TextElement from '../Element/TextElement';
 import BarElement from '../Element/BarElement';
+import { getBackgroundStyle } from '../../core/utils/render-utils';
 
 function Element({element, index}) {
   const c = element._computed;
@@ -15,6 +16,7 @@ function Element({element, index}) {
     paddingBottom: c.pb + 'px',
     paddingLeft: c.pl + 'px',
     paddingRight: c.pr + 'px',
+    ...getBackgroundStyle(element.background),
     boxSizing: 'border-box',
     // background: '#fff',
   }

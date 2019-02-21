@@ -8,6 +8,7 @@ function TextElement({element}) {
 
   const style = {
     position: 'relative',
+    width: '100%',
     // width: `calc(${getUnitStyle(element.width)} - ${c.ml + c.mr}px)`,
     // padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
     // margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
@@ -69,6 +70,7 @@ function Line({element, line}) {
 
   const style = {
     fontSize: line.fontSize,
+    textAlign: element._computed.group.textAlign,
     letterSpacing: `${element.font.letterSpacing || 0}em`,
     // marginTop: `${line.fontSize * line.offset.top}px`,
     // marginBottom: `${line.fontSize * line.offset.bottom}px`,

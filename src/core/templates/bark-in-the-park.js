@@ -10,7 +10,11 @@ export default {
   decor: {
     r: .3,
     background: {
-      url: 'https://images.unsplash.com/photo-1447768005573-3b54cdf058a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      img: {
+        src: 'https://images.unsplash.com/photo-1447768005573-3b54cdf058a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        w: 421,
+        h: 729,
+      },
       color: '#400D2A',
       zoom: .8,
       x: 2,

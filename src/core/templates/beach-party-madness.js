@@ -1,26 +1,31 @@
-import { solidColor, unitValue } from '.'
+import { solidColor, unitValue } from './'
 
 export default {
   title: 'Beach Party Madness',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-maroon-and-yellow-beach-party-flyer-MAC5p09I7SY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
+  px: 1,
+  py: 1,
   background: {
-    url: 'https://images.unsplash.com/photo-1529182856268-587c45053e0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    img: {
+      src: 'https://images.unsplash.com/photo-1529182856268-587c45053e0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      filters: {
+        brightness: 0.4,
+      }
+    },
     color: '#516c5c',
     backgroundBlendMode: 'overlay',
-    filters: {
-      brightness: 0.4,
-    }
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    w: 'fill',
+    h: 'fill',
+    alignX: 'left',
+    alignY: 'top',
     body: {
-      bleed: { all: true },
       alignX: 'left',
-      alignY: 'flex-start',
+      alignY: 'top',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
       textAlign: 'left',
       elements: [
         {
@@ -33,12 +38,11 @@ export default {
             family: 'Glacial Indifference',
             letterSpacing: 0.15,
             lineHeight: 1.4,
-            size: 0.4,
+            size: 0.7,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -56,17 +60,15 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#f7f1af'),
-          width: unitValue(120, 'px'),
-          height: unitValue(8, 'px'),
-          mb: 1,
+          w: .25,
+          h: 8,
         },
         {
-          type: 'small',
+          type: 'bridge',
           lines: [
             {type: 'host', text: 'Proudly sponsored by Lamplight Mobile System'},
           ],
@@ -75,27 +77,24 @@ export default {
             family: 'Glacial Indifference',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 0.5,
+            size: 0.85,
             style: 'normal',
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      alignX: 'flex-right',
+      w: 'fill',
+      alignX: 'right',
+      itemsAlignX: 'right',
       textAlign: 'right',
-      width: unitValue(100, '%'),
-      mb: 2,
       elements: [
         {
           type: 'heading',
           lines: [
             [
-
               {type: 'date', text: 'July 9, 2020'},
               {type: 'time', text: '3 pm onwards'},
             ],
@@ -111,19 +110,17 @@ export default {
             family: 'League Gothic',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 0.5,
+            size: 0.65,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#f7f1af'),
-          width: unitValue(120, 'px'),
-          height: unitValue(8, 'px'),
-          mb: 1,
+          w: .25,
+          h: 8,
         },
         {
           type: 'paragraph',
@@ -137,12 +134,11 @@ export default {
             family: 'Glacial Indifference',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 0.2,
+            size: 0.7,
             style: 'normal',
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

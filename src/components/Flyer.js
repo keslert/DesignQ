@@ -16,9 +16,9 @@ function Flyer({flyer}) {
   }
 
   const elements = [
-    // ...(flyer.content.header ? flyer.content.header.elements : []),
+    ...(flyer.content.header ? flyer.content.header.elements : []),
     ...flyer.content.body.elements,
-    // ...(flyer.content.footer ? flyer.content.footer.element : []),
+    ...(flyer.content.footer ? flyer.content.footer.elements : []),
   ]
 
   return (
@@ -32,7 +32,6 @@ function Flyer({flyer}) {
 
       {elements.map(el => <Element element={el} />)}
       
-      {false && <FlyerContent content={flyer.content} />}
       {flyer.overlay && <Background background={flyer.overlay} />}
     </div>
   )

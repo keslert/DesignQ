@@ -69,158 +69,158 @@ export const bodyTests = [
   },
 
   // content=fill group=autoW
-  // {
-  //   content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'bottom'},
-  //   body: {w: 'auto', h: 'fill', alignX: 'center', alignY: 'center'},
-  // },
-  // {
-  //   content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'bottom'},
-  //   body: {w: 'auto', h: 'fill', alignX: 'right', alignY: 'bottom'},
-  // },
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'bottom'},
+    body: {w: 'auto', h: 'fill', alignX: 'center', alignY: 'center'},
+  },
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'bottom'},
+    body: {w: 'auto', h: 'fill', alignX: 'right', alignY: 'bottom'},
+  },
 
-  // // content=auto group=fill
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, t: 1}},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top', bleed: {r: 1, t: 1}},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'bottom', bleed: {l: 1, b: 1}},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom', bleed: {r: 1, b: 1}},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
+  // content=auto group=fill
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, t: 1}},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top', bleed: {r: 1, t: 1}},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'bottom', bleed: {l: 1, b: 1}},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom', bleed: {r: 1, b: 1}},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
 
 
-  // // x-axis
-  // {
-  //   content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'fill', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'fill', alignX: 'center', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'fill', alignX: 'right', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
+  // x-axis
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'fill', alignX: 'left', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'fill', alignX: 'center', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'fill', alignX: 'right', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
 
-  // // y-axis
-  // {
-  //   content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'center'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'bottom'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
+  // y-axis
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'center'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'bottom'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
 
-  // // corners
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'bottom'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom'},
-  //   body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
-  // },
+  // corners
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'bottom'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom'},
+    body: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+  },
   
 
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1}},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {r: 1}},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, r: 1}},
-  // },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1}},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {r: 1}},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, r: 1}},
+  },
 
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {t: 1}},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {b: 1}},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {t: 1, b: 1}},
-  // },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {t: 1}},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {b: 1}},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {t: 1, b: 1}},
+  },
   
   
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'bottom'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'center'},
-  // },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'bottom'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'center'},
+  },
 
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, t: 1}},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
-  // },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, t: 1}},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top'},
+  },
   
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, t: 1}},
-  // },
-  // {
-  //   content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom'},
-  //   body: {w: 'auto', h: 'auto', alignX: 'center', alignY: 'center', bleed: {a: 1}},
-  // },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'top'},
+    body: {w: 'auto', h: 'auto', alignX: 'left', alignY: 'top', bleed: {l: 1, t: 1}},
+  },
+  {
+    content: {w: 'auto', h: 'auto', alignX: 'right', alignY: 'bottom'},
+    body: {w: 'auto', h: 'auto', alignX: 'center', alignY: 'center', bleed: {a: 1}},
+  },
 ].map(makeBodyFlyer);
 
 
@@ -514,6 +514,11 @@ export const bodyHeaderTests = [
     body: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'bottom', bleed: {a: 1, t: 0}},
     header: {w: 'fill', alignX: 'left', bleed: {a: 1, t: 2}},
   },
+  {
+    content: {w: 'fill', h: 'fill', alignX: 'left', alignY: 'top'},
+    body: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'bottom', bleed: {b: 2, r: 2}},
+    header: {w: 'fill', alignX: 'left'},
+  },
 
   {
     content: {w: 'fill', h: 'auto', alignX: 'left', alignY: 'top'},
@@ -765,8 +770,6 @@ export const bodyHeaderFooterTests = [
     header: {w: 'fill', alignX: 'left', bleed: {t: 2}},
     footer: {w: 'auto', alignX: 'right', bleed: {b: 2}},
   },
-  
-
 ].map(makeBodyHeaderFooterFlyer);
 
 
@@ -798,7 +801,7 @@ const makeElementsFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff99'),
           color: solidColor('#fff'),
           font: {
             family: 'League Gothic',
@@ -818,7 +821,7 @@ const makeElementsFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff99'),
           color: solidColor('#fff'),
           font: {
             family: 'League Gothic',

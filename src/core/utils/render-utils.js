@@ -4,7 +4,7 @@ export function getBackgroundStyle(bg) {
   if(!bg) return null;
 
   const background = _.filter([
-    bg.url && `url(${bg.url}) no-repeat`,
+    bg.img && `url(${bg.img.src}) no-repeat`,
     bg.color,
   ]).join(',');
 
@@ -13,7 +13,7 @@ export function getBackgroundStyle(bg) {
     backgroundSize: `${bg.zoom ? `${bg.zoom * 100}%` : 'cover'}`,
     backgroundPositionX: `${(_.isNumber(bg.x) ? bg.x : .5) * 100}%`,
     backgroundPositionY: `${(_.isNumber(bg.y) ? bg.y : .5) * 100}%`,
-    filter: _.map(bg.filters, (v, k) => `${k}(${v})`).join(' '),
+    filter: bg.img && _.map(bg.img.filters, (v, k) => `${k}(${v})`).join(' '),
     backgroundBlendMode: bg.backgroundBlendMode,
   };
 }

@@ -38,14 +38,11 @@ export function computeEdges(template) {
     content.footer._computed.edges.t = [];
   }
 
-
   // elements
   withGroups(template, group => group.elements.forEach(el => {
-    // withSides(s => el._computed[`p${s}`] = basePad * el[`p${s}`]);
     computeBorder(el.border, size);
-    computeElementContentEdges(template, group, el)
+    computeElementEdges(template, group, el)
   }))
-
 }
 
 function computeContentEdges(template) {
@@ -101,13 +98,14 @@ function computeGroupEdges(template, group) {
         type: 'content-padding',
       });
     }
+
     group._computed.edges[s] = spliceEdges(edges, group.bleed[s]);
   });
 
   group._computed.maxW = getWidth(template._computed.size.w, group._computed.edges);
 }
 
-function computeElementContentEdges(template, group, el) {
+function computeElementEdges(template, group, el) {
   el._computed.edges = {};
 
   withSides(s => {
@@ -126,7 +124,10 @@ function computeElementContentEdges(template, group, el) {
       });
     }
 
-    el._computed.edges[s] = spliceEdges(edges, el.bleed[s])
+    // if the element has a background, we'll deal with the bleed later...
+    // this might not be the right approach.
+    // el._computed.edges[s] = el.background ? edges : spliceEdges(edges, el.bleed[s])
+    el._computed.edges[s] = spliceEdges(edges, el.bleed[s]);
   });
 
   el._computed.maxW = getWidth(template._computed.size.w, el._computed.edges);

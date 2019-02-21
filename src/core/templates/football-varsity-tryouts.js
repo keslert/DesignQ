@@ -1,32 +1,45 @@
-import { solidColor, unitValue, striped } from '.'
+import { solidColor, striped } from './'
 
 export default {
   title: 'Football Varsity Tryouts',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-&-white-bold-creative-sport-football-tryouts-flyer-MAC6S8qYjo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
+  px: 1,
+  py: 1,
+  background: solidColor('#FF5200'),
   border: {
-    color: striped(30, '#000', 40, '#fff', 40),
-    left: 50,
+    l: 50,
+    background: {
+      color: striped(30, '#000', 40, '#fff', 40),
+    },
   },
-  background: {
-    url: '/football-player.png',
-    zoom: 1.2,
-    x: -2.40,
-    y: .2,
-    backgroundBlendMode: 'multiply',
-    color: '#FF5200',
+  decor: {
+    r: .3,
+    background: {
+      img: {
+        src: '/football-player.png',
+        w: 557,
+        h: 960,
+      },
+      zoom: 1,
+      x: 0,
+      backgroundBlendMode: 'multiply',
+      color: '#FF5200',
+    }
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    h: 'fill',
+    w: 'fill',
+    alignX: 'left',
+    alignY: 'center',
     body: {
-      bleed: { all: true },
-      alignX: 'flex-start',
-      alignY: 'flex-end',
+      w: 'fill',
+      h: 'auto',
+      alignX: 'left',
+      alignY: 'bottom',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
       textAlign: 'left',
-      w: .7,
       elements: [
         {
           type: 'dominant',
@@ -63,7 +76,7 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1.5,
+          mb: 1,
         },
         {
           type: 'heading',
@@ -83,10 +96,10 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          bleed: {left: true},
-          width: unitValue(100, '%'),
-          mb: 1.5,
-          py: 2,
+          bleed: {pl: 1},
+          w: 'fill',
+          mb: 1,
+          py: 1,
         },
         {
           type: 'paragraph',
@@ -100,7 +113,7 @@ export default {
             family: 'Arvo',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 0,
+            size: 1,
             style: 'normal',
             transform: 'normal',
             weight: 400,
@@ -110,9 +123,13 @@ export default {
       ]
     },
     header: {
-      bleed: {all: true},
-      width: unitValue(100, '%'),
+      w: 'fill',
+      alignX: 'left',
+      alignY: 'top',
+      itemsAlignY: 'top',
+      itemsAlignX: 'left',
       textAlign: 'left',
+      // background: solidColor('#f00'),
       elements: [
         {
           type: 'small',
@@ -124,7 +141,7 @@ export default {
             family: 'Arvo',
             letterSpacing: 0.1,
             lineHeight: 1.4,
-            size: 0.3,
+            size: 0.6,
             style: 'normal',
             transform: 'uppercase',
             weight: 700,

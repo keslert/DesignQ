@@ -4,7 +4,7 @@ import { getBackgroundStyle } from '../../core/utils/render-utils';
 
 function Decor({decor, bb}) {
 
-  if(decor.background && decor.background.url) {
+  if(decor.background && decor.background.img) {
     return <Border border={decor} bb={bb} />
   }
 

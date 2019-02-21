@@ -1,24 +1,26 @@
 import React from 'react';
 import Frame from '../components/Frame';
 import { Flex, Box } from 'rebass';
-import { templates as flyers } from '../core/templates';
+import { templates } from '../core/templates';
 import { 
   bodyHeaderTests, 
   bodyFooterTests, 
   bodyHeaderFooterTests,
-  bodyTests, 
+  bodyTests,
   elementTests,
 } from '../core/templates/test-flyers';
 import { computeFlyer } from '../core/producer';
 import _ from 'lodash';
 
 // const flyers = [
+//   templates.LookingForArtVolunteers,
 //   // ...bodyTests,
 //   // ...bodyHeaderTests,
 //   // ...bodyFooterTests,
-//   // ...bodyHeaderFooterTests,
+//   ...bodyHeaderFooterTests,
 //   // ...elementTests,
 // ]
+const flyers = templates;
 
 _.forEach(flyers, flyer => computeFlyer(flyer));
 

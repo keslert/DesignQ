@@ -82,12 +82,13 @@ function computeGroupSizes(template, group, dominant) {
     if(img.aspectRatio) {
       img._computed.h = maxW * img.aspectRatio;
     } else {
-      img._computed.h = template.size.h * .3;
+      // img._computed.h = template.size.h * .3;
     }
   })
 
   _.forEach(types.bar, bar => {
-    bar._computed.h = bar.height.value;
+    bar._computed.h = bar.h;
+    bar._computed.w = bar.w * maxW;
   })
 }
 
@@ -214,5 +215,5 @@ export const measureTextWidth = (text, font) => {
   return ctx.measureText(text).width
 }
 
-const MIN_FONT_SIZE = 0;
+const MIN_FONT_SIZE = 1;
 const FONT_MEASURE_SIZE = 20;

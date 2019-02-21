@@ -10,6 +10,7 @@ function Background({background, bb}) {
     height: `${bb.h}px`,
     width: `${bb.w}px`,
     ...getBackgroundStyle(background),
+    // background: '#00000033'
   }
 
   return (

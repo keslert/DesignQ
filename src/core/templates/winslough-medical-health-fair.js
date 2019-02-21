@@ -1,35 +1,35 @@
-import { solidColor, unitValue } from './index'
+import { solidColor } from './'
 
 export default {
   title: 'Winslow Medical Health Fair',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-photo-health-fair-flyer-MAC4WqK5At4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
   border: {
-    left: 20,
-    color: '#fb972e',
+    l: 25,
+    background: solidColor('#fb972e'),
   },
   background: {
-    url: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    img: {
+      src: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      filters: {
+        brightness: 0.6,
+      },
+      x: 0.25,
+    },
     color: '#58a2c1',
     backgroundBlendMode: 'luminosity',
-    filters: {
-      brightness: 0.7,
-    },
-    x: 0.25,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    height: 'fill',
+    width: 'fill',
     body: {
-      bleed: { all: true },
-      alignX: 'flex-start',
-      alignY: 'flex-end',
+      h: 'auto',
+      w: 'fill',
+      alignX: 'left',
+      alignY: 'bottom',
+      itemsAlignX: 'left',
+      itemsAlignY: 'center',
       textAlign: 'left',
-      width: unitValue(100, '%'),
-      flex: 1,
-      mb: 1.5,
       elements: [
         {
           type: 'small',
@@ -39,14 +39,14 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.1,
             lineHeight: 1.4,
-            size: 0.2,
+            size: 0.7,
             style: 'normal',
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1.5,
+          mb: 2,
         },
         {
           type: 'dominant',
@@ -65,7 +65,7 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'bridge',
@@ -83,7 +83,7 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'heading',
@@ -104,12 +104,12 @@ export default {
             family: 'Oswald',
             letterSpacing: 0.1,
             lineHeight: 1.6,
-            size: 0.5,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'paragraph',
@@ -128,7 +128,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

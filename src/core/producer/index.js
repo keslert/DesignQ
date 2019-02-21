@@ -4,6 +4,7 @@ import { computeEdges } from './edges';
 import { computeBorders } from './borders'
 import { computeDecor } from './decor';
 import { computeBoundingBoxes } from './bounding-boxes';
+import { computeBackgrounds } from './backgrounds';
 import _ from 'lodash';
 
 // Intentions object
@@ -33,10 +34,12 @@ export function computeFlyer(template, size={w: 612, h:856}) {
   const maxHeight = size.h - template.border._computed.y - template.pt - template.pb;
   const height = calculateHeight(template);
   const ratio = maxHeight / (height - template.border._computed.y);
-  if(ratio < 1) {
+  if(false && ratio < 1) {
     computeSizes(template, ratio);
     computeSpacing(template);
   }
+
+  computeBackgrounds(template);
   
   return template;
 }
@@ -62,6 +65,7 @@ function initGroup(group, groupType) {
 
   group.elements.forEach((el, i) => {
     el.isElement = true;
+    // el.w = el.w || 'fill';
     el._computed = {};
     el._computed.id = group.type + '-' + i;
     el._computed.index = i;
@@ -182,5 +186,5 @@ export function withSides(cb, sides=['l','r','t','b']) {
 export function withGroups(template, cb, groups=CONTENT_GROUPS) {
   return groups
     .filter(g => template.content[g])
-    .map(g => cb(template.content[g]))
+    .map(g => cb(template.content[g], g))
 }

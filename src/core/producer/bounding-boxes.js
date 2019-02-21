@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { withGroups } from './';
+import { withGroups, withSides } from './';
 
 /*
 w = 600
@@ -76,6 +76,8 @@ function computeHorizontal(template) {
 
   computeElementWidths(template);
   computeElementLefts(template);
+
+  computeElementPadBleeds(template);
 }
 
 function computeVertical(template) {
@@ -95,7 +97,7 @@ function computeVertical(template) {
 
 function computeElementAutoWidths(template) {
   withGroups(template, g => g.elements.forEach(el => {
-    el._computed.bb.autoW = el._computed.w;
+    el._computed.bb.autoW = el._computed.w + el._computed.pl + el._computed.pr;
   }))
 }
 
@@ -153,8 +155,10 @@ function computeElementAutoHeights(template) {
 function computeGroupAutoHeights(template) {
   withGroups(template, g => {
     const elementHeight = _.sum(g.elements.map(el => el._computed.bb.autoH + el._computed.mb));
-    const borderHeight = g.border._computed.t + g.border._computed.b;
-    const padHeight = g._computed.pt + g._computed.pb;
+    const el = g.elements[0];
+    const borderHeight = _.sum(getEdgeValues(el, ['t', 'b'], 'group-border'));
+    const padHeight = _.sum(getEdgeValues(el, ['t', 'b'], 'group-padding'));
+
     g._computed.bb.autoH = elementHeight + borderHeight + padHeight;
   })
 }
@@ -204,8 +208,9 @@ function computeContentLeft(template) {
   const edgeUpdates = { l: diffL, r: diffR };
 
   withGroups(template, g => {
-    updateEdges(g, 'flyer-padding', edgeUpdates);
-    g.elements.forEach(el => updateEdges(el, 'flyer-padding', edgeUpdates));
+    const types = ['flyer-padding', 'content-padding']
+    updatePriorityEdges(g, types, edgeUpdates);
+    g.elements.forEach(el => updatePriorityEdges(el, types, edgeUpdates));
   })
 }
 
@@ -219,7 +224,8 @@ function computeContentTop(template) {
   const diffB = diffH - diffT;
   const edgeUpdates = { t: diffT, b: diffB };
 
-  withGroups(template, g => updateEdges(g, 'flyer-padding', edgeUpdates))
+  const types = ['flyer-padding', 'content-padding']
+  withGroups(template, g => updatePriorityEdges(g, types, edgeUpdates))
 }
 
 function computeGroupLefts(template) {
@@ -231,7 +237,10 @@ function computeGroupLefts(template) {
     const diffR = diffW - diffL;
     const edgeUpdates = { l: diffL, r: diffR };
 
-    g.elements.forEach(el => updateEdges(el, 'content-padding', edgeUpdates));
+    // TODO: I'm pretty sure this needs to update content-padding, but if
+    // content-padding doesn't exist, then group-padding.
+    const types = ['content-padding', 'group-padding']
+    g.elements.forEach(el => updatePriorityEdges(el, types, edgeUpdates));
   })
 }
 
@@ -249,21 +258,17 @@ function computeGroupTops(template) {
   const { header=false, body, footer=false } = content;
 
   let start = _.sumBy(body._computed.edges.t, e => e.value);
+  const bodyPadTop = _.sumBy(body._computed.edges.t, e => e.value);
+  const bodyPadBot = _.sumBy(body._computed.edges.b, e => e.value);
 
-  const bodyPadTop = 
-      _.sum(getEdgeValues(body, ['t'], 'content-border'))
-    + _.sum(getEdgeValues(body, ['t'], 'content-padding'))
-  const bodyPadBot = 
-      _.sum(getEdgeValues(body, ['b'], 'content-border'))
-    + _.sum(getEdgeValues(body, ['b'], 'content-padding'))
-
-  let space = c.bb.h - body._computed.bb.h - bodyPadTop - bodyPadBot;
+  let space = template._computed.size.h - body._computed.bb.h - bodyPadTop - bodyPadBot;
 
   if(header) {
     computeHeaderTop(content, header);
 
     start = header._computed.bb.t + header._computed.bb.h + header._computed.mb;
-    const end = c.bb.t + c.bb.h - bodyPadBot - body._computed.bb.h;
+    // const end = c.bb.t + c.bb.h - padBottom - padTop - body._computed.bb.h;
+    const end = template._computed.size.h - body._computed.bb.h - bodyPadBot;
     space = end - start;
   }
   if(footer) {
@@ -308,6 +313,25 @@ function computeFooterTop(template, footer) {
   footer._computed.bb.t = template._computed.size.h - footer._computed.bb.h - mb;
 }
 
+function computeElementPadBleeds(template) {
+  withGroups(template, g => g.elements.forEach(el => {
+    withSides(s => {
+      const pd = 'p' + s;
+      const edges = el.bleed[pd] ? el._computed.edges[s].slice(-el.bleed[pd]) : []
+      const padBleed = _.sumBy(edges, e => e.value);
+
+      if(padBleed) {
+        el._computed[pd] = padBleed;
+        if(s === 'l') {
+          el._computed.bb.l -= padBleed;
+        }
+        el._computed.bb.w += padBleed;
+      }
+
+    }, ['l', 'r']);
+  }))
+}
+
 function calculateTop(alignY, start, space) {
   if(alignY === 'top') return start;
   if(alignY === 'center') return start + space / 2;
@@ -320,12 +344,17 @@ function calculateLeft(alignX, start, space) {
   return start + space;
 }
 
-function updateEdges(item, type, edgeUpdates) {
+
+// Updates the first types 
+function updatePriorityEdges(item, types, edgeUpdates) {
   _.forEach(edgeUpdates, (v, side) => {
-    const edge = getEdge(item, side, type);
-    if(edge) {
-      edge.value += v;
-      item._computed[`m${side}`] += v;
+    for(let i = 0; i < types.length; i++) {
+      const edge = getEdge(item, side, types[i]);
+      if(edge) {
+        edge.value += v;
+        item._computed[`m${side}`] += v;
+        break;
+      }
     }
   })
 }
