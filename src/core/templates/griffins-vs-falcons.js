@@ -4,28 +4,25 @@ export default {
   title: 'WE Griffins vs BU Falcons',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-black-football-party-sports-flyer-MAC3XxQFTlU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 50,
   background: {
-    url: 'https://images.unsplash.com/photo-1538358755974-f350d26af7bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60',
-    zoom: 3,
-    x: 0.3,
-    y: 0.7,
+    img: {
+      src: 'https://images.unsplash.com/photo-1538358755974-f350d26af7bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60',
+      zoom: 3,
+      x: 0.3,
+      y: 0.7,
+      filters: {
+        grayscale: 0.4,
+      },
+    },
     color: '#404040',
     backgroundBlendMode: 'multiply',
-    filters: {
-      grayscale: 0.4,
-    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { top: true, left: true, right: true },
-      alignX: 'flex-start',
-      alignY: 'flex-start',
+      h: 'auto',
+      alignX: 'left',
+      alignY: 'top',
       textAlign: 'left',
-      w: .75,
       elements: [
         {
           type: 'dominant',
@@ -43,7 +40,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -61,13 +57,10 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     header: {
-      bleed: {all: true},
-      width: unitValue(100, '%'),
       textAlign: 'left',
       elements: [
         {
@@ -85,13 +78,10 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: {all: true},
-      w: .75,
       textAlign: 'left',
       elements: [
         {
@@ -112,9 +102,7 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          bleed: {left: true},
-          width: unitValue(100, '%'),
-          mb: 2,
+          bleed: {left: 1},
           py: 1.5,
         },
         {
@@ -133,7 +121,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

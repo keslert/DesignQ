@@ -4,19 +4,11 @@ export default {
   title: 'Allergen-Free Donut Sale',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-with-donuts-bake-sale-flyer-MAC4CsQClwE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 50,
-  py: 50,
   background: solidColor('#ffffff'),
   content: {
-    height: 'flex',
-    width: 'flex',
+    h: 'auto',
+    alignY: 'bottom',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      flex: 1,
       elements: [
         { 
           type: 'image',
@@ -28,7 +20,6 @@ export default {
           filters: {
             "brightness": 1.2
           },
-          mb: 1.5,
         },
         {
           type: 'small',
@@ -45,7 +36,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1.25,
         },
         {
           type: 'dominant',
@@ -63,7 +53,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -90,7 +79,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
@@ -114,7 +102,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

@@ -2,29 +2,15 @@ import { solidColor, unitValue, striped } from '.'
 
 export default {
   title: 'Fallfield Food Drive',
-  tags: ['event', 'flyer', 'food drive'],
+  tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-orange-border-diagonal-line-food-drive-flyer-MAC3TTBdtfM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
-  border: {
-    top: 100,
-    bottom: 100,
-    left: 50,
-    right: 50,
+  background: {
     color: striped(45, "#ef8332", 22, "#f19a57", 20),
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    h: 'auto',
+    background: solidColor('#fff'),
     body: {
-      bleed: { all: true },
-      background: solidColor('#fff'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      flex: 1,
-      mb: 1.5,
       elements: [
         {
           type: 'small',
@@ -41,7 +27,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -60,7 +45,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'bridge',
@@ -78,7 +62,6 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -104,7 +87,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -123,7 +105,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

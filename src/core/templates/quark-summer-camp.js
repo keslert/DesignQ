@@ -4,20 +4,12 @@ export default {
   title: 'Quark Summer Camp',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-tent-summer-camp-flyer-MAC5t7rVvJ4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08', 
-  px: 50,
-  py: 50,
   background: solidColor('#212932'),
+  decor: {
+    b: .4,
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'flex-start',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      flex: 1,
-      mb: 1.5,
       elements: [
         {
           type: 'small',
@@ -74,8 +66,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#f5d746'),
-          height: unitValue(6, 'px'),
-          width: unitValue(33, '%'),
+          h: 6,
+          w: .25,
         },
         {
           type: 'heading',

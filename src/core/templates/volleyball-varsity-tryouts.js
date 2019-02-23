@@ -1,28 +1,20 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Volleyball Varsity Tryouts',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-volleyball-icons-sports-flyer-MAC3X5T2nN8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
-  border: {
-    top: 200,
-    right: 200,
-    color: '#fcd352',
-  },
-  background: {
-    color: '#fcd352',
+  background: solidColor('#fcd352'),
+  decor: {
+    t: .4,
+    r: .4,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'flex-start',
-      alignY: 'flex-end',
+      h: 'auto',
+      alignX: 'left',
+      alignY: 'bottom',
       textAlign: 'left',
-      width: unitValue(100, '%'),
       elements: [
         {
           type: 'small',
@@ -39,14 +31,12 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'bar',
-          height: unitValue(5, 'px'),
-          width: unitValue(100, '%'),
+          h: 5,
+          w: 1,
           background: solidColor('#000'),
-          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -65,7 +55,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -83,12 +72,11 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'bar',
-          height: unitValue(5, 'px'),
-          width: unitValue(100, '%'),
+          h: 5,
+          w: 1,
           background: solidColor('#000'),
         },
         {
@@ -109,7 +97,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -128,7 +115,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

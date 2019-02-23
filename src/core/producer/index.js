@@ -50,6 +50,13 @@ function initSetup(template) {
   normalizeDecor(template);
   
   template.content._computed = {};
+  _.defaults(template.content, {
+    w: 'fill',
+    h: 'fill',
+    alignX: 'center',
+    alignY: 'center',
+  })
+
   normalize(template.content);
   normalizeWidthAndHeight(template.content, 'fill', 'fill');
 
@@ -57,15 +64,24 @@ function initSetup(template) {
 }
 
 function initGroup(group, groupType) {
-  group.isGroup = true;
-  group.type = groupType;
   group._computed = {};
+  group.isGroup = true;
+  _.defaults(group, {
+    w: 'fill',
+    h: 'auto',
+    type: groupType,
+    alignX: 'center',
+    alignY: 'center',
+    itemsAlignX: 'center',
+    itemsAlignY: 'center',
+    textAlign: 'center',
+  })
+  
   normalize(group);
   normalizeWidthAndHeight(group, 'fill', 'auto');
 
   group.elements.forEach((el, i) => {
     el.isElement = true;
-    // el.w = el.w || 'fill';
     el._computed = {};
     el._computed.id = group.type + '-' + i;
     el._computed.index = i;
@@ -74,6 +90,15 @@ function initGroup(group, groupType) {
     el._computed.group = group;
     normalize(el);
     normalizeWidthAndHeight(group, 'auto', 'auto');
+
+    _.defaults(el.fonts, {
+      letterSpacing: 0,
+      lineHeight: 1.4,
+      size: 1,
+      style: 'normal',
+      transform: 'normal',
+      weight: 400,
+    })
 
     if(el.lines) {
       el._computed.lines = el.lines.map(line => ({

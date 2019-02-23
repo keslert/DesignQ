@@ -3,30 +3,24 @@ import { solidColor, unitValue } from '.'
 export default {
   title: '25th Annual Grise',
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-bordered-photo-food-drive-flyer-MAC3TTAYPR8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 30,
   background: {
-    url: 'https://images.unsplash.com/photo-1523275033438-8c0a9239935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    filters: {
-      brightness: .8,
+    img: {
+      src: 'https://images.unsplash.com/photo-1523275033438-8c0a9239935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      filters: {
+        brightness: .8,
+      },
     },
   },
   border: {
-    all: 40,
-    color: '#000',
+    a: .05,
+    background: solidColor('#000000'),
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { left: true, right: true, border: true },
+      bleed: { x: 2 },
       background: solidColor('#fff'),
-      alignX: 'center',
       alignY: 'top',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      px: 1.5,
-      mb: 1.2,
+      h: 'auto',
       elements: [
         {
           type: 'small',
@@ -61,7 +55,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -78,15 +71,11 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      width: unitValue(100, '%'),
       textAlign: 'center',
-      mb: 2,
       elements: [
         {
           type: 'heading',
@@ -130,7 +119,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

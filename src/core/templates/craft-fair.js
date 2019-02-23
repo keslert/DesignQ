@@ -4,18 +4,15 @@ export default {
   title: 'Craft Fair',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-event-flyer-MADKJzVJFo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 48,
-  background: {
-    color: '#e33260',
+  background: solidColor('#e33260'),
+  decor: {
+    l: .2,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'flex-end',
-      alignY: 'flex-end',
+      h: 'auto',
+      alignX: 'right',
+      alignY: 'bottom',
       textAlign: 'right',
       elements: [
         {
@@ -34,7 +31,6 @@ export default {
             transform: 'lowercase',
             weight: 900,
           },
-          mb: 2,
         },
         {
           type: 'bridge',
@@ -51,7 +47,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'small',
@@ -70,13 +65,12 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#fef093'),
-          height: unitValue(2, 'px'),
-          width: unitValue(50, '%'),
+          h: 2,
+          w: .5,
         },
         {
           type: 'small',
@@ -110,10 +104,9 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
-          type: 'small',
+          type: 'paragraph',
           lines: [
             {type: 'website', text: 'www.craftfair2016.com'},
           ],
@@ -127,9 +120,7 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
-
       ]
     },
   }

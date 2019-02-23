@@ -1,23 +1,18 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Annual Charity Food Drive',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-photo-collage-food-drive-flyer-MAC7mgTLvk0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 50,
-  py: 50,
   background: {
-    url: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    img: {
+      src: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      // bleed: { all: true },
       background: solidColor('#fffcf2'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
+      h: 'auto',
       elements: [
         {
           type: 'small',
@@ -34,7 +29,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -53,7 +47,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -71,13 +64,12 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#394e6d'),
-          height: unitValue(5, 'px'),
-          width: unitValue(33, '%'),
+          h: 5,
+          w: .33,
         },
         {
           type: 'heading',
@@ -96,15 +88,12 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
+      bleed: { x: 1, b: 1 },
       background: solidColor('#fffcf2'),
-      width: unitValue(100, '%'),
-      textAlign: 'center',
       elements: [
         {
           type: 'paragraph',
@@ -123,7 +112,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

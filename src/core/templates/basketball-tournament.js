@@ -1,46 +1,21 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
-  title: '',
+  title: 'Basketball Tournament',
   tags: ['event', 'flyer'],
-  px: 36,
-  py: 36,
-  background: solidColor('#e54049'),
+  inspiration: '',
+  background: solidColor('#101010'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      background: solidColor('#e54049'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'left',
       elements: [
-        {
-          type: 'dominant',
-          lines: [
-            {type: 'eventName', text: 'Annual'},
-          ],
-          color: solidColor('#fff'),
-          font: {
-            family: '',
-            letterSpacing: 0,
-            lineHeight: 1.4,
-            size: 1,
-            style: 'normal',
-            transform: 'uppercase',
-            weight: 400,
-          },
-          mb: 1,
-        },
         {
           type: 'small',
           lines: [
-            {type: 'time', text: '10AM'},
+            {type: 'descriptive', text: 'Let the games begin!'},
           ],
           color: solidColor('#fff'),
           font: {
-            family: 'Muli',
+            family: 'Open Sans',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -48,34 +23,79 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+        },
+        {
+          type: 'dominant',
+          lines: [
+            {type: 'eventName', text: '2020'},
+            {type: 'eventName', text: 'Basketball'},
+            {type: 'eventName', text: 'Tournament'},
+          ],
+          color: solidColor('#db6936'),
+          font: {
+            family: 'Norwester ',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+        },
+        {
+          type: 'bridge',
+          lines: [
+            {type: 'descriptive', text: 'A fundraising game for the'},
+            {type: 'descriptive', text: 'Beechtown Foundation'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Open Sans',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+        },
+        {
+          type: 'heading',
+          lines: [
+            {type: 'date', text: 'March 25-30, 2020', format: 'MMMM D, YYYY'},
+            {type: 'time', text: 'Starts at 1 P.M.'},
+            {type: 'location', text: 'Forestov Court'},
+          ],
+          color: solidColor('#db6936'),
+          font: {
+            family: 'Open Sans',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+        },
+        {
+          type: 'paragraph',
+          lines: [
+            {type: 'descriptive', text: "Watch as some of the country's best basketball"},
+            {type: 'descriptive', text: 'teams vie for the championship!'},
+            {type: 'descriptive', text: 'Tickets are now on sale at reallygreatsite.com!'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Open Sans',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
         },
       ]
     },
-    footer: {
-      bleed: { all: true },
-      background: solidColor('#6b6f39'),
-      width: unitValue(100, '%'),
-      textAlign: 'left',
-      elements: [
-        {
-          type: 'heading',
-          color: solidColor('#fff'),
-          lines: [
-            {type: 'location', text: '123 Anywhere St.'},
-          ],
-          font: {
-            family: 'Muli',
-            letterSpacing: 0,
-            lineHeight: 1.4,
-            size: 1,
-            style: 'normal',
-            transform: 'uppercase',
-            weight: 400,
-          },
-          mb: 1,
-        },
-      ]
-    }
   }
 }

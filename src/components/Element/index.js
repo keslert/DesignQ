@@ -36,7 +36,7 @@ function Element({element, index}) {
 
 function getElement(type) {
   switch(type) {
-    case 'logo':
+    case 'icon':
     case 'image': return ImageElement
     case 'bar': return BarElement
     default: return TextElement

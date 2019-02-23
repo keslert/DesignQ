@@ -1,35 +1,33 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Sunday Noon Football',
   tags: ['event', 'flyer', 'football'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-icon-sports-flyer-MAC5t7rcTo0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 48,
   background: solidColor('#fed23c'),
   content: {
-    height: 'flex',
-    width: 'flex',
+    w: 'fill',
+    h: 'fill',
     body: {
-      bleed: { all: true },
       alignX: 'left',
-      alignY: 'flex-end',
-      width: unitValue(100, '%'),
+      alignY: 'bottom',
+      itemsAlignX: 'left',
+      itesmAlignY: 'bottom',
+      w: 'fill',
       textAlign: 'left',
-      mb: 1,
       elements: [
         {
-          type: 'logo',
-          url: '/football.svg',
+          type: 'icon',
           fill: '#000',
-          size: 0.8,
+          w: 0.2,
+          src: '/football.svg',
           meta: {
-            width: 30,
-            height: 30,
+            w: 30,
+            h: 30,
             colors: [],
             filetype: 'svg',
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -44,7 +42,7 @@ export default {
             family: 'Raleway',
             letterSpacing: 0,
             lineHeight: 1.2,
-            size: 1,
+            size: 0.9,
             style: 'normal',
             transform: 'uppercase',
             weight: 900,
@@ -54,8 +52,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#000'),
-          width: unitValue(100, '%'),
-          height: unitValue(12, 'px'),
+          w: 1,
+          h: 12,
           mb: 1.5,
         },
         {
@@ -68,7 +66,7 @@ export default {
             family: 'Raleway',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 1,
+            size: 0.9,
             style: 'normal',
             transform: 'normal',
             weight: 400,
@@ -86,7 +84,7 @@ export default {
             family: 'Raleway',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 0.5,
+            size: 0.6,
             style: 'normal',
             transform: 'normal',
             weight: 900,
@@ -105,7 +103,7 @@ export default {
             family: 'Raleway',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 1,
+            size: 0.7,
             style: 'normal',
             transform: 'normal',
             weight: 400,
@@ -115,8 +113,8 @@ export default {
       ]
     },
     header: {
-      bleed: { all: true },
-      width: unitValue(100, '%'),
+      alignX: 'left',
+      itemsAlignX: 'left',
       textAlign: 'left',
       elements: [
         {
@@ -129,7 +127,7 @@ export default {
             family: 'Raleway',
             letterSpacing: 0.2,
             lineHeight: 1.4,
-            size: 0,
+            size: 0.6,
             style: 'normal',
             transform: 'uppercase',
             weight: 700,

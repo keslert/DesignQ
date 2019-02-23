@@ -1,25 +1,40 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: '',
+  title: 'Grunge Fall Fashion',
   tags: ['event', 'flyer'],
-  px: 36,
-  py: 36,
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: '',
+    }
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
+    height: 'auto',
     body: {
-      bleed: { all: true },
-      background: solidColor('#e54049'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'left',
+      background: solidColor('#000000'),
       elements: [
+        {
+          type: 'small',
+          lines: [
+            {type: 'host', text: 'Sandra Morgan Outfitters'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Glacial Indifference',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
+        },
         {
           type: 'dominant',
           lines: [
-            {type: 'eventName', text: 'Annual'},
+            {type: 'eventName', text: 'Grunge Fall'},
+            {type: 'eventName', text: '& Winter'},
+            {type: 'eventName', text: 'Fashion Week'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -31,16 +46,16 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
-          type: 'small',
+          type: 'bridge',
           lines: [
-            {type: 'time', text: '10AM'},
+            {type: 'descriptive', text: 'Experience the latest in grunge'},
+            {type: 'descriptive', text: 'fashion nationwide'},
           ],
           color: solidColor('#fff'),
           font: {
-            family: 'Muli',
+            family: 'Glacial Indifference',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -48,24 +63,27 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      background: solidColor('#6b6f39'),
-      width: unitValue(100, '%'),
-      textAlign: 'left',
+      background: solidColor('#000000'),
       elements: [
         {
           type: 'heading',
           color: solidColor('#fff'),
           lines: [
-            {type: 'location', text: '123 Anywhere St.'},
+            [
+              {type: 'date|time', text: 'Oct. 4 @ 5pm'},
+              {type: 'location', text: 'Holler Hall'},
+            ],
+            [
+              {type: 'date|time', text: 'Oct. 6 @ 3pm'},
+              {type: 'location', text: 'Patsy Square'},
+            ],
           ],
           font: {
-            family: 'Muli',
+            family: 'Glacial Indifference',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -73,7 +91,24 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+        },
+        {
+          type: 'paragraph',
+          lines: [
+            {type: 'descriptive', text: '50+ brands will be showcased. Drop by on our'},
+            {type: 'descriptive', text: 'time slot to get a glimpse of our latest collection'},
+            {type: 'descriptive', text: 'before it hits the stores!'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Glacial Indifference',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'uppercase',
+            weight: 400,
+          },
         },
       ]
     }

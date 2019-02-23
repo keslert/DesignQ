@@ -3,26 +3,19 @@ import { solidColor, unitValue } from '.'
 export default {
   title: "The Science Festival",
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-blue-and-yellow-space-themed-science-flyer-MAC7mqPbQK8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
-  px: 48,
-  py: 48,
-  border: {
-    top: 120,
-    bottom: 120,
-    color: "#1f2534"
+  px: 1,
+  py: 1,
+  decor: {
+    y: 120,
   },
-  background: {
-    color: "#1f2534"
-  },
+  background: solidColor("#1f2534"),
   content: {
     body: {
-      width: unitValue(100, '%'), 
       alignX: "center",
       alignY: "center",
+      itemsAlignX: 'center',
+      itemsAlignY: 'center',
       textAlign: "center",
-      bleed: {
-        all: true
-      },
-      mb: 1.5,
       elements: [
         {
           type: "small",
@@ -113,12 +106,11 @@ export default {
           background: {
             color: "#e7d244"
           },
-          height: unitValue(5, 'px'),
-          width: unitValue(66, '%'),
+          h: 5,
+          w: .4,
         },
         {
           type: "heading",
-          mb: 1,
           lines: [
             [
               {

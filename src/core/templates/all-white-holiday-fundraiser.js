@@ -4,22 +4,14 @@ export default {
   title: 'All-White Holiday Fundraiser',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-gold-all-white-party-flyer-MAC7msY4lpw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 40,
-  py: 72,
-  border: {
-    top: 10,
-    bottom: 10,
-    color: '#dfd7a6',
-  },
   background: solidColor('#fff'),
+  border: {
+    y: .01,
+    yOffset: .03,
+    background: solidColor('#dfd7a6'),
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
       elements: [
         {
           type: 'small',
@@ -49,7 +41,6 @@ export default {
             colors: [],
             filetype: 'svg',
           },
-          mb: 0.5,
         },
         {
           type: 'dominant',
@@ -67,7 +58,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'bridge',
@@ -85,14 +75,12 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#dfd7a6'),
-          width: unitValue(70, '%'),
-          height: unitValue(4, 'px'),
-          mb: 1,
+          w: .5,
+          h: 4,
         },
         {
           type: 'heading',
@@ -118,7 +106,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -137,7 +124,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

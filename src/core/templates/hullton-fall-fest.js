@@ -1,31 +1,20 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Hullton Fall Fest',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-yellow-and-orange-leaves-fall-festival-flyer-MAC3ZKCrIds.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 40,
-  py: 35,
-  background: solidColor('#23374a'),
+  background: {
+    color: '#23374a',
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
+    height: 'auto',
+    alignY: 'bottom',
+    bleed: { x: 1, b: 0},
+    mb: 0,
     body: {
-      bleed: { all: true },
       background: solidColor('#fff'),
-      alignX: 'center',
-      alignY: 'flex-start',
-      width: unitValue(100, '%'),
-      textAlign: 'center',
-      flex: 1,
       elements: [
-        { 
-          type: 'image',
-          flex: 1,
-          bleed: {all: true},
-          url: '/hullton.png',
-          background: '#23374a'
-        },
         {
           type: 'small',
           lines: [
@@ -41,7 +30,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 2,
         },
         {
           type: 'dominant',
@@ -59,7 +47,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'bridge',
@@ -76,16 +63,11 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
       background: solidColor('#23374a'),
-      width: unitValue(100, '%'),
-      textAlign: 'center',
-      mb: 2,
       elements: [
         {
           type: 'heading',
@@ -111,7 +93,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -130,7 +111,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

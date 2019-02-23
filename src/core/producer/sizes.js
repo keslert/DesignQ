@@ -75,6 +75,10 @@ function computeGroupSizes(template, group, dominant) {
   }
   computeElementsFontSizes(types.heading, headingSettings)
 
+  _.forEach(types.icon, icon => {
+    icon._computed.w = icon.w * maxW;
+    icon._computed.h = icon.meta.h / icon.meta.w * icon._computed.w;
+  })
 
   // TODO: Handle better...
   _.forEach(types.image, img => {

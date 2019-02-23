@@ -4,27 +4,21 @@ export default {
   title: 'Annual Beechtown Food Fest',
   tags: ['flyer', 'event'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-vegetable-flatlay-food-flyer-MAC6lYFykfE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
-  ps: 1,
   background: {
-    url: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    img: {
+      src: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      background: solidColor('#6b6f39'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      bleed: {all: true},
+      h: 'auto',
+      w: 'auto',
+      pa: 3,
+      background: {
+        color: '#6b6f39',
+        borderRadius: unitValue(50, '%'),
+      },
       aspectRatio: 1,
-      px: 3,
-      py: 3,
-      w: 0.8,
-      mb: 1.5,
-      borderRadius: unitValue(50, '%'),
       elements: [
         {
           type: 'small',
@@ -41,7 +35,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -60,7 +53,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -78,15 +70,12 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
       background: solidColor('#6b6f39'),
-      width: unitValue(100, '%'),
-      bleed: {all: true},
-      textAlign: 'center',
+      bleed: { x: 1, b: 1 },
       elements: [
         {
           type: 'heading',
@@ -105,7 +94,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 2,
         },
         {
           type: 'paragraph',

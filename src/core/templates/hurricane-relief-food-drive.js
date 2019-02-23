@@ -1,28 +1,24 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
-  title: 'Park Away From Hunger',
+  title: 'Hurricane Relief Food Drive',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-blue-lines-pattern-food-drive-flyer-MAC3TYAY1fE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 50,
-  py: 50,
-  border: {
-    top: 80,
-    bottom: 80,
-    left: 40,
-    right: 40,
-    url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-blue-lines-pattern-food-drive-flyer-MAC3TYAY1fE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+  background: {
+    img: { 
+      src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-blue-lines-pattern-food-drive-flyer-MAC3TYAY1fE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    background: solidColor('#28373b'),
+    h: 'auto',
+    py: 2,
     body: {
-      bleed: {all: true},
-      background: solidColor('#28373b'),
       alignX: 'center',
       alignY: 'center',
+      itemsAlignX: 'center',
+      itemsAlignY: 'center',
       textAlign: 'center',
-      mb: 2.5,
       elements: [
         {
           type: 'small',
@@ -34,12 +30,12 @@ export default {
             family: 'Exo',
             letterSpacing: 0.1,
             lineHeight: 1.4,
-            size: 0.5,
+            size: 0.8,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -58,7 +54,7 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'bridge',
@@ -84,7 +80,7 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'heading',
@@ -102,7 +98,7 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'paragraph',
@@ -121,7 +117,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

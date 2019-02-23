@@ -77,7 +77,8 @@ function Line({element, line}) {
     marginRight: `${line.fontSize * -(element.font.letterSpacing || 0)}px`,
     height: `${line.h}px`,
     position: 'relative',
-    top: `${line.fontSize * line.offset.top}px`
+    top: `${line.fontSize * line.offset.top}px`,
+    whiteSpace: 'nowrap',
   }
 
   const debugStyle = {

@@ -4,23 +4,23 @@ export default {
   title: 'Christmas Under the Stars',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-gold-christmas-party-flyer-MAC5DgISwgk.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 50,
-  py: 50,
+  decor: {
+    t: .4
+  },
   border: {
-    bottom: 20,
-    color: striped(135, "#303030", 16, "#d99b47", 16),
+    b: .035,
+    background: {
+      color: striped(135, "#303030", 16, "#d99b47", 16),
+    },
   },
   background: solidColor('#303030'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
       alignX: 'center',
-      alignY: 'flex-end',
+      alignY: 'bottom',
+      itemsAlignX: 'center',
+      itemsAlignY: 'center',
       textAlign: 'center',
-      width: unitValue(100, '%'),
-      mb: 1.5,
       elements: [
         {
           type: 'small',
@@ -32,12 +32,12 @@ export default {
             family: 'Lato',
             letterSpacing: 0.1,
             lineHeight: 1.4,
-            size: 0.5,
+            size: 0.8,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -50,12 +50,12 @@ export default {
             family: 'Grand Hotel',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 0.65,
+            size: 0.7,
             style: 'normal',
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.25,
         },
         {
           type: 'bridge',
@@ -73,7 +73,7 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
+          mb: 1.25,
         },
         {
           type: 'heading',
@@ -90,9 +90,9 @@ export default {
             size: 0.9,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
-          mb: 1,
+          mb: 1.25,
         },
         {
           type: 'paragraph',
@@ -110,7 +110,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

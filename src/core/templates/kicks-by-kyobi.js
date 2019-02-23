@@ -4,28 +4,14 @@ export default {
   title: 'Kicks by Kyobi',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-white-collage-fashion-show-flyer-MAC4DkO_3zY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
-  border: {
-    top: 70,
-    bottom: 70,
-    left: 70,
-    right: 70,
-    url: 'https://images.pexels.com/photos/9379/drinking-alley-fun-bowling-9379.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-  },
   background: {
-    color: '#1a1a1a',
+    img: {
+      src: 'https://images.pexels.com/photos/9379/drinking-alley-fun-bowling-9379.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    background: solidColor('#1a1a1a'),
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      mb: 1.5,
       elements: [
         {
           type: 'small',
@@ -62,7 +48,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -80,7 +65,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -98,7 +82,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -117,7 +100,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

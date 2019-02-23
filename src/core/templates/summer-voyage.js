@@ -4,29 +4,17 @@ export default {
   title: 'Summer Voyage',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-brown-and-grey-illustrated-icons-summer-camp-flyer-MAC3XzSjncw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
-  background: solidColor('#363440'),
+  background: solidColor('#fef8e9'),
+  decor: {
+    t: .4,
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      mb: 1.5,
-      flex: 1,
+      h: 'auto',
+      bleed: { a: 1 },
+      alignY: 'bottom',
+      background: solidColor('#363440'),
       elements: [
-        { 
-          type: 'image',
-          flex: 1,
-          bleed: {top: true, left: true, right: true},
-          url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/images%2Fbackpacking.png?alt=media&token=7d1bd771-6748-409b-a1f3-bf798df29f54',
-          filters: [],
-          mb: 2,
-        },
         {
           type: 'small',
           lines: [
@@ -42,7 +30,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -60,7 +47,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'bridge',
@@ -78,7 +64,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -96,7 +81,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -114,7 +98,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
