@@ -4,28 +4,22 @@ export default {
   title: "Jacqueline's Birthday Party",
   tags: ['event', 'flyer'],
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-coral-&-black-photo-birthday-flyer-MAC4Cw5ADUo.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
-  px: 48,
-  py: 36,
   background: {
-    url: 'https://images.unsplash.com/photo-1494652588305-d663c5a1eb31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    zoom: 1.8,
-    y: 0.65,
+    img: {
+      url: 'https://images.unsplash.com/photo-1494652588305-d663c5a1eb31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      zoom: 1.8,
+      y: 0.65,
+      filters: {
+        brightness: 0.9,
+        grayscale: 1,
+      },
+    },
     color: '#909090',
     backgroundBlendMode: 'overlay',
-    filters: {
-      brightness: 0.9,
-      grayscale: 1,
-    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'flex-end',
-      textAlign: 'center',
-      mb: 2,
+      alignY: 'bottom',
       elements: [
         {
           type: 'small',
@@ -34,7 +28,7 @@ export default {
           ],
           color: solidColor('#fff'),
           font: {
-            family: 'Yellowtail',
+            family: 'Mr Dafoe',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -42,7 +36,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -60,7 +53,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -78,7 +70,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
@@ -106,7 +97,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -124,7 +114,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

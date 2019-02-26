@@ -4,24 +4,12 @@ export default {
   title: 'Mitchell Family Cookie Exchange',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-and-red-cookie-exchange-consumer-personal-flyer-MADI6f2rupo.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 10,
-  py: 40,
-  border: {
-    color: '#fefffa',
-    all: 40,
-  },
-  background: {
-    color: '#fefffa',
+  background: solidColor('#fefffa'),
+  decor: {
+    a: .15,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      mb: 1.5,
       elements: [
         {
           type: 'small',
@@ -38,7 +26,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -59,7 +46,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -77,7 +63,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
@@ -112,7 +97,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -130,7 +114,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

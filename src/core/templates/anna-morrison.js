@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Morrison is'},
     {type: 'eventName', text: 'Turning 18'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#eab6d1'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'See you at Lalalo Bistro on'},
     {type: 'descriptive', text: '04/24/20. Party starts 7pm'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#eab6d1'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,
@@ -81,17 +81,29 @@ const paragraph = {
   },
 }
 
+const bar = {
+  type: 'bar',
+  background: solidColor('#eab6d1'),
+  width: 1,
+  height: 8,
+},
+
 
 export default {
-  title: '',
+  title: 'Anna Morrison',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#211834'),
+  decor: {
+    x: .2,
+  },
   content: {
     body: {
+      w: 'auto',
       elements: [
         small,
         dominant,
         bridge,
+        bar,
         heading,
         paragraph,
       ]

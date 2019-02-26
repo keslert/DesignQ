@@ -1,21 +1,12 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Annual All-White Charity Party',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-and-charcoal-all-white-party-flyer-MAC7mt5CsZA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 48,
   background: solidColor('#fff'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      mb: 0.75,
       elements: [
         {
           type: 'logo',
@@ -28,7 +19,6 @@ export default {
             colors: [],
             filetype: 'svg',
           },
-          mb: 1,
         },
         {
           type: 'small',
@@ -45,7 +35,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -63,7 +52,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -80,15 +68,12 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
+      bleed: { a: 1 },
       background: solidColor('#373737'),
-      width: unitValue(100, '%'),
-      textAlign: 'center',
       elements: [
         {
           type: 'heading',
@@ -132,7 +117,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

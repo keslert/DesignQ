@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Beechtown Lodge Summer Camp',
@@ -7,10 +7,6 @@ export default {
   background: solidColor('#022f2f'),
   content: {
     body: {
-      h: 'fill',
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
       elements: [
         {
           type: 'small',
@@ -64,11 +60,8 @@ export default {
       ]
     },
     footer: {
-      bleed: { all: true },
+      bleed: { a: 1 },
       background: solidColor('#fbad5c'),
-      width: unitValue(100, '%'),
-      textAlign: 'center',
-      mb: 2,
       elements: [
         {
           type: 'heading',

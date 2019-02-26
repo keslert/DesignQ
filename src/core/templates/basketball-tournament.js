@@ -3,8 +3,11 @@ import { solidColor } from './'
 export default {
   title: 'Basketball Tournament',
   tags: ['event', 'flyer'],
-  inspiration: '',
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-orange-basketball-fundraiser-flyer-MAC5Lp6K9A8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: solidColor('#101010'),
+  decor: {
+    a: .1,
+  },
   content: {
     body: {
       elements: [
@@ -13,7 +16,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Let the games begin!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#fffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -33,13 +36,13 @@ export default {
           ],
           color: solidColor('#db6936'),
           font: {
-            family: 'Norwester ',
+            family: 'Open Sans',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
         },
         {
@@ -48,7 +51,7 @@ export default {
             {type: 'descriptive', text: 'A fundraising game for the'},
             {type: 'descriptive', text: 'Beechtown Foundation'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#fffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -74,7 +77,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
         },
         {
@@ -84,7 +87,7 @@ export default {
             {type: 'descriptive', text: 'teams vie for the championship!'},
             {type: 'descriptive', text: 'Tickets are now on sale at reallygreatsite.com!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#fffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,

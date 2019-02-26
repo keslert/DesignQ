@@ -5,7 +5,10 @@ export default {
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: '',
+      src: 'https://images.unsplash.com/photo-1522027353578-d23a7be6d503?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      filters: {
+        brightness: 0.7,
+      }
     },
   },
   content: {
@@ -42,7 +45,7 @@ export default {
           ],
           color: solidColor('#fcbf2f'),
           font: {
-            family: 'Open Sans',
+            family: 'League Spartan',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -92,7 +95,7 @@ export default {
             color: solidColor('#000000'),
           },
           font: {
-            family: 'Open Sans',
+            family: 'League Spartan',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,

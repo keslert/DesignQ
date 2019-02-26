@@ -4,27 +4,17 @@ export default {
   title: 'Cupcakes for a Good Cause',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-cream-and-blue-cupcake-fundraiser-flyer-MAC5EBZuooM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 50,
-  py: 50,
-  border: {
-    left: 40,
-    right: 40,
-    color: '#9ddcdc',
-  },
   background: solidColor('#fff4e9'),
+  border: {
+    x: .03,
+    xOffset: .03,
+    background: solidColor('#9ddcdc'),
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      width: unitValue(100, '%'),
-      textAlign: 'center',
-      flex: 1,
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           url: '/shop.svg',
           fill: '#9ddcdc',
           meta: {
@@ -33,7 +23,6 @@ export default {
             colors: [],
             filetype: 'svg',
           },
-          mb: 1,
         },
         {
           type: 'small',
@@ -50,7 +39,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -68,7 +56,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -86,7 +73,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -112,7 +98,6 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -131,7 +116,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

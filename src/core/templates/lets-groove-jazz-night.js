@@ -1,27 +1,21 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from '.'
 
 export default {
   title: "Let's Groove Jazz Night",
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-yellow-and-black-jazz-night-saxophone-illustration-concert-flyer-MAC4_opPoG0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 48,
+  background: solidColor('#000000'),
   border: {
-    right: 40,
-    color: '#f3d030',
+    r: .05,
+    background: solidColor('#f3d030'),
   },
-  background: {
-    color: '#000',
+  decor: {
+    r: .2,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'flex-start',
-      alignY: 'flex-start',
+      alignY: 'top',
       textAlign: 'left',
-      pr: 3,
       elements: [
         {
           type: 'small',
@@ -38,7 +32,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 2,
         },
         {
           type: 'dominant',
@@ -57,14 +50,12 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#f4d55e'),
-          height: unitValue(8, 'px'),
-          width: unitValue(40, '%'),
-          mb: 1.5,
+          height: 8,
+          width: .2,
         },
         {
           type: 'bridge',
@@ -82,15 +73,11 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      width: unitValue(100, '%'),
       textAlign: 'left',
-      mb: 2.5,
       elements: [
         {
           type: 'heading',
@@ -130,7 +117,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

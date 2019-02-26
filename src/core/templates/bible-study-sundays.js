@@ -1,12 +1,11 @@
-import { solidColor } from '.'
-
+import { solidColor } from './'
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Araico Community Church'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -23,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Sundays'},
     {type: 'eventName', text: 'for Teens'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#c0b99c'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A fun and interesting way to keep faith strong'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'Understand scripture'},
     {type: 'descriptive', text: 'and find inspiration in Him.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#c0b99c'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +69,7 @@ const paragraph = {
     {type: 'eventName', text: 'continually!"- 1 Chronicles 16:11'},
     {type: 'eventName', text: 'Register at reallygreatsite.com'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -83,18 +82,31 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Bible Study Sundays for Teens',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1465848059293-208e11dfea17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    },
+  },
   content: {
     body: {
+      alignX: 'left',
+      alignY: 'top',
+      itemsXAlign: 'left',
+      itemsYAlign: 'top',
+      textAlign: 'left',
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

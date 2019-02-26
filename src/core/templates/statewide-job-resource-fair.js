@@ -4,9 +4,9 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Attention, Job Hunters!'},
+    {type: 'descriptive', text: 'Attention, Job Hunters!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Resource and'},
     {type: 'eventName', text: 'Fair'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
     {type: 'descriptive', text: 'professionals.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -51,10 +51,18 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020 | 11 A.M.'},
+    [
+      {type: 'date', text: 'August 18, 2020'},
+      {type: 'time', text: '11 A.M.'},
+    ],
     {type: 'descriptive', text: 'Winslough Pavillion'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'bar',
+    size: 1,
+    color: solidColor('#ffffff'),
+  },
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -71,7 +79,7 @@ const paragraph = {
     {type: 'eventName', text: 'Participate in the events and figure out the right career'},
     {type: 'eventName', text: 'path for you!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -86,7 +94,11 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#123358'),
+  decor: {
+    t: .5,
+    r: .3,
+  },
   content: {
     body: {
       elements: [

@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Roboto Condensed',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,9 +23,9 @@ const dominant = {
     {type: 'eventName', text: 'Festival'},
     {type: 'eventName', text: '2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f89e4b'),
   font: {
-    family: 'Norwester',
+    family: 'Abril Fatface',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -42,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Roboto Condensed',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -56,10 +55,10 @@ const heading = {
     {type: 'descriptive', text: 'crafts, and a whole lot'},
     {type: 'descriptive', text: 'of fun.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f89e4b'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Roboto Condensed',
+    letterSpacing: 0.1,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -87,11 +86,19 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Finchworth Fall Festival',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#283442'),
+  decor: {
+    r: .3,
+  },
   content: {
     body: {
+      alignY: 'top',
+      alignX: 'left',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
+      textAlign: 'left',
       elements: [
         small,
         dominant,

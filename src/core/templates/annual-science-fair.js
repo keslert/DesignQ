@@ -6,9 +6,9 @@ const small = {
   lines: [
     {type: 'host', text: 'University of El Dorado'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +24,7 @@ const dominant = {
     {type: 'eventName', text: 'Science'},
     {type: 'eventName', text: 'Fair'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f3ed42'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -40,9 +40,9 @@ const bridge = {
     {type: 'descriptive', text: 'Discovering learning and'},
     {type: 'descriptive', text: 'reaching for the beyond'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -52,13 +52,13 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020'},
-    {type: 'descriptive', text: '3PM at the'},
-    {type: 'descriptive', text: 'USD Event Hall'},
+    {type: 'date', text: 'August 18, 2020'},
+    {type: 'time|location', text: '3PM at the'},
+    {type: 'location', text: 'USD Event Hall'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f3ed42'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -74,7 +74,7 @@ const paragraph = {
     {type: 'eventName', text: 'and more await! Register at'},
     {type: 'eventName', text: 'reallygreatsite.com'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -87,9 +87,17 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Annual Science Fair',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#316a77'),
+  decor: {
+    r: .5,
+    background: {
+      img: {
+        src: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      }
+    }
+  },
   content: {
     body: {
       elements: [

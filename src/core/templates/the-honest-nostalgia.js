@@ -1,27 +1,21 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'The Honest Nostalgia',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-illustration-art-gallery-raffle-flyer-MAC4XK0cokg.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
-  border: {
-    url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-illustration-art-gallery-raffle-flyer-MAC4XK0cokg.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-    all: 60,
+  background: {
+    img: {
+      src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-illustration-art-gallery-raffle-flyer-MAC4XK0cokg.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+    },
   },
-  background: solidColor('#fefaef'),
   content: {
-    height: 'flex',
-    width: 'flex',
+    background: solidColor('#fefaef'),
     body: {
-      bleed: { all: true },
       textAlign: 'left',
-      alignX: 'flex-start',
-      alignY: 'flex-start',
-      width: unitValue(100, '%'),
+      alignX: 'left',
+      alignY: 'top',
       elements: [
-        
         {
           type: 'small',
           lines: [
@@ -37,7 +31,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 2,
         },
         {
           type: 'dominant',
@@ -56,7 +49,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1.5,
         },
         {
           type: 'bridge',
@@ -74,13 +66,11 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      width: unitValue(100, '%'),
+      alignX: 'right',
       textAlign: 'right',
       elements: [
         {
@@ -100,7 +90,6 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          mb: 2,
         },
         {
           type: 'paragraph',
@@ -119,7 +108,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

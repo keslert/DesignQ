@@ -5,11 +5,11 @@ export default {
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: '',
+      src: 'https://images.unsplash.com/photo-1517336277864-8c02f49ef022?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     }
   },
   content: {
-    height: 'auto',
+    h: 'auto',
     body: {
       background: solidColor('#000000'),
       elements: [
@@ -18,9 +18,9 @@ export default {
           lines: [
             {type: 'host', text: 'Sandra Morgan Outfitters'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
-            family: 'Glacial Indifference',
+            family: 'Open Sans',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -36,9 +36,9 @@ export default {
             {type: 'eventName', text: '& Winter'},
             {type: 'eventName', text: 'Fashion Week'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
-            family: '',
+            family: 'Special Elite',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -53,9 +53,9 @@ export default {
             {type: 'descriptive', text: 'Experience the latest in grunge'},
             {type: 'descriptive', text: 'fashion nationwide'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
-            family: 'Glacial Indifference',
+            family: 'Open Sans',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -71,7 +71,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [
               {type: 'date|time', text: 'Oct. 4 @ 5pm'},
@@ -82,8 +82,13 @@ export default {
               {type: 'location', text: 'Patsy Square'},
             ],
           ],
+          divider: {
+            type: 'bar',
+            size: 1,
+            color: solidColor('#ffffff'),
+          },
           font: {
-            family: 'Glacial Indifference',
+            family: 'Special Elite',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -99,9 +104,9 @@ export default {
             {type: 'descriptive', text: 'time slot to get a glimpse of our latest collection'},
             {type: 'descriptive', text: 'before it hits the stores!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
-            family: 'Glacial Indifference',
+            family: 'Open Sans',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,

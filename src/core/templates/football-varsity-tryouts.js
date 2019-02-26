@@ -4,8 +4,6 @@ export default {
   title: 'Football Varsity Tryouts',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-&-white-bold-creative-sport-football-tryouts-flyer-MAC6S8qYjo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 1,
-  py: 1,
   background: solidColor('#FF5200'),
   border: {
     l: 50,
@@ -28,13 +26,8 @@ export default {
     }
   },
   content: {
-    h: 'fill',
-    w: 'fill',
     alignX: 'left',
-    alignY: 'center',
     body: {
-      w: 'fill',
-      h: 'auto',
       alignX: 'left',
       alignY: 'bottom',
       itemsAlignX: 'left',

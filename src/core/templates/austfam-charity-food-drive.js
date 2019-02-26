@@ -4,24 +4,19 @@ export default {
   title: 'Austfam Charity Food Drive',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-charcoal-photo-food-drive-flyer-MAC3ToeVKl4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 60,
   background: {
-    url: 'https://images.unsplash.com/photo-1508116916455-2857e44c161e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    zoom: 1,
-    y: 6.0,
+    img: {
+      src: 'https://images.unsplash.com/photo-1508116916455-2857e44c161e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      zoom: 1,
+      y: 1.0,
+    }
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
+      bleed: { a: 1 },
       background: solidColor('#262c2a'),
       alignX: 'center',
-      alignY: 'flex-end',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      mb: 1.25,
+      alignY: 'bottom',
       elements: [
         {
           type: 'dominant',
@@ -39,7 +34,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -57,7 +51,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -83,7 +76,6 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -101,16 +93,16 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     header: {
-      bleed: { right: true },
+      w: 'auto',
+      bleed: { r: 1 },
       background: solidColor('#262c2a'),
       pl: 3,
       py: 0.5,
-      alignX: 'flex-end',
+      alignX: 'right',
       textAlign: 'right',
       elements: [
         {
@@ -129,7 +121,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
       ]
     }

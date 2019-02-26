@@ -1,12 +1,11 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: "The Science Festival",
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-blue-and-yellow-space-themed-science-flyer-MAC7mqPbQK8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
-  px: 1,
-  py: 1,
   decor: {
-    y: 120,
+    t: .3,
+    b: .2,
   },
   background: solidColor("#1f2534"),
   content: {
@@ -20,12 +19,7 @@ export default {
         {
           type: "small",
           lines: [
-            
-            {
-              type: "host",
-              text: "University of El Dorado"
-            }
-            
+            { type: "host", text: "University of El Dorado" }
           ],
           divider: {
             type: "line",
@@ -52,19 +46,10 @@ export default {
         {
           type: "dominant",
           lines: [
-            {
-              type: "eventName",
-              text: "The Science"
-            },
-            {
-              type: "eventName",
-              text: "Festival 2020"
-            }
+            { type: "eventName", text: "The Science" },
+            { type: "eventName", text: "Festival 2020" },
           ],
-          color: {
-            type: "solid",
-            color: "#e7d244"
-          },
+          color: solidColor("#e7d244"),
           mb: 0.75,
           font: {
             family: "Norwester",

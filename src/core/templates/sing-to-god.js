@@ -3,12 +3,11 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'The Talent Center'},
-    {type: 'host', text: 'Presents'},
+    {type: 'host', text: 'Golden Lights Parish'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#d5c491'),
   font: {
-    family: 'Montserrat',
+    family: 'Muli',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -19,11 +18,12 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'eventName', text: 'Sing to God:'},
+    {type: 'eventName', text: 'A Gospel Concert'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Kollektif',
+    family: 'Norwester',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -32,28 +32,32 @@ const dominant = {
 }
 
 const bridge = {
-  type: 'small',
+  type: 'bridge',
   lines: [
-    {type: 'date', text: 'March 10 - 15, 2019', format: 'MMMM D, YYYY'},
-    {type: 'descriptive', text: 'Open to ages 10 to 14'},
+    {type: 'descriptive', text: 'Offer your singing voices in praise to the Lord!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#d5c491'),
   font: {
-    family: 'Montserrat',
+    family: 'Muli',
     letterSpacing: 0,
     size: 1,
-    transform: 'uppercase',
+    style: 'italic',
+    transform: 'normal',
   },
 }
 
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: ''},
+    [
+      {type: 'date', text: 'May 21, 2020', format: 'MMMM D, YYYY'},
+      {type: 'time', text: '4 PM Onwards'},
+    ],
+    {type: 'location', text: 'Golden Lights Theater'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Montserrat',
+    family: 'Muli',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -64,9 +68,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'eventName', text: 'Watch and sing along as the choir belts their hearts out. With special'},
+    {type: 'eventName', text: 'performances and appearances by various celebrity guests.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#d5c491'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -77,22 +82,21 @@ const paragraph = {
   },
 }
 
-
 export default {
-  title: 'Summer Camp 2019',
+  title: '',
   tags: ['event', 'flyer'],
   background: solidColor('#e54049'),
+  decor: {
+    t: .5,
+  },
   content: {
     body: {
-      alignX: 'left',
-      alignY: 'top',
-      textAlign: 'left',
       elements: [
         small,
         dominant,
         bridge,
-        // heading,
-        // paragraph,
+        heading,
+        paragraph,
       ]
     },
   }

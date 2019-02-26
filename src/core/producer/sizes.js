@@ -176,7 +176,7 @@ function computeGroupLogoSize(group) {
 // https://support.microsoft.com/en-us/help/200262/how-to-fit-text-in-a-rectangle
 // https://stackoverflow.com/questions/5833017/java-is-there-a-linear-correlation-between-a-fonts-point-size-and-its-rendered
 // These suggest that fonts don't scale perfectly linearly, but maybe close enough?
-function measureText(t) {
+export function measureText(t) {
   const lines = t._computed.lines;
   const allText = _.flatMap(lines, line => line.text).join('')
   const offset = getTextOffset(allText, t.font.family, t.font.ignoreAscendersDescenders)

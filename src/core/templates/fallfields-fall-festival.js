@@ -4,27 +4,18 @@ export default {
   title: 'Fallfields Fall Festival',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-red-leaves-fall-festival-flyer-MAC5t4eyqbI.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
+  background: solidColor('#fdcf19'),
   border: {
-    right: 210,
-    url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-red-leaves-fall-festival-flyer-MAC5t4eyqbI.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-    zoom: 1,
-    x: 1,
-  },
-  background: {
-    color: '#fdcf19',
+    r: .3,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
       bleed: { top: true, left: true, right: true },
-      alignX: 'flex-start',
-      alignY: 'flex-start',
+      alignX: 'left',
+      alignY: 'top',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
       textAlign: 'left',
-      width: unitValue(100, '%'),
-      mb: 1,
       elements: [
         {
           type: 'small',
@@ -41,7 +32,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 2,
         },
         {
           type: 'dominant',
@@ -60,13 +50,12 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background:  solidColor('#db4439'),
-          height: unitValue(10, 'px'),
-          width: unitValue(50, '%'),
+          height: 10,
+          width: .33,
         },
         {
           type: 'bridge',
@@ -84,15 +73,11 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: {all: true},
-      width: unitValue(100, '%'),
       textAlign: 'left',
-      mb: 1.25,
       elements: [
         {
           type: 'heading',
@@ -113,7 +98,6 @@ export default {
           },
           bleed: {left: true},
           width: unitValue(100, '%'),
-          mb: 2,
           py: 1.5,
         },
         {
@@ -134,7 +118,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

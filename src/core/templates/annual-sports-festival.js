@@ -4,23 +4,17 @@ export default {
   title: 'Annual Sports Festival',
   tags: ['event', 'flyer'],
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-white-icons-sports-flyer-MAC3TYnQPGY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
-  px: 40,
-  py: 40,
-  border: {
-    right: 200,
-    bottom: 120,
-    color: '#ec6b42',
-  },
   background: solidColor('#ec6b42'),
+  decor: {
+    r: .3,
+    b: .3,
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
       bleed: { all: true },
-      alignX: 'flex-start',
-      alignY: 'flex-start',
+      alignX: 'left',
+      alignY: 'top',
       textAlign: 'left',
-      mb: 1.75,
       elements: [
         {
           type: 'small',
@@ -37,7 +31,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -56,13 +49,12 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'bridge',
           lines: [
-            {type: 'time', text: 'Theme: Instilling great values through'},
-            {type: 'time', text: 'playing sports'},
+            {type: 'descriptive', text: 'Theme: Instilling great values through'},
+            {type: 'descriptive', text: 'playing sports'},
           ],
           color: solidColor('#000000'),
           font: {
@@ -74,7 +66,6 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -93,7 +84,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -113,7 +103,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

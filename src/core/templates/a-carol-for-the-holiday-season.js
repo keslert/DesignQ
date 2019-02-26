@@ -4,23 +4,21 @@ export default {
   title: 'A carol for the holiday season',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-christmas-birds-festive-holidays-flyer-MAC4XH26kEo.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 48,
   background: {
-    url: '/bird-print.png',
+    img: {
+      src: '/bird-print.png',
+    },
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    h: 'auto',
+    w: 'auto',
+    alignX: 'left',
+    bleed: { l: 1 },
+    background: solidColor('#fcfdf5'),
     body: {
-      bleed: { all: true },
-      background: solidColor('#fcfdf5'),
       alignX: 'left',
       alignY: 'center',
       textAlign: 'left',
-      w: .82,
-      mb: 2,
-      pr: 2,
       elements: [
         {
           type: 'small',
@@ -37,7 +35,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -74,7 +71,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -103,7 +99,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -122,7 +117,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

@@ -4,22 +4,13 @@ export default {
   title: 'Jakob Hansons Birthday',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-with-monkey-llustration-birthday-flyer-MAC5t3-JpG8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
   border: {
-    all: 20,
-    color: '#fff',
+    a: .05,
+    background: solidColor('#ffffff'),
   },
   background: solidColor('#fff9ea'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      mb: 0.75,
       elements: [
         {
           type: 'logo',
@@ -31,7 +22,6 @@ export default {
             colors: [],
             filetype: 'png',
           },
-          mb: 1,
         },
         {
           type: 'small',
@@ -48,7 +38,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -66,7 +55,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -83,7 +71,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bar',
@@ -115,7 +102,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -133,7 +119,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

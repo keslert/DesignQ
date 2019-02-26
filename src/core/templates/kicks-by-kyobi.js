@@ -1,4 +1,4 @@
-import { solidColor, unitValue, striped } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Kicks by Kyobi',

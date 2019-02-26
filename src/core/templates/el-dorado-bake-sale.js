@@ -4,30 +4,18 @@ export default {
   title: 'El Dorado Bake Sale',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-illustrated-bake-sale-flyer-MAC4C3eiDho.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
-  background: solidColor('#fff4e9'),
+  background: solidColor('#c8deb7'),
+  decor: {
+    t: .3,
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
+      bleed: { a: 1 },
       background: solidColor('#fff4e9'),
-      alignX: 'center',
-      alignY: 'flex-start',
-      width: unitValue(100, '%'),
-      textAlign: 'center',
-      flex: 1,
+      alignY: 'bottom',
       elements: [
-        { 
-          type: 'image',
-          flex: 1,
-          bleed: {all: true},
-          url: '/el-dorado.png',
-          background: '#c3996f'
-        },
         {
-          type: 'logo',
+          type: 'icon',
           url: '/shop.svg',
           fill: '#fff4e9',
           color: '#c3996f',
@@ -43,7 +31,6 @@ export default {
             colors: [],
             filetype: 'svg',
           },
-          mb: 1,
         },
         {
           type: 'small',
@@ -60,7 +47,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -78,7 +64,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -95,7 +80,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -112,7 +96,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -130,7 +113,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

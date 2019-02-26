@@ -6,9 +6,9 @@ const small = {
   lines: [
     {type: 'host', text: 'Lenderly Fashions'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#a33a20'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +24,7 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Abril Fatface',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -39,7 +39,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -49,12 +49,15 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Dec. 5-6, 2020 - 10:00 am to 8:00 pm'},
-    {type: 'descriptive', text: 'San Dias Town Hall'},
+    [
+      {type: 'date', text: 'Dec. 5-6, 2020'},
+      {type: 'time', text: '10:00 am to 8:00 pm'},
+    ],
+    {type: 'location', text: 'San Dias Town Hall'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#a33a20'),
   font: {
-    family: 'Muli',
+    family: 'Abril Fatface',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -81,9 +84,9 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'The Winter Wonderful Apparel Sale',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#fffaee'),
   content: {
     body: {
       elements: [

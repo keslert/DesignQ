@@ -4,11 +4,12 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: "Let's jam for a cause!"},
+    {type: 'descriptive', text: "Let's jam for a cause!"},
   ],
-  color: solidColor('#fff'),
+  background: solidColor('#ffffff'),
+  color: solidColor('#201f05'),
   font: {
-    family: 'Muli',
+    family: 'Open Sans',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -22,9 +23,9 @@ const dominant = {
     {type: 'eventName', text: 'Rock Out for the'},
     {type: 'eventName', text: 'Cure Concert!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#201f05'),
   font: {
-    family: 'Norwester',
+    family: 'Sensei',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -38,9 +39,9 @@ const bridge = {
     {type: 'descriptive', text: 'A benefit concert for the '},
     {type: 'descriptive', text: "Winslough Children's Foundation"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#201f05'),
   font: {
-    family: 'Muli',
+    family: 'Open Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +51,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Mar. 4, 2020 | 6 PM to 10 PM'},
-    {type: 'descriptive', text: 'Rubber House Concert Grounds'},
+    [
+      {type: 'date', text: 'Mar. 4, 2020'},
+      {type: 'time', text: '6 PM to 10 PM'},
+    ],
+    {type: 'location', text: 'Rubber House Concert Grounds'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'bar',
+    size: 1,
+    color: solidColor('#201f05'),
+  },
+  color: solidColor('#201f05'),
   font: {
-    family: 'Muli',
+    family: 'Open Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -71,7 +80,7 @@ const paragraph = {
     {type: 'eventName', text: 'help cancer-stricken children in'},
     {type: 'eventName', text: 'developing countries.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#201f05'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -86,7 +95,10 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#fcd901'),
+  decor: {
+    t: .5,
+  },
   content: {
     body: {
       elements: [

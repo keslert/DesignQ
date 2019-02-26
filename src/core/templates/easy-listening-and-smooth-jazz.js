@@ -85,18 +85,31 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Easy Listening and Smooth Jazz',
   tags: ['event', 'flyer'],
   background: solidColor('#e54049'),
+  decor: {
+    r: .3,
+  },
   content: {
     body: {
+      w: 'auto',
+      alignX: 'left',
+      alignY: 'top',
+      textAlign: 'left',
       elements: [
         small,
         dominant,
+      ]
+    },
+    footer: {
+      alignX: 'left',
+      textAlign: 'left',
+      eleemnts: [
         bridge,
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

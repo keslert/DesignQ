@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -23,9 +22,9 @@ const dominant = {
     {type: 'eventName', text: 'Photography'},
     {type: 'eventName', text: 'Workshop'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f5d300'),
   font: {
-    family: 'Norwester',
+    family: 'Gidole',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,13 +50,13 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'November 16 - 17, 2020 - 10'},
-    {type: 'descriptive', text: 'A.M. onwards'},
-    {type: 'descriptive', text: '123 Anywhere St.'},
+    {type: 'date', text: 'November 16 - 17, 2020'},
+    {type: 'time', text: '10 A.M. onwards'},
+    {type: 'location', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f5d300'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -84,17 +83,35 @@ const paragraph = {
   },
 }
 
+const bar = {
+  type: 'bar',
+  background: {
+    type: 'solid',
+    color: striped(135, '#f5d300', 6, 'transparent', 2)
+  },
+  width: unitValue(50, '%'),
+  height: unitValue(16, 'px'),
+  mb: 2,
+},
+
 
 export default {
-  title: '',
+  title: 'Shutter Club Street Photography Workshop',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: '',
+    },
+  },
   content: {
+    h: 'auto',
+    background: solidColor('#000000'),
     body: {
       elements: [
         small,
         dominant,
         bridge,
+        bar,
         heading,
         paragraph,
       ]

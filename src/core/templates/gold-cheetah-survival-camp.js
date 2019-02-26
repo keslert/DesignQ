@@ -1,25 +1,15 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'Gold Cheetah Survival Camp',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-mountains-summer-camp-flyer-MAC3Y6D0AFU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 40,
-  py: 40,
   background: solidColor('#fef8e9'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      width: unitValue(100, '%'),
-      textAlign: 'center',
-      flex: 1,
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           url: '/yacht.svg',
           fill: '#f48842',
           size: 0.8,
@@ -29,7 +19,6 @@ export default {
             colors: [],
             filetype: 'svg',
           },
-          mb: 1,
         },
         {
           type: 'small',
@@ -46,7 +35,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -64,7 +52,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -82,7 +69,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -108,24 +94,21 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
-        { 
-          type: 'image',
-          flex: 1,
-          bleed: {left: true, right: true, bottom: true},
-          url: '/mountain.svg',
-          zoom: 1.15,
-          y: 0.62,
-          fill: '#f48842',
-        },
+        // { 
+        //   type: 'image',
+        //   flex: 1,
+        //   bleed: {left: true, right: true, bottom: true},
+        //   url: '/mountain.svg',
+        //   zoom: 1.15,
+        //   y: 0.62,
+        //   fill: '#f48842',
+        // },
       ]
     },
     footer: {
-      bleed: {all: true},
-      width: unitValue(100, '%'),
       background: solidColor('#f48842'),
-      textAlign: 'center',
+      py: .5,
       elements: [
         {
           type: 'paragraph',
@@ -143,7 +126,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

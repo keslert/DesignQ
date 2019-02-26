@@ -3,22 +3,26 @@ import { solidColor, unitValue } from '.'
 export default {
   title: 'The Runway Life',
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-navy-woman-photo-fashion-show-flyer-MAC5vawSZY4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 60,
-  py: 72,
   background: {
-    url: 'https://images.unsplash.com/photo-1545911975-d1e66f72af83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    img: {
+      src: 'https://images.unsplash.com/photo-1545911975-d1e66f72af83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      x: 0.3,
+      y: 0.5,
+      zoom: 2.49,
+    },
     color: '#86a7ab',
-    x: 0.3,
-    y: 0.5,
-    zoom: 2.49,
+  },
+  decor: {
+    r: .3,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
+    w: 'auto',
+    alignX: 'left',
     body: {
-      bleed: { all: true },
-      alignX: 'flex-start',
-      alignY: 'flex-start',
+      alignX: 'left',
+      alignY: 'top',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
       textAlign: 'left',
       elements: [
         {
@@ -28,7 +32,7 @@ export default {
           ],
           color: solidColor('#000'),
           background: solidColor('#fff'),
-          width: unitValue(100, '%'),
+          w: 'fill',
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -38,7 +42,6 @@ export default {
             transform: 'uppercase',
             weight: 600,
           },
-          mb: 1.5,
           pl: 2,
         },
         {
@@ -58,7 +61,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 0.75,
         },
         {
           type: 'bridge',
@@ -76,13 +78,10 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      width: unitValue(100, '%'),
       textAlign: 'left',
       elements: [
         {
@@ -103,7 +102,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 2,
         },
         {
           type: 'paragraph',
@@ -122,7 +120,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     }

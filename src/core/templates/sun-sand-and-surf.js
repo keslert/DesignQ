@@ -3,12 +3,11 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'The Talent Center'},
-    {type: 'host', text: 'Presents'},
+    {type: 'host', text: "You're Invited!"},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Montserrat',
+    family: 'Muli',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -19,11 +18,12 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'eventName', text: 'Sun, Sand, and'},
+    {type: 'eventName', text: 'Surf Soiree'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#96fdfc'),
   font: {
-    family: 'Kollektif',
+    family: 'Norwester',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -32,28 +32,36 @@ const dominant = {
 }
 
 const bridge = {
-  type: 'small',
+  type: 'bridge',
   lines: [
-    {type: 'date', text: 'March 10 - 15, 2019', format: 'MMMM D, YYYY'},
-    {type: 'descriptive', text: 'Open to ages 10 to 14'},
+    {type: 'descriptive', text: 'A summer party hosted by MLKD Burger Shack!'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Montserrat',
+    family: 'Muli',
     letterSpacing: 0,
     size: 1,
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: ''},
+    [
+      {type: 'date', text: 'July 12, 2020'},
+      {type: 'time', text: '11:00am to 10:00pm'},
+    ],
+    {type: 'location', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'slash',
+    size: 1,
+    color: solidColor('#96fdfc'),
+  },
+  color: solidColor('#96fdfc'),
   font: {
-    family: 'Montserrat',
+    family: 'Muli',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -77,22 +85,34 @@ const paragraph = {
   },
 }
 
+const bar = {
+  type: 'bar',
+  background: solidColor('#96fdfc'),
+  width: 1,
+  height: 8,
+},
 
 export default {
-  title: 'Summer Camp 2019',
+  title: 'Sun, Sand, and Surf',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: '',
+    }
+  },
+  border: {
+    a: .02,
+    background: solidColor('#152a50'),
+  },
   content: {
     body: {
-      alignX: 'left',
-      alignY: 'top',
-      textAlign: 'left',
       elements: [
         small,
         dominant,
         bridge,
-        // heading,
-        // paragraph,
+        bar,
+        heading,
+        paragraph,
       ]
     },
   }
