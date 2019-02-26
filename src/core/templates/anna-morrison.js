@@ -1,14 +1,14 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Attention, Job Hunters!'},
+    {type: 'host', text: 'You are joyfully invited'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Open Sans',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -19,29 +19,28 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Statewide Job'},
-    {type: 'eventName', text: 'Resource and'},
-    {type: 'eventName', text: 'Fair'},
+    {type: 'eventName', text: 'Anna'},
+    {type: 'eventName', text: 'Morrison is'},
+    {type: 'eventName', text: 'Turning 18'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Open Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
-    {type: 'descriptive', text: 'professionals.'},
+    {type: 'descriptive', text: "It's a birthday party that you will never forget!"},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Open Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,25 +50,25 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020 | 11 A.M.'},
-    {type: 'descriptive', text: 'Winslough Pavillion'},
+    {type: 'descriptive', text: 'See you at Lalalo Bistro on'},
+    {type: 'descriptive', text: '04/24/20. Party starts 7pm'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Open Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Meet and connect with top employers and professionals.'},
-    {type: 'eventName', text: 'Participate in the events and figure out the right career'},
-    {type: 'eventName', text: 'path for you!'},
+    {type: 'eventName', text: 'Please join Anna in celebrating her 18th'},
+    {type: 'eventName', text: "birthday. It's going to be a fun party with"},
+    {type: 'eventName', text: 'friends, family, and loved ones.'},
   ],
   color: solidColor('#fff'),
   font: {

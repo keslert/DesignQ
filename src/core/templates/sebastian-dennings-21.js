@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Attention, Job Hunters!'},
+    {type: 'host', text: '#sebastianturns21'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,10 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Statewide Job'},
-    {type: 'eventName', text: 'Resource and'},
-    {type: 'eventName', text: 'Fair'},
+    {type: 'eventName', text: 'Sebastian'},
+    {type: 'eventName', text: 'Denning's},
+    {type: 'eventName', text: '21st'},
+    {type: 'eventName', text: 'Birthday'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +37,8 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
-    {type: 'descriptive', text: 'professionals.'},
+    {type: 'descriptive', text: 'Join us for an evening full of'},
+    {type: 'descriptive', text: 'dancing and great company!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,8 +52,8 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020 | 11 A.M.'},
-    {type: 'descriptive', text: 'Winslough Pavillion'},
+    {type: 'descriptive', text: 'Aug. 23 | 8 PM to midnight'},
+    {type: 'descriptive', text: 'Levir Bar and Club'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -67,9 +68,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Meet and connect with top employers and professionals.'},
-    {type: 'eventName', text: 'Participate in the events and figure out the right career'},
-    {type: 'eventName', text: 'path for you!'},
+    {type: 'eventName', text: "We're going to be partying until"},
+    {type: 'eventName', text: 'midnight, so make sure you have a '},
+    {type: 'eventName', text: 'lot of energy. Turning 21 happens'},
+    {type: 'eventName', text: 'only once in a lifetime!'},
   ],
   color: solidColor('#fff'),
   font: {

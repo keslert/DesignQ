@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Attention, Job Hunters!'},
+    {type: 'host', text: 'Whimson Productions'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,8 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Statewide Job'},
-    {type: 'eventName', text: 'Resource and'},
-    {type: 'eventName', text: 'Fair'},
+    {type: 'eventName', text: 'The Milcheur'},
+    {type: 'eventName', text: 'Summer Festival'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +35,7 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
-    {type: 'descriptive', text: 'professionals.'},
+    {type: 'descriptive', text: 'Rock out to the most popular bands of the season!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,8 +49,8 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020 | 11 A.M.'},
-    {type: 'descriptive', text: 'Winslough Pavillion'},
+    {type: 'descriptive', text: 'July 15 . Saturday . 4 PM - 11 PM'},
+    {type: 'descriptive', text: 'San Dias Beach Resort'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -67,9 +65,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Meet and connect with top employers and professionals.'},
-    {type: 'eventName', text: 'Participate in the events and figure out the right career'},
-    {type: 'eventName', text: 'path for you!'},
+    {type: 'eventName', text: "Enjoy the summer and watch as pop music's"},
+    {type: 'eventName', text: 'hottest acts perform right in front of you at the'},
+    {type: 'eventName', text: "country's biggest music fesitval!"},
   ],
   color: solidColor('#fff'),
   font: {

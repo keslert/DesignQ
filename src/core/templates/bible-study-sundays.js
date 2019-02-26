@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Attention, Job Hunters!'},
+    {type: 'host', text: 'Araico Community Church'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,9 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Statewide Job'},
-    {type: 'eventName', text: 'Resource and'},
-    {type: 'eventName', text: 'Fair'},
+    {type: 'eventName', text: 'Bible Study'},
+    {type: 'eventName', text: 'Sundays'},
+    {type: 'eventName', text: 'for Teens'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +36,7 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
-    {type: 'descriptive', text: 'professionals.'},
+    {type: 'descriptive', text: 'A fun and interesting way to keep faith strong'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,8 +50,8 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020 | 11 A.M.'},
-    {type: 'descriptive', text: 'Winslough Pavillion'},
+    {type: 'descriptive', text: 'Understand scripture'},
+    {type: 'descriptive', text: 'and find inspiration in Him.'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -67,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Meet and connect with top employers and professionals.'},
-    {type: 'eventName', text: 'Participate in the events and figure out the right career'},
-    {type: 'eventName', text: 'path for you!'},
+    {type: 'eventName', text: '"Seek the LORD and his strength; seek his presence'},
+    {type: 'eventName', text: 'continually!"- 1 Chronicles 16:11'},
+    {type: 'eventName', text: 'Register at reallygreatsite.com'},
   ],
   color: solidColor('#fff'),
   font: {

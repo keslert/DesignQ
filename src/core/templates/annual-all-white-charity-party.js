@@ -1,7 +1,7 @@
 import { solidColor, unitValue } from '.'
 
 export default {
-  title: 'Annual All-White Charity Parity',
+  title: 'Annual All-White Charity Party',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-and-charcoal-all-white-party-flyer-MAC7mt5CsZA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   px: 36,

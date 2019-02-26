@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Attention, Job Hunters!'},
+    {type: 'host', text: 'Zimcore Hubs Presents'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,8 +19,9 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Statewide Job'},
-    {type: 'eventName', text: 'Resource and'},
+    {type: 'eventName', text: 'The 7th'},
+    {type: 'eventName', text: 'Annual'},
+    {type: 'eventName', text: 'Career'},
     {type: 'eventName', text: 'Fair'},
   ],
   color: solidColor('#fff'),
@@ -36,8 +37,8 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
-    {type: 'descriptive', text: 'professionals.'},
+    {type: 'descriptive', text: 'With more than 200 companies and 50'},
+    {type: 'descriptive', text: 'professionals!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,8 +52,8 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 18, 2020 | 11 A.M.'},
-    {type: 'descriptive', text: 'Winslough Pavillion'},
+    {type: 'descriptive', text: 'From January 5 to 8| 11a.m.'},
+    {type: 'descriptive', text: 'Beechtown Pavillion'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -67,9 +68,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Meet and connect with top employers and professionals.'},
-    {type: 'eventName', text: 'Participate in the events and figure out the right career'},
-    {type: 'eventName', text: 'path for you!'},
+    {type: 'eventName', text: 'This event is free and open to the public.'},
+    {type: 'eventName', text: 'Grab this opportunity to meet and connect'},
+    {type: 'eventName', text: 'with companies that are looking to hire.'},
   ],
   color: solidColor('#fff'),
   font: {
