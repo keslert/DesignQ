@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: "You can't miss this!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#a52122'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Sandio Giants vs.'},
     {type: 'eventName', text: 'Fallfield Cubs'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#0b0b0b'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Game 1 of the most exciting'},
     {type: 'descriptive', text: 'battle ever seen in hockey.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#a52122'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'May 19th, 2020 | 3 PM to'},
     {type: 'descriptive', text: '6 PM | Sandio Stadium'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#0b0b0b'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#fff'),
   content: {
     body: {
       elements: [

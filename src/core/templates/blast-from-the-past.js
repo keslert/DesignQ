@@ -74,6 +74,7 @@ const paragraph = {
     {type: 'eventName', text: 'venues hosting different musical eras!'},
   ],
   color: solidColor('#fff'),
+  background: solidColor ('#e369d2'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

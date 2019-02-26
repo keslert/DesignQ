@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: "The Palmerstons'"},
     {type: 'eventName', text: 'Yard Sale'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#464d5b'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'Get great antique finds at'},
     {type: 'descriptive', text: 'low, low prices!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#464d5b'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#deb815'),
   content: {
     body: {
       elements: [

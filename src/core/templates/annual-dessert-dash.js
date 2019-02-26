@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Dessert'},
     {type: 'eventName', text: 'Dash!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffeaa2'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -54,7 +54,7 @@ const heading = {
     {type: 'descriptive', text: 'October 1-15, 2020'},
     {type: 'descriptive', text: 'Open daily from 8 AM - 9 PM'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffeaa2'),
   font: {
     family: 'Muli',
     letterSpacing: 0,

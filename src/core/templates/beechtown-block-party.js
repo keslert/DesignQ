@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Time to head outside!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#343434'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Beechtown'},
     {type: 'eventName', text: 'Block Party!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#b5322c'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: "We're closing off the streets for a good time."},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#343434'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'Beechtown Drive | January 5, 2020'},
     {type: 'descriptive', text: '| 6 PM onwards'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#b5322c'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'eventName', text: 'refreshments, listen to good music, and meet the'},
     {type: 'eventName', text: 'community. We promise you a good time!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#343434'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ffefd5'),
   content: {
     body: {
       elements: [

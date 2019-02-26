@@ -68,7 +68,8 @@ const paragraph = {
     {type: 'eventName', text: "Don't miss out. Reserve a table now! Call us at (123) 456-7890 or"},
     {type: 'eventName', text: 'use our online booking system. Visit www.reallygreatsite.com.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ff7f7d'),
+  background: solidColor('#fff')
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -83,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ff7f7d'),
   content: {
     body: {
       elements: [

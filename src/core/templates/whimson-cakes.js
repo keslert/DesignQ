@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Now open to serve you!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f5efde'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Cakes and'},
     {type: 'eventName', text: 'Pastries'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fd7b7b'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Delectable sweet treats with a touch of'},
     {type: 'descriptive', text: 'whimsy.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f5efde'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'Open daily 8 AM to 10 PM'},
     {type: 'descriptive', text: '1234 Churchill Plaza'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fd7b7b'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -71,7 +71,7 @@ const paragraph = {
     {type: 'eventName', text: 'to delight diners with every bite of our'},
     {type: 'eventName', text: 'sweets.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f5efde'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#94d6cd'),
   content: {
     body: {
       elements: [

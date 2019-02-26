@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'A Bright Night'},
     {type: 'eventName', text: 'with the Stars'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ff5a52'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'Saturday, July 18, 2020 | 6 PM |'},
     {type: 'descriptive', text: 'San Dias Mall Cinema 1'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ff5a52'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#00344b'),
   content: {
     body: {
       elements: [

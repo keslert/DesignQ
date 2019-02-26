@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: "Isabel's 21st"},
     {type: 'eventName', text: 'Birthday Party'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#2c7b99'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'A night of music, danceing, and'},
     {type: 'descriptive', text: 'a whole lot of fun!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#2c7b99'),
   font: {
     family: 'Muli',
     letterSpacing: 0,

@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Vigilatte Cultural Club'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#cca882'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Espcially for'},
     {type: 'eventName', text: 'You: A Concert'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#e9a390'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: "In celebration of Mother's Day this"},
     {type: 'descriptive', text: 'May 10, 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#cca882'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'When: May 10, 2020 | 3-6 PM'},
     {type: 'descriptive', text: 'Where: Milcheur Valley Park'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#e9a390'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'eventName', text: 'www.reallygreatsite.com or get your ticket'},
     {type: 'eventName', text: 'straight from Alfredo Torres as (123) 456-7890!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#cca882'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#fffdee'),
   content: {
     body: {
       elements: [

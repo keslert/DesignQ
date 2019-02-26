@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Momay Event Productions'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#6d4d43'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Chatswood Fall'},
     {type: 'eventName', text: 'Festival 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#d59158'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'The hottest food and entertainment event for fall'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#6d4d43'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'Oct. 10, 2020 - 9 AM to 4 PM'},
     {type: 'descriptive', text: 'McDowell Digital Center'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#d59158'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'eventName', text: "town. Find food, entertainment and more that's fit for the"},
     {type: 'eventName', text: 'season!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#6d4d43'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#fff'),
   content: {
     body: {
       elements: [

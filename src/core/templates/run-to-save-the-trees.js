@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'We proudly bring you'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#7f9f47'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'An annual fundraiser for the'},
     {type: 'descriptive', text: 'Quarkoak Foundation'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#7f9f47'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'eventName', text: 'protect the trees, conserve out forests, and'},
     {type: 'eventName', text: 'save our planet!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#7f9f47'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ffd20e'),
   content: {
     body: {
       elements: [

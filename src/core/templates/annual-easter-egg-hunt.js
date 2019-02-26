@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Winslough County Presents'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fff4dc'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Easter Egg'},
     {type: 'eventName', text: 'Hunt 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fff4dc'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: 'Come and join the fun'},
     {type: 'descriptive', text: 'with the whole family!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fff4dc'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -54,7 +54,7 @@ const heading = {
     {type: 'descriptive', text: 'April 12, 2:00 P.M., at the'},
     {type: 'descriptive', text: 'Winslough County Park'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fff4dc'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -71,7 +71,7 @@ const paragraph = {
     {type: 'eventName', text: 'www.reallygreatsite.com or sign-up at the'},
     {type: 'eventName', text: 'Community Affairs Office by April 11, 4:00 PM'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fff4dc'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -86,7 +86,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#96cfdd'),
   content: {
     body: {
       elements: [

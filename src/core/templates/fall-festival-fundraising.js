@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Fall Festival &'},
     {type: 'eventName', text: 'Fundraising'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ff9169'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'Sept. 22, 2020 | 1 PM to 10 PM'},
     {type: 'descriptive', text: 'Meadowview Event Center'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ff9169'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#1b1f3a'),
   content: {
     body: {
       elements: [

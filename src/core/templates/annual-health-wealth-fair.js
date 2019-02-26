@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Quarkwood University'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#13b694'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Remember that you are wealthiest'},
     {type: 'descriptive', text: 'at your healthiest!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#13b694'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -54,7 +54,7 @@ const heading = {
     {type: 'descriptive', text: '10 AM - 5 PM'},
     {type: 'descriptive', text: 'Quarkwood Events Hall A'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#0d2839'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -71,7 +71,7 @@ const paragraph = {
     {type: 'eventName', text: 'membership, or try out some healthy recipes!'},
     {type: 'eventName', text: 'Drop by and start getting healthy!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#0d2839'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -86,7 +86,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#13b694'),
   content: {
     body: {
       elements: [

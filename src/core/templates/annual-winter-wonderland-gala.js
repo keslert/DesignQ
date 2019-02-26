@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Araico Theater presents'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#64492c'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Featuring the one and only Beechtown'},
     {type: 'descriptive', text: 'Company of Dancers'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#64492c'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'eventName', text: 'Get your tickets now! Visit www.reallygreatsite.com to purchase.'},
     {type: 'eventName', text: 'Limited tickets available. Prices start at $80.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#64492c'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ddb64a'),
   content: {
     body: {
       elements: [

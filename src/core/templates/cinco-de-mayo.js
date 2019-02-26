@@ -6,7 +6,8 @@ const small = {
   lines: [
     {type: 'host', text: 'San Dias Cantina presents'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#2f292b'),
+  background: solidColor('#faaf40')
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Cinco de Mayo'},
     {type: 'eventName', text: 'Fiesta 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#8bc53f'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: "It's the biggest party of the year!"},
     {type: 'descriptive', text: "Don't miss out!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#faaf40'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +54,7 @@ const heading = {
     {type: 'descriptive', text: 'May 5, 2020 | 1:00 PM onwards'},
     {type: 'descriptive', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#8bc53f'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +71,7 @@ const paragraph = {
     {type: 'eventName', text: 'margaritas, beer and tapas all day (and night) '},
     {type: 'eventName', text: 'long! Happy Cinco de Mayo!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#faaf40'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -85,7 +86,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#2f292b'),
   content: {
     body: {
       elements: [

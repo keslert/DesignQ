@@ -7,6 +7,7 @@ const small = {
     {type: 'host', text: 'Hop on over and join us!'},
   ],
   color: solidColor('#fff'),
+  background: solidColor('#ffc6c6'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -86,7 +87,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#44d9e5'),
   content: {
     body: {
       elements: [

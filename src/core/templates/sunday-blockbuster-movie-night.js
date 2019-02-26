@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Bring out the popcorn!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fefae8'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Sunday Blockbuster},
     {type: 'eventName', text: 'Movie Night'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fefae8'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'A film showing of the greatest movies'},
     {type: 'descriptive', text: 'from 2019.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fefae8'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'Oct. 25, 2020 - 6 PM to 11 PM'},
     {type: 'descriptive', text: 'Silton Cinemas'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fefae8'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'eventName', text: "not! We're bringing them back on Sunday"},
     {type: 'eventName', text: 'Blockbuster Movie Night!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fefae8'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#344355'),
   content: {
     body: {
       elements: [

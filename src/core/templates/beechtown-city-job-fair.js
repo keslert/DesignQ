@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Choose the right job'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffebbf'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Get to know companies from'},
     {type: 'descriptive', text: 'various industries'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffebbf'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -54,7 +54,7 @@ const heading = {
     {type: 'descriptive', text: '10 AM - 4 PM'},
     {type: 'descriptive', text: 'Heiman Convention Center'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffebbf'),
   font: {
     family: 'Muli',
     letterSpacing: 0,

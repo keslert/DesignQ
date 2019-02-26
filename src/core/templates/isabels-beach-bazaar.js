@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: "It's out with the old and in"},
     {type: 'descriptive', text: 'with the new this summer'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#000000'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'descriptive', text: '10 AM to 8 PM'},
     {type: 'descriptive', text: 'Silton Beach'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#000000'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -72,7 +72,7 @@ const paragraph = {
     {type: 'eventName', text: 'the bazaar? Get in touch with Isabel for'},
     {type: 'eventName', text: 'more details. Call 123 456 7890.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffbec0'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -87,7 +87,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ffbec0'),
   content: {
     body: {
       elements: [

@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'We are proud to present'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#b7f6ff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -24,7 +24,7 @@ const dominant = {
     {type: 'eventName', text: 'Dance'},
     {type: 'eventName', text: 'Festival 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#caf843'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: 'Join us for two days of non-stop'},
     {type: 'descriptive', text: 'dancing and partying!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#b7f6ff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -56,7 +56,7 @@ const heading = {
     {type: 'descriptive', text: 'Starts at 11 A.M.'},
     {type: 'descriptive', text: 'Beechtown Resort'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#caf843'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -74,7 +74,7 @@ const paragraph = {
     {type: 'eventName', text: 'packed with the most celebrated names'},
     {type: 'eventName', text: 'in the industry!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#b7f6ff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -89,7 +89,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ba3e7f'),
   content: {
     body: {
       elements: [

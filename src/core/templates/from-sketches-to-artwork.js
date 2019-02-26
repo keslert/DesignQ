@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Hisburgh High presents'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#46dbdd'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Sketches to'},
     {type: 'eventName', text: 'Artworks'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f43a76'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: 'An illustration workshop organized by'},
     {type: 'descriptive', text: 'Michelle Saunders.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#46dbdd'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'descriptive', text: '1-3 PM'},
     {type: 'descriptive', text: "Marissa's Art Corner"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f43a76'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -74,6 +74,7 @@ const paragraph = {
     {type: 'eventName', text: 'www.reallygreatsite.com'},
   ],
   color: solidColor('#fff'),
+  background: solidColor('#46dbdd')
   font: {
     family: 'Norwester',
     letterSpacing: 0,

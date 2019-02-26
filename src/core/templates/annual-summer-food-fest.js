@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'We are proud to present'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#30a6c0'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'The 5th Annual'},
     {type: 'eventName', text: 'Summer Food Fest'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f76991'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A festival of food & fun all celebrated under the sun'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#30a6c0'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'June 22, 2020 | Starts at 10 A.M.'},
     {type: 'descriptive', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#f76991'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'eventName', text: "fantastic festival that's perfect for you, your friends,"},
     {type: 'eventName', text: 'and the whole community!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#30a6c0'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#fff'),
   content: {
     body: {
       elements: [
