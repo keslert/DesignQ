@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'A Throwback Event'},
+    {type: 'host', text: 'We are proud to present'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,10 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: "Rollin' Back"},
-    {type: 'eventName', text: "to the 90's"},
-    {type: 'eventName', text: 'Party'},
+    {type: 'eventName', text: 'The'},
+    {type: 'eventName', text: 'Beechtown'},
+    {type: 'eventName', text: 'Dance'},
+    {type: 'eventName', text: 'Festival 2020'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +37,8 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'A celebration organized by'},
-    {type: 'descriptive', text: "Martha's Skate Club"},
+    {type: 'descriptive', text: 'Join us for two days of non-stop'},
+    {type: 'descriptive', text: 'dancing and partying!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,9 +52,9 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 21 | 6 PM'},
-    {type: 'descriptive', text: 'Ha Luh Open Park'},
-    {type: 'descriptive', text: '123 Anywhere Street'},
+    {type: 'descriptive', text: 'August 23-24, 2020 |'},
+    {type: 'descriptive', text: 'Starts at 11 A.M.'},
+    {type: 'descriptive', text: 'Beechtown Resort'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -68,9 +69,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Admission is $20 per person, roller skates'},
-    {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
-    {type: 'eventName', text: 'email hello@reallygreatsite.com'},
+    {type: 'eventName', text: "We're bringing electronic and dance"},
+    {type: 'eventName', text: "lovers and awesome lineup that's"},
+    {type: 'eventName', text: 'packed with the most celebrated names'},
+    {type: 'eventName', text: 'in the industry!'},
   ],
   color: solidColor('#fff'),
   font: {

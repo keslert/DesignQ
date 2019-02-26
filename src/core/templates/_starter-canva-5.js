@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -67,7 +66,7 @@ const paragraph = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Muli',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -75,7 +74,6 @@ const paragraph = {
     transform: 'uppercase',
   },
 }
-
 
 export default {
   title: '',

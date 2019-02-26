@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'A Throwback Event'},
+    {type: 'host', text: 'Beechtown Foundation'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,9 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: "Rollin' Back"},
-    {type: 'eventName', text: "to the 90's"},
-    {type: 'eventName', text: 'Party'},
+    {type: 'eventName', text: 'Food Drive'},
+    {type: 'eventName', text: 'for the'},
+    {type: 'eventName', text: 'Homeless'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +36,8 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'A celebration organized by'},
-    {type: 'descriptive', text: "Martha's Skate Club"},
+    {type: 'descriptive', text: "It's never a bad time to help those who are in"},
+    {type: 'descriptive', text: 'need.'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,9 +51,9 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 21 | 6 PM'},
-    {type: 'descriptive', text: 'Ha Luh Open Park'},
-    {type: 'descriptive', text: '123 Anywhere Street'},
+    {type: 'descriptive', text: 'Drop by at 408 Byers Lane.'},
+    {type: 'descriptive', text: 'Sacramento, CA 94260 any'},
+    {type: 'descriptive', text: 'day!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -68,9 +68,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Admission is $20 per person, roller skates'},
-    {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
-    {type: 'eventName', text: 'email hello@reallygreatsite.com'},
+    {type: 'eventName', text: "This summer we're open daily from 9am to 5pm If you have"},
+    {type: 'eventName', text: 'questions, just call +123 456 7890 and look for Janna Murphy.'},
+    {type: 'eventName', text: ''},
   ],
   color: solidColor('#fff'),
   font: {

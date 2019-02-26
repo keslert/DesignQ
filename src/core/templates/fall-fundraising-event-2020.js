@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'A Throwback Event'},
+    {type: 'host', text: 'McDowell Digital Media'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,8 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: "Rollin' Back"},
-    {type: 'eventName', text: "to the 90's"},
-    {type: 'eventName', text: 'Party'},
+    {type: 'eventName', text: 'Fall Fundraising'},
+    {type: 'eventName', text: 'Event 2020'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +35,8 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'A celebration organized by'},
-    {type: 'descriptive', text: "Martha's Skate Club"},
+    {type: 'descriptive', text: 'Sept. 22, 2020 | 1 PM to 10 PM'},
+    {type: 'descriptive', text: 'McDowell Digital Center'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,9 +50,8 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 21 | 6 PM'},
-    {type: 'descriptive', text: 'Ha Luh Open Park'},
-    {type: 'descriptive', text: '123 Anywhere Street'},
+    {type: 'descriptive', text: "For the benefit of Winslough Children's"},
+    {type: 'descriptive', text: 'Foundation'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -68,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Admission is $20 per person, roller skates'},
-    {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
-    {type: 'eventName', text: 'email hello@reallygreatsite.com'},
+    {type: 'eventName', text: 'Celebrate all things fall while giving back to Mother'},
+    {type: 'eventName', text: 'Nature. Our fall fundraising event combines good fun'},
+    {type: 'eventName', text: 'with a great cause.'},
   ],
   color: solidColor('#fff'),
   font: {

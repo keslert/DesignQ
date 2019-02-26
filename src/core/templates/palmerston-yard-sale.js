@@ -1,10 +1,9 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'A Throwback Event'},
+    {type: 'host', text: 'Serendipitous Shopping'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +18,8 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: "Rollin' Back"},
-    {type: 'eventName', text: "to the 90's"},
-    {type: 'eventName', text: 'Party'},
+    {type: 'eventName', text: "The Palmerstons'"},
+    {type: 'eventName', text: 'Yard Sale'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +34,9 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'A celebration organized by'},
-    {type: 'descriptive', text: "Martha's Skate Club"},
+    {type: 'descriptive', text: 'June 15-16, 2020'},
+    {type: 'descriptive', text: '9 AM - 5 PM'},
+    {type: 'descriptive', text: 'The Palmerston Residence'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,9 +50,8 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 21 | 6 PM'},
-    {type: 'descriptive', text: 'Ha Luh Open Park'},
-    {type: 'descriptive', text: '123 Anywhere Street'},
+    {type: 'descriptive', text: 'Get great antique finds at'},
+    {type: 'descriptive', text: 'low, low prices!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -68,13 +66,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Admission is $20 per person, roller skates'},
-    {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
-    {type: 'eventName', text: 'email hello@reallygreatsite.com'},
+    {type: 'eventName', text: "Looking for a unique gift? You've come to the right place!"},
+    {type: 'eventName', text: 'Our yard sale is a treasure trove of vintage items. Happy'},
+    {type: 'eventName', text: 'shopping!},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Muli',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -82,7 +80,6 @@ const paragraph = {
     transform: 'uppercase',
   },
 }
-
 
 export default {
   title: '',
@@ -99,4 +96,3 @@ export default {
       ]
     },
   }
-}

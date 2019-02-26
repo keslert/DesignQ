@@ -1,10 +1,10 @@
-import { solidColor } from './'
+import { solidColor } from '.'
 
 
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'A Throwback Event'},
+    {type: 'host', text: 'Join in on the fun!'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -19,9 +19,9 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: "Rollin' Back"},
-    {type: 'eventName', text: "to the 90's"},
-    {type: 'eventName', text: 'Party'},
+    {type: 'eventName', text: "Isabel's"},
+    {type: 'eventName', text: 'Beach'},
+    {type: 'eventName', text: 'Bazaar'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -36,8 +36,8 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'A celebration organized by'},
-    {type: 'descriptive', text: "Martha's Skate Club"},
+    {type: 'descriptive', text: "It's out with the old and in"},
+    {type: 'descriptive', text: 'with the new this summer'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -51,9 +51,9 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 21 | 6 PM'},
-    {type: 'descriptive', text: 'Ha Luh Open Park'},
-    {type: 'descriptive', text: '123 Anywhere Street'},
+    {type: 'descriptive', text: 'Every Friday this July'},
+    {type: 'descriptive', text: '10 AM to 8 PM'},
+    {type: 'descriptive', text: 'Silton Beach'},
   ],
   color: solidColor('#fff'),
   font: {
@@ -68,9 +68,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Admission is $20 per person, roller skates'},
-    {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
-    {type: 'eventName', text: 'email hello@reallygreatsite.com'},
+    {type: 'eventName', text: 'Interested in setting up with us at'},
+    {type: 'eventName', text: 'the bazaar? Get in touch with Isabel for'},
+    {type: 'eventName', text: 'more details. Call 123 456 7890.'},
   ],
   color: solidColor('#fff'),
   font: {

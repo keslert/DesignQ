@@ -1,81 +1,99 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
+
+
+const small = {
+  type: 'small',
+  lines: [
+    {type: 'host', text: 'We are proud to present'},
+  ],
+  color: solidColor('#fff'),
+  font: {
+    family: 'Muli',
+    letterSpacing: 0.05,
+    size: 1,
+    transform: 'uppercase',
+    weight: 400,
+  },
+}
+
+const dominant = {
+  type: 'dominant',
+  lines: [
+    {type: 'eventName', text: 'The 5th Annual'},
+    {type: 'eventName', text: 'Summer Food Fest'},
+  ],
+  color: solidColor('#fff'),
+  font: {
+    family: 'Norwester',
+    letterSpacing: 0,
+    size: 1,
+    transform: 'uppercase',
+    weight: 400,
+  },
+}
+
+const bridge = {
+  type: 'bridge',
+  lines: [
+    {type: 'descriptive', text: 'A festival of food & fun all celebrated under the sun'},
+  ],
+  color: solidColor('#fff'),
+  font: {
+    family: 'Muli',
+    letterSpacing: 0,
+    size: 1,
+    transform: 'normal',
+  },
+}
+
+const heading = {
+  type: 'heading',
+  lines: [
+    {type: 'descriptive', text: 'June 22, 2020 | Starts at 10 A.M.'},
+    {type: 'descriptive', text: '123 Anywhere St.'},
+  ],
+  color: solidColor('#fff'),
+  font: {
+    family: 'Muli',
+    letterSpacing: 0,
+    size: 1,
+    transform: 'uppercase',
+    weight: 400,
+  },
+}
+
+const paragraph = {
+  type: 'paragraph',
+  lines: [
+    {type: 'eventName', text: 'Usher in an epic summer season with a'},
+    {type: 'eventName', text: "fantastic festival that's perfect for you, your friends,"},
+    {type: 'eventName', text: 'and the whole community!'},
+  ],
+  color: solidColor('#fff'),
+  font: {
+    family: 'Norwester',
+    letterSpacing: 0,
+    lineHeight: 1.4,
+    size: 1,
+    style: 'normal',
+    transform: 'uppercase',
+  },
+}
+
 
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  px: 36,
-  py: 36,
   background: solidColor('#e54049'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      background: solidColor('#e54049'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'left',
       elements: [
-        {
-          type: 'dominant',
-          lines: [
-            {type: 'eventName', text: 'Annual'},
-          ],
-          color: solidColor('#fff'),
-          font: {
-            family: '',
-            letterSpacing: 0,
-            lineHeight: 1.4,
-            size: 1,
-            style: 'normal',
-            transform: 'uppercase',
-            weight: 400,
-          },
-          mb: 1,
-        },
-        {
-          type: 'small',
-          lines: [
-            {type: 'time', text: '10AM'},
-          ],
-          color: solidColor('#fff'),
-          font: {
-            family: 'Muli',
-            letterSpacing: 0,
-            lineHeight: 1.4,
-            size: 1,
-            style: 'normal',
-            transform: 'uppercase',
-            weight: 400,
-          },
-          mb: 1,
-        },
+        small,
+        dominant,
+        bridge,
+        heading,
+        paragraph,
       ]
     },
-    footer: {
-      bleed: { all: true },
-      background: solidColor('#6b6f39'),
-      width: unitValue(100, '%'),
-      textAlign: 'left',
-      elements: [
-        {
-          type: 'heading',
-          color: solidColor('#fff'),
-          lines: [
-            {type: 'location', text: '123 Anywhere St.'},
-          ],
-          font: {
-            family: 'Muli',
-            letterSpacing: 0,
-            lineHeight: 1.4,
-            size: 1,
-            style: 'normal',
-            transform: 'uppercase',
-            weight: 400,
-          },
-          mb: 1,
-        },
-      ]
-    }
   }
 }
