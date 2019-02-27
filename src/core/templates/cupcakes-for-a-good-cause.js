@@ -33,12 +33,12 @@ export default {
           color: solidColor('#9ddcdc'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0.05,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
         {
@@ -50,7 +50,7 @@ export default {
           color: solidColor('#e77880'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0.9,
             style: 'normal',
@@ -67,7 +67,7 @@ export default {
           color: solidColor('#9ddcdc'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
@@ -92,12 +92,12 @@ export default {
           },
           font: {
             family: 'Kollektif',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
             transform: 'normal',
-            weight: 700,
+            weight: 400,
           },
         },
         {
@@ -110,7 +110,7 @@ export default {
           ],
           font: {
             family: 'Kollektif',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 1.3,
             style: 'normal',

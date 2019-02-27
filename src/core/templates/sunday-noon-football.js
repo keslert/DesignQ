@@ -39,7 +39,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Raleway',
-            letterSpacing: 0,
+            letterSpacing: 0.01,
             lineHeight: 1.2,
             size: 0.9,
             style: 'normal',
@@ -63,12 +63,12 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Raleway',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 0.9,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 700,
           },
           mb: 1,
         },
@@ -81,7 +81,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Raleway',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 0.6,
             style: 'normal',
@@ -100,7 +100,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Raleway',
-            letterSpacing: 0,
+            letterSpacing: 0.06,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
@@ -124,7 +124,7 @@ export default {
           ],
           font: {
             family: 'Raleway',
-            letterSpacing: 0.2,
+            letterSpacing: 0.4,
             lineHeight: 1.4,
             size: 0.6,
             style: 'normal',

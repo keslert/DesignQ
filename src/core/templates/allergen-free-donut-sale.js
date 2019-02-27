@@ -30,12 +30,12 @@ export default {
           color: solidColor('#d45e8f'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0.05,
+            letterSpacing: 0.14,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
         },
         {
@@ -47,7 +47,7 @@ export default {
           color: solidColor('#d45e8f'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0.9,
             style: 'normal',
@@ -73,7 +73,7 @@ export default {
           color: solidColor('#d45e8f'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',

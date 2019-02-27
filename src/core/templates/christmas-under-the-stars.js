@@ -1,4 +1,4 @@
-import { solidColor, unitValue, striped } from '.'
+import { solidColor, striped } from './'
 
 export default {
   id: 6,
@@ -31,7 +31,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0.1,
+            letterSpacing: 0.27,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -86,7 +86,7 @@ export default {
           color: solidColor('#d99b47'),
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.09,
             lineHeight: 1.4,
             size: 0.9,
             style: 'normal',

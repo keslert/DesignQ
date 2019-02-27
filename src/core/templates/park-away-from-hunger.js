@@ -67,7 +67,7 @@ export default {
           color: solidColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -85,7 +85,7 @@ export default {
           color: solidColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -103,7 +103,7 @@ export default {
           color: solidColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

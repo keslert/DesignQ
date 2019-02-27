@@ -52,7 +52,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0.3,
+            letterSpacing: 0.31,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -89,7 +89,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'italic',
@@ -108,7 +108,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.07,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -127,7 +127,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

@@ -32,7 +32,7 @@ export default {
           color: solidColor('#66712c'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0.1,
+            letterSpacing: 0.13,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -49,7 +49,7 @@ export default {
           color: solidColor('#fbd071'),
           font: {
             family: 'Lilita One',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -65,7 +65,7 @@ export default {
           color: solidColor('#66712c'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 0.5,
             style: 'italic',
@@ -113,7 +113,7 @@ export default {
           color: solidColor('#66712c'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

@@ -22,12 +22,12 @@ export default {
           color: solidColor('#394e6d'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 300,
           },
         },
         {
@@ -39,7 +39,7 @@ export default {
           ],
           color: solidColor('#394e6d'),
           font: {
-            family: 'League Spartan',
+            family: 'Sifonn',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -57,12 +57,12 @@ export default {
           color: solidColor('#394e6d'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
         {
@@ -81,12 +81,12 @@ export default {
           color: solidColor('#394e6d'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 300,
           },
         },
       ]
@@ -105,12 +105,12 @@ export default {
           ],
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]

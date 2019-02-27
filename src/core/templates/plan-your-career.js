@@ -22,7 +22,7 @@ export default {
           color: solidColor('#2b2b2b'),
           font: {
             family: 'League Spartan',
-            letterSpacing: 0.025,
+            letterSpacing: 0.046,
             lineHeight: 1.25,
             size: 0.7,
             style: 'normal',
@@ -64,12 +64,12 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.13,
             lineHeight: 1.4,
             size: 0.0,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
           mb: 1,
         },
@@ -97,7 +97,7 @@ export default {
           color: solidColor('#2b2b2b'),
           font: {
             family: 'League Spartan',
-            letterSpacing: 0,
+            letterSpacing: 0.043,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',

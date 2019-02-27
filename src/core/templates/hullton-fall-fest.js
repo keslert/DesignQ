@@ -24,7 +24,7 @@ export default {
           color: solidColor('#23374a'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
@@ -57,7 +57,7 @@ export default {
           color: solidColor('#23374a'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',

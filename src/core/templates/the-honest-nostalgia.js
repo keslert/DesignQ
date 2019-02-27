@@ -25,12 +25,12 @@ export default {
           color: solidColor('#21303b'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.1,
             lineHeight: 1.4,
             size: 0.3,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 300,
           },
         },
         {
@@ -43,7 +43,7 @@ export default {
           color: solidColor('#e35e3e'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -60,12 +60,12 @@ export default {
           color: solidColor('#21303b'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]
@@ -84,7 +84,7 @@ export default {
           ],
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -102,7 +102,7 @@ export default {
           ],
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

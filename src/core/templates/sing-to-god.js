@@ -7,8 +7,8 @@ const small = {
   ],
   color: solidColor('#d5c491'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0.05,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.1,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -23,7 +23,7 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Vidaloka',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -38,8 +38,8 @@ const bridge = {
   ],
   color: solidColor('#d5c491'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.1,
     size: 1,
     style: 'italic',
     transform: 'normal',
@@ -57,11 +57,11 @@ const heading = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.1,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -73,12 +73,12 @@ const paragraph = {
   ],
   color: solidColor('#d5c491'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 

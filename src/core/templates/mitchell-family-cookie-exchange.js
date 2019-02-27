@@ -20,7 +20,7 @@ export default {
           color: solidColor('#a09056'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.146,
             lineHeight: 1.4,
             size: 0.1,
             style: 'normal',
@@ -40,12 +40,12 @@ export default {
           color: solidColor('#49673f'),
           font: {
             family: 'Lato',
-            letterSpacing: 0.05,
+            letterSpacing: 0.107,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 900,
           },
         },
         {
@@ -57,7 +57,7 @@ export default {
           color: solidColor('#a09056'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.127,
             lineHeight: 1.4,
             size: 1.2,
             style: 'normal',
@@ -68,11 +68,6 @@ export default {
       ]
     },
     footer: {
-      bleed: { all: true },
-      alignX: 'center',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      mb: 2,
       elements: [
         {
           type: 'heading',
@@ -90,13 +85,13 @@ export default {
           },
           color: solidColor('#f34535'),
           font: {
-            family: 'League Spartan',
-            letterSpacing: 0,
+            family: 'Lato',
+            letterSpacing: 0.122,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 900,
           },
         },
         {
@@ -108,12 +103,12 @@ export default {
           color: solidColor('#49673f'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.081,
             lineHeight: 1.4,
             size: 1.1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 700,
           },
         },
       ]

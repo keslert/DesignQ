@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   id: 7,
@@ -23,7 +23,7 @@ export default {
           color: '#ffffff',
           size: 0.5,
           aspectRatio: 1,
-          borderRadius: unitValue(50, '%'),
+          borderRadius: 9999,
           px: 1,
           py: 1,
           meta: {
@@ -41,7 +41,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0.15,
+            letterSpacing: 0.2,
             lineHeight: 1.4,
             size: 0.3,
             style: 'normal',
@@ -59,7 +59,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0.05,
+            letterSpacing: 0.07,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -75,7 +75,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0.9,
             style: 'normal',
@@ -106,7 +106,7 @@ export default {
           },
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0.15,
+            letterSpacing: 0.2,
             lineHeight: 1.6,
             size: 0.8,
             style: 'normal',
@@ -123,7 +123,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

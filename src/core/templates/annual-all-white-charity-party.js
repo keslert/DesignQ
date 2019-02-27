@@ -46,7 +46,7 @@ export default {
           color: solidColor('#373737'),
           font: {
             family: 'Norwester',
-            letterSpacing: 0.05,
+            letterSpacing: 0.01,
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
@@ -62,7 +62,7 @@ export default {
           color: solidColor('#373737'),
           font: {
             family: 'Aileron',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.6,
             style: 'normal',

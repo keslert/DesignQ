@@ -45,12 +45,12 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Bebas Neue',
-            letterSpacing: 0,
+            letterSpacing: 0.01,
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
           mb: 1,
         },
@@ -63,7 +63,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Arvo',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -133,7 +133,7 @@ export default {
           ],
           font: {
             family: 'Arvo',
-            letterSpacing: 0.1,
+            letterSpacing: 0.12,
             lineHeight: 1.4,
             size: 0.6,
             style: 'normal',

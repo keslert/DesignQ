@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   id: 5,
@@ -22,12 +22,12 @@ export default {
           color: solidColor('#666'),
           font: {
             family: 'Libre Baskerville',
-            letterSpacing: 0.1,
+            letterSpacing: 0.23,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
           mb: 0,
         },
@@ -69,7 +69,7 @@ export default {
           color: solidColor('#666'),
           font: {
             family: 'Libre Baskerville',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -100,7 +100,7 @@ export default {
           color: solidColor('#666'),
           font: {
             family: 'Libre Baskerville',
-            letterSpacing: 0.15,
+            letterSpacing: 0.23,
             lineHeight: 1.6,
             size: 0.7,
             style: 'normal',
@@ -118,7 +118,7 @@ export default {
           color: solidColor('#666'),
           font: {
             family: 'Libre Baskerville',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

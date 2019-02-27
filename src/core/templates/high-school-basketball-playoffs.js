@@ -27,8 +27,8 @@ export default {
           ],
           color: solidColor('#fcbf2f'),
           font: {
-            family: 'Open Sans',
-            letterSpacing: 0,
+            family: 'League Spartan',
+            letterSpacing: 0.08,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -72,7 +72,7 @@ export default {
           ],
           font: {
             family: 'Open Sans',
-            letterSpacing: 0,
+            letterSpacing: 0.13,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -97,12 +97,12 @@ export default {
           },
           font: {
             family: 'League Spartan',
-            letterSpacing: 0,
+            letterSpacing: 0.06,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
         {
@@ -115,11 +115,11 @@ export default {
           ],
           font: {
             family: 'Open Sans',
-            letterSpacing: 0,
+            letterSpacing: 0.08,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
-            transform: 'uppercase',
+            transform: 'normal',
             weight: 400,
           },
         },

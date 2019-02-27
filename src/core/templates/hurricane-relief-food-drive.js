@@ -26,7 +26,7 @@ export default {
           lines: [
             {type: 'host', text: 'Great Nature Foundation'},
           ],
-          color: solidColor('#ffffff'),
+          color: solidColor('#f5f5f5'),
           font: {
             family: 'Exo',
             letterSpacing: 0.1,
@@ -45,7 +45,7 @@ export default {
             {type: 'eventName', text: 'Relief Food'},
             {type: 'eventName', text: 'Drive'},
           ],
-          color: solidColor('#ffffff'),
+          color: solidColor('#f5f5f5'),
           font: {
             family: 'Peace Sans',
             letterSpacing: 0,
@@ -69,12 +69,12 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffffcc'),
+            color: solidColor('#f5f5f5'),
           },
-          color: solidColor('#ffffffcc'),
+          color: solidColor('#f5f5f5'),
           font: {
             family: 'Exo',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
@@ -89,10 +89,10 @@ export default {
             {type: 'descriptive', text: 'For the benefit of the'},
             {type: 'descriptive', text: 'victims of Hurricane Adam'},
           ],
-          color: solidColor('#ffffff'),
+          color: solidColor('#f5f5f5'),
           font: {
             family: 'Peace Sans',
-            letterSpacing: 0,
+            letterSpacing: 0.09,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -108,10 +108,10 @@ export default {
             {type: 'descriptive', text: 'million homes. Join our relief efforts to help'},
             {type: 'descriptive', text: 'victims get back on their feet.'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: solidColor('#f5f5f5'),
           font: {
             family: 'Exo',
-            letterSpacing: 0,
+            letterSpacing: 0.08,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

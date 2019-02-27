@@ -41,12 +41,12 @@ export default {
           color: solidColor('#c3996f'),
           font: {
             family: 'Cooper Hewitt',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
         {
@@ -74,7 +74,7 @@ export default {
           color: solidColor('#c3996f'),
           font: {
             family: 'Cooper Hewitt',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
@@ -90,7 +90,7 @@ export default {
           ],
           font: {
             family: 'Cooper Hewitt',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -107,7 +107,7 @@ export default {
           ],
           font: {
             family: 'Cooper Hewitt',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

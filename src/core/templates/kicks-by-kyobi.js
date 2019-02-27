@@ -42,7 +42,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
@@ -59,7 +59,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -76,12 +76,12 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0.1,
+            letterSpacing: 0.11,
             lineHeight: 1.6,
             size: 0.5,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 700,
           },
         },
         {
@@ -94,7 +94,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0,
             style: 'normal',

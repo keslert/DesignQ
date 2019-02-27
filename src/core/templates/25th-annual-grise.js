@@ -31,12 +31,12 @@ export default {
           color: solidColor('#dc8120'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.230,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 300,
           },
           mb: 1.5,
         },
@@ -49,7 +49,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'League Spartan',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -65,12 +65,12 @@ export default {
           color: solidColor('#dc8120'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]
@@ -95,7 +95,7 @@ export default {
           },
           font: {
             family: 'League Spartan',
-            letterSpacing: 0.1,
+            letterSpacing: 0.13,
             lineHeight: 1.6,
             size: 1,
             style: 'normal',
@@ -118,7 +118,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]

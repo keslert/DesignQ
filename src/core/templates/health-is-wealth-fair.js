@@ -25,7 +25,7 @@ export default {
           ],
           font: {
             family: 'Nunito',
-            letterSpacing: 0.1,
+            letterSpacing: 0.06,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
@@ -47,7 +47,7 @@ export default {
             style: 'normal',
             transform: 'normal',
             lineHeight: 1.4,
-            letterSpacing: .05,
+            letterSpacing: 0,
           },
         },
         { 
@@ -60,7 +60,7 @@ export default {
           ],
           font: {
             family: 'Nunito',
-            letterSpacing: .1,
+            letterSpacing: .06,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -97,7 +97,7 @@ export default {
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.4,
-            letterSpacing: 0.05,
+            letterSpacing: 0.06,
           },
         },
         { 
@@ -115,7 +115,7 @@ export default {
             style: 'normal',
             transform: 'normal',
             lineHeight: 1.4,
-            letterSpacing: 0,
+            letterSpacing: 0.04,
           },
         },
       ],

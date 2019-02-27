@@ -36,12 +36,12 @@ export default {
           },
           font: {
             family: "Aileron",
-            weight: 700,
+            weight: 400,
             size: 0.6,
             style: "normal",
             transform: "uppercase",
             lineHeight: 1.4,
-            letterSpacing: 0.1
+            letterSpacing: 0.18
           }
         },
         {
@@ -59,13 +59,13 @@ export default {
             size: 0.7,
             style: "normal",
             transform: "uppercase",
-            lineHeight: 1.4
+            lineHeight: 1.4,
+            letterSpacing: 0.01,
           }
         },
         {
           type: "bridge",
           lines: [
-            
             {
               type: "date",
               text: "Get ready to learn, be amazed, and explore!",
@@ -84,7 +84,8 @@ export default {
             size: 0.8,
             style: "italic",
             transform: "normal",
-            lineHeight: 1.4
+            lineHeight: 1.4,
+            letterSpacing: 0.05,
           }
         },
         {
@@ -133,7 +134,7 @@ export default {
             style: "normal",
             transform: "uppercase",
             lineHeight: 1.4,
-            letterSpacing: 0.2
+            letterSpacing: 0.18
           }
         },
         {
@@ -159,7 +160,8 @@ export default {
             size: 1.2,
             style: "normal",
             transform: "normal",
-            lineHeight: 1.4
+            lineHeight: 1.4,
+            letterSpacing: .05,
           }
         }
       ]

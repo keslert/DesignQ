@@ -6,13 +6,13 @@ const small = {
     {type: 'host', text: 'The Talent Center'},
     {type: 'host', text: 'Presents'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fffff9'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0.05,
+    letterSpacing: 0.08,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 300,
   },
 }
 
@@ -21,13 +21,13 @@ const dominant = {
   lines: [
     {type: 'eventName', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fffff9'),
   font: {
     family: 'Kollektif',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -37,12 +37,13 @@ const bridge = {
     {type: 'date', text: 'March 10 - 15, 2019', format: 'MMMM D, YYYY'},
     {type: 'descriptive', text: 'Open to ages 10 to 14'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fffff9'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.08,
     size: 1,
     transform: 'uppercase',
+    weight: 300,
   },
 }
 
@@ -51,7 +52,7 @@ const heading = {
   lines: [
     {type: 'descriptive', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fffff9'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -66,7 +67,7 @@ const paragraph = {
   lines: [
     {type: 'eventName', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#fffff9'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

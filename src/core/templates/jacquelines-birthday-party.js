@@ -30,7 +30,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Mr Dafoe',
-            letterSpacing: 0,
+            letterSpacing: 0.01,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -47,7 +47,7 @@ export default {
           color: solidColor('#f17365'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0.1,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -64,7 +64,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Lato',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -96,7 +96,7 @@ export default {
             size: 0.1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
         {

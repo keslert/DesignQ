@@ -29,7 +29,7 @@ export default {
           color: solidColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0.35,
             style: 'normal',
@@ -52,7 +52,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 400,
+            weight: 300,
           },
           mb: 0.5,
         },
@@ -65,7 +65,7 @@ export default {
           color: solidColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0.3,
             style: 'normal',
@@ -93,7 +93,7 @@ export default {
           color: solidColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -111,7 +111,7 @@ export default {
           color: solidColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.02,
             lineHeight: 1.4,
             size: 0,
             style: 'normal',

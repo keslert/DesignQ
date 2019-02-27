@@ -21,7 +21,7 @@ export default {
           color: solidColor('#fdefc4'),
           font: {
             family: 'Raleway',
-            letterSpacing: 0.1,
+            letterSpacing: 0.12,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -37,8 +37,8 @@ export default {
           ],
           color: solidColor('#ee5830'),
           font: {
-            family: 'Playlist',
-            letterSpacing: 0.1,
+            family: 'Playlist Script',
+            letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -55,7 +55,7 @@ export default {
           color: solidColor('#fdefc4'),
           font: {
             family: 'Raleway',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',
@@ -75,7 +75,7 @@ export default {
           textAlign: 'center',
           font: {
             family: 'Raleway',
-            letterSpacing: 0.1,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',

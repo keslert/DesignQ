@@ -21,7 +21,7 @@ export default {
           color: solidColor('#f38229'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.13,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -61,7 +61,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 700,
+            weight: 400,
           },
         },
         {
@@ -104,7 +104,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]

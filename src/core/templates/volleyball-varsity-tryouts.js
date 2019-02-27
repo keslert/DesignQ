@@ -25,7 +25,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Open Sans',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.4,
             size: 0.1,
             style: 'normal',
@@ -91,7 +91,7 @@ export default {
           color: solidColor('#000'),
           font: {
             family: 'Open Sans',
-            letterSpacing: 0.1,
+            letterSpacing: 0.05,
             lineHeight: 1.6,
             size: 1.0,
             style: 'normal',

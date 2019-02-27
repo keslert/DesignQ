@@ -28,7 +28,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
@@ -45,7 +45,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
@@ -115,7 +115,7 @@ export default {
           ],
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0.15,
+            letterSpacing: 0.12,
             lineHeight: 1.6,
             size: 0,
             style: 'normal',
