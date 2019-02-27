@@ -7,7 +7,7 @@ const small = {
   ],
   color: solidColor('#f5efde'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +24,7 @@ const dominant = {
   ],
   color: solidColor('#fd7b7b'),
   font: {
-    family: 'Norwester',
+    family: 'Lilita One',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#f5efde'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +50,12 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Open daily 8 AM to 10 PM'},
-    {type: 'descriptive', text: '1234 Churchill Plaza'},
+    {type: 'time', text: 'Open daily 8 AM to 10 PM'},
+    {type: 'location', text: '1234 Churchill Plaza'},
   ],
   color: solidColor('#fd7b7b'),
   font: {
-    family: 'Muli',
+    family: 'Lilita One',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -66,14 +66,14 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Whimson Cakes and Pastries is home to'},
-    {type: 'eventName', text: 'baked goodies created with love. We wish'},
-    {type: 'eventName', text: 'to delight diners with every bite of our'},
-    {type: 'eventName', text: 'sweets.'},
+    {type: 'descriptive', text: 'Whimson Cakes and Pastries is home to'},
+    {type: 'descriptive', text: 'baked goodies created with love. We wish'},
+    {type: 'descriptive', text: 'to delight diners with every bite of our'},
+    {type: 'descriptive', text: 'sweets.'},
   ],
   color: solidColor('#f5efde'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -83,9 +83,13 @@ const paragraph = {
 }
 
 export default {
-  title: '',
+  id: 102,
+  title: 'Whimson Cakes',
   tags: ['event', 'flyer'],
   background: solidColor('#94d6cd'),
+  decor: {
+    a: .1,
+  },
   content: {
     body: {
       elements: [

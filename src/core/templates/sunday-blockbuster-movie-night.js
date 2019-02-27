@@ -91,6 +91,7 @@ const paragraph = {
 
 
 export default {
+  id: 73,
   title: 'Sunday Blockbuster Movie Night',
   tags: ['event', 'flyer'],
   background: solidColor('#344355'),

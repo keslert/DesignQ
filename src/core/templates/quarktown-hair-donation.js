@@ -1,6 +1,7 @@
 import { solidColor, unitValue, striped } from '.'
 
 export default {
+  id: 12,
   title: 'Quarktown Hair Donation Program',
   tags: ['event', 'flyer'],
   background: solidColor('#f2f0e2'),

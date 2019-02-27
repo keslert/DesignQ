@@ -89,6 +89,7 @@ const paragraph = {
 
 
 export default {
+  id: 80,
   title: 'Annual Winter Wonderland Gala',
   tags: ['event', 'flyer'],
   background: solidColor('#ddb64a'),

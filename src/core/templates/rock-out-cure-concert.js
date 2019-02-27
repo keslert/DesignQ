@@ -93,7 +93,8 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 43,
+  title: 'Rock out for the cure concert',
   tags: ['event', 'flyer'],
   background: solidColor('#fcd901'),
   decor: {

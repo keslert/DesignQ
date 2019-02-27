@@ -1,6 +1,7 @@
 import { solidColor, unitValue, striped } from '.'
 
 export default {
+  id: 6,
   title: 'Christmas Under the Stars',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-gold-christmas-party-flyer-MAC5DgISwgk.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',

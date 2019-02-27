@@ -1,4 +1,4 @@
-import { solidColor } from '.'
+import { solidColor } from './'
 
 
 const small = {
@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#a52122'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#a52122'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -55,7 +55,7 @@ const heading = {
   ],
   color: solidColor('#0b0b0b'),
   font: {
-    family: 'Muli',
+    family: 'Norwester',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -72,7 +72,7 @@ const paragraph = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -83,15 +83,34 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 101,
+  title: 'Sandios Giants',
   tags: ['event', 'flyer'],
-  background: solidColor('#fff'),
+  background: {
+    img: { src: 'https://images.unsplash.com/photo-1522602043785-821a161a5238?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' },
+  },
+  decor: {
+    t: .2,
+  },
   content: {
     body: {
+      border: {
+        t: .03,
+        background: solidColor('#a52122'),
+      },
+      background: solidColor('#ffffff'),
+      bleed: { a: 1 },
+      alignY: 'bottom',
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      background: solidColor('#a52122'),
+      bleed: { a: 1 },
+      elements: [
         heading,
         paragraph,
       ]

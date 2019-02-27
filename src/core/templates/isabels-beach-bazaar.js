@@ -84,6 +84,7 @@ const paragraph = {
 
 
 export default {
+  id: 97,
   title: "Isabel's Beach Bazaar",
   tags: ['event', 'flyer'],
   background: solidColor('#ffbec0'),

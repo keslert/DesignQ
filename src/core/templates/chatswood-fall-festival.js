@@ -97,6 +97,7 @@ const bar = {
 
 
 export default {
+  id: 95,
   title: 'Chatswood Fall Festival',
   tags: ['event', 'flyer'],
   background: solidColor('#fff'),

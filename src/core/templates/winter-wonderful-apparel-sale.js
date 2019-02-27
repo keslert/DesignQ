@@ -84,6 +84,7 @@ const paragraph = {
 
 
 export default {
+  id: 39,
   title: 'The Winter Wonderful Apparel Sale',
   tags: ['event', 'flyer'],
   background: solidColor('#fffaee'),

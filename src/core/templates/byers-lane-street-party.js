@@ -82,6 +82,7 @@ const paragraph = {
 
 
 export default {
+  id: 72,
   title: 'Byers Lane Street Party',
   tags: ['event', 'flyer'],
   background: {

@@ -1,6 +1,7 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 46,
   title: 'Grunge Fall Fashion',
   tags: ['event', 'flyer'],
   background: {

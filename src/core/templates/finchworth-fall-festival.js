@@ -86,6 +86,7 @@ const paragraph = {
 
 
 export default {
+  id: 51,
   title: 'Finchworth Fall Festival',
   tags: ['event', 'flyer'],
   background: solidColor('#283442'),

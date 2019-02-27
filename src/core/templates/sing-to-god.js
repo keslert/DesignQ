@@ -83,7 +83,8 @@ const paragraph = {
 }
 
 export default {
-  title: '',
+  id: 30,
+  title: 'Sing to God',
   tags: ['event', 'flyer'],
   background: solidColor('#e54049'),
   decor: {

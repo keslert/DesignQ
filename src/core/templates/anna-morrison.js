@@ -90,6 +90,7 @@ const bar = {
 
 
 export default {
+  id: 50,
   title: 'Anna Morrison',
   tags: ['event', 'flyer'],
   background: solidColor('#211834'),

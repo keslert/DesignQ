@@ -1,6 +1,7 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 41,
   title: 'Allergen-Free Donut Sale',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-with-donuts-bake-sale-flyer-MAC4CsQClwE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
@@ -83,8 +84,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#d45e8f'),
-          height: unitValue(6, 'px'),
-          width: unitValue(33, '%'),
+          h: 6,
+          w: .33,
         },
         {
           type: 'paragraph',

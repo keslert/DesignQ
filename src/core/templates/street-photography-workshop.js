@@ -96,6 +96,7 @@ const bar = {
 
 
 export default {
+  id: 35,
   title: 'Shutter Club Street Photography Workshop',
   tags: ['event', 'flyer'],
   background: {

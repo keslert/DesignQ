@@ -90,6 +90,7 @@ const paragraph = {
 
 
 export default {
+  id: 67,
   title: 'White Elephant',
   tags: ['event', 'flyer'],
   background: solidColor('#e54049'),

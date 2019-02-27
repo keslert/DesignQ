@@ -84,6 +84,7 @@ const paragraph = {
 
 
 export default {
+  id: 88,
   title: 'Annual Health is Wealth Fair',
   tags: ['event', 'flyer'],
   background: {

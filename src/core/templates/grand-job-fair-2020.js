@@ -1,6 +1,7 @@
 import { solidColor } from './'
 
 export default {
+  id: 77,
   title: 'The Grand Job Fair 2020',
   tags: ['event', 'flyer'],
   background: {
@@ -117,7 +118,7 @@ export default {
       textAlign: 'center',
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           fill: '#284b82',
           url: '/company.svg',
           size: 0.5,

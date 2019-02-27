@@ -83,7 +83,8 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 92,
+  title: 'Beechtown City Job Fair',
   tags: ['event', 'flyer'],
   background: {
     img: {

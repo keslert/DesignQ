@@ -4,11 +4,11 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Time to head outside!'},
+    {type: 'descriptive', text: 'Time to head outside!'},
   ],
   color: solidColor('#343434'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,11 +25,11 @@ const dominant = {
   ],
   color: solidColor('#b5322c'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#343434'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +50,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Beechtown Drive | January 5, 2020'},
-    {type: 'descriptive', text: '| 6 PM onwards'},
+    [
+      {type: 'location', text: 'Beechtown Drive'},
+      {type: 'date', text: 'January 5, 2020', format: 'MMMM D, YYYY'},
+    ],
+    {type: 'time', text: '6 PM onwards'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#b5322c'),
+  },
   color: solidColor('#b5322c'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -66,13 +74,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Eat home-cooked meals, drink ice-cold'},
-    {type: 'eventName', text: 'refreshments, listen to good music, and meet the'},
-    {type: 'eventName', text: 'community. We promise you a good time!'},
+    {type: 'descriptive', text: 'Eat home-cooked meals, drink ice-cold'},
+    {type: 'descriptive', text: 'refreshments, listen to good music, and meet the'},
+    {type: 'descriptive', text: 'community. We promise you a good time!'},
   ],
   color: solidColor('#343434'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -83,7 +91,8 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 99,
+  title: 'Beechtown Block Party',
   tags: ['event', 'flyer'],
   background: solidColor('#ffefd5'),
   content: {
@@ -92,9 +101,13 @@ export default {
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

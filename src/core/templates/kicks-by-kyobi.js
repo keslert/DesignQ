@@ -1,6 +1,7 @@
 import { solidColor } from './'
 
 export default {
+  id: 13,
   title: 'Kicks by Kyobi',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-white-collage-fashion-show-flyer-MAC4DkO_3zY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',

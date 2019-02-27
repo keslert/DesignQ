@@ -1,6 +1,7 @@
-import { solidColor, unitValue, striped } from '.'
+import { solidColor, striped } from './'
 
 export default {
+  id: 89,
   title: 'Witch Wars',
   tags: ['event', 'flyer'],
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-purple-orange-witch's-hat-halloween-flyer-MAC5D3BIrJY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
@@ -29,13 +30,13 @@ export default {
           },
         },
         {
-          type: 'logo',
+          type: 'icon',
           url: '/witch-hat.svg',
           fill: '#3c2e3e',
           color: striped(135, '#3c2e3e44', 2, 'transparent', 2),
           size: 2,
           aspectRatio: 1,
-          borderRadius: unitValue(50, '%'),
+          borderRadius: 9999,
           px: 0.01,
           py: 0.01,
           meta: {

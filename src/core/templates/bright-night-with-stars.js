@@ -89,6 +89,7 @@ const paragraph = {
 }
 
 export default {
+  id: 87,
   title: 'A Bright Night with the Stars',
   tags: ['event', 'flyer'],
   background: solidColor('#00344b'),

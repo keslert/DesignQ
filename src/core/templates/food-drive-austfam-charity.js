@@ -89,6 +89,7 @@ const paragraph = {
 }
 
 export default {
+  id: 57,
   title: 'Food Drive for the Austfam Charity',
   tags: ['event', 'flyer'],
   background: {

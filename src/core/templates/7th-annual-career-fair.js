@@ -92,11 +92,15 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 70,
+  title: '7th Annual Career Fair',
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: '',
+      src: 'https://images.unsplash.com/photo-1548842621-11b147269641?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      filters: {
+        grayscale: 1,
+      },
     },
   },
   content: {

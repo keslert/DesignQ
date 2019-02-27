@@ -1,6 +1,7 @@
 import { solidColor } from './'
 
 export default {
+  id: 40,
   title: 'Annual All-White Charity Party',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-and-charcoal-all-white-party-flyer-MAC7mt5CsZA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
@@ -9,7 +10,7 @@ export default {
     body: {
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           size: 1,
           url: '/yacht.svg',
           fill: '#373737',

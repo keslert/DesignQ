@@ -92,7 +92,8 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 55,
+  title: 'Statewide Job Resource and Fair',
   tags: ['event', 'flyer'],
   background: solidColor('#123358'),
   decor: {

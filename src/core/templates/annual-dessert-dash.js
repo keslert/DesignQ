@@ -7,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,7 +25,7 @@ const dominant = {
   ],
   color: solidColor('#ffeaa2'),
   font: {
-    family: 'Norwester',
+    family: 'Aleo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,12 +51,12 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'October 1-15, 2020'},
-    {type: 'descriptive', text: 'Open daily from 8 AM - 9 PM'},
+    {type: 'date', text: 'October 1-15, 2020', format: 'MMMM D-D, YYYY'},
+    {type: 'time', text: 'Open daily from 8 AM - 9 PM'},
   ],
   color: solidColor('#ffeaa2'),
   font: {
-    family: 'Muli',
+    family: 'Aleo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -67,13 +67,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'The Dessert Dash is a joint fundraising effort of the'},
-    {type: 'eventName', text: 'Restaurant Council and City Charity Office.'},
-    {type: 'eventName', text: 'Join the movement!'},
+    {type: 'descriptive', text: 'The Dessert Dash is a joint fundraising effort of the'},
+    {type: 'descriptive', text: 'Restaurant Council and City Charity Office.'},
+    {type: 'descriptive', text: 'Join the movement!'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -82,16 +82,29 @@ const paragraph = {
   },
 }
 
+const bar = {
+  type: 'bar',
+  background: solidColor('#ffeaa2'),
+  width: 1,
+  height: 8,
+},
+
 export default {
-  title: '',
+  id: 103,
+  title: 'Annual Dessert Dash',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: { src: '' },
+  },
   content: {
+    h: 'auto',
+    background: solidColor('#212328cc'),
     body: {
       elements: [
         small,
         dominant,
         bridge,
+        bar,
         heading,
         paragraph,
       ]

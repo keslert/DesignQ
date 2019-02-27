@@ -3,11 +3,11 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'We proudly bring you'},
+    {type: 'descriptive', text: 'We proudly bring you'},
   ],
   color: solidColor('#7f9f47'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -22,9 +22,9 @@ const dominant = {
     {type: 'eventName', text: 'the Trees'},
     {type: 'eventName', text: '2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'Peace Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#7f9f47'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +50,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'March 27, 2020 | Starts at 7 A.M.'},
+    [
+      {type: 'date', text: 'March 27, 2020'},
+      {type: 'time', text: 'Starts at 7 A.M.'},
+    ],
     {type: 'descriptive', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#ffffff'),
+  },
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -66,13 +74,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Join us as we run towards the finish line with the goal to'},
-    {type: 'eventName', text: 'protect the trees, conserve out forests, and'},
-    {type: 'eventName', text: 'save our planet!'},
+    {type: 'descriptive', text: 'Join us as we run towards the finish line with the goal to'},
+    {type: 'descriptive', text: 'protect the trees, conserve out forests, and'},
+    {type: 'descriptive', text: 'save our planet!'},
   ],
   color: solidColor('#7f9f47'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -82,9 +90,13 @@ const paragraph = {
 }
 
 export default {
-  title: '',
+  id: 104,
+  title: 'Run to save the trees',
   tags: ['event', 'flyer'],
   background: solidColor('#ffd20e'),
+  decor: {
+    y: .2,
+  },
   content: {
     body: {
       elements: [

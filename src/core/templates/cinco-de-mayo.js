@@ -87,7 +87,8 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 94,
+  title: 'Cinco de Mayo',
   tags: ['event', 'flyer'],
   background: solidColor('#2f292b'),
   decor: {

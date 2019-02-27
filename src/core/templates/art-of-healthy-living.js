@@ -83,6 +83,7 @@ const paragraph = {
 
 
 export default {
+  id: 68,
   title: 'The Art of Healthy Living',
   tags: ['event', 'flyer'],
   background: solidColor('#ffffff'),

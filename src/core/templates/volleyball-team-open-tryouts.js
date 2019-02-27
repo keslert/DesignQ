@@ -81,7 +81,8 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  id: 63,
+  title: 'Volleyball Team Open Tryouts',
   tags: ['event', 'flyer'],
   background: solidColor('#79cecd'),
   content: {

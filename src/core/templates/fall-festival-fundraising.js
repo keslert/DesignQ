@@ -88,6 +88,7 @@ const paragraph = {
 }
 
 export default {
+  id: 74,
   title: 'Fall Festival & Fundraising',
   tags: ['event', 'flyer'],
   background: solidColor('#1a1f3b'),

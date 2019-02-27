@@ -79,6 +79,7 @@ const paragraph = {
 
 
 export default {
+  id: 24,
   title: 'Summer Camp 2019',
   tags: ['event', 'flyer'],
   background: solidColor('#e54049'),

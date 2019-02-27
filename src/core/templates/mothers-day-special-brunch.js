@@ -82,6 +82,7 @@ const paragraph = {
 
 
 export default {
+  id: 84,
   title: 'Mother\'s Day Special Brunch',
   tags: ['event', 'flyer'],
   background: solidColor('#ff7f7d'),

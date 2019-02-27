@@ -87,6 +87,7 @@ const paragraph = {
 
 
 export default {
+  id: 78,
   title: 'The Beechtown Dance Festival',
   tags: ['event', 'flyer'],
   background: solidColor('#ba3e7f'),

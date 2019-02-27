@@ -1,6 +1,7 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 34,
   title: 'El Dorado Bake Sale',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-illustrated-bake-sale-flyer-MAC4C3eiDho.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
@@ -22,7 +23,7 @@ export default {
           overlap: 0.5,
           size: 0.7,
           aspectRatio: 1,
-          borderRadius: unitValue(50, '%'),
+          borderRadius: 9999,
           px: 1,
           py: 1,
           meta: {

@@ -1,6 +1,7 @@
-import { solidColor, unitValue, striped } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 20,
   title: 'Health is Wealth Fair 2020',
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-illustrated-heart-health-fair-flyer-MAC7m1QGUWA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   tags: ['flyer', 'event'],

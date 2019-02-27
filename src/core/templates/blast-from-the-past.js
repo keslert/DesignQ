@@ -88,6 +88,7 @@ const paragraph = {
 
 
 export default {
+  id: 79,
   title: 'Blast from the past',
   tags: ['event', 'flyer'],
   background: {

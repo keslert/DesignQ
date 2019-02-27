@@ -86,7 +86,7 @@ export default {
       textAlign: 'center',
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           url: '/yacht.svg',
           fill: '#f64b42',
           meta: {

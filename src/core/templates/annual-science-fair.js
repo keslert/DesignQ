@@ -87,6 +87,7 @@ const paragraph = {
 
 
 export default {
+  id: 42,
   title: 'Annual Science Fair',
   tags: ['event', 'flyer'],
   background: solidColor('#316a77'),

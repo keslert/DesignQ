@@ -1,6 +1,7 @@
 import { solidColor } from './'
 
 export default {
+  id: 62,
   title: 'Gold Cheetah Survival Camp',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-mountains-summer-camp-flyer-MAC3Y6D0AFU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',

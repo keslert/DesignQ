@@ -72,7 +72,7 @@ export default {
       alignX: 'center',
       bleed: { all: true },
       elements: [{
-        type: 'logo',
+        type: 'icon',
         url: '/newton-doughnuts.png',
         size: 2,
         meta: {

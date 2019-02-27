@@ -89,6 +89,7 @@ const paragraph = {
 }
 
 export default {
+  id: 85,
   title: 'Especially for you',
   tags: ['event', 'flyer'],
   background: {

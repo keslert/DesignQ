@@ -1,6 +1,7 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 47,
   title: 'High School Basketball Playoffs',
   tags: ['event', 'flyer'],
   background: {

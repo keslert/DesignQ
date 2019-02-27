@@ -1,6 +1,7 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 58,
   title: 'Annual Beechtown Food Fest',
   tags: ['flyer', 'event'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-vegetable-flatlay-food-flyer-MAC6lYFykfE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
@@ -16,7 +17,7 @@ export default {
       pa: 3,
       background: {
         color: '#6b6f39',
-        borderRadius: unitValue(50, '%'),
+        borderRadius: 9999,
       },
       aspectRatio: 1,
       elements: [

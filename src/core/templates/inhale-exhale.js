@@ -88,7 +88,7 @@ export default {
       width: unitValue(100, '%'),
       textAlign: 'right',
       elements: [{
-        type: 'logo',
+        type: 'icon',
         url: '/silk-yoga.png',
         meta: {
           width: 88,

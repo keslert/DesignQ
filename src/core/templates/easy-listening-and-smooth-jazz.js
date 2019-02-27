@@ -85,6 +85,7 @@ const paragraph = {
 
 
 export default {
+  id: 19,
   title: 'Easy Listening and Smooth Jazz',
   tags: ['event', 'flyer'],
   background: solidColor('#e54049'),

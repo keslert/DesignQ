@@ -1,6 +1,7 @@
 import { solidColor } from './'
 
 export default {
+  id: 71,
   title: "We're Looking for Art Volunteers",
   tags: ['event', 'flyer'],
   px: 1,

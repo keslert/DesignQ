@@ -87,6 +87,7 @@ const paragraph = {
 
 
 export default {
+  id: 66,
   title: 'Rollin Back to the 90s',
   tags: ['event', 'flyer'],
   background: solidColor('#ffffff'),

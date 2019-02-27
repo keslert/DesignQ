@@ -73,7 +73,7 @@ export default {
     header: {
       bleed: { all: true },
       elements: [{
-        type: 'logo',
+        type: 'icon',
         url: '/taverns.png',
         meta: {
           width: 152,

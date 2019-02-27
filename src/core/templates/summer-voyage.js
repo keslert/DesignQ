@@ -1,6 +1,7 @@
 import { solidColor, unitValue } from '.'
 
 export default {
+  id: 25,
   title: 'Summer Voyage',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-brown-and-grey-illustrated-icons-summer-camp-flyer-MAC3XzSjncw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',

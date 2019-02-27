@@ -86,6 +86,7 @@ const paragraph = {
 
 
 export default {
+  id: 83,
   title: 'From Sketches to Artwork',
   tags: ['event', 'flyer'],
   background: {

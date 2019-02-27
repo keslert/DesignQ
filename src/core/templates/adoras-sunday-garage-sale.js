@@ -20,7 +20,7 @@ export default {
       textAlign: 'center',
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           size: 1,
           url: '/shop.svg',
           fill: '#fec458',

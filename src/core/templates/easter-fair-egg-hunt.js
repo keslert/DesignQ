@@ -85,6 +85,7 @@ const paragraph = {
 
 
 export default {
+  id: 76,
   title: 'Easter Fair and Egg Hunt',
   tags: ['event', 'flyer'],
   background: solidColor('#44d9e5'),

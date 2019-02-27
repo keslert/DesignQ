@@ -1,4 +1,4 @@
-import { solidColor } from '.'
+import { solidColor } from './'
 
 const small = {
   type: 'small',
@@ -89,7 +89,8 @@ const bar = {
 
 
 export default {
-  title: '',
+  id: 69,
+  title: 'Fall Fundraising Event 2020',
   tags: ['event', 'flyer'],
   background: solidColor('#424242'),
   decor: {

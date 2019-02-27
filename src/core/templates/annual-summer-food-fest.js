@@ -101,6 +101,7 @@ const icon = {
 
 
 export default {
+  id: 96,
   title: 'Annual Summer Food Fest',
   tags: ['event', 'flyer'],
   background: solidColor('#fff'),

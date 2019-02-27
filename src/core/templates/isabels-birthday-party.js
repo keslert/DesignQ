@@ -82,6 +82,7 @@ const paragraph = {
 
 
 export default {
+  id: 75,
   title: "Isabel's 21st Birthday Party",
   tags: ['event', 'flyer'],
   background: {

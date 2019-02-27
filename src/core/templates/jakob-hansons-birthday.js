@@ -1,6 +1,7 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
+  id: 38,
   title: 'Jakob Hansons Birthday',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-with-monkey-llustration-birthday-flyer-MAC5t3-JpG8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
@@ -13,7 +14,7 @@ export default {
     body: {
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           size: 1.6,
           url: '/monkey-birthday.png',
           meta: {
@@ -75,8 +76,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#fbd071'),
-          height: unitValue(8, 'px'),
-          width: unitValue(33, '%'),
+          h: 8,
+          w: .33,
         },
         {
           type: 'heading',

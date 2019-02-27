@@ -97,6 +97,7 @@ const bar = {
 },
 
 export default {
+  id: 48,
   title: 'Winslough Summer Festival',
   tags: ['event', 'flyer'],
   background: solidColor('#146b77'),

@@ -1,6 +1,7 @@
 import { solidColor, unitValue } from '.'
 
 export default {
+  id: 5,
   title: 'All-White Holiday Fundraiser',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-gold-all-white-party-flyer-MAC7msY4lpw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',

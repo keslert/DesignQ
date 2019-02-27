@@ -121,7 +121,7 @@ export default {
       textAlign: 'left',
       elements: [
         {
-          type: 'logo',
+          type: 'icon',
           url: '/coffee.png',
           size: .5,
           meta: {
