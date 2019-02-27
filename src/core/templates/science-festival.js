@@ -139,11 +139,11 @@ export default {
           type: "paragraph",
           lines: [
             {
-              type: "descriptiveText",
+              type: "descriptive",
               text: "Check out awesome experiments and award-winning projects"
             },
             {
-              type: "descriptiveText",
+              type: "descriptive",
               text: "from all over the country, plus listen to cool lectures!"
             }
           ],

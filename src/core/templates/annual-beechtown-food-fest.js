@@ -57,8 +57,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Admission is free! Hope'},
-            {type: 'descriptiveText', text: 'to see you there!'},
+            {type: 'descriptive', text: 'Admission is free! Hope'},
+            {type: 'descriptive', text: 'to see you there!'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -99,8 +99,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'For more information about the food fest, visit'},
-            {type: 'descriptiveText', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},
+            {type: 'descriptive', text: 'For more information about the food fest, visit'},
+            {type: 'descriptive', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},
           ],
           font: {
             family: 'Kollektif',

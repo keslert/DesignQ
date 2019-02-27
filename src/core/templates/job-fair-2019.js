@@ -21,7 +21,7 @@ export default {
         { 
           type: 'small', 
           lines: [
-            {type: 'descriptiveText', text: 'Middleton College'},
+            {type: 'descriptive', text: 'Middleton College'},
           ],
           color: solidColor('#000'),
           font: {

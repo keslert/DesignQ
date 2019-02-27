@@ -98,9 +98,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Learn how to make brewed coffee right in the'},
-            {type: 'descriptiveText', text: 'comfort of your own home and experiment with'},
-            {type: 'descriptiveText', text: 'many coffee-based beverages'},
+            {type: 'descriptive', text: 'Learn how to make brewed coffee right in the'},
+            {type: 'descriptive', text: 'comfort of your own home and experiment with'},
+            {type: 'descriptive', text: 'many coffee-based beverages'},
           ],
           font: {
             family: 'Muli',

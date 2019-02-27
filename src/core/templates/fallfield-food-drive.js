@@ -49,8 +49,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'For the homeless members of the'},
-            {type: 'descriptiveText', text: 'Fallfield community.'},
+            {type: 'descriptive', text: 'For the homeless members of the'},
+            {type: 'descriptive', text: 'Fallfield community.'},
           ],
           color: solidColor('#f38229'),
           font: {
@@ -92,8 +92,8 @@ export default {
           type: 'paragraph',
           lines: [
             {type: 'location', text: 'See you at 189 49th Avenue, Grise Fiord, NU.'},
-            {type: 'descriptiveText', text: 'Together we can make a difference in the'},
-            {type: 'descriptiveText', text: 'lives of others! Let\'s spread the love!'},
+            {type: 'descriptive', text: 'Together we can make a difference in the'},
+            {type: 'descriptive', text: 'lives of others! Let\'s spread the love!'},
           ],
           color: solidColor('#f38229'),
           font: {

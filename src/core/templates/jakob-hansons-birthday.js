@@ -106,8 +106,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Please join the Hanson family in celebrating the special day'},
-            {type: 'descriptiveText', text: 'of our beloved, rambunctious little boy! See you there!'},
+            {type: 'descriptive', text: 'Please join the Hanson family in celebrating the special day'},
+            {type: 'descriptive', text: 'of our beloved, rambunctious little boy! See you there!'},
           ],
           color: solidColor('#66712c'),
           font: {

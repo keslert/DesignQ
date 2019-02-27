@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -50,9 +49,17 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'When: May 10, 2020 | 3-6 PM'},
-    {type: 'descriptive', text: 'Where: Milcheur Valley Park'},
+    [
+      {type: 'date', text: 'When: May 10, 2020'},
+      {type: 'time', text: '3-6 PM'},
+    ],
+    {type: 'location', text: 'Where: Milcheur Valley Park'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#e9a390'),
+  },
   color: solidColor('#e9a390'),
   font: {
     family: 'Muli',
@@ -66,9 +73,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Tickets are $5 each. Reserver now at'},
-    {type: 'eventName', text: 'www.reallygreatsite.com or get your ticket'},
-    {type: 'eventName', text: 'straight from Alfredo Torres as (123) 456-7890!'},
+    {type: 'descriptive', text: 'Tickets are $5 each. Reserver now at'},
+    {type: 'descriptive', text: 'www.reallygreatsite.com or get your ticket'},
+    {type: 'descriptive', text: 'straight from Alfredo Torres as (123) 456-7890!'},
   ],
   color: solidColor('#cca882'),
   font: {
@@ -81,12 +88,19 @@ const paragraph = {
   },
 }
 
-
 export default {
-  title: '',
+  title: 'Especially for you',
   tags: ['event', 'flyer'],
-  background: solidColor('#fffdee'),
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1441861187324-6970a2587e34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+    },
+  },
   content: {
+    background: solidColor('#fffdeeee'),
+    h: 'auto',
+    alignY: 'bottom',
+    bleed: { x: 1 },
     body: {
       elements: [
         small,

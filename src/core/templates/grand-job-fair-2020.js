@@ -1,30 +1,22 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   title: 'The Grand Job Fair 2020',
   tags: ['event', 'flyer'],
-  px: 72,
-  py: 36,
   background: {
-    url: 'https://images.unsplash.com/photo-1519176510496-cd5b5b74c808?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    img: {
+      src: 'https://images.unsplash.com/photo-1519176510496-cd5b5b74c808?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      zoom: 2.4,
+      y: .1,
+      filters: {
+        brightness: 0.7,
+      },
+    },
     color: '#284b82',
     backgroundBlendMode: 'luminosity',
-    filters: {
-      brightness: 0.7,
-    },
-    zoom: 2.4,
-    y: .1,
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { left: true, right: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      width: unitValue(100, '%'),
-      mb: 1.5,
       elements: [
         {
           type: 'dominant',
@@ -35,7 +27,7 @@ export default {
           ],
           color: solidColor('#fff'),
           font: {
-            family: 'Muli',
+            family: 'Aileron',
             letterSpacing: 0,
             lineHeight: 1.2,
             size: 0.6,
@@ -43,24 +35,22 @@ export default {
             transform: 'uppercase',
             weight: 900,
           },
-          mb: 1,
         },
         {
           type: 'bar',
           background: solidColor('#fff'),
-          width: unitValue(100, '%'),
-          height: unitValue(6, 'px'),
-          mb: 1.25,
+          width: 1,
+          height: 6,
         },
         {
-          type: 'small',
+          type: 'bridge',
           lines: [
             {type: 'time', text: 'Get to know over 60 companies'},
             {type: 'time', text: 'and jumpstart your career!'},
           ],
           color: solidColor('#fff'),
           font: {
-            family: 'Muli',
+            family: 'Aileron',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -68,15 +58,12 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
+      bleed: { a: 1 },
       background: solidColor('#fff'),
-      width: unitValue(100, '%'),
-      textAlign: 'center',
       elements: [
         {
           type: 'heading',
@@ -94,7 +81,7 @@ export default {
             color: solidColor('#284b82'),
           },
           font: {
-            family: 'Muli',
+            family: 'Aileron',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -102,18 +89,17 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
           color: solidColor('#284b82'),
           lines: [
-            {type: 'descriptiveText', text: 'No matter which field you\'re in, you\'ll surely find'},
-            {type: 'descriptiveText', text: 'a job post that perfectly fits you and your capabilities.'},
-            {type: 'descriptiveText', text: 'See you at the fair!'},
+            {type: 'descriptive', text: 'No matter which field you\'re in, you\'ll surely find'},
+            {type: 'descriptive', text: 'a job post that perfectly fits you and your capabilities.'},
+            {type: 'descriptive', text: 'See you at the fair!'},
           ],
           font: {
-            family: 'Muli',
+            family: 'Aileron',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,
@@ -121,30 +107,43 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },
     header: {
-      bleed: { all: true, border: true },
+      bleed: { t: 1 },
       background: solidColor('#fff'),
-      // width: unitValue(100, '%'),
-      px: 1,
-      alignX: 'center',
-      textAlign: 'left',
+      w: 'auto',
+      textAlign: 'center',
       elements: [
         {
           type: 'logo',
           fill: '#284b82',
           url: '/company.svg',
-          size: 0.8,
+          size: 0.5,
           meta: {
             width: 50,
             height: 50,
             colors: [],
             filetype: 'svg', // y = 0 if at bottom of page, y=1 if a top
           },
-          mb: 1,
+        },
+        {
+          type: 'small',
+          lines: [
+            {type: 'host', text: 'Beechtown'},
+            {type: 'host', text: 'Careers Co.'},
+          ],
+          color: solidColor('#fff'),
+          font: {
+            family: 'Aileron',
+            letterSpacing: 0,
+            lineHeight: 1.4,
+            size: 1,
+            style: 'normal',
+            transform: 'normal',
+            weight: 400,
+          },
         },
       ]
     }

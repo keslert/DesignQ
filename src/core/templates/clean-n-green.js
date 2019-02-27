@@ -24,7 +24,7 @@ export default {
           type: 'small', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: '#jointheearthmovement'},
+            {type: 'descriptive', text: '#jointheearthmovement'},
           ],
           font: {
             family: 'Muli',
@@ -56,8 +56,8 @@ export default {
         { 
           type: 'bridge', 
           lines: [
-            {type: 'descriptiveText', text: 'Providing organic and environmentally'},
-            {type: 'descriptiveText', text: 'friendly cleaning services since 2019'},
+            {type: 'descriptive', text: 'Providing organic and environmentally'},
+            {type: 'descriptive', text: 'friendly cleaning services since 2019'},
           ],
           color: solidColor('#fff'),
           font: {

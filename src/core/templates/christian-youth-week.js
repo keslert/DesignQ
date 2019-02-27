@@ -62,8 +62,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Learn, Love, and Live the Life'},
-            {type: 'descriptiveText', text: 'of Jesus Christ'},
+            {type: 'descriptive', text: 'Learn, Love, and Live the Life'},
+            {type: 'descriptive', text: 'of Jesus Christ'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -106,9 +106,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Increase your faith, learn about the life of'},
-            {type: 'descriptiveText', text: "our Lord, study the Bible, meet new"},
-            {type: 'descriptiveText', text: "friends, and have loads of fun!"},
+            {type: 'descriptive', text: 'Increase your faith, learn about the life of'},
+            {type: 'descriptive', text: "our Lord, study the Bible, meet new"},
+            {type: 'descriptive', text: "friends, and have loads of fun!"},
           ],
           color: solidColor('#fff'),
           font: {

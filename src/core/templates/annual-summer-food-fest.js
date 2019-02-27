@@ -1,14 +1,13 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'We are proud to present'},
+    {type: 'descriptive', text: 'We are proud to present'},
   ],
   color: solidColor('#30a6c0'),
   font: {
-    family: 'Muli',
+    family: 'Arvo',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +23,7 @@ const dominant = {
   ],
   color: solidColor('#f76991'),
   font: {
-    family: 'Norwester',
+    family: 'League Spartan',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -39,9 +38,10 @@ const bridge = {
   ],
   color: solidColor('#30a6c0'),
   font: {
-    family: 'Muli',
+    family: 'Arvo',
     letterSpacing: 0,
     size: 1,
+    style: 'italic',
     transform: 'normal',
   },
 }
@@ -49,12 +49,18 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 22, 2020 | Starts at 10 A.M.'},
-    {type: 'descriptive', text: '123 Anywhere St.'},
+    {type: 'date', text: 'June 22, 2020'},
+    {type: 'time', text: 'Starts at 10 A.M.'},
+    {type: 'location', text: '123 Anywhere St.'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#f76991'),
+  },
   color: solidColor('#f76991'),
   font: {
-    family: 'Muli',
+    family: 'League Spartan',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -65,13 +71,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Usher in an epic summer season with a'},
-    {type: 'eventName', text: "fantastic festival that's perfect for you, your friends,"},
-    {type: 'eventName', text: 'and the whole community!'},
+    {type: 'descriptive', text: 'Usher in an epic summer season with a'},
+    {type: 'descriptive', text: "fantastic festival that's perfect for you, your friends,"},
+    {type: 'descriptive', text: 'and the whole community!'},
   ],
   color: solidColor('#30a6c0'),
   font: {
-    family: 'Norwester',
+    family: 'Arvo',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -80,14 +86,31 @@ const paragraph = {
   },
 }
 
+const icon = {
+  type: 'icon',
+  url: '/champagne.svg',
+  fill: '#f76991',
+  size: 1.2,
+  meta: {
+    width: 100,
+    height: 100,
+    colors: [],
+    filetype: 'svg',
+  },
+},
+
 
 export default {
-  title: '',
+  title: 'Annual Summer Food Fest',
   tags: ['event', 'flyer'],
   background: solidColor('#fff'),
+  decor: {
+    t: .2,
+  },
   content: {
     body: {
       elements: [
+        icon,
         small,
         dominant,
         bridge,

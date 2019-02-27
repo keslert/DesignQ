@@ -1,4 +1,4 @@
-import { solidColor } from '.'
+import { solidColor } from './'
 
 
 const small = {
@@ -6,9 +6,9 @@ const small = {
   lines: [
     {type: 'host', text: 'Organika Lifestyle Center'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#697b60'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -22,9 +22,9 @@ const dominant = {
     {type: 'eventName', text: 'The Art of '},
     {type: 'eventName', text: 'Healthy Living'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#697b60'),
   font: {
-    family: 'Norwester',
+    family: 'Aleo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -37,9 +37,9 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A seminar about how to live a healthier lifestyle'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#697b60'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -53,9 +53,9 @@ const heading = {
     {type: 'descriptive', text: '1 PM - 3 PM'},
     {type: 'descriptive', text: 'Beechtown Auditorium'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#697b60'),
   font: {
-    family: 'Muli',
+    family: 'Aleo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'eventName', text: 'exercise routine, find the best path to a '},
     {type: 'eventName', text: 'happier and healthier you.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#697b60'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -83,9 +83,17 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'The Art of Healthy Living',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ffffff'),
+  border: {
+    a: .03,
+    background: solidColor('#ffffff'),
+  },
+  decor: {
+    t: .45,
+    type: 'gallery',
+  },
   content: {
     body: {
       elements: [
@@ -93,8 +101,14 @@ export default {
         dominant,
         bridge,
         heading,
-        paragraph,
       ]
     },
+    footer: {
+      background: solidColor('#697b60'),
+      bleed: { a: 1 },
+      elements: [
+        paragraph,
+      ]
+    }
   }
 }

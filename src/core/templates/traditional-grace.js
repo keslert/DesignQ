@@ -20,7 +20,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'For Sale'},
+            {type: 'descriptive', text: 'For Sale'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -60,10 +60,10 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'An offering unmatched in quality or setting, this'},
-            {type: 'descriptiveText', text: 'lovely cottage offers a life of absolute luxery and'},
-            {type: 'descriptiveText', text: 'convenience. A beautiful home for those who wish'},
-            {type: 'descriptiveText', text: 'for the quiet and quaint.'},
+            {type: 'descriptive', text: 'An offering unmatched in quality or setting, this'},
+            {type: 'descriptive', text: 'lovely cottage offers a life of absolute luxery and'},
+            {type: 'descriptive', text: 'convenience. A beautiful home for those who wish'},
+            {type: 'descriptive', text: 'for the quiet and quaint.'},
           ],
           color: solidColor('#fff'),
           font: {

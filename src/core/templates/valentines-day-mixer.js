@@ -34,7 +34,7 @@ export default {
           type: 'small', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Celebrate the Day of Hearts'},
+            {type: 'descriptive', text: 'Celebrate the Day of Hearts'},
           ],
           mb: 1,
           font: {

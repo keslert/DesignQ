@@ -24,7 +24,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: "You're All Invited!"},
+            {type: 'descriptive', text: "You're All Invited!"},
           ],
           color: solidColor('#fff'),
           font: {
@@ -57,8 +57,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: "Let's Party and Celebrate 21 Awesome"},
-            {type: 'descriptiveText', text: "Years!"},
+            {type: 'descriptive', text: "Let's Party and Celebrate 21 Awesome"},
+            {type: 'descriptive', text: "Years!"},
           ],
           color: solidColor('#fff'),
           font: {
@@ -102,8 +102,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#f17365cc'),
           lines: [
-            {type: 'descriptiveText', text: 'There will be beer kegs, cocktails, and loads of bar chow! Let me know if you'},
-            {type: 'descriptiveText', text: 'can make it through hello@reallygreatsite.com'},
+            {type: 'descriptive', text: 'There will be beer kegs, cocktails, and loads of bar chow! Let me know if you'},
+            {type: 'descriptive', text: 'can make it through hello@reallygreatsite.com'},
           ],
           font: {
             family: 'Lato',

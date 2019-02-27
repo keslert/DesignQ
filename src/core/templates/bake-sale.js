@@ -82,7 +82,7 @@ export default {
         type: 'small',
         color: solidColor('#fff'),
         lines: [
-          {type: 'descriptiveText', text: 'Proceeds Benefit Spark High School Spirit Squad'}
+          {type: 'descriptive', text: 'Proceeds Benefit Spark High School Spirit Squad'}
         ],
         font: {
           family: 'Muli',

@@ -51,7 +51,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A fun and exciting festival for the whole family'},
+            {type: 'descriptive', text: 'A fun and exciting festival for the whole family'},
           ],
           color: solidColor('#23374a'),
           font: {
@@ -98,9 +98,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'See you all at the Hullton Village Park for a fun day of food'},
-            {type: 'descriptiveText', text: 'games, shopping and prizes! Bringing of pets is highly'},
-            {type: 'descriptiveText', text: 'encouraged.'},
+            {type: 'descriptive', text: 'See you all at the Hullton Village Park for a fun day of food'},
+            {type: 'descriptive', text: 'games, shopping and prizes! Bringing of pets is highly'},
+            {type: 'descriptive', text: 'encouraged.'},
           ],
           font: {
             family: 'Muli',

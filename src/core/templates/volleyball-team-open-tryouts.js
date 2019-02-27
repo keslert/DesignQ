@@ -1,14 +1,13 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Algies Bay High School'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#273c58'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -38,9 +37,9 @@ const bridge = {
     {type: 'descriptive', text: 'Tryouts for the Algies Bay Volleycats for AY'},
     {type: 'descriptive', text: '2020-2021'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#273c58'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -53,9 +52,9 @@ const heading = {
     {type: 'descriptive', text: 'Sept. 20-22,2020 - 3 PM to 5 PM'},
     {type: 'descriptive', text: 'ABHS Covered Court'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#273c58'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -69,9 +68,9 @@ const paragraph = {
     {type: 'eventName', text: 'The ABHS Volleycats is on the lookout for new talents to join'},
     {type: 'eventName', text: 'the team. Tryouts are open to all junior and senior students.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#273c58'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -84,16 +83,22 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#79cecd'),
   content: {
     body: {
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      background: solidColor('#ffffff'),
+      bleed: { a: 1 },
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

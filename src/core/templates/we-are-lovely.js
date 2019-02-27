@@ -24,7 +24,7 @@ export default {
           type: 'small', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Valentine\'s Celebration'},
+            {type: 'descriptive', text: 'Valentine\'s Celebration'},
           ],
           mb: 1,
           font: {

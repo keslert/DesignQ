@@ -59,8 +59,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Join the team and be part of'},
-            {type: 'descriptiveText', text: 'something awesome!'},
+            {type: 'descriptive', text: 'Join the team and be part of'},
+            {type: 'descriptive', text: 'something awesome!'},
           ],
           color: solidColor('#000'),
           font: {
@@ -101,9 +101,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Want to know what it takes? Email Coach'},
-            {type: 'descriptiveText', text: "Jennifer at hello@reallygreatsite.com for more"},
-            {type: 'descriptiveText', text: "information on tryouts!"},
+            {type: 'descriptive', text: 'Want to know what it takes? Email Coach'},
+            {type: 'descriptive', text: "Jennifer at hello@reallygreatsite.com for more"},
+            {type: 'descriptive', text: "information on tryouts!"},
           ],
           color: solidColor('#000'),
           font: {

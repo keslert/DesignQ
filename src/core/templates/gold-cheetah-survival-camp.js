@@ -56,8 +56,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Get together with friends and be wilderness'},
-            {type: 'descriptiveText', text: 'explorers!'},
+            {type: 'descriptive', text: 'Get together with friends and be wilderness'},
+            {type: 'descriptive', text: 'explorers!'},
           ],
           color: solidColor('#f25938'),
           font: {
@@ -113,8 +113,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Open for kids aged 11 to 13. Our team of skilled and'},
-            {type: 'descriptiveText', text: 'professional camp counselors ensures all kids are safe 24/7.'},
+            {type: 'descriptive', text: 'Open for kids aged 11 to 13. Our team of skilled and'},
+            {type: 'descriptive', text: 'professional camp counselors ensures all kids are safe 24/7.'},
           ],
           color: solidColor('#fff'),
           font: {

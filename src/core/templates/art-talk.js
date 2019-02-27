@@ -68,8 +68,8 @@ export default {
         { 
           type: 'bridge', 
           lines: [
-            {type: 'descriptiveText', text: 'Things you need to know'}, 
-            {type: 'descriptiveText', text: 'about your art'},
+            {type: 'descriptive', text: 'Things you need to know'}, 
+            {type: 'descriptive', text: 'about your art'},
           ],
           color: solidColor('#8C8C8C'),
           font: {

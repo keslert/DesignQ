@@ -16,7 +16,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'The 15th Annual'},
+            {type: 'descriptive', text: 'The 15th Annual'},
           ],
           color: solidColor('#666'),
           font: {
@@ -31,7 +31,7 @@ export default {
           mb: 0,
         },
         {
-          type: 'logo',
+          type: 'icon',
           url: '/champagne.svg',
           fill: '#dfd7a6',
           size: 1.2,
@@ -62,8 +62,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'All proceeds will fund the Winslow'},
-            {type: 'descriptiveText', text: 'Women\'s Organization'},
+            {type: 'descriptive', text: 'All proceeds will fund the Winslow'},
+            {type: 'descriptive', text: 'Women\'s Organization'},
           ],
           color: solidColor('#666'),
           font: {
@@ -110,9 +110,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Enjoy hors d\'oeuvres and cocktails as you are'},
-            {type: 'descriptiveText', text: 'serenaded by the angelic voice of renowned jazz'},
-            {type: 'descriptiveText', text: 'singer Antonina Berkeley.'},
+            {type: 'descriptive', text: 'Enjoy hors d\'oeuvres and cocktails as you are'},
+            {type: 'descriptive', text: 'serenaded by the angelic voice of renowned jazz'},
+            {type: 'descriptive', text: 'singer Antonina Berkeley.'},
           ],
           color: solidColor('#666'),
           font: {

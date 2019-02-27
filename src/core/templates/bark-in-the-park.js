@@ -84,8 +84,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A benefit event for the stray dogs of'},
-            {type: 'descriptiveText', text: 'Nightowl PPC'},
+            {type: 'descriptive', text: 'A benefit event for the stray dogs of'},
+            {type: 'descriptive', text: 'Nightowl PPC'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -121,9 +121,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Bring your dog and enjoy the day\'s festivities!'},
-            {type: 'descriptiveText', text: 'We\'ll be having loads of fun activities and'},
-            {type: 'descriptiveText', text: 'awesome games for all attendees.'},
+            {type: 'descriptive', text: 'Bring your dog and enjoy the day\'s festivities!'},
+            {type: 'descriptive', text: 'We\'ll be having loads of fun activities and'},
+            {type: 'descriptive', text: 'awesome games for all attendees.'},
           ],
           color: solidColor('#fff'),
           font: {

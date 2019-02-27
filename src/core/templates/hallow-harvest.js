@@ -29,7 +29,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Charlotte, NC'},
+            {type: 'descriptive', text: 'Charlotte, NC'},
           ],
           color: solidColor('#AA4524'),
           font: {
@@ -61,8 +61,8 @@ export default {
           type: 'bridge',
           color: solidColor('#AA4524'),
           lines: [
-            {type: 'descriptiveText', text: 'Join the Annual'},
-            {type: 'descriptiveText', text: 'Hallow Harvest this'},
+            {type: 'descriptive', text: 'Join the Annual'},
+            {type: 'descriptive', text: 'Hallow Harvest this'},
             {type: 'date', text: 'Oct. 31, 2019', format: 'MMM. D, YYYY'},
           ],
           font: {

@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#13b694'),
   font: {
-    family: 'Muli',
+    family: 'Aileron',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,11 +24,11 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Aileron',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 900,
   },
 }
 
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#13b694'),
   font: {
-    family: 'Muli',
+    family: 'Aileron',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,30 +50,30 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'December 14-16, 2020'},
-    {type: 'descriptive', text: '10 AM - 5 PM'},
-    {type: 'descriptive', text: 'Quarkwood Events Hall A'},
+    {type: 'date', text: 'December 14-16, 2020'},
+    {type: 'time', text: '10 AM - 5 PM'},
+    {type: 'location', text: 'Quarkwood Events Hall A'},
   ],
   color: solidColor('#0d2839'),
   font: {
-    family: 'Muli',
+    family: 'Aileron',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Check up on your health, sign up for a gym'},
-    {type: 'eventName', text: 'membership, or try out some healthy recipes!'},
-    {type: 'eventName', text: 'Drop by and start getting healthy!'},
+    {type: 'descriptive', text: 'Check up on your health, sign up for a gym'},
+    {type: 'descriptive', text: 'membership, or try out some healthy recipes!'},
+    {type: 'descriptive', text: 'Drop by and start getting healthy!'},
   ],
   color: solidColor('#0d2839'),
   font: {
-    family: 'Norwester',
+    family: 'Aileron',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -84,18 +84,34 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Annual Health is Wealth Fair',
   tags: ['event', 'flyer'],
-  background: solidColor('#13b694'),
+  background: {
+    img: {
+      src: '',
+      filters: {
+        brightness: 0.7,
+      }
+    },
+    color: '#0d2839',
+    backgroundBlendMode: 'luminosity',
+  },
   content: {
     body: {
+      alignY: 'top',
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      background: solidColor('#13b694'),
+      bleed: { a: 1 },
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

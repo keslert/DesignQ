@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#64492c'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -22,9 +21,9 @@ const dominant = {
     {type: 'eventName', text: 'The Annual Winter'},
     {type: 'eventName', text: 'Wonderland Gala'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'League Spartan',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +39,7 @@ const bridge = {
   ],
   color: solidColor('#64492c'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +49,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'December 9 to 10 2020/ 7PM'},
+    [
+      {type: 'date', text: 'December 9 to 10, 2020', format: 'MMMM D to D, YYYY'},
+      {type: 'time', text: '7PM'},
+    ],
     {type: 'descriptive', text: '123 Anywhere St. Any City'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'slash',
+    size: 1,
+    color: solidColor('#ffffff'),
+  },
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'League Spartan',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -71,20 +78,23 @@ const paragraph = {
   ],
   color: solidColor('#64492c'),
   font: {
-    family: 'Norwester',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 
 export default {
-  title: '',
+  title: 'Annual Winter Wonderland Gala',
   tags: ['event', 'flyer'],
   background: solidColor('#ddb64a'),
+  decor: {
+    t: .45,
+  },
   content: {
     body: {
       elements: [

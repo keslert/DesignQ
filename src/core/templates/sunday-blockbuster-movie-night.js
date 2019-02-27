@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#fefae8'),
   font: {
-    family: 'Muli',
+    family: 'Aleo',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -19,7 +19,7 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Sunday Blockbuster},
+    {type: 'eventName', text: 'Sunday Blockbuster'},
     {type: 'eventName', text: 'Movie Night'},
   ],
   color: solidColor('#fefae8'),
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#fefae8'),
   font: {
-    family: 'Muli',
+    family: 'Aleo',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +50,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Oct. 25, 2020 - 6 PM to 11 PM'},
+    [
+      {type: 'date', text: 'Oct. 25, 2020'},
+      {type: 'time', text: '6 PM to 11 PM'},
+    ],
     {type: 'descriptive', text: 'Silton Cinemas'},
   ],
+  divider: {
+    type: 'dash',
+    size: 1,
+    color: solidColor('#fefae8'),
+  },
   color: solidColor('#fefae8'),
   font: {
-    family: 'Muli',
+    family: 'Norwester',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -66,13 +74,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Missed seeing great movies from last year? Fret'},
-    {type: 'eventName', text: "not! We're bringing them back on Sunday"},
-    {type: 'eventName', text: 'Blockbuster Movie Night!'},
+    {type: 'descriptive', text: 'Missed seeing great movies from last year? Fret'},
+    {type: 'descriptive', text: "not! We're bringing them back on Sunday"},
+    {type: 'descriptive', text: 'Blockbuster Movie Night!'},
   ],
   color: solidColor('#fefae8'),
   font: {
-    family: 'Norwester',
+    family: 'Aleo',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -83,9 +91,12 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Sunday Blockbuster Movie Night',
   tags: ['event', 'flyer'],
   background: solidColor('#344355'),
+  decor: {
+    b: .4,
+  },
   content: {
     body: {
       elements: [

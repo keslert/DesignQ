@@ -56,8 +56,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Represent the school by'},
-            {type: 'descriptiveText', text: 'doing what you love the most!'},
+            {type: 'descriptive', text: 'Represent the school by'},
+            {type: 'descriptive', text: 'doing what you love the most!'},
           ],
           color: solidColor('#000'),
           font: {
@@ -97,9 +97,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'The Broadus Football Varsity is looking for strong,'},
-            {type: 'descriptiveText', text: 'hardworking, and talented football players'},
-            {type: 'descriptiveText', text: 'to join the team.'},
+            {type: 'descriptive', text: 'The Broadus Football Varsity is looking for strong,'},
+            {type: 'descriptive', text: 'hardworking, and talented football players'},
+            {type: 'descriptive', text: 'to join the team.'},
           ],
           color: solidColor('#000'),
           font: {

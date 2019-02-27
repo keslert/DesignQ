@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#46dbdd'),
   font: {
-    family: 'Muli',
+    family: 'Quicksand',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,7 +25,7 @@ const dominant = {
   ],
   color: solidColor('#f43a76'),
   font: {
-    family: 'Norwester',
+    family: 'Nunito',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#46dbdd'),
   font: {
-    family: 'Muli',
+    family: 'Quicksand',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,13 +51,13 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'September 5-10, 2020'},
-    {type: 'descriptive', text: '1-3 PM'},
-    {type: 'descriptive', text: "Marissa's Art Corner"},
+    {type: 'date', text: 'September 5-10, 2020'},
+    {type: 'time', text: '1-3 PM'},
+    {type: 'location', text: "Marissa's Art Corner"},
   ],
   color: solidColor('#f43a76'),
   font: {
-    family: 'Muli',
+    family: 'Nunito',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -68,15 +68,14 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Entry Fee: $50'},
-    {type: 'eventName', text: 'For slot reservations, contact me at'},
-    {type: 'eventName', text: 'hello@reallygreatsite.com. More inforamtion at'},
-    {type: 'eventName', text: 'www.reallygreatsite.com'},
+    {type: 'price', text: 'Entry Fee: $50'},
+    {type: 'contact', text: 'For slot reservations, contact me at'},
+    {type: 'contact', text: 'hello@reallygreatsite.com. More inforamtion at'},
+    {type: 'descriptive', text: 'www.reallygreatsite.com'},
   ],
   color: solidColor('#fff'),
-  background: solidColor('#46dbdd')
   font: {
-    family: 'Norwester',
+    family: 'Quicksand',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -87,18 +86,35 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'From Sketches to Artwork',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1485841938031-1bf81239b815?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    }
+  },
   content: {
     body: {
+      h: 'auto',
+      w: 'auto',
+      pa: 3,
+      background: {
+        color: '#ffffff',
+        borderRadius: unitValue(50, '%'),
+      },
+      aspectRatio: 1,
       elements: [
         small,
         dominant,
         bridge,
         heading,
-        paragraph,
       ]
     },
+    footer: {
+      background: solidColor('#46dbdd'),
+      elements: [
+        paragraph,
+      ]
+    }
   }
 }

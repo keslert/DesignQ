@@ -25,7 +25,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'A Holiday Celebration'},
+            {type: 'descriptive', text: 'A Holiday Celebration'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -60,8 +60,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Join us for a holiday feast with'},
-            {type: 'descriptiveText', text: 'friends and family!'},
+            {type: 'descriptive', text: 'Join us for a holiday feast with'},
+            {type: 'descriptive', text: 'friends and family!'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -97,8 +97,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Food and beverages catered by the Beechtown Culinary Hall.'},
-            {type: 'descriptiveText', text: 'The event is open to all, so feel free to bring anyone you want!'},
+            {type: 'descriptive', text: 'Food and beverages catered by the Beechtown Culinary Hall.'},
+            {type: 'descriptive', text: 'The event is open to all, so feel free to bring anyone you want!'},
           ],
           color: solidColor('#fff'),
           font: {

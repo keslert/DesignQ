@@ -69,7 +69,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Drop by for free flu vaccinations and health screenings.'},
+            {type: 'descriptive', text: 'Drop by for free flu vaccinations and health screenings.'},
           ],
           color: solidColor('#ffffff'),
           font: {
@@ -116,8 +116,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Winslough Elders Association covers the cost of vaccines for those'},
-            {type: 'descriptiveText', text: 'without insurance. Don\'t miss out on the opportunity!'},
+            {type: 'descriptive', text: 'Winslough Elders Association covers the cost of vaccines for those'},
+            {type: 'descriptive', text: 'without insurance. Don\'t miss out on the opportunity!'},
           ],
           color: solidColor('#fff'),
           font: {

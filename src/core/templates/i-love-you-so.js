@@ -24,7 +24,7 @@ export default {
           type: 'small', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'A Valentine\'s Celebration'},
+            {type: 'descriptive', text: 'A Valentine\'s Celebration'},
           ],
           font: {
             family: 'Muli',
@@ -59,9 +59,9 @@ export default {
           type: 'small', 
           lines: [
             [
-              {type: 'descriptiveText', text: 'Food'},
-              {type: 'descriptiveText', text: 'Drink'},
-              {type: 'descriptiveText', text: 'Music'},
+              {type: 'descriptive', text: 'Food'},
+              {type: 'descriptive', text: 'Drink'},
+              {type: 'descriptive', text: 'Music'},
             ],
             [
               {type: 'date', text: 'Feb 9', format: 'MMM D'},

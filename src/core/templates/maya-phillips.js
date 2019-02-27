@@ -4,24 +4,14 @@ export default {
   title: 'Maya Phillips',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-colorful-confetti-background-birthday-celebration-event-flyer-MAC7mrsHwDA.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
-  border: {
-    top: 40,
-    bottom: 40,
-    left: 50,
-    right: 50,
-    url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-colorful-confetti-background-birthday-celebration-event-flyer-MAC7mrsHwDA.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+  background: {
+    img: {
+      src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-colorful-confetti-background-birthday-celebration-event-flyer-MAC7mrsHwDA.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+    }
   },
-  background: solidColor('#ffffff'),
   content: {
-    height: 'flex',
-    width: 'flex',
+    background: solidColor('#fff'),
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
       elements: [
         {
           type: 'small',
@@ -38,7 +28,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -56,7 +45,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -74,7 +62,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -92,8 +79,8 @@ export default {
           },
           color: solidColor('#ffffff'),
           background: solidColor('#000000'),
-          width: unitValue(100, '%'),
-          textAlign: 'center',
+          w: 'auto',
+          py: 1.5,
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -103,14 +90,12 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
-          py: 1.5,
         },
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: "This is a special birthday, so let's party all night!"},
-            {type: 'descriptiveText', text: "Please come in black or pink."},
+            {type: 'descriptive', text: "This is a special birthday, so let's party all night!"},
+            {type: 'descriptive', text: "Please come in black or pink."},
             {type: 'contact', text: 'Call Adora at 123-456-7890 to confirm.'},
           ],
           color: solidColor('#000000'),
@@ -123,7 +108,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

@@ -51,8 +51,8 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'pre-loved clothing, shoes, home'},
-            {type: 'descriptiveText', text: 'decor, books, stationary, and more...'},
+            {type: 'descriptive', text: 'pre-loved clothing, shoes, home'},
+            {type: 'descriptive', text: 'decor, books, stationary, and more...'},
           ],
           color: solidColor('#e64d45'),
           font: {

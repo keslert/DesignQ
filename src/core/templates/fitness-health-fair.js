@@ -4,27 +4,19 @@ export default {
   title: 'Fitness and Health Fair',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-medicine-icons-health-fair-flyer-MAC4Dj6eGos.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 48,
   background: solidColor('#ffffff'),
+  decor: {
+    t: .3,
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      flex: 1,
-      width: unitValue(100, '%'),
-      mb: 1.25,
       elements: [
-        {
-          type: 'image',
-          url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/images%2Fmedical-icons.png?alt=media&token=62159492-11d2-4b87-be52-7fe70058a703',
-          flex: 1,
-          bleed: {all: true, bottom: false},
-        },
+        // {
+        //   type: 'image',
+        //   url: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/images%2Fmedical-icons.png?alt=media&token=62159492-11d2-4b87-be52-7fe70058a703',
+        //   flex: 1,
+        //   bleed: {all: true, bottom: false},
+        // },
         {
           type: 'small',
           lines: [
@@ -41,7 +33,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -60,7 +51,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -78,7 +68,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -97,7 +86,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
@@ -117,7 +105,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

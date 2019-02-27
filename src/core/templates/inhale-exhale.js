@@ -44,7 +44,7 @@ export default {
         { 
           type: 'small', 
           lines: [
-            {type: 'descriptiveText', text: 'Yoga Therapy'},
+            {type: 'descriptive', text: 'Yoga Therapy'},
           ],
           color: solidColor('#fff'),
           font: {

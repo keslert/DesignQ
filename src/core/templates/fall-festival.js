@@ -83,7 +83,7 @@ export default {
       elements: [{
         type: 'small',
         lines: [
-          {type: 'descriptiveText', text: 'Come Join The Fun'},
+          {type: 'descriptive', text: 'Come Join The Fun'},
         ],
         color: solidColor('#fff'),
         font: {
@@ -104,7 +104,7 @@ export default {
       elements: [{
         type: 'small',
         lines: [
-          {type: 'descriptiveText', text: 'It\'s The Annual'},
+          {type: 'descriptive', text: 'It\'s The Annual'},
         ],
         color: solidColor('#fff'),
         font: {

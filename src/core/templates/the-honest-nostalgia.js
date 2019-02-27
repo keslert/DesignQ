@@ -53,8 +53,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Featuring the works of renowned'},
-            {type: 'descriptiveText', text: 'artist, Tachibana Daishi'},
+            {type: 'descriptive', text: 'Featuring the works of renowned'},
+            {type: 'descriptive', text: 'artist, Tachibana Daishi'},
           ],
           color: solidColor('#21303b'),
           font: {
@@ -95,9 +95,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#21303b'),
           lines: [
-            {type: 'descriptiveText', text: 'Get an in-depth glimpse into the otherworldly'},
-            {type: 'descriptiveText', text: 'beauty of Tachibana\'s most popular Japanese-'},
-            {type: 'descriptiveText', text: 'themed masterpieces.'},
+            {type: 'descriptive', text: 'Get an in-depth glimpse into the otherworldly'},
+            {type: 'descriptive', text: 'beauty of Tachibana\'s most popular Japanese-'},
+            {type: 'descriptive', text: 'themed masterpieces.'},
           ],
           font: {
             family: 'Montserrat',

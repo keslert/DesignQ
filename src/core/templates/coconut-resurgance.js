@@ -30,7 +30,7 @@ export default {
           bleed: { left: true },
           width: unitValue(100, '%'),
           lines: [
-            {type: 'descriptiveText', text: 'Superfood Corner'}
+            {type: 'descriptive', text: 'Superfood Corner'}
           ],
           font: {
             family: 'Muli',
@@ -67,12 +67,12 @@ export default {
         { 
           type: 'bridge', 
           lines: [
-            {type: 'descriptiveText', text: 'The coconut provides a nutritious source'},
-            {type: 'descriptiveText', text: 'of meat, juice, milk, and oil that has fed'},
-            {type: 'descriptiveText', text: 'and nourished populations around the'},
-            {type: 'descriptiveText', text: 'world for generations. On many islands'},
-            {type: 'descriptiveText', text: 'coconut is a staple in the diet and provides'},
-            {type: 'descriptiveText', text: 'the majority of the food eaten.'},
+            {type: 'descriptive', text: 'The coconut provides a nutritious source'},
+            {type: 'descriptive', text: 'of meat, juice, milk, and oil that has fed'},
+            {type: 'descriptive', text: 'and nourished populations around the'},
+            {type: 'descriptive', text: 'world for generations. On many islands'},
+            {type: 'descriptive', text: 'coconut is a staple in the diet and provides'},
+            {type: 'descriptive', text: 'the majority of the food eaten.'},
           ],
           color: solidColor('#6b474f'),
           font: {

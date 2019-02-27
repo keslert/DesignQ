@@ -1,14 +1,13 @@
-import { solidColor } from '.'
-
+import { solidColor } from './'
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Zimcore Hubs Presents'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,9 +23,9 @@ const dominant = {
     {type: 'eventName', text: 'Career'},
     {type: 'eventName', text: 'Fair'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'Bodoni FLF',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,9 +39,9 @@ const bridge = {
     {type: 'descriptive', text: 'With more than 200 companies and 50'},
     {type: 'descriptive', text: 'professionals!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -52,12 +51,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'From January 5 to 8| 11a.m.'},
-    {type: 'descriptive', text: 'Beechtown Pavillion'},
+    [
+      {type: 'date', text: 'From January 5 to 8'},
+      {type: 'time', text: '11a.m.'},
+    ],
+    {type: 'location', text: 'Beechtown Pavillion'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'bar',
+    size: 1,
+    color: solidColor('#ffffff'),
+  },
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -72,9 +79,9 @@ const paragraph = {
     {type: 'eventName', text: 'Grab this opportunity to meet and connect'},
     {type: 'eventName', text: 'with companies that are looking to hire.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -87,8 +94,18 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: '',
+    },
+  },
   content: {
+    background: solidColor('#da3c33'),
+    h: 'auto',
+    w: 'auto',
+    alignX: 'left',
+    alignY: 'bottom',
+    bleed: {l: 1},
     body: {
       elements: [
         small,

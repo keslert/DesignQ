@@ -24,7 +24,7 @@ export default {
           type: 'small', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Burger Soldier Presents'},
+            {type: 'descriptive', text: 'Burger Soldier Presents'},
           ],
           font: {
             family: 'Muli',
@@ -59,8 +59,8 @@ export default {
         { 
           type: 'small', 
           lines: [
-            {type: 'descriptiveText', text: 'Celebrate your Valentines with this'},
-            {type: 'descriptiveText', text: 'treat for two promo'},
+            {type: 'descriptive', text: 'Celebrate your Valentines with this'},
+            {type: 'descriptive', text: 'treat for two promo'},
           ],
           color: solidColor('#fff'),
           mb: 1,
@@ -76,7 +76,7 @@ export default {
         { 
           type: 'bridge', 
           lines: [
-            {type: 'descriptiveText', text: 'Buy 1 Get 1 Free'},
+            {type: 'descriptive', text: 'Buy 1 Get 1 Free'},
           ],
           color: solidColor('#fff'),
           mb: 1,

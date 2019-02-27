@@ -28,7 +28,7 @@ export default {
         {
           type: 'small', 
           lines: [
-            {type: 'descriptiveText', text: 'Bawres Fort Presents'},
+            {type: 'descriptive', text: 'Bawres Fort Presents'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -59,7 +59,7 @@ export default {
         {
           type: 'bridge', 
           lines: [
-            {type: 'descriptiveText', text: 'A Fundraising Event'},
+            {type: 'descriptive', text: 'A Fundraising Event'},
           ],
           color: solidColor('#fa905e'),
           font: {

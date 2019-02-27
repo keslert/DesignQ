@@ -58,8 +58,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A special concert by the Winslough\'s'},
-            {type: 'descriptiveText', text: 'award-winning choir.'},
+            {type: 'descriptive', text: 'A special concert by the Winslough\'s'},
+            {type: 'descriptive', text: 'award-winning choir.'},
           ],
           color: solidColor('#454a80'),
           font: {
@@ -77,7 +77,7 @@ export default {
           lines: [
             [
               {type: 'date', text: 'December 23, 2020', format: 'MMMM D, YYYY'},
-              {type: 'descriptiveText', text: 'Starts At'},
+              {type: 'descriptive', text: 'Starts At'},
             ],
             [
               {type: 'time', text: '6pm'},
@@ -103,9 +103,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Make this holiday season the best one yet. Watch as'},
-            {type: 'descriptiveText', text: "the Winslough Songbirds perform the best"},
-            {type: 'descriptiveText', text: "Christmas carols"},
+            {type: 'descriptive', text: 'Make this holiday season the best one yet. Watch as'},
+            {type: 'descriptive', text: "the Winslough Songbirds perform the best"},
+            {type: 'descriptive', text: "Christmas carols"},
           ],
           color: solidColor('#454a80'),
           font: {

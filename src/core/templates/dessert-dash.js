@@ -37,7 +37,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Fundraiser'},
+            {type: 'descriptive', text: 'Fundraiser'},
           ],
           color: solidColor('#E5E5E5'),
           font: {

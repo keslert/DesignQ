@@ -42,7 +42,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Up to 70% Off'},
+            {type: 'descriptive', text: 'Up to 70% Off'},
           ],
           color: solidColor('#000'),
           font: {

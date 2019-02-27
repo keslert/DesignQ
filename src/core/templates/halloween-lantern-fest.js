@@ -29,7 +29,7 @@ export default {
           type: 'small', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Everyone is invited!'},
+            {type: 'descriptive', text: 'Everyone is invited!'},
           ],
           font: {
             family: 'Muli',

@@ -4,22 +4,14 @@ export default {
   title: 'Save the Earth',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-purple-and-green-earth-volunteer-flyer-MAC7mtoG_Mk.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 36,
-  py: 36,
   background: solidColor('#2d1b4d'),
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
       elements: [
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'A Call for Volunteers'},
+            {type: 'descriptive', text: 'A Call for Volunteers'},
           ],
           color: solidColor('#ffffffcc'),
           font: {
@@ -31,7 +23,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 2,
         },
         {
           type: 'dominant',
@@ -49,7 +40,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -66,7 +56,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'heading',
@@ -84,33 +73,28 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
       ]
     },
     footer: {
-      bleed: { all: true },
-      width: unitValue(100, '%'),
-      textAlign: 'center',
+      bleed: { a: 1 },
+      background: solidColor('#e5fce1'),
       elements: [
-        { 
-          type: 'image',
-          fill: '#94f9cd',
-          bleed: {all: true},
-          url: '/world.svg',
-          aspectRatio: .55,
-          zoom: 1.6,
-          y: 0,
-        },
+        // { 
+        //   type: 'image',
+        //   fill: '#94f9cd',
+        //   bleed: {all: true},
+        //   url: '/world.svg',
+        //   aspectRatio: .55,
+        //   zoom: 1.6,
+        //   y: 0,
+        // },
         {
-          width: unitValue(100, '%'),
           type: 'paragraph',
-          bleed: { all: true },
-          background: solidColor('#e5fce1'),
           color: solidColor('#2d1b4d'),
           lines: [
-            {type: 'descriptiveText', text: 'The Beechtown Enfironmental Organization has been'},
-            {type: 'descriptiveText', text: 'protecting the environment for over 40 years. Will you join us?'},
+            {type: 'descriptive', text: 'The Beechtown Enfironmental Organization has been'},
+            {type: 'descriptive', text: 'protecting the environment for over 40 years. Will you join us?'},
           ],
           font: {
             family: 'Lato',
@@ -121,8 +105,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          py: 3,
-          mb: 1,
         },
       ]
     }

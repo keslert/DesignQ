@@ -41,9 +41,9 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A Street'},
-            {type: 'descriptiveText', text: 'Photography'},
-            {type: 'descriptiveText', text: 'Workshop'},  
+            {type: 'descriptive', text: 'A Street'},
+            {type: 'descriptive', text: 'Photography'},
+            {type: 'descriptive', text: 'Workshop'},  
           ],
           color: solidColor('#fff'),
           font: {

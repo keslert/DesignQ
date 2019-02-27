@@ -4,22 +4,13 @@ export default {
   title: 'Witch Wars',
   tags: ['event', 'flyer'],
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-purple-orange-witch's-hat-halloween-flyer-MAC5D3BIrJY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
-  px: 40,
-  py: 40,
-  border: {
-    all: 40,
-    color: '#3c2e3e',
-  },
   background: solidColor('#bf6a1a'),
+  border: {
+    a: .05,
+    background: solidColor('#3c2e3e'),
+  },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
-      bleed: { all: true },
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
-      mb: 0.75,
       elements: [
         {
           type: 'small',
@@ -36,7 +27,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'logo',
@@ -54,7 +44,6 @@ export default {
             colors: [],
             filetype: 'svg',
           },
-          mb: 1,
         },
         {
           type: 'dominant',
@@ -72,7 +61,6 @@ export default {
             transform: 'uppercase',
             weight: 400,
           },
-          mb: 1,
         },
         {
           type: 'bridge',
@@ -90,14 +78,12 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 0.5,
         },
         {
           type: 'bar',
           background: solidColor('#3c2e3e'),
-          height: unitValue(10, 'px'),
-          width: unitValue(33, '%'),
-          mb: 0.75,
+          h: 10,
+          w: .25,
         },
         {
           type: 'heading',
@@ -116,14 +102,13 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1,
         },
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: "There's a battle raging among the creatures of the"},
-            {type: 'descriptiveText', text: 'school. Whose side are you on? Join the party and place'},
-            {type: 'descriptiveText', text: 'your bets!'},
+            {type: 'descriptive', text: "There's a battle raging among the creatures of the"},
+            {type: 'descriptive', text: 'school. Whose side are you on? Join the party and place'},
+            {type: 'descriptive', text: 'your bets!'},
           ],
           color: solidColor('#3c2e3e'),
           font: {
@@ -135,7 +120,6 @@ export default {
             transform: 'normal',
             weight: 400,
           },
-          mb: 1,
         },
       ]
     },

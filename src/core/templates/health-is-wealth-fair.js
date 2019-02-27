@@ -103,9 +103,9 @@ export default {
           type: 'paragraph', 
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Make your health always your priority.'},
-            {type: 'descriptiveText', text: 'Participate in this year\'s exciting activities'},
-            {type: 'descriptiveText', text: 'and take steps towards a better lifestyle!'},
+            {type: 'descriptive', text: 'Make your health always your priority.'},
+            {type: 'descriptive', text: 'Participate in this year\'s exciting activities'},
+            {type: 'descriptive', text: 'and take steps towards a better lifestyle!'},
           ],
           font: {
             family: 'Nunito',

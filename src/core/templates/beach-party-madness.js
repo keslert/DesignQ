@@ -31,7 +31,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Come Party With Us!'},
+            {type: 'descriptive', text: 'Come Party With Us!'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -125,9 +125,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Put on your swimsuit, leave your stresses away'},
-            {type: 'descriptiveText', text: 'and get ready for a night of partying by the'},
-            {type: 'descriptiveText', text: 'ocean! Everyone is invited to join!'},
+            {type: 'descriptive', text: 'Put on your swimsuit, leave your stresses away'},
+            {type: 'descriptive', text: 'and get ready for a night of partying by the'},
+            {type: 'descriptive', text: 'ocean! Everyone is invited to join!'},
           ],
           color: solidColor('#fff'),
           font: {

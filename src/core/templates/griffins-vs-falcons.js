@@ -44,7 +44,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A viewing party organized by'},
+            {type: 'descriptive', text: 'A viewing party organized by'},
             {type: 'host', text: 'the Silton Football Circle'},
           ],
           color: solidColor('#fff'),
@@ -108,8 +108,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Get your tickets now! For other reservations and other'},
-            {type: 'descriptiveText', text: 'ticket-related inquiries, visit www.reallygreatsite.com.'},
+            {type: 'descriptive', text: 'Get your tickets now! For other reservations and other'},
+            {type: 'descriptive', text: 'ticket-related inquiries, visit www.reallygreatsite.com.'},
           ],
           color: solidColor('#fff'),
           font: {

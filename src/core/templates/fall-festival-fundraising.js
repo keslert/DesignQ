@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Rosario',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -22,9 +21,9 @@ const dominant = {
     {type: 'eventName', text: 'Fall Festival &'},
     {type: 'eventName', text: 'Fundraising'},
   ],
-  color: solidColor('#ff9169'),
+  color: solidColor('#fe906a'),
   font: {
-    family: 'Norwester',
+    family: 'Arvo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -39,7 +38,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Rosario',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -49,12 +48,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Sept. 22, 2020 | 1 PM to 10 PM'},
-    {type: 'descriptive', text: 'Meadowview Event Center'},
+    [
+      {type: 'date', text: 'Sept. 22, 2020', format: 'MMM. D, YYYY'},
+      {type: 'time', text: '1 PM to 10 PM'},
+    ],
+    {type: 'location', text: 'Meadowview Event Center'},
   ],
-  color: solidColor('#ff9169'),
+  divider: {
+    type: 'bar',
+    size: 1,
+    color: solidColor('#fe906a'),
+  },
+  color: solidColor('#fe906a'),
   font: {
-    family: 'Muli',
+    family: 'Arvo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -69,9 +76,9 @@ const paragraph = {
     {type: 'eventName', text: "welcome the season. This year we're supporting a"},
     {type: 'eventName', text: 'great cause, too!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#e25232'),
   font: {
-    family: 'Norwester',
+    family: 'Rosario',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -80,17 +87,20 @@ const paragraph = {
   },
 }
 
-
 export default {
-  title: '',
+  title: 'Fall Festival & Fundraising',
   tags: ['event', 'flyer'],
-  background: solidColor('#1b1f3a'),
+  background: solidColor('#1a1f3b'),
+  decor: {
+    y: .2,
+  },
   content: {
     body: {
       elements: [
         small,
         dominant,
         bridge,
+        bar,
         heading,
         paragraph,
       ]

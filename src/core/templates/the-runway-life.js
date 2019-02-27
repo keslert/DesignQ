@@ -107,9 +107,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Watch the hottest trends go down the runway'},
-            {type: 'descriptiveText', text: 'with looks from our Spring/Summer \'20 collection.'},
-            {type: 'descriptiveText', text: '100% of the proceeds will go to BWC'},
+            {type: 'descriptive', text: 'Watch the hottest trends go down the runway'},
+            {type: 'descriptive', text: 'with looks from our Spring/Summer \'20 collection.'},
+            {type: 'descriptive', text: '100% of the proceeds will go to BWC'},
           ],
           font: {
             family: 'Montserrat',

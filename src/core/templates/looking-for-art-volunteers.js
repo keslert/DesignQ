@@ -19,10 +19,6 @@ export default {
     }
   },
   content: {
-    h: 'fill',
-    w: 'fill',
-    alignX: 'left',
-    alignY: 'center',
     body: {
       w: 'auto',
       bleed: { b: 2, r: 2 },

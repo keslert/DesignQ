@@ -4,26 +4,24 @@ export default {
   title: 'Summer in Black and White',
   tags: ['event', 'yard-sale'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-monochrome-model-photo-fashion-show-flyer-MAC5vQWghwE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 48,
-  py: 40,
   background: {
-    url: 'https://images.unsplash.com/photo-1534534665817-8493579d3fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    filters: {
-      grayscale: 1,
-      brightness: 0.6,
-    },
-    zoom: 2,
-    y: .35,
+    img: {
+      src: 'https://images.unsplash.com/photo-1534534665817-8493579d3fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      zoom: 2,
+      y: .35,
+      filters: {
+        grayscale: 1,
+        brightness: 0.6,
+      },
+    }
   },
   content: {
-    height: 'flex',
-    width: 'flex',
     body: {
       alignX: 'left',
-      alignY: 'flex-start',
+      alignY: 'top',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
       textAlign: 'left',
-      width: unitValue(100, '%'),
-      bleed: {all: true},
       elements: [
         {
           type: 'small',
@@ -40,7 +38,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 1.5,
         },
         {
           type: 'dominant',
@@ -59,12 +56,11 @@ export default {
             transform: 'normal',
             weight: 900,
           },
-          mb: 1.5,
         },
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Modified classic silhouettes. Timeless color stories.'},
+            {type: 'descriptive', text: 'Modified classic silhouettes. Timeless color stories.'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -79,15 +75,16 @@ export default {
     },
     footer: {
       background: solidColor('#000'),
-      width: unitValue(100, '%'),
-      bleed: {all: true},
+      bleed: { a: 1 },
+      alignX: 'left',
+      itemsAlignX: 'left',
       textAlign: 'left',
       elements: [
         {
           type: 'heading',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Fashion show'},
+            {type: 'descriptive', text: 'Fashion show'},
             {type: 'date', text: 'June 20, 2020', format: 'MMMM D, YYYY'},
             {type: 'location', text: 'Beechtown Auditorium'},
           ],
@@ -99,15 +96,14 @@ export default {
             transform: 'normal',
             lineHeight: 1.4,
           },
-          mb: 1.5,
         },
         {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'A collection inspired by vintage music festival'},
-            {type: 'descriptiveText', text: 'photos, Summer in Black and White will feel'},
-            {type: 'descriptiveText', text: 'nostalgic and modern at the same time.'},
+            {type: 'descriptive', text: 'A collection inspired by vintage music festival'},
+            {type: 'descriptive', text: 'photos, Summer in Black and White will feel'},
+            {type: 'descriptive', text: 'nostalgic and modern at the same time.'},
           ],
           font: {
             family: 'Glacial Indifference',

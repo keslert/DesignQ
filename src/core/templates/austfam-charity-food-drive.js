@@ -38,8 +38,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: "Let's give a helping hand to the victims"},
-            {type: 'descriptiveText', text: "of Typhoon Ovia."},
+            {type: 'descriptive', text: "Let's give a helping hand to the victims"},
+            {type: 'descriptive', text: "of Typhoon Ovia."},
           ],
           color: solidColor('#fff'),
           font: {
@@ -80,8 +80,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: "Typhoon Ovia caused great damage to the community of San Clemence."},
-            {type: 'descriptiveText', text: "Hundreds of evacuees are in dire need of food."},
+            {type: 'descriptive', text: "Typhoon Ovia caused great damage to the community of San Clemence."},
+            {type: 'descriptive', text: "Hundreds of evacuees are in dire need of food."},
           ],
           color: solidColor('#fff'),
           font: {
@@ -109,8 +109,8 @@ export default {
           type: 'small',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'A Little Goes A'},
-            {type: 'descriptiveText', text: 'Long Way!'},
+            {type: 'descriptive', text: 'A Little Goes A'},
+            {type: 'descriptive', text: 'Long Way!'},
           ],
           font: {
             family: 'Glacial Indifference',

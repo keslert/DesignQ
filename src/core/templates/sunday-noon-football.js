@@ -57,7 +57,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Experience football like you never have before!'},
+            {type: 'descriptive', text: 'Experience football like you never have before!'},
           ],
           color: solidColor('#000'),
           font: {
@@ -92,8 +92,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Enjoy the game live on our 110" HDTV.'},
-            {type: 'descriptiveText', text: 'Entrance is free, but reservations are required.'},
+            {type: 'descriptive', text: 'Enjoy the game live on our 110" HDTV.'},
+            {type: 'descriptive', text: 'Entrance is free, but reservations are required.'},
             {type: 'contact', text: 'Call ahead: (123) 456-7890'},
           ],
           color: solidColor('#000'),

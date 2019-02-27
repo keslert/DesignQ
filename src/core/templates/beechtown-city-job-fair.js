@@ -1,14 +1,13 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Choose the right job'},
+    {type: 'descriptive', text: 'Choose the right job'},
   ],
   color: solidColor('#ffebbf'),
   font: {
-    family: 'Muli',
+    family: 'Arvo',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +23,7 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'League Spartan',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +39,7 @@ const bridge = {
   ],
   color: solidColor('#ffebbf'),
   font: {
-    family: 'Muli',
+    family: 'League Spartan',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,13 +49,13 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'September 22, 2020'},
-    {type: 'descriptive', text: '10 AM - 4 PM'},
-    {type: 'descriptive', text: 'Heiman Convention Center'},
+    {type: 'date', text: 'September 22, 2020'},
+    {type: 'time', text: '10 AM - 4 PM'},
+    {type: 'location', text: 'Heiman Convention Center'},
   ],
   color: solidColor('#ffebbf'),
   font: {
-    family: 'Muli',
+    family: 'Arvo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -67,13 +66,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Drop by for a meet & greet with employers'},
-    {type: 'eventName', text: 'from various industries! There will also be'},
-    {type: 'eventName', text: 'career talks in the afternoon.'},
+    {type: 'descriptive', text: 'Drop by for a meet & greet with employers'},
+    {type: 'descriptive', text: 'from various industries! There will also be'},
+    {type: 'descriptive', text: 'career talks in the afternoon.'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Arvo',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -86,16 +85,37 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1533985065508-e5848b120b80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      filters: {
+        brightness: 0.7,
+      },
+    },
+    color: '#1b92a5',
+    backgroundBlendMode: 'overlay',
+  },
   content: {
     body: {
+      alignX: 'right',
+      alignY: 'top',
+      itemsAlignX: 'right',
+      itemsAlignY: 'top',
+      textAlign: 'right',
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      alignX: 'right',
+      itemsAlignX: 'right',
+      textAlign: 'right',
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

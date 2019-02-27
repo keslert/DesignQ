@@ -18,7 +18,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Are you ready to indulge?'},
+            {type: 'descriptive', text: 'Are you ready to indulge?'},
           ],
           color: solidColor('#DFE0EC'),
           font: {
@@ -51,7 +51,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Now baking your favorite desserts in Oarstown!'},
+            {type: 'descriptive', text: 'Now baking your favorite desserts in Oarstown!'},
           ],
           color: solidColor('#DFE0EC'),
           font: {
@@ -73,8 +73,8 @@ export default {
         {
           type: 'heading',
           lines: [
-            {type: 'descriptiveText', text: 'Visit Our Little Bakery On Our Grand'},
-            {type: 'descriptiveText', text: 'Opening Day!'},
+            {type: 'descriptive', text: 'Visit Our Little Bakery On Our Grand'},
+            {type: 'descriptive', text: 'Opening Day!'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -90,8 +90,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Our doors are open from 8 AM to 9 PM. You can find us at 125'},
-            {type: 'descriptiveText', text: 'Anywhere St., Any City. For our menu, visit'},
+            {type: 'descriptive', text: 'Our doors are open from 8 AM to 9 PM. You can find us at 125'},
+            {type: 'descriptive', text: 'Anywhere St., Any City. For our menu, visit'},
             {type: 'website', text: 'www.reallygreatsite.com'},
           ],
           color: solidColor('#DFE0EC'),

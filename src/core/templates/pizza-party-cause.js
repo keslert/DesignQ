@@ -26,7 +26,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Help feed the kids!'},
+            {type: 'descriptive', text: 'Help feed the kids!'},
           ],
           color: solidColor('#fff'),
           font: {

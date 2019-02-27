@@ -20,7 +20,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Come Join the Festival!'},
+            {type: 'descriptive', text: 'Come Join the Festival!'},
           ],
           color: solidColor('#db4439'),
           font: {
@@ -60,8 +60,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'We have a million reasons to'},
-            {type: 'descriptiveText', text: 'celebrate the new season!'},
+            {type: 'descriptive', text: 'We have a million reasons to'},
+            {type: 'descriptive', text: 'celebrate the new season!'},
           ],
           color: solidColor('#db4439'),
           font: {

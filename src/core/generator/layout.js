@@ -106,7 +106,7 @@ function generateElements(flyer) {
 // const content = {
 //   eventType: 'Christmas Party', // Used to suggest content, images, icons, colors, and starting flyers
 //   eventName: 'Santa Claus is coming to town', // Dominant, or the start or end of this is the dominant.
-//   descriptiveText: [ // Anything
+//   descriptive: [ // Anything
 //     'He’s got a list and he’s checking it twice.',
 //     'Pictures with Santa',
 //     'Live Music',

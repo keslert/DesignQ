@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -26,7 +25,7 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Sifonn',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -42,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -52,13 +51,13 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'October 13, 2020'},
-    {type: 'descriptive', text: '5:00 PM - 12:00 MN'},
-    {type: 'descriptive', text: 'Downtown Quarkwood'},
+    {type: 'date', text: 'October 13, 2020'},
+    {type: 'time', text: '5:00 PM - 12:00 MN'},
+    {type: 'location', text: 'Downtown Quarkwood'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Sifonn',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -69,14 +68,16 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Experience music the way it was experienced'},
-    {type: 'eventName', text: 'in the past! Walk to and from several music'},
-    {type: 'eventName', text: 'venues hosting different musical eras!'},
+    {type: 'descriptive', text: 'Experience music the way it was experienced'},
+    {type: 'descriptive', text: 'in the past! Walk to and from several music'},
+    {type: 'descriptive', text: 'venues hosting different musical eras!'},
   ],
   color: solidColor('#fff'),
   background: solidColor ('#e369d2'),
+  bleed: { a: 1 },
+  w: 'auto',
   font: {
-    family: 'Norwester',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -87,18 +88,27 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Blast from the past',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1527618802231-5054ec72758b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    }
+  },
   content: {
     body: {
+      alignY: 'top',
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

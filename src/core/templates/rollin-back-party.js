@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Quicksand',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,7 +24,7 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Sifonn',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Quicksand',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,13 +50,16 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'June 21 | 6 PM'},
+    [
+      {type: 'date', text: 'June 21', format: 'MMMM D'},
+      {type: 'time', text: '6 pm'}
+    ],
     {type: 'descriptive', text: 'Ha Luh Open Park'},
     {type: 'descriptive', text: '123 Anywhere Street'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Sifonn',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -85,18 +87,27 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Rollin Back to the 90s',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#ffffff'),
   content: {
     body: {
+      alignY: 'top',
+      bleed: {a: 1},
+      background: solidColor('#b80f04'),
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      background: solidColor('#ffbb49'),
+      bleed: {a: 1},
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

@@ -4,12 +4,12 @@ import { solidColor } from './'
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Hop on over and join us!'},
+    {type: 'descriptive', text: 'Hop on over and join us!'},
   ],
   color: solidColor('#fff'),
   background: solidColor('#ffc6c6'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,7 +25,7 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Fredoka One',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,12 +51,12 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: '12 April 2020 at 11 A.M.'},
-    {type: 'descriptive', text: 'The Winslough Park'},
+    {type: 'date|time', text: '12 April 2020 at 11 A.M.'},
+    {type: 'location', text: 'The Winslough Park'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Fredoka One',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -67,14 +67,14 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Tickets $10'},
-    {type: 'eventName', text: 'Inclusive of Free Snacks, Drinks and Rides.'},
-    {type: 'eventName', text: 'Get your tickets now at (123) 456-7890 or'},
-    {type: 'eventName', text: 'hello@reallygreatsite.com'},
+    {type: 'price', text: 'Tickets $10'},
+    {type: 'descriptive', text: 'Inclusive of Free Snacks, Drinks and Rides.'},
+    {type: 'contact', text: 'Get your tickets now at (123) 456-7890 or'},
+    {type: 'contact', text: 'hello@reallygreatsite.com'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -85,7 +85,7 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Easter Fair and Egg Hunt',
   tags: ['event', 'flyer'],
   background: solidColor('#44d9e5'),
   content: {

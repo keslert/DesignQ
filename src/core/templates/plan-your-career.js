@@ -108,8 +108,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'The EDU Job Fair is an annual event where students can get to know'},
-            {type: 'descriptiveText', text: 'over 100 amazing companies in various fields of study.'},
+            {type: 'descriptive', text: 'The EDU Job Fair is an annual event where students can get to know'},
+            {type: 'descriptive', text: 'over 100 amazing companies in various fields of study.'},
           ],
           color: solidColor('#2b2b2b'),
           font: {

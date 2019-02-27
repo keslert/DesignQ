@@ -1,14 +1,13 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
-    {type: 'host', text: 'Dance the night away!'},
+    {type: 'descriptive', text: 'Dance the night away!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Kollektif',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +23,7 @@ const dominant = {
   ],
   color: solidColor('#2c7b99'),
   font: {
-    family: 'Norwester',
+    family: 'Edo',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +39,7 @@ const bridge = {
   ],
   color: solidColor('#2c7b99'),
   font: {
-    family: 'Muli',
+    family: 'Kollektif',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,13 +49,13 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'September 18, 2020'},
-    {type: 'descriptive', text: 'Dancing starts at 9:00 PM'},
-    {type: 'descriptive', text: 'Club Audora'},
+    {type: 'date', text: 'September 18, 2020'},
+    {type: 'time', text: 'Dancing starts at 9:00 PM'},
+    {type: 'location', text: 'Club Audora'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
+    family: 'Kollektif',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -67,34 +66,49 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Present this birthday inviation at the bar to get 2 free cocktails of'},
-    {type: 'eventName', text: "your choice. Can't wait to see you there!"},
+    {type: 'descriptive', text: 'Present this birthday inviation at the bar to get 2 free cocktails of'},
+    {type: 'descriptive', text: "your choice. Can't wait to see you there!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'Kollektif',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 
 export default {
-  title: '',
+  title: "Isabel's 21st Birthday Party",
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1526205711417-6f36af4f3c55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+    },
+  },
   content: {
+    header: {
+      elements: [small]
+    },
     body: {
+      alignY: 'bottom',
+      background: {
+        color: '#ffffff',
+        mask: {},
+      },
       elements: [
-        small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

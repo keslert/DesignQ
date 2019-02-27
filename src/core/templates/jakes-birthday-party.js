@@ -63,7 +63,7 @@ export default {
           type: 'small', 
           color: solidColor('#D7D55F'),
           lines: [
-            {type: 'descriptiveText', text: 'Jake Is Turning 10!'}
+            {type: 'descriptive', text: 'Jake Is Turning 10!'}
           ],
           font: {
             family: 'Muli',

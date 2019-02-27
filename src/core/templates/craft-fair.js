@@ -76,17 +76,17 @@ export default {
           type: 'small',
           lines: [
             [
-              {type: 'descriptiveText', text: 'Crafts'},
-              {type: 'descriptiveText', text: 'Jewelries'},
-              {type: 'descriptiveText', text: 'Clothing'},
+              {type: 'descriptive', text: 'Crafts'},
+              {type: 'descriptive', text: 'Jewelries'},
+              {type: 'descriptive', text: 'Clothing'},
             ],
             [
-              {type: 'descriptiveText', text: 'Fine Art'},
-              {type: 'descriptiveText', text: 'Housewares'},
+              {type: 'descriptive', text: 'Fine Art'},
+              {type: 'descriptive', text: 'Housewares'},
             ],
             [
-              {type: 'descriptiveText', text: 'Plush Items'},
-              {type: 'descriptiveText', text: 'Sweet Treats'},
+              {type: 'descriptive', text: 'Plush Items'},
+              {type: 'descriptive', text: 'Sweet Treats'},
             ]
           ],
           divider: {

@@ -63,8 +63,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A gathering of cuisines from all'},
-            {type: 'descriptiveText', text: 'over the globe!'},
+            {type: 'descriptive', text: 'A gathering of cuisines from all'},
+            {type: 'descriptive', text: 'over the globe!'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -135,8 +135,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Call 123-456-7890 for tickets now! if you\'re interested in setting up'},
-            {type: 'descriptiveText', text: 'a booth, contact hello@reallygreatsite.com.'},
+            {type: 'descriptive', text: 'Call 123-456-7890 for tickets now! if you\'re interested in setting up'},
+            {type: 'descriptive', text: 'a booth, contact hello@reallygreatsite.com.'},
           ],
           font: {
             family: 'Muli',

@@ -70,8 +70,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: "Participate in this year's health talks and"},
-            {type: 'descriptiveText', text: "screenings"},
+            {type: 'descriptive', text: "Participate in this year's health talks and"},
+            {type: 'descriptive', text: "screenings"},
           ],
           color: solidColor('#fff'),
           font: {
@@ -115,9 +115,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'Our health fair is free and open to everyone. Simply register'},
-            {type: 'descriptiveText', text: 'your attendance at www.reallygreatsite.com and take a'},
-            {type: 'descriptiveText', text: 'screenshot.'},
+            {type: 'descriptive', text: 'Our health fair is free and open to everyone. Simply register'},
+            {type: 'descriptive', text: 'your attendance at www.reallygreatsite.com and take a'},
+            {type: 'descriptive', text: 'screenshot.'},
           ],
           font: {
             family: 'Glacial Indifference',

@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#fff4dc'),
   font: {
-    family: 'Muli',
+    family: 'Lato',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,7 +25,7 @@ const dominant = {
   ],
   color: solidColor('#fff4dc'),
   font: {
-    family: 'Norwester',
+    family: 'Lilita One',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#fff4dc'),
   font: {
-    family: 'Muli',
+    family: 'Lato',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,12 +51,12 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'April 12, 2:00 P.M., at the'},
-    {type: 'descriptive', text: 'Winslough County Park'},
+    {type: 'date|time', text: 'April 12, 2:00 P.M., at the'},
+    {type: 'location', text: 'Winslough County Park'},
   ],
   color: solidColor('#fff4dc'),
   font: {
-    family: 'Muli',
+    family: 'Lato',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -67,13 +67,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Please pre-register for the event at'},
-    {type: 'eventName', text: 'www.reallygreatsite.com or sign-up at the'},
-    {type: 'eventName', text: 'Community Affairs Office by April 11, 4:00 PM'},
+    {type: 'descriptive', text: 'Please pre-register for the event at'},
+    {type: 'descriptive', text: 'www.reallygreatsite.com or sign-up at the'},
+    {type: 'descriptive', text: 'Community Affairs Office by April 11, 4:00 PM'},
   ],
   color: solidColor('#fff4dc'),
   font: {
-    family: 'Norwester',
+    family: 'Lato',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -84,18 +84,33 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Annual Easter Egg Hunt 2020',
   tags: ['event', 'flyer'],
   background: solidColor('#96cfdd'),
+  decor: {
+    l: .2,
+  },
   content: {
     body: {
+      alignX: 'right',
+      alignY: 'top',
+      itemsAlignX: 'right',
+      itemsAlignY: 'top',
+      textAlign: 'right',
       elements: [
         small,
         dominant,
         bridge,
+      ]
+    },
+    footer: {
+      alignX: 'right',
+      itemsAlignX: 'right',
+      textAlign: 'right',
+      elements: [
         heading,
         paragraph,
       ]
-    },
+    }
   }
 }

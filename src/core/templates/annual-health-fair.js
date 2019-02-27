@@ -27,7 +27,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Brooklyn Community'},
+            {type: 'descriptive', text: 'Brooklyn Community'},
           ],
           color: solidColor('#fff'),
           font: {

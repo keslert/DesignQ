@@ -60,8 +60,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Enjoy a night of soothing music'},
-            {type: 'descriptiveText', text: 'from the best artists.'},
+            {type: 'descriptive', text: 'Enjoy a night of soothing music'},
+            {type: 'descriptive', text: 'from the best artists.'},
           ],
           color: solidColor('#ffffffcc'),
           font: {
@@ -102,11 +102,11 @@ export default {
           type: 'paragraph',
           color: solidColor('#ffffffcc'),
           lines: [
-            {type: 'descriptiveText', text: 'Join us for jaxx night and enjoy'},
-            {type: 'descriptiveText', text: 'great music from the best'},
-            {type: 'descriptiveText', text: 'artists in town. Purchase your'},
-            {type: 'descriptiveText', text: 'tickets online:'},
-            {type: 'descriptiveText', text: 'reallygreatsite.com'},
+            {type: 'descriptive', text: 'Join us for jaxx night and enjoy'},
+            {type: 'descriptive', text: 'great music from the best'},
+            {type: 'descriptive', text: 'artists in town. Purchase your'},
+            {type: 'descriptive', text: 'tickets online:'},
+            {type: 'descriptive', text: 'reallygreatsite.com'},
           ],
           font: {
             family: 'Raleway',

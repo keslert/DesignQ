@@ -60,8 +60,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'A charity bake sale to'},
-            {type: 'descriptiveText', text: 'help fight world hunger'},
+            {type: 'descriptive', text: 'A charity bake sale to'},
+            {type: 'descriptive', text: 'help fight world hunger'},
           ],
           color: solidColor('#9ddcdc'),
           font: {
@@ -103,9 +103,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#9ddcdc'),
           lines: [
-            {type: 'descriptiveText', text: 'Have an enjoyable weekend that\'s sure'},
-            {type: 'descriptiveText', text: "to make your tummy and heart feel good!"},
-            {type: 'descriptiveText', text: "Don't miss the sweetest event in town!"},
+            {type: 'descriptive', text: 'Have an enjoyable weekend that\'s sure'},
+            {type: 'descriptive', text: "to make your tummy and heart feel good!"},
+            {type: 'descriptive', text: "Don't miss the sweetest event in town!"},
           ],
           font: {
             family: 'Kollektif',

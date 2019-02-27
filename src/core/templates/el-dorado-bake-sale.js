@@ -35,7 +35,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Bread for a Cause'},
+            {type: 'descriptive', text: 'Bread for a Cause'},
           ],
           color: solidColor('#c3996f'),
           font: {
@@ -68,7 +68,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Baked goodies from more than 10 concessionaires'},
+            {type: 'descriptive', text: 'Baked goodies from more than 10 concessionaires'},
           ],
           color: solidColor('#c3996f'),
           font: {
@@ -85,7 +85,7 @@ export default {
           type: 'heading',
           color: solidColor('#c3996f'),
           lines: [
-            {type: 'descriptiveText', text: 'See you there on July 8 at El Dorado Field', meta: ['date', 'location']},
+            {type: 'descriptive', text: 'See you there on July 8 at El Dorado Field', meta: ['date', 'location']},
           ],
           font: {
             family: 'Cooper Hewitt',
@@ -101,8 +101,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#c3996f'),
           lines: [
-            {type: 'descriptiveText', text: 'All proceeds obtained from the Bazaar will be donated to El'},
-            {type: 'descriptiveText', text: 'Dorado Public Academy for their upcoming scholarship program.'},
+            {type: 'descriptive', text: 'All proceeds obtained from the Bazaar will be donated to El'},
+            {type: 'descriptive', text: 'Dorado Public Academy for their upcoming scholarship program.'},
           ],
           font: {
             family: 'Cooper Hewitt',

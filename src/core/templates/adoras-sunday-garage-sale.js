@@ -35,7 +35,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Everything Must Go!'},
+            {type: 'descriptive', text: 'Everything Must Go!'},
           ],
           color: solidColor('#ed5744'),
           font: {
@@ -70,8 +70,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Selling pre-loved clothes, appliances, and'},
-            {type: 'descriptiveText', text: 'gadgets!'},
+            {type: 'descriptive', text: 'Selling pre-loved clothes, appliances, and'},
+            {type: 'descriptive', text: 'gadgets!'},
           ],
           color: solidColor('#ed5744'),
           font: {
@@ -114,9 +114,9 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'A garage sale where you can buy secondhand'},
-            {type: 'descriptiveText', text: 'clothes, gadgets, and appliances for cheap'},
-            {type: 'descriptiveText', text: 'prices. All items are in good condition!'},
+            {type: 'descriptive', text: 'A garage sale where you can buy secondhand'},
+            {type: 'descriptive', text: 'clothes, gadgets, and appliances for cheap'},
+            {type: 'descriptive', text: 'prices. All items are in good condition!'},
           ],
           color: solidColor('#ed5744'),
           font: {

@@ -7,9 +7,9 @@ const small = {
     {type: 'host', text: 'San Dias Cantina presents'},
   ],
   color: solidColor('#2f292b'),
-  background: solidColor('#faaf40')
+  background: solidColor('#faaf40'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -25,7 +25,7 @@ const dominant = {
   ],
   color: solidColor('#8bc53f'),
   font: {
-    family: 'Norwester',
+    family: 'Knewave',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -41,7 +41,7 @@ const bridge = {
   ],
   color: solidColor('#faaf40'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -51,12 +51,15 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'May 5, 2020 | 1:00 PM onwards'},
-    {type: 'descriptive', text: '123 Anywhere St.'},
+    [
+      {type: 'date', text: 'May 5, 2020'},
+      {type: 'date', text: '1:00 PM onwards'},
+    ],
+    {type: 'location', text: '123 Anywhere St.'},
   ],
   color: solidColor('#8bc53f'),
   font: {
-    family: 'Muli',
+    family: 'Montserrat',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -67,13 +70,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Pay $20 per person and get unlimited'},
-    {type: 'eventName', text: 'margaritas, beer and tapas all day (and night) '},
-    {type: 'eventName', text: 'long! Happy Cinco de Mayo!'},
+    {type: 'descriptive', text: 'Pay $20 per person and get unlimited'},
+    {type: 'descriptive', text: 'margaritas, beer and tapas all day (and night) '},
+    {type: 'descriptive', text: 'long! Happy Cinco de Mayo!'},
   ],
   color: solidColor('#faaf40'),
   font: {
-    family: 'Norwester',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -87,6 +90,9 @@ export default {
   title: '',
   tags: ['event', 'flyer'],
   background: solidColor('#2f292b'),
+  decor: {
+    y: .2,
+  },
   content: {
     body: {
       elements: [

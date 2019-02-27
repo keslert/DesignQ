@@ -37,7 +37,7 @@ export default {
         { 
           type: 'small', 
           lines: [
-            {type: 'descriptiveText', text: 'We Improve Your House!'},
+            {type: 'descriptive', text: 'We Improve Your House!'},
           ],
             color: solidColor('#506974'),
           font: {

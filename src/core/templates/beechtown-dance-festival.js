@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#b7f6ff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -26,7 +26,7 @@ const dominant = {
   ],
   color: solidColor('#caf843'),
   font: {
-    family: 'Norwester',
+    family: 'Oswald',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -42,7 +42,7 @@ const bridge = {
   ],
   color: solidColor('#b7f6ff'),
   font: {
-    family: 'Muli',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -58,7 +58,7 @@ const heading = {
   ],
   color: solidColor('#caf843'),
   font: {
-    family: 'Muli',
+    family: 'Oswald',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -76,7 +76,7 @@ const paragraph = {
   ],
   color: solidColor('#b7f6ff'),
   font: {
-    family: 'Norwester',
+    family: 'Glacial Indifference',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -87,9 +87,12 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'The Beechtown Dance Festival',
   tags: ['event', 'flyer'],
   background: solidColor('#ba3e7f'),
+  decor: {
+    a: .1,
+  },
   content: {
     body: {
       elements: [

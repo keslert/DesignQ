@@ -52,8 +52,8 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Enjoy up to 70% off on all'},
-            {type: 'descriptiveText', text: 'shoe styles and trends!'},
+            {type: 'descriptive', text: 'Enjoy up to 70% off on all'},
+            {type: 'descriptive', text: 'shoe styles and trends!'},
           ],
           color: solidColor('#ffffff'),
           font: {
@@ -86,9 +86,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptiveText', text: 'Ditch your old shoes and snag some fresh'},
-            {type: 'descriptiveText', text: 'new ones at affordable prices! Shop in-'},
-            {type: 'descriptiveText', text: 'store at 123 Anywhere St., Any City today!'},
+            {type: 'descriptive', text: 'Ditch your old shoes and snag some fresh'},
+            {type: 'descriptive', text: 'new ones at affordable prices! Shop in-'},
+            {type: 'descriptive', text: 'store at 123 Anywhere St., Any City today!'},
           ],
           color: solidColor('#ffffff'),
           font: {

@@ -56,7 +56,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'Break out your best all-white outfit and steal the show!'},
+            {type: 'descriptive', text: 'Break out your best all-white outfit and steal the show!'},
           ],
           color: solidColor('#373737'),
           font: {
@@ -105,8 +105,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptiveText', text: 'This year, all proceeds from this event will go to the George'},
-            {type: 'descriptiveText', text: 'Hewes Foundation. Come and party for a good cause!'},
+            {type: 'descriptive', text: 'This year, all proceeds from this event will go to the George'},
+            {type: 'descriptive', text: 'Hewes Foundation. Come and party for a good cause!'},
           ],
           font: {
             family: 'Aileron',

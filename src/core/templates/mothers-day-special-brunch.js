@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Josefin Sans',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,10 +24,11 @@ const dominant = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Playfair Display',
     letterSpacing: 0,
     size: 1,
-    transform: 'uppercase',
+    style: 'italic',
+    transform: 'normal',
     weight: 400,
   },
 }
@@ -39,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Josefin Sans',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -49,12 +50,12 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Visit us on May 10, 2020,'},
-    {type: 'descriptive', text: 'between 10:00 AM and 2:00 PM.'},
+    {type: 'date', text: 'Visit us on May 10, 2020,'},
+    {type: 'time', text: 'between 10:00 AM and 2:00 PM.'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Playfair Display',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -69,9 +70,8 @@ const paragraph = {
     {type: 'eventName', text: 'use our online booking system. Visit www.reallygreatsite.com.'},
   ],
   color: solidColor('#ff7f7d'),
-  background: solidColor('#fff')
   font: {
-    family: 'Norwester',
+    family: 'Josefin Sans',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -82,18 +82,33 @@ const paragraph = {
 
 
 export default {
-  title: '',
+  title: 'Mother\'s Day Special Brunch',
   tags: ['event', 'flyer'],
   background: solidColor('#ff7f7d'),
+  decor: {
+    t: .3,
+    l: .1,
+  },
   content: {
     body: {
+      alignX: 'right',
+      itemsAlignX: 'right',
+      textAlign: 'right',
       elements: [
         small,
         dominant,
         bridge,
         heading,
-        paragraph,
       ]
     },
+    footer: {
+      background: solidColor('#ffffff'),
+      alignX: 'right',
+      itemsAlignX: 'right',
+      textAlign: 'right',
+      elements: [
+        paragraph,
+      ],
+    }
   }
 }

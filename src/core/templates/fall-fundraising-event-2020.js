@@ -1,6 +1,5 @@
 import { solidColor } from '.'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Gidole',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -22,9 +21,9 @@ const dominant = {
     {type: 'eventName', text: 'Fall Fundraising'},
     {type: 'eventName', text: 'Event 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#e45330'),
   font: {
-    family: 'Norwester',
+    family: 'Oswald',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +39,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Gidole',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -55,7 +54,7 @@ const heading = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Gidole',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -70,9 +69,9 @@ const paragraph = {
     {type: 'eventName', text: 'Nature. Our fall fundraising event combines good fun'},
     {type: 'eventName', text: 'with a great cause.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#e45330'),
   font: {
-    family: 'Norwester',
+    family: 'Gidole',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -81,17 +80,30 @@ const paragraph = {
   },
 }
 
+const bar = {
+  type: 'bar',
+  background: solidColor('#e25232'),
+  width: .5,
+  height: 2,
+},
+
 
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#424242'),
+  decor: {
+    y: .2,
+  },
   content: {
+    background: solidColor('#424242'),
+    bleed: { a: 1 },
     body: {
       elements: [
         small,
         dominant,
         bridge,
+        bar,
         heading,
         paragraph,
       ]

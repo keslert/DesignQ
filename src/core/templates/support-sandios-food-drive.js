@@ -26,7 +26,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'We Need Volunteers!'},
+            {type: 'descriptive', text: 'We Need Volunteers!'},
           ],
           color: solidColor('#fff1d9'),
           font: {
@@ -61,7 +61,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'For the benefit of our less fortunate neighbors'},
+            {type: 'descriptive', text: 'For the benefit of our less fortunate neighbors'},
           ],
           color: solidColor('#fff1d9'),
           font: {
@@ -84,7 +84,7 @@ export default {
           color: solidColor('#251a4b'),
           lines: [
             {type: 'location', text: 'Located at 123 Anywhere St.'},
-            {type: 'descriptiveText', text: 'Any City, Open Daily.'},
+            {type: 'descriptive', text: 'Any City, Open Daily.'},
           ],
           font: {
             family: 'Montserrat',
@@ -100,9 +100,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#251a4b'),
           lines: [
-            {type: 'descriptiveText', text: 'The food drive is sponsored by Sandio'},
-            {type: 'descriptiveText', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
-            {type: 'descriptiveText', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
+            {type: 'descriptive', text: 'The food drive is sponsored by Sandio'},
+            {type: 'descriptive', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
+            {type: 'descriptive', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
           ],
           font: {
             family: 'Montserrat',

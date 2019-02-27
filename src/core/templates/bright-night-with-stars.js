@@ -1,6 +1,5 @@
 import { solidColor } from './'
 
-
 const small = {
   type: 'small',
   lines: [
@@ -8,7 +7,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Anonymous Pro',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -24,7 +23,7 @@ const dominant = {
   ],
   color: solidColor('#ff5a52'),
   font: {
-    family: 'Norwester',
+    family: 'Rubik One',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +39,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Muli',
+    family: 'Anonymous Pro',
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
@@ -50,12 +49,20 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'Saturday, July 18, 2020 | 6 PM |'},
+    [
+      {type: 'date', text: 'Saturday, July 18, 2020'},
+      {type: 'time', text: '6 PM'},
+    ],
     {type: 'descriptive', text: 'San Dias Mall Cinema 1'},
   ],
+  divider: {
+    type: 'line',
+    size: 2,
+    color: solidColor('#ff5a52'),
+  },
   color: solidColor('#ff5a52'),
   font: {
-    family: 'Muli',
+    family: 'Anonymous Pro',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -66,13 +73,13 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Tickets are $35 per person. Admission'},
-    {type: 'eventName', text: 'includes popcorn and a drink. Visit'},
-    {type: 'eventName', text: 'www.reallygreatsite.com for tickets.'},
+    {type: 'descriptive', text: 'Tickets are $35 per person. Admission'},
+    {type: 'descriptive', text: 'includes popcorn and a drink. Visit'},
+    {type: 'descriptive', text: 'www.reallygreatsite.com for tickets.'},
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Norwester',
+    family: 'Anonymous Pro',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
@@ -81,11 +88,13 @@ const paragraph = {
   },
 }
 
-
 export default {
-  title: '',
+  title: 'A Bright Night with the Stars',
   tags: ['event', 'flyer'],
   background: solidColor('#00344b'),
+  decor: {
+    t: .45,
+  },
   content: {
     body: {
       elements: [

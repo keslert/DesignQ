@@ -32,7 +32,7 @@ export default {
           type: 'small', 
           color: solidColor('#031f52'),
           lines: [
-            {type: 'descriptiveText', text: 'A huge assorted'},
+            {type: 'descriptive', text: 'A huge assorted'},
           ],
           font: {
             family: 'Muli',

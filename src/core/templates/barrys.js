@@ -47,7 +47,7 @@ export default {
         {
           type: 'bridge',
           lines: [
-            {type: 'descriptiveText', text: 'stationary for the working professional'},
+            {type: 'descriptive', text: 'stationary for the working professional'},
           ],
           color: solidColor('#fff'),
           font: {
@@ -69,7 +69,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'descriptiveText', text: 'Since 1989'},
+            {type: 'descriptive', text: 'Since 1989'},
           ],
           color: solidColor('#FFD2A7'),
           font: {
