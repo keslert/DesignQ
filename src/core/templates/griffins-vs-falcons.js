@@ -8,9 +8,9 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1538358755974-f350d26af7bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60',
-      zoom: 3,
-      x: 0.3,
-      y: 0.7,
+      zoom: 2,
+      x: 0.35,
+      y: 0.6,
       filters: {
         grayscale: 0.4,
       },
@@ -42,7 +42,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
         {

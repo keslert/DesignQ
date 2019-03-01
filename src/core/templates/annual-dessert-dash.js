@@ -22,6 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Annual'},
     {type: 'eventName', text: 'Dessert'},
     {type: 'eventName', text: 'Dash!'},
+    {type: 'eventName', text: 'Dash!'},
   ],
   color: solidColor('#ffeaa2'),
   font: {
@@ -94,6 +95,7 @@ export default {
   id: 103,
   title: 'Annual Dessert Dash',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-yellow-ice-cream-parlor-fundraiser-flyer-MAC5D0kbNIw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
     img: { src: 'https://images.pexels.com/photos/749102/pexels-photo-749102.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' },
   },

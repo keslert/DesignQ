@@ -8,9 +8,9 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-      x: 0.3,
-      y: -.4,
-      zoom: 1.35,
+      x: 0,
+      y: 0,
+      zoom: 1,
     },
     color: splitColor(0, 'transparent', '#fff1d9'),
     backgroundBlendMode: 'lighten',

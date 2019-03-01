@@ -11,17 +11,17 @@ export default {
     alignY: 'bottom',
     body: {
       elements: [
-        { 
-          type: 'image',
-          flex: 1,
-          bleed: {top: true, left: true, right: true},
-          url: 'https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-          zoom: 1,
-          y: 0.75,
-          filters: {
-            "brightness": 1.2
-          },
-        },
+        // { 
+        //   type: 'image',
+        //   flex: 1,
+        //   bleed: {top: true, left: true, right: true},
+        //   src: 'https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        //   zoom: 1,
+        //   y: 0.75,
+        //   filters: {
+        //     "brightness": 1.2
+        //   },
+        // },
         {
           type: 'small',
           lines: [

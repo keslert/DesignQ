@@ -17,11 +17,9 @@ export default {
     background: {
       img: {
         src: 'http://pngimg.com/uploads/american_football/american_football_PNG113.png',
-        w: 557,
-        h: 960,
+        zoom: 1,
+        x: 0,
       },
-      zoom: 1,
-      x: 0,
       backgroundBlendMode: 'multiply',
       color: '#FF5200',
     }
@@ -50,7 +48,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
           mb: 1,
         },

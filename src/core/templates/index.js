@@ -162,11 +162,15 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  IsabelBeachBazaar,
+  AnnualDessertDash,
+  BeechtownDanceFestival,
+  CraftFair,
+  RockOutCureConcert,
   
   
   // adding
   FoodDriveForHomeless,
-  BeechtownDanceFestival,
   SeventhAnnualCareerFair,
   FallFundraisingEvent,
   AnnualBeachTownFoodFest,
@@ -195,9 +199,7 @@ export const templates = {
   // Functionality lacking
   ElDoradoBakeSale,
   FootballVarsityTryouts,
-  BlastFromThePast,
-  IsabelBeachBazaar,
-  AnnualDessertDash,
+  BlastFromThePast,  
 
   // How to do...
   SaveTheEarth,
@@ -225,7 +227,6 @@ export const templates = {
   JakobHansonsBirthday,
   LetsGrooveJazzNight,
   AnnualAllWhiteCharityParty,
-  CraftFair,
   AustfamCharityFoodDrive,
   JacquelinesBirthdayParty,
   VolleyballVarsityTryouts,
@@ -243,7 +244,6 @@ export const templates = {
   PlanYourCareer,
   QuarkSummerCamp,
   QuarktownHairDonation,
-  RockOutCureConcert,
   RunToSaveTheTrees,
   StreetPhotographyWorkshop,
   SummerCamp,

@@ -5,6 +5,7 @@ import { computeBorders } from './borders'
 import { computeDecor } from './decor';
 import { computeBoundingBoxes } from './bounding-boxes';
 import { computeBackgrounds } from './backgrounds';
+import { calculateHeightResize } from './height';
 import _ from 'lodash';
 
 // Intentions object
@@ -26,17 +27,17 @@ export function computeFlyer(template, size={w: 612, h:856}) {
   computeDecor(template);
   computeEdges(template);
 
+  // Initial attempt isn't height constrained
   computeSizes(template);
   computeSpacing(template);
   computeBoundingBoxes(template);
   
-  // TODO: Need a better maxHeight calculation.
-  const maxHeight = size.h - template.border._computed.y - template.pt - template.pb;
-  const height = calculateHeight(template);
-  const ratio = maxHeight / (height - template.border._computed.y);
-  if(false && ratio < 1) {
-    computeSizes(template, ratio);
+  // Is the height an issue? 
+  const resize = calculateHeightResize(template);
+  if(resize < 1) {
+    computeSizes(template, resize);
     computeSpacing(template);
+    computeBoundingBoxes(template);
   }
 
   computeBackgrounds(template);
@@ -187,20 +188,6 @@ function transformStr(str, transform) {
     case 'capitalize': return _.capitalize(str);
     default: return str;
   }
-}
-
-function calculateHeight(template) {
-  
-  let height = 0;
-  withGroups(template, group => {
-    const elementHeight = _.sumBy(group.elements, el => 
-      _.sum([el._computed.h, el._computed.mt, el._computed.mb])
-    )
-    
-    height += elementHeight + group.border._computed.y;
-
-  })
-  return height;
 }
 
 function elementDefaultWidth(element) {
