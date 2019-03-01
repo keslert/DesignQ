@@ -65,11 +65,13 @@ import { default as VolleyballVarsityTryouts } from './volleyball-varsity-tryout
 import { default as UltimateFoodFest } from './ultimate-food-fest';
 import { default as Urbana } from './urbana';
 import { default as WeAreLovely } from './we-are-lovely';
-import { default as WinslowMedicalHealthFair } from './winslough-medical-health-fair';
+import { default as WinsloughMedicalHealthFair } from './winslough-medical-health-fair';
 import { default as YardSale } from './yard-sale';
+
 
 import { default as AdamsIntergalacticParty } from './adams-intergalactic-party';
 import { default as AllergenFreeDonutSale } from './allergen-free-donut-sale';
+import { default as AnnaMorrison } from './anna-morrison';
 import { default as AnnualCharityFoodDrive } from './annual-charity-food-drive';
 import { default as AnnualDessertDash } from './annual-dessert-dash';
 import { default as AnnualEasterEggBrunch } from './annual-easter-egg-brunch';
@@ -80,10 +82,13 @@ import { default as AnnualScienceFair } from './annual-science-fair';
 import { default as AnnualSportsFestival } from './annual-sports-festival';
 import { default as AnnualSummerFoodFest } from './annual-summer-food-fest';
 import { default as AnnualWinterWonderlandGala } from './annual-winter-wonderland-gala';
+import { default as ArtOfHealthyLiving } from './art-of-healthy-living';
 import { default as BasketballTournament } from './basketball-tournament';
 import { default as BeechtownBlockParty } from './beechtown-block-party';
 import { default as BeechtownCityJobFair } from './beechtown-city-job-fair';
+import { default as BeechtownDanceFestival } from './beechtown-dance-festival';
 import { default as BeechtownLodgeSummerCamp } from './beechtown-lodge-summer-camp';
+import { default as BibleStudySundays } from './bible-study-sundays';
 import { default as BlastFromThePast } from './blast-from-the-past';
 import { default as BrightNightWithStars } from './bright-night-with-stars';
 import { default as ByersLaneStreetParty } from './byers-lane-street-party';
@@ -98,9 +103,11 @@ import { default as EspeciallyForYou } from './especially-for-you';
 import { default as FallFestivalFundraising } from './fall-festival-fundraising';
 import { default as FallFestivalWaltfordPark } from './fall-festival-waltford-park';
 import { default as FallfieldsFallFestival } from './fallfields-fall-festival';
+import { default as FallFundraisingEvent } from './fall-fundraising-event-2020';
 import { default as FinchworthFallFestival } from './finchworth-fall-festival';
 import { default as FitnessHealthFair } from './fitness-health-fair';
 import { default as FoodDriveAustfamCharity } from './food-drive-austfam-charity';
+import { default as FoodDriveForHomeless } from './food-drive-for-homeless';
 import { default as FromSketchesToArtwork } from './from-sketches-to-artwork';
 import { default as GoldCheetahSurvivalCamp } from './gold-cheetah-survival-camp';
 import { default as GrungeFallFashionWeek } from './grunge-fall-fashion-week';
@@ -109,6 +116,7 @@ import { default as HighSchoolBasketballPlayoffs } from './high-school-basketbal
 import { default as HippityHoppity } from './hippity-hoppity';
 import { default as HurricaneReliefFoodDrive } from './hurricane-relief-food-drive';
 import { default as IsabelsBirthdayParty } from './isabels-birthday-party';
+import { default as IsabelBeachBazaar } from './isabels-beach-bazaar';
 import { default as KicksByKyobi } from './kicks-by-kyobi';
 import { default as LookingForArtVolunteers } from './looking-for-art-volunteers';
 import { default as MayaPhillips } from './maya-phillips';
@@ -123,11 +131,15 @@ import { default as RockOutCureConcert } from './rock-out-cure-concert';
 import { default as RollinBackParty } from './rollin-back-party';
 import { default as RunToSaveTheTrees } from './run-to-save-the-trees';
 import { default as SandioGiants } from './sandio-giants';
+import { default as SandioSalonMakeup } from './sandio-salon-makeup';
+import { default as SeventhAnnualCareerFair } from './7th-annual-career-fair';
+import { default as SingToGod } from './sing-to-god';
 import { default as SoccerVarsityTeam } from './soccer-varsity-team';
 import { default as StatewideJobResourceFair } from './statewide-job-resource-fair';
 import { default as StreetPhotographyWorkshop } from './street-photography-workshop';
 import { default as SummerCamp } from './summer-camp';
 import { default as SummerVoyage } from './summer-voyage';
+import { default as SunSandAndSurf } from './sun-sand-and-surf';
 import { default as SundayBlockbusterMovieNight } from './sunday-blockbuster-movie-night';
 import { default as VolleyballTeamOpenTryouts } from './volleyball-team-open-tryouts';
 import { default as WhimsonCakes } from './whimson-cakes';
@@ -150,50 +162,132 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
-  // ChristianYouthWeek,
-  // ACarolForTheHolidaySeason,
-  // TheHonestNostalgia,
+  
+  
+  // adding
+  FoodDriveForHomeless,
+  BeechtownDanceFestival,
+  SeventhAnnualCareerFair,
+  FallFundraisingEvent,
+  AnnualBeachTownFoodFest,
+  SandioSalonMakeup,
+  BibleStudySundays,
+  SunSandAndSurf,
+  AnnaMorrison,
+  SingToGod,
+  AnnualEasterEggHunt,
+  AnnualSummerFoodFest,
+  BeechtownCityJobFair,
+  FallFestivalFundraising,
+  WinterWonderfulApparelSale,
+
+  // Template fixes
+  GrandJobFair,
+  SandioGiants,
+  FoodDriveAustfamCharity,
+  WhiteElephant,
+  FallfieldFoodDrive,
+  BasketballTournament,
+  ChatswoodFallFestival,
+  FallfieldsFallFestival,
+
+
+  // Functionality lacking
+  ElDoradoBakeSale,
+  FootballVarsityTryouts,
+  BlastFromThePast,
+  IsabelBeachBazaar,
+  AnnualDessertDash,
+
+  // How to do...
+  SaveTheEarth,
+  RollinBackParty,
+
+  // Need decoration
+  ArtOfHealthyLiving,
+
+
+  ACarolForTheHolidaySeason,
+  TheHonestNostalgia,
   HurricaneReliefFoodDrive,
   ParkAwayFromHunger,
   SundayNoonFootball,
   ChristmasUnderTheStars,
   ScienceFestival,
-  WinslowMedicalHealthFair,
-  // ElDoradoBakeSale,
-  // HultonFallFest,
-  BeachPartyMadness,
-  // GrandJobFair,
-  // GriffinsVsFalcons,
-  FootballVarsityTryouts,
-  // AllWhiteHolidayFundraiser,
-  // FlowerAndGardenFestival,
+  // WinsloughMedicalHealthFair,
+  HultonFallFest,
+  // BeachPartyMadness,
+  GriffinsVsFalcons,
+  AllWhiteHolidayFundraiser,
+  FlowerAndGardenFestival,
   BarkInThePark,
-  // AutumnMusicFestival,
-  // SaveTheEarth,
-  // JakobHansonsBirthday,
-  // UltimateFoodFest,
-  // LetsGrooveJazzNight,
-  // AnnualAllWhiteCharityParty,
-  // CoconutResurgance,
-  // AustfamCharityFoodDrive,
-  // CraftFair,
-  // JacquelinesBirthdayParty,
+  AutumnMusicFestival,
+  JakobHansonsBirthday,
+  LetsGrooveJazzNight,
+  AnnualAllWhiteCharityParty,
+  CraftFair,
+  AustfamCharityFoodDrive,
+  JacquelinesBirthdayParty,
+  VolleyballVarsityTryouts,
+  SupportSandiosFoodDrive,
+  TheRunwayLife,
+  GarnishDelightBakery,
+  SummerInBlackAndWhite,
+  AnnualGrise25th,
+  IsabelsBirthdayParty,
+  KicksByKyobi,
+  LookingForArtVolunteers,
+  MayaPhillips,
+  MitchellFamilyCookieExchange,
+  MothersDaySpecialBrunch,
+  PlanYourCareer,
+  QuarkSummerCamp,
+  QuarktownHairDonation,
+  RockOutCureConcert,
+  RunToSaveTheTrees,
+  StreetPhotographyWorkshop,
+  SummerCamp,
+  SummerVoyage,
+  SundayBlockbusterMovieNight,
+  VolleyballTeamOpenTryouts,
+  WhimsonCakes,
+  WinsloughHealthFair,
+  WinsloughSummerFestival,
+  WitchWars,
+  FallFestivalWaltfordPark,
+  FinchworthFallFestival,
+  FitnessHealthFair,
+  FromSketchesToArtwork,
+  GoldCheetahSurvivalCamp,
+  GrungeFallFashionWeek,
+  HealthIsWealthFair,
+  HighSchoolBasketballPlayoffs,
+  StatewideJobResourceFair,
+  AllergenFreeDonutSale,
+  AnnualHealthWealthFair,
+  AnnualScienceFair,
+  AnnualSportsFestival,
+  AnnualWinterWonderlandGala,
+  BeechtownBlockParty,
+  BeechtownLodgeSummerCamp,
+  BrightNightWithStars,
+  ByersLaneStreetParty,
+  CincoDeMayo,
+  CupcakesForAGoodCause,
+  EasterFairEggHunt,
+  EasyListeningAndSmoothJazz,
+  EspeciallyForYou,
   
-  // VolleyballVarsityTryouts,
+  // ChristianYouthWeek,
+  // UltimateFoodFest,
+  // CoconutResurgance,
   // AdorasSundayGarageSale,
-  // FallfieldFoodDrive,
   // LearnHowToBrewYourBestCoffee,
-  // AnnualBeachTownFoodFest,
-  // SupportSandiosFoodDrive,
-  // TheRunwayLife,
-  // GarnishDelightBakery,
   // BakeSale,
   // PizzaPartyCause,
-  // SummerInBlackAndWhite,
   // NeonYardSale,
   // BikeAroundTheCity,
   // ValentinesSale,
-  // AnnualGrise25th,
   // TheHealthIsWealthFair,
   // TurnFatIntoFit,
   // HalloweenLanternFest,
@@ -222,70 +316,13 @@ export const templates = {
   // DustysHandymanServices,
   // JobFair2019,
   // AdamsIntergalacticParty,
-  // AllergenFreeDonutSale,
   // AnnualCharityFoodDrive,
-  // AnnualDessertDash,
   // AnnualEasterEggBrunch,
-  // AnnualEasterEggHunt,
   // AnnualFamilyYardSale,
-  // AnnualHealthWealthFair,
-  // AnnualScienceFair,
-  // AnnualSportsFestival,
-  // AnnualSummerFoodFest,
-  // AnnualWinterWonderlandGala,
-  // BasketballTournament,
-  // BeechtownBlockParty,
-  // BeechtownCityJobFair,
-  // BeechtownLodgeSummerCamp,
-  // BlastFromThePast,
-  // BrightNightWithStars,
-  // ByersLaneStreetParty,
-  // ChatswoodFallFestival,
   // ChiliCookOff,
-  // CincoDeMayo,
-  // CupcakesForAGoodCause,
-  // EasterFairEggHunt,
-  // EasyListeningAndSmoothJazz,
-  // EspeciallyForYou,
-  // FallFestivalFundraising,
-  // FallFestivalWaltfordPark,
-  // FallfieldsFallFestival,
-  // FinchworthFallFestival,
-  // FitnessHealthFair,
-  // FoodDriveAustfamCharity,
-  // FromSketchesToArtwork,
-  // GoldCheetahSurvivalCamp,
-  // GrungeFallFashionWeek,
-  // HealthIsWealthFair,
-  // HighSchoolBasketballPlayoffs,
   // HippityHoppity,
-  // IsabelsBirthdayParty,
-  // KicksByKyobi,
-  LookingForArtVolunteers,
-  // MayaPhillips,
-  // MitchellFamilyCookieExchange,
   // MonthlyQuarkwoodFoodDrive,
-  // MothersDaySpecialBrunch,
-  // PlanYourCareer,
-  // QuarkSummerCamp,
-  // QuarktownHairDonation,
-  // RockOutCureConcert,
-  // RollinBackParty,
-  // RunToSaveTheTrees,
-  // SandioGiants,
   // SoccerVarsityTeam,
-  // StatewideJobResourceFair,
-  // StreetPhotographyWorkshop,
-  // SummerCamp,
-  // SummerVoyage,
-  // SundayBlockbusterMovieNight,
-  // VolleyballTeamOpenTryouts,
-  // WhimsonCakes,
-  // WhiteElephant,
-  // WinsloughHealthFair,
-  // WinsloughSummerFestival,
-  // WinterWonderfulApparelSale,
-  // WitchWars,
 }
 
 export function solidColor(color) {

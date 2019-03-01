@@ -284,6 +284,74 @@ export const DQ_FONTS = {
     baseline: -0.16,
     descender: 0.15,
   },
+  'Aleo': {
+    ascender: -0.18,
+    xHeight: -0.39,
+    baseline: -0.1,
+    descender: 0.06,
+  },
+  'Special Elite': {
+    ascender: -0.01,
+    xHeight: -0.22,
+    baseline: -0.29,
+    descender: -0.08,
+  },
+  'Vidaloka': {
+    ascender: -0.13,
+    xHeight: -0.33,
+    baseline: -0.17,
+    descender: 0.05,
+  },
+  'Rubik One': {
+    file: 'custom',
+    ascender: -0.11,
+    xHeight: -0.29,
+    baseline: -0.19,
+    descender: 0.02,
+  },
+  'IM Fell English Pro': {
+    file: 'custom',
+    ascender: -0.09,
+    xHeight: -0.32,
+    baseline: -0.23,
+    descender: 0.04,
+  },
+  'Gidole': {
+    file: 'custom',
+    ascender: -0.17,
+    xHeight: -0.36,
+    baseline: -0.16,
+    descender: 0.02,
+  },
+  'BodoniFLF': {
+    file: 'custom',
+    ascender: -0.15,
+    xHeight: -0.435,
+    baseline: -0.17,
+    descender: 0.07,
+  },
+  'Edo': {
+    file: 'custom',
+    supportsLowerCase: false, // It's small caps and Caps
+    ascender: -0.17,
+    xHeight: -0.17,
+    baseline: -0.13,
+    descender: -0.13,
+  },
+  'Sifonn': {
+    file: 'custom',
+    ascender: 0,
+    xHeight: -0.24,
+    baseline: -0.25,
+    descender: -0.01,
+  },
+  'Sensei': {
+    file: 'custom',
+    ascender: -0.11,
+    xHeight: -0.31,
+    baseline: -0.15,
+    descender: 0.03,
+  },
 }
 
 const FONT_SUBSTITUTES = {

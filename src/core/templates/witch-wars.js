@@ -31,14 +31,15 @@ export default {
         },
         {
           type: 'icon',
-          url: '/witch-hat.svg',
+          src: '/witch-hat.svg',
           fill: '#3c2e3e',
-          color: striped(135, '#3c2e3e44', 2, 'transparent', 2),
-          size: 2,
+          background: {
+            color: striped(135, '#3c2e3e44', 3, 'transparent', 3),
+            borderRadius: 9999,
+          },
           aspectRatio: 1,
-          borderRadius: 9999,
-          px: 0.01,
-          py: 0.01,
+          pa: 0.01,
+          size: 2,
           meta: {
             width: 50,
             height: 50,
@@ -84,7 +85,7 @@ export default {
           type: 'bar',
           background: solidColor('#3c2e3e'),
           h: 10,
-          w: .25,
+          w: .15,
         },
         {
           type: 'heading',
@@ -96,7 +97,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
-            letterSpacing: 0.1,
+            letterSpacing: 0.099,
             lineHeight: 1.4,
             size: 0.3,
             style: 'normal',

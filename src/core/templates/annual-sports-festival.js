@@ -12,7 +12,6 @@ export default {
   },
   content: {
     body: {
-      bleed: { all: true },
       alignX: 'left',
       alignY: 'top',
       textAlign: 'left',
@@ -78,7 +77,7 @@ export default {
           color: solidColor('#ffffff'),
           font: {
             family: 'Norwester',
-            letterSpacing: 0.1,
+            letterSpacing: 0.02,
             lineHeight: 1.6,
             size: 1.3,
             style: 'normal',

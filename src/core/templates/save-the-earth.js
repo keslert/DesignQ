@@ -14,10 +14,10 @@ export default {
           lines: [
             {type: 'descriptive', text: 'A Call for Volunteers'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: solidColor('#e4fde1'),
           font: {
             family: 'Lato',
-            letterSpacing: 0.1,
+            letterSpacing: 0.15,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -31,7 +31,7 @@ export default {
             {type: 'eventName', text: 'Save the Earth.'},
             {type: 'eventName', text: 'Save Lives.'},
           ],
-          color: solidColor('#94f9cd'),
+          color: solidColor('#94f9ce'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0,
@@ -47,10 +47,10 @@ export default {
           lines: [
             {type: 'time', text: 'The Beechtown Environmental Organization needs you.'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: solidColor('#e4fde1'),
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -64,7 +64,7 @@ export default {
             {type: 'contact', text: 'Register Online at'},
             {type: 'contact', text: 'www.reallygreatsite.com'},
           ],
-          color: solidColor('#94f9cd'),
+          color: solidColor('#94f9ce'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.15,
@@ -72,20 +72,20 @@ export default {
             size: 0.4,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
       ]
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#e5fce1'),
+      background: solidColor('#e4fde1'),
       elements: [
         // { 
         //   type: 'image',
-        //   fill: '#94f9cd',
+        //   fill: '#94f9ce',
         //   bleed: {all: true},
-        //   url: '/world.svg',
+        //   src: '/world.svg',
         //   aspectRatio: .55,
         //   zoom: 1.6,
         //   y: 0,
@@ -99,7 +99,7 @@ export default {
           ],
           font: {
             family: 'Lato',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

@@ -11,7 +11,7 @@ export default {
       elements: [
         {
           type: 'icon',
-          url: '/yacht.svg',
+          src: '/yacht.svg',
           fill: '#f48842',
           size: 0.8,
           meta: {
@@ -29,7 +29,7 @@ export default {
           color: solidColor('#f25938'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.05,
+            letterSpacing: 0.12,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -88,7 +88,7 @@ export default {
           },
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.05,
+            letterSpacing: 0.12,
             lineHeight: 1.6,
             size: 0.5,
             style: 'normal',
@@ -100,7 +100,7 @@ export default {
         //   type: 'image',
         //   flex: 1,
         //   bleed: {left: true, right: true, bottom: true},
-        //   url: '/mountain.svg',
+        //   src: '/mountain.svg',
         //   zoom: 1.15,
         //   y: 0.62,
         //   fill: '#f48842',
@@ -109,6 +109,7 @@ export default {
     },
     footer: {
       background: solidColor('#f48842'),
+      bleed: { a: 1 },
       py: .5,
       elements: [
         {
@@ -117,7 +118,7 @@ export default {
             {type: 'descriptive', text: 'Open for kids aged 11 to 13. Our team of skilled and'},
             {type: 'descriptive', text: 'professional camp counselors ensures all kids are safe 24/7.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,

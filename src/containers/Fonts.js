@@ -12,10 +12,19 @@ import _ from 'lodash';
 import FontCanvas from '../components/FontCanvas';
 import FontManual from '../components/FontManual'
 
+
 const defaultFamilies = [
+  // 'Rubik One',
+  'IM Fell English Pro',
   'Playlist',
-  'Playfair Display',
-  'Londrina Sketch',
+  'Gidole',
+  'BodoniFLF',
+  'Edo',
+  'Sifonn',
+  'Sensei',
+  // 'Playlist',
+  // 'Playfair Display',
+  // 'Londrina Sketch',
 ].map(f => ({family: f, value: f, label: f}))
 
 const GOOGLE_FONTS = _.chain(IDEO_FONTS)
@@ -25,7 +34,14 @@ const GOOGLE_FONTS = _.chain(IDEO_FONTS)
 
 function Fonts() {
   const [families, setFamilies] = useState(defaultFamilies);
-  const [activeFamilies, setActiveFamilies] = useState({'Playlist': true});
+  const [activeFamilies, setActiveFamilies] = useState({
+    'IM Fell English Pro': true,
+    'Gidole': true,
+    'BodoniFLF': true,
+    'Edo': true,
+    'Sifonn': true,
+    'Sensei': true,
+  });
   const handleFamilySelection = useCallback(setFamilies)
   
   useEffect(() => {

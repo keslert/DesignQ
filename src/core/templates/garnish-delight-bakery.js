@@ -68,8 +68,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#fff'),
-          width: .25,
-          height: 6,
+          w: .25,
+          h: 6,
         },
         {
           type: 'heading',

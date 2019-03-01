@@ -15,12 +15,15 @@ import _ from 'lodash';
 import 'jsoneditor/dist/jsoneditor.css';
 
 
-const defaultTemplate = templates.LetsGrooveJazzNight;
+// const defaultTemplate = templates.LetsGrooveJazzNight;
 // computeFlyer(defaultTemplate)
-function Editor() {
+function Editor(props) {
   const jsonDiv = useRef();
   const jsonEditor = useRef();
   const _template = useRef();
+
+  const temp = templates;
+  const defaultTemplate = _.find(templates, t => t.id == props.match.params.id)
 
   const [version, setVersion] = useState(0);
   const [flyer, setFlyer] = useState(defaultTemplate.title);

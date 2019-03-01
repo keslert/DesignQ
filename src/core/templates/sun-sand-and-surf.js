@@ -5,13 +5,13 @@ const small = {
   lines: [
     {type: 'host', text: "You're Invited!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0.05,
+    family: 'Montserrat',
+    letterSpacing: 0.25,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 300,
   },
 }
 
@@ -24,7 +24,7 @@ const dominant = {
   color: solidColor('#96fdfc'),
   font: {
     family: 'Norwester',
-    letterSpacing: 0,
+    letterSpacing: 0.01,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -36,12 +36,13 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A summer party hosted by MLKD Burger Shack!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Montserrat',
+    letterSpacing: 0.05,
     size: 1,
     transform: 'normal',
+    weight: 300,
   },
 }
 
@@ -61,8 +62,8 @@ const heading = {
   },
   color: solidColor('#96fdfc'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Norwester',
+    letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -72,30 +73,34 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'descriptive', text: 'MLKD Burger Shack promises amazing food and'},
+    {type: 'descriptive', text: 'drinks, plus awesome beach activities and games'},
+    {type: 'descriptive', text: 'for all the attendees!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
     transform: 'uppercase',
+    weight: 300,
   },
 }
 
 const bar = {
   type: 'bar',
   background: solidColor('#96fdfc'),
-  width: 1,
-  height: 8,
-},
+  w: 1,
+  h: 8,
+}
 
 export default {
   id: 52,
   title: 'Sun, Sand, and Surf',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-waves-dance-party-flyer-MAC7mvzQbNU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1550436380-8aa32606d87c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',

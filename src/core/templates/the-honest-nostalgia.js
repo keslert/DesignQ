@@ -16,6 +16,8 @@ export default {
       textAlign: 'left',
       alignX: 'left',
       alignY: 'top',
+      itemsAlignX: 'left',
+      itemsAlignY: 'top',
       elements: [
         {
           type: 'small',
@@ -72,6 +74,7 @@ export default {
     },
     footer: {
       alignX: 'right',
+      itemsAlignX: 'right',
       textAlign: 'right',
       elements: [
         {

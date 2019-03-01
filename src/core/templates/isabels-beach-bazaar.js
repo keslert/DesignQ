@@ -8,9 +8,10 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Lora',
-    letterSpacing: 0.05,
+    letterSpacing: 0.0,
     size: 1,
-    transform: 'uppercase',
+    style: 'italic',
+    transform: 'normal',
     weight: 400,
   },
 }
@@ -25,10 +26,10 @@ const dominant = {
   color: solidColor('#fff'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.03,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -40,10 +41,11 @@ const bridge = {
   ],
   color: solidColor('#000000'),
   font: {
-    family: 'Lora',
-    letterSpacing: 0,
+    family: 'Montserrat',
+    letterSpacing: 0.120,
     size: 1,
-    transform: 'normal',
+    transform: 'uppercase',
+    weight: 700,
   },
 }
 
@@ -59,8 +61,9 @@ const heading = {
     family: 'Lora',
     letterSpacing: 0,
     size: 1,
-    transform: 'uppercase',
-    weight: 400,
+    style: 'italic',
+    transform: 'normal',
+    weight: 700,
   },
 }
 
@@ -73,12 +76,13 @@ const paragraph = {
   ],
   color: solidColor('#ffbec0'),
   font: {
-    family: 'Lora',
+    family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
+    weight: 300,
   },
 }
 
@@ -87,7 +91,10 @@ export default {
   id: 97,
   title: "Isabel's Beach Bazaar",
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-pink-&-white-tropical-minimalist-simple-clean-summer-event-flyer-MAC3TdMQ9sU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: solidColor('#ffbec0'),
+  px: 3.5,
+  py: 1.5,
   content: {
     background: {
       img: { src: 'https://images.unsplash.com/photo-1457725798811-c9561232a295?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
@@ -101,6 +108,7 @@ export default {
       textAlign: 'left',
       background: solidColor('transparent'),
       bleed: { l: 2, t: 1 },
+      px: 1.5,
       elements: [
         small,
         dominant,

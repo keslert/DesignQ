@@ -9,7 +9,7 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Josefin Sans',
-    letterSpacing: 0.05,
+    letterSpacing: 0.15,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -29,7 +29,7 @@ const dominant = {
     size: 1,
     style: 'italic',
     transform: 'normal',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -41,7 +41,7 @@ const bridge = {
   color: solidColor('#fff'),
   font: {
     family: 'Josefin Sans',
-    letterSpacing: 0,
+    letterSpacing: 0.03,
     size: 1,
     transform: 'normal',
   },
@@ -59,7 +59,7 @@ const heading = {
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -76,7 +76,8 @@ const paragraph = {
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
+    weight: 700,
   },
 }
 
@@ -104,6 +105,7 @@ export default {
     },
     footer: {
       background: solidColor('#ffffff'),
+      bleed: { l: 2, r: 1, b: 1 },
       alignX: 'right',
       itemsAlignX: 'right',
       textAlign: 'right',

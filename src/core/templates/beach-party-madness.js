@@ -4,8 +4,6 @@ export default {
   title: 'Beach Party Madness',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-maroon-and-yellow-beach-party-flyer-MAC5p09I7SY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  px: 1,
-  py: 1,
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1529182856268-587c45053e0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',

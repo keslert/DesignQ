@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Rosario',
-    letterSpacing: 0.05,
+    letterSpacing: 0.15,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -24,10 +24,10 @@ const dominant = {
   color: solidColor('#fe906a'),
   font: {
     family: 'Arvo',
-    letterSpacing: 0,
+    letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -39,7 +39,7 @@ const bridge = {
   color: solidColor('#fff'),
   font: {
     family: 'Rosario',
-    letterSpacing: 0,
+    letterSpacing: 0.1,
     size: 1,
     transform: 'normal',
   },
@@ -55,7 +55,7 @@ const heading = {
     {type: 'location', text: 'Meadowview Event Center'},
   ],
   divider: {
-    type: 'bar',
+    type: 'line',
     size: 1,
     color: solidColor('#fe906a'),
   },
@@ -65,25 +65,25 @@ const heading = {
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Our fall festival lets the community get together and'},
-    {type: 'eventName', text: "welcome the season. This year we're supporting a"},
-    {type: 'eventName', text: 'great cause, too!'},
+    {type: 'descriptive', text: 'Our fall festival lets the community get together and'},
+    {type: 'descriptive', text: "welcome the season. This year we're supporting a"},
+    {type: 'descriptive', text: 'great cause, too!'},
   ],
   color: solidColor('#e25232'),
   font: {
     family: 'Rosario',
-    letterSpacing: 0,
+    letterSpacing: 0.07,
     lineHeight: 1.4,
     size: 1,
-    style: 'normal',
-    transform: 'uppercase',
+    style: 'italic',
+    transform: 'normal',
   },
 }
 
@@ -101,7 +101,6 @@ export default {
         small,
         dominant,
         bridge,
-        bar,
         heading,
         paragraph,
       ]

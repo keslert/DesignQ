@@ -9,10 +9,10 @@ const small = {
   color: solidColor('#46dbdd'),
   font: {
     family: 'Quicksand',
-    letterSpacing: 0.05,
+    letterSpacing: 0.07,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -29,7 +29,7 @@ const dominant = {
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -42,7 +42,7 @@ const bridge = {
   color: solidColor('#46dbdd'),
   font: {
     family: 'Quicksand',
-    letterSpacing: 0,
+    letterSpacing: 0.07,
     size: 1,
     transform: 'normal',
   },
@@ -57,11 +57,11 @@ const heading = {
   ],
   color: solidColor('#f43a76'),
   font: {
-    family: 'Nunito',
-    letterSpacing: 0,
+    family: 'Quicksand',
+    letterSpacing: 0.08,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -76,11 +76,11 @@ const paragraph = {
   color: solidColor('#fff'),
   font: {
     family: 'Quicksand',
-    letterSpacing: 0,
+    letterSpacing: 0.07,
     lineHeight: 1.4,
-    size: 1,
+    size: 1.5,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
@@ -101,7 +101,7 @@ export default {
       pa: 3,
       background: {
         color: '#ffffff',
-        borderRadius: unitValue(50, '%'),
+        borderRadius: 9999,
       },
       aspectRatio: 1,
       elements: [
@@ -113,6 +113,7 @@ export default {
     },
     footer: {
       background: solidColor('#46dbdd'),
+      bleed: { a: 1 },
       elements: [
         paragraph,
       ]

@@ -15,6 +15,7 @@ export function getBackgroundStyle(bg) {
     backgroundPositionY: `${(_.isNumber(bg.y) ? bg.y : .5) * 100}%`,
     filter: bg.img && _.map(bg.img.filters, (v, k) => `${k}(${v})`).join(' '),
     backgroundBlendMode: bg.backgroundBlendMode,
+    borderRadius: bg.borderRadius ? bg.borderRadius + 'px' : null,
   };
 }
 

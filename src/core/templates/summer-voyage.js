@@ -7,7 +7,7 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-brown-and-grey-illustrated-icons-summer-camp-flyer-MAC3XzSjncw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: solidColor('#fef8e9'),
   decor: {
-    t: .4,
+    t: .3,
   },
   content: {
     body: {
@@ -43,7 +43,7 @@ export default {
             family: 'Lilita One',
             letterSpacing: 0.01,
             lineHeight: 1.2,
-            size: 0.8,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,

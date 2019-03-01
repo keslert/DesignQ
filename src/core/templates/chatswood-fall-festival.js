@@ -9,10 +9,10 @@ const small = {
   color: solidColor('#6d4d43'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0.05,
+    letterSpacing: 0.170,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -25,7 +25,7 @@ const dominant = {
   color: solidColor('#d59158'),
   font: {
     family: 'Norwester',
-    letterSpacing: 0,
+    letterSpacing: 0.028,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -40,7 +40,7 @@ const bridge = {
   color: solidColor('#6d4d43'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0,
+    letterSpacing: .07,
     size: 1,
     transform: 'normal',
   },
@@ -84,16 +84,16 @@ const paragraph = {
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const bar = {
   type: 'bar',
   background: solidColor('#6d4d43'),
-  width: .25,
-  height: 8,
-},
+  w: .25,
+  h: 8,
+}
 
 
 export default {

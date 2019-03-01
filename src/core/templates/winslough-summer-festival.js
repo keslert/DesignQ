@@ -24,7 +24,7 @@ const dominant = {
   ],
   color: solidColor('#7ece97'),
   font: {
-    family: 'IM Fell',
+    family: 'IM Fell English Pro',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -40,7 +40,7 @@ const bridge = {
   ],
   color: solidColor('#ffffff'),
   font: {
-    family: 'IM Fell',
+    family: 'IM Fell English Pro',
     letterSpacing: 0.041,
     size: 1,
     style: 'italic',
@@ -80,7 +80,7 @@ const paragraph = {
   ],
   color: solidColor('#ffffff'),
   font: {
-    family: 'IM Fell',
+    family: 'IM Fell English Pro',
     letterSpacing: 0.047,
     lineHeight: 1.4,
     size: 1,
@@ -92,9 +92,9 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: solidColor('#7ece97'),
-  width: .33,
-  height: 8,
-},
+  w: .33,
+  h: 8,
+}
 
 export default {
   id: 48,

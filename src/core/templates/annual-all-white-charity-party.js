@@ -12,7 +12,7 @@ export default {
         {
           type: 'icon',
           size: 1,
-          url: '/yacht.svg',
+          src: '/yacht.svg',
           fill: '#373737',
           meta: {
             width: 50,
@@ -100,7 +100,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 2,
         },
         {
           type: 'paragraph',

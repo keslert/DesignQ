@@ -1,6 +1,6 @@
 import React from 'react';
 import Frame from '../components/Frame';
-import { Flex, Box } from 'rebass';
+import { Flex, Box, Text } from 'rebass';
 import { templates } from '../core/templates';
 import { 
   bodyHeaderTests, 
@@ -35,6 +35,7 @@ function Gallery() {
       {_.map(flyers, flyer => (
         <Box p={2} key={flyer.title}>
           <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer} />
+          <Text textAlign="center">{flyer.id}</Text>
         </Box>
       ))}
     </Flex>

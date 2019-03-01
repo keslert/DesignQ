@@ -87,7 +87,7 @@ export default {
       elements: [
         {
           type: 'icon',
-          url: '/yacht.svg',
+          src: '/yacht.svg',
           fill: '#f64b42',
           meta: {
             width: 50,

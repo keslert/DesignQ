@@ -8,7 +8,7 @@ const small = {
   color: solidColor('#7f9f47'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0.05,
+    letterSpacing: 0.02,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -41,7 +41,7 @@ const bridge = {
   color: solidColor('#7f9f47'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.02,
     size: 1,
     transform: 'normal',
   },
@@ -64,10 +64,10 @@ const heading = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.02,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -81,11 +81,11 @@ const paragraph = {
   color: solidColor('#7f9f47'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.02,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 

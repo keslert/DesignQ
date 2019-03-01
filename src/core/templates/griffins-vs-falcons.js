@@ -18,6 +18,9 @@ export default {
     color: '#404040',
     backgroundBlendMode: 'multiply',
   },
+  decor: {
+    r: .2,
+  },
   content: {
     body: {
       h: 'auto',
@@ -103,7 +106,7 @@ export default {
             transform: 'normal',
             weight: 700,
           },
-          bleed: {left: 1},
+          bleed: {pl: 1},
           py: 1.5,
         },
         {

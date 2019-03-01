@@ -16,8 +16,9 @@ export default {
       elements: [
         {
           type: 'icon',
-          url: '/shop.svg',
+          src: '/shop.svg',
           fill: '#9ddcdc',
+          size: 1,
           meta: {
             width: 50,
             height: 50,

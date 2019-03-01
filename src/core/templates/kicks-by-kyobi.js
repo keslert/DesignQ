@@ -10,6 +10,7 @@ export default {
       src: 'https://images.pexels.com/photos/9379/drinking-alley-fun-bowling-9379.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     },
   },
+  pa: 1.5,
   content: {
     background: solidColor('#1a1a1a'),
     body: {

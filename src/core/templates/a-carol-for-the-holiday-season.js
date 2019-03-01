@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { solidColor, striped } from './'
 
 export default {
   id: 49,
@@ -7,8 +7,10 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-christmas-birds-festive-holidays-flyer-MAC4XH26kEo.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
     img: {
-      src: '/bird-print.png',
+      src: 'https://images.pexels.com/photos/691710/pexels-photo-691710.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     },
+    color: striped(135, '#f68464', 80, '#454a80', 40),
+    backgroundBlendMode: 'overlay',
   },
   content: {
     h: 'auto',
@@ -49,7 +51,7 @@ export default {
             family: 'Aleo',
             letterSpacing: 0,
             lineHeight: 1.4,
-            size: 1,
+            size: 0.8,
             style: 'normal',
             transform: 'uppercase',
             weight: 300,

@@ -5,13 +5,13 @@ const small = {
   lines: [
     {type: 'host', text: 'A Throwback Event'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Quicksand',
-    letterSpacing: 0.05,
+    letterSpacing: 0.15,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -22,10 +22,10 @@ const dominant = {
     {type: 'eventName', text: "to the 90's"},
     {type: 'eventName', text: 'Party'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Sifonn',
-    letterSpacing: 0,
+    letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -38,12 +38,13 @@ const bridge = {
     {type: 'descriptive', text: 'A celebration organized by'},
     {type: 'descriptive', text: "Martha's Skate Club"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Quicksand',
-    letterSpacing: 0,
+    letterSpacing: 0.05,
     size: 1,
     transform: 'normal',
+    weight: 700,
   },
 }
 
@@ -57,10 +58,15 @@ const heading = {
     {type: 'descriptive', text: 'Ha Luh Open Park'},
     {type: 'descriptive', text: '123 Anywhere Street'},
   ],
-  color: solidColor('#fff'),
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#ffffff'),
+  },
+  color: solidColor('#ffffff'),
   font: {
     family: 'Sifonn',
-    letterSpacing: 0,
+    letterSpacing: 0.13,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -74,14 +80,15 @@ const paragraph = {
     {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
     {type: 'eventName', text: 'email hello@reallygreatsite.com'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
+    family: 'Quicksand',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
+    weight: 700,
   },
 }
 
@@ -90,7 +97,7 @@ export default {
   id: 66,
   title: 'Rollin Back to the 90s',
   tags: ['event', 'flyer'],
-  background: solidColor('#ffffff'),
+  background: solidColor('#ffffffffffff'),
   content: {
     body: {
       alignY: 'top',

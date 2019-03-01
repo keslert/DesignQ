@@ -13,19 +13,21 @@ export default {
     body: {
       bleed: { a: 1 },
       background: solidColor('#fff4e9'),
-      alignY: 'bottom',
+      alignY: 'center',
       elements: [
         {
           type: 'icon',
-          url: '/shop.svg',
+          src: '/shop.svg',
           fill: '#fff4e9',
-          color: '#c3996f',
+          background: {
+            color: '#c3996f',
+            borderRadius: 9999,
+          },
           overlap: 0.5,
           size: 0.7,
           aspectRatio: 1,
-          borderRadius: 9999,
-          px: 1,
-          py: 1,
+          pa: 1,
+          // py: 1,
           meta: {
             width: 50,
             height: 50,

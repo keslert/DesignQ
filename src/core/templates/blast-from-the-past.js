@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0.05,
+    letterSpacing: 0.16,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -27,6 +27,7 @@ const dominant = {
   font: {
     family: 'Sifonn',
     letterSpacing: 0,
+    lineHeight: 1.2,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -58,7 +59,7 @@ const heading = {
   color: solidColor('#fff'),
   font: {
     family: 'Sifonn',
-    letterSpacing: 0,
+    letterSpacing: 0.09,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -75,14 +76,15 @@ const paragraph = {
   color: solidColor('#fff'),
   background: solidColor ('#e369d2'),
   bleed: { a: 1 },
-  w: 'auto',
+  w: 'fill',
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
+    weight: 300,
   },
 }
 
@@ -91,6 +93,7 @@ export default {
   id: 79,
   title: 'Blast from the past',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-bright-pink-photo-music-festival-flyer-MAC50_8yy5U.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1527618802231-5054ec72758b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -106,6 +109,7 @@ export default {
       ]
     },
     footer: {
+      bleed: { b: 1 },
       elements: [
         heading,
         paragraph,

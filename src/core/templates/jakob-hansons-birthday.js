@@ -16,7 +16,7 @@ export default {
         {
           type: 'icon',
           size: 1.6,
-          url: '/monkey-birthday.png',
+          src: '/monkey-birthday.png',
           meta: {
             width: 232,
             height: 348,

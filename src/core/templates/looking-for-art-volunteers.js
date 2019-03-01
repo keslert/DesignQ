@@ -4,8 +4,6 @@ export default {
   id: 71,
   title: "We're Looking for Art Volunteers",
   tags: ['event', 'flyer'],
-  px: 1,
-  py: 1,
   border: {
     a: .05,
     background: solidColor('#ffffff'),
@@ -99,7 +97,7 @@ export default {
             size: 0.8,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]
@@ -116,7 +114,7 @@ export default {
           ],
           font: {
             family: 'Open Sans',
-            letterSpacing: 0.1,
+            letterSpacing: 0.08,
             lineHeight: 1.4,
             size: 0.8,
             style: 'normal',

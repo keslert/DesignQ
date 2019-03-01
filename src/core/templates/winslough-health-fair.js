@@ -18,14 +18,17 @@ export default {
       elements: [
         {
           type: 'icon',
-          url: '/heart.svg',
+          src: '/heart.svg',
           fill: '#90c8cf',
-          color: '#ffffff',
-          size: 0.5,
-          aspectRatio: 1,
-          borderRadius: 9999,
+          background: {
+            color: '#ffffff',
+            borderRadius: 9999,
+          },
+          size: 1,
           px: 1,
-          py: 1,
+          pt: 1.1,
+          pb: 0.9,
+          aspectRatio: 1,
           meta: {
             width: 50,
             height: 50,

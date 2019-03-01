@@ -55,6 +55,11 @@ const heading = {
     ],
     {type: 'location', text: 'Golden Lights Theater'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#fff'),
+  },
   color: solidColor('#fff'),
   font: {
     family: 'Glacial Indifference',

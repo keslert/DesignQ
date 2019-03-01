@@ -89,7 +89,8 @@ export default {
       textAlign: 'right',
       elements: [{
         type: 'icon',
-        url: '/silk-yoga.png',
+        src: '/silk-yoga.png',
+        size: 1,
         meta: {
           width: 88,
           height: 100,

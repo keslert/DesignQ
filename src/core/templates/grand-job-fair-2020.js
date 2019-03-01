@@ -29,7 +29,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Aileron',
-            letterSpacing: 0,
+            letterSpacing: 0.04,
             lineHeight: 1.2,
             size: 0.6,
             style: 'normal',
@@ -40,8 +40,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#fff'),
-          width: 1,
-          height: 6,
+          w: 1,
+          h: 6,
         },
         {
           type: 'bridge',
@@ -83,7 +83,7 @@ export default {
           },
           font: {
             family: 'Aileron',
-            letterSpacing: 0,
+            letterSpacing: 0.006,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -101,7 +101,7 @@ export default {
           ],
           font: {
             family: 'Aileron',
-            letterSpacing: 0,
+            letterSpacing: 0.057,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -120,7 +120,7 @@ export default {
         {
           type: 'icon',
           fill: '#284b82',
-          url: '/company.svg',
+          src: '/company.svg',
           size: 0.5,
           meta: {
             width: 50,
@@ -138,12 +138,12 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Aileron',
-            letterSpacing: 0,
+            letterSpacing: 0.13,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 900,
           },
         },
       ]

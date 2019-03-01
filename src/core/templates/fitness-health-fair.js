@@ -27,7 +27,7 @@ export default {
           color: solidColor('#292a25'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0.1,
+            letterSpacing: 0.2,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -45,7 +45,7 @@ export default {
           color: solidColor('#52b24f'),
           font: {
             family: 'League Spartan',
-            letterSpacing: 0,
+            letterSpacing: 0.014,
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
@@ -62,7 +62,7 @@ export default {
           color: solidColor('#292a25'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0,
+            letterSpacing: 0.024,
             lineHeight: 1.4,
             size: 0.6,
             style: 'normal',
@@ -80,7 +80,7 @@ export default {
           color: solidColor('#52b24f'),
           font: {
             family: 'League Spartan',
-            letterSpacing: 0.05,
+            letterSpacing: 0.064,
             lineHeight: 1.4,
             size: 0.3,
             style: 'normal',
@@ -99,7 +99,7 @@ export default {
           color: solidColor('#292a25'),
           font: {
             family: 'Aleo',
-            letterSpacing: 0,
+            letterSpacing: 0.1,
             lineHeight: 1.4,
             size: 0,
             style: 'normal',

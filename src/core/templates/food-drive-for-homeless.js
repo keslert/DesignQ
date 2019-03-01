@@ -9,10 +9,10 @@ const small = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
-    letterSpacing: 0.05,
+    letterSpacing: 0.110,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -26,8 +26,8 @@ const dominant = {
   color: solidColor('#ffffff'),
   font: {
     family: 'League Spartan',
-    letterSpacing: 0,
-    size: 1,
+    letterSpacing: 0.05,
+    size: 0.8,
     transform: 'uppercase',
     weight: 400,
   },
@@ -58,7 +58,7 @@ const heading = {
   color: solidColor('#ffffff'),
   font: {
     family: 'League Spartan',
-    letterSpacing: 0,
+    letterSpacing: 0.110,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -78,28 +78,32 @@ const paragraph = {
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const bar = {
   type: 'bar',
   background: solidColor('#ffffff'),
-  width: .5,
-  height: 8,
-},
+  w: .25,
+  h: 10,
+}
 
 
 export default {
   id: 100,
   title: 'Food Drive for the Homeless',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-gray-boxes-canned-goods-food-drive-flyer-MAC3TTJ5W2w.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
     img: { src: 'https://images.unsplash.com/photo-1531422888678-9f098cb924ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
   },
   content: {
     body: {
       h: 'auto',
+      w: 'auto',
+      alignY: 'top',
+      bleed: { t: 1 },
       background: solidColor('#af232d'),
       elements: [
         small,

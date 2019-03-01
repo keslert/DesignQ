@@ -1,4 +1,4 @@
-import { solidColor, unitValue } from '.'
+import { solidColor } from './'
 
 export default {
   id: 82,
@@ -22,12 +22,12 @@ export default {
           color: solidColor('#000000'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.12,
             lineHeight: 1.4,
             size: 0.2,
             style: 'normal',
             transform: 'uppercase',
-            weight: 700,
+            weight: 400,
           },
         },
         {
@@ -39,7 +39,7 @@ export default {
           color: solidColor('#000000'),
           font: {
             family: 'Oswald',
-            letterSpacing: 0.1,
+            letterSpacing: 0.08,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -56,12 +56,12 @@ export default {
           color: solidColor('#000000'),
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.1,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
         {
@@ -84,7 +84,7 @@ export default {
           py: 1.5,
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.12,
             lineHeight: 1.6,
             size: 0.7,
             style: 'normal',
@@ -107,7 +107,7 @@ export default {
             size: 1,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]

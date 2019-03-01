@@ -73,7 +73,7 @@ export default {
       bleed: { all: true },
       elements: [{
         type: 'icon',
-        url: '/newton-doughnuts.png',
+        src: '/newton-doughnuts.png',
         size: 2,
         meta: {
           width: 230,

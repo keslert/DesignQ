@@ -18,11 +18,11 @@ export default {
         {
           type: 'icon',
           fill: '#000',
-          w: 0.2,
           src: '/football.svg',
+          size: 0.9,
           meta: {
-            w: 30,
-            h: 30,
+            width: 30,
+            height: 30,
             colors: [],
             filetype: 'svg',
           },

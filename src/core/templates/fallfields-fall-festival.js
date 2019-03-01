@@ -11,7 +11,6 @@ export default {
   },
   content: {
     body: {
-      bleed: { top: true, left: true, right: true },
       alignX: 'left',
       alignY: 'top',
       itemsAlignX: 'left',
@@ -26,7 +25,7 @@ export default {
           color: solidColor('#db4439'),
           font: {
             family: 'Roboto',
-            letterSpacing: 0.1,
+            letterSpacing: 0.12,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
@@ -44,7 +43,7 @@ export default {
           color: solidColor('#db4439'),
           font: {
             family: 'League Gothic',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.2,
             size: 0.8,
             style: 'normal',
@@ -55,8 +54,8 @@ export default {
         {
           type: 'bar',
           background:  solidColor('#db4439'),
-          height: 10,
-          width: .33,
+          h: 10,
+          w: .33,
         },
         {
           type: 'bridge',
@@ -67,7 +66,7 @@ export default {
           color: solidColor('#db4439'),
           font: {
             family: 'Roboto',
-            letterSpacing: 0,
+            letterSpacing: 0.01,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',
@@ -90,16 +89,13 @@ export default {
           color: solidColor('#db4439'),
           font: {
             family: 'League Gothic',
-            letterSpacing: 0.1,
+            letterSpacing: 0.07,
             lineHeight: 1.4,
             size: 0.7,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
           },
-          bleed: {left: true},
-          w: 'fill',
-          py: 1.5,
         },
         {
           type: 'paragraph',

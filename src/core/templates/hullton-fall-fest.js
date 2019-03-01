@@ -8,8 +8,11 @@ export default {
   background: {
     color: '#23374a',
   },
+  decor: {
+    t: .3,
+  },
   content: {
-    height: 'auto',
+    h: 'auto',
     alignY: 'bottom',
     bleed: { x: 1, b: 0},
     mb: 0,

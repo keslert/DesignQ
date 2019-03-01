@@ -39,7 +39,7 @@ export default {
           ],
           color: solidColor('#43a7dd'),
           font: {
-            family: 'Playlist Script',
+            family: 'Playlist',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,

@@ -10,7 +10,7 @@ const small = {
   background: solidColor('#faaf40'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0.05,
+    letterSpacing: 0.130,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -26,7 +26,7 @@ const dominant = {
   color: solidColor('#8bc53f'),
   font: {
     family: 'Knewave',
-    letterSpacing: 0,
+    letterSpacing: 0.01,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -42,7 +42,7 @@ const bridge = {
   color: solidColor('#faaf40'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.03,
     size: 1,
     transform: 'normal',
   },
@@ -57,13 +57,18 @@ const heading = {
     ],
     {type: 'location', text: '123 Anywhere St.'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#8bc53f'),
+  },
   color: solidColor('#8bc53f'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.130,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -77,11 +82,11 @@ const paragraph = {
   color: solidColor('#faaf40'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0,
+    letterSpacing: 0.03,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 

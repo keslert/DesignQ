@@ -7,7 +7,7 @@ export default {
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-coral-&-black-photo-birthday-flyer-MAC4Cw5ADUo.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
   background: {
     img: {
-      url: 'https://images.unsplash.com/photo-1494652588305-d663c5a1eb31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      src: 'https://images.unsplash.com/photo-1494652588305-d663c5a1eb31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
       zoom: 1.8,
       y: 0.65,
       filters: {
@@ -21,6 +21,7 @@ export default {
   content: {
     body: {
       alignY: 'bottom',
+      pb: 2,
       elements: [
         {
           type: 'small',
@@ -75,7 +76,7 @@ export default {
       ]
     },
     footer: {
-      bleed: { all: true },
+      bleed: { a: 1 },
       background: solidColor('#1d1e20'),
       width: unitValue(100, '%'),
       textAlign: 'center',

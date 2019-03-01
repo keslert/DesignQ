@@ -53,11 +53,12 @@ function computeGroupElementSpacing(group, spacing) {
       scaleElementFontSizes(el, scale);
     }
     
-    if(el.type === 'icon' && el.color) { 
-      const pad = c.fontSize / Math.log(c.fontSize * .3);
+    if(el.type === 'icon' && el.background) { 
+      const pad = c.w * .2; // TODO: WHY?
       withSides(s => c[`p${s}`] = pad * el[`p${s}`])
-      c.h += c.pt + c.pb;
-      c.w += c.pr + c.pl;
+      
+      // c.h -= c.pt + c.pb;
+      c.w -= c.pr + c.pl;
     }
   })
   _.last(elements)._computed.mb = 0;

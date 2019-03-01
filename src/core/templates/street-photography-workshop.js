@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { solidColor, striped } from './'
 
 const small = {
   type: 'small',
@@ -91,10 +91,10 @@ const bar = {
     type: 'solid',
     color: striped(135, '#f5d300', 6, 'transparent', 2)
   },
-  width: unitValue(50, '%'),
-  height: unitValue(16, 'px'),
+  w: .5,
+  h: 16,
   mb: 2,
-},
+}
 
 
 export default {
@@ -103,7 +103,10 @@ export default {
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: '',
+      src: 'https://images.unsplash.com/photo-1465925508512-1e7052bb62e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      filters: {
+        grayscale: 1,
+      },
     },
   },
   content: {

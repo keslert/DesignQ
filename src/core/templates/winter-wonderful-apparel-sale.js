@@ -55,6 +55,11 @@ const heading = {
     ],
     {type: 'location', text: 'San Dias Town Hall'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#a33a20'),
+  },
   color: solidColor('#a33a20'),
   font: {
     family: 'Montserrat',

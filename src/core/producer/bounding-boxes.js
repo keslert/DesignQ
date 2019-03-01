@@ -93,7 +93,28 @@ function computeVertical(template) {
 
   computeElementHeights(template);
   computeElementTops(template);
+
+  computeElementOverlap(template);
 }
+
+function computeElementOverlap(template) {
+  withGroups(template, g => {
+    const el = g.elements[0];
+    if(el.overlap) {
+      const top = g._computed.bb.t - el._computed.bb.h * el.overlap;
+      const diffT = el._computed.bb.t - top;
+      
+      g._computed.bb.h -= diffT;
+      g.elements.forEach(el => el._computed.bb.t -= diffT)
+      
+      const offset = calculateTop(g.alignY, 0, diffT);
+
+      g._computed.bb.t += offset;
+      g.elements.forEach(el => el._computed.bb.t += offset)
+    }
+  })
+}
+
 
 function computeElementAutoWidths(template) {
   withGroups(template, g => g.elements.forEach(el => {
@@ -117,7 +138,8 @@ function computeContentAutoWidth(template) {
     const border = _.sum(getEdgeValues(g, ['l', 'r'], 'content-border'));
     const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
     
-    return width + border + pad;
+    // return width + border + pad;
+    return width;
   }));
 
   template.content._computed.bb.autoW = maxGroupWidth;

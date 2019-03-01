@@ -91,7 +91,10 @@ function initGroup(group, groupType) {
     normalize(el);
     normalizeWidthAndHeight(group, 'auto', 'auto');
 
-    _.defaults(el.fonts, {
+    _.defaults(el, {
+      w: elementDefaultWidth(el),
+    })
+    _.defaults(el.font, {
       letterSpacing: 0,
       lineHeight: 1.4,
       size: 1,
@@ -198,6 +201,16 @@ function calculateHeight(template) {
 
   })
   return height;
+}
+
+function elementDefaultWidth(element) {
+  switch(element.type) {
+    case 'icon':
+    case 'bar':
+      return 'auto';
+    default: 
+      return 'fill'
+  }
 }
 
 export function getNormalizedValue(value, fullValue) {

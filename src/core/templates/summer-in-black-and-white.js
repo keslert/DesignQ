@@ -33,7 +33,7 @@ export default {
           font: {
             family: 'Glacial Indifference',
             lineHeight: 1.4,
-            letterSpacing: .2,
+            letterSpacing: .222,
             size: 0.6,
             style: 'normal',
             transform: 'uppercase',
@@ -91,7 +91,7 @@ export default {
           ],
           font: {
             family: 'Playfair Display',
-            weight: 700,
+            weight: 900,
             size: 0.7,
             style: 'normal',
             transform: 'normal',

@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#f5efde'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0.05,
+    letterSpacing: 0.130,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -44,6 +44,7 @@ const bridge = {
     letterSpacing: 0,
     size: 1,
     transform: 'normal',
+    weight: 300,
   },
 }
 
@@ -78,7 +79,8 @@ const paragraph = {
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
+    weight: 300,
   },
 }
 

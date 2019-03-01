@@ -24,9 +24,9 @@ const dominant = {
   color: solidColor('#f76991'),
   font: {
     family: 'League Spartan',
-    letterSpacing: 0,
+    letterSpacing: 0.01,
     size: 1,
-    transform: 'uppercase',
+    transform: 'normal',
     weight: 400,
   },
 }
@@ -39,10 +39,11 @@ const bridge = {
   color: solidColor('#30a6c0'),
   font: {
     family: 'Arvo',
-    letterSpacing: 0,
+    letterSpacing: 0.03,
     size: 1,
     style: 'italic',
     transform: 'normal',
+    weight: 700,
   },
 }
 
@@ -61,7 +62,7 @@ const heading = {
   color: solidColor('#f76991'),
   font: {
     family: 'League Spartan',
-    letterSpacing: 0,
+    letterSpacing: 0.09,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -78,17 +79,17 @@ const paragraph = {
   color: solidColor('#30a6c0'),
   font: {
     family: 'Arvo',
-    letterSpacing: 0,
+    letterSpacing: 0.03,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const icon = {
   type: 'icon',
-  url: '/champagne.svg',
+  src: '/champagne.svg',
   fill: '#f76991',
   size: 1.2,
   meta: {
@@ -97,7 +98,7 @@ const icon = {
     colors: [],
     filetype: 'svg',
   },
-},
+}
 
 
 export default {

@@ -76,8 +76,13 @@ function computeGroupSizes(template, group, dominant) {
   computeElementsFontSizes(types.heading, headingSettings)
 
   _.forEach(types.icon, icon => {
-    icon._computed.w = icon.w * maxW;
-    icon._computed.h = icon.meta.h / icon.meta.w * icon._computed.w;
+    icon._computed.w = maxW * .25 * icon.size;
+    // const ratio = icon.meta.h && icon.meta.w
+    if(icon.aspectRatio) {
+      icon._computed.h = icon.aspectRatio * icon._computed.w;
+    } else {
+      icon._computed.h = icon.meta.height / icon.meta.width * icon._computed.w;
+    }
   })
 
   // TODO: Handle better...
@@ -211,7 +216,7 @@ function slerp(min, optimum, max, x) {
 
 // https://github.com/FormidableLabs/measure-text/blob/master/src/index.js
 // https://developers.google.com/web/updates/2018/08/offscreen-canvas
-const canvas = new OffscreenCanvas(600, 600);
+const canvas = new OffscreenCanvas(800, 800);
 const ctx = canvas.getContext('2d');
 export const measureTextWidth = (text, font) => {
   const { family, weight, style } = font;
@@ -219,5 +224,5 @@ export const measureTextWidth = (text, font) => {
   return ctx.measureText(text).width
 }
 
-const MIN_FONT_SIZE = 1;
+const MIN_FONT_SIZE = 7.95;
 const FONT_MEASURE_SIZE = 20;

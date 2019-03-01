@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Roboto Condensed',
-    letterSpacing: 0.05,
+    letterSpacing: 0.18,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -36,13 +36,21 @@ const dominant = {
 const bridge = {
   type: 'bridge',
   lines: [
-    {type: 'descriptive', text: 'Oct. 10, 2020 | 2:00 PM to 6:00 PM'},
-    {type: 'descriptive', text: 'Meadowview Film Center'},
+    [
+      {type: 'date', text: 'Oct. 10, 2020'},
+      {type: 'time', text: '2:00 PM to 6:00 PM'},
+    ],
+    {type: 'location', text: 'Meadowview Film Center'},
   ],
+  divider: {
+    type: 'line',
+    size: 1,
+    color: solidColor('#fff'),
+  },
   color: solidColor('#fff'),
   font: {
     family: 'Roboto Condensed',
-    letterSpacing: 0,
+    letterSpacing: 0.06,
     size: 1,
     transform: 'normal',
   },
@@ -58,29 +66,29 @@ const heading = {
   color: solidColor('#f89e4b'),
   font: {
     family: 'Roboto Condensed',
-    letterSpacing: 0.1,
+    letterSpacing: 0.18,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Join us for the Finchworth Fall'},
-    {type: 'eventName', text: 'Festival 2020! Celebrate the joyous'},
-    {type: 'eventName', text: 'season with appetizing food and'},
-    {type: 'eventName', text: 'free-flowing drinks!'},
+    {type: 'descriptive', text: 'Join us for the Finchworth Fall'},
+    {type: 'descriptive', text: 'Festival 2020! Celebrate the joyous'},
+    {type: 'descriptive', text: 'season with appetizing food and'},
+    {type: 'descriptive', text: 'free-flowing drinks!'},
   ],
   color: solidColor('#fff'),
   font: {
     family: 'Norwester',
-    letterSpacing: 0,
+    letterSpacing: 0.14,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 

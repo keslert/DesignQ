@@ -33,7 +33,7 @@ export default {
         },
         {
           type: 'icon',
-          url: '/champagne.svg',
+          src: '/champagne.svg',
           fill: '#dfd7a6',
           size: 1.2,
           meta: {

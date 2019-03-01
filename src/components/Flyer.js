@@ -30,7 +30,7 @@ function Flyer({flyer}) {
       {flyer.content.body && <Surface surface={flyer.content.body} />}
       {flyer.content.footer && <Surface surface={flyer.content.footer} />}
 
-      {elements.map(el => <Element element={el} />)}
+      {elements.map(el => <Element element={el} key={el._computed.id} />)}
       
       {flyer.overlay && <Background background={flyer.overlay} />}
     </div>

@@ -17,7 +17,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Let the games begin!'},
           ],
-          color: solidColor('#fffff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0.2,
@@ -52,7 +52,7 @@ export default {
             {type: 'descriptive', text: 'A fundraising game for the'},
             {type: 'descriptive', text: 'Beechtown Foundation'},
           ],
-          color: solidColor('#fffff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -88,7 +88,7 @@ export default {
             {type: 'descriptive', text: 'teams vie for the championship!'},
             {type: 'descriptive', text: 'Tickets are now on sale at reallygreatsite.com!'},
           ],
-          color: solidColor('#fffff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,

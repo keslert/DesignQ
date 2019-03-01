@@ -25,12 +25,12 @@ export default {
           color: solidColor('#fef093'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0,
+            letterSpacing: -0.06,
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
             transform: 'lowercase',
-            weight: 900,
+            weight: 700,
           },
         },
         {
@@ -41,7 +41,7 @@ export default {
           color: solidColor('#fef093'),
           font: {
             family: 'Quicksand',
-            letterSpacing: 0,
+            letterSpacing: -0.02,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',
@@ -59,7 +59,7 @@ export default {
           color: solidColor('#ffffffcc'),
           font: {
             family: 'Quicksand',
-            letterSpacing: 0,
+            letterSpacing: -0.02,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -98,7 +98,7 @@ export default {
           color: solidColor('#ffffffcc'),
           font: {
             family: 'Quicksand',
-            letterSpacing: 0,
+            letterSpacing: -0.02,
             lineHeight: 1.4,
             size: 0.5,
             style: 'normal',
@@ -114,7 +114,7 @@ export default {
           color: solidColor('#ffffffcc'),
           font: {
             family: 'Quicksand',
-            letterSpacing: 0,
+            letterSpacing: -0.02,
             lineHeight: 1.4,
             size: 0.4,
             style: 'normal',

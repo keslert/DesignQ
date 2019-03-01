@@ -22,7 +22,7 @@ export default {
         {
           type: 'icon',
           size: 1,
-          url: '/shop.svg',
+          src: '/shop.svg',
           fill: '#fec458',
           meta: {
             width: 50,

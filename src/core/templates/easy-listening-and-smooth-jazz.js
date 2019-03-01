@@ -8,7 +8,7 @@ const small = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Bodoni FLF',
+    family: 'BodoniFLF',
     letterSpacing: 0.02,
     size: 1,
     style: 'italic',
@@ -43,7 +43,7 @@ const bridge = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Bodoni FLF',
+    family: 'BodoniFLF',
     letterSpacing: 0.02,
     size: 1,
     style: 'italic',
@@ -76,7 +76,7 @@ const paragraph = {
   ],
   color: solidColor('#fff'),
   font: {
-    family: 'Bodoni FLF',
+    family: 'BodoniFLF',
     letterSpacing: 0.02,
     lineHeight: 1.4,
     size: 1,
@@ -108,7 +108,7 @@ export default {
     footer: {
       alignX: 'left',
       textAlign: 'left',
-      eleemnts: [
+      elements: [
         bridge,
         heading,
         paragraph,

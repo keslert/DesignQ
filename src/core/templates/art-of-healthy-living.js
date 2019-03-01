@@ -9,7 +9,7 @@ const small = {
   color: solidColor('#697b60'),
   font: {
     family: 'Montserrat',
-    letterSpacing: 0.05,
+    letterSpacing: 0.07,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -19,13 +19,13 @@ const small = {
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'The Art of '},
+    {type: 'eventName', text: 'The Art of'},
     {type: 'eventName', text: 'Healthy Living'},
   ],
   color: solidColor('#697b60'),
   font: {
     family: 'Aleo',
-    letterSpacing: 0,
+    letterSpacing: 0.08,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -56,28 +56,28 @@ const heading = {
   color: solidColor('#697b60'),
   font: {
     family: 'Aleo',
-    letterSpacing: 0,
+    letterSpacing: 0.13,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'From eating the right food to the perfect'},
-    {type: 'eventName', text: 'exercise routine, find the best path to a '},
-    {type: 'eventName', text: 'happier and healthier you.'},
+    {type: 'descriptive', text: 'From eating the right food to the perfect'},
+    {type: 'descriptive', text: 'exercise routine, find the best path to a '},
+    {type: 'descriptive', text: 'happier and healthier you.'},
   ],
-  color: solidColor('#697b60'),
+  color: solidColor('#ffffff'),
   font: {
-    family: 'Norwester',
-    letterSpacing: 0,
+    family: 'Montserrat',
+    letterSpacing: 0.07,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
@@ -86,6 +86,7 @@ export default {
   id: 68,
   title: 'The Art of Healthy Living',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-&-olive-green-minimal-health-fair-flyer-MAC5v18P9fU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: solidColor('#ffffff'),
   border: {
     a: .03,

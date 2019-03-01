@@ -6,8 +6,9 @@ export default {
   py: 36,
   background: solidColor('#ED5B48'),
   overlay: {
-    type: 'image',
-    url: '/grunge-1.png',
+    img: {
+      src: '/grunge-1.png',
+    },
     backgroundBlendMode: 'lighten',
   },
   content: {
@@ -63,8 +64,8 @@ export default {
         {
           type: 'image',
           flex: 1,
-          bleed: { all: true },
-          url: '/beer-pint.png',
+          bleed: { b: 1 },
+          src: '/beer-pint.png',
           y: 0.0,
           filters: [],
         },
@@ -74,7 +75,7 @@ export default {
       bleed: { all: true },
       elements: [{
         type: 'icon',
-        url: '/taverns.png',
+        src: '/taverns.png',
         meta: {
           width: 152,
           height: 75,

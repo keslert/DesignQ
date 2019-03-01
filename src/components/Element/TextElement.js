@@ -74,7 +74,7 @@ function Line({element, line}) {
     letterSpacing: `${element.font.letterSpacing || 0}em`,
     // marginTop: `${line.fontSize * line.offset.top}px`,
     // marginBottom: `${line.fontSize * line.offset.bottom}px`,
-    marginRight: `${line.fontSize * -(element.font.letterSpacing || 0)}px`,
+    
     height: `${line.h}px`,
     position: 'relative',
     top: `${line.fontSize * line.offset.top}px`,
@@ -88,6 +88,10 @@ function Line({element, line}) {
     width: `${line.w}px`,
     height: `${line.h}px`,
     background: 'rgba(0,0,255,.3)',
+  }
+
+  const spanStyle = {
+    marginRight: `${line.fontSize * -(element.font.letterSpacing || 0)}px`,
   }
 
   return(
@@ -106,11 +110,11 @@ function Line({element, line}) {
                       /> 
                     : null
                   }
-                  {str}
+                  <span style={spanStyle} children={str} />
                 </React.Fragment>
               )}
             </div>
-          : line.text
+          : <span style={spanStyle} children={line.text} />
         }
       </div>
     </div>

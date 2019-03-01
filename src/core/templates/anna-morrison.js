@@ -84,9 +84,9 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: solidColor('#eab6d1'),
-  width: 1,
-  height: 8,
-},
+  w: 1,
+  h: 8,
+}
 
 
 export default {

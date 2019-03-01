@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
-    letterSpacing: 0.05,
+    letterSpacing: 0.08,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -25,9 +25,9 @@ const dominant = {
   color: solidColor('#ffffff'),
   font: {
     family: 'League Spartan',
-    letterSpacing: 0,
+    letterSpacing: 0.02,
     size: 1,
-    transform: 'uppercase',
+    transform: 'normal',
     weight: 400,
   },
 }
@@ -40,7 +40,7 @@ const bridge = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
-    letterSpacing: 0,
+    letterSpacing: 0.04,
     size: 1,
     transform: 'normal',
   },
@@ -55,28 +55,28 @@ const heading = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
-    letterSpacing: 0,
+    letterSpacing: 0.07,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: "Now in it's 8th year, this event is for everyone."},
-    {type: 'eventName', text: 'Just another night full of music, art, good food,'},
-    {type: 'eventName', text: 'and great company.'},
+    {type: 'descriptive', text: "Now in it's 8th year, this event is for everyone."},
+    {type: 'descriptive', text: 'Just another night full of music, art, good food,'},
+    {type: 'descriptive', text: 'and great company.'},
   ],
   color: solidColor('#ffffff'),
   font: {
-    family: 'League Spartan',
-    letterSpacing: 0,
+    family: 'Open Sans',
+    letterSpacing: 0.04,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 

@@ -10,7 +10,10 @@ export default {
   },
   content: {
     h: 'auto',
-    background: solidColor('#fff'),
+    background: {
+      color: '#ffffff',
+      // borderRadius: 12,
+    },
     body: {
       elements: [
         {

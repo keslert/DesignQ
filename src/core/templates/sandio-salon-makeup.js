@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0.05,
+    letterSpacing: 0.26,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -25,10 +25,10 @@ const dominant = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Playfair Display',
-    letterSpacing: 0,
+    letterSpacing: 0.01,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -40,7 +40,7 @@ const bridge = {
   color: solidColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0,
+    letterSpacing: 0.11,
     size: 1,
     transform: 'normal',
   },
@@ -63,10 +63,10 @@ const heading = {
   color: solidColor('#21294d'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0,
+    letterSpacing: 0.04,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -80,17 +80,17 @@ const paragraph = {
   color: solidColor('#21294d'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0,
+    letterSpacing: 0.06,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const icon = {
   type: 'icon',
-  url: '/champagne.svg',
+  src: '/champagne.svg',
   fill: '#ffffff',
   size: 0.4,
   meta: {
@@ -99,7 +99,7 @@ const icon = {
     colors: [],
     filetype: 'svg',
   },
-},
+}
 
 export default {
   id: 54,

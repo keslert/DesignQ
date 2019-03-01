@@ -8,7 +8,7 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Gidole',
-    letterSpacing: 0.05,
+    letterSpacing: 0.1,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -24,10 +24,10 @@ const dominant = {
   color: solidColor('#e45330'),
   font: {
     family: 'Oswald',
-    letterSpacing: 0,
+    letterSpacing: 0.1,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -40,7 +40,7 @@ const bridge = {
   color: solidColor('#fff'),
   font: {
     family: 'Gidole',
-    letterSpacing: 0,
+    letterSpacing: 0.09,
     size: 1,
     transform: 'normal',
   },
@@ -55,7 +55,7 @@ const heading = {
   color: solidColor('#fff'),
   font: {
     family: 'Gidole',
-    letterSpacing: 0,
+    letterSpacing: 0.14,
     size: 1,
     transform: 'uppercase',
     weight: 400,
@@ -65,27 +65,27 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Celebrate all things fall while giving back to Mother'},
-    {type: 'eventName', text: 'Nature. Our fall fundraising event combines good fun'},
-    {type: 'eventName', text: 'with a great cause.'},
+    {type: 'descriptive', text: 'Celebrate all things fall while giving back to Mother'},
+    {type: 'descriptive', text: 'Nature. Our fall fundraising event combines good fun'},
+    {type: 'descriptive', text: 'with a great cause.'},
   ],
   color: solidColor('#e45330'),
   font: {
     family: 'Gidole',
-    letterSpacing: 0,
+    letterSpacing: 0.1,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const bar = {
   type: 'bar',
   background: solidColor('#e25232'),
-  width: .5,
-  height: 2,
-},
+  w: .5,
+  h: 2,
+}
 
 
 export default {

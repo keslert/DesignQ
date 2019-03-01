@@ -15,7 +15,10 @@ export default {
   },
   content: {
     body: {
+      alignX: 'left',
       alignY: 'top',
+      itemsAlignY: 'top',
+      itemsAlignX: 'left',
       textAlign: 'left',
       elements: [
         {
@@ -55,8 +58,8 @@ export default {
         {
           type: 'bar',
           background: solidColor('#f4d55e'),
-          height: 8,
-          width: .2,
+          h: 8,
+          w: .2,
         },
         {
           type: 'bridge',

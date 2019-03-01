@@ -7,8 +7,8 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-volleyball-icons-sports-flyer-MAC3X5T2nN8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: solidColor('#fcd352'),
   decor: {
-    t: .4,
-    r: .4,
+    t: .3,
+    r: .35,
   },
   content: {
     body: {

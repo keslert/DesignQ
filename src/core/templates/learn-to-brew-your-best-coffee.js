@@ -122,7 +122,7 @@ export default {
       elements: [
         {
           type: 'icon',
-          url: '/coffee.png',
+          src: '/coffee.png',
           size: .5,
           meta: {
             width: 64,

@@ -8,10 +8,10 @@ const small = {
   color: solidColor('#fff'),
   font: {
     family: 'Glacial Indifference',
-    letterSpacing: 0.05,
+    letterSpacing: 0.110,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -26,10 +26,10 @@ const dominant = {
   color: solidColor('#ffeaa2'),
   font: {
     family: 'Aleo',
-    letterSpacing: 0,
+    letterSpacing: 0.074,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -44,6 +44,7 @@ const bridge = {
     family: 'Glacial Indifference',
     letterSpacing: 0,
     size: 1,
+    style: 'italic',
     transform: 'normal',
   },
 }
@@ -57,10 +58,10 @@ const heading = {
   color: solidColor('#ffeaa2'),
   font: {
     family: 'Aleo',
-    letterSpacing: 0,
+    letterSpacing: 0.08,
     size: 1,
-    transform: 'uppercase',
-    weight: 400,
+    transform: 'normal',
+    weight: 700,
   },
 }
 
@@ -78,16 +79,16 @@ const paragraph = {
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
 const bar = {
   type: 'bar',
   background: solidColor('#ffeaa2'),
-  width: 1,
-  height: 8,
-},
+  w: 1,
+  h: 8,
+}
 
 export default {
   id: 103,

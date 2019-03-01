@@ -14,7 +14,7 @@ export default {
     color: '#86a7ab',
   },
   decor: {
-    r: .3,
+    r: .2,
   },
   content: {
     w: 'auto',
@@ -32,16 +32,16 @@ export default {
             {type: 'host', text: 'Baks Clothing Company'},
           ],
           color: solidColor('#000'),
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           w: 'fill',
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: -0.02,
             lineHeight: 1.4,
             size: 0.3,
             style: 'normal',
             transform: 'uppercase',
-            weight: 600,
+            weight: 300,
           },
           pl: 2,
         },
@@ -52,12 +52,12 @@ export default {
             {type: 'eventName', text: 'Life: Fierce'},
             {type: 'eventName', text: '& Fabulous'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0,
             lineHeight: 1.2,
-            size: 0.7,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,
@@ -69,7 +69,7 @@ export default {
             {type: 'time', text: 'A charity fashion show'},
             {type: 'time', text: 'for the women of BWC'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -77,7 +77,7 @@ export default {
             size: 0.8,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]
@@ -87,7 +87,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'price', text: 'Tickets: $5'},
             {type: 'date', text: 'June 20, 2020'},
@@ -96,7 +96,7 @@ export default {
           ],
           font: {
             family: 'Montserrat',
-            letterSpacing: 0.1,
+            letterSpacing: 0.09,
             lineHeight: 1.4,
             size: 0.0,
             style: 'normal',
@@ -106,7 +106,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Watch the hottest trends go down the runway'},
             {type: 'descriptive', text: 'with looks from our Spring/Summer \'20 collection.'},
@@ -114,12 +114,12 @@ export default {
           ],
           font: {
             family: 'Montserrat',
-            letterSpacing: 0,
+            letterSpacing: 0.03,
             lineHeight: 1.4,
             size: 0.0,
             style: 'normal',
             transform: 'normal',
-            weight: 400,
+            weight: 300,
           },
         },
       ]

@@ -7,23 +7,23 @@ const small = {
   ],
   color: solidColor('#cca882'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0.05,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.152,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
 const dominant = {
   type: 'dominant',
   lines: [
-    {type: 'eventName', text: 'Espcially for'},
+    {type: 'eventName', text: 'Especially for'},
     {type: 'eventName', text: 'You: A Concert'},
   ],
   color: solidColor('#e9a390'),
   font: {
-    family: 'Norwester',
+    family: 'Abril Fatface',
     letterSpacing: 0,
     size: 1,
     transform: 'uppercase',
@@ -35,12 +35,12 @@ const bridge = {
   type: 'bridge',
   lines: [
     {type: 'descriptive', text: "In celebration of Mother's Day this"},
-    {type: 'descriptive', text: 'May 10, 2020'},
+    {type: 'date', text: 'May 10, 2020'},
   ],
   color: solidColor('#cca882'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.03,
     size: 1,
     transform: 'normal',
   },
@@ -62,11 +62,11 @@ const heading = {
   },
   color: solidColor('#e9a390'),
   font: {
-    family: 'Muli',
-    letterSpacing: 0,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.073,
     size: 1,
     transform: 'uppercase',
-    weight: 400,
+    weight: 700,
   },
 }
 
@@ -79,12 +79,12 @@ const paragraph = {
   ],
   color: solidColor('#cca882'),
   font: {
-    family: 'Norwester',
-    letterSpacing: 0,
+    family: 'Glacial Indifference',
+    letterSpacing: 0.03,
     lineHeight: 1.4,
     size: 1,
     style: 'normal',
-    transform: 'uppercase',
+    transform: 'normal',
   },
 }
 
@@ -98,7 +98,7 @@ export default {
     },
   },
   content: {
-    background: solidColor('#fffdeeee'),
+    background: solidColor('#fffdeef0'),
     h: 'auto',
     alignY: 'bottom',
     bleed: { x: 1 },

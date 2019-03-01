@@ -37,7 +37,7 @@ export default {
           ],
           color: solidColor('#ee5830'),
           font: {
-            family: 'Playlist Script',
+            family: 'Playlist',
             letterSpacing: 0,
             lineHeight: 1.4,
             size: 1,

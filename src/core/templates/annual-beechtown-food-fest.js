@@ -29,7 +29,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0.15,
+            letterSpacing: 0.13,
             lineHeight: 1.4,
             size: 2,
             style: 'normal',
@@ -47,7 +47,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Norwester',
-            letterSpacing: 0,
+            letterSpacing: 0.05,
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
@@ -64,7 +64,7 @@ export default {
           color: solidColor('#fff'),
           font: {
             family: 'Kollektif',
-            letterSpacing: 0.1,
+            letterSpacing: 0.149,
             lineHeight: 1.6,
             size: 1,
             style: 'normal',
@@ -88,7 +88,7 @@ export default {
           ],
           font: {
             family: 'Norwester',
-            letterSpacing: 0.15,
+            letterSpacing: 0.12,
             lineHeight: 1.6,
             size: 0.2,
             style: 'normal',
@@ -105,7 +105,7 @@ export default {
           ],
           font: {
             family: 'Kollektif',
-            letterSpacing: 0,
+            letterSpacing: 0.039,
             lineHeight: 1.4,
             size: 1,
             style: 'normal',

@@ -7,26 +7,20 @@ export default {
   background: solidColor('#fed631'),
   overlay: {
     type: 'image',
-    url: '/grunge-2.png',
+    src: '/grunge-2.png',
     backgroundBlendMode: 'lighten',
   },
   content: {
     height: 'flex',
     width: 'flex',
     body: {
-      width: unitValue(100, '%'),
-      alignX: 'center',
-      alignY: 'center',
-      textAlign: 'center',
       background: solidColor('#fed631'),
-      bleed: { all: true },
-      flex: 1,
       elements: [
         { 
           type: 'image',
           flex: 1,
-          bleed: {all: true},
-          url: 'https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+          bleed: {a: 1},
+          src: 'https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
         },
         { 
           type: 'small', 
