@@ -97,7 +97,15 @@ export default {
   py: 1.5,
   content: {
     background: {
-      img: { src: 'https://images.unsplash.com/photo-1457725798811-c9561232a295?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
+      img: { 
+        src: 'https://images.unsplash.com/photo-1457725798811-c9561232a295?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        meta: {
+          w: 800,
+          h: 534,
+        },
+        x: 0,
+        y: 0,
+      },
     },
     bleed: { r: 1 },
     body: {

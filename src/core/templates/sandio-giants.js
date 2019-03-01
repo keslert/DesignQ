@@ -101,6 +101,7 @@ export default {
       background: solidColor('#ffffff'),
       bleed: { a: 1 },
       alignY: 'bottom',
+      mb: 0,
       elements: [
         small,
         dominant,

@@ -8,11 +8,12 @@ export function getBackgroundStyle(bg) {
     bg.color,
   ]).join(',');
 
+  const c = bg._computed || {};
   return {
     background,
-    backgroundSize: `${bg.zoom ? `${bg.zoom * 100}%` : 'cover'}`,
-    backgroundPositionX: `${(_.isNumber(bg.x) ? bg.x : .5) * 100}%`,
-    backgroundPositionY: `${(_.isNumber(bg.y) ? bg.y : .5) * 100}%`,
+    backgroundSize: `${c.w}px ${c.h}px`,
+    backgroundPositionX: `${c.x}px`,
+    backgroundPositionY: `${c.y}px`,
     filter: bg.img && _.map(bg.img.filters, (v, k) => `${k}(${v})`).join(' '),
     backgroundBlendMode: bg.backgroundBlendMode,
     borderRadius: bg.borderRadius ? bg.borderRadius + 'px' : null,

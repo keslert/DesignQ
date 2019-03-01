@@ -90,7 +90,7 @@ export default {
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: '',
+      src: 'https://images.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
       filters: {
         brightness: 0.7,
       }

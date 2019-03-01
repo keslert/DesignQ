@@ -16,7 +16,7 @@ export default {
     r: .3,
     background: {
       img: {
-        src: '/football-player.png',
+        src: 'http://pngimg.com/uploads/american_football/american_football_PNG113.png',
         w: 557,
         h: 960,
       },

@@ -6,7 +6,8 @@ const Fonts = React.lazy(() => import('./Fonts'));
 const Editor = React.lazy(() => import('./Editor'));
 const Gallery = React.lazy(() => import('./Gallery'));
 const Queue = React.lazy(() => import('./Queue'));
-const CalcFonts = React.lazy(() => import('./CalcFonts'));
+const CalcFonts = React.lazy(() => import('./calc/CalcFonts'));
+const CalcImages = React.lazy(() => import('./calc/CalcImages'));
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/app" component={Queue} />
         <Route path="/gallery" component={Gallery} />
         <Route path="/calc/fonts" component={CalcFonts} />
+        <Route path="/calc/images" component={CalcImages} />
 
         <Route component={Gallery} />
         

@@ -6,10 +6,10 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-navy-woman-photo-fashion-show-flyer-MAC5vawSZY4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
     img: {
-      src: 'https://images.unsplash.com/photo-1545911975-d1e66f72af83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-      x: 0.3,
+      src: 'https://images.unsplash.com/photo-1545911975-d1e66f72af83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60',
+      x: 0.2,
       y: 0.5,
-      zoom: 2.49,
+      zoom: 2,
     },
     color: '#86a7ab',
   },

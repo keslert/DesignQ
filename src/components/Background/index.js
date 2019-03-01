@@ -14,7 +14,7 @@ function Background({background, bb}) {
   }
 
   return (
-    <div style={style} />
+    <div datatype="background" style={style} />
   )
 }
 export default Background;

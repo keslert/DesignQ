@@ -1,30 +1,42 @@
+import imageData from '../data/canva/image-data';
 import { withGroups } from './';
 import _ from 'lodash';
 
 export function computeBackgrounds(template) {
-  const items = _.flatMap([
-    template,
-    ...withGroups(template, g => g),
-    ...withGroups(template, g => g.elements),
-  ])
+  const surfaces = [template, template.content, ...withGroups(template, g => g)]
 
-  items.forEach(item => {
-    const bgs = _.filter([
-      item.background,
-      item.decor && item.decor.background,
-      item.border && item.border.background,
-    ])
-
-    const w = item._computed.bb.w;
-    const h = item._computed.bb.h;
-    bgs.forEach(bg => {
-      bg._computed = {};
-      if(bg.url) {
-        bg._computed.zoom = bg.zoom || 1;
-        // TODO need to subtract image height
-        bg._computed.x = (bg.x || .5) * bg._computed.zoom * w;
-        bg._computed.y = (bg.y || .5) * bg._computed.zoom * h;
-      }
-    })
+  surfaces.forEach(surface => {
+    if(surface.background && surface.background.img) {
+      computeBackground(template, surface, surface.background, 'background');
+    }
+    if(surface.decor && surface.decor.background && surface.decor.background.img) {
+      computeBackground(template, surface, surface.decor.background, 'decor');
+    }
   })
+
+}
+
+function computeBackground(template, container, bg, type) {
+  const imgSize = bg.img.meta || imageData[template.id][type];
+  const imgRatio = imgSize.w / imgSize.h;
+  
+  const containerSize = container._computed.bb;
+  const containerRatio = containerSize.w / containerSize.h;
+
+  const size = imgRatio < containerRatio
+    ? {w: containerSize.w, h: imgSize.h * (containerSize.w / imgSize.w)}
+    : {h: containerSize.h, w: imgSize.w * (containerSize.h / imgSize.h)}
+
+  const zoom = bg.img.zoom || 1;
+  const x = bg.img.x !== undefined ? bg.img.x : .5;
+  const y = bg.img.y !== undefined ? bg.img.y : .5;
+
+  size.w *= zoom;
+  size.h *= zoom;
+
+  bg._computed = {
+    ...size,
+    x: (containerSize.w - size.w) * x,
+    y: (containerSize.h - size.h) * y,
+  }
 }

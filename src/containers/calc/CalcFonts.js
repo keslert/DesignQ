@@ -1,7 +1,7 @@
 import React from 'react';
-import { templates } from '../core/templates';
-import { computeFlyer, withGroups } from '../core/producer';
-import canvaFlyers from '../core/data/canva/event-flyers';
+import { templates } from '../../core/templates';
+import { computeFlyer, withGroups } from '../../core/producer';
+import canvaFlyers from '../../core/data/canva/event-flyers';
 import _ from 'lodash';
 
 

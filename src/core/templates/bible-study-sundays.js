@@ -88,7 +88,7 @@ export default {
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: 'https://images.unsplash.com/photo-1465848059293-208e11dfea17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      src: 'https://images.unsplash.com/photo-1465848059293-208e11dfea17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60',
       filters: {
         brightness: 0.7,
       }
