@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import Frame from '../components/Frame';
 import { Flex, Box, Text } from 'rebass';
 import { templates } from '../core/templates';
@@ -22,23 +22,26 @@ import _ from 'lodash';
 // ]
 const flyers = templates;
 
-_.forEach(flyers, flyer => computeFlyer(flyer));
+function Gallery({flyerSize}) {
+  const [ready, setReady] = useState(false);
+  useLayoutEffect(() => {
+    _.forEach(flyers, flyer => computeFlyer(flyer, flyerSize));    
+    setReady(true);
+  }, [])
 
-function Gallery() {
-
-  const frameWidth = 612;
-  const frameHeight = 856;
-  const scale = 0.55;
+  const scale = 0.7;
 
   return (
-    <Flex flexWrap="wrap" p={2}>
-      {_.map(flyers, flyer => (
-        <Box p={2} key={flyer.title}>
-          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer} />
-          <Text textAlign="center">{flyer.id}</Text>
-        </Box>
-      ))}
-    </Flex>
+    !ready ? null : 
+      <Flex flexWrap="wrap" p={2}>
+        {_.map(flyers, flyer => (
+          <Box p={2} key={flyer.title}>
+            <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer} />
+            <Text textAlign="center">{flyer.id}</Text>
+          </Box>
+        ))}
+      </Flex>
+    
   )
 }
 

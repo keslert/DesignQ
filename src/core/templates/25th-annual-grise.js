@@ -33,7 +33,7 @@ export default {
             family: 'Montserrat',
             letterSpacing: 0.230,
             lineHeight: 1.4,
-            size: 0.7,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 300,

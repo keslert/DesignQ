@@ -73,7 +73,7 @@ export default {
             family: 'League Gothic',
             letterSpacing: 0.05,
             lineHeight: 1.2,
-            size: 0.9,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,

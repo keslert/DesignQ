@@ -92,7 +92,7 @@ const icon = {
   type: 'icon',
   src: '/champagne.svg',
   fill: '#ffffff',
-  size: 0.5,
+  size: 1,
   meta: {
     width: 100,
     height: 100,

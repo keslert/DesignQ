@@ -31,7 +31,7 @@ export default {
             family: 'Aileron',
             letterSpacing: 0.04,
             lineHeight: 1.2,
-            size: 0.6,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 900,
@@ -121,7 +121,7 @@ export default {
           type: 'icon',
           fill: '#284b82',
           src: '/company.svg',
-          size: 0.5,
+          size: 1,
           meta: {
             width: 50,
             height: 50,

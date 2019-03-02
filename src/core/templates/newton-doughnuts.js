@@ -59,7 +59,7 @@ export default {
             family: 'Bebas Neue',
             fitToWidth: true,
             weight: 400,
-            size: 0.8,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.2,

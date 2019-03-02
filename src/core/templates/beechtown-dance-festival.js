@@ -52,7 +52,7 @@ const bridge = {
 const heading = {
   type: 'heading',
   lines: [
-    {type: 'descriptive', text: 'August 23-24, 2020 |'},
+    {type: 'descriptive', text: 'August 23-24, 2020'},
     {type: 'descriptive', text: 'Starts at 11 A.M.'},
     {type: 'descriptive', text: 'Beechtown Resort'},
   ],

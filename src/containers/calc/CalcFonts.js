@@ -16,31 +16,28 @@ function CalcFonts() {
     const elements = _.flatten(withGroups(t, g => g.elements))
     const firstOfTypes = _.filter(types.map(t => _.find(elements, el => el.type === t)));
 
-    // calculate canvaWidth
-    // return firstOfTypes.map(el => {
-    //   const canvaSize = canvaFlyer[`${el.type}-size`];
-    //   const scale = canvaSize / el._computed.fontSize;
-    //   const canvaWidth = el._computed.w * scale;
-    //   return {
-    //     templateId: t.id,
-    //     elementType: el.type,
-    //     width: canvaWidth,
-    //   }
-    // })
-
     return firstOfTypes.map(el => {
       const canvaSize = canvaFlyer[`${el.type}-size`];
       const scale = canvaSize / el._computed.fontSize;
       const canvaWidth = el._computed.w * scale;
+      const maxCharacters = _.max(
+        el._computed.lines.map(line => 
+          (_.isArray(line.text) ? line.text : [line.text])
+          .join(' | ').length
+        )
+      )
+      console.log(maxCharacters, el.lines[0])
+
       return {
         templateId: t.id,
         elementType: el.type,
-        width: canvaWidth / el._computed.maxW,
-        scale: scale,
+        canvaSize,
+        canvaWidth,
+        maxCharacters,
+        family: el.font.family,
+        letterCase: el.font.transform,
       }
     })
-
-
   })
 
   window.res = res;

@@ -29,7 +29,7 @@ export default {
           font: {
             family: 'Muli',
             weight: 400,
-            size: 0.6,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.2,

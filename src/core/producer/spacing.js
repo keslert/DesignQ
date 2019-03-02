@@ -42,26 +42,50 @@ function computeGroupElementSpacing(group, spacing) {
     c.mt = 0;
     c.mb = spacing * el.mb;
 
-    if(el.background && el.lines) {
+    if(el.lines) {
       const x = c.h / Math.log(c.h * .4);
       const y = c.h / Math.log(c.h * .3);
-
-      withSides(s => c[`p${s}`] = x * el[`p${s}`], ['l', 'r'])
-      withSides(s => c[`p${s}`] = y * el[`p${s}`], ['t', 'b'])
-
+      const pads = {l: x, r: x, t: y, b: y};
+      withSides(s => {
+        const ps = `p${s}`;
+        c[ps] += el.border._computed[s];
+        if(el.background || el.border._computed[s]) {
+          c[ps] += pads[s];
+        }
+      })
+      c.h += c.pt + c.pb;
       const scale = (c.w - c.pr - c.pl) / c.w;
       scaleElementFontSizes(el, scale);
     }
+
+
+    // if(el.lines) {
+    //   const x = c.h / Math.log(c.h * .4);
+    //   const y = c.h / Math.log(c.h * .3);
+
+    //   withSides(s => c[`p${s}`] = x * el[`p${s}`], ['l', 'r'])
+    //   withSides(s => c[`p${s}`] = y * el[`p${s}`], ['t', 'b'])
+
+    //   c.h += c.pt + c.pb;
+    //   const scale = (c.w - c.pr - c.pl) / c.w;
+    //   scaleElementFontSizes(el, scale);
+    // }
     
     if(el.type === 'icon' && el.background) { 
       const pad = c.w * .2; // TODO: WHY?
       withSides(s => c[`p${s}`] = pad * el[`p${s}`])
-      
       // c.h -= c.pt + c.pb;
       c.w -= c.pr + c.pl;
     }
   })
-  _.last(elements)._computed.mb = 0;
+  
+  const last = _.last(elements);
+  last._computed.mb = 0;
+  if(last.sticky) {
+    if(last._computed.prev) {
+      last._computed.prev._computed.mb = 0;
+    }
+  }
 
   elements.forEach(el => {
     if(el.overlap) {
@@ -71,5 +95,5 @@ function computeGroupElementSpacing(group, spacing) {
 }
 
 function isFullBleedImage(el) {
-  return el.type === 'image' && (el.bleed.left && el.bleed.right && el.bleed.top && el.bleed.bottom);
+  return el.type === 'image' && (el.bleed.left && el.bleed.right);
 }

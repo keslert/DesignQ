@@ -115,8 +115,8 @@ export default {
   },
   53: {
     background: {
-      w: 500,
-      h: 281
+      w: 1123,
+      h: 749
     }
   },
   54: {

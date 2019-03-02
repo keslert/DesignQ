@@ -71,7 +71,7 @@ export default {
           font: {
             family: 'Roboto Condensed',
             weight: 400,
-            size: 0.3,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.4,

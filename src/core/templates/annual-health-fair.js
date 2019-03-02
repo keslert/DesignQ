@@ -51,7 +51,7 @@ export default {
           font: {
             family: 'Roboto Condensed',
             weight: 700,
-            size: 0.7,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.2,

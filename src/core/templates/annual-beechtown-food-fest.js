@@ -90,7 +90,7 @@ export default {
             family: 'Norwester',
             letterSpacing: 0.12,
             lineHeight: 1.6,
-            size: 0.2,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 400,

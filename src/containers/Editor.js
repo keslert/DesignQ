@@ -54,7 +54,7 @@ function Editor(props) {
   useEffect(() => {
     _template.current = _.cloneDeep(template);
     try {
-      computeFlyer(_template.current);
+      computeFlyer(_template.current, props.flyerSize);
       setVersion(version + 1);
     }
     catch(error) {
@@ -62,9 +62,7 @@ function Editor(props) {
     }
   }, [template])
 
-  const frameWidth = 612;
-  const frameHeight = 856;
-  const scale = 0.7;
+  const scale = 0.8;
 
   return (
     <div>
@@ -73,7 +71,7 @@ function Editor(props) {
           <Box p={2}>
             <img
               src={template.inspiration} 
-              width={frameWidth * scale}
+              width={props.flyerSize.w * scale}
             /> 
           </Box>
         }
@@ -83,8 +81,8 @@ function Editor(props) {
             <ErrorBoundary version={version}>
               <Frame 
                 scale={scale} 
-                width={frameWidth} 
-                height={frameHeight} 
+                width={props.flyerSize.w} 
+                height={props.flyerSize.h} 
                 flyer={_template.current}
               />
             </ErrorBoundary>

@@ -72,7 +72,7 @@ export default {
           font: {
             family: 'Muli',
             weight: 400,
-            size: 0.8,
+            size: 1,
             style: 'normal',
             lineHeight: 1.4,
             transform: 'uppercase',

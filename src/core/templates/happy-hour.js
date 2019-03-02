@@ -31,7 +31,7 @@ export default {
           ],
           divider: {
             type: 'none',
-            size: 0.3,
+            size: 1,
             color: solidColor('#fff'),
           },
           color: solidColor('#fff'),
@@ -39,7 +39,7 @@ export default {
           font: {
             family: 'Bebas Neue',
             weight: 400,
-            size: 0.5,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.2,
@@ -55,7 +55,7 @@ export default {
           font: {
             family: 'Bebas Neue',
             weight: 400,
-            size: 0.8,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.1,

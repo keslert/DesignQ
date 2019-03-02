@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { solidColor, striped } from './'
 
 
 const small = {
@@ -27,7 +27,8 @@ const dominant = {
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
-    size: 1,
+    lineHeight: 1.2,
+    size: 0.5,
     transform: 'uppercase',
     weight: 700,
   },
@@ -89,11 +90,35 @@ const paragraph = {
   },
 }
 
+const image = {
+  type: 'image',
+  background: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1525804017725-0ac671aea1fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: {
+        x: 800,
+        y: 450,
+      },
+    },
+  },
+  border: {
+    y: .05,
+    background: {
+      color: striped(135, '#b5322c', 10, 'transparent'),
+    }
+  },
+  bleed: { x: 1 },
+  aspectRatio: .25,
+  h: 'fill',
+  sticky: true,
+}
+
 
 export default {
   id: 99,
   title: 'Beechtown Block Party',
   tags: ['event', 'flyer'],
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-and-cream-block-party-flyer-MAC5uGwBvFY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: solidColor('#ffefd5'),
   content: {
     body: {
@@ -101,6 +126,7 @@ export default {
         small,
         dominant,
         bridge,
+        image,
       ]
     },
     footer: {

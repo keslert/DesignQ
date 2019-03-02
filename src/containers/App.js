@@ -11,17 +11,21 @@ const CalcImages = React.lazy(() => import('./calc/CalcImages'));
 
 function App() {
 
+  const flyerSize = {
+    w: 480,
+    h: 670,
+  }
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
         <Route path="/fonts" component={Fonts} />
-        <Route path="/editor/:id" component={Editor} />
+        <Route path="/editor/:id" component={(props) => <Editor flyerSize={flyerSize} {...props} />} />
         <Route path="/app" component={Queue} />
-        <Route path="/gallery" component={Gallery} />
         <Route path="/calc/fonts" component={CalcFonts} />
         <Route path="/calc/images" component={CalcImages} />
 
-        <Route component={Gallery} />
+        <Route component={() => <Gallery flyerSize={flyerSize} />} />
         
       </Switch>
     </Suspense>

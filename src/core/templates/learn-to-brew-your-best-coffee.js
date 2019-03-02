@@ -123,7 +123,7 @@ export default {
         {
           type: 'icon',
           src: '/coffee.png',
-          size: .5,
+          size: 1,
           meta: {
             width: 64,
             height: 87,

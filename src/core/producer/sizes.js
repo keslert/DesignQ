@@ -46,38 +46,39 @@ function computeGroupSizes(template, group, dominant) {
   const maxW = group._computed.maxW;
 
   const types = _.groupBy(group.elements, el => el.type);
-  
-  const smallSettings = {
-    maxWidth: maxW,
-    maxOptimalWidth: Math.min(maxW, dominant._computed.w * 1.05), // TODO: Why 1.05
-    maxOptimalFontSize: Math.log(dominant._computed.fontSize) * 6, // TODO: This needs work.
-    minFontSize: MIN_FONT_SIZE,
-    optimalWidth: dominant._computed.w,
-  }
-  computeElementsFontSizes(types.small, smallSettings)
-  const smallSize = types.small && types.small[0]._computed.fontSize
-    
-  
-  const paragraphSettings = {
-    ...smallSettings,
-    maxOptimalFontSize: (smallSize || smallSettings.maxOptimalFontSize) * 0.9,
-  }
-  computeElementsFontSizes(types.paragraph, paragraphSettings)
-  
-  const bridgeSettings = {
-    ...smallSettings,
-    maxOptimalFontSize: (smallSize || smallSettings.maxOptimalFontSize) * 1.25,
-  }
-  computeElementsFontSizes(types.bridge, bridgeSettings)
 
   const headingSettings = {
-    ...bridgeSettings,
+    maxWidth: maxW,
+    minFontSize: MIN_FONT_SIZE,
+    maxOptimalWidth: maxW, // Math.min(maxW, dominant._computed.w * 1.05), // TODO: Why 1.05
+    maxOptimalFontSize: 21.3, // Math.log(dominant._computed.fontSize) * 6,
+    optimalWidth: 0.536921 * dominant._computed.w + 55.3845
   }
   computeElementsFontSizes(types.heading, headingSettings)
 
+  computeElementsFontSizes(types.bridge, {
+    ...headingSettings,
+    maxOptimalFontSize: 21.2, // (smallSize || smallSettings.maxOptimalFontSize) * 1.25
+    optimalFontSize: 0.0844872 * dominant._computed.fontSize + 7.86252
+  })
+  
+  const bridge = types.bridge && types.bridge[0];
+  computeElementsFontSizes(types.small, {
+    ...headingSettings,
+    maxOptimalFontSize: 18.6,
+    optimalFontSize: bridge && (0.489407 * bridge._computed.fontSize + 5.22648),
+    optimalWidth: dominant._computed.w,
+  })
+    
+  computeElementsFontSizes(types.paragraph, {
+    ...headingSettings,
+    maxOptimalFontSize: 16,
+    optimalFontSize: bridge && (0.438561 * bridge._computed.fontSize + 4.55792),
+    optimalWidth: dominant._computed.w,
+  })
+
   _.forEach(types.icon, icon => {
-    icon._computed.w = maxW * .25 * icon.size;
-    // const ratio = icon.meta.h && icon.meta.w
+    icon._computed.w = maxW * .25 * icon.size; // TODO: Better calc.
     if(icon.aspectRatio) {
       icon._computed.h = icon.aspectRatio * icon._computed.w;
     } else {
@@ -85,14 +86,9 @@ function computeGroupSizes(template, group, dominant) {
     }
   })
 
-  // TODO: Handle better...
   _.forEach(types.image, img => {
     img._computed.w = maxW;
-    if(img.aspectRatio) {
-      img._computed.h = maxW * img.aspectRatio;
-    } else {
-      // img._computed.h = template.size.h * .3;
-    }
+    img._computed.h = 300 //maxW * img.aspectRatio;
   })
 
   _.forEach(types.bar, bar => {
@@ -110,8 +106,9 @@ function computeElementsFontSizes(elements, settings) {
   const minMaxWidth = _.sortBy(elements, el => el.maxW)[0]._computed.maxW;
   const maxOptimalWidth = Math.min(minMaxWidth, settings.maxOptimalWidth);
   
+
   const optimalFontSize = _.clamp(
-    FONT_MEASURE_SIZE * (maxOptimalWidth / maxMeasuredWidth) * .99, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
+    settings.optimalFontSize || FONT_MEASURE_SIZE * (maxOptimalWidth / maxMeasuredWidth) * .99, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
     settings.minFontSize,
     settings.maxOptimalFontSize,
   )
@@ -151,14 +148,16 @@ function computeElementsFontSizes(elements, settings) {
 }
 
 export function scaleElementFontSizes(el, scale) {
-  el._computed.lines.forEach(line => {        
+  const c = el._computed;
+  c.lines.forEach(line => {        
     line.fontSize *= scale;
     line.h *= scale;
     line.w *= scale;
   })
-  el._computed.fontSize *= scale;
-  el._computed.h = el._computed.pt + el._computed.pb + el._computed.h * scale;
-  el._computed.w = el._computed.w * scale;
+  c.fontSize *= scale;
+  c.h = (c.h - c.pb - c.pt) * scale + c.pb + c.pt;
+  // c.h = c.pt + c.pb + c.h * scale;
+  c.w = c.w * scale;
 }
 
 function computeGroupLogoSize(group) {
@@ -224,5 +223,5 @@ export const measureTextWidth = (text, font) => {
   return ctx.measureText(text).width
 }
 
-const MIN_FONT_SIZE = 7.95;
+const MIN_FONT_SIZE = 11;
 const FONT_MEASURE_SIZE = 20;

@@ -27,7 +27,7 @@ const dominant = {
   font: {
     family: 'League Spartan',
     letterSpacing: 0.05,
-    size: 0.8,
+    size: 1,
     transform: 'uppercase',
     weight: 400,
   },

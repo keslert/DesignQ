@@ -31,7 +31,7 @@ export default {
           font: {
             family: 'Muli',
             weight: 700,
-            size: 0.4,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             lineHeight: 1.2,
@@ -88,7 +88,7 @@ export default {
           font: {
             family: 'Muli',
             weight: 700,
-            size: 0.4,
+            size: 1,
             style: 'normal',
             transform: 'normal',
             lineHeight: 1.4,

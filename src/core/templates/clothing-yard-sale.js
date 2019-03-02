@@ -36,7 +36,7 @@ export default {
           color: solidColor('#fcda57'),
           font: {
             transform: 'uppercase',
-            size: 0.6,
+            size: 1,
             family: 'Roboto Condensed',
             weight: 400,
             style: 'normal',

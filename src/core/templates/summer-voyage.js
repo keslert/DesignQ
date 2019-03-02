@@ -26,7 +26,7 @@ export default {
             family: 'Glacial Indifference',
             letterSpacing: 0.12,
             lineHeight: 1.4,
-            size: 0.2,
+            size: 1,
             style: 'normal',
             transform: 'uppercase',
             weight: 700,

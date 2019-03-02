@@ -5,7 +5,6 @@ import Decor from '../Decor';
 
 function Surface({surface}) {
   const bb = surface._computed.bb;
-
   return (
     <React.Fragment>
       {surface.background && <Background background={surface.background} bb={bb} />}
