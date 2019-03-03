@@ -8,6 +8,7 @@ export default {
   background: solidColor('#2d1b4d'),
   content: {
     body: {
+      h: 'fill',
       elements: [
         {
           type: 'small',
@@ -75,21 +76,30 @@ export default {
             weight: 400,
           },
         },
+        { 
+          type: 'image',
+          image: {
+            img: {
+              src: '/world.svg',
+              meta: {
+                w: 1,
+                h: 1,
+              },
+              zoom: 1.6,
+              y: 0,
+            }
+          },
+          fill: '#94f9ce',
+          bleed: { x: 1 },
+          aspectRatio: .55,
+          sticky: true,
+        },
       ]
     },
     footer: {
       bleed: { a: 1 },
       background: solidColor('#e4fde1'),
       elements: [
-        // { 
-        //   type: 'image',
-        //   fill: '#94f9ce',
-        //   bleed: {all: true},
-        //   src: '/world.svg',
-        //   aspectRatio: .55,
-        //   zoom: 1.6,
-        //   y: 0,
-        // },
         {
           type: 'paragraph',
           color: solidColor('#2d1b4d'),

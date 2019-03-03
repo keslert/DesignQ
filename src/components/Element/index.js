@@ -17,9 +17,7 @@ function Element({element, index}) {
     paddingBottom: c.pb + 'px',
     paddingLeft: c.pl + 'px',
     paddingRight: c.pr + 'px',
-    // ...getBackgroundStyle(element.background),
     boxSizing: 'border-box',
-    // background: '#fff',
   }
 
   const Component = getElement(element.type);

@@ -26,7 +26,7 @@ const dominant = {
   font: {
     family: 'Sifonn',
     letterSpacing: 0.05,
-    size: 1,
+    size: 0.5,
     transform: 'uppercase',
     weight: 400,
   },
@@ -92,26 +92,52 @@ const paragraph = {
   },
 }
 
+const image = { 
+  type: 'image',
+  image: {
+    img: {
+      src: 'https://images.unsplash.com/photo-1512333325950-03bcdceec88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: {
+        w: 800,
+        h: 533,
+      },
+    }
+  },
+  h: 'fill',
+  fill: '#94f9ce',
+  bleed: { x: 1 },
+  aspectRatio: .3,
+  sticky: true,
+}
+
 
 export default {
   id: 66,
   title: 'Rollin Back to the 90s',
   tags: ['event', 'flyer'],
-  background: solidColor('#ffffffffffff'),
+  inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-yellow-colorful-90s-photo-skate-party-flyer-MAC5uH-riCQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+  background: solidColor('#b80f04'),
   content: {
     body: {
+      h: 'fill',
+      textAlign: 'left',
+      alignX: 'left',
+      alignItemsX: 'left',
       alignY: 'top',
-      bleed: {a: 1},
-      background: solidColor('#b80f04'),
+      alignItemsY: 'top',
       elements: [
         small,
         dominant,
         bridge,
+        image,
       ]
     },
     footer: {
       background: solidColor('#ffbb49'),
       bleed: {a: 1},
+      textAlign: 'left',
+      alignX: 'left',
+      alignItemsX: 'left',
       elements: [
         heading,
         paragraph,

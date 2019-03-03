@@ -88,8 +88,13 @@ function computeVertical(template) {
   computeContentHeight(template);
   computeContentTop(template);
   
-  computeGroupHeights(template);
-  computeGroupTops(template);
+  // We have to compute body last because we 
+  // don't know the fill height until body 
+  // and footer are in place due to bleeds.
+  computeHeaderFooterHeight(template);
+  computeHeaderFooterTop(template);  
+  computeBodyHeight(template);
+  computeBodyTop(template);
 
   computeElementHeights(template);
   computeElementTops(template);
@@ -205,17 +210,50 @@ function computeContentHeight(template) {
     : c.bb.autoH;
 }
 
-function computeGroupHeights(template) {
-  const c = template.content._computed;
-  withGroups(template, g => g._computed.bb.h = g._computed.bb.autoH);
-  if(template.content.body.h === 'fill') {
-    template.content.body._computed.bb.h += c.bb.h - c.bb.autoH;
+function computeHeaderFooterHeight(template) {
+  // Header and footer are always autoH;
+  withGroups(template, g => {
+    g._computed.bb.h = g._computed.bb.autoH
+  }, ['header', 'footer']);
+}
+
+function computeHeaderFooterTop(template) {
+  if(template.content.header) {
+    computeHeaderTop(template, template.content.header)
+  }
+  if(template.content.footer) {
+    computeFooterTop(template, template.content.footer)
+  }
+}
+
+function computeBodyHeight(template) {
+  const { header=false, footer=false, body } = template.content;
+  if(body.h === 'fill') {
+    const top = header
+      ? header._computed.bb.t + header._computed.bb.h + header._computed.mb
+      : _.sumBy(body._computed.edges.t, e => e.value);
+
+    const mb = _.sumBy(body._computed.edges.b, e => e.value)
+    const bot = footer
+      ? footer._computed.bb.t - body._computed.mb
+      : template._computed.bb.h - mb
+
+    body._computed.bb.h = bot - top;
+  } else {
+    body._computed.bb.h = body._computed.bb.autoH
   }
 }
 
 function computeElementHeights(template) {
   withGroups(template, g => g.elements.forEach(el => {
     el._computed.bb.h = el._computed.bb.autoH;
+    if(el.h === 'fill') {
+      el._computed.bb.h += g._computed.bb.h - g._computed.bb.autoH;
+      
+      // TODO: The following is correct, but need to have a better height
+      // reducer calculation for this to work...
+      // el._computed.bb.h = Math.max(el._computed.bb.autoH, el._computed.bb.h);
+    } 
   }))
 }
 
@@ -274,9 +312,8 @@ function computeElementLefts(template) {
   }))
 }
 
-function computeGroupTops(template) {
+function computeBodyTop(template) {
   const content = template.content;
-  const c = content._computed;
   const { header=false, body, footer=false } = content;
 
   let start = _.sumBy(body._computed.edges.t, e => e.value);
@@ -286,15 +323,11 @@ function computeGroupTops(template) {
   let space = template._computed.size.h - body._computed.bb.h - bodyPadTop - bodyPadBot;
 
   if(header) {
-    computeHeaderTop(content, header);
-
     start = header._computed.bb.t + header._computed.bb.h + header._computed.mb;
-    // const end = c.bb.t + c.bb.h - padBottom - padTop - body._computed.bb.h;
     const end = template._computed.size.h - body._computed.bb.h - bodyPadBot;
     space = end - start;
   }
   if(footer) {
-    computeFooterTop(template, footer);
     const end = footer._computed.bb.t - body._computed.mb - body._computed.bb.h;
     space = end - start;
   }
@@ -317,11 +350,30 @@ function computeElementTops(template) {
     const space = totalAvailableSpace - totalElementHeight;
     
     let y = calculateTop(g.itemsAlignY, start, space);
-
     g.elements.forEach(el => {
       el._computed.bb.t = y;
       y += el._computed.bb.h + el._computed.mb;
     })
+
+    
+    // TODO: Handle first sticky elements
+    const first = g.elements[0];
+
+    const last = _.last(g.elements);
+    if(last !== first && last.sticky) {
+      const gBot = g._computed.bb.t + g._computed.bb.h;
+      const lBot = last._computed.bb.t + last._computed.bb.h;
+      const diffT = gBot - lBot + g._computed.mb;
+      
+      last._computed.bb.t += diffT;
+      g.elements.forEach(el => {
+        if(el !== last) {
+          el._computed.bb.t += diffT / 2;
+        }
+      })
+
+    }
+
   })
 }
 

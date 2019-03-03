@@ -14,7 +14,7 @@ import _ from 'lodash';
 // Instantiation of intentions object
   // detailed description of flyer
 
-export const CONTENT_GROUPS = ['header', 'body', 'footer'];
+export const CONTENT_GROUPS = ['header', 'footer', 'body'];
 
 // Line breaks have already been determined at this point.
 export function computeFlyer(template, size={w: 612, h:856}) {

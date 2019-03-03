@@ -88,7 +88,7 @@ function computeGroupSizes(template, group, dominant) {
 
   _.forEach(types.image, img => {
     img._computed.w = maxW;
-    img._computed.h = 300 //maxW * img.aspectRatio;
+    img._computed.h = maxW * img.aspectRatio;
   })
 
   _.forEach(types.bar, bar => {

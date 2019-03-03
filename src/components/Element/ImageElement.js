@@ -18,11 +18,7 @@ function ImageElement({element}) {
     // flex: element.flex,
     width: '100%',
     height: '100%',
-    ...getBackgroundStyle(element.background),
-      
-    //   {...element, 
-    //   img: !isSVG ? {src: element.src} : null
-    // }),
+    ...getBackgroundStyle(element.image),
     flexShrink: 0,
   }
 

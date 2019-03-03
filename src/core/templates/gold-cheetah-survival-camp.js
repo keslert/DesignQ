@@ -8,6 +8,7 @@ export default {
   background: solidColor('#fef8e9'),
   content: {
     body: {
+      h: 'fill',
       elements: [
         {
           type: 'icon',
@@ -96,15 +97,24 @@ export default {
             weight: 700,
           },
         },
-        // { 
-        //   type: 'image',
-        //   flex: 1,
-        //   bleed: {left: true, right: true, bottom: true},
-        //   src: '/mountain.svg',
-        //   zoom: 1.15,
-        //   y: 0.62,
-        //   fill: '#f48842',
-        // },
+        { 
+          type: 'image',
+          image: {
+            img: {
+              src: '/mountain.svg',
+              meta: {
+                w: 1,
+                h: 1,
+              },
+              zoom: 1.2,
+              y: 0.6,
+            }
+          },
+          bleed: { x: 1 },
+          fill: '#94f9ce',
+          aspectRatio: .5,
+          sticky: true,
+        },
       ]
     },
     footer: {

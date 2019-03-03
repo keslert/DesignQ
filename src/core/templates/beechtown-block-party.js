@@ -28,7 +28,7 @@ const dominant = {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
     lineHeight: 1.2,
-    size: 0.5,
+    size: 0.3,
     transform: 'uppercase',
     weight: 700,
   },
@@ -92,24 +92,24 @@ const paragraph = {
 
 const image = {
   type: 'image',
-  background: {
+  image: {
     img: {
       src: 'https://images.unsplash.com/photo-1525804017725-0ac671aea1fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
       meta: {
-        x: 800,
-        y: 450,
+        w: 800,
+        h: 450,
       },
-    },
-  },
-  border: {
-    y: .05,
-    background: {
-      color: striped(135, '#b5322c', 10, 'transparent'),
     }
   },
+  border: {
+    y: 0.02,
+    background: {
+      color: striped(135, '#b5322c', 3, 'transparent', 2),
+    }
+  },
+  h: 'fill',
   bleed: { x: 1 },
   aspectRatio: .25,
-  h: 'fill',
   sticky: true,
 }
 
@@ -122,6 +122,8 @@ export default {
   background: solidColor('#ffefd5'),
   content: {
     body: {
+      h: 'fill',
+      itemsAlignY: 'top',
       elements: [
         small,
         dominant,
@@ -130,6 +132,8 @@ export default {
       ]
     },
     footer: {
+      background: solidColor('#ffefd5'),
+      bleed: { a: 1 },
       elements: [
         heading,
         paragraph,

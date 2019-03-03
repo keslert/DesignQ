@@ -7,7 +7,7 @@ function Surface({surface}) {
   const bb = surface._computed.bb;
   return (
     <React.Fragment>
-      {surface.background && <Background background={surface.background} bb={bb} />}
+      {(true || surface.background) && <Background background={surface.background} bb={bb} />}
       {surface.decor && <Decor decor={surface.decor} bb={bb} />}
       {surface.border && <Border border={surface.border} bb={bb} />}
     </React.Fragment>

@@ -8,6 +8,7 @@ export default {
   background: solidColor('#022f2f'),
   content: {
     body: {
+      h: 'fill',
       elements: [
         {
           type: 'small',
@@ -57,6 +58,23 @@ export default {
             transform: 'normal',
             weight: 400,
           },
+        },
+        { 
+          type: 'image',
+          image: {
+            img: {
+              src: '/camping.png',
+              meta: {
+                w: 200,
+                h: 200,
+              },
+              zoom: 1.2,
+              y: 0.4,
+            }
+          },
+          fill: '#94f9ce',
+          aspectRatio: .6,
+          sticky: true,
         },
       ]
     },

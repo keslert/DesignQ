@@ -42,18 +42,19 @@ function computeGroupElementSpacing(group, spacing) {
     c.mt = 0;
     c.mb = spacing * el.mb;
 
+    // border and background padding
+    const x = c.h / Math.log(c.h * .4);
+    const y = c.h / Math.log(c.h * .3);
+    const pads = {l: x, r: x, t: y, b: y};
+    withSides(s => {
+      const ps = `p${s}`;
+      c[ps] += el.border._computed[s];
+      if((el.background || el.border._computed[s]) && el.lines) {
+        c[ps] += pads[s];
+      }
+    })
+    c.h += c.pt + c.pb;
     if(el.lines) {
-      const x = c.h / Math.log(c.h * .4);
-      const y = c.h / Math.log(c.h * .3);
-      const pads = {l: x, r: x, t: y, b: y};
-      withSides(s => {
-        const ps = `p${s}`;
-        c[ps] += el.border._computed[s];
-        if(el.background || el.border._computed[s]) {
-          c[ps] += pads[s];
-        }
-      })
-      c.h += c.pt + c.pb;
       const scale = (c.w - c.pr - c.pl) / c.w;
       scaleElementFontSizes(el, scale);
     }
@@ -81,11 +82,11 @@ function computeGroupElementSpacing(group, spacing) {
   
   const last = _.last(elements);
   last._computed.mb = 0;
-  if(last.sticky) {
-    if(last._computed.prev) {
-      last._computed.prev._computed.mb = 0;
-    }
-  }
+  // if(last.sticky) {
+  //   if(last._computed.prev) {
+  //     last._computed.prev._computed.mb = 0;
+  //   }
+  // }
 
   elements.forEach(el => {
     if(el.overlap) {

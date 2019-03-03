@@ -162,6 +162,13 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  BeechtownLodgeSummerCamp,
+  SaveTheEarth,
+  RollinBackParty,
+  BeechtownBlockParty,
+  GoldCheetahSurvivalCamp,
+  VolleyballTeamOpenTryouts,
+  
   IsabelBeachBazaar,
   AnnualDessertDash,
   BeechtownDanceFestival,
@@ -171,6 +178,7 @@ export const templates = {
   
   // adding
   FoodDriveForHomeless,
+  VolleyballVarsityTryouts,
   SeventhAnnualCareerFair,
   FallFundraisingEvent,
   AnnualBeachTownFoodFest,
@@ -201,9 +209,7 @@ export const templates = {
   FootballVarsityTryouts,
   BlastFromThePast,  
 
-  // How to do...
-  SaveTheEarth,
-  RollinBackParty,
+  
 
   // Need decoration
   ArtOfHealthyLiving,
@@ -229,7 +235,7 @@ export const templates = {
   AnnualAllWhiteCharityParty,
   AustfamCharityFoodDrive,
   JacquelinesBirthdayParty,
-  VolleyballVarsityTryouts,
+  
   SupportSandiosFoodDrive,
   TheRunwayLife,
   GarnishDelightBakery,
@@ -249,7 +255,6 @@ export const templates = {
   SummerCamp,
   SummerVoyage,
   SundayBlockbusterMovieNight,
-  VolleyballTeamOpenTryouts,
   WhimsonCakes,
   WinsloughHealthFair,
   WinsloughSummerFestival,
@@ -258,7 +263,6 @@ export const templates = {
   FinchworthFallFestival,
   FitnessHealthFair,
   FromSketchesToArtwork,
-  GoldCheetahSurvivalCamp,
   GrungeFallFashionWeek,
   HealthIsWealthFair,
   HighSchoolBasketballPlayoffs,
@@ -268,8 +272,8 @@ export const templates = {
   AnnualScienceFair,
   AnnualSportsFestival,
   AnnualWinterWonderlandGala,
-  BeechtownBlockParty,
-  BeechtownLodgeSummerCamp,
+  
+  
   BrightNightWithStars,
   ByersLaneStreetParty,
   CincoDeMayo,
