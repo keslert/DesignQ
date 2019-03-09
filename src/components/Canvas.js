@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Flex, Box, Text } from 'rebass';
 import Button from './Button';
 import { withSize } from 'react-sizeme'
 import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
+import CanvasToolbar from './CanvasToolbar';
 
 import { templates } from '../core/templates';
 import { computeFlyer } from '../core/producer';
@@ -16,70 +17,70 @@ const flyer2 = templates.AnnaMorrison
 computeFlyer(flyer1);
 computeFlyer(flyer2);
 
-const GUTTERS = 16;
-const BUTTON_HEIGHT = 80;
-const ACTIONS_WIDTH = 250;
-class Canvas extends React.Component {
+function Canvas({flyerSize}) {
 
-  getScale = (maxWidth, maxHeight) => {
-    const { frameWidth, frameHeight } = this.props;
-    const scale = Math.min(maxWidth / frameWidth, maxHeight / frameHeight);
+  const [showComparison, setShowComparison] = useState(false);
+  const scale = 0.75;
 
-    return scale;
-  }
-  
 
-  renderDefault = () => {
-    const { size } = this.props;
+  return (
+    <Flex 
+      style={{width: '100%', height: '100%'}} 
+      justifyContent="center" 
+      alignItems="center"
+    >
+      <Flex flex={1} style={{height:"100%"}}>
+        <Flex flex={1} alignItems="center" justifyContent="center">
+          <Box>
+            <FrameToolbar text="Primary Design" favorited={true} />
+            <div style={{position: 'relative'}}>
+              <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer1} />
+              {showComparison &&
+                <div style={{position: 'absolute', top: 0, left: 0}}>
+                  <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer2} />
+                </div>
+              }
 
-    const scale = 1;
-
-    return (
-      <Flex flex={1}>
-        <Box width={1/4} p={GUTTERS}>
-        
-        </Box>
-        <Flex p={GUTTERS} flexDirection="column" alignItems="center">
-          <FrameToolbar text="Primary Design" favorited={true} />
-          <Frame scale={scale} width={size.w} height={size.h} flyer={flyer1} />
-        </Flex>
-        <Flex p={GUTTERS} flexDirection="column" alignItems="center">
-          <FrameToolbar text="Click to make this the primary" favorited={false} />
-          <Frame scale={scale} width={size.w} height={size.h} flyer={flyer2} />
-          <Box p={GUTTERS}>
-            <Button 
-              variant="subtle"
-              onClick={() => null}
-              children="Skip"
-            />
-            <Text color='gray'>or press the right arrow</Text>
+            </div>
+            <Box pt={3} style={{height: 100, textAlign: 'center'}}>
+              <Text color="gray" fontSize={0} mb={1} style={{textTransform: 'uppercase'}}>Currently Exploring</Text>
+              <Text color="gray">Borders | Text Decals</Text>
+            
+            </Box>
           </Box>
         </Flex>
-        <Box width={1/4} p={GUTTERS}>
         
-        </Box>
+        <CanvasToolbar 
+          onCompareDown={() => setShowComparison(true)}
+          onCompareUp={() => setShowComparison(false)}
+        />
+
+        <Flex flex={1} bg="nearwhite" alignItems="center" justifyContent="center">
+          <Box>
+            <FrameToolbar text="Click to make this the primary" favorited={false} />
+            <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer2} />
+            <Box pt={3} style={{height: 100, textAlign: 'center'}}>
+              <Button 
+                variant="light"
+                onClick={() => null}
+                children="Next Design"
+              />
+              <Text color='gray' fontSize={1}>or press the right arrow</Text>
+            </Box>
+          </Box>
+        </Flex>
       </Flex>
-    )
-
-
-  }
-
-  renderMode = (mode) => {
-    switch(mode) {
-      default: 
-        return this.renderDefault();
-    }
-  }
-
-  render() {
-    const { mode = 'default' } = this.props;
-
-    return (
-      <Flex css={{width: '100%', height: '100%'}} justifyContent="center" alignItems="center">
-        {this.renderMode(mode)}
-      </Flex>
-    )
-  }
+    </Flex>
+  )
 }
 
 export default withSize({monitorHeight: true})(Canvas)
+
+function getScale(size, maxSize) {
+  const scale = Math.min(
+    size.w / maxSize.w,
+    size.h / maxSize.h,
+    1
+  );
+  return scale;
+}

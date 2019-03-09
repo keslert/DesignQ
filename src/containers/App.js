@@ -25,12 +25,12 @@ function App() {
         <Route path="/fonts" component={Fonts} />
         <Route path="/editor/:id" component={(props) => <Editor flyerSize={flyerSize} {...props} />} />
         <Route path="/gallery" component={(props) => <Gallery flyerSize={flyerSize} {...props} />} />
-        <Route path="/app" component={props => <Queue size={flyerSize} {...props} />} />
+        <Route path="/app" component={props => <Queue flyerSize={flyerSize} {...props} />} />
         <Route path="/image-palette" component={ImagePalette} />
         <Route path="/unsplash" component={ImagePicker} />
         <Route path="/calc/fonts" component={CalcFonts} />
         <Route path="/calc/images" component={CalcImages} />
-        <Route component={props => <ContentGallery flyerSize={flyerSize} {...props} />} />
+        <Route path="/test/layout" component={props => <ContentGallery flyerSize={flyerSize} {...props} />} />
 
         <Route component={() => <div>DQ</div>} />
         

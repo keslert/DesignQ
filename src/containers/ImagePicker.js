@@ -14,7 +14,7 @@ function ImagePicker() {
   }, [value]);
 
   return (
-    <Box p={4}>
+    <Box p={4} bg="nearwhite">
       <input
         placeholder="Search for images"
         value={value} 

@@ -2,15 +2,15 @@ import chroma from 'chroma-js';
 
 const theme = {
   fontSizes: [
-    12, 14, 16, 20, 24, 32, 48, 64
+    10, 14, 16, 20, 24, 32, 48, 64
   ],
   colors: {
     // red: '#f44336',
     black: '#202134',
     darkgray: '#5F6368',
     gray: '#9296A0',
-    lightgray: '#EAECEf',
-    nearwhite: '#F1F3F6',
+    lightgray: '#E8EFF2',
+    nearwhite: '#F7F9FA',
     white: '#fff',
 
     dark: '#353D4D',
@@ -57,10 +57,17 @@ theme.buttons = {
     }
   },
   subtle: {
-    color: theme.colors.darkgray,
+    color: theme.colors.dark,
     background: theme.colors.nearwhite,
     '&:hover': {
       background: theme.colors.nearwhite_darken,
+    }
+  },
+  light: {
+    color: theme.colors.dark,
+    background: theme.colors.lightgray,
+    '&:hover': {
+      background: theme.colors.lightgray_darken,
     }
   }
 }

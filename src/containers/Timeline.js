@@ -19,19 +19,27 @@ class Timeline extends React.Component {
       midpoint: Math.floor(width / 2),
       index: 0,
       offset: 0,
-      colors: [theme.colors.green, theme.colors.yellow, theme.colors.orange],
+      colors: [
+        theme.colors.green, 
+        theme.colors.yellow, 
+        theme.colors.orange, 
+        theme.colors.red,
+        theme.colors.pink,
+        theme.colors.purple,
+        theme.colors.blue,
+      ],
       cursor: 'grab',
     };
   }
 
   componentDidMount() {
-    this.draw(0);
+    this.draw(-ITEM_WIDTH / 2);
   }
 
   componentDidUpdate(props) {
     if(this.props.items.length !== props.items.length) {
       this.setState({offset: 0});
-      this.draw(0);
+      this.draw(-ITEM_WIDTH / 2);
     }
   }
 
@@ -40,7 +48,7 @@ class Timeline extends React.Component {
     
     const max = ITEM_WIDTH * 2 * (items.length - 1);
     const x = _.clamp(desiredOffset, 0, max);
-    return (x + ITEM_WIDTH - (x + ITEM_WIDTH) % (ITEM_WIDTH * 2));
+    return (x + ITEM_WIDTH / 2 - (x + ITEM_WIDTH) % (ITEM_WIDTH * 2));
   }
 
   handleMouseDown = (e) => {
@@ -90,7 +98,7 @@ class Timeline extends React.Component {
     const { cursor } = this.state;
 
     return (
-      <Box bg="lightgray" css={{width: '100vw', height: '20px', position: 'relative', cursor}}>
+      <Box bg="lightgray" style={{width: '100vw', height: '20px', position: 'relative', cursor}}>
         <canvas 
           onMouseDown={this.handleMouseDown}
           ref={this.canvas} width={this.state.width} height={20} 

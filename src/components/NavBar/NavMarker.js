@@ -8,7 +8,7 @@ const NavMarker = styled(Box)(props => ({
   borderRadius: '6px',
   borderBottomLeftRadius: 0,
   borderBottomRightRadius: 0,
-  transition: 'left 0.3s ease-in, width 0.3s ease-in, color 0.3s ease-in',
+  pointerEvents: 'none',
 }))
 
 NavMarker.defaultProps = {

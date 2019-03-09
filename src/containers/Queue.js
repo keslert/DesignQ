@@ -5,20 +5,19 @@ import Timeline from './Timeline';
 import Canvas from '../components/Canvas';
 
 
-function Queue({size}) {
-  const [designs, setDesigns] = useState([1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0 , 0, 1, 2, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0 , 0 , 1, 2, 0, 0, 0]);
+function Queue({flyerSize}) {
+  const [designs, setDesigns] = useState([0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 , 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3 , 3 , 3, 3, 3, 2, 3]);
 
   return (
-    <Flex flexDirection="column" style={{height: '100vh'}}>
+    <Flex bg="white" flexDirection="column" style={{height: '100vh'}}>
       <NavBar selectedIndex={0} />
       <Flex flex={1}>
-        <Canvas
-          size={size}
-        />
+        <Canvas flyerSize={flyerSize} />
       </Flex>
       <Timeline 
         items={designs}
       />
+      <style>{`body { overflow: hidden }`}</style>
     </Flex>
   );
 }

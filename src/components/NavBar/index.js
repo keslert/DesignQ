@@ -13,7 +13,7 @@ const stages = [
   {label: 'Color', color: theme.colors.red},
   {label: 'Decoration', color: theme.colors.pink},
   {label: 'Polish', color: theme.colors.purple},
-  {label: 'Finish', color: theme.colors.blue},
+  {label: 'Export', color: theme.colors.blue},
 ]
 
 const getUpdate = (target, color) => {
@@ -27,8 +27,8 @@ const getUpdate = (target, color) => {
 function NavBar() {
   const ref = useRef();
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [hover, setHover] = useState({l: 50, w: 200})
-  const [marker, setMarker] = useState({l: 50, w: 200});
+  const [hover, setHover] = useState({l: 50, w: 0})
+  const [marker, setMarker] = useState({l: 50, w: 0});
 
   const handleMouseEnter = useCallback(e => {
     setHover(getUpdate(e.target));
@@ -65,12 +65,16 @@ function NavBar() {
         />
       ))}
       <NavMarker 
-        bg="#ffffff33"
+        bg="#ffffff22"
         style={{left: hover.l, width: hover.w}}
       />
       <NavMarker 
         bg={marker.color}
-        style={{left: marker.l, width: marker.w}}
+        style={{
+          left: marker.l, 
+          width: marker.w,
+          transition: 'left 0.3s ease-out, width 0.3s ease-out, background 0.3s ease-out',
+        }}
       />
     </Flex>
   )
