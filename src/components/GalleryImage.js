@@ -8,7 +8,7 @@ const Image = styled(Box)`
     position: absolute;
     bottom: 0;
     right: 0;
-    font-size: 8px;
+    font-size: 9px;
     padding: 4px;
     background: rgba(0,0,0,.5);
     text-align: right;
@@ -56,7 +56,7 @@ const GalleryImage = ({
         <span>&nbsp;on&nbsp;</span>
         <a 
           className="author"
-          href={photo.src}
+          href="https://unsplash.com"
           target="_blank"
           children="Unsplash"
         />

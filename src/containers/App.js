@@ -25,7 +25,7 @@ function App() {
         <Route path="/fonts" component={Fonts} />
         <Route path="/editor/:id" component={(props) => <Editor flyerSize={flyerSize} {...props} />} />
         <Route path="/gallery" component={(props) => <Gallery flyerSize={flyerSize} {...props} />} />
-        <Route path="/app" component={Queue} />
+        <Route path="/app" component={props => <Queue size={flyerSize} {...props} />} />
         <Route path="/image-palette" component={ImagePalette} />
         <Route path="/unsplash" component={ImagePicker} />
         <Route path="/calc/fonts" component={CalcFonts} />

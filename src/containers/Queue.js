@@ -5,18 +5,15 @@ import Timeline from './Timeline';
 import Canvas from '../components/Canvas';
 
 
-function Queue() {
+function Queue({size}) {
   const [designs, setDesigns] = useState([1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0 , 0, 1, 2, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0 , 0 , 1, 2, 0, 0, 0]);
-  const frameWidth = 612;
-  const frameHeight = 792;
 
   return (
     <Flex flexDirection="column" style={{height: '100vh'}}>
-      <NavBar />
+      <NavBar selectedIndex={0} />
       <Flex flex={1}>
-        <Canvas 
-          frameWidth={frameWidth} 
-          frameHeight={frameHeight}
+        <Canvas
+          size={size}
         />
       </Flex>
       <Timeline 

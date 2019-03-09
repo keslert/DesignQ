@@ -5,7 +5,7 @@ import theme from '../styles/theme';
 import _ from 'lodash'
 
 
-const ITEM_WIDTH = 6;
+const ITEM_WIDTH = 8;
 
 class Timeline extends React.Component {
 
@@ -19,7 +19,7 @@ class Timeline extends React.Component {
       midpoint: Math.floor(width / 2),
       index: 0,
       offset: 0,
-      colors: ['#aaa', '#7AE8D4', theme.colors.red],
+      colors: [theme.colors.green, theme.colors.yellow, theme.colors.orange],
       cursor: 'grab',
     };
   }
@@ -57,7 +57,7 @@ class Timeline extends React.Component {
     const offset = this.getOffset(x);
     this.draw(offset);
     this.setState({offset, cursor: 'grab'})
-    document.body.style.setProperty('cursor', 'auto');
+    document.body.style.setProperty('cursor', 'inherit');
   }
 
   handleMouseMove = (e) => {

@@ -1,31 +1,79 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import NavItem from './NavItem';
+import NavMarker from './NavMarker';
 import { Flex } from 'rebass';
-import HomeSvg from '../../svg/home.svg'
+import QSvg from '../../svg/q.svg';
 import theme from '../../styles/theme';
 
-class NavBar extends React.Component {
+const stages = [
+  {label: 'Content', color: theme.colors.green}, 
+  {label: 'Layout', color: theme.colors.yellow},
+  {label: 'Typography', color: theme.colors.orange},
+  {label: 'Color', color: theme.colors.red},
+  {label: 'Decoration', color: theme.colors.pink},
+  {label: 'Polish', color: theme.colors.purple},
+  {label: 'Finish', color: theme.colors.blue},
+]
 
-  render() {
-
-    const selected = 'Content';
-    const stages = ['Content', 'Layout', 'Typography', 'Color', 'Decoration', 'Polish', 'Finish']
-
-    return (
-      <Flex style={{boxShadow: theme.shadows.small }}>
-        <NavItem flex={0} py={0}>
-          <HomeSvg color={theme.colors.black} />
-        </NavItem>
-        {stages.map(stage => (
-          <NavItem 
-            key={stage} 
-            children={stage} 
-            selected={stage === selected}
-          />
-        ))}
-      </Flex>
-    )
+const getUpdate = (target, color) => {
+  return {
+    l: target.offsetLeft,
+    w: target.offsetWidth,
+    color,
   }
+}
+
+function NavBar() {
+  const ref = useRef();
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [hover, setHover] = useState({l: 50, w: 200})
+  const [marker, setMarker] = useState({l: 50, w: 200});
+
+  const handleMouseEnter = useCallback(e => {
+    setHover(getUpdate(e.target));
+  }, [])
+
+  const handleMouseLeave = useCallback(e => {
+    const el = ReactDOM.findDOMNode(ref.current);
+    const child = el.children[1 + selectedIndex];
+    setHover(getUpdate(child));
+  }, [selectedIndex])
+
+  useEffect(() => {
+    const el = ReactDOM.findDOMNode(ref.current);
+    const child = el.children[1 + selectedIndex];
+    setMarker(getUpdate(child, stages[selectedIndex].color))
+    setHover(getUpdate(child));
+  }, [selectedIndex])
+
+
+  return (
+    <Flex style={{position: 'relative'}} ref={ref} bg="dark">
+      <NavItem flex={0} py={0} bg="green" width={50} mr="1px">
+        <QSvg fill={theme.colors.white} size={20} />
+      </NavItem>
+      {stages.map((stage, i) => (
+        <NavItem
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          key={stage.label}
+          color={stage.color}
+          children={stage.label} 
+          selected={i === selectedIndex}
+          onClick={() => setSelectedIndex(i)}
+        />
+      ))}
+      <NavMarker 
+        bg="#ffffff33"
+        style={{left: hover.l, width: hover.w}}
+      />
+      <NavMarker 
+        bg={marker.color}
+        style={{left: marker.l, width: marker.w}}
+      />
+    </Flex>
+  )
 }
 
 export default NavBar;

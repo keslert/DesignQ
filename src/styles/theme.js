@@ -5,14 +5,25 @@ const theme = {
     12, 14, 16, 20, 24, 32, 48, 64
   ],
   colors: {
-    blue: '#2A81F4',
-    red: '#f44336',
+    // red: '#f44336',
     black: '#202134',
     darkgray: '#5F6368',
     gray: '#9296A0',
     lightgray: '#EAECEf',
     nearwhite: '#F1F3F6',
     white: '#fff',
+
+    dark: '#353D4D',
+    
+    
+    blue: '#2A81F4',
+    green: '#7AE88C',
+    yellow: '#F4CA1E',
+    orange: '#FE8B39',
+    red: '#FD5252',
+    pink: '#F8ABFF',
+    purple: '#B17EFF',
+
   },
   gradients: {
     mello_yellow: 'linear-gradient(145deg, #f8ff00 0%, #3ad59f 100%)',

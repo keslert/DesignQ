@@ -9,9 +9,12 @@ import FrameToolbar from './Frame/Toolbar';
 import { templates } from '../core/templates';
 import { computeFlyer } from '../core/producer';
 
-const flyer2 = 0//computeFlyer(templates.YardSale);
-const flyer1 = 0//computeFlyer(templates.YardSale);
-const flyer3 = 0//computeFlyer(templates.YardSale);
+
+const flyer1 = templates.ACarolForTheHolidaySeason
+const flyer2 = templates.AnnaMorrison
+
+computeFlyer(flyer1);
+computeFlyer(flyer2);
 
 const GUTTERS = 16;
 const BUTTON_HEIGHT = 80;
@@ -27,12 +30,9 @@ class Canvas extends React.Component {
   
 
   renderDefault = () => {
-    const { size, frames, frameWidth, frameHeight } = this.props;
+    const { size } = this.props;
 
-
-    const maxWidth = (size.width - GUTTERS * 8 - ACTIONS_WIDTH * 2) / 2;
-    const maxHeight = (size.height - GUTTERS * 2 - BUTTON_HEIGHT);
-    const scale = this.getScale(maxWidth, maxHeight);
+    const scale = 1;
 
     return (
       <Flex flex={1}>
@@ -41,15 +41,11 @@ class Canvas extends React.Component {
         </Box>
         <Flex p={GUTTERS} flexDirection="column" alignItems="center">
           <FrameToolbar text="Primary Design" favorited={true} />
-          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer1} />
+          <Frame scale={scale} width={size.w} height={size.h} flyer={flyer1} />
         </Flex>
-        {false && <Flex p={GUTTERS} flexDirection="column" alignItems="center">
-          <FrameToolbar text="Primary Design" favorited={true} />
-          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer2} />
-        </Flex>}
         <Flex p={GUTTERS} flexDirection="column" alignItems="center">
           <FrameToolbar text="Click to make this the primary" favorited={false} />
-          <Frame scale={scale} width={frameWidth} height={frameHeight} flyer={flyer3} />
+          <Frame scale={scale} width={size.w} height={size.h} flyer={flyer2} />
           <Box p={GUTTERS}>
             <Button 
               variant="subtle"
