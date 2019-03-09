@@ -95,9 +95,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'location', text: 'See you at 189 49th Avenue, Grise Fiord, NU.'},
-            {type: 'descriptive', text: 'Together we can make a difference in the'},
-            {type: 'descriptive', text: 'lives of others! Let\'s spread the love!'},
+            {type: 'details', text: 'See you at 189 49th Avenue, Grise Fiord, NU.'},
+            {type: 'details', text: 'Together we can make a difference in the'},
+            {type: 'details', text: 'lives of others! Let\'s spread the love!'},
           ],
           color: solidColor('#f38229'),
           font: {

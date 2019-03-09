@@ -68,9 +68,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Check up on your health, sign up for a gym'},
-    {type: 'descriptive', text: 'membership, or try out some healthy recipes!'},
-    {type: 'descriptive', text: 'Drop by and start getting healthy!'},
+    {type: 'details', text: 'Check up on your health, sign up for a gym'},
+    {type: 'details', text: 'membership, or try out some healthy recipes!'},
+    {type: 'details', text: 'Drop by and start getting healthy!'},
   ],
   color: solidColor('#0d2839'),
   font: {

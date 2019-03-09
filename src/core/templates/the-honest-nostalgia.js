@@ -99,9 +99,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#21303b'),
           lines: [
-            {type: 'descriptive', text: 'Get an in-depth glimpse into the otherworldly'},
-            {type: 'descriptive', text: 'beauty of Tachibana\'s most popular Japanese-'},
-            {type: 'descriptive', text: 'themed masterpieces.'},
+            {type: 'details', text: 'Get an in-depth glimpse into the otherworldly'},
+            {type: 'details', text: 'beauty of Tachibana\'s most popular Japanese-'},
+            {type: 'details', text: 'themed masterpieces.'},
           ],
           font: {
             family: 'Montserrat',

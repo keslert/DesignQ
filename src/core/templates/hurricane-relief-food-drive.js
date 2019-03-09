@@ -104,9 +104,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Last Sept. 1, Hurricane Adam devastated over 1'},
-            {type: 'descriptive', text: 'million homes. Join our relief efforts to help'},
-            {type: 'descriptive', text: 'victims get back on their feet.'},
+            {type: 'details', text: 'Last Sept. 1, Hurricane Adam devastated over 1'},
+            {type: 'details', text: 'million homes. Join our relief efforts to help'},
+            {type: 'details', text: 'victims get back on their feet.'},
           ],
           color: solidColor('#f5f5f5'),
           font: {

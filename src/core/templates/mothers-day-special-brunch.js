@@ -66,8 +66,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: "Don't miss out. Reserve a table now! Call us at (123) 456-7890 or"},
-    {type: 'eventName', text: 'use our online booking system. Visit www.reallygreatsite.com.'},
+    {type: 'call-to-action', text: "Don't miss out. Reserve a table now! Call us at (123) 456-7890 or"},
+    {type: 'call-to-action', text: 'use our online booking system. Visit www.reallygreatsite.com.'},
   ],
   color: solidColor('#ff7f7d'),
   font: {

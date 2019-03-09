@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'The Winter Wonderful'},
     {type: 'eventName', text: 'Apparel Sale'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ad9f53'),
   font: {
     family: 'Abril Fatface',
     letterSpacing: 0.022,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: "The season's most awaited sales event is here!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ad9f53'),
   font: {
     family: 'Abril Fatface',
     letterSpacing: 0.025,
@@ -73,10 +73,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Be the most stylish you can be without breaking the bank.'},
-    {type: 'eventName', text: "Catch Lenderly's Winte Wonderful sale before it's over!"},
+    {type: 'details', text: 'Be the most stylish you can be without breaking the bank.'},
+    {type: 'details', text: "Catch Lenderly's Winte Wonderful sale before it's over!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ad9f53'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.019,
@@ -92,7 +92,7 @@ export default {
   id: 39,
   title: 'The Winter Wonderful Apparel Sale',
   tags: ['event', 'flyer'],
-  background: solidColor('#fffaee'),
+  background: solidColor('#fffaf0'),
   content: {
     body: {
       elements: [

@@ -102,9 +102,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'See you all at the Hullton Village Park for a fun day of food'},
-            {type: 'descriptive', text: 'games, shopping and prizes! Bringing of pets is highly'},
-            {type: 'descriptive', text: 'encouraged.'},
+            {type: 'details', text: 'See you all at the Hullton Village Park for a fun day of food'},
+            {type: 'details', text: 'games, shopping and prizes! Bringing of pets is highly'},
+            {type: 'details', text: 'encouraged.'},
           ],
           font: {
             family: 'Muli',

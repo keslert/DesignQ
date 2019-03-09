@@ -71,7 +71,7 @@ const paragraph = {
     {type: 'price', text: 'Entry Fee: $50'},
     {type: 'contact', text: 'For slot reservations, contact me at'},
     {type: 'contact', text: 'hello@reallygreatsite.com. More inforamtion at'},
-    {type: 'descriptive', text: 'www.reallygreatsite.com'},
+    {type: 'website', text: 'www.reallygreatsite.com'},
   ],
   color: solidColor('#fff'),
   font: {

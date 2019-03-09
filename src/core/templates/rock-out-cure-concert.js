@@ -75,10 +75,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'The Rock Out for the Cure Concert'},
-    {type: 'eventName', text: 'is a fundraising event which aims to'},
-    {type: 'eventName', text: 'help cancer-stricken children in'},
-    {type: 'eventName', text: 'developing countries.'},
+    {type: 'details', text: 'The Rock Out for the Cure Concert'},
+    {type: 'details', text: 'is a fundraising event which aims to'},
+    {type: 'details', text: 'help cancer-stricken children in'},
+    {type: 'details', text: 'developing countries.'},
   ],
   color: solidColor('#201f05'),
   font: {

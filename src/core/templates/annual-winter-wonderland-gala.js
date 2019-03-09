@@ -74,8 +74,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Get your tickets now! Visit www.reallygreatsite.com to purchase.'},
-    {type: 'eventName', text: 'Limited tickets available. Prices start at $80.'},
+    {type: 'details', text: 'Get your tickets now! Visit www.reallygreatsite.com to purchase.'},
+    {type: 'details', text: 'Limited tickets available. Prices start at $80.'},
   ],
   color: solidColor('#64492c'),
   font: {

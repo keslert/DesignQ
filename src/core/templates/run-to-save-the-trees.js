@@ -74,9 +74,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Join us as we run towards the finish line with the goal to'},
-    {type: 'descriptive', text: 'protect the trees, conserve out forests, and'},
-    {type: 'descriptive', text: 'save our planet!'},
+    {type: 'details', text: 'Join us as we run towards the finish line with the goal to'},
+    {type: 'details', text: 'protect the trees, conserve out forests, and'},
+    {type: 'details', text: 'save our planet!'},
   ],
   color: solidColor('#7f9f47'),
   font: {

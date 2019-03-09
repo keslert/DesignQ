@@ -73,9 +73,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'MLKD Burger Shack promises amazing food and'},
-    {type: 'descriptive', text: 'drinks, plus awesome beach activities and games'},
-    {type: 'descriptive', text: 'for all the attendees!'},
+    {type: 'details', text: 'MLKD Burger Shack promises amazing food and'},
+    {type: 'details', text: 'drinks, plus awesome beach activities and games'},
+    {type: 'details', text: 'for all the attendees!'},
   ],
   color: solidColor('#ffffff'),
   font: {

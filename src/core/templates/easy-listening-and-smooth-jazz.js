@@ -70,9 +70,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Ticket price: $10, not including food and drinks'},
-    {type: 'eventName', text: 'For table bookings and ticket packages, please feel'},
-    {type: 'eventName', text: 'free to contact us.'},
+    {type: 'details', text: 'Ticket price: $10, not including food and drinks'},
+    {type: 'details', text: 'For table bookings and ticket packages, please feel'},
+    {type: 'details', text: 'free to contact us.'},
   ],
   color: solidColor('#fff'),
   font: {

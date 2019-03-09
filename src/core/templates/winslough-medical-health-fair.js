@@ -115,9 +115,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'Our health fair is free and open to everyone. Simply register'},
-            {type: 'descriptive', text: 'your attendance at www.reallygreatsite.com and take a'},
-            {type: 'descriptive', text: 'screenshot.'},
+            {type: 'details', text: 'Our health fair is free and open to everyone. Simply register'},
+            {type: 'details', text: 'your attendance at www.reallygreatsite.com and take a'},
+            {type: 'details', text: 'screenshot.'},
           ],
           font: {
             family: 'Glacial Indifference',

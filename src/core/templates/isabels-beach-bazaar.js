@@ -70,9 +70,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Interested in setting up with us at'},
-    {type: 'descriptive', text: 'the bazaar? Get in touch with Isabel for'},
-    {type: 'descriptive', text: 'more details. Call 123 456 7890.'},
+    {type: 'details', text: 'Interested in setting up with us at'},
+    {type: 'details', text: 'the bazaar? Get in touch with Isabel for'},
+    {type: 'details', text: 'more details. Call 123 456 7890.'},
   ],
   color: solidColor('#ffbec0'),
   font: {

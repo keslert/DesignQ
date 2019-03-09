@@ -68,10 +68,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: "We're going to be partying until"},
-    {type: 'eventName', text: 'midnight, so make sure you have a '},
-    {type: 'eventName', text: 'lot of energy. Turning 21 happens'},
-    {type: 'eventName', text: 'only once in a lifetime!'},
+    {type: 'details', text: "We're going to be partying until"},
+    {type: 'details', text: 'midnight, so make sure you have a '},
+    {type: 'details', text: 'lot of energy. Turning 21 happens'},
+    {type: 'details', text: 'only once in a lifetime!'},
   ],
   color: solidColor('#fff'),
   font: {

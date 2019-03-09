@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: '"Seek the LORD and his strength; seek his presence'},
-    {type: 'eventName', text: 'continually!"- 1 Chronicles 16:11'},
-    {type: 'eventName', text: 'Register at reallygreatsite.com'},
+    {type: 'details', text: '"Seek the LORD and his strength; seek his presence'},
+    {type: 'details', text: 'continually!"- 1 Chronicles 16:11'},
+    {type: 'details', text: 'Register at reallygreatsite.com'},
   ],
   color: solidColor('#ffffff'),
   font: {

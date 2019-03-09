@@ -111,9 +111,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Enjoy hors d\'oeuvres and cocktails as you are'},
-            {type: 'descriptive', text: 'serenaded by the angelic voice of renowned jazz'},
-            {type: 'descriptive', text: 'singer Antonina Berkeley.'},
+            {type: 'details', text: 'Enjoy hors d\'oeuvres and cocktails as you are'},
+            {type: 'details', text: 'serenaded by the angelic voice of renowned jazz'},
+            {type: 'details', text: 'singer Antonina Berkeley.'},
           ],
           color: solidColor('#666'),
           font: {

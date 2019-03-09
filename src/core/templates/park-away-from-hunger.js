@@ -96,9 +96,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'A gathering of best-known, local food trucks to'},
-            {type: 'descriptive', text: 'raise money and food supplies for the homeless'},
-            {type: 'descriptive', text: 'victims of the recent tornado.'},
+            {type: 'details', text: 'A gathering of best-known, local food trucks to'},
+            {type: 'details', text: 'raise money and food supplies for the homeless'},
+            {type: 'details', text: 'victims of the recent tornado.'},
           ],
           color: solidColor('#442d34'),
           font: {

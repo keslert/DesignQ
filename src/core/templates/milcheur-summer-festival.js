@@ -65,9 +65,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: "Enjoy the summer and watch as pop music's"},
-    {type: 'eventName', text: 'hottest acts perform right in front of you at the'},
-    {type: 'eventName', text: "country's biggest music fesitval!"},
+    {type: 'details', text: "Enjoy the summer and watch as pop music's"},
+    {type: 'details', text: 'hottest acts perform right in front of you at the'},
+    {type: 'details', text: "country's biggest music fesitval!"},
   ],
   color: solidColor('#fff'),
   font: {

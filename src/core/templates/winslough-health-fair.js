@@ -120,8 +120,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Winslough Elders Association covers the cost of vaccines for those'},
-            {type: 'descriptive', text: 'without insurance. Don\'t miss out on the opportunity!'},
+            {type: 'details', text: 'Winslough Elders Association covers the cost of vaccines for those'},
+            {type: 'details', text: 'without insurance. Don\'t miss out on the opportunity!'},
           ],
           color: solidColor('#fff'),
           font: {

@@ -92,7 +92,7 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'location', text: 'Visit us at 334 Homestead Drive Mount Holly, NJ 08060'},
+            {type: 'descriptive|location', text: 'Visit us at 334 Homestead Drive Mount Holly, NJ 08060'},
           ],
           color: solidColor('#fff'),
           font: {

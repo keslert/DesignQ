@@ -73,9 +73,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Tickets are $5 each. Reserver now at'},
-    {type: 'descriptive', text: 'www.reallygreatsite.com or get your ticket'},
-    {type: 'descriptive', text: 'straight from Alfredo Torres as (123) 456-7890!'},
+    {type: 'price|contact', text: 'Tickets are $5 each. Reserve now at'},
+    {type: 'contact', text: 'www.reallygreatsite.com or get your ticket'},
+    {type: 'contact', text: 'straight from Alfredo Torres as (123) 456-7890!'},
   ],
   color: solidColor('#cca882'),
   font: {

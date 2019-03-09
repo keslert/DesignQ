@@ -95,11 +95,6 @@ export default {
             {type: 'time', text: '5:00 PM to 9:00 PM'},
             {type: 'location', text: 'The Curtain Sports Bar'},
           ],
-          border: {
-            a: .005,
-            aOffset: 0.01,
-            background: solidColor('#ffffff'),
-          },
           background: solidColor('#f98e25'),
           color: solidColor('#fff'),
           font: {
@@ -116,8 +111,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Get your tickets now! For other reservations and other'},
-            {type: 'descriptive', text: 'ticket-related inquiries, visit www.reallygreatsite.com.'},
+            {type: 'details', text: 'Get your tickets now! For other reservations and other'},
+            {type: 'details', text: 'ticket-related inquiries, visit www.reallygreatsite.com.'},
           ],
           color: solidColor('#fff'),
           font: {

@@ -90,8 +90,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'time', text: "Now's your chance to get a batch of these special homemade donuts"},
-            {type: 'time', text: "while they're still hot and fresh from the oven!"},
+            {type: 'detials', text: "Now's your chance to get a batch of these special homemade donuts"},
+            {type: 'detials', text: "while they're still hot and fresh from the oven!"},
           ],
           color: solidColor('#d45e8f'),
           font: {

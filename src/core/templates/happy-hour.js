@@ -25,7 +25,7 @@ export default {
           type: 'small',
           lines: [
             [
-              {type: 'dayOfWeek', text: 'Every Thursday'},
+              {type: 'day-of-week', text: 'Every Thursday'},
               {type: 'time', text: '6pm-Closing'},
             ]
           ],

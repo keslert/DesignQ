@@ -53,7 +53,7 @@ export default {
           type: 'bridge', 
           lines: [
             [
-              {type: 'dayOfWeek', text: 'Thurs'},
+              {type: 'day-of-week', text: 'Thurs'},
               {type: 'date', text: '08.23', format: 'MM.DD'},
               {type: 'time', text: '10AM'},
             ]

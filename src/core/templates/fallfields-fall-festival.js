@@ -100,10 +100,10 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Enjoy the fall season with great'},
-            {type: 'descriptive', text: 'food, drinks and a fresh lineup of'},
-            {type: 'descriptive', text: 'performers. Admission is free and'},
-            {type: 'descriptive', text: 'everyone\'s invited!'},
+            {type: 'details', text: 'Enjoy the fall season with great'},
+            {type: 'details', text: 'food, drinks and a fresh lineup of'},
+            {type: 'details', text: 'performers. Admission is free and'},
+            {type: 'details', text: 'everyone\'s invited!'},
           ],
           color: solidColor('#db4439'),
           font: {

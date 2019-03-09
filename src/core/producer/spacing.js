@@ -4,7 +4,7 @@ import { withGroups, withSides } from '.';
 
 export function computeSpacing(template) {
   const dominant = _.find(template.content.body.elements, e => e.type === 'dominant');
-  const elementSpacing = Math.log(dominant._computed.fontSize * .2) * 10;
+  const elementSpacing = dominant ? Math.log(dominant._computed.fontSize * .2) * 10 : 40;
 
   const c = template.content._computed;
   withSides(s => c[`m${s}`] = _.sumBy(c.edges[s], e => e.value))
@@ -81,7 +81,7 @@ function computeGroupElementSpacing(group, spacing) {
   })
   
   const last = _.last(elements);
-  last._computed.mb = 0;
+  last && (last._computed.mb = 0);
   // if(last.sticky) {
   //   if(last._computed.prev) {
   //     last._computed.prev._computed.mb = 0;

@@ -17,11 +17,14 @@ import _ from 'lodash';
 export const CONTENT_GROUPS = ['header', 'footer', 'body'];
 
 // Line breaks have already been determined at this point.
-export function computeFlyer(template, size={w: 612, h:856}) {
+export function computeFlyer(template, size={w: 480, h:670}) {
   console.log(`Computing ${template.title}`);
 
   initSetup(template)
   template._computed.size = size;
+  if(!template.content.body.elements.length) {
+    return template;
+  }
   
   computeBorders(template);
   computeDecor(template);
@@ -110,6 +113,19 @@ function initGroup(group, groupType) {
           ? line.map(l => transformStr(l.text, el.font.transform))
           : transformStr(line.text, el.font.transform)
       }))
+      el._computed.maxCharacters = _.max(
+        el._computed.lines.map(line => 
+          (_.isArray(line.text) ? line.text : [line.text])
+          .join(' | ').length
+        )
+      )
+      _.defaults(el, {
+        divider: {
+          type: 'line',
+          size: 1,
+          color: el.color,
+        }
+      })
     }
   })
 }

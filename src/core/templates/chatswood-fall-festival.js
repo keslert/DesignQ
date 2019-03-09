@@ -73,9 +73,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'The Chatswood Fall Festival is the grandest fall event in'},
-    {type: 'descriptive', text: "town. Find food, entertainment and more that's fit for the"},
-    {type: 'descriptive', text: 'season!'},
+    {type: 'details', text: 'The Chatswood Fall Festival is the grandest fall event in'},
+    {type: 'details', text: "town. Find food, entertainment and more that's fit for the"},
+    {type: 'details', text: 'season!'},
   ],
   color: solidColor('#6d4d43'),
   font: {

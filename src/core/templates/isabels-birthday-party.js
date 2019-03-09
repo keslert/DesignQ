@@ -66,8 +66,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Present this birthday inviation at the bar to get 2 free cocktails of'},
-    {type: 'descriptive', text: "your choice. Can't wait to see you there!"},
+    {type: 'details', text: 'Present this birthday inviation at the bar to get 2 free cocktails of'},
+    {type: 'details', text: "your choice. Can't wait to see you there!"},
   ],
   color: solidColor('#ffffff'),
   font: {

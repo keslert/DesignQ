@@ -75,9 +75,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Pay $20 per person and get unlimited'},
-    {type: 'descriptive', text: 'margaritas, beer and tapas all day (and night) '},
-    {type: 'descriptive', text: 'long! Happy Cinco de Mayo!'},
+    {type: 'details', text: 'Pay $20 per person and get unlimited'},
+    {type: 'details', text: 'margaritas, beer and tapas all day (and night) '},
+    {type: 'details', text: 'long! Happy Cinco de Mayo!'},
   ],
   color: solidColor('#faaf40'),
   font: {

@@ -97,8 +97,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "Don't forget to bring your own"},
-            {type: 'descriptive', text: 'reusable cookie containers!'},
+            {type: 'details', text: "Don't forget to bring your own"},
+            {type: 'details', text: 'reusable cookie containers!'},
           ],
           color: solidColor('#49673f'),
           font: {

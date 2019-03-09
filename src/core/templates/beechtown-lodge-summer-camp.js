@@ -103,8 +103,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'The Beechtown Lodge Summer Camp helps teens aged 14 to'},
-            {type: 'descriptive', text: '18 learn life survival skills in a fun, friendly setting.'},
+            {type: 'details', text: 'The Beechtown Lodge Summer Camp helps teens aged 14 to'},
+            {type: 'details', text: '18 learn life survival skills in a fun, friendly setting.'},
           ],
           font: {
             family: 'Roboto',

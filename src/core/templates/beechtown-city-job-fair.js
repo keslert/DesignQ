@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Drop by for a meet & greet with employers'},
-    {type: 'descriptive', text: 'from various industries! There will also be'},
-    {type: 'descriptive', text: 'career talks in the afternoon.'},
+    {type: 'details', text: 'Drop by for a meet & greet with employers'},
+    {type: 'details', text: 'from various industries! There will also be'},
+    {type: 'details', text: 'career talks in the afternoon.'},
   ],
   color: solidColor('#fff'),
   font: {

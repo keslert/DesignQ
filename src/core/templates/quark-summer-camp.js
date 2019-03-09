@@ -92,9 +92,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Spend all summer learning toasting marshmallows over'},
-            {type: 'descriptive', text: 'a fire, swimming in the lake, or watching out for the'},
-            {type: 'descriptive', text: 'forest wildlife!'},
+            {type: 'details', text: 'Spend all summer learning toasting marshmallows over'},
+            {type: 'details', text: 'a fire, swimming in the lake, or watching out for the'},
+            {type: 'details', text: 'forest wildlife!'},
           ],
           color: solidColor('#ffffffcc'),
           font: {

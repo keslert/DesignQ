@@ -75,9 +75,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Meet and connect with top employers and professionals.'},
-    {type: 'eventName', text: 'Participate in the events and figure out the right career'},
-    {type: 'eventName', text: 'path for you!'},
+    {type: 'details', text: 'Meet and connect with top employers and professionals.'},
+    {type: 'details', text: 'Participate in the events and figure out the right career'},
+    {type: 'details', text: 'path for you!'},
   ],
   color: solidColor('#ffffff'),
   font: {

@@ -1,0 +1,14 @@
+Header
+- no correlation between # characters and font-size
+- R = .505
+  - Canva Width = 5.33216*Max Characters + 45.7198
+
+
+Paragraph
+- R = .515
+  - Canva Width = 3.10679*Max Characters + 62.8503
+
+
+Dominant
+- R = .31
+  - Canva Width = 8.49201*Max Characters + 131.688

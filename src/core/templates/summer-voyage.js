@@ -86,8 +86,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'If exploration and adventure are on the top of your summer bucketlist,'},
-            {type: 'descriptive', text: 'the Summer Voyage: Where to Next? is the camp to go to!'},
+            {type: 'details', text: 'If exploration and adventure are on the top of your summer bucketlist,'},
+            {type: 'details', text: 'the Summer Voyage: Where to Next? is the camp to go to!'},
           ],
           color: solidColor('#fff8e9'),
           font: {

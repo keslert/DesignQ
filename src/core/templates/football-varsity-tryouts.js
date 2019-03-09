@@ -96,9 +96,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'The Broadus Football Varsity is looking for strong,'},
-            {type: 'descriptive', text: 'hardworking, and talented football players'},
-            {type: 'descriptive', text: 'to join the team.'},
+            {type: 'details', text: 'The Broadus Football Varsity is looking for strong,'},
+            {type: 'details', text: 'hardworking, and talented football players'},
+            {type: 'details', text: 'to join the team.'},
           ],
           color: solidColor('#000'),
           font: {

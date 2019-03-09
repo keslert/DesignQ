@@ -65,9 +65,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Celebrate all things fall while giving back to Mother'},
-    {type: 'descriptive', text: 'Nature. Our fall fundraising event combines good fun'},
-    {type: 'descriptive', text: 'with a great cause.'},
+    {type: 'details', text: 'Celebrate all things fall while giving back to Mother'},
+    {type: 'details', text: 'Nature. Our fall fundraising event combines good fun'},
+    {type: 'details', text: 'with a great cause.'},
   ],
   color: solidColor('#e45330'),
   font: {

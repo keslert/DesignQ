@@ -105,8 +105,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'This year, all proceeds from this event will go to the George'},
-            {type: 'descriptive', text: 'Hewes Foundation. Come and party for a good cause!'},
+            {type: 'details', text: 'This year, all proceeds from this event will go to the George'},
+            {type: 'details', text: 'Hewes Foundation. Come and party for a good cause!'},
           ],
           font: {
             family: 'Aileron',

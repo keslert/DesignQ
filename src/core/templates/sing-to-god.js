@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Golden Lights Parish'},
   ],
-  color: solidColor('#d5c491'),
+  color: solidColor('#353535'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,
@@ -36,7 +36,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Offer your singing voices in praise to the Lord!'},
   ],
-  color: solidColor('#d5c491'),
+  color: solidColor('#353535'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,
@@ -73,10 +73,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Watch and sing along as the choir belts their hearts out. With special'},
-    {type: 'eventName', text: 'performances and appearances by various celebrity guests.'},
+    {type: 'details', text: 'Watch and sing along as the choir belts their hearts out. With special'},
+    {type: 'details', text: 'performances and appearances by various celebrity guests.'},
   ],
-  color: solidColor('#d5c491'),
+  color: solidColor('#353535'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -91,7 +91,8 @@ export default {
   id: 30,
   title: 'Sing to God',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  inspirtation: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-gold-with-white-ornament-gospel-concert-church-flyer-MAC7WYDUvHw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+  background: solidColor('#d5c590'),
   decor: {
     t: .5,
   },

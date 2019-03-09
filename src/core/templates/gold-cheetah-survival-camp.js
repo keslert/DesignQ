@@ -125,8 +125,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Open for kids aged 11 to 13. Our team of skilled and'},
-            {type: 'descriptive', text: 'professional camp counselors ensures all kids are safe 24/7.'},
+            {type: 'details', text: 'Open for kids aged 11 to 13. Our team of skilled and'},
+            {type: 'details', text: 'professional camp counselors ensures all kids are safe 24/7.'},
           ],
           color: solidColor('#ffffff'),
           font: {

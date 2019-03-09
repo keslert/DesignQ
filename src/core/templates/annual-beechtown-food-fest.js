@@ -100,8 +100,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'For more information about the food fest, visit'},
-            {type: 'descriptive', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},
+            {type: 'details', text: 'For more information about the food fest, visit'},
+            {type: 'details', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},
           ],
           font: {
             family: 'Kollektif',

@@ -69,9 +69,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'The Dessert Dash is a joint fundraising effort of the'},
-    {type: 'descriptive', text: 'Restaurant Council and City Charity Office.'},
-    {type: 'descriptive', text: 'Join the movement!'},
+    {type: 'details', text: 'The Dessert Dash is a joint fundraising effort of the'},
+    {type: 'details', text: 'Restaurant Council and City Charity Office.'},
+    {type: 'details', text: 'Join the movement!'},
   ],
   color: solidColor('#fff'),
   font: {

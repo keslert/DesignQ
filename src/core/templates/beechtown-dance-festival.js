@@ -69,10 +69,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: "We're bringing electronic and dance"},
-    {type: 'eventName', text: "lovers and awesome lineup that's"},
-    {type: 'eventName', text: 'packed with the most celebrated names'},
-    {type: 'eventName', text: 'in the industry!'},
+    {type: 'details', text: "We're bringing electronic and dance"},
+    {type: 'details', text: "lovers and awesome lineup that's"},
+    {type: 'details', text: 'packed with the most celebrated names'},
+    {type: 'details', text: 'in the industry!'},
   ],
   color: solidColor('#b7f6ff'),
   font: {

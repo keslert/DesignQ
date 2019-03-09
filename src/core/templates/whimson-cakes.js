@@ -67,10 +67,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Whimson Cakes and Pastries is home to'},
-    {type: 'descriptive', text: 'baked goodies created with love. We wish'},
-    {type: 'descriptive', text: 'to delight diners with every bite of our'},
-    {type: 'descriptive', text: 'sweets.'},
+    {type: 'details', text: 'Whimson Cakes and Pastries is home to'},
+    {type: 'details', text: 'baked goodies created with love. We wish'},
+    {type: 'details', text: 'to delight diners with every bite of our'},
+    {type: 'details', text: 'sweets.'},
   ],
   color: solidColor('#f5efde'),
   font: {

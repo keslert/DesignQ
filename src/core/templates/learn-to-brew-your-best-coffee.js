@@ -73,7 +73,7 @@ export default {
           lines: [
             [
               {type: 'date', text: 'July 15'},
-              {type: 'dayOfWeek', text: 'Saturday'},
+              {type: 'day-of-week', text: 'Saturday'},
               {type: 'time', text: '3-5 pm'},
             ],
             {type: 'location', text: '123 Anywhere St.'},
@@ -98,9 +98,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'Learn how to make brewed coffee right in the'},
-            {type: 'descriptive', text: 'comfort of your own home and experiment with'},
-            {type: 'descriptive', text: 'many coffee-based beverages'},
+            {type: 'details', text: 'Learn how to make brewed coffee right in the'},
+            {type: 'details', text: 'comfort of your own home and experiment with'},
+            {type: 'details', text: 'many coffee-based beverages'},
           ],
           font: {
             family: 'Muli',

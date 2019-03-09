@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: "Looking for a unique gift? You've come to the right place!"},
-    {type: 'eventName', text: 'Our yard sale is a treasure trove of vintage items. Happy'},
-    {type: 'eventName', text: 'shopping!},
+    {type: 'details', text: "Looking for a unique gift? You've come to the right place!"},
+    {type: 'details', text: 'Our yard sale is a treasure trove of vintage items. Happy'},
+    {type: 'details', text: 'shopping!'},
   ],
   color: solidColor('#fff'),
   font: {

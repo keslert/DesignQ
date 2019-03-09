@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'From eating the right food to the perfect'},
-    {type: 'descriptive', text: 'exercise routine, find the best path to a '},
-    {type: 'descriptive', text: 'happier and healthier you.'},
+    {type: 'details', text: 'From eating the right food to the perfect'},
+    {type: 'details', text: 'exercise routine, find the best path to a '},
+    {type: 'details', text: 'happier and healthier you.'},
   ],
   color: solidColor('#ffffff'),
   font: {

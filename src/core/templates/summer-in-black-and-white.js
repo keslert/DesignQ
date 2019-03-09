@@ -102,9 +102,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'A collection inspired by vintage music festival'},
-            {type: 'descriptive', text: 'photos, Summer in Black and White will feel'},
-            {type: 'descriptive', text: 'nostalgic and modern at the same time.'},
+            {type: 'details', text: 'A collection inspired by vintage music festival'},
+            {type: 'details', text: 'photos, Summer in Black and White will feel'},
+            {type: 'details', text: 'nostalgic and modern at the same time.'},
           ],
           font: {
             family: 'Glacial Indifference',

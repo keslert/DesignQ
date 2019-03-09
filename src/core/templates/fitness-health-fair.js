@@ -91,10 +91,10 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Admission Fee: $6 (unlimited entrace'},
-            {type: 'descriptive', text: 'for all event days)'},
-            {type: 'descriptive', text: 'Get a consulatation or medical test for'},
-            {type: 'descriptive', text: 'free at our health booths!'},
+            {type: 'details', text: 'Admission Fee: $6 (unlimited entrace'},
+            {type: 'details', text: 'for all event days)'},
+            {type: 'details', text: 'Get a consulatation or medical test for'},
+            {type: 'details', text: 'free at our health booths!'},
           ],
           color: solidColor('#292a25'),
           font: {

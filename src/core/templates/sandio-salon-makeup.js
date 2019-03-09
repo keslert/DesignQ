@@ -73,9 +73,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Not without challenges, makeup application is an art'},
-    {type: 'descriptive', text: 'that can be learned. Let us be your teachers! Everbody\'s'},
-    {type: 'descriptive', text: 'welcome to learn.'},
+    {type: 'details', text: 'Not without challenges, makeup application is an art'},
+    {type: 'details', text: 'that can be learned. Let us be your teachers! Everbody\'s'},
+    {type: 'details', text: 'welcome to learn.'},
   ],
   color: solidColor('#21294d'),
   font: {

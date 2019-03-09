@@ -106,11 +106,11 @@ export default {
           type: 'paragraph',
           color: solidColor('#ffffffcc'),
           lines: [
-            {type: 'descriptive', text: 'Join us for jaxx night and enjoy'},
-            {type: 'descriptive', text: 'great music from the best'},
-            {type: 'descriptive', text: 'artists in town. Purchase your'},
-            {type: 'descriptive', text: 'tickets online:'},
-            {type: 'descriptive', text: 'reallygreatsite.com'},
+            {type: 'details', text: 'Join us for jaxx night and enjoy'},
+            {type: 'details', text: 'great music from the best'},
+            {type: 'details', text: 'artists in town. Purchase your'},
+            {type: 'details', text: 'tickets online:'},
+            {type: 'details', text: 'reallygreatsite.com'},
           ],
           font: {
             family: 'Raleway',

@@ -105,9 +105,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#9ddcdc'),
           lines: [
-            {type: 'descriptive', text: 'Have an enjoyable weekend that\'s sure'},
-            {type: 'descriptive', text: "to make your tummy and heart feel good!"},
-            {type: 'descriptive', text: "Don't miss the sweetest event in town!"},
+            {type: 'details', text: 'Have an enjoyable weekend that\'s sure'},
+            {type: 'details', text: "to make your tummy and heart feel good!"},
+            {type: 'details', text: "Don't miss the sweetest event in town!"},
           ],
           font: {
             family: 'Kollektif',

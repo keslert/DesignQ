@@ -86,8 +86,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "This year, Beechtown Park will be donating all the proceeds"},
-            {type: 'descriptive', text: "of the fall festival to our friends at Winslough Charity."},
+            {type: 'details', text: "This year, Beechtown Park will be donating all the proceeds"},
+            {type: 'details', text: "of the fall festival to our friends at Winslough Charity."},
           ],
           color: solidColor('#fdefc4'),
           font: {

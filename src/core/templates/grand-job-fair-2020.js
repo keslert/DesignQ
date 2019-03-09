@@ -95,9 +95,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#284b82'),
           lines: [
-            {type: 'descriptive', text: 'No matter which field you\'re in, you\'ll surely find'},
-            {type: 'descriptive', text: 'a job post that perfectly fits you and your capabilities.'},
-            {type: 'descriptive', text: 'See you at the fair!'},
+            {type: 'details', text: 'No matter which field you\'re in, you\'ll surely find'},
+            {type: 'details', text: 'a job post that perfectly fits you and your capabilities.'},
+            {type: 'details', text: 'See you at the fair!'},
           ],
           font: {
             family: 'Aileron',

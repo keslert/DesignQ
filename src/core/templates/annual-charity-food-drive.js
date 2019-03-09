@@ -99,9 +99,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#394e6d'),
           lines: [
-            {type: 'description', text: "This year's food drive will be done for"},
-            {type: 'description', text: "Beechtown's Homeless Foundation."},
-            {type: 'description', text: 'We appreciate all the help you can give us.'},
+            {type: 'details', text: "This year's food drive will be done for"},
+            {type: 'details', text: "Beechtown's Homeless Foundation."},
+            {type: 'details', text: 'We appreciate all the help you can give us.'},
           ],
           font: {
             family: 'Montserrat',

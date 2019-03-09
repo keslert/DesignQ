@@ -84,9 +84,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "Watch as some of the country's best basketball"},
-            {type: 'descriptive', text: 'teams vie for the championship!'},
-            {type: 'descriptive', text: 'Tickets are now on sale at reallygreatsite.com!'},
+            {type: 'details', text: "Watch as some of the country's best basketball"},
+            {type: 'details', text: 'teams vie for the championship!'},
+            {type: 'details', text: 'Tickets are now on sale at reallygreatsite.com!'},
           ],
           color: solidColor('#ffffff'),
           font: {

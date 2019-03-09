@@ -101,9 +101,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#251a4b'),
           lines: [
-            {type: 'descriptive', text: 'The food drive is sponsored by Sandio'},
-            {type: 'descriptive', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
-            {type: 'descriptive', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
+            {type: 'details', text: 'The food drive is sponsored by Sandio'},
+            {type: 'details', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},
+            {type: 'details', text: 'Gold Cheetah Bar and Tools Hardware & Co.'},
           ],
           font: {
             family: 'Montserrat',

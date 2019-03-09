@@ -68,10 +68,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'From candid snapshots to street'},
-    {type: 'eventName', text: "portraits, we'll be learning how to tell"},
-    {type: 'eventName', text: 'different stories through different'},
-    {type: 'eventName', text: 'frames and styles.!'},
+    {type: 'details', text: 'From candid snapshots to street'},
+    {type: 'details', text: "portraits, we'll be learning how to tell"},
+    {type: 'details', text: 'different stories through different'},
+    {type: 'details', text: 'frames and styles.!'},
   ],
   color: solidColor('#fff'),
   font: {

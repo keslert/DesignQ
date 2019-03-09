@@ -87,7 +87,7 @@ export default {
           type: 'bridge', 
           lines: [
             [
-              {type: 'dayOfWeek', text: 'Sunday'}, 
+              {type: 'day-of-week', text: 'Sunday'}, 
               {type: 'date', text: 'April 7, 2018', format: 'MMM D, YYYY'}, 
               {type: 'time', text: '3PM'}
             ],

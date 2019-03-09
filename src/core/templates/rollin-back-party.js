@@ -26,7 +26,7 @@ const dominant = {
   font: {
     family: 'Sifonn',
     letterSpacing: 0.05,
-    size: 0.5,
+    size: 1,
     transform: 'uppercase',
     weight: 400,
   },
@@ -76,9 +76,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Admission is $20 per person, roller skates'},
-    {type: 'eventName', text: 'included. For tickets, call (123) 456-7890 or'},
-    {type: 'eventName', text: 'email hello@reallygreatsite.com'},
+    {type: 'price|call-to-action', text: 'Admission is $20 per person, roller skates'},
+    {type: 'price|call-to-action', text: 'included. For tickets, call (123) 456-7890 or'},
+    {type: 'price|call-to-action', text: 'email hello@reallygreatsite.com'},
   ],
   color: solidColor('#ffffff'),
   font: {

@@ -91,9 +91,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Our doors are open from 8 AM to 9 PM. You can find us at 125'},
-            {type: 'descriptive', text: 'Anywhere St., Any City. For our menu, visit'},
-            {type: 'website', text: 'www.reallygreatsite.com'},
+            {type: 'descriptive|time|location|website', text: 'Our doors are open from 8 AM to 9 PM. You can find us at 125'},
+            {type: 'descriptive|time|location|website', text: 'Anywhere St., Any City. For our menu, visit'},
+            {type: 'descriptive|time|location|website', text: 'www.reallygreatsite.com'},
           ],
           color: solidColor('#DFE0EC'),
           font: {

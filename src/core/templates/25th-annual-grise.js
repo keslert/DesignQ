@@ -107,9 +107,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'Did you know that thousands of households struggle'},
-            {type: 'descriptive', text: 'with food security everyday? You can help change'},
-            {type: 'descriptive', text: 'those statistics.'},
+            {type: 'details', text: 'Did you know that thousands of households struggle'},
+            {type: 'details', text: 'with food security everyday? You can help change'},
+            {type: 'details', text: 'those statistics.'},
           ],
           font: {
             family: 'Montserrat',

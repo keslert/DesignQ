@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Please join Anna in celebrating her 18th'},
-    {type: 'eventName', text: "birthday. It's going to be a fun party with"},
-    {type: 'eventName', text: 'friends, family, and loved ones.'},
+    {type: 'details', text: 'Please join Anna in celebrating her 18th'},
+    {type: 'details', text: "birthday. It's going to be a fun party with"},
+    {type: 'details', text: 'friends, family, and loved ones.'},
   ],
   color: solidColor('#fff'),
   font: {

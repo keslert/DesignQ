@@ -28,7 +28,7 @@ const dominant = {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
     lineHeight: 1.2,
-    size: 0.3,
+    size: 1,
     transform: 'uppercase',
     weight: 700,
   },
@@ -75,9 +75,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Eat home-cooked meals, drink ice-cold'},
-    {type: 'descriptive', text: 'refreshments, listen to good music, and meet the'},
-    {type: 'descriptive', text: 'community. We promise you a good time!'},
+    {type: 'details', text: 'Eat home-cooked meals, drink ice-cold'},
+    {type: 'details', text: 'refreshments, listen to good music, and meet the'},
+    {type: 'details', text: 'community. We promise you a good time!'},
   ],
   color: solidColor('#343434'),
   font: {

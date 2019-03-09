@@ -66,8 +66,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'This annual event is organized and hosted by the Beechtown Music'},
-    {type: 'eventName', text: 'Group for the residents of the Quarkwood Geriatric Center.'},
+    {type: 'details', text: 'This annual event is organized and hosted by the Beechtown Music'},
+    {type: 'details', text: 'Group for the residents of the Quarkwood Geriatric Center.'},
   ],
   color: solidColor('#fff'),
   font: {

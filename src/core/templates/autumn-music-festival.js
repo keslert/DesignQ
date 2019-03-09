@@ -118,9 +118,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'Tickets are priced at $20 each. Buy your tickets'},
-            {type: 'descriptive', text: 'now at www.reallygreatsites.com or at designated'},
-            {type: 'descriptive', text: 'booths at Beechtown Park.'},
+            {type: 'details', text: 'Tickets are priced at $20 each. Buy your tickets'},
+            {type: 'details', text: 'now at www.reallygreatsites.com or at designated'},
+            {type: 'details', text: 'booths at Beechtown Park.'},
           ],
           font: {
             family: 'Montserrat',

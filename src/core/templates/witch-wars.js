@@ -108,9 +108,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "There's a battle raging among the creatures of the"},
-            {type: 'descriptive', text: 'school. Whose side are you on? Join the party and place'},
-            {type: 'descriptive', text: 'your bets!'},
+            {type: 'details', text: "There's a battle raging among the creatures of the"},
+            {type: 'details', text: 'school. Whose side are you on? Join the party and place'},
+            {type: 'details', text: 'your bets!'},
           ],
           color: solidColor('#3c2e3e'),
           font: {

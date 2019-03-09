@@ -70,7 +70,7 @@ export default {
         {
           type: 'small',
           lines: [
-            {type: 'dayOfWeek', text: 'Friday'}, 
+            {type: 'day-of-week', text: 'Friday'}, 
             {type: 'date', text: 'June 5, 2019', format: 'MMM D, YYYY'},
           ],
           color: solidColor('#fff'),

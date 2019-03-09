@@ -84,9 +84,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Each of your hair donations will be fashioned'},
-            {type: 'descriptive', text: 'into a wig and be donated to people suffering'},
-            {type: 'descriptive', text: 'from sudden and extreme hair loss.'},
+            {type: 'details', text: 'Each of your hair donations will be fashioned'},
+            {type: 'details', text: 'into a wig and be donated to people suffering'},
+            {type: 'details', text: 'from sudden and extreme hair loss.'},
           ],
           color: solidColor('#fff'),
           font: {

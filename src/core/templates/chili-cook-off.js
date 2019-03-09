@@ -64,7 +64,7 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'details', text: ''},
   ],
   color: solidColor('#fff'),
   font: {

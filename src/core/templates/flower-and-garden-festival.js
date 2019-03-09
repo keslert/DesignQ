@@ -105,7 +105,7 @@ export default {
           lines: [
             {type: 'cost', text: 'Entrance Fee: $6'},
             {type: 'descriptive', text: 'Includes free access to our food and beverage stalls.'},
-            {type: 'contact', text: 'Buy your tickets now at www.reallygreatsite.com!'},
+            {type: 'call-to-action', text: 'Buy your tickets now at www.reallygreatsite.com!'},
           ],
           font: {
             family: 'Glacial Indifference',

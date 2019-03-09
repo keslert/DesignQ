@@ -70,10 +70,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Professional talks, ground-breaking'},
-    {type: 'eventName', text: 'experiments, career opportunities'},
-    {type: 'eventName', text: 'and more await! Register at'},
-    {type: 'eventName', text: 'reallygreatsite.com'},
+    {type: 'details', text: 'Professional talks, ground-breaking'},
+    {type: 'details', text: 'experiments, career opportunities'},
+    {type: 'details', text: 'and more await! Register at'},
+    {type: 'details', text: 'reallygreatsite.com'},
   ],
   color: solidColor('#ffffff'),
   font: {

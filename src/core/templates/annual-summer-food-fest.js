@@ -72,9 +72,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Usher in an epic summer season with a'},
-    {type: 'descriptive', text: "fantastic festival that's perfect for you, your friends,"},
-    {type: 'descriptive', text: 'and the whole community!'},
+    {type: 'details', text: 'Usher in an epic summer season with a'},
+    {type: 'details', text: "fantastic festival that's perfect for you, your friends,"},
+    {type: 'details', text: 'and the whole community!'},
   ],
   color: solidColor('#30a6c0'),
   font: {

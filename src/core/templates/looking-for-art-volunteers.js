@@ -85,9 +85,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "If you've got fine art experience, a natural"},
-            {type: 'descriptive', text: 'talent for instruction, boundless creativity,'},
-            {type: 'descriptive', text: 'and 18-21 y/o, you should join!'},
+            {type: 'details', text: "If you've got fine art experience, a natural"},
+            {type: 'details', text: 'talent for instruction, boundless creativity,'},
+            {type: 'details', text: 'and 18-21 y/o, you should join!'},
           ],
           color: solidColor('#fff'),
           font: {

@@ -104,8 +104,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#f17365cc'),
           lines: [
-            {type: 'descriptive', text: 'There will be beer kegs, cocktails, and loads of bar chow! Let me know if you'},
-            {type: 'descriptive', text: 'can make it through hello@reallygreatsite.com'},
+            {type: 'details', text: 'There will be beer kegs, cocktails, and loads of bar chow! Let me know if you'},
+            {type: 'details', text: 'can make it through hello@reallygreatsite.com'},
           ],
           font: {
             family: 'Lato',

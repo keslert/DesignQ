@@ -106,9 +106,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Make this holiday season the best one yet. Watch as'},
-            {type: 'descriptive', text: "the Winslough Songbirds perform the best"},
-            {type: 'descriptive', text: "Christmas carols"},
+            {type: 'details', text: 'Make this holiday season the best one yet. Watch as'},
+            {type: 'details', text: "the Winslough Songbirds perform the best"},
+            {type: 'details', text: "Christmas carols"},
           ],
           color: solidColor('#454a80'),
           font: {

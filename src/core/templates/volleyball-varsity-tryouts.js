@@ -102,9 +102,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Want to know what it takes? Email Coach'},
-            {type: 'descriptive', text: "Jennifer at hello@reallygreatsite.com for more"},
-            {type: 'descriptive', text: "information on tryouts!"},
+            {type: 'details', text: 'Want to know what it takes? Email Coach'},
+            {type: 'details', text: "Jennifer at hello@reallygreatsite.com for more"},
+            {type: 'details', text: "information on tryouts!"},
           ],
           color: solidColor('#000'),
           font: {

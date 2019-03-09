@@ -13,7 +13,7 @@ export default {
     body: {
       bleed: { a: 1 },
       background: solidColor('#fff4e9'),
-      alignY: 'center',
+      alignY: 'bottom',
       elements: [
         {
           type: 'icon',
@@ -104,8 +104,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#c3996f'),
           lines: [
-            {type: 'descriptive', text: 'All proceeds obtained from the Bazaar will be donated to El'},
-            {type: 'descriptive', text: 'Dorado Public Academy for their upcoming scholarship program.'},
+            {type: 'details', text: 'All proceeds obtained from the Bazaar will be donated to El'},
+            {type: 'details', text: 'Dorado Public Academy for their upcoming scholarship program.'},
           ],
           font: {
             family: 'Cooper Hewitt',

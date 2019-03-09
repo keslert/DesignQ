@@ -101,9 +101,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: '50+ brands will be showcased. Drop by on our'},
-            {type: 'descriptive', text: 'time slot to get a glimpse of our latest collection'},
-            {type: 'descriptive', text: 'before it hits the stores!'},
+            {type: 'details', text: '50+ brands will be showcased. Drop by on our'},
+            {type: 'details', text: 'time slot to get a glimpse of our latest collection'},
+            {type: 'details', text: 'before it hits the stores!'},
           ],
           color: solidColor('#ffffff'),
           font: {

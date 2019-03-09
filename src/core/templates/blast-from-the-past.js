@@ -69,9 +69,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Experience music the way it was experienced'},
-    {type: 'descriptive', text: 'in the past! Walk to and from several music'},
-    {type: 'descriptive', text: 'venues hosting different musical eras!'},
+    {type: 'details', text: 'Experience music the way it was experienced'},
+    {type: 'details', text: 'in the past! Walk to and from several music'},
+    {type: 'details', text: 'venues hosting different musical eras!'},
   ],
   color: solidColor('#fff'),
   background: solidColor ('#e369d2'),

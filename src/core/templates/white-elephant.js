@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'descriptive', text: 'For the Children Fundraiser'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#507473'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.1,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'All money raised in this event will proceed to'},
     {type: 'descriptive', text: 'the For the Children Organization.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#507473'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.06,
@@ -60,9 +60,9 @@ const heading = {
   divider: {
     type: 'bar',
     size: 1,
-    color: solidColor('#fff'),
+    color: solidColor('#507473'),
   },
-  color: solidColor('#fff'),
+  color: solidColor('#507473'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.1,
@@ -75,7 +75,7 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'details', text: ''},
   ],
   color: solidColor('#fff'),
   font: {
@@ -93,7 +93,7 @@ export default {
   id: 67,
   title: 'White Elephant',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: solidColor('#87c3c1'),
   decor: {
     t: .45,
   },

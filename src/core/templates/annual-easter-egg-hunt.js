@@ -68,9 +68,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Please pre-register for the event at'},
-    {type: 'descriptive', text: 'www.reallygreatsite.com or sign-up at the'},
-    {type: 'descriptive', text: 'Community Affairs Office by April 11, 4:00 PM'},
+    {type: 'details', text: 'Please pre-register for the event at'},
+    {type: 'details', text: 'www.reallygreatsite.com or sign-up at the'},
+    {type: 'details', text: 'Community Affairs Office by April 11, 4:00 PM'},
   ],
   color: solidColor('#fff4dc'),
   font: {

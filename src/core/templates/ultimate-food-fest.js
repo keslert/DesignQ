@@ -135,8 +135,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#fff'),
           lines: [
-            {type: 'descriptive', text: 'Call 123-456-7890 for tickets now! if you\'re interested in setting up'},
-            {type: 'descriptive', text: 'a booth, contact hello@reallygreatsite.com.'},
+            {type: 'details', text: 'Call 123-456-7890 for tickets now! if you\'re interested in setting up'},
+            {type: 'details', text: 'a booth, contact hello@reallygreatsite.com.'},
           ],
           font: {
             family: 'Muli',

@@ -88,10 +88,10 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "The school's most awaited sporting"},
-            {type: 'descriptive', text: "event is here! Try out different"},
-            {type: 'descriptive', text: "sports and enjoy friendly matches"},
-            {type: 'descriptive', text: "in our annual sports fest!"},
+            {type: 'details', text: "The school's most awaited sporting"},
+            {type: 'details', text: "event is here! Try out different"},
+            {type: 'details', text: "sports and enjoy friendly matches"},
+            {type: 'details', text: "in our annual sports fest!"},
           ],
           color: solidColor('#000000'),
           font: {

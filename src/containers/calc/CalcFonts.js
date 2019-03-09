@@ -9,12 +9,17 @@ function CalcFonts() {
   const types = ['dominant', 'small', 'bridge', 'heading', 'paragraph'];
   console.log('canvaFlyers: ', canvaFlyers.length)
   const res = _.map(templates, t => {
+    const elements = _.flatten(withGroups(t, g => g.elements))
+    elements.forEach(el => el.font && (el.font.size = 1))
+
     computeFlyer(t);
 
     const canvaFlyer = _.find(canvaFlyers, f => f.id === t.id);
 
-    const elements = _.flatten(withGroups(t, g => g.elements))
     const firstOfTypes = _.filter(types.map(t => _.find(elements, el => el.type === t)));
+    const dominant = _.find(firstOfTypes, t => t.type === 'dominant');
+    const dominantWidth = dominant._computed.w * (canvaFlyer['dominant-size'] / dominant._computed.fontSize)
+    const dominantSize = canvaFlyer['dominant-size'];
 
     return firstOfTypes.map(el => {
       const canvaSize = canvaFlyer[`${el.type}-size`];
@@ -28,6 +33,7 @@ function CalcFonts() {
       )
       console.log(maxCharacters, el.lines[0])
 
+      
       return {
         templateId: t.id,
         elementType: el.type,
@@ -35,7 +41,16 @@ function CalcFonts() {
         canvaWidth,
         maxCharacters,
         family: el.font.family,
+        sameFamilyAsDominant: el.font.family === dominant.font.family,
+        groupType: el._computed.group.type,
+        inGroupWithDominant: el._computed.group.type === dominant._computed.group.type,
         letterCase: el.font.transform,
+        textAlign: el._computed.group.textAlign,
+        align: el._computed.group.itemsAlignX,
+        ratioToDominantSize: canvaSize / canvaFlyer['dominant-size'],
+        ratioToDominantWidth: canvaWidth / dominantWidth,
+        dominantSize,
+        dominantWidth,
       }
     })
   })

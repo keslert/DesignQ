@@ -81,8 +81,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: "Typhoon Ovia caused great damage to the community of San Clemence."},
-            {type: 'descriptive', text: "Hundreds of evacuees are in dire need of food."},
+            {type: 'details', text: "Typhoon Ovia caused great damage to the community of San Clemence."},
+            {type: 'details', text: "Hundreds of evacuees are in dire need of food."},
           ],
           color: solidColor('#fff'),
           font: {

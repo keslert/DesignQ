@@ -74,9 +74,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Missed seeing great movies from last year? Fret'},
-    {type: 'descriptive', text: "not! We're bringing them back on Sunday"},
-    {type: 'descriptive', text: 'Blockbuster Movie Night!'},
+    {type: 'details', text: 'Missed seeing great movies from last year? Fret'},
+    {type: 'details', text: "not! We're bringing them back on Sunday"},
+    {type: 'details', text: 'Blockbuster Movie Night!'},
   ],
   color: solidColor('#fefae8'),
   font: {

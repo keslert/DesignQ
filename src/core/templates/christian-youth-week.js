@@ -106,9 +106,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Increase your faith, learn about the life of'},
-            {type: 'descriptive', text: "our Lord, study the Bible, meet new"},
-            {type: 'descriptive', text: "friends, and have loads of fun!"},
+            {type: 'details', text: 'Increase your faith, learn about the life of'},
+            {type: 'details', text: "our Lord, study the Bible, meet new"},
+            {type: 'details', text: "friends, and have loads of fun!"},
           ],
           color: solidColor('#fff'),
           font: {

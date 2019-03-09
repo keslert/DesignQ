@@ -76,10 +76,10 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Join us for the Finchworth Fall'},
-    {type: 'descriptive', text: 'Festival 2020! Celebrate the joyous'},
-    {type: 'descriptive', text: 'season with appetizing food and'},
-    {type: 'descriptive', text: 'free-flowing drinks!'},
+    {type: 'details', text: 'Join us for the Finchworth Fall'},
+    {type: 'details', text: 'Festival 2020! Celebrate the joyous'},
+    {type: 'details', text: 'season with appetizing food and'},
+    {type: 'details', text: 'free-flowing drinks!'},
   ],
   color: solidColor('#fff'),
   font: {

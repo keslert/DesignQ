@@ -75,9 +75,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'Tickets are $35 per person. Admission'},
-    {type: 'descriptive', text: 'includes popcorn and a drink. Visit'},
-    {type: 'descriptive', text: 'www.reallygreatsite.com for tickets.'},
+    {type: 'details', text: 'Tickets are $35 per person. Admission'},
+    {type: 'details', text: 'includes popcorn and a drink. Visit'},
+    {type: 'details', text: 'www.reallygreatsite.com for tickets.'},
   ],
   color: solidColor('#fff'),
   font: {

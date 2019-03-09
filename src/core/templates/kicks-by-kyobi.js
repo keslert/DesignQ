@@ -88,9 +88,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Ditch your old shoes and snag some fresh'},
-            {type: 'descriptive', text: 'new ones at affordable prices! Shop in-'},
-            {type: 'descriptive', text: 'store at 123 Anywhere St., Any City today!'},
+            {type: 'details', text: 'Ditch your old shoes and snag some fresh'},
+            {type: 'details', text: 'new ones at affordable prices! Shop in-'},
+            {type: 'details', text: 'store at 123 Anywhere St., Any City today!'},
           ],
           color: solidColor('#ffffff'),
           font: {

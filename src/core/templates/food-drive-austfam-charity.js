@@ -74,8 +74,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'The Austfam Community is in need of donations for the food drive.'},
-    {type: 'descriptive', text: 'All donations will be given to the Austfam Charity.'},
+    {type: 'details', text: 'The Austfam Community is in need of donations for the food drive.'},
+    {type: 'details', text: 'All donations will be given to the Austfam Charity.'},
   ],
   color: solidColor('#ffffff'),
   font: {

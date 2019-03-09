@@ -65,8 +65,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'The ABHS Volleycats is on the lookout for new talents to join'},
-    {type: 'eventName', text: 'the team. Tryouts are open to all junior and senior students.'},
+    {type: 'details', text: 'The ABHS Volleycats is on the lookout for new talents to join'},
+    {type: 'details', text: 'the team. Tryouts are open to all junior and senior students.'},
   ],
   color: solidColor('#273c58'),
   font: {

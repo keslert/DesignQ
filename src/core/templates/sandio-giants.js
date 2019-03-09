@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Will the Giants score their first win against'},
-    {type: 'eventName', text: "the Cubs, or will the Cubs' undefeated record"},
-    {type: 'eventName', text: 'remain pristine? Be part of history!'},
+    {type: 'details', text: 'Will the Giants score their first win against'},
+    {type: 'details', text: "the Cubs, or will the Cubs' undefeated record"},
+    {type: 'details', text: 'remain pristine? Be part of history!'},
   ],
   color: solidColor('#fff'),
   font: {

@@ -123,9 +123,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Put on your swimsuit, leave your stresses away'},
-            {type: 'descriptive', text: 'and get ready for a night of partying by the'},
-            {type: 'descriptive', text: 'ocean! Everyone is invited to join!'},
+            {type: 'details', text: 'Put on your swimsuit, leave your stresses away'},
+            {type: 'details', text: 'and get ready for a night of partying by the'},
+            {type: 'details', text: 'ocean! Everyone is invited to join!'},
           ],
           color: solidColor('#fff'),
           font: {

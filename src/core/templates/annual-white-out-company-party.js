@@ -65,8 +65,8 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Have loads of fun for a great cause! All proceeds from this'},
-    {type: 'eventName', text: 'event will go to the San Dias Security Foundation.'},
+    {type: 'details', text: 'Have loads of fun for a great cause! All proceeds from this'},
+    {type: 'details', text: 'event will go to the San Dias Security Foundation.'},
   ],
   color: solidColor('#fff'),
   font: {

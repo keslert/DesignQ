@@ -109,9 +109,9 @@ export default {
           type: 'paragraph',
           color: solidColor('#000000'),
           lines: [
-            {type: 'descriptive', text: 'Show support for your year-level teams! Get in the'},
-            {type: 'descriptive', text: 'game and come to the gymnasium to cheer the players'},
-            {type: 'descriptive', text: 'to victory!'},
+            {type: 'details', text: 'Show support for your year-level teams! Get in the'},
+            {type: 'details', text: 'game and come to the gymnasium to cheer the players'},
+            {type: 'details', text: 'to victory!'},
           ],
           font: {
             family: 'Open Sans',

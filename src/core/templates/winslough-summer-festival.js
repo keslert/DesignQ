@@ -53,7 +53,7 @@ const heading = {
   lines: [
     [
       {type: 'date', text: 'July 20'},
-      {type: 'dayOfWeek', text: 'Saturday'},
+      {type: 'day-of-week', text: 'Saturday'},
       {type: 'time', text: '4 - 8 pm'},
     ],
     {type: 'location', text: 'The Beechtown Park'},
@@ -76,7 +76,7 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: ''},
+    {type: 'details', text: ''},
   ],
   color: solidColor('#ffffff'),
   font: {

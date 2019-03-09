@@ -74,9 +74,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: 'This event is free and open to the public.'},
-    {type: 'descriptive', text: 'Grab this opportunity to meet and connect'},
-    {type: 'descriptive', text: 'with companies that are looking to hire.'},
+    {type: 'details', text: 'This event is free and open to the public.'},
+    {type: 'details', text: 'Grab this opportunity to meet and connect'},
+    {type: 'details', text: 'with companies that are looking to hire.'},
   ],
   color: solidColor('#ffffff'),
   font: {

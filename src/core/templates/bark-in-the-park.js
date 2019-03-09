@@ -120,9 +120,9 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Bring your dog and enjoy the day\'s festivities!'},
-            {type: 'descriptive', text: 'We\'ll be having loads of fun activities and'},
-            {type: 'descriptive', text: 'awesome games for all attendees.'},
+            {type: 'details', text: 'Bring your dog and enjoy the day\'s festivities!'},
+            {type: 'details', text: 'We\'ll be having loads of fun activities and'},
+            {type: 'details', text: 'awesome games for all attendees.'},
           ],
           color: solidColor('#fff'),
           font: {

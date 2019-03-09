@@ -65,9 +65,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'descriptive', text: "Now in it's 8th year, this event is for everyone."},
-    {type: 'descriptive', text: 'Just another night full of music, art, good food,'},
-    {type: 'descriptive', text: 'and great company.'},
+    {type: 'details', text: "Now in it's 8th year, this event is for everyone."},
+    {type: 'details', text: 'Just another night full of music, art, good food,'},
+    {type: 'details', text: 'and great company.'},
   ],
   color: solidColor('#ffffff'),
   font: {

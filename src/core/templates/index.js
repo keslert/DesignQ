@@ -274,13 +274,13 @@ export const templates = {
   AnnualWinterWonderlandGala,
   
   
-  BrightNightWithStars,
-  ByersLaneStreetParty,
-  CincoDeMayo,
-  CupcakesForAGoodCause,
-  EasterFairEggHunt,
-  EasyListeningAndSmoothJazz,
-  EspeciallyForYou,
+  // BrightNightWithStars,
+  // ByersLaneStreetParty,
+  // CincoDeMayo,
+  // CupcakesForAGoodCause,
+  // EasterFairEggHunt,
+  // EasyListeningAndSmoothJazz,
+  // EspeciallyForYou,
   
   // ChristianYouthWeek,
   // UltimateFoodFest,

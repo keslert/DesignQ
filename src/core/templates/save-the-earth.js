@@ -104,8 +104,8 @@ export default {
           type: 'paragraph',
           color: solidColor('#2d1b4d'),
           lines: [
-            {type: 'descriptive', text: 'The Beechtown Enfironmental Organization has been'},
-            {type: 'descriptive', text: 'protecting the environment for over 40 years. Will you join us?'},
+            {type: 'details', text: 'The Beechtown Enfironmental Organization has been'},
+            {type: 'details', text: 'protecting the environment for over 40 years. Will you join us?'},
           ],
           font: {
             family: 'Lato',

@@ -66,9 +66,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'eventName', text: 'Enter now and be one of the six lucky winners nationwide!'},
-    {type: 'eventName', text: 'First Raffle Draw: March 18'},
-    {type: 'eventName', text: 'Second Raffle Draw: June 20'},
+    {type: 'details', text: 'Enter now and be one of the six lucky winners nationwide!'},
+    {type: 'details', text: 'First Raffle Draw: March 18'},
+    {type: 'details', text: 'Second Raffle Draw: June 20'},
   ],
   color: solidColor('#fff'),
   font: {

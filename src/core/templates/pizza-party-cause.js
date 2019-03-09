@@ -81,7 +81,7 @@ export default {
           lines: [
             [
               {type: 'time', text: '12-6pm'},
-              {type: 'dayOfWeek', text: 'Saturday'},
+              {type: 'day-of-week', text: 'Saturday'},
             ],
             {type: 'location', text: 'Gino\'s Pizzaria'},
           ],

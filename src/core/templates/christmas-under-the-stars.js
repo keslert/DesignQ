@@ -98,8 +98,8 @@ export default {
         {
           type: 'paragraph',
           lines: [
-            {type: 'descriptive', text: 'Food and beverages catered by the Beechtown Culinary Hall.'},
-            {type: 'descriptive', text: 'The event is open to all, so feel free to bring anyone you want!'},
+            {type: 'details', text: 'Food and beverages catered by the Beechtown Culinary Hall.'},
+            {type: 'details', text: 'The event is open to all, so feel free to bring anyone you want!'},
           ],
           color: solidColor('#fff'),
           font: {
