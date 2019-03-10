@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const NavMarker = styled(Box)(props => ({
   position: 'absolute',
   bottom: 0,
-  height: '6px',
-  borderRadius: '6px',
+  height: '5px',
+  borderRadius: '15px / 100%',
   borderBottomLeftRadius: 0,
   borderBottomRightRadius: 0,
   pointerEvents: 'none',

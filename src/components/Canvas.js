@@ -7,19 +7,10 @@ import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 import CanvasToolbar from './CanvasToolbar';
 
-import { templates } from '../core/templates';
-import { computeFlyer } from '../core/producer';
-
-
-const flyer1 = templates.ACarolForTheHolidaySeason
-const flyer2 = templates.AnnaMorrison
-
-computeFlyer(flyer1);
-computeFlyer(flyer2);
-
-function Canvas({flyerSize}) {
+function Canvas(props) {
 
   const [showComparison, setShowComparison] = useState(false);
+
   const scale = 0.75;
 
 
@@ -33,19 +24,15 @@ function Canvas({flyerSize}) {
         <Flex flex={1} alignItems="center" justifyContent="center">
           <Box>
             <FrameToolbar text="Primary Design" favorited={true} />
-            <div style={{position: 'relative'}}>
-              <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer1} />
-              {showComparison &&
-                <div style={{position: 'absolute', top: 0, left: 0}}>
-                  <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer2} />
-                </div>
-              }
-
-            </div>
+            <Frame 
+              scale={scale} 
+              width={props.flyerSize.w} 
+              height={props.flyerSize.h} 
+              flyer={showComparison ? props.secondaryFlyer : props.primaryFlyer } 
+            />
             <Box pt={3} style={{height: 100, textAlign: 'center'}}>
               <Text color="gray" fontSize={0} mb={1} style={{textTransform: 'uppercase'}}>Currently Exploring</Text>
               <Text color="gray">Borders | Text Decals</Text>
-            
             </Box>
           </Box>
         </Flex>
@@ -58,7 +45,12 @@ function Canvas({flyerSize}) {
         <Flex flex={1} bg="nearwhite" alignItems="center" justifyContent="center">
           <Box>
             <FrameToolbar text="Click to make this the primary" favorited={false} />
-            <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer2} />
+            <Frame 
+              scale={scale} 
+              width={props.flyerSize.w} 
+              height={props.flyerSize.h} 
+              flyer={props.secondaryFlyer} 
+            />
             <Box pt={3} style={{height: 100, textAlign: 'center'}}>
               <Button 
                 variant="light"

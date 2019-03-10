@@ -13,7 +13,8 @@ const theme = {
     nearwhite: '#F7F9FA',
     white: '#fff',
 
-    dark: '#353D4D',
+    // dark: '#353D4D',
+    dark: '#262d3c',
     
     
     blue: '#2A81F4',

@@ -9,6 +9,7 @@
     "pos": "^0.4.2",
     "react": "react@next",
     "react-app-rewired": "^1.6.2",
+    "react-beautiful-dnd": "^10.0.4",
     "react-dom": "react-dom@next",
     "react-inlinesvg": "^0.8.4",
     "react-photo-gallery": "^6.3.2",
