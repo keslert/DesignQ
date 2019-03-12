@@ -1,30 +1,45 @@
 import React, { useCallback } from 'react';
 import filter from 'lodash/filter';
-import { Box } from 'rebass';
+import capitalize from 'lodash/capitalize';
+import { Flex, Box, Text } from 'rebass';
 
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function TreeNode(props) {
 
   return (
-    <Box 
-      pl={8 * props.indent} 
+    <Flex 
+      p="2px"
+      pl={8 * props.indent + 8}
+      pr="12px"
       bg={props.selected ? 'blue' : null}
-      color={props.disabled ? '#ffffff44' : 'white'}
-      children={props.label}
-    />
+      color={props.disabled ? '#ffffff55' : 'white'}
+    >
+      <Text fontSize="12px" flex={0} mr="8px">·</Text>
+      <Text 
+        fontSize="12px"
+        flex={1} 
+        style={{
+          whiteSpace: "nowrap", 
+          textOverflow: "ellipsis",
+          overflow: 'hidden',
+        }}
+        children={props.label} 
+      />
+    </Flex>
   )
 }
 
 function SelectionTree({flyer}) {
 
   const groups = filter([
-    'Header',
-    'Body',
-    'Footer',
+    'header',
+    'body',
+    'footer',
   ].map(type => ({
-    label: type,
-    elements: (flyer.content[type.toLowerCase()] || {elements: []}).elements,
+    type,
+    label: capitalize(type),
+    elements: flyer.content[type] ? flyer.content[type].elements : [],
   })))
 
   const handleDragEnd = useCallback(result => {
@@ -32,7 +47,15 @@ function SelectionTree({flyer}) {
   }, [flyer]);
 
   return (
-    <Box>
+    <Box pt="8px" pb="12px">
+      <Text
+        px="8px"
+        py="4px"
+        fontWeight="bold"
+        color="white"
+        fontSize={1}
+        children="Selection Tree"
+      />
       <TreeNode 
         label="Flyer" 
         indent={0} 
@@ -45,7 +68,7 @@ function SelectionTree({flyer}) {
       />
       <DragDropContext onDragEnd={handleDragEnd}>
         {groups.map(g => (
-          <Droppable droppableId="droppable">
+          <Droppable droppableId={g.type}>
             {(provided, snapshot) => (
               <div
                 ref={provided.innerRef}
@@ -58,7 +81,7 @@ function SelectionTree({flyer}) {
                   disabled={!g.elements.length}
                 />
                 {g.elements.map((el, index) => (
-                  <Draggable key={el._computed.id} draggableId={`${g.label}-${index}`} index={index}>
+                  <Draggable key={el._computed.id} draggableId={`${g.type}-${index}`} index={index}>
                     {(provided, snapshot) => (
                       <div
                         ref={provided.innerRef}
@@ -70,7 +93,7 @@ function SelectionTree({flyer}) {
                         )}
                       >
                         <TreeNode 
-                          label={"YOLO!"}
+                          label={el.lines[0].text}
                           indent={3} 
                           type={el.type}
                           selected={false}
@@ -93,11 +116,14 @@ export default SelectionTree;
 
 function getListStyle(isDraggingOver) {
   return {
-    background: isDraggingOver ? 'red' : 'transparent',
+    background: isDraggingOver ? '#ffffff11' : 'transparent',
   };
 }
 
 function getItemStyle(isDragging, dragStyle) {
 
-  return dragStyle;
+  return {
+    ...dragStyle,
+    cursor: isDragging ? 'grabbing' : 'pointer',
+  }
 }

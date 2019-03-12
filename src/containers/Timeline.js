@@ -88,7 +88,7 @@ class Timeline extends React.Component {
     for(let i = items.length-1, j = 0; i>=0; i--, j++){
       ctx.beginPath();
       ctx.fillStyle = colors[items[i]];
-      ctx.rect((ITEM_WIDTH + ITEM_WIDTH) * -j, 0, ITEM_WIDTH, canvas.height);
+      ctx.rect((ITEM_WIDTH + 2) * -j, 0, ITEM_WIDTH, canvas.height);
       ctx.fill();
     }
   }
@@ -98,10 +98,10 @@ class Timeline extends React.Component {
     const { cursor } = this.state;
 
     return (
-      <Box bg="lightgray" style={{width: '100vw', height: '20px', position: 'relative', cursor}}>
+      <Box bg="off_dark" style={{width: '100vw', height: '16px', position: 'relative', cursor}}>
         <canvas 
           onMouseDown={this.handleMouseDown}
-          ref={this.canvas} width={this.state.width} height={20} 
+          ref={this.canvas} width={this.state.width} height={16} 
         />
       </Box>
     )
