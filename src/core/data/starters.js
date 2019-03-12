@@ -10,8 +10,9 @@ export const barebones = {
   },
   palette: {
     light: '#ffffff',
-    nearlight: '#f4f4f4',
-    dark: '#000000',
+    nearlight: '#eaeaea',
+    gray: '#aaaaaa',
+    dark: '#313131',
     primary: 'tomato',
     secondary: '#f00000',
   },
@@ -22,7 +23,7 @@ export const barebones = {
 }
 
 export const basicText = [
-  {type: 'eventName', text: "It's the Beechtown Block Party!"},
+  {type: 'eventName', text: "Ski Trip!"},
   {type: 'location', text: 'Beechtown Drive'},
   {type: 'date', text: 'January 5, 2020'},
   {type: 'time', text: '6 PM onwards'},

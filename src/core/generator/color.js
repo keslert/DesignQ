@@ -29,8 +29,8 @@ export function getElementColor(template, group, elementType) {
 	}
 
 	// TODO: Choose the best color from the color palette
-	return {color: '#000000'};
-	// return { color: template.palette.dark };
+	// return {color: '#000000'};
+	return { color: template.palette.dark };
 }
 
 
@@ -42,6 +42,67 @@ export function computeColorStats(templates) {
 }
 
 
+export function mimicSurface(surfaceA, surfaceB, templateA, templateB) {
+	surfaceA.background = mimicBackground(surfaceB, templateA, templateB);
+	surfaceA.decor = mimicDecor(surfaceB, templateA, templateB);
+	surfaceA.border = mimicBorder(surfaceB, templateA, templateB);
+	surfaceA.bleed = surfaceB.bleed;
+	surfaceA.h = surfaceB.h;
+	surfaceA.w = surfaceB.w;
+	surfaceA.alignX = surfaceB.alignX;
+	surfaceA.alignY = surfaceB.alignY;
+	surfaceA.itemsAlignX = surfaceB.itemsAlignX;
+	surfaceA.itemsAlignY = surfaceB.itemsAlignY;
+	surfaceA.textAlign = surfaceB.textAlign;
+	surfaceA.pl = surfaceB.pl;
+	surfaceA.pr = surfaceB.pr;
+	surfaceA.pt = surfaceB.pt;
+	surfaceA.pb = surfaceB.pb;
+	surfaceA.ml = surfaceB.ml;
+	surfaceA.mr = surfaceB.mr;
+	surfaceA.mt = surfaceB.mt;
+	surfaceA.mb = surfaceB.mb;
+}
+
+function mimicBackground(surface, templateA, templateB, preference) {
+	const bg = surface.background;
+	if(!bg) return false
+
+	return {
+		...bg,
+		...(bg.img ? { img: { src: '/placeholder.png', meta: {h: 1444, w: 1444}}} : {}),
+		...(bg.color ? { color: mimicColor(bg.color, templateA, templateB, preference)} : {}),
+		backgroundBlendMode: null,
+	}
+}
+
+function mimicDecor(surface, templateA, templateB) {
+	const decor = surface.decor;
+	if(!decor) return false
+
+	// TOOD: 
+	return {
+		...decor,
+		background: mimicBackground(decor, templateA, templateB, 'gray'),
+	}
+}
+
+function mimicBorder(surface, templateA, templateB) {
+	const border = surface.border;
+	if(!border) return false
+
+	// TOOD: 
+	return {
+		...border,
+		background: mimicBackground(border, templateA, templateB, 'gray'),
+	};
+}
+
+function mimicColor(color, templateA, templateB, preference='light') {
+	if(color === 'transparent') return color;
+
+	return templateA.palette[preference];
+}
 
 
 

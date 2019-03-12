@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import { copyTemplate } from '../utils/template-utils';
 import { getElementFont } from './typography';
-import { getElementColor } from './color';
+import { 
+  getElementColor, 
+  mimicSurface,
+} from './color';
 
 export const basicStages = [
   {
@@ -17,26 +20,32 @@ export const basicStages = [
   },
 ]
 
-
+// The purpose of generateContent is to focus the user on content
 function generateContent(flyer, { userInput }) {
-  const textContent = userInput.text;
   const flyerCopy = copyTemplate(flyer);
-  insertTextIntoTemplates(textContent, [flyerCopy]);
+  flyerCopy._textTypes = userInput.text;
+
+  mimicTemplateLayout(flyerCopy, flyer); 
+
   return flyerCopy;
 }
 
-export function insertTextIntoTemplates(text, templates) {
-  const f = groupTextContent(text);
-  _.forEach(templates, template => {
-    const t = groupTextContent(template._textTypes);
-    insertTextIntoTemplate(template, f, t);
-  })
-}
+// export function insertTextIntoTemplates(text, templates) {
+//   const f = groupTextContent(text);
+//   _.forEach(templates, template => {
+//     const t = groupTextContent(template._textTypes);
+//     insertTextIntoTemplate(template, f, t);
+//   })
+// }
 
-function insertTextIntoTemplate(template, f, t) {
+export function mimicTemplateLayout(flyer, template) {
+  const f = groupTextContent(flyer._textTypes);
+  const t = groupTextContent(template._textTypes);
+
+
   f.all.forEach(s => s._match = null);
   const groupTypes = template._groups.map(g => g.type);
-  const textStats = getTextContentStats();
+  const contentStats = getContentStats();
   template._score = template._score || 0;
 
   // Match specifics. Note: We are assuming no duplicate specifics.
@@ -54,7 +63,7 @@ function insertTextIntoTemplate(template, f, t) {
   // Find buddies for unmatched specifics
   _.filter(f.specifics, t => !t._match).forEach(text => {
     const matched = _.filter(f.all, t => t._match);
-    const buddies = textStats[text.type].validBuddyTypes;
+    const buddies = contentStats[text.type].validBuddyTypes;
     const buddy = _.find(buddies, buddy => _.some(matched, t => t.type === buddy));
     if(buddy) {
       text._match = _.find(matched, t => t.type === buddy);
@@ -66,7 +75,7 @@ function insertTextIntoTemplate(template, f, t) {
 
   // Create new elements for all unmatched
   _.filter(f.all, t => !t._match).forEach((text, i) => {
-    const info = textStats[text.type]
+    const info = contentStats[text.type]
     const groupType = info.groupTypes.header === 1 
       ? 'header' : (info.groupTypes.footer === 1 ? 'footer' : 'body')
     
@@ -88,7 +97,7 @@ function insertTextIntoTemplate(template, f, t) {
       const text = _.find(texts, t => t.elementIndex !== undefined);
       return text
         ? text.elementIndex
-        : _.meanBy(texts, t => textStats[t.type].avgElementIndex) // where do these textTypes normally land?
+        : _.meanBy(texts, t => contentStats[t.type].avgElementIndex) // where do these textTypes normally land?
     })
     return sorted;
   })
@@ -97,7 +106,7 @@ function insertTextIntoTemplate(template, f, t) {
   _.forEach(groups, (elements, groupType) => {
     groups[groupType] = elements.map(texts => {
       const sorted = _.sortBy(texts, t => {
-        const { avgLineIndex, avgListIndex } = textStats[t.type];
+        const { avgLineIndex, avgListIndex } = contentStats[t.type];
         return avgLineIndex + avgListIndex * .1;
       })
 
@@ -116,18 +125,46 @@ function insertTextIntoTemplate(template, f, t) {
   })
 
   // inject new elements & groups
+  flyer.id = template.id;
+  mimicSurface(flyer, template, flyer, template);
+  mimicSurface(flyer.content, template.content, flyer, template);
   _.forEach(groups, (elements, groupType) => {
-    if(!template.content[groupType]) {
-      template.content[groupType] = buildDefaultGroup(template, groupType);
+    if(!flyer.content[groupType]) {
+      flyer.content[groupType] = buildDefaultGroup(flyer, groupType);
     }
-    const group = template.content[groupType]
+    const tGroup = template.content[groupType];
+    const fGroup = flyer.content[groupType];
 
-    group.elements = elements.map(el => {
-      const element = _.find(group.elements, ({type}) => type === el.type)
-        || buildDefaultElement(template, group, el.type);
+    mimicSurface(fGroup, tGroup, flyer, template);
+
+    fGroup.elements = elements.map(el => {
+      const element = _.find(fGroup.elements, ({type}) => type === el.type)
+        || buildDefaultElement(flyer, fGroup, el.type);
       
       element.lines = el.lines;
       return element;
+    })
+  })
+
+  // Add missing layout images
+  _.forEach(groups, (_elements, groupType) => {
+    const fGroup = flyer.content[groupType];
+    const templateImages = _.filter(template.content[groupType].elements, el => el.type === 'image');
+    templateImages.forEach(el => {
+      el.image.img = {
+        src: '/placeholder.png',
+        meta: {w: 1444, h: 1444},
+      }
+      mimicSurface(el, el, flyer, template);
+
+      if(el._computed.isFirst) {
+        fGroup.elements.unshift(el);
+      } else if(el._computed.isLast) {
+        fGroup.elements.push(el);
+      } else {
+        // TODO: HACK WIP Where to put this?
+        fGroup.elements.splice(el._computed.index, 0, el);
+      }
     })
   })
 }
@@ -253,7 +290,7 @@ function groupTextContent(text) {
 
 export function computeContentStats(templates) {
   computeElementStats(templates);
-  computeTextContentStats(templates);
+  _computeContentStats(templates);
 }
 
 const defaultTextTypeInfo = {
@@ -269,20 +306,20 @@ const defaultTextTypeInfo = {
   avgElementIndex: 0, // Maybe this should be per group?
 };
 
-let _textContentStats;
-function getTextContentStats() {
-  return _textContentStats;
+let _contentStats;
+function getContentStats() {
+  return _contentStats;
 }
 
-function computeTextContentStats(templates) {
-  _textContentStats = {};
+function _computeContentStats(templates) {
+  _contentStats = {};
   _.forEach(templates, template => {
     const text = template._textTypes;
     const groups = _.groupBy(text, t => t.element._computed.id);
 
     text.forEach(t => {
-      _textContentStats[t.type] = _textContentStats[t.type] || _.cloneDeep(defaultTextTypeInfo);
-      const o = _textContentStats[t.type];
+      _contentStats[t.type] = _contentStats[t.type] || _.cloneDeep(defaultTextTypeInfo);
+      const o = _contentStats[t.type];
       safeIncrement(o.elementTypes, t.element.type);
       safeIncrement(o.groupTypes, t.element._group.type)
       safeIncrement(o.prevElementTypes, t.element._prev && t.element._prev.type)
@@ -302,7 +339,7 @@ function computeTextContentStats(templates) {
   })
 
   // Divide by totals to get value between 0 and 1.
-  _.forEach(_textContentStats, (info, type) => {
+  _.forEach(_contentStats, (info, type) => {
     const total = info.buddyTypes[type];
     _.forEach(info, (item, itemKey) => { 
       if(_.isObject(item)) {
@@ -323,7 +360,7 @@ function computeTextContentStats(templates) {
 
   // Establish Valid Buddy Types
   const BUDDY_THRESHOLD = 0.2;
-  _.forEach(_textContentStats, (info, type) => {
+  _.forEach(_contentStats, (info, type) => {
     info.validBuddyTypes = [];
     _.forEach(info.buddyTypes, (v, k) => {
       if(v > BUDDY_THRESHOLD && k !== type) {

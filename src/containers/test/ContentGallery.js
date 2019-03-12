@@ -18,7 +18,7 @@ function ContentGallery({flyerSize}) {
       userInput: {text: starterTemplates.basicText},
     });
     computeFlyer(contentFlyer, flyerSize)
-    // setFlyers([contentFlyer]);
+    setFlyers([contentFlyer]);
 
     const layoutFlyers = generateFlyer(contentFlyer, {
       stage: {type: 'layout', focus: 'elements'},

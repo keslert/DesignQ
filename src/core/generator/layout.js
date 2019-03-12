@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Lexer, Tagger } from 'pos';
 import { copyTemplate, normalizeTemplate } from '../utils/template-utils';
-import { insertTextIntoTemplates } from './content';
+import { mimicTemplateLayout } from './content';
 
 const tagger = new Tagger();
 
@@ -38,11 +38,13 @@ export const basicStages = [
 
 function generateElements(flyer, {history, templates}) {
 
-  const copies = _.map(_.values(templates), copyTemplate);
+  const flyers = _.map(templates, template => {
+    const copy = copyTemplate(flyer);
+    mimicTemplateLayout(copy, template);
+    return copy;
+  })
 
-  insertTextIntoTemplates(flyer._textTypes, copies);
-
-  return copies;
+  return flyers;
 
   // const makeUniq = text => {
   //   return _.chain(text)
