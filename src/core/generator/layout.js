@@ -38,7 +38,11 @@ export const basicStages = [
 
 function generateElements(flyer, {history, templates}) {
 
-  const flyers = _.map(templates, template => {
+  // const list = [63, 31, 58, 83].map(id => _.find(templates, t => t.id == id));
+  const list = templates;
+
+
+  const flyers = _.map(list, template => {
     const copy = copyTemplate(flyer);
     mimicTemplateLayout(copy, template);
     return copy;

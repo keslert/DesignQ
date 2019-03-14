@@ -14,6 +14,7 @@ function TreeNode(props) {
       pr="12px"
       bg={props.selected ? 'blue' : null}
       color={props.disabled ? '#ffffff55' : 'white'}
+      style={{cursor: 'pointer'}}
     >
       <Text fontSize="12px" flex={0} mr="8px">·</Text>
       <Text 
@@ -68,7 +69,7 @@ function SelectionTree({flyer}) {
       />
       <DragDropContext onDragEnd={handleDragEnd}>
         {groups.map(g => (
-          <Droppable droppableId={g.type}>
+          <Droppable droppableId={g.type} key={g.type}>
             {(provided, snapshot) => (
               <div
                 ref={provided.innerRef}
@@ -124,6 +125,6 @@ function getItemStyle(isDragging, dragStyle) {
 
   return {
     ...dragStyle,
-    cursor: isDragging ? 'grabbing' : 'pointer',
+    cursor: isDragging ? 'grabbing' : null,
   }
 }

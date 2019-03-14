@@ -238,7 +238,7 @@ function computeBodyHeight(template) {
       ? footer._computed.bb.t - body._computed.mb
       : template._computed.bb.h - mb
 
-    body._computed.bb.h = bot - top;
+    body._computed.bb.h = Math.max(body._computed.bb.autoH, bot - top);
   } else {
     body._computed.bb.h = body._computed.bb.autoH
   }

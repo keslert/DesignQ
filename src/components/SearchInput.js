@@ -36,30 +36,32 @@ const BackButton = styled.div(props => ({
   },
 }))
 
-function SearchInput(props) {
+function SearchInput({
+  onSubmit,
+  onBackClick,
+  hasBackButton,
+  ...props
+}) {
 
   const keyDown = useCallback(e => {
-    if(e.keyCode === 13) { // Enter
+    if(onSubmit && e.keyCode === 13) { // Enter
       e.preventDefault();
-      props.onSubmit(props.value);
+      onSubmit(props.value);
     }
   }, [])
 
   return (
     <Flex>
-      {props.hasBackButton &&
+      {hasBackButton &&
         <BackButton 
-          onClick={props.onBackClick}
+          onClick={onBackClick}
           children={<BackSvg size={12} />}
         />
       }
       <Box width="100%" color="dark" style={{position: 'relative'}}>
         <Input
-          placeholder={props.placeholder}
-          hasBackButton={props.hasBackButton}
-          value={props.value}
-          onChange={props.onChange}
-          onKeyDown={keyDown}
+          {...props}
+          onKeyDown={props.onKeyDown || keyDown}
         />
         <Box style={{position: 'absolute', top: '10px', left: '8px'}}>
           <SearchSvg

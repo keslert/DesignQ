@@ -1,39 +1,19 @@
-import React, { useState, useCallback } from 'react';
-import { Box, Flex, Text } from 'rebass';
+import React from 'react';
+import { Box } from 'rebass';
 import Gallery from 'react-photo-gallery';
 import GalleryImage from '../components/GalleryImage';
 
-
-
-
-function ImagePicker() {
-  const [images, setImages] = useState([...photos, ...photos, ...photos])
-  const [value, setValue] = useState('');
-  const handleSearch = useCallback(() => {
-    setImages(images.slice(1));
-  }, [value]);
+function ImagePicker(props) {
 
   return (
-    <Box p={4} bg="nearwhite">
-      <input
-        placeholder="Search for images"
-        value={value} 
-        onChange={e => setValue(e.target.value)} 
+    <Box>
+      <Gallery 
+        ImageComponent={GalleryImage}
+        photos={props.images || photos}
+        columns={props.columns}
+        margin={props.margin}
+        onClick={props.onClick}
       />
-      <button
-        onClick={handleSearch}
-        children="Search"
-      />
-
-      <Box width={800} style={{margin: '0 -4px'}}>
-        <Gallery 
-          ImageComponent={GalleryImage}
-          photos={images}
-          columns={4}
-          margin={4}
-          onClick={() => null}
-        />
-      </Box>
     </Box>
   )
 }

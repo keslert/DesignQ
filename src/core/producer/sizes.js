@@ -29,7 +29,7 @@ function computeDominant(template, dominant, scale) {
   const maxW = template.content.body._computed.maxW;
   const dominantSettings = {
     maxWidth: maxW,
-    maxOptimalWidth: maxW,
+    optimalWidth: maxW,
     maxOptimalFontSize: 300,
     minFontSize: MIN_FONT_SIZE,
   }
@@ -47,10 +47,10 @@ function computeGroupSizes(template, group, dominant) {
     maxWidth: maxW,
     minFontSize: MIN_FONT_SIZE,
 
-    maxOptimalWidth: maxW, // Math.min(maxW, dominant._computed.w * 1.05), // TODO: Why 1.05
+    // maxOptimalWidth: maxW, // Math.min(maxW, dominant._computed.w * 1.05), // TODO: Why 1.05
     maxOptimalFontSize: 21.3, // Math.log(dominant._computed.fontSize) * 6,
     // maxOptimalWidth: 0.536921 * dominant._computed.w + 55.3845,
-    maxOptimalWidth: (5.33216 * (types.heading ? types.heading[0]._computed.maxCharacters : 0) + 45.7198) * 1.3
+    optimalWidth: (5.33216 * (types.heading ? types.heading[0]._computed.maxCharacters : 0) + 45.7198) * 1.3
   }
   computeElementsFontSizes(types.heading, headingSettings)
 
@@ -65,15 +65,15 @@ function computeGroupSizes(template, group, dominant) {
     ...headingSettings,
     maxOptimalFontSize: 18.6,
     optimalFontSize: bridge && (0.489407 * bridge._computed.fontSize + 5.22648),
-    maxOptimalWidth: dominant._computed.w,
+    optimalWidth: dominant._computed.w,
   })
     
   computeElementsFontSizes(types.paragraph, {
     ...headingSettings,
     maxOptimalFontSize: 16,
     optimalFontSize: bridge && (0.438561 * bridge._computed.fontSize + 4.55792),
-    // maxOptimalWidth: dominant._computed.w,
-    maxOptimalWidth: (3.10679 * (types.paragraph ? types.paragraph[0]._computed.maxCharacters : 0) + 62.8503) * 1.333,
+    // optimalWidth: dominant._computed.w,
+    optimalWidth: (3.10679 * (types.paragraph ? types.paragraph[0]._computed.maxCharacters : 0) + 62.8503) * 1.333,
   })
 
   _.forEach(types.icon, icon => {
@@ -99,31 +99,34 @@ function computeGroupSizes(template, group, dominant) {
 function computeElementsFontSizes(elements, settings) {
   if(!elements || !elements.length) return;
     
-  // the maximum lines measured width
-  const maxMeasuredWidth = _.max(elements.map(measureText))
+  const largestWidth = _.max(elements.map(measureText))
 
-  const minMaxWidth = _.sortBy(elements, el => el.maxW)[0]._computed.maxW;
-  const maxOptimalWidth = Math.min(minMaxWidth, settings.maxOptimalWidth);
-  
-  const optimalFontSizeByWidth = (FONT_MEASURE_SIZE * (maxOptimalWidth / maxMeasuredWidth) * .99);
-  const optimalFontSize = _.clamp(
-    settings.optimalFontSize || optimalFontSizeByWidth, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
+  const maxWidth = _.sortBy(elements, el => el.maxW)[0]._computed.maxW;
+
+
+
+  const optimalFontSize = settings.optimalFontSize
+    || FONT_MEASURE_SIZE * (settings.optimalWidth / largestWidth)
+  const maxFontSize = FONT_MEASURE_SIZE * (maxWidth / largestWidth)
+
+  const clampedFontSize = _.clamp(
+    optimalFontSize * .99, // multiply by .99 to deal with rounding errors. Sometimes the fonts are barely too large and cause wordwrap.
     settings.minFontSize,
-    settings.maxOptimalFontSize,
+    Math.min(maxFontSize, settings.maxOptimalFontSize),
   )
 
   elements.forEach((el, i) => {
 
     const fontSize = slerp(
       settings.minFontSize,
-      optimalFontSize,
-      FONT_MEASURE_SIZE * (el._computed.maxW / maxMeasuredWidth),
+      clampedFontSize,
+      FONT_MEASURE_SIZE * (el._computed.maxW / largestWidth),
       el.font.size
     );
 
     // const fontSize = optimalFontSize * el.font.size;
   
-    const width = maxMeasuredWidth * (fontSize / FONT_MEASURE_SIZE)
+    const width = largestWidth * (fontSize / FONT_MEASURE_SIZE)
 
     const lines = el._computed.lines;
     lines.forEach(line => {
@@ -222,5 +225,5 @@ export const measureTextWidth = (text, font) => {
   return ctx.measureText(text).width
 }
 
-const MIN_FONT_SIZE = 11;
+const MIN_FONT_SIZE = 4;
 const FONT_MEASURE_SIZE = 20;

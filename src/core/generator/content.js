@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { copyTemplate } from '../utils/template-utils';
+import { copyTemplate, safeIncrement } from '../utils/template-utils';
 import { getElementFont } from './typography';
 import { 
   getElementColor, 
@@ -126,6 +126,7 @@ export function mimicTemplateLayout(flyer, template) {
 
   // inject new elements & groups
   flyer.id = template.id;
+  flyer.title = template.title;
   mimicSurface(flyer, template, flyer, template);
   mimicSurface(flyer.content, template.content, flyer, template);
   _.forEach(groups, (elements, groupType) => {
@@ -135,21 +136,28 @@ export function mimicTemplateLayout(flyer, template) {
     const tGroup = template.content[groupType];
     const fGroup = flyer.content[groupType];
 
-    mimicSurface(fGroup, tGroup, flyer, template);
+    if(tGroup) {
+      mimicSurface(fGroup, tGroup, flyer, template);
+    }
 
     fGroup.elements = elements.map(el => {
-      const element = _.find(fGroup.elements, ({type}) => type === el.type)
+      const fElement = _.find(fGroup.elements, ({type}) => type === el.type)
         || buildDefaultElement(flyer, fGroup, el.type);
-      
-      element.lines = el.lines;
-      return element;
+      const gElement = tGroup && _.find(tGroup.elements, ({type}) => type === el.type);
+      if(gElement) {
+        mimicSurface(fElement, gElement, flyer, template, 'nearlight');
+      }
+
+      fElement.lines = el.lines;
+      return fElement;
     })
   })
 
   // Add missing layout images
   _.forEach(groups, (_elements, groupType) => {
     const fGroup = flyer.content[groupType];
-    const templateImages = _.filter(template.content[groupType].elements, el => el.type === 'image');
+    const tGroup = template.content[groupType]
+    const templateImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
     templateImages.forEach(el => {
       el.image.img = {
         src: '/placeholder.png',
@@ -415,8 +423,4 @@ function computeElementStats(templates) {
     info.avgFirstLineCharacterCount /= info.total;
     info.avgContainsList /= info.total;
   })
-}
-
-function safeIncrement(obj, key, amount=1) {
-  obj[key] = (obj[key] || 0) + amount;
 }

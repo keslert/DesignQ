@@ -3,38 +3,72 @@ import { Box, Flex } from 'rebass';
 import TabSvg from '../svg/tab.svg';
 import SearchInput from './SearchInput';
 import SelectionTree from './SelectionTree';
+import Tabs from './Tabs';
+import ImagePicker from '../containers/ImagePicker';
+import ActionList from './ActionList';
 
-const bg = "hsla(222, 23%, 22%, 1)"
 function Sidebar(props) {
 
   return (
     <Flex 
-      width={260}
+      width={270}
       bg="off_dark"
       color="off_dark"
-      px={2}
+      px="12px"
       flexDirection="column"
       style={{position: 'relative'}}
     >
-      <Box style={{position: 'absolute', right: "-16px", top: '0'}}>
+      <Box 
+        onClick={() => null}
+        style={{position: 'absolute', right: "-16px", top: '0', cursor: 'pointer'}}
+      >
         <TabSvg fill="currentColor" size={100} />
       </Box>
 
-      <Flex>
-        <Box>AI Actions</Box>
-        <Box>Manual Control</Box>
-      </Flex>
-
-      <Box flex={1} >
-        <SearchInput
-          placeholder="Search Photos"
-          hasBackButton={true}
-          value={'Cats'}
-          onChange={e => null}
-          onSubmit={e => null}
+      <Box mb={2}>
+        <Tabs
+          tabs={["AI Actions", "Manual Control"]}
+          selectedIndex={0}
+          onClick={(tab, index) => null}
         />
       </Box>
-      <Box mx={-2} bg="dark">
+
+
+      <Box flex={1} style={{overflowY: 'auto'}}>
+      
+      </Box>
+
+
+      { false && 
+        <Box flex={1} style={{overflowY: 'auto'}}>
+          <ActionList
+            onSelect={() => null}
+          />
+        </Box>
+      }
+
+      { false && 
+        <Box mb="-2px" style={{position: 'relative', zIndex: 999}}>
+          <SearchInput
+            placeholder={"Search Actions"}
+            hasBackButton={false}
+            value={''}
+            onChange={e => null}
+            onSubmit={e => null}
+          />
+        </Box>
+      }
+
+      { false && 
+        <Box pt="4px" pb={1} mx="-2px" flex={1} style={{overflowY: 'auto'}}>
+          <ImagePicker 
+            columns={2}
+            margin={4}
+            onClick={() => null}
+          />
+        </Box>
+      }
+      <Box mx="-12px" bg="dark">
         <SelectionTree
           flyer={props.flyer}
         />

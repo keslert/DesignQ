@@ -45,7 +45,7 @@ export default {
             lineHeight: 1.2,
             size: 1,
             style: 'normal',
-            transform: 'normal  ',
+            transform: 'normal',
             weight: 400,
           },
         },

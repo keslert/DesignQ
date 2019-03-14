@@ -6,6 +6,7 @@ import { withSize } from 'react-sizeme'
 import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 import CanvasToolbar from './CanvasToolbar';
+import ContentForm from '../containers/ContentForm';
 
 function Canvas(props) {
 
@@ -37,29 +38,36 @@ function Canvas(props) {
           </Box>
         </Flex>
         
-        <CanvasToolbar 
+        <CanvasToolbar
+          showUpgrade={true}
+          showCompare={true}
           onCompareDown={() => setShowComparison(true)}
           onCompareUp={() => setShowComparison(false)}
         />
 
         <Flex flex={1} bg="nearwhite" alignItems="center" justifyContent="center">
-          <Box>
-            <FrameToolbar text="Click to make this the primary" favorited={false} />
-            <Frame 
-              scale={scale} 
-              width={props.flyerSize.w} 
-              height={props.flyerSize.h} 
-              flyer={props.secondaryFlyer} 
-            />
-            <Box pt={3} style={{height: 100, textAlign: 'center'}}>
-              <Button 
-                variant="light"
-                onClick={() => null}
-                children="Next Design"
+
+          {true && 
+            <Box>
+              <FrameToolbar text="Click to make this the primary" favorited={false} />
+              <Frame 
+                scale={scale} 
+                width={props.flyerSize.w} 
+                height={props.flyerSize.h} 
+                flyer={props.secondaryFlyer} 
               />
-              <Text color='gray' fontSize={1}>or press the right arrow</Text>
+              <Box pt={3} style={{height: 100, textAlign: 'center'}}>
+                <Button 
+                  variant="light"
+                  onClick={() => null}
+                  children="Next Design"
+                />
+                <Text color='gray' fontSize={1}>or press the right arrow</Text>
+              </Box>
             </Box>
-          </Box>
+          }
+          {false && <ContentForm />}
+
         </Flex>
       </Flex>
     </Flex>

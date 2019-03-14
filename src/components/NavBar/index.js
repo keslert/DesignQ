@@ -50,8 +50,8 @@ function NavBar() {
 
   return (
     <Flex style={{position: 'relative'}} ref={ref} bg="dark">
-      <NavItem flex={0} py={0} bg="green" width={50} mr="1px">
-        <QSvg fill={theme.colors.white} size={20} />
+      <NavItem flex={0} py={0} bg={marker.color} width={50} mr="1px">
+        <QSvg fill='currentColor' size={20} />
       </NavItem>
       {stages.map((stage, i) => (
         <NavItem
@@ -65,11 +65,13 @@ function NavBar() {
         />
       ))}
       <NavMarker 
-        bg="#ffffff22"
+        bg="#ffffff33"
+        borderRadius="8px / 100%"
         style={{left: hover.l, width: hover.w}}
       />
       <NavMarker 
         bg={marker.color}
+        borderRadius="8px / 100%"
         style={{
           left: marker.l, 
           width: marker.w,

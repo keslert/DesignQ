@@ -3,7 +3,26 @@ import { withGroups } from '../producer';
 
 
 
+export function safeIncrement(obj, key, amount=1) {
+  obj[key] = (obj[key] || 0) + amount;
+}
 
+export function safePush(obj, key, value) {
+  if(obj[key]) {
+    obj[key].push(value);
+  } else {
+    obj[key] = [value];
+  }
+}
+
+export function mode(arr) {
+  const counts = {};
+  for (let i = 0; i < arr.length; i += 1) {
+    counts[arr[i]] = (counts[arr[i]] || 0) + 1;
+  }
+  const max = _.max(Object.values(counts));
+  return _.filter(Object.keys(counts), key => counts[key] === max);
+}
 
 export function normalizeTemplate(template) {
   console.log(`Normalizing ${template.title}`);
@@ -16,10 +35,11 @@ export function normalizeTemplate(template) {
   }))
 
   template._elements = _.flatten(template._groups.map(g => g.elements));
+  template._dominant = _.find(template._elements, el => el.type === 'dominant');
+  
   // TODO: What color is behind content?
   // TODO: What color is behind each group?
   // TODO: What color is behind each element?
-
 
   template._textTypes = getTextTypes(template);
 }

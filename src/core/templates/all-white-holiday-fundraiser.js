@@ -29,7 +29,6 @@ export default {
             transform: 'uppercase',
             weight: 700,
           },
-          mb: 0,
         },
         {
           type: 'icon',

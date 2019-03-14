@@ -76,7 +76,9 @@ const heading = {
 const paragraph = {
   type: 'paragraph',
   lines: [
-    {type: 'details', text: ''},
+    {type: 'details', text: 'Join us for a 4-hour extravaganza featuring'},
+    {type: 'details', text: 'genres such as pop, jazz, and R&B. Featuring'},
+    {type: 'details', text: 'the hottest acts in the country today.'},
   ],
   color: solidColor('#ffffff'),
   font: {

@@ -72,7 +72,6 @@ export function precompute() {
   computeColorStats(templates);
   computeTypographyStats(templates);
 }
-precompute();
 
 export function generateFlyer(flyer, _options={}) {
   normalizeTemplate(flyer);

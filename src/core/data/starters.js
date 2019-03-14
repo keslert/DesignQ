@@ -1,6 +1,7 @@
 
 
 export const barebones = {
+  id: 1,
   title: 'Untitled Flyer',
   background: { color: '#ffffff' },
   content: {
@@ -17,13 +18,13 @@ export const barebones = {
     secondary: '#f00000',
   },
   fonts: {
-    heading: 'Open Sans',
-    regular: 'Open Sans',
+    dominant: 'Open Sans',
   },
 }
 
 export const basicText = [
-  {type: 'eventName', text: "Ski Trip!"},
+  {type: 'host', text: 'Stanford HCI'},
+  {type: 'eventName', text: "Ski Week!"},
   {type: 'location', text: 'Beechtown Drive'},
   {type: 'date', text: 'January 5, 2020'},
   {type: 'time', text: '6 PM onwards'},

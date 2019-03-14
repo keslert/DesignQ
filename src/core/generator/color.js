@@ -42,8 +42,8 @@ export function computeColorStats(templates) {
 }
 
 
-export function mimicSurface(surfaceA, surfaceB, templateA, templateB) {
-	surfaceA.background = mimicBackground(surfaceB, templateA, templateB);
+export function mimicSurface(surfaceA, surfaceB, templateA, templateB, preference) {
+	surfaceA.background = mimicBackground(surfaceB, templateA, templateB, preference);
 	surfaceA.decor = mimicDecor(surfaceB, templateA, templateB);
 	surfaceA.border = mimicBorder(surfaceB, templateA, templateB);
 	surfaceA.bleed = surfaceB.bleed;

@@ -36,12 +36,21 @@ export function computeFlyer(template, size={w: 480, h:670}) {
   computeBoundingBoxes(template);
   
   // Is the height an issue? 
+
   const resize = calculateHeightResize(template);
   if(resize < 1) {
+    computeEdges(template); // TODO: No need to recalculate this, but bounding box messes the edges up.
     computeSizes(template, resize);
     computeSpacing(template);
     computeBoundingBoxes(template);
+
   }
+
+  // const resize2 = calculateHeightResize(template);
+  // if(resize2 < 1) {
+  //   debugger;
+  // }
+
 
   computeBackgrounds(template);
   

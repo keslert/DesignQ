@@ -2,7 +2,7 @@ import chroma from 'chroma-js';
 
 const theme = {
   fontSizes: [
-    10, 14, 16, 20, 24, 32, 48, 64
+    10, 12, 14, 16, 20, 24
   ],
   colors: {
     // red: '#f44336',
@@ -15,11 +15,11 @@ const theme = {
 
     // dark: '#353D4D',
     dark: '#262d3c',
-    off_dark: 'hsla(222, 23%, 23%, 1)',
+    off_dark: 'hsla(222, 23%, 24%, 1)',
     
     
     blue: '#2A81F4',
-    green: '#7AE88C',
+    green: '#6bda7d',
     yellow: '#F4CA1E',
     orange: '#FE8B39',
     red: '#FD5252',

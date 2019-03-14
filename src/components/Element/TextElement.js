@@ -1,25 +1,17 @@
 import React from 'react';
-import { getColorStyle, getUnitStyle, getBorderStyles } from '../../core/utils/render-utils';
+import { getColorStyle } from '../../core/utils/render-utils';
 import ListDivider from '../ListDivider';
 
 const debug = false;
 function TextElement({element}) {
-  const c = element._computed;
-
   const style = {
     position: 'relative',
     width: '100%',
-    // width: `calc(${getUnitStyle(element.width)} - ${c.ml + c.mr}px)`,
-    // padding: `${c.pt}px ${c.pr}px ${c.pb}px ${c.pl}px`,
-    // margin: `${c.mt}px ${c.mr}px ${c.mb}px ${c.ml}px`,
     fontFamily: element.font.family,
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
     color: getColorStyle(element.color),
-    // background: getColorStyle(element.background),
-    // borderRadius: getUnitStyle(element.borderRadius),
-    // ...getBorderStyles(element.border),
   }
 
   const spacerStyle = {
@@ -72,9 +64,6 @@ function Line({element, line}) {
     fontSize: line.fontSize,
     textAlign: element._computed.group.textAlign,
     letterSpacing: `${element.font.letterSpacing || 0}em`,
-    // marginTop: `${line.fontSize * line.offset.top}px`,
-    // marginBottom: `${line.fontSize * line.offset.bottom}px`,
-    
     height: `${line.h}px`,
     position: 'relative',
     top: `${line.fontSize * line.offset.top}px`,
