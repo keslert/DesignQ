@@ -58,19 +58,6 @@ function computeGroupElementSpacing(group, spacing) {
       const scale = (c.w - c.pr - c.pl) / c.w;
       scaleElementFontSizes(el, scale);
     }
-
-
-    // if(el.lines) {
-    //   const x = c.h / Math.log(c.h * .4);
-    //   const y = c.h / Math.log(c.h * .3);
-
-    //   withSides(s => c[`p${s}`] = x * el[`p${s}`], ['l', 'r'])
-    //   withSides(s => c[`p${s}`] = y * el[`p${s}`], ['t', 'b'])
-
-    //   c.h += c.pt + c.pb;
-    //   const scale = (c.w - c.pr - c.pl) / c.w;
-    //   scaleElementFontSizes(el, scale);
-    // }
     
     if(el.type === 'icon' && el.background) { 
       const pad = c.w * .2; // TODO: WHY?
@@ -82,11 +69,6 @@ function computeGroupElementSpacing(group, spacing) {
   
   const last = _.last(elements);
   last && (last._computed.mb = 0);
-  // if(last.sticky) {
-  //   if(last._computed.prev) {
-  //     last._computed.prev._computed.mb = 0;
-  //   }
-  // }
 
   elements.forEach(el => {
     if(el.overlap) {

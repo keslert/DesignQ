@@ -1,19 +1,26 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { 
+  useState, 
+  useCallback, 
+  useContext,
+  useEffect, 
+  useRef,
+} from 'react';
 import ReactDOM from 'react-dom';
 import NavItem from './NavItem';
 import NavMarker from './NavMarker';
 import { Flex } from 'rebass';
 import QSvg from '../../svg/q.svg';
 import theme from '../../styles/theme';
+import { DispatchContext } from '../../containers/Queue';
 
 const stages = [
-  {label: 'Content', color: theme.colors.green}, 
-  {label: 'Layout', color: theme.colors.yellow},
-  {label: 'Typography', color: theme.colors.orange},
-  {label: 'Color', color: theme.colors.red},
-  {label: 'Decoration', color: theme.colors.pink},
-  {label: 'Polish', color: theme.colors.purple},
-  {label: 'Export', color: theme.colors.blue},
+  {label: 'Content', color: theme.colors.green, type: 'content'}, 
+  {label: 'Layout', color: theme.colors.yellow, type: 'layout'},
+  {label: 'Typography', color: theme.colors.orange, type: 'typography'},
+  {label: 'Color', color: theme.colors.red, type: 'color'},
+  {label: 'Decoration', color: theme.colors.pink, type: 'decoration'},
+  {label: 'Polish', color: theme.colors.purple, type: 'polish'},
+  {label: 'Export', color: theme.colors.blue, type: 'export'},
 ]
 
 const getUpdate = (target, color) => {
@@ -24,9 +31,11 @@ const getUpdate = (target, color) => {
   }
 }
 
-function NavBar() {
+function NavBar({stage}) {
   const ref = useRef();
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const rootDispatch = useContext(DispatchContext)
+  
+  const selectedIndex = stages.findIndex(s => s.type === stage);
   const [hover, setHover] = useState({l: 50, w: 0})
   const [marker, setMarker] = useState({l: 50, w: 0});
 
@@ -39,6 +48,10 @@ function NavBar() {
     const child = el.children[1 + selectedIndex];
     setHover(getUpdate(child));
   }, [selectedIndex])
+
+  const handleClick = useCallback(type => {
+    rootDispatch({type: 'SET_STAGE', stage: {type}});
+  })
 
   useEffect(() => {
     const el = ReactDOM.findDOMNode(ref.current);
@@ -61,7 +74,7 @@ function NavBar() {
           color={stage.color}
           children={stage.label} 
           selected={i === selectedIndex}
-          onClick={() => setSelectedIndex(i)}
+          onClick={() => handleClick(stage.type)}
         />
       ))}
       <NavMarker 

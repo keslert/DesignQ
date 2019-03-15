@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ArrowSvg from '../svg/arrow.svg';
 import EyeSvg from '../svg/eye.svg';
+import PlaySvg from '../svg/play.svg';
 import CanvasButton from './CanvasButton';
 import { Flex } from 'rebass';
+import { DispatchContext } from '../containers/Queue';
+
 
 function CanvasToolbar(props) {
+
+  const dispatch = useContext(DispatchContext);
 
   return (
     <Flex 
@@ -16,10 +21,19 @@ function CanvasToolbar(props) {
       style={{position: 'relative'}}
       pb={100}
     >
+      {props.showResume && 
+        <CanvasButton
+          mb={2}
+          onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
+          SvgComponent={<PlaySvg size={24} />}
+          label="Resume"
+        />
+      }
       {props.showUpgrade && 
         <CanvasButton
           mb={2}
-          SvgComponent={<ArrowSvg size={28} />}
+          onClick={() => dispatch({type: 'STEP', upgrade: true})}
+          SvgComponent={<ArrowSvg size={24} />}
           label="Upgrade"
         />
       }

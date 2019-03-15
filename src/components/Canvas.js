@@ -1,19 +1,30 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useContext } from 'react';
 
 import { Flex, Box, Text } from 'rebass';
 import Button from './Button';
-import { withSize } from 'react-sizeme'
 import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 import CanvasToolbar from './CanvasToolbar';
 import ContentForm from '../containers/ContentForm';
+import { DispatchContext } from '../containers/Queue';
 
 function Canvas(props) {
-
+  const rootDispatch = useContext(DispatchContext)
   const [showComparison, setShowComparison] = useState(false);
 
   const scale = 0.75;
 
+  const showContentForm = props.secondary._stage.type === 'content';
+
+  const showPrimary = !showContentForm;
+  const primary = (showComparison || !showPrimary)
+    ? props.secondary
+    : props.primary
+  const secondary = props.secondary;
+
+  const showUpgrade = showPrimary;
+  const showCompare = showPrimary;
+  const showResume = showPrimary && props.stage;
 
   return (
     <Flex 
@@ -24,12 +35,12 @@ function Canvas(props) {
       <Flex flex={1} style={{height:"100%"}}>
         <Flex flex={1} alignItems="center" justifyContent="center">
           <Box>
-            <FrameToolbar text="Primary Design" favorited={true} />
+            <FrameToolbar text={`Primary Design - #${primary.id}`} favorited={true} />
             <Frame 
               scale={scale} 
               width={props.flyerSize.w} 
               height={props.flyerSize.h} 
-              flyer={showComparison ? props.secondaryFlyer : props.primaryFlyer } 
+              flyer={primary} 
             />
             <Box pt={3} style={{height: 100, textAlign: 'center'}}>
               <Text color="gray" fontSize={0} mb={1} style={{textTransform: 'uppercase'}}>Currently Exploring</Text>
@@ -39,34 +50,39 @@ function Canvas(props) {
         </Flex>
         
         <CanvasToolbar
-          showUpgrade={true}
-          showCompare={true}
+          showResume={showResume}
+          showUpgrade={showUpgrade}
+          showCompare={showCompare}
           onCompareDown={() => setShowComparison(true)}
           onCompareUp={() => setShowComparison(false)}
         />
 
         <Flex flex={1} bg="nearwhite" alignItems="center" justifyContent="center">
 
-          {true && 
+          {showPrimary && 
             <Box>
-              <FrameToolbar text="Click to make this the primary" favorited={false} />
+              <FrameToolbar text={`Exploratory Design - #${secondary.id}`} favorited={false} />
               <Frame 
                 scale={scale} 
                 width={props.flyerSize.w} 
                 height={props.flyerSize.h} 
-                flyer={props.secondaryFlyer} 
+                flyer={secondary} 
               />
               <Box pt={3} style={{height: 100, textAlign: 'center'}}>
                 <Button 
                   variant="light"
-                  onClick={() => null}
+                  onClick={() => rootDispatch({type: 'STEP'})}
                   children="Next Design"
                 />
                 <Text color='gray' fontSize={1}>or press the right arrow</Text>
               </Box>
             </Box>
           }
-          {false && <ContentForm />}
+          {showContentForm && 
+            <ContentForm 
+              flyer={secondary}
+            />
+          }
 
         </Flex>
       </Flex>
@@ -74,7 +90,7 @@ function Canvas(props) {
   )
 }
 
-export default withSize({monitorHeight: true})(Canvas)
+export default Canvas;
 
 function getScale(size, maxSize) {
   const scale = Math.min(

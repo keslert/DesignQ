@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
-import { Flex, Box } from 'rebass';
+import React, { useRef, useEffect, useMemo } from 'react';
+import { Box } from 'rebass';
 import styled from 'styled-components';
 import theme from '../styles/theme';
 import useComponentSize from '@rehooks/component-size'
-import _ from 'lodash'
 
 import { FixedSizeList as List } from 'react-window';
 
@@ -96,31 +95,37 @@ import { FixedSizeList as List } from 'react-window';
 //     }
 //   }
 
-function Timeline(props) {
+function Timeline({items, selectedIndex}) {
+  const listRef = useRef();
+  const sizeRef = useRef();
+  const size = useComponentSize(sizeRef);
 
-  const ref = useRef(null);
-  const size = useComponentSize(ref);
+  useEffect(() => {
+    listRef.current.scrollToItem(items.length);
+  }, [items])
 
   return (
-    <div ref={ref}>
+    <div ref={sizeRef}>
       <Box 
         width={1}
         bg="nearwhite" 
         style={{ borderTop: '1px solid ' + theme.colors.lightgray }}
       >
         <List
+          ref={listRef}
           className="tiny-scroll"
           height={20}
           width={size.width}
-          itemCount={props.items.length}
+          itemCount={items.length}
           itemSize={12}
           layout="horizontal"
           style={''}
         >
           {({index, style}) => (
-            <Tick 
+            <Tick
+              selected={index === selectedIndex}
               style={style}
-              flyer={props.items[index]}
+              flyer={items[index]}
             />
           )}
         </List>
@@ -129,29 +134,40 @@ function Timeline(props) {
   )
 }
 
-function Tick({flyer, style}) {
+export default Timeline;
+
+function Tick({flyer, style, selected}) {
   
   return (
     <div style={style}>
-      <Box
-        mx="2px"
-        width="8px"
-        style={{height: '100%'}}
-        bg={COLORS[flyer]}
+      <S_Tick
+        selected={selected}
+        bg={COLORS[flyer._stage.type]}
       />
     </div>
   )
 }
 
+const S_Tick = styled(Box)(props => ({
+  cursor: 'pointer',
+  height: '100%',
+  transition: 'transform .15s',
+  margin: props.selected ? "0 1px" : "0 2px",
+  width: props.selected ? "10px" : "8px",
+  borderLeft: props.selected ? '2px solid ' + props.theme.colors.dark : null,
+  borderRight: props.selected ? '2px solid ' + props.theme.colors.dark : null,
 
-export default Timeline;
+  '&:hover': {
+    transform: 'translateY(-2px)',
+  }
+}))
 
-const COLORS = [
-  theme.colors.green, 
-  theme.colors.yellow, 
-  theme.colors.orange, 
-  theme.colors.red,
-  theme.colors.pink,
-  theme.colors.purple,
-  theme.colors.blue,
-];
+const COLORS = {
+  content: theme.colors.green, 
+  layout: theme.colors.yellow, 
+  typography: theme.colors.orange, 
+  color: theme.colors.red,
+  decoration: theme.colors.pink,
+  polish: theme.colors.purple,
+  finish: theme.colors.blue,
+};

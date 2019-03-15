@@ -81,19 +81,28 @@ export function generateFlyer(flyer, _options={}) {
   }
   const stage = getStage(flyer, options)
 
-  const genFlyer = stage.generate(flyer, options);
-  // genFlyer._stage = options.stage;
-  return genFlyer;
+  const generated = stage.generate(flyer, options);
+
+  if(options.variations) {
+    const flyers = generated.slice(options.variations);
+    flyers.forEach(f => f._stage = stage);
+    return flyers;
+  }
+
+  generated[0]._stage = stage;
+  return generated[0];
 }
 
 function getStage(flyer, options) {
+  let stage;
   if(options.stage) {
-    const stage = _.find(journey, s => s.type === options.stage.type && s.focus === options.stage.focus)
-    return stage;
+    stage = _.find(journey, s => 
+      s.type === options.stage.type 
+      && (!options.stage.focus || options.stage.focus === s.focus)
+    )
   }
 
-  const stage = _.find(journey, stage => !stage.satisfied(flyer))
-  return stage;
+  return stage || _.find(journey, stage => !stage.satisfied(flyer))
 }
 
 // function generateStage(flyer, history, stage) {

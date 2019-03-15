@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Button = styled(Flex)(props => ({
   border: `1px solid ${props.theme.colors.lightgray}`,
   '&:hover': {
-    background: props.theme.colors.white,
+    background: props.theme.colors[props.bg + '_darken'],
   },
   width: '60px',
   height: '60px',
@@ -15,6 +15,7 @@ const Button = styled(Flex)(props => ({
   alignItems: 'center',
   flexDirection: 'column',
   flexShrink: 0,
+  userSelect: 'none',
   'svg': {
     fill: 'currentColor',
   },

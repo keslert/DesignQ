@@ -9,13 +9,11 @@ import {
 export const basicStages = [
   {
     type: 'content', 
-    focus: 'elements',
+    focus: 'text',
     generate: generateContent,
     satisfied: f => {
-      return (
-        f._elements.length >= 2 
-        && _.some(f.content.body.elements, el => el.type === 'dominant')
-      )
+      console.log("Content:Text is satisfied.");
+      return _.some(f.content.body.elements, el => el.type === 'dominant')
     }
   },
 ]
@@ -23,11 +21,11 @@ export const basicStages = [
 // The purpose of generateContent is to focus the user on content
 function generateContent(flyer, { userInput }) {
   const flyerCopy = copyTemplate(flyer);
-  flyerCopy._textTypes = userInput.text;
+  flyerCopy._textTypes = userInput ? userInput.text : [];
 
   mimicTemplateLayout(flyerCopy, flyer); 
 
-  return flyerCopy;
+  return [flyerCopy];
 }
 
 // export function insertTextIntoTemplates(text, templates) {
@@ -66,8 +64,9 @@ export function mimicTemplateLayout(flyer, template) {
     const buddies = contentStats[text.type].validBuddyTypes;
     const buddy = _.find(buddies, buddy => _.some(matched, t => t.type === buddy));
     if(buddy) {
-      text._match = _.find(matched, t => t.type === buddy);
-      text._match._match = text;
+      text._match = _.find(matched, t => t.type === buddy)._match;
+      // No need to do the reverse match since it's matched with the buddy.
+      // text._match._match = text;
       template._score -= 75;
     }
     template._score += 100

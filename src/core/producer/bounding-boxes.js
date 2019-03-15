@@ -105,7 +105,7 @@ function computeVertical(template) {
 function computeElementOverlap(template) {
   withGroups(template, g => {
     const el = g.elements[0];
-    if(el.overlap) {
+    if(el && el.overlap) {
       const top = g._computed.bb.t - el._computed.bb.h * el.overlap;
       const diffT = el._computed.bb.t - top;
       
@@ -129,7 +129,8 @@ function computeElementAutoWidths(template) {
 
 function computeGroupAutoWidths(template) {
   withGroups(template, g => {
-    const maxElementWidth = _.maxBy(g.elements, el => el._computed.bb.autoW)._computed.bb.autoW;
+    const maxElement = _.maxBy(g.elements, el => el._computed.bb.autoW)
+    const maxElementWidth = maxElement ? maxElement._computed.bb.autoW : 0;
     const borderWidth = g.border._computed.l + g.border._computed.r;
     const padWidth = g._computed.pl + g._computed.pr;
     g._computed.bb.autoW = maxElementWidth + borderWidth + padWidth;
@@ -183,8 +184,8 @@ function computeGroupAutoHeights(template) {
   withGroups(template, g => {
     const elementHeight = _.sum(g.elements.map(el => el._computed.bb.autoH + el._computed.mb));
     const el = g.elements[0];
-    const borderHeight = _.sum(getEdgeValues(el, ['t', 'b'], 'group-border'));
-    const padHeight = _.sum(getEdgeValues(el, ['t', 'b'], 'group-padding'));
+    const borderHeight = el ? _.sum(getEdgeValues(el, ['t', 'b'], 'group-border')) : 0;
+    const padHeight = el ? _.sum(getEdgeValues(el, ['t', 'b'], 'group-padding')) : 0;
 
     g._computed.bb.autoH = elementHeight + borderHeight + padHeight;
   })
@@ -338,8 +339,8 @@ function computeElementTops(template) {
   withGroups(template, g => {
     const el = g.elements[0];
 
-    const pads = getEdgeValues(el, ['t', 'b'], 'group-padding');
-    const borders = getEdgeValues(el, ['t', 'b'], 'group-border');
+    const pads = el ? getEdgeValues(el, ['t', 'b'], 'group-padding') : 0;
+    const borders = el ? getEdgeValues(el, ['t', 'b'], 'group-border') : 0;
     const spaceTop = pads[0] + borders[0];
     const spaceBottom = pads[1] + borders[1];
 
@@ -357,10 +358,8 @@ function computeElementTops(template) {
 
     
     // TODO: Handle first sticky elements
-    const first = g.elements[0];
-
     const last = _.last(g.elements);
-    if(last !== first && last.sticky) {
+    if(last && last.sticky) {
       const gBot = g._computed.bb.t + g._computed.bb.h;
       const lBot = last._computed.bb.t + last._computed.bb.h;
       const diffT = gBot - lBot + g._computed.mb;

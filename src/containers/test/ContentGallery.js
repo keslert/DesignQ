@@ -6,7 +6,7 @@ import { computeFlyer } from '../../core/producer';
 import { generateFlyer, precompute } from '../../core/generator';
 import _ from 'lodash';
 
-const flyer = starterTemplates.barebones;
+const flyer = starterTemplates.empty;
 
 function ContentGallery({flyerSize}) {
   const [flyers, setFlyers] = useState([]);

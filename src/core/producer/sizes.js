@@ -14,9 +14,9 @@ import { CONTENT_GROUPS, withGroups } from '.';
 
 export function computeSizes(template, scaleDominant) {
   const dominant = _.find(template.content.body.elements, el => el.type === 'dominant');
-
-  computeDominant(template, dominant, scaleDominant);
-
+  if(dominant) {
+    computeDominant(template, dominant, scaleDominant);
+  }
   withGroups(template, group => computeGroupSizes(template, group, dominant))
 }
 
@@ -38,41 +38,42 @@ function computeDominant(template, dominant, scale) {
 
 function computeGroupSizes(template, group, dominant) {
   const maxW = group._computed.maxW;
-
   const types = _.groupBy(group.elements, el => el.type);
+  const dominantFontSize = dominant ? dominant._computed.fontSize : 50;
+  const dominantWidth = dominant ? dominant._computed.w : maxW;
 
-
-  // Canva Width = (5.33216*Max Characters + 45.7198)
-  const headingSettings = {
+  const baseSettings = {
     maxWidth: maxW,
     minFontSize: MIN_FONT_SIZE,
-
-    // maxOptimalWidth: maxW, // Math.min(maxW, dominant._computed.w * 1.05), // TODO: Why 1.05
-    maxOptimalFontSize: 21.3, // Math.log(dominant._computed.fontSize) * 6,
-    // maxOptimalWidth: 0.536921 * dominant._computed.w + 55.3845,
-    optimalWidth: (5.33216 * (types.heading ? types.heading[0]._computed.maxCharacters : 0) + 45.7198) * 1.3
   }
-  computeElementsFontSizes(types.heading, headingSettings)
+
+  if(types.heading) {
+    const headingSettings = {
+      ...baseSettings,
+      maxOptimalFontSize: 21.3,
+      optimalWidth: (5.33216 * types.heading[0]._computed.maxCharacters + 45.7198) * 1.3
+    }
+    computeElementsFontSizes(types.heading, headingSettings)
+  }
 
   computeElementsFontSizes(types.bridge, {
-    ...headingSettings,
+    ...baseSettings,
     maxOptimalFontSize: 21.2, // (smallSize || smallSettings.maxOptimalFontSize) * 1.25
-    optimalFontSize: 0.0844872 * dominant._computed.fontSize + 7.86252
+    optimalFontSize: 0.0844872 * dominantFontSize + 7.86252
   })
   
   const bridge = types.bridge && types.bridge[0];
   computeElementsFontSizes(types.small, {
-    ...headingSettings,
+    ...baseSettings,
     maxOptimalFontSize: 18.6,
     optimalFontSize: bridge && (0.489407 * bridge._computed.fontSize + 5.22648),
-    optimalWidth: dominant._computed.w,
+    optimalWidth: dominantWidth,
   })
     
   computeElementsFontSizes(types.paragraph, {
-    ...headingSettings,
+    ...baseSettings,
     maxOptimalFontSize: 16,
     optimalFontSize: bridge && (0.438561 * bridge._computed.fontSize + 4.55792),
-    // optimalWidth: dominant._computed.w,
     optimalWidth: (3.10679 * (types.paragraph ? types.paragraph[0]._computed.maxCharacters : 0) + 62.8503) * 1.333,
   })
 

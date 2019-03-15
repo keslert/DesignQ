@@ -17,9 +17,9 @@ code {
     monospace;
 }
 
-.tiny-scroll::-webkit-scrollbar {
+/* .tiny-scroll::-webkit-scrollbar {
   height: 4px;
-}
+} */
 
 .tiny-scroll::-webkit-scrollbar-track {
   background: #262d3c;
