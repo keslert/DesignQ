@@ -36,7 +36,11 @@ function Gallery({flyerSize}) {
       <Flex flexWrap="wrap" p={2}>
         {_.map(flyers, flyer => (
           <Box p={2} key={flyer.title}>
-            <Frame scale={scale} width={flyerSize.w} height={flyerSize.h} flyer={flyer} />
+            <Frame 
+              scale={scale} 
+              flyer={flyer}
+              selectable={true}
+            />
             <Text textAlign="center">{flyer.id}</Text>
           </Box>
         ))}

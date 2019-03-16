@@ -7,7 +7,7 @@ import * as starters from '../core/data/starters';
 import { computeFlyer } from '../core/producer';
 import { Flex, Box } from 'rebass';
 import { generateFlyer, precompute } from '../core/generator';
-import { useKeyDown } from '../core/lib/hooks';
+import { useKeyDown, useWindowSize } from '../core/lib/hooks';
 
 const startFlyer = starters.simpleBody
 computeFlyer(startFlyer);
@@ -16,47 +16,53 @@ startFlyer._stage = {type: 'content'};
 precompute();
 
 export const DispatchContext = React.createContext();
+export const SelectionContext = React.createContext();
 
 function Queue({flyerSize}) {
-
+  
   const [state, dispatch] = useReducer(reducer, initialState);
+  const windowSize = useWindowSize();
   const stage = state.stage || state.secondary._stage;
 
   const handleKeyPress = useCallback(makeHandleKeyPress(dispatch), []);
   useKeyDown(handleKeyPress);
 
+  const showSidebar = state.showSidebar || state.selection;
+
   return (
     <DispatchContext.Provider value={dispatch}>
-      <Flex bg="white" flexDirection="column" style={{height: '100%'}}>
-        <NavBar stage={stage.type} />
-        <Flex flex={1}>
-          {state.showSidebar && <Sidebar flyer={state.primary} />}
-          <Flex flex={1} flexDirection="column">
-            <Box flex={1}>
-              <Canvas
-                stage={state.stage}
-                primary={state.primary}
-                secondary={state.secondary}
-                flyerSize={flyerSize} 
-              />
-            </Box>
+      <SelectionContext.Provider value={state.selection}>
+        <Flex bg="white" flexDirection="column" style={{height: '100%'}}>
+          <NavBar stage={stage.type} />
+          <Flex flex={1}>
+            {showSidebar && <Sidebar flyer={state.primary} />}
+            <Flex flex={1} flexDirection="column">
+              <Box flex={1}>
+                <Canvas
+                  stage={state.stage}
+                  primary={state.primary}
+                  secondary={state.secondary}
+                />
+              </Box>
 
-            <Timeline 
-              selectedIndex={state.index}
-              items={state.history}
-            />
+              <Timeline
+                width={windowSize.width - (showSidebar ? 280 : 0)}
+                selectedIndex={state.index}
+                items={state.history}
+              />
+            </Flex>
           </Flex>
+          <style>{`
+            body { 
+              overflow: hidden; 
+              height: 100vh; 
+            } 
+            #root { 
+              height: 100%; 
+            }
+          `}</style>
         </Flex>
-        <style>{`
-          body { 
-            overflow: hidden; 
-            height: 100vh; 
-          } 
-          #root { 
-            height: 100%; 
-          }
-        `}</style>
-      </Flex>
+      </SelectionContext.Provider>
     </DispatchContext.Provider>
   );
 }
@@ -69,13 +75,11 @@ const initialState = step({
   secondary: null,
   history: [],
   showSidebar: false,
-  selection: {
-    flyer: 'primary',
-    id: 'body-element-0',
-  },
+  selection: null,
   stage: null,
   index: 0,
 }, {skipHistory: true});
+initialState.secondary.id = 2;
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -89,6 +93,7 @@ const reducer = (state, action) => {
       return prevDesign(state);
 
     case 'SELECT':
+      return {...state, selection: action.selection};
     case 'TOGGLE_FAVORITE_PRIMARY_DESIGN':
     default:
       return state;
@@ -113,7 +118,7 @@ function step(state, options={}) {
   const baseFlyer = options.upgrade ? state.secondary : state.primary;
   options.stage = options.stage || state.stage;
   updates.secondary = generateFlyer(baseFlyer, options);
-  updates.secondary.id = state.history.length + 1;
+  updates.secondary.id = state.history.length + 3;
   computeFlyer(updates.secondary);
 
   return {...state, ...updates};

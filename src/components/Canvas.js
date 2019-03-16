@@ -11,6 +11,11 @@ import { DispatchContext } from '../containers/Queue';
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
   const [showComparison, setShowComparison] = useState(false);
+  const clearSelection = useCallback(e => {
+    if(e.target === e.currentTarget) {
+      rootDispatch({type: 'SELECT', selection: null});
+    }
+  })
 
   const scale = 0.75;
 
@@ -31,16 +36,23 @@ function Canvas(props) {
       style={{width: '100%', height: '100%'}} 
       justifyContent="center" 
       alignItems="center"
+      onClick={clearSelection}
     >
       <Flex flex={1} style={{height:"100%"}}>
-        <Flex flex={1} alignItems="center" justifyContent="center">
+        <Flex 
+          flex={1} 
+          alignItems="center" 
+          justifyContent="center" 
+          onClick={clearSelection}
+        >
           <Box>
             <FrameToolbar text={`Primary Design - #${primary.id}`} favorited={true} />
             <Frame 
               scale={scale} 
-              width={props.flyerSize.w} 
-              height={props.flyerSize.h} 
-              flyer={primary} 
+              width={primary._computed.bb.w} 
+              height={primary._computed.bb.h} 
+              flyer={primary}
+              selectable={true}
             />
             <Box pt={3} style={{height: 100, textAlign: 'center'}}>
               <Text color="gray" fontSize={0} mb={1} style={{textTransform: 'uppercase'}}>Currently Exploring</Text>
@@ -57,16 +69,22 @@ function Canvas(props) {
           onCompareUp={() => setShowComparison(false)}
         />
 
-        <Flex flex={1} bg="nearwhite" alignItems="center" justifyContent="center">
-
+        <Flex 
+          flex={1} 
+          bg="nearwhite" 
+          alignItems="center" 
+          justifyContent="center" 
+          onClick={clearSelection}
+        >
           {showPrimary && 
             <Box>
               <FrameToolbar text={`Exploratory Design - #${secondary.id}`} favorited={false} />
               <Frame 
                 scale={scale} 
-                width={props.flyerSize.w} 
-                height={props.flyerSize.h} 
-                flyer={secondary} 
+                width={secondary._computed.bb.w} 
+                height={secondary._computed.bb.h}
+                flyer={secondary}
+                selectable={true}
               />
               <Box pt={3} style={{height: 100, textAlign: 'center'}}>
                 <Button 

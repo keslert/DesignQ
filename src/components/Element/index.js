@@ -5,7 +5,7 @@ import BarElement from '../Element/BarElement';
 import { getBackgroundStyle } from '../../core/utils/render-utils';
 import Surface from '../Surface';
 
-function Element({element, index}) {
+function Element({element}) {
   const c = element._computed;
   const style = {
     position: 'absolute',
@@ -18,6 +18,7 @@ function Element({element, index}) {
     paddingLeft: c.pl + 'px',
     paddingRight: c.pr + 'px',
     boxSizing: 'border-box',
+    pointerEvents: 'none',
   }
 
   const Component = getElement(element.type);

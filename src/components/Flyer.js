@@ -1,41 +1,56 @@
 import React from 'react';
-import FlyerContent from './FlyerContent';
 import Background from './Background';
 import Surface from './Surface';
 import Element from './Element';
+import styled from 'styled-components';
+import Selectables from './Selectables';
 
-function Flyer({flyer}) {
+function Flyer({flyer, selectable}) {
   
-  const style = {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    userSelect: 'none',
-    overflow: 'hidden',
-    background: '#fff',
-  }
-
-  const elements = [
-    ...(flyer.content.header ? flyer.content.header.elements : []),
-    ...flyer.content.body.elements,
-    ...(flyer.content.footer ? flyer.content.footer.elements : []),
-  ]
+  const groups = [
+    flyer.content.header,
+    flyer.content.body,
+    flyer.content.footer,
+  ].filter(g => g)
+  
+  const elements = groups.map(g => g.elements).flat();
 
   return (
-    <div style={style}>
-      {true && <Surface surface={flyer} />}
-      {true && <Surface surface={flyer.content} />}
+    <S_Flyer>
+      <Surface surface={flyer} selectable={selectable} />
+      <Surface surface={flyer.content} selectable={selectable} />
 
-      {flyer.content.header && <Surface surface={flyer.content.header} />}
-      {flyer.content.body && <Surface surface={flyer.content.body} />}
-      {flyer.content.footer && <Surface surface={flyer.content.footer} />}
+      {groups.map(g => (
+        <Surface key={g.type} surface={g} selectable={selectable} />
+      ))}
 
-      {elements.map(el => <Element element={el} key={el._computed.id} />)}
+      {elements.map(el => (
+        <Element element={el} key={el._computed.id} selectable={selectable} />
+      ))}
+
+      {selectable && 
+        <Selectables
+          items={[
+            flyer,
+            flyer.content,
+            ...groups,
+            ...elements,
+          ]}
+        />
+      }
       
       {flyer.overlay && <Background background={flyer.overlay} />}
-    </div>
+    </S_Flyer>
   )
 }
 
 export default Flyer;
 
+const S_Flyer = styled.div({
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  userSelect: 'none',
+  overflow: 'hidden',
+  background: '#fff',
+})

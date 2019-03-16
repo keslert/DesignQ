@@ -63,11 +63,17 @@ function initSetup(template) {
   normalizeWidthAndHeight(template.content, 'fill', 'fill');
 
   withGroups(template, initGroup);
+
+  // Setup IDs
+  template.content.id = template.id + '-content'
+  withGroups(template, g => {
+    g.id = template.id + '-' + g.type;
+    g.elements.forEach((el, i) => el.id = g.id + '-' + el.type + '-' + i)
+  })
 }
 
 function initGroup(group, groupType) {
   group._computed = {};
-  group.isGroup = true;
   _.defaults(group, {
     w: 'fill',
     h: 'auto',

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@rehooks/component-size": "^1.0.2",
     "chroma-js": "^1.4.0",
     "downshift": "^3.2.7",
     "immer": "^2.1.3",
