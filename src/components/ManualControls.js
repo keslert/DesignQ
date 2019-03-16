@@ -4,6 +4,7 @@ import OpacityButton from './OpacityButton';
 import { Textarea } from './FormInput'
 import Slider from './Slider';
 import Select from './Select';
+import ColorPicker from './ColorPicker';
 
 function ManualControls(props) {
 
@@ -68,6 +69,24 @@ function ManualControls(props) {
           value={font.family}
           options={['Open Sans', 'Saratoga']}
         />
+      </ControlField>
+
+      <ControlField 
+        label="Color"
+        onExploreClick={() => null}
+      >
+        <ColorPicker
+          value={item.color}
+          palette={['#000', '#aaeeaa', '#aaaeaa']}
+          width={226}
+        />
+      </ControlField>
+
+      <ControlField 
+        label="Background"
+        onExploreClick={() => null}
+      >
+        
       </ControlField>
 
       <ControlField 

@@ -12,12 +12,12 @@ const inputStyles = props => ({
   fontSize: props.theme.fontSizes[1] + 'px',
   padding: '8px 10px',
   width: '100%',
-  transition: 'box-shadow .15s',
+  transition: 'border-color .15s',
   resize: 'none',
   background: props.theme.colors[props.bg],
   color: props.theme.colors[props.color],
   border: '1px solid hsla(222,23%,24%, 0.1)',
-  '&:focus': {
+  '&:focus, &:hover': {
     borderColor: props.theme.colors.blue,
   },
   '&::placeholder': {
