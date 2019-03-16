@@ -7,25 +7,33 @@ import { Box, Flex, Text } from 'rebass';
 
 const inputStyles = props => ({
   outline: 'none',
-  color: props.theme.colors.dark,
-  background: props.theme.colors.white,
   borderRadius: '3px',
   border: 'none',
   fontSize: props.theme.fontSizes[1] + 'px',
   padding: '8px 10px',
   width: '100%',
   transition: 'box-shadow .15s',
-  boxShadow: `0 1px 0px ${props.theme.colors.lightgray}`,
+  resize: 'none',
+  background: props.theme.colors[props.bg],
+  color: props.theme.colors[props.color],
+  border: '1px solid hsla(222,23%,24%, 0.1)',
   '&:focus': {
-    boxShadow: `0 2px 0px ${props.theme.colors.blue}`,
+    borderColor: props.theme.colors.blue,
   },
   '&::placeholder': {
     color: props.theme.colors.gray,
   }
 })
 
-const Input = styled.input(inputStyles)
-const Textarea = styled.textarea(inputStyles);
+const defaultProps = {
+  bg: 'white',
+  color: 'dark',
+}
+
+export const Input = styled.input(inputStyles)
+Input.defaultProps = defaultProps;
+export const Textarea = styled.textarea(inputStyles);
+Textarea.defaultProps = defaultProps;
 
 function FormInput(props) {
 
@@ -49,6 +57,7 @@ function FormInput(props) {
           rows={props.rows}
           placeholder={props.placeholder}
           onChange={props.onChange}
+          
         />
       </Box>
       <Text

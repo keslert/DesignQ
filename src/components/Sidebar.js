@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Flex } from 'rebass';
 import TabSvg from '../svg/tab.svg';
 import SearchInput from './SearchInput';
@@ -6,8 +6,11 @@ import SelectionTree from './SelectionTree';
 import Tabs from './Tabs';
 import ImagePicker from '../containers/ImagePicker';
 import ActionList from './ActionList';
+import ManualControls from './ManualControls';
+import { DispatchContext } from '../containers/Queue';
 
 function Sidebar(props) {
+  const rootDispatch = useContext(DispatchContext);
 
   return (
     <Flex 
@@ -19,7 +22,7 @@ function Sidebar(props) {
       style={{position: 'relative'}}
     >
       <Box 
-        onClick={() => null}
+        onClick={() => rootDispatch({type: 'SELECT', selected: null})}
         style={{position: 'absolute', right: "-16px", top: '0', cursor: 'pointer'}}
       >
         <TabSvg fill="currentColor" size={100} />
@@ -28,14 +31,14 @@ function Sidebar(props) {
       <Box mb={2}>
         <Tabs
           tabs={["AI Actions", "Manual Control"]}
-          selectedIndex={0}
+          selectedIndex={1}
           onClick={(tab, index) => null}
         />
       </Box>
 
 
-      <Box flex={1} style={{overflowY: 'auto'}}>
-      
+      <Box mx={-12} px={12} flex={1} style={{overflowY: 'auto'}}>
+        <ManualControls />
       </Box>
 
 

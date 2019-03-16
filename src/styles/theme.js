@@ -50,6 +50,11 @@ Object.entries(theme.colors).forEach(([color, value]) => {
   theme.colors[`${color}_darken`] = chroma(value).darken(.1).hex();
 })
 
+theme.colors.opposites = {
+  dark: theme.colors.white,
+  white: theme.colors.dark,
+}
+
 theme.buttons = {
   primary: {
     color: theme.colors.white,

@@ -74,7 +74,7 @@ const initialState = step({
   primary: startFlyer,
   secondary: null,
   history: [],
-  showSidebar: false,
+  showSidebar: true,
   selection: null,
   stage: null,
   index: 0,
