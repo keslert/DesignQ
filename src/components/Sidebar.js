@@ -14,10 +14,10 @@ function Sidebar(props) {
 
   return (
     <Flex 
-      width={270}
+      width={280}
       bg="off_dark"
       color="off_dark"
-      px="12px"
+      px="16px"
       flexDirection="column"
       style={{position: 'relative'}}
     >
@@ -37,7 +37,7 @@ function Sidebar(props) {
       </Box>
 
 
-      <Box mx={-12} px={12} flex={1} style={{overflowY: 'auto'}}>
+      <Box mx="-16px" px={16} flex={1} style={{overflowY: 'auto'}}>
         <ManualControls />
       </Box>
 
@@ -71,7 +71,7 @@ function Sidebar(props) {
           />
         </Box>
       }
-      <Box mx="-12px" bg="dark">
+      <Box mx="-16px" bg="dark">
         <SelectionTree
           flyer={props.flyer}
         />

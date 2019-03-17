@@ -5,22 +5,44 @@ import { Textarea } from './FormInput'
 import Slider from './Slider';
 import Select from './Select';
 import ColorPicker from './ColorPicker';
+import DirectionalInput from './DirectionalInput';
 
 function ManualControls(props) {
 
 
 
 // Text Element Props
-  // Text Type
-  // Color
+  // Bleed
+    // t
+    // l
+    // b
+    // r
+  // Padding (only shows if background or border)
+    // t
+    // l
+    // b
+    // r
+  
   // Background
     // - Color
     // - Image
     // Blend Mode
     // Filters
   // Border
+    // r
+    // l
+    // t
+    // b
+    // rOffset
+    // lOffset
+    // bOffset
+    // tOffset
   
-  const item = {}; // props.selection;
+  const item = {
+    color: 'rgba(255,0,0,.5)',
+    palette: ['#000', 'rgba(255,255,200,.5)', '#aaaeaa'],
+    bleed: {l: 0, r: 0, t: 0, b: 0},
+  }; // props.selection;
   const font = item.font || {
     family: 'Open Sans',
     size: 1,
@@ -42,6 +64,20 @@ function ManualControls(props) {
           bg="dark"
           color="white"
           value={item._text}
+          onChange={() => null}
+        />
+      </ControlField>
+
+      <ControlField 
+        label="Bleed"
+        onExploreClick={() => null}
+      >
+        <DirectionalInput
+          name="bleed"
+          l={item.bleed.l}
+          r={item.bleed.r}
+          t={item.bleed.t}
+          b={item.bleed.b}
           onChange={() => null}
         />
       </ControlField>
@@ -76,8 +112,9 @@ function ManualControls(props) {
         onExploreClick={() => null}
       >
         <ColorPicker
-          value={item.color}
-          palette={['#000', '#aaeeaa', '#aaaeaa']}
+          onChangeComplete={color => console.log(color)}
+          color={item.color}
+          palette={item.palette}
           width={226}
         />
       </ControlField>
@@ -165,10 +202,26 @@ function ManualControls(props) {
         onExploreClick={() => null}
       >
         <Slider
-          name="letter-spacing"
+          name="letterSpacing"
           bg="dark"
           color="white"
           value={font.letterSpacing}
+          step={.05}
+          min={-.1}
+          max={3}
+          showValue={true}
+        />
+      </ControlField>
+
+      <ControlField 
+        label="Margin"
+        onExploreClick={() => null}
+      >
+        <Slider
+          name="mb"
+          bg="dark"
+          color="white"
+          value={item.mb}
           step={.05}
           min={-.1}
           max={3}

@@ -3,6 +3,7 @@ import { Flex, Box } from 'rebass';
 import { CustomPicker } from 'react-color';
 import { 
   Alpha, 
+  ColorWrap,
   EditableInput, 
   Hue, 
   Saturation, 
@@ -11,7 +12,6 @@ import styled from 'styled-components';
 
 function ColorPicker(props) {
   const [open, setOpen] = useState(false);
-
   return (
     <Box bg="dark" p="8px 10px" style={{position: 'relative', borderRadius: '3px'}} onClick={() => setOpen(true)}>
 
@@ -28,7 +28,7 @@ function ColorPicker(props) {
             width: '100%',
             padding: '8px 10px 8px 42px'
           }}}
-          value={props.hex}
+          value={props.rgb.a < 1 ? `rgba(${props.rgb.r}, ${props.rgb.g}, ${props.rgb.b}, ${props.rgb.a})` : props.hex}
           onChange={props.onChange}
         />
       </Box>
@@ -40,32 +40,47 @@ function ColorPicker(props) {
 
           <Flex mx="-2px" mb={2}>
             {props.palette.map(color => 
-              <Swatch key={color} color={color} />
+              <Swatch 
+                onClick={() => props.onChange(color)}
+                key={color} 
+                color={color} 
+              />
             )}
           </Flex>
 
 
           <Box 
-            style={{position: 'relative', height: '100px'}} 
+            style={{position: 'relative', height: '150px'}} 
             mb={2}
           >
-            <Saturation {...props} />
+            <Saturation 
+              hsl={props.hsl}
+              hsv={props.hsv}
+              onChange={props.onChange}
+            />
           </Box>
 
           <Box 
-            style={{
-              position: 'relative', 
-              height: "10px"
-            }}
+            style={{position: 'relative', height: "10px"}}
             mb={2}
-            children={<Hue {...props} />}
-          />
+          >
+            <Hue 
+              hsl={props.hsl} 
+              onChange={props.onChange}
+            />
+          </Box>
             
           <Box 
             style={{position: 'relative', height: '10px'}} 
             bg="white"
-            children={<Alpha {...props} />}
-          />
+          >
+            <Alpha  
+              rgb={props.rgb}
+              hsl={props.hsl}
+              renderers={props.renderers}
+              onChange={props.onChange}
+            />
+          </Box>
           
         </Box>
       }
@@ -73,7 +88,7 @@ function ColorPicker(props) {
   )
 }
 
-export default CustomPicker(ColorPicker);
+export default ColorWrap(ColorPicker);
 
 const Swatch = styled.div(props => ({
   margin: '0 2px',

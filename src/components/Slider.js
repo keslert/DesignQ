@@ -11,7 +11,7 @@ const S_Slider = styled.input(props => ({
   '::-webkit-slider-thumb': {
     WebkitAppearance: 'none',
     width: '12px', /* Set a specific slider handle width */
-    height: '12px', /* Slider handle height */
+    height: '24px', /* Slider handle height */
     background: props.theme.colors.white, /* Green background */
     cursor: 'pointer', /* Cursor on hover */
     borderRadius: '9999px',
