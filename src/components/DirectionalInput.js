@@ -22,6 +22,8 @@ function DirectionalInput(props) {
         <Text fontSize={0} color="white" textAlign="center" mb={1} children="left" />
         <Input
           type="number"
+          min={props.min}
+          max={props.max}
           bg="off_dark"
           color="white"
           value={props.l}
@@ -35,6 +37,8 @@ function DirectionalInput(props) {
           <Text fontSize={0} color="white" textAlign="center" mb={1} children="top" />
           <Input
             type="number"
+            min={props.min}
+            max={props.max}
             bg="off_dark"
             color="white"
             value={props.t}
@@ -45,6 +49,8 @@ function DirectionalInput(props) {
         <Box p={2}>
           <Input
             type="number"
+            min={props.min}
+            max={props.max}
             bg="off_dark"
             color="white"
             value={props.b}
@@ -59,6 +65,8 @@ function DirectionalInput(props) {
         <Text fontSize={0} color="white" textAlign="center" mb={1} children="right" />
         <Input
           type="number"
+          min={props.min}
+          max={props.max}
           bg="off_dark"
           color="white"
           value={props.r}

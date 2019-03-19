@@ -16,7 +16,7 @@ function Selectables({items}) {
     <React.Fragment>
       {items.map((item, i) => (
         <Selectable
-          key={item._computed.id}
+          key={item.id}
           data-index={i}
           onClick={handleClick}
           selected={selection && selection.id === item.id}
@@ -40,7 +40,6 @@ const Selectable = styled.div(props => ({
   '&:hover': {
     border: '2px solid ' + props.theme.colors.blue,
   }
-
 }))
 
 

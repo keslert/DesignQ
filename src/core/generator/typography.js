@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
+import { getFromCache, getDesiredNumberOfFlyers, validCache } from '.';
 
 // font family & text transform
 // font sizes [0-2]
@@ -9,6 +10,7 @@ export const basicStages = [
   {
     type: 'typography', 
     focus: 'primary', 
+    label: 'Primary Font',
     satisfied: flyer => {
       return false;
     }, 
@@ -17,6 +19,7 @@ export const basicStages = [
   {
     type: 'typography', 
     focus: 'secondary', 
+    label: 'Secondary Font',
     satisfied: flyer => {
       return false;
     },
@@ -24,7 +27,11 @@ export const basicStages = [
   },
 ]
 
-export function generatePrimary(flyer, {templates}) {
+const primaryCache = {};
+export function generatePrimary(flyer, {templates, multiple}) {
+  // if(validCache(flyer, primaryCache)) {
+  //   return getFromCache(primaryCache, multiple);
+  // }
 
   const flyers = _.map(templates, template => {
     const copy = copyTemplate(flyer);
@@ -39,9 +46,17 @@ export function generatePrimary(flyer, {templates}) {
         el.font = templateEl ? templateEl.font : getDefaultFontProps(dominantFamily, el.type, secondaryFamily);
       }
     })
+    copy.genId = flyer.id;
     return copy;
   })
+  flyers.sort((a, b) => a._score <= b._score ? -1 : 1);
+
   return flyers;
+  // primaryCache.index = primaryCache.index || 0;
+  // primaryCache.flyers = flyers;
+  // primaryCache.genId = flyer.id;
+
+  // return getDesiredNumberOfFlyers(flyers, 0, multiple);
 }
 
 export function generateSecondary(flyer, options) {

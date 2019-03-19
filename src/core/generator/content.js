@@ -10,6 +10,7 @@ export const basicStages = [
   {
     type: 'content', 
     focus: 'text',
+    label: 'Content',
     generate: generateContent,
     satisfied: f => {
       console.log("Content:Text is satisfied.");
@@ -20,12 +21,12 @@ export const basicStages = [
 
 // The purpose of generateContent is to focus the user on content
 function generateContent(flyer, { userInput }) {
-  const flyerCopy = copyTemplate(flyer);
-  flyerCopy._textTypes = userInput ? userInput.text : [];
+  const copy = copyTemplate(flyer);
+  copy._textTypes = userInput ? userInput.text : [];
 
-  mimicTemplateLayout(flyerCopy, flyer); 
+  mimicTemplateLayout(copy, flyer); 
 
-  return [flyerCopy];
+  return [copy];
 }
 
 // export function insertTextIntoTemplates(text, templates) {
@@ -174,6 +175,13 @@ export function mimicTemplateLayout(flyer, template) {
       }
     })
   })
+
+  // Delete groups that don't exist anymore
+  const extraneousGroups = _.difference(flyer._groups.map(g => g.type), Object.keys(groups), ['body']);
+  extraneousGroups.forEach(g => {
+    delete flyer.content[g];
+  })
+
 }
 
 function buildDefaultGroup(template, groupType) {

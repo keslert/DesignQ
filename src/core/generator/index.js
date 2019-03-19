@@ -73,7 +73,8 @@ export function precompute() {
   computeTypographyStats(templates);
 }
 
-export function generateFlyer(flyer, _options={}) {
+
+export function generateFlyers(flyer, _options={}) {
   normalizeTemplate(flyer);
   const options = {
     ..._options,
@@ -82,15 +83,8 @@ export function generateFlyer(flyer, _options={}) {
   const stage = getStage(flyer, options)
 
   const generated = stage.generate(flyer, options);
-
-  if(options.variations) {
-    const flyers = generated.slice(options.variations);
-    flyers.forEach(f => f._stage = stage);
-    return flyers;
-  }
-
-  generated[0]._stage = stage;
-  return generated[0];
+  generated.forEach(f => f._stage = stage);
+  return generated;
 }
 
 function getStage(flyer, options) {
@@ -103,6 +97,29 @@ function getStage(flyer, options) {
   }
 
   return stage || _.find(journey, stage => !stage.satisfied(flyer))
+}
+
+export function getStageFoci(stage) {
+  return _.filter(journey, s => s.type === stage.type);
+}
+
+export function validCache(flyer, cache) {
+  return cache.flyers && 
+    (flyer.id === cache.genId || flyer.genId === cache.genId)
+}
+
+export function getDesiredNumberOfFlyers(flyers, index, multiple) {
+  return multiple 
+    ? flyers.slice(index, multiple)
+    : flyers[index]
+}
+
+export function getFromCache(cache, multiple) {
+  cache.index++;
+  if(cache.index >= cache.flyers.length) {
+    cache.index = 0;
+  }
+  return getDesiredNumberOfFlyers(cache.flyers, cache.index, multiple);
 }
 
 // function generateStage(flyer, history, stage) {

@@ -1,19 +1,20 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useContext } from 'react';
 import Frame from '../components/Frame';
 import styled from 'styled-components';
 import theme from '../styles/theme';
 import { Box } from 'rebass';
 import { FixedSizeList as List } from 'react-window';
+import { DispatchContext } from './Queue';
 
 function Timeline({items, selectedIndex, width}) {
   const listRef = useRef();
   const [preview, setPreview] = useState({});
+  const rootDispatch = useContext(DispatchContext);
 
   const handleMouseEnter = useCallback(e => {
-    const index = e.target.dataset.index;
-    const flyer = items[index];
+    const flyer = items[e.target.dataset.index];
 
-    const offset = e.target.parentElement.offsetLeft
+    const offset = e.target.parentElement.offsetLeft + 2
       - e.target.parentElement.parentElement.parentElement.scrollLeft;
 
     const left = Math.min(width - 50, offset);
@@ -22,10 +23,19 @@ function Timeline({items, selectedIndex, width}) {
 
   const handleMouseLeave = useCallback(e => void setPreview({}))
 
+  const handleClick = useCallback(e => {
+    const index = Number.parseInt(e.target.dataset.index)
+    rootDispatch({type: 'SET_INDEX', index})
+  })
+
 
   useEffect(() => {
     listRef.current.scrollToItem(items.length);
   }, [items])
+
+  useEffect(() => {
+    listRef.current.scrollToItem(selectedIndex);
+  }, [selectedIndex])
 
   return (
     <Box 
@@ -56,6 +66,7 @@ function Timeline({items, selectedIndex, width}) {
           <Tick
             onMouseEnter={handleMouseEnter}
             onMouseMove={handleMouseEnter}
+            onClick={handleClick}
             // onMouseLeave={handleMouseLeave}
             data-index={index}
             selected={index === selectedIndex}
@@ -76,7 +87,7 @@ function Tick({flyer, style, ...props}) {
     <div style={style}>
       <S_Tick
         {...props}
-        bg={COLORS[flyer._stage.type]}
+        bg={COLORS[flyer._upgradeTo ? 'upgrade' : flyer._stage.type]}
       />
     </div>
   )
@@ -91,17 +102,17 @@ const S_Tick = styled(Box)(props => ({
   borderLeft: props.selected ? '2px solid ' + props.theme.colors.dark : null,
   borderRight: props.selected ? '2px solid ' + props.theme.colors.dark : null,
 
-  '&:hover': {
-    borderLeft: '2px solid ' + props.theme.colors.dark,
-    borderRight: '2px solid ' + props.theme.colors.dark,
-    margin: "0 1px",
-    width: "10px",
-  }
+  // '&:hover': {
+  //   borderLeft: '2px solid ' + props.theme.colors.dark,
+  //   borderRight: '2px solid ' + props.theme.colors.dark,
+  //   margin: "0 1px",
+  //   width: "10px",
+  // }
 }))
 
 const Preview = styled.div(props => ({
   position: 'absolute',
-  bottom: '20px',
+  bottom: '21px',
   left: props.left + 'px',
 }))
 
@@ -114,4 +125,5 @@ const COLORS = {
   decoration: theme.colors.pink,
   polish: theme.colors.purple,
   finish: theme.colors.blue,
+  upgrade: theme.colors.dark,
 };

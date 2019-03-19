@@ -1,12 +1,14 @@
 import React, { useCallback, useState, useContext } from 'react';
-
-import { Flex, Box, Text } from 'rebass';
 import Button from './Button';
 import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 import CanvasToolbar from './CanvasToolbar';
 import ContentForm from '../containers/ContentForm';
+import FrameGallery from './FrameGallery';
 import { DispatchContext } from '../containers/Queue';
+import { Flex, Box, Text } from 'rebass';
+import { getStageFoci } from '../core/generator';
+import { useKeyDown } from '../core/lib/hooks';
 
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
@@ -15,21 +17,36 @@ function Canvas(props) {
     if(e.target === e.currentTarget) {
       rootDispatch({type: 'SELECT', selection: null});
     }
-  })
+  }, [])
 
-  const scale = 0.75;
+  const scale = 0.8;
 
-  const showContentForm = props.secondary._stage.type === 'content';
+  const showContentForm = props.stage && props.stage.type === 'content';
+  const showGallery = props.viewMode === 'grid';
 
   const showPrimary = !showContentForm;
+  const showSecondary = !showGallery && !showContentForm;
+
+  const handleKeyPress = useCallback(
+    showSecondary ? makeHandleKeyPress(rootDispatch) : null, 
+    [showSecondary]
+  );
+  useKeyDown(handleKeyPress);
+  
+  const showUpgrade = showPrimary;
+  const showCompare = showPrimary;
+  const showResume = showPrimary && props.stage;
+  const showGridBtn = showPrimary;
+  const showMerge = showPrimary;
+  
   const primary = (showComparison || !showPrimary)
     ? props.secondary
     : props.primary
   const secondary = props.secondary;
+  const list = props.list || [];
 
-  const showUpgrade = showPrimary;
-  const showCompare = showPrimary;
-  const showResume = showPrimary && props.stage;
+  const stage = props.stage || props.secondary._stage;
+  const foci = getStageFoci(stage);
 
   return (
     <Flex 
@@ -46,7 +63,11 @@ function Canvas(props) {
           onClick={clearSelection}
         >
           <Box>
-            <FrameToolbar text={`Primary Design - #${primary.id}`} favorited={true} />
+            <FrameToolbar 
+              text={`Primary Design - #${primary.id}`}
+              viewFavorites={true}
+              onClick={() => rootDispatch({type: 'VIEW_FAVORITES'})} 
+            />
             <Frame 
               scale={scale} 
               width={primary._computed.bb.w} 
@@ -56,15 +77,32 @@ function Canvas(props) {
             />
             <Box pt={3} style={{height: 100, textAlign: 'center'}}>
               <Text color="gray" fontSize={0} mb={1} style={{textTransform: 'uppercase'}}>Currently Exploring</Text>
-              <Text color="gray">Borders | Text Decals</Text>
+              <Flex justifyContent="center" style={{overflowX: 'auto'}}>
+                {foci.map((item, i) => (
+                  <Text
+                    as="div"
+                    className="sibling-divider"
+                    key={item.label}
+                    color={stage.focus === item.focus ? 'dark' : 'gray'}
+                    fontWeight={stage.focus === item.focus ? 'bold' : 'normal'}
+                    fontSize={2}
+                    style={{cursor: 'pointer'}}
+                    children={item.label}
+                    onClick={() => rootDispatch({type: 'SET_STAGE', stage: item})}
+                  />
+                ))}
+              </Flex>
             </Box>
           </Box>
         </Flex>
         
         <CanvasToolbar
+          viewMode={props.viewMode}
           showResume={showResume}
           showUpgrade={showUpgrade}
           showCompare={showCompare}
+          showGrid={showGridBtn}
+          showMerge={showMerge}
           onCompareDown={() => setShowComparison(true)}
           onCompareUp={() => setShowComparison(false)}
         />
@@ -76,9 +114,13 @@ function Canvas(props) {
           justifyContent="center" 
           onClick={clearSelection}
         >
-          {showPrimary && 
+          {showSecondary && 
             <Box>
-              <FrameToolbar text={`Exploratory Design - #${secondary.id}`} favorited={false} />
+              <FrameToolbar 
+                text={`Exploratory Design - #${secondary.id}`} 
+                favorited={secondary._favorited}
+                onClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
+              />
               <Frame 
                 scale={scale} 
                 width={secondary._computed.bb.w} 
@@ -102,6 +144,17 @@ function Canvas(props) {
             />
           }
 
+          {showGallery &&
+            <FrameGallery
+              flyers={props.list}
+              selected={secondary}
+              size={{
+                width: (props.size.width / 2) - 1,
+                height: props.size.height,
+              }}
+            />
+          }
+
         </Flex>
       </Flex>
     </Flex>
@@ -110,11 +163,18 @@ function Canvas(props) {
 
 export default Canvas;
 
-function getScale(size, maxSize) {
-  const scale = Math.min(
-    size.w / maxSize.w,
-    size.h / maxSize.h,
-    1
-  );
-  return scale;
+const makeHandleKeyPress = dispatch => e => {
+  if(e.target.hasOwnProperty('value')) return; // don't listen to input or textarea.
+
+  if(e.code === 'ArrowRight') { 
+    const type = e.shiftKey ? 'STEP' : 'NEXT';
+    dispatch({type});
+  } 
+  else if(e.code === 'ArrowLeft') {
+    dispatch({type: 'PREV'})
+  }
+  else if(e.code === 'Space') { // spacebar
+    e.preventDefault();
+    dispatch({type: 'STEP', upgrade: true});
+  }
 }

@@ -3,7 +3,7 @@ import { Flex, Box, Text } from 'rebass';
 import Frame from '../../components/Frame';
 import * as starterTemplates from '../../core/data/starters';
 import { computeFlyer } from '../../core/producer';
-import { generateFlyer, precompute } from '../../core/generator';
+import { generateFlyers, precompute } from '../../core/generator';
 import _ from 'lodash';
 
 const flyer = starterTemplates.empty;
@@ -14,21 +14,21 @@ function ContentGallery({flyerSize}) {
     precompute();
     computeFlyer(flyer, flyerSize);
     
-    const contentFlyer = generateFlyer(flyer, {
+    const contentFlyer = generateFlyers(flyer, {
       stage: {type: 'content', focus: 'elements'}, 
       userInput: {text: starterTemplates.basicText},
     });
     computeFlyer(contentFlyer, flyerSize)
     setFlyers([contentFlyer]);
 
-    const layoutFlyers = generateFlyer(contentFlyer, {
+    const layoutFlyers = generateFlyers(contentFlyer, {
       stage: {type: 'layout', focus: 'elements'},
       variations: 999,
     });
     layoutFlyers.forEach(f => computeFlyer(f, flyerSize));
     setFlyers(layoutFlyers);
 
-    const typographyFlyers = generateFlyer(layoutFlyers[6], {
+    const typographyFlyers = generateFlyers(layoutFlyers[6], {
       stage: {type: 'typography', focus: 'primary'},
       variations: 999,
     });

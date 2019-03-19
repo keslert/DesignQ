@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import { Lexer, Tagger } from 'pos';
-import { copyTemplate, normalizeTemplate } from '../utils/template-utils';
+import { copyTemplate } from '../utils/template-utils';
 import { mimicTemplateLayout } from './content';
+import { getDesiredNumberOfFlyers, getFromCache, validCache } from '.';
 
 const tagger = new Tagger();
 
@@ -36,103 +37,30 @@ export const basicStages = [
 ]
 
 
-function generateElements(flyer, {history, templates}) {
+const cache = {};
+function generateElements(flyer, {history, templates, multiple}) {
+  // if(validCache(flyer, cache)) {
+  //   return getFromCache(cache, multiple);
+  // }
 
   // const list = [63, 31, 58, 83].map(id => _.find(templates, t => t.id == id));
-  const list = templates;
-
-
-  const flyers = _.map(list, template => {
+  // cache.index = cache.index || 0;
+  // cache.genId = flyer.id;
+  // cache.flyer = flyer;
+  const flyers = _.map(templates, template => {
     const copy = copyTemplate(flyer);
     mimicTemplateLayout(copy, template);
+    copy.genId = flyer.id;
     return copy;
   })
+  flyers.sort((a, b) => a._score < b._score ? 1 : -1);
 
   return flyers;
 
-  // const makeUniq = text => {
-  //   return _.chain(text)
-  //     .groupBy('type')
-  //     // make each descriptive unique. "descriptive0"
-  //     .flatMap(items => items.map((item, i) => item.type + i))
-  //     .value();
-  // }
-
-  // const textTypes = makeUniq(flyer._user.text);
-
-  // const results = _.map(templates, t => {
-  //   const _textTypes = makeUniq(t._text);
-  //   const unmatched =  _.difference(textTypes, _textTypes).map(t => t.slice(0, -1));
-  //   const excessive = _.difference(_textTypes, textTypes).map(t => t.slice(0, -1));
-  //   const remainingDescriptive = _.filter(excessive, t => t === 'descriptive').length;
-
-  //   // lower score is better.
-  //   let score = unmatched.length * 100 + excessive.length * 25;
-  //   score -= Math.min(unmatched.length, remainingDescriptive) * 10;
-
-  //   return { template: t, score }
-  // })
-
-  // const sorted = _.sortBy(results, 'score');
-
-
-  // make the easy matches and see what elements are leftover.
-  // match the remaining based on matching character lengths
-
-  
-  // let the matching begin.
-
-  // sorted by type match
-
-  // TODO: This should use the same process as templates for getting text from the elements
-  // and only use the user text as a backup.
-  const flyerText = flyer._user.text;
-
-  const flyerTypes = getGroupedTypes(flyerText);
-
-  _.forEach(templates, t => {
-    const templateTypes = getGroupedTypes(t._text);
-    
-    matchTypes(flyerTypes, templateTypes);
-    scoreTemplateMatchTypes(t);
-  })
-
-  const sorted = _.sortBy(templates, '_score');
-
-  const validTemplates = _.filter(sorted, t => true);
-
-  const builds = validTemplates.map(t => transferElements(flyer, t));
-
-
-  console.log(sorted);
-  
+  // return getDesiredNumberOfFlyers(cache.flyers, 0, multiple);
 }
 
-function transferElements(flyer, template) {
 
-  const copy = makeFlyerCopy(flyer);
-
-  template._groups.forEach(g => {
-    const groupProps = flyer.content[g.groupType] || defaultGroupProps;
-    flyer.content[g.groupType] = {...groupProps};
-    
-    const elements = g.elements.map(el => {
-      const match = el._match;
-      // const text = match ? match.text : el.
-
-
-    })
-    flyer.content[g.groupType].elements = elements;
-
-
-  })
-
-}
-
-function makeFlyerCopy(flyer) {
-  // TODO: Only copy the relevant properties
-  return _.cloneDeep(flyer);
-}
 
 function matchTypes(f, t) {
   f.specifics.forEach(s => s._matched = false);
@@ -162,17 +90,7 @@ function matchTypes(f, t) {
   }
 }
 
-function scoreTemplateMatchTypes(template) {
-  const scores = template._text.map(t => {
-    if(!t._match) return 1000;
 
-    const typeScore = t.type === t._match.type ? 0 : 100;
-    const characterScore = Math.abs(t.text.length - t._match.text.length);
-    return typeScore + characterScore;
-  })
-
-  template._score = _.sum(scores);
-}
 
 
 function getLineBreaks(text, options) {
@@ -200,12 +118,6 @@ function subtract(a, b) {
 }
 
 
-function getGroupedTypes(text) {
-  return {
-    specifics: _.filter(text, t => t.type !== 'descriptive'),
-    generics: _.filter(text, t => t.type === 'descriptive'),
-  }
-}
 
 // var taggedWords = tagger.tag(words);
 // for (i in taggedWords) {
@@ -290,21 +202,3 @@ function getGroupedTypes(text) {
 //   ],
 //   // mood: 'bright', // Influences color palette
 // }
-
-
-
-
-const defaultElementProps = {
-  color: { hex: '#000000' },
-  font: {
-    family: 'Glacial Indifference',
-    letterSpacing: 0,
-    size: 1,
-    transform: 'normal',
-    weight: 400,
-  }
-}
-
-const defaultGroupProps = {
-  
-}

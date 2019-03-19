@@ -17,15 +17,15 @@ function Flyer({flyer, selectable}) {
 
   return (
     <S_Flyer>
-      <Surface surface={flyer} selectable={selectable} />
-      <Surface surface={flyer.content} selectable={selectable} />
+      <Surface surface={flyer} />
+      <Surface surface={flyer.content} />
 
       {groups.map(g => (
-        <Surface key={g.type} surface={g} selectable={selectable} />
+        <Surface key={g.type} surface={g} />
       ))}
 
       {elements.map(el => (
-        <Element element={el} key={el._computed.id} selectable={selectable} />
+        <Element element={el} key={el._computed.id} />
       ))}
 
       {selectable && 

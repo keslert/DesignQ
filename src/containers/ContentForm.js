@@ -44,15 +44,15 @@ function ContentForm(props) {
     rootDispatch({
       type: 'STEP', 
       stage: TEXT_STAGE, 
-      skipHistory: true, 
+      skipHistory: true,
+      forceGeneration: true,
       userInput: {text}
     })
   }, [state])
 
   const handleDone = useCallback(() => {
     // Clear the stage so the generator can take over.
-    rootDispatch({type: 'SET_STAGE', stage: null, upgrade: true});
-    // rootDispatch({type: 'STEP', upgrade: true});
+    rootDispatch({type: 'SET_STAGE', stage: null, upgrade: true, forceAdvanceStage: true});
   })
 
 

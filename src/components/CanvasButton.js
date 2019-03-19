@@ -3,7 +3,7 @@ import { Box, Flex, Text } from 'rebass';
 import styled from 'styled-components';
 
 const Button = styled(Flex)(props => ({
-  border: `1px solid ${props.theme.colors.lightgray}`,
+  border: `1px solid ${props.theme.colors[props.bg === 'nearwhite' ? 'lightgray' : props.bg + '_darken']}`,
   '&:hover': {
     background: props.theme.colors[props.bg + '_darken'],
   },
@@ -19,7 +19,7 @@ const Button = styled(Flex)(props => ({
   'svg': {
     fill: 'currentColor',
   },
-  padding: '8px'
+  padding: '8px 0'
 
 }))
 

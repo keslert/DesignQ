@@ -15,7 +15,7 @@ const theme = {
 
     // dark: '#353D4D',
     dark: '#262d3c',
-    off_dark: 'hsla(222, 23%, 24%, 1)',
+    off_dark: 'hsla(222, 19%, 28%, 1)',
     
     
     blue: '#2A81F4',
