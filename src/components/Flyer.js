@@ -25,7 +25,7 @@ function Flyer({flyer, selectable}) {
       ))}
 
       {elements.map(el => (
-        <Element element={el} key={el._computed.id} />
+        <Element element={el} key={el.id} />
       ))}
 
       {selectable && 

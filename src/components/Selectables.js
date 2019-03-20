@@ -19,7 +19,7 @@ function Selectables({items}) {
           key={item.id}
           data-index={i}
           onClick={handleClick}
-          selected={selection && selection.id === item.id}
+          selected={selection === item}
           left={item._computed.bb.l}
           top={item._computed.bb.t}
           width={item._computed.bb.w}

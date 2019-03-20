@@ -10,13 +10,30 @@ export const basicStages = [
   {
     type: 'content', 
     focus: 'text',
-    label: 'Content',
+    label: 'Text',
     generate: generateContent,
     satisfied: f => {
-      console.log("Content:Text is satisfied.");
       return _.some(f.content.body.elements, el => el.type === 'dominant')
     }
   },
+]
+
+export const advancedStages = [];
+
+export const optionalStages = [
+  {
+    type: 'content', 
+    focus: 'media',
+    label: 'Images',
+    generate: generateContent,
+    satisfied: () => true
+  },
+]
+
+export const stages = [
+  ...basicStages,
+  ...advancedStages,
+  ...optionalStages,
 ]
 
 // The purpose of generateContent is to focus the user on content
@@ -330,7 +347,7 @@ function _computeContentStats(templates) {
   _contentStats = {};
   _.forEach(templates, template => {
     const text = template._textTypes;
-    const groups = _.groupBy(text, t => t.element._computed.id);
+    const groups = _.groupBy(text, t => t.element.id);
 
     text.forEach(t => {
       _contentStats[t.type] = _contentStats[t.type] || _.cloneDeep(defaultTextTypeInfo);
@@ -338,7 +355,7 @@ function _computeContentStats(templates) {
       safeIncrement(o.elementTypes, t.element.type);
       safeIncrement(o.groupTypes, t.element._group.type)
       safeIncrement(o.prevElementTypes, t.element._prev && t.element._prev.type)
-      groups[t.element._computed.id].forEach(t => {
+      groups[t.element.id].forEach(t => {
         safeIncrement(o.buddyTypes, t.type)
       })
 

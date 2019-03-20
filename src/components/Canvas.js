@@ -1,5 +1,4 @@
 import React, { useCallback, useState, useContext } from 'react';
-import Button from './Button';
 import Frame from './Frame';
 import FrameToolbar from './Frame/Toolbar';
 import CanvasToolbar from './CanvasToolbar';
@@ -7,7 +6,6 @@ import ContentForm from '../containers/ContentForm';
 import FrameGallery from './FrameGallery';
 import { DispatchContext } from '../containers/Queue';
 import { Flex, Box, Text } from 'rebass';
-import { getStageFoci } from '../core/generator';
 import { useKeyDown } from '../core/lib/hooks';
 
 function Canvas(props) {
@@ -19,34 +17,34 @@ function Canvas(props) {
     }
   }, [])
 
-  const scale = 0.8;
+  const scale = 0.75;
 
+  const haveList = props.list && props.list.length;
   const showContentForm = props.stage && props.stage.type === 'content';
-  const showGallery = props.viewMode === 'grid';
+  const showGallery = !showContentForm && (props.viewMode === 'grid'|| haveList);
 
   const showPrimary = !showContentForm;
   const showSecondary = !showGallery && !showContentForm;
 
+  // Only listen for keypresses when secondary is visible.
   const handleKeyPress = useCallback(
     showSecondary ? makeHandleKeyPress(rootDispatch) : null, 
     [showSecondary]
   );
   useKeyDown(handleKeyPress);
   
+  const showNext = showPrimary && !haveList;
+  const showResume = showPrimary && props.stage !== props.generationStage;
+  const showAdvance = !showResume && showPrimary;
   const showUpgrade = showPrimary;
   const showCompare = showPrimary;
-  const showResume = showPrimary && props.stage;
-  const showGridBtn = showPrimary;
-  const showMerge = showPrimary;
+  const showGridBtn = showPrimary && !haveList;
+  const showMerge = false && showPrimary;
   
   const primary = (showComparison || !showPrimary)
     ? props.secondary
     : props.primary
   const secondary = props.secondary;
-  const list = props.list || [];
-
-  const stage = props.stage || props.secondary._stage;
-  const foci = getStageFoci(stage);
 
   return (
     <Flex 
@@ -75,29 +73,13 @@ function Canvas(props) {
               flyer={primary}
               selectable={true}
             />
-            <Box pt={3} style={{height: 100, textAlign: 'center'}}>
-              <Text color="gray" fontSize={0} mb={1} style={{textTransform: 'uppercase'}}>Currently Exploring</Text>
-              <Flex justifyContent="center" style={{overflowX: 'auto'}}>
-                {foci.map((item, i) => (
-                  <Text
-                    as="div"
-                    className="sibling-divider"
-                    key={item.label}
-                    color={stage.focus === item.focus ? 'dark' : 'gray'}
-                    fontWeight={stage.focus === item.focus ? 'bold' : 'normal'}
-                    fontSize={2}
-                    style={{cursor: 'pointer'}}
-                    children={item.label}
-                    onClick={() => rootDispatch({type: 'SET_STAGE', stage: item})}
-                  />
-                ))}
-              </Flex>
-            </Box>
           </Box>
         </Flex>
         
         <CanvasToolbar
           viewMode={props.viewMode}
+          showNext={showNext}
+          showAdvance={showAdvance}
           showResume={showResume}
           showUpgrade={showUpgrade}
           showCompare={showCompare}
@@ -114,7 +96,7 @@ function Canvas(props) {
           justifyContent="center" 
           onClick={clearSelection}
         >
-          {showSecondary && 
+          {!showSecondary ? null : 
             <Box>
               <FrameToolbar 
                 text={`Exploratory Design - #${secondary.id}`} 
@@ -128,25 +110,17 @@ function Canvas(props) {
                 flyer={secondary}
                 selectable={true}
               />
-              <Box pt={3} style={{height: 100, textAlign: 'center'}}>
-                <Button 
-                  variant="light"
-                  onClick={() => rootDispatch({type: 'STEP'})}
-                  children="Next Design"
-                />
-                <Text color='gray' fontSize={1}>or press the right arrow</Text>
-              </Box>
             </Box>
           }
-          {showContentForm && 
+          {!showContentForm ? null :
             <ContentForm 
               flyer={secondary}
             />
           }
 
-          {showGallery &&
+          {!showGallery ? null :
             <FrameGallery
-              flyers={props.list}
+              flyers={haveList ? props.list : props.generation}
               selected={secondary}
               size={{
                 width: (props.size.width / 2) - 1,

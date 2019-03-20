@@ -2,19 +2,19 @@ import _ from 'lodash';
 import { generateLayout } from './layout';
 
 import { 
-  basicStages as layoutStages, 
-  prepareTemplate as layoutTemplatePrep,
+  basicStages as basicLayoutStages,
 } from './layout';
-import { 
-  basicStages as contentStages,
+import {
+  stages as contentStages,
+  basicStages as basicContentStages,
   computeContentStats,
 } from './content';
 import { 
-  basicStages as colorStages,
+  basicStages as basicColorStages,
   computeColorStats,
 } from './color';
 import { 
-  basicStages as typographyStages,
+  basicStages as basicTypographyStages,
   computeTypographyStats,
 } from './typography';
 
@@ -29,10 +29,10 @@ _.forEach(templates, t => {
 
 
 const journey = [
-  ...contentStages,
-  ...layoutStages,
-  ...colorStages,
-  ...typographyStages,
+  ...basicContentStages,
+  ...basicLayoutStages,
+  ...basicColorStages,
+  ...basicTypographyStages,
 ]
 
 // Iterations spent in area
@@ -99,8 +99,16 @@ function getStage(flyer, options) {
   return stage || _.find(journey, stage => !stage.satisfied(flyer))
 }
 
-export function getStageFoci(stage) {
-  return _.filter(journey, s => s.type === stage.type);
+
+// TODO: Update to use all stages.
+const STAGES = {
+  content: contentStages,
+  layout: basicLayoutStages,
+  typography: basicTypographyStages,
+  color: basicColorStages,
+}
+export function getStageFoci(type) {
+  return STAGES[type] || [];
 }
 
 export function validCache(flyer, cache) {

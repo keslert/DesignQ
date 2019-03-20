@@ -6,7 +6,7 @@ import SelectionTree from './SelectionTree';
 import Tabs from './Tabs';
 import ImagePicker from '../containers/ImagePicker';
 import ActionList from './ActionList';
-import ManualControls from './ManualControls';
+import EditPanel from './EditPanel';
 import { DispatchContext } from '../containers/Queue';
 
 function Sidebar(props) {
@@ -30,7 +30,7 @@ function Sidebar(props) {
 
       <Box mb={2}>
         <Tabs
-          tabs={["AI Actions", "Manual Control"]}
+          tabs={["AI Actions", "User Edits"]}
           selectedIndex={1}
           onClick={(tab, index) => null}
         />
@@ -38,7 +38,9 @@ function Sidebar(props) {
 
 
       <Box mx="-16px" px={16} flex={1} style={{overflowY: 'auto'}}>
-        <ManualControls />
+        <EditPanel 
+          selection={props.selection}
+        />
       </Box>
 
 
@@ -73,7 +75,7 @@ function Sidebar(props) {
       }
       <Box mx="-16px" bg="dark">
         <SelectionTree
-          flyer={props.flyer}
+          flyer={props.selection._computed.template}
         />
       
       </Box>

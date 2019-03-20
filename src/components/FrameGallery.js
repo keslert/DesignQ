@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect, useLayoutEffect } from 'react';
 import Frame from './Frame';
 import { Box, Flex } from 'rebass';
 import { FixedSizeGrid as Grid } from 'react-window';
@@ -38,21 +38,25 @@ const PL = 12 + 25;
 const PR = 12;
 const COLUMNS = 2;
 function FrameGallery({flyers, size, selected}) {
+  const ref = useRef();
   const dispatch = useContext(DispatchContext);
   const width = size.width - PL - PR;
   const columnWidth = width / COLUMNS
-
-  const bb = flyers[0]._computed.bb;
-
+  const bb = flyers[0] ? flyers[0]._computed.bb : {};
   const scale = (columnWidth - FLYER_PX * 2) / bb.w;
   const flyerHeight = bb.h * scale + FLYER_PY * 2 + TOOLBAR_HEIGHT;
+
+  useLayoutEffect(() => {
+    const index = Math.max(flyers.indexOf(selected), 0)
+    ref.current.scrollToItem({rowIndex: Math.floor(index / COLUMNS + .01), columnIndex: 0, align: 'center'})
+  }, [flyers])
 
   const data = {
     scale,
     flyers, 
     selected,
     onClick: flyer => {
-      dispatch({type: 'STEP', secondary: flyer});
+      dispatch({type: 'SET_SECONDARY', secondary: flyer, preserveList: true});
     },
     onFavorite: flyer => {
       dispatch({type: 'TOGGLE_FAVORITE', flyer});
@@ -62,6 +66,7 @@ function FrameGallery({flyers, size, selected}) {
   return (
     <Flex flexWrap="wrap" pl={PL} pr={PR} justifyContent="center">
       <Grid
+        ref={ref}
         itemData={data}
         columnCount={COLUMNS}
         columnWidth={columnWidth}

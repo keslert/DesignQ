@@ -8,12 +8,8 @@ import { computeBackgrounds } from './backgrounds';
 import { calculateHeightResize } from './height';
 import _ from 'lodash';
 
-// Intentions object
-  // abstract description of flyer
-  // can have many instantiations.
-// Instantiation of intentions object
-  // detailed description of flyer
 
+let elementId = 0;
 export const CONTENT_GROUPS = ['header', 'footer', 'body'];
 
 // Line breaks have already been determined at this point.
@@ -22,6 +18,7 @@ export function computeFlyer(template, size={w: 480, h:670}) {
 
   initSetup(template)
   template._computed.size = size;
+  template._computed.template = template;
   
   computeBorders(template);
   computeDecor(template);
@@ -51,7 +48,9 @@ function initSetup(template) {
   normalize(template);
   normalizeDecor(template);
   
+  template.content.id = 'content';
   template.content._computed = {};
+  template.content._computed.template = template;
   _.defaults(template.content, {
     w: 'fill',
     h: 'fill',
@@ -62,18 +61,24 @@ function initSetup(template) {
   normalize(template.content);
   normalizeWidthAndHeight(template.content, 'fill', 'fill');
 
-  withGroups(template, initGroup);
+  withGroups(template, (group, groupType) => {
+    group.id = groupType;
+    group._computed = {};
+    group._computed.content = template.content;
+    group._computed.template = template;
+    initGroup(group, groupType);
+  });
 
   // Setup IDs
-  template.content.id = template.id + '-content'
-  withGroups(template, g => {
-    g.id = template.id + '-' + g.type;
-    g.elements.forEach((el, i) => el.id = g.id + '-' + el.type + '-' + i)
-  })
+  // template.content.id = template.id + '-content'
+  // withGroups(template, g => {
+  //   g.id = template.id + '-' + g.type;
+  //   g.elements.forEach((el, i) => el.id = g.id + '-' + el.type + '-' + i)
+  // })
 }
 
 function initGroup(group, groupType) {
-  group._computed = {};
+  
   _.defaults(group, {
     w: 'fill',
     h: 'auto',
@@ -89,17 +94,18 @@ function initGroup(group, groupType) {
   normalizeWidthAndHeight(group, 'fill', 'auto');
 
   group.elements.forEach((el, i) => {
-    el.isElement = true;
+    el.id = el.id || elementId++;
     el._computed = {};
-    el._computed.id = group.type + '-' + i;
     el._computed.index = i;
     el._computed.isFirst = i === 0;
     el._computed.isLast = i === (group.elements.length - 1);
     el._computed.prev = group.elements[i - 1];
     el._computed.next = group.elements[i + 1];
     el._computed.group = group;
+    el._computed.content = group._computed.content;
+    el._computed.template = group._computed.template;
     normalize(el);
-    normalizeWidthAndHeight(group, 'auto', 'auto');
+    // normalizeWidthAndHeight(el, 'auto', 'auto');
 
     _.defaults(el, {
       w: elementDefaultWidth(el),
@@ -235,3 +241,9 @@ export function withGroups(template, cb, groups=CONTENT_GROUPS) {
     .filter(g => template.content[g])
     .map(g => cb(template.content[g], g))
 }
+
+// Intentions object
+  // abstract description of flyer
+  // can have many instantiations.
+// Instantiation of intentions object
+  // detailed description of flyer

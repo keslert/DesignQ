@@ -10,7 +10,7 @@ function TreeNode(props) {
   return (
     <Flex 
       p="2px"
-      pl={8 * props.indent + 8}
+      pl={8 * props.indent + 16}
       pr="12px"
       bg={props.selected ? 'blue' : null}
       color={props.disabled ? '#ffffff55' : 'white'}
@@ -48,10 +48,10 @@ function SelectionTree({flyer}) {
   }, [flyer]);
 
   return (
-    <Box pt="8px" pb="12px">
+    <Box pt="12px" pb="12px">
       <Text
-        px="8px"
-        py="4px"
+        px="16px"
+        pb="8px"
         fontWeight="bold"
         color="white"
         fontSize={1}
@@ -82,7 +82,7 @@ function SelectionTree({flyer}) {
                   disabled={!g.elements.length}
                 />
                 {g.elements.map((el, index) => (
-                  <Draggable key={el._computed.id} draggableId={`${g.type}-${index}`} index={index}>
+                  <Draggable key={el.id} draggableId={`${g.type}-${index}`} index={index}>
                     {(provided, snapshot) => (
                       <div
                         ref={provided.innerRef}

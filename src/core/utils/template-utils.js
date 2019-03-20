@@ -68,7 +68,7 @@ export function getTextTypes(template) {
       } else {
         ret.push({
           type: line.type,
-          elementId: el._computed.id,
+          elementId: el.id,
           elementType: el.type,
           groupType: el._group.type,
           element: el, // TODO: Delete...

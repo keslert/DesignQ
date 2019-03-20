@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import ArrowSvg from '../svg/arrow.svg';
 import EyeSvg from '../svg/eye.svg';
-import PlaySvg from '../svg/play.svg';
+import FlyerSvg from '../svg/flyer.svg';
+import JourneySvg from '../svg/journey.svg';
 import GridSvg from '../svg/grid.svg';
 import MergeSvg from '../svg/merge.svg';
+import PlaySvg from '../svg/play.svg';
 import CanvasButton from './CanvasButton';
 import { Flex } from 'rebass';
 import { DispatchContext } from '../containers/Queue';
-import theme from '../styles/theme';
-
 
 function CanvasToolbar(props) {
 
@@ -22,16 +22,31 @@ function CanvasToolbar(props) {
       justifyContent="center" 
       alignItems="center" 
       style={{position: 'relative'}}
-      pb={100}
     >
+      {props.showAdvance && 
+        <CanvasButton
+          mb={2}
+          onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
+          SvgComponent={<JourneySvg size={40} />}
+          label="Next Stage"
+          highlight={props.highlightAdvance}
+        />
+      }
       {props.showResume && 
         <CanvasButton
           mb={2}
-          bg="blue"
-          color="white"
           onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
-          SvgComponent={<PlaySvg size={24} />}
+          SvgComponent={<PlaySvg size={21} />}
           label="Resume"
+          highlight={true}
+        />
+      }
+      {props.showNext && 
+        <CanvasButton
+          mb={2}
+          onClick={() => dispatch({type: 'STEP'})}
+          SvgComponent={<FlyerSvg size={30} />}
+          label="Next Design"
         />
       }
       {props.showUpgrade && 
@@ -48,6 +63,7 @@ function CanvasToolbar(props) {
           onMouseDown={props.onCompareDown}
           onMouseUp={props.onCompareUp}
           SvgComponent={<EyeSvg size={30} />}
+          inset={true}
           label="Compare"
         />
       }
@@ -57,6 +73,7 @@ function CanvasToolbar(props) {
           onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
           SvgComponent={<GridSvg size={34} />}
           color={props.viewMode === 'grid' ? 'blue' : 'dark'}
+          highlight={props.viewMode === 'grid'}
           label="Grid View"
         />
       }

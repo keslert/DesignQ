@@ -26,7 +26,7 @@ function Element({element}) {
     <React.Fragment>
       <Surface surface={element} />
       <div 
-        key={c.id}
+        key={element.id}
         style={style}
         children={<Component element={element} />}
       />

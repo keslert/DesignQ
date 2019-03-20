@@ -1,10 +1,34 @@
 import _ from 'lodash';
 
 export const basicStages = [
-	{ type: "color", focus: "background", effort: 10, confidence: 10 },
-	{ type: "color", focus: "foreground", effort: 10, confidence: 10 }
+	{ 
+		type: "color", 
+		focus: "background", 
+		label: 'Background',
+		satisfied: (flyer) => {
+			return false;
+		},
+		generate: generateBackground,
+	},
+	{ 
+		type: "color", 
+		focus: "foreground", 
+		label: 'Foreground',
+		satisfied: (flyer) => {
+			return false;
+		},
+		generate: generateForeground,
+	}
 ];
 
+
+function generateBackground(flyer, options) {
+	return [flyer, flyer];
+}
+
+function generateForeground(flyer, options) {
+	return [flyer, flyer];
+}
 
 
 // Search for elements in my group

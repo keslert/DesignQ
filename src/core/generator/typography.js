@@ -25,6 +25,15 @@ export const basicStages = [
     },
     generate: generateSecondary,
   },
+  {
+    type: 'typography', 
+    focus: 'size',
+    label: 'Font Sizes',
+    satisfied: flyer => {
+      return false;
+    },
+    generate: generateSecondary,
+  },
 ]
 
 const primaryCache = {};
