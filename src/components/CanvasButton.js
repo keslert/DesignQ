@@ -4,30 +4,35 @@ import styled from 'styled-components';
 
 const Button = styled(Flex)(props => ({
   border: `1px solid ${props.theme.colors[
-    props.highlight ? props.color :
     props.bg === 'nearwhite' ? 'lightgray' : props.bg + '_darken'
   ]}`,
   '&:hover': {
     background: props.theme.colors[props.bg + '_darken'],
   },
   '&:active': {
-    boxShadow: props.inset && 'inset 0 1px 2px 0px rgb(178, 186, 204)',
-    border: props.inset ? 'none' : undefined,
-    paddingTop: props.inset ? '10px' : undefined,
+    boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
+    border: 'none',
+    paddingTop: '10px',
   },
-  width: '68px',
-  height: '64px',
+  width: '72px',
+  height: '72px',
   borderRadius: '2px',
   cursor: 'pointer',
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
   flexShrink: 0,
+  letterSpacing: '.025em',
   userSelect: 'none',
   'svg': {
     fill: 'currentColor',
   },
-  padding: '8px 0'
+  padding: '8px 0', 
+  ...(!props.highlight ? {} : {
+    boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
+    border: 'none',
+    paddingTop: '10px',
+  })
 
 }))
 

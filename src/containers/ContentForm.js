@@ -52,7 +52,7 @@ function ContentForm(props) {
 
   const handleDone = useCallback(() => {
     // Clear the stage so the generator can take over.
-    rootDispatch({type: 'SET_STAGE', stage: null, upgrade: true, forceAdvanceStage: true});
+    rootDispatch({type: 'ADVANCE_STAGE', upgrade: true});
   })
 
 

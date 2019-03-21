@@ -34,7 +34,7 @@ function Canvas(props) {
   useKeyDown(handleKeyPress);
   
   const showNext = showPrimary && !haveList;
-  const showResume = showPrimary && props.stage !== props.generationStage;
+  const showResume = false;
   const showAdvance = !showResume && showPrimary;
   const showUpgrade = showPrimary;
   const showCompare = showPrimary;
@@ -120,7 +120,7 @@ function Canvas(props) {
 
           {!showGallery ? null :
             <FrameGallery
-              flyers={haveList ? props.list : props.generation}
+              flyers={haveList ? props.list : props.stage.currentGeneration}
               selected={secondary}
               size={{
                 width: (props.size.width / 2) - 1,

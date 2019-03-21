@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const SubNavItem = styled.div(props => ({
+  display: 'flex',
+  alignItems: 'center',
   cursor: 'pointer',
   color: props.theme.colors.dark,
   background: props.selected ? props.theme.colors.white : 'none',

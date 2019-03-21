@@ -9,36 +9,39 @@ const tagger = new Tagger();
 export const basicStages = [
   {
     type: 'layout', 
-    focus: 'elements',
-    label: 'Elements',
-    generate: generateElements,
-    satisfied: f => {
-      // Is all text assigned to an object?
-      // Are there other assignments that make sense?
-      
-      // Do we have proper line-breaking?
-
-      // element line break confidence
-      // element element confidence
-
-      return false;
-    },
+    focus: 'structure',
+    label: 'Structure',
+    generate: generateStructure,
+    satisfied: () => true,
   },
   {
     type: 'layout', 
-    focus: 'elements-to-groups', 
-    label: 'Layout',
-    satisfied: f => {
-      // confidence
-
-      return false;
-    }
+    focus: 'order', 
+    label: 'Element Ordering',
+    generate: generateOrder,
+    satisfied: () => true,
   },
+  // {
+  //   type: 'layout', 
+  //   focus: 'line-breaks', 
+  //   label: 'Line Breaks',
+  //   generate: generateOrder,
+  //   satisfied: f => {
+  //     return false;
+  //   },
+  // },
 ]
 
+export const advancedStages = [];
+export const optionalStages = []
+export const stages = [
+  ...basicStages,
+  ...advancedStages,
+  ...optionalStages,
+]
 
 const cache = {};
-function generateElements(flyer, {history, templates, multiple}) {
+function generateStructure(flyer, {history, templates, multiple}) {
   // if(validCache(flyer, cache)) {
   //   return getFromCache(cache, multiple);
   // }
@@ -60,34 +63,10 @@ function generateElements(flyer, {history, templates, multiple}) {
   // return getDesiredNumberOfFlyers(cache.flyers, 0, multiple);
 }
 
-
-
-function matchTypes(f, t) {
-  f.specifics.forEach(s => s._matched = false);
-
-  // First pass: find specific matches
-  for(let i = 0; i < t.specifics.length; i++) {
-    const tText = t.specifics[i];
-    tText._match = _.find(f.specifics, ({type}) => type === tText.type);
-    if(tText._match) {
-      tText._match._matched = true;
-    }
-  }
-
-  const f_unmatchedSpecifics = _.filter(f.specifics, s => !s._matched);
-  const t_unmatchedSpecifics = _.filter(t.specifics, s => !s._match);
-
-  const f_unmatched = _.sortBy([...f_unmatchedSpecifics, ...f.generics], t => t.text.length);
-  const t_unmatched = _.sortBy([...t_unmatchedSpecifics, ...t.generics], t => t.text.length);
-
-  for(let i = 0; i < f_unmatched.length; i++) {
-    const fText = f_unmatched[i];
-    const tText = t_unmatched[i];
-    if(tText) {
-      tText._match = fText;
-      fText._matched = true;
-    }
-  }
+function generateOrder(flyer, {}) {
+  return _.range(0, 2).map(f => {
+    return copyTemplate(flyer);
+  })
 }
 
 

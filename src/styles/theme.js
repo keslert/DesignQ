@@ -49,7 +49,7 @@ const theme = {
 Object.entries(theme.colors).forEach(([color, value]) => {
   theme.colors[`${color}_darken`] = chroma(value).darken(.1).hex();
   theme.colors[`${color}_dark`] = chroma(value).darken(2.5).hex();
-  theme.colors[`${color}_light`] = chroma.mix(value, 'white', .7).hex();
+  theme.colors[`${color}_light`] = chroma.mix(value, 'white', .72).hex();
 })
 
 theme.colors.opposites = {

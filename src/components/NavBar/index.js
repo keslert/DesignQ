@@ -11,8 +11,10 @@ import NavMarker from './NavMarker';
 import { Flex, Box } from 'rebass';
 import QSvg from '../../svg/q.svg';
 import { DispatchContext } from '../../containers/Queue';
+import { ProgressTypes } from "../../core/journey";
 import SubNavItem from './SubNavItem';
-import { getStageFoci } from '../../core/generator';
+import NavText from './NavText';
+import { STAGES } from '../../core/generator';
 
 const stages = [
   {label: 'Content', color: 'green', type: 'content'}, 
@@ -32,13 +34,13 @@ const getUpdate = (target, color) => {
   }
 }
 
-function NavBar({stage}) {
+function NavBar({stage, recommendedStage, stageProgress}) {
   const ref = useRef();
   const rootDispatch = useContext(DispatchContext)
   
   const selectedIndex = stages.findIndex(s => s.type === stage.type);
   const [hover, setHover] = useState({l: 50, w: 0})
-  const [marker, setMarker] = useState({l: 50, w: 0});
+  const [marker, setMarker] = useState({l: 50, w: 0, color: 'green'});
 
   const handleMouseEnter = useCallback(e => {
     setHover(getUpdate(e.target));
@@ -51,7 +53,8 @@ function NavBar({stage}) {
   }, [selectedIndex])
 
   const handleClick = useCallback((type, _focus) => {
-    const focus = _focus || getStageFoci(type)[0].focus;
+    const stages = STAGES[type];
+    const focus = _focus || (stages[0] ? stages[0].focus : null);
     rootDispatch({type: 'SET_STAGE', stage: {type, focus}});
   }, [])
 
@@ -62,11 +65,19 @@ function NavBar({stage}) {
     setHover(getUpdate(child));
   }, [selectedIndex])
 
-  const foci = getStageFoci(stage.type);
+
+  const stageFocusVisible = recommendedStage && stage.type === recommendedStage.type;
+  const stageCueVisible = recommendedStage 
+    && stage.progress !== ProgressTypes.UNEXPLORED
+    && recommendedStage !== stage
+  const stageCueHighlighted = stage.progress === ProgressTypes.THOROUGHLY_EXPLORED;
+  const stageCueFlashing = stage.exhausted;
+
+  const foci = STAGES[stage.type];
 
   return (
     <Box>
-      <Flex style={{position: 'relative'}} ref={ref} bg="dark">
+      <Flex style={{position: 'relative', zIndex: 1000}} ref={ref} bg="dark">
         <NavItem flex={0} py={0} bg={marker.color} width={50} mr="1px">
           <QSvg fill='currentColor' size={20} />
         </NavItem>
@@ -76,9 +87,20 @@ function NavBar({stage}) {
             onMouseLeave={handleMouseLeave}
             key={stage.label}
             color={stage.color}
-            children={stage.label} 
             selected={i === selectedIndex}
             onClick={() => handleClick(stage.type)}
+            children={
+              <NavText
+                text={stage.label}
+                visible={
+                  stageCueVisible 
+                  && !stageFocusVisible 
+                  && recommendedStage && recommendedStage.type === stage.type
+                }
+                highlight={stageCueHighlighted}
+                flashing={stageCueFlashing}
+              />
+            } 
           />
         ))}
         <NavMarker 
@@ -100,15 +122,30 @@ function NavBar({stage}) {
         bg={marker.color + '_light'} 
         pl={50} 
         alignItems="center"
-        style={{height: 40}}
+        style={{
+          height: 40, 
+          position: 'relative',
+          zIndex: 999, 
+          boxShadow: '0 0px 1px rgba(0,0,0,.25)'
+        }}
       >
-        {foci.map(({focus, label}) => (
+        {foci.map(({type, focus, label}) => (
           <Box key={focus} mr={1}>
             <SubNavItem
-              color={marker.color}
               selected={focus === stage.focus}
-              onClick={() => handleClick(stage.type, focus)}
-              children={label}
+              onClick={() => handleClick(type, focus)}
+              children={
+                <NavText
+                  text={label}
+                  visible={
+                    stageCueVisible 
+                    && stageFocusVisible 
+                    && focus === recommendedStage.focus
+                  }
+                  highlight={stageCueHighlighted}
+                  flashing={stageCueFlashing}
+                />
+              }
             />
           </Box>
         ))}

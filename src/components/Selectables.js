@@ -30,12 +30,14 @@ function Selectables({items}) {
   )
 }
 
-const Selectable = styled.div(props => ({
-  position: 'absolute',
+const Selectable = styled.div.attrs(props => ({
   left: (props.left - 1) + 'px',
   top: (props.top - 1) + 'px',
   height: (props.height + 2) + 'px',
   width: (props.width + 2) + 'px',
+}))(props => ({
+  position: 'absolute',
+  
   border: props.selected ? '2px solid ' + props.theme.colors.blue : null,
   '&:hover': {
     border: '2px solid ' + props.theme.colors.blue,

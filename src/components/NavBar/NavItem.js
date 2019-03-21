@@ -2,10 +2,6 @@ import { Flex } from 'rebass'
 import styled from 'styled-components';
 
 const NavItem = styled(Flex)(props => ({
-  '&:before': {
-    content: 'L',
-  },
-
   color: props.theme.colors.white,
   cursor: 'pointer',
   fontWeight: 'bold',

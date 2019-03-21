@@ -34,7 +34,7 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
 const TOOLBAR_HEIGHT = 16;
 const FLYER_PX = 12;
 const FLYER_PY = 20;
-const PL = 12 + 25;
+const PL = 12 + 36; // CanvasButton.width/2
 const PR = 12;
 const COLUMNS = 2;
 function FrameGallery({flyers, size, selected}) {

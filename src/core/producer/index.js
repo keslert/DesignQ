@@ -9,7 +9,7 @@ import { calculateHeightResize } from './height';
 import _ from 'lodash';
 
 
-let elementId = 0;
+let elementId = 100000;
 export const CONTENT_GROUPS = ['header', 'footer', 'body'];
 
 // Line breaks have already been determined at this point.

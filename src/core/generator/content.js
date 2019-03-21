@@ -1,10 +1,7 @@
 import _ from 'lodash';
 import { copyTemplate, safeIncrement } from '../utils/template-utils';
 import { getElementFont } from './typography';
-import { 
-  getElementColor, 
-  mimicSurface,
-} from './color';
+import { getElementColor, mimicSurface } from './color';
 
 export const basicStages = [
   {
@@ -19,15 +16,14 @@ export const basicStages = [
 ]
 
 export const advancedStages = [];
-
 export const optionalStages = [
-  {
-    type: 'content', 
-    focus: 'media',
-    label: 'Images',
-    generate: generateContent,
-    satisfied: () => true
-  },
+  // {
+  //   type: 'content', 
+  //   focus: 'media',
+  //   label: 'Images',
+  //   generate: generateContent,
+  //   satisfied: () => true
+  // },
 ]
 
 export const stages = [

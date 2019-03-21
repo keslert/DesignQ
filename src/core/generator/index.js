@@ -2,19 +2,18 @@ import _ from 'lodash';
 import { generateLayout } from './layout';
 
 import { 
-  basicStages as basicLayoutStages,
+  stages as layoutStages,
 } from './layout';
 import {
   stages as contentStages,
-  basicStages as basicContentStages,
   computeContentStats,
 } from './content';
 import { 
-  basicStages as basicColorStages,
+  stages as colorStages,
   computeColorStats,
 } from './color';
 import { 
-  basicStages as basicTypographyStages,
+  stages as typographyStages,
   computeTypographyStats,
 } from './typography';
 
@@ -22,112 +21,31 @@ import { templates } from '../templates';
 import { computeFlyer } from '../producer';
 import { normalizeTemplate } from '../utils/template-utils';
 
-_.forEach(templates, t => {
-  computeFlyer(t);
-  normalizeTemplate(t);
-})
-
-
-const journey = [
-  ...basicContentStages,
-  ...basicLayoutStages,
-  ...basicColorStages,
-  ...basicTypographyStages,
-]
-
-// Iterations spent in area
-  // Individual attention?
-  // Collective attention?
-  // Manual attention?
-    // Manual tweak
-    // Guided AI Action
-// Confidence in area
-
-/*
-Stage
-- type: 'layout' | 'color'
-- focus: 'line-breaks' | 'background'
-- action?: 'increase-font-size'
-- selection?: ['body-element-header-0']
-*/
-// Is it possible to run multiple stages?
-  // Yes, just do multiple forced stages.
-
-
-
-/*
-options = {
-  history,
-  stage,
-  action,
-  selection,
-  templates,
-  userInput,
-}
-*/
 
 export function precompute() {
+  _.forEach(templates, t => (computeFlyer(t), normalizeTemplate(t)))
   computeContentStats(templates);
   // computeLayoutStats(templates);
   computeColorStats(templates);
   computeTypographyStats(templates);
 }
 
-
-export function generateFlyers(flyer, _options={}) {
+export function generateFlyers(flyer, stage, options={}) {
   normalizeTemplate(flyer);
-  const options = {
-    ..._options,
-    templates: _options.templates || templates,
-  }
-  const stage = getStage(flyer, options)
+  options.templates = templates;
 
-  const generated = stage.generate(flyer, options);
-  generated.forEach(f => f._stage = stage);
+  const _stage = _.find(STAGES[stage.type], s => s.focus === stage.focus)
+  const generated = _stage.generate(flyer, options);
+  // generated.forEach(f => f._stage = stage);
   return generated;
 }
 
-function getStage(flyer, options) {
-  let stage;
-  if(options.stage) {
-    stage = _.find(journey, s => 
-      s.type === options.stage.type 
-      && (!options.stage.focus || options.stage.focus === s.focus)
-    )
-  }
-
-  return stage || _.find(journey, stage => !stage.satisfied(flyer))
-}
-
-
 // TODO: Update to use all stages.
-const STAGES = {
+export const STAGES = {
   content: contentStages,
-  layout: basicLayoutStages,
-  typography: basicTypographyStages,
-  color: basicColorStages,
-}
-export function getStageFoci(type) {
-  return STAGES[type] || [];
-}
-
-export function validCache(flyer, cache) {
-  return cache.flyers && 
-    (flyer.id === cache.genId || flyer.genId === cache.genId)
-}
-
-export function getDesiredNumberOfFlyers(flyers, index, multiple) {
-  return multiple 
-    ? flyers.slice(index, multiple)
-    : flyers[index]
-}
-
-export function getFromCache(cache, multiple) {
-  cache.index++;
-  if(cache.index >= cache.flyers.length) {
-    cache.index = 0;
-  }
-  return getDesiredNumberOfFlyers(cache.flyers, cache.index, multiple);
+  layout: layoutStages,
+  typography: typographyStages,
+  color: colorStages,
 }
 
 // function generateStage(flyer, history, stage) {

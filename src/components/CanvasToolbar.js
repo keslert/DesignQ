@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import ArrowSvg from '../svg/arrow.svg';
 import EyeSvg from '../svg/eye.svg';
 import FlyerSvg from '../svg/flyer.svg';
+import LightbulbSvg from '../svg/lightbulb.svg';
 import JourneySvg from '../svg/journey.svg';
 import GridSvg from '../svg/grid.svg';
 import MergeSvg from '../svg/merge.svg';
 import PlaySvg from '../svg/play.svg';
 import CanvasButton from './CanvasButton';
-import { Flex } from 'rebass';
+import { Flex, Box } from 'rebass';
 import { DispatchContext } from '../containers/Queue';
 
 function CanvasToolbar(props) {
@@ -23,45 +24,51 @@ function CanvasToolbar(props) {
       alignItems="center" 
       style={{position: 'relative'}}
     >
-      {props.showAdvance && 
-        <CanvasButton
-          mb={2}
-          onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
-          SvgComponent={<JourneySvg size={40} />}
-          label="Next Stage"
-          highlight={props.highlightAdvance}
-        />
-      }
-      {props.showResume && 
-        <CanvasButton
-          mb={2}
-          onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
-          SvgComponent={<PlaySvg size={21} />}
-          label="Resume"
-          highlight={true}
-        />
-      }
-      {props.showNext && 
-        <CanvasButton
-          mb={2}
-          onClick={() => dispatch({type: 'STEP'})}
-          SvgComponent={<FlyerSvg size={30} />}
-          label="Next Design"
-        />
-      }
-      {props.showUpgrade && 
-        <CanvasButton
-          mb={2}
-          onClick={() => dispatch({type: 'STEP', upgrade: true})}
-          SvgComponent={<ArrowSvg size={24} />}
-          label="Upgrade"
-        />
-      }
+      <Box mb={3}>
+        {props.showAdvance && 
+          <CanvasButton
+            mb={2}
+            onClick={() => dispatch({type: 'ADVANCE_STAGE'})}
+            SvgComponent={<JourneySvg size={45} />}
+            label="Next Stage"
+            highlight={props.highlightAdvance}
+          />
+        }
+        {/* {props.showResume && 
+          <CanvasButton
+            mb={2}
+            onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
+            SvgComponent={<PlaySvg size={21} />}
+            label="Resume"
+            highlight={true}
+          />
+        } */}
+      </Box>
+      <Box mb={3}>
+        {props.showNext && 
+          <CanvasButton
+            mb={2}
+            onClick={() => dispatch({type: 'STEP'})}
+            SvgComponent={<LightbulbSvg size={32} />}
+            label="Next Design"
+          />
+        }
+        {props.showUpgrade && 
+          <CanvasButton
+            mb={2}
+            onClick={() => dispatch({type: 'STEP', upgrade: true})}
+            SvgComponent={<ArrowSvg size={24} />}
+            label="Upgrade"
+          />
+        }
+      </Box>
+      
       {props.showCompare && 
         <CanvasButton
           mb={2}
           onMouseDown={props.onCompareDown}
           onMouseUp={props.onCompareUp}
+          onMouseLeave={props.onCompareUp}
           SvgComponent={<EyeSvg size={30} />}
           inset={true}
           label="Compare"

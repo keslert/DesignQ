@@ -1,33 +1,42 @@
 import _ from 'lodash';
+import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
 
 export const basicStages = [
 	{ 
 		type: "color", 
 		focus: "background", 
 		label: 'Background',
-		satisfied: (flyer) => {
-			return false;
-		},
+		satisfied: () => true,
 		generate: generateBackground,
 	},
 	{ 
 		type: "color", 
 		focus: "foreground", 
 		label: 'Foreground',
-		satisfied: (flyer) => {
-			return false;
-		},
+		satisfied: () => true,
 		generate: generateForeground,
 	}
 ];
 
+export const advancedStages = [];
+export const optionalStages = []
+export const stages = [
+  ...basicStages,
+  ...advancedStages,
+  ...optionalStages,
+]
+
 
 function generateBackground(flyer, options) {
-	return [flyer, flyer];
+	return _.range(0, 2).map(f => {
+    return copyTemplate(flyer);
+  })
 }
 
 function generateForeground(flyer, options) {
-	return [flyer, flyer];
+	return _.range(0, 2).map(f => {
+    return copyTemplate(flyer);
+  })
 }
 
 

@@ -11,29 +11,31 @@ export const basicStages = [
     type: 'typography', 
     focus: 'primary', 
     label: 'Primary Font',
-    satisfied: flyer => {
-      return false;
-    }, 
+    satisfied: () => true, 
     generate: generatePrimary,
   },
   {
     type: 'typography', 
     focus: 'secondary', 
     label: 'Secondary Font',
-    satisfied: flyer => {
-      return false;
-    },
+    satisfied: () => true,
     generate: generateSecondary,
   },
   {
     type: 'typography', 
     focus: 'size',
     label: 'Font Sizes',
-    satisfied: flyer => {
-      return false;
-    },
+    satisfied: () => true,
     generate: generateSecondary,
   },
+]
+
+export const advancedStages = [];
+export const optionalStages = []
+export const stages = [
+  ...basicStages,
+  ...advancedStages,
+  ...optionalStages,
 ]
 
 const primaryCache = {};
@@ -69,6 +71,10 @@ export function generatePrimary(flyer, {templates, multiple}) {
 }
 
 export function generateSecondary(flyer, options) {
+  return _.range(0, 2).map(f => {
+    return copyTemplate(flyer);
+  })
+  
   const fontStats = getFontStats();
   const secondaryTextElements = _.filter(flyer._elements, el => el.lines && el.type !== 'dominant');
   const dominantFamily = flyer._dominant.font.family;
