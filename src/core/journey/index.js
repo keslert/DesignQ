@@ -93,15 +93,15 @@ export function _updateJourney(state, action, update) {
 
 function getUpdatedStage(stage, primary, action) {
   const isMasterDesign = stage.currentGenerationMasterDesign === primary;
-  const isFromStage = primary._stage.type === stage.type && primary._stage.focus === stage.focus;
-  const isFromGeneration = isFromStage && primary._stage.generationRound === stage.currentGenerationRound;
+  const isFromStage = primary.stage.type === stage.type && primary.stage.focus === stage.focus;
+  const isFromGeneration = isFromStage && primary.stage.generationRound === stage.currentGenerationRound;
 
   if(action.forceGeneration || (!isMasterDesign && !isFromGeneration)) {
     const flyers = generateFlyers(primary, stage, action);
     flyers.forEach(f => {
       computeFlyer(f)
       f.id = flyerId++;
-      f._stage = {
+      f.stage = {
         type: stage.type,
         focus: stage.focus,
         generationRound: stage.currentGenerationRound + 1,
@@ -217,7 +217,6 @@ const progressLevels = [
 export function copyFlyer(flyer) {
   const copy = copyTemplate(flyer);
   copy.id = flyerId++;
-  delete copy._inHistory;
   computeFlyer(copy);
   return copy;
 }

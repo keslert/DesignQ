@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import { generateLayout } from './layout';
+import WebFontLoader from 'webfontloader';
+import { WebFontConfig } from './web-fonts';
 
 import { 
   stages as layoutStages,
@@ -22,7 +24,14 @@ import { computeFlyer } from '../producer';
 import { normalizeTemplate } from '../utils/template-utils';
 
 
-export function precompute() {
+export async function precompute() {
+  await new Promise((resolve, reject) => {
+    WebFontLoader.load({...WebFontConfig, 
+      active: function () {
+        resolve();
+      }
+    });
+  });
   _.forEach(templates, t => (computeFlyer(t), normalizeTemplate(t)))
   computeContentStats(templates);
   // computeLayoutStats(templates);
@@ -36,7 +45,6 @@ export function generateFlyers(flyer, stage, options={}) {
 
   const _stage = _.find(STAGES[stage.type], s => s.focus === stage.focus)
   const generated = _stage.generate(flyer, options);
-  // generated.forEach(f => f._stage = stage);
   return generated;
 }
 

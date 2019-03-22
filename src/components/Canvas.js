@@ -7,6 +7,7 @@ import FrameGallery from './FrameGallery';
 import { DispatchContext } from '../containers/Queue';
 import { Flex, Box, Text } from 'rebass';
 import { useKeyDown } from '../core/lib/hooks';
+import { ProgressTypes } from '../core/journey';
 
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
@@ -35,7 +36,7 @@ function Canvas(props) {
   
   const showNext = showPrimary && !showGallery;
   const showResume = false;
-  const showAdvance = !showResume && showPrimary;
+  const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED);
   const showUpgrade = showPrimary;
   const showCompare = showPrimary;
   const showGridBtn = showPrimary && !haveList;

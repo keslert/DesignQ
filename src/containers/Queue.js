@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useCallback } from 'react';
+import React, { useReducer, useMemo, useState, useEffect } from 'react';
 import Canvas from '../components/Canvas';
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
@@ -16,19 +16,35 @@ import {
 
 export const DispatchContext = React.createContext();
 export const SelectionContext = React.createContext();
+const loadStyle = {
+  height: '100vh',
+  fontSize: '24px',
+  fontWeight: 700,
+}
 
 function Queue() {
-  
   const windowSize = useWindowSize();
-  const [state, dispatch] = useReducer(reducer, initialState);
-  
-  const stage = state.stage || state.generationStage;
+  const [loaded, setLoaded] = useState(false);
+  const [state, dispatch] = useReducer(reducer, {});
   const showSidebar = state.showSidebar || state.selection;
-
   const canvasSize = useMemo(() => ({
     width: windowSize.width - (showSidebar ? 280 : 0),
-    height: windowSize.height - 91 - 21, // navbar + timeline
-  }), [windowSize, showSidebar])
+    height: windowSize.height - 91 - 21, // - navbar - timeline
+  }), [windowSize, showSidebar]);
+
+  // Do initial loading
+  useEffect(() => {
+    getInititialState().then(state => {
+      dispatch({type: 'INIT', state})
+      setLoaded(true);
+    });
+    return;
+  }, [])
+
+  if(!loaded) {
+    return <Flex style={loadStyle} alignItems="center" justifyContent="center">Loading Fonts...</Flex>
+  }
+
 
   return (
     <DispatchContext.Provider value={dispatch}>
@@ -82,6 +98,8 @@ export default Queue;
 
 const reducer = (state, action) => {
   switch(action.type) {
+    case 'INIT':
+      return action.state;
     case 'STEP':
     case 'NEXT':
       return step(state, {...action, nextDesign: true})
@@ -113,23 +131,28 @@ const reducer = (state, action) => {
   }
 }
 
-const startFlyer = starters.simpleBody
-computeFlyer(startFlyer);
-startFlyer.id = 1;
-startFlyer._stage = {type: 'content'};
-precompute();
+async function getInititialState() {
+  return new Promise(async (resolve, reject) => {
+    await precompute();
+    const startFlyer = starters.simpleBody
+    computeFlyer(startFlyer);
+    startFlyer.id = 1;
+    startFlyer.stage = {type: 'content', focus: 'text'};
 
-const initialState = step({
-  primary: startFlyer,
-  secondary: null,
-  list: [],
-  journey: getInitialJourney('basic'),
-  history: [],
-  viewMode: 'comparison',
-  showSidebar: false,
-  selection: null,
-  // selection: startFlyer.content.body.elements[1],
-}, {advanceStage: true});
+    const state = step({
+      primary: startFlyer,
+      secondary: null,
+      list: [],
+      journey: getInitialJourney('basic'),
+      history: [],
+      viewMode: 'comparison',
+      showSidebar: false,
+      selection: null,
+    }, {advanceStage: true});
+    
+    resolve(state);
+  })
+}
 
 function viewFavorites(state) {
   const favorites = Object.values(state.favorites)
@@ -240,27 +263,3 @@ function _updateSecondary(state, action, update) {
   const stage = update.journey.stage || state.journey.stage;
   update.secondary = stage.currentGeneration[stage.currentGenerationIndex];
 }
-
-// function prevDesign(state) {
-//   const index = state.history.indexOf(state.secondary)
-//   const exists = index !== -1;
-
-//   return {
-//     ...state,
-//     secondary: state.history[exists ? index : state.history.length - 1],
-//     history: exists ? state.history : [...state.history, state.secondary],
-//   }
-// }
-
-// function nextDesign(state, action) {
-//   const index = state.history.indexOf(state.secondary)
-//   const historical = state.history[index + 1]
-
-//   if(typeof historical !== 'object') {
-//     return step(state, action);
-//   }
-//   return {
-//     ...state,
-//     secondary: historical,
-//   }
-// }

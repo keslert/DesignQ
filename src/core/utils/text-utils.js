@@ -303,35 +303,65 @@ export const DQ_FONTS = {
     descender: 0.05,
   },
   'Rubik One': {
-    file: 'custom',
+    files: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FRubikOne-Regular.ttf?alt=media&token=4873dd9d-c369-49ac-b1ed-3a4b163b6363',
+      },
+    ],
     ascender: -0.11,
     xHeight: -0.29,
     baseline: -0.19,
     descender: 0.02,
   },
   'IM Fell English Pro': {
-    file: 'custom',
+    files: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: '',
+      },
+    ],
     ascender: -0.09,
     xHeight: -0.32,
     baseline: -0.23,
     descender: 0.04,
   },
   'Gidole': {
-    file: 'custom',
+    file: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: '',
+      },
+    ],
     ascender: -0.17,
     xHeight: -0.36,
     baseline: -0.16,
     descender: 0.02,
   },
   'BodoniFLF': {
-    file: 'custom',
+    file: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: '',
+      },
+    ],
     ascender: -0.15,
     xHeight: -0.435,
     baseline: -0.17,
     descender: 0.07,
   },
   'Edo': {
-    file: 'custom',
+    file: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: '',
+      },
+    ],
     supportsLowerCase: false, // It's small caps and Caps
     ascender: -0.17,
     xHeight: -0.17,
@@ -339,14 +369,26 @@ export const DQ_FONTS = {
     descender: -0.13,
   },
   'Sifonn': {
-    file: 'custom',
+    files: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fsifonn_pro.otf?alt=media&token=806d3e7c-7b33-4e1d-b71f-7c0d0a998397',
+      },
+    ],
     ascender: 0,
     xHeight: -0.24,
     baseline: -0.25,
     descender: -0.01,
   },
   'Sensei': {
-    file: 'custom',
+    file: [
+      {
+        weight: 400,
+        style: 'normal',
+        src: '',
+      },
+    ],
     ascender: -0.11,
     xHeight: -0.31,
     baseline: -0.15,

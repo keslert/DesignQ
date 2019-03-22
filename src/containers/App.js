@@ -10,17 +10,20 @@ const ImagePalette = React.lazy(() => import('./ImagePalette'));
 const ImagePicker = React.lazy(() => import('./ImagePicker'))
 const CalcFonts = React.lazy(() => import('./calc/CalcFonts'));
 const CalcImages = React.lazy(() => import('./calc/CalcImages'));
-
 const ContentGallery = React.lazy(() => import('./test/ContentGallery'));
 // const LayoutGallery = React.lazy(() => import('./test/LayoutGallery'));
 
-
+const loadStyle = {
+  fontSize: '24px',
+  height: '100vh',
+  fontWeight: 'bold',
+}
 function App() {
   
   const flyerSize = { w: 480, h: 670 };
   
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Flex style={loadStyle} alignItems="center" justifyContent="center">Loading...</Flex>}>
       <Switch>
         <Route path="/fonts" component={Fonts} />
         <Route path="/editor/:id" component={(props) => <Editor flyerSize={flyerSize} {...props} />} />

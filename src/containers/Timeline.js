@@ -13,6 +13,7 @@ import { Box } from 'rebass';
 import { FixedSizeList as List } from 'react-window';
 import { DispatchContext } from './Queue';
 import { striped } from '../core/templates';
+import StarSvg from '../svg/star.svg';
 
 function Timeline({items, selected, width}) {
   const ref = useRef();
@@ -63,7 +64,7 @@ function Timeline({items, selected, width}) {
       {preview && 
         <Preview left={preview.left}>
           <Frame 
-            scale={.25}
+            scale={.4}
             flyer={preview.flyer} 
           />
         </Preview>
@@ -100,8 +101,9 @@ function TimelineItem({data, index, style}) {
 
   const item = items[index];
   const striped = Array.isArray(item);
-  const stage = striped ? item[0]._stage : item._stage;
-  const color = item._upgradeTo ? 'dark' : COLORS[stage.type];
+  const stage = striped ? item[0].stage : item.stage;
+  const color =  COLORS[stage.type];
+  const showStar = !!item._upgradeTo
   return (
     <div style={style}>
       <Block
@@ -111,6 +113,7 @@ function TimelineItem({data, index, style}) {
         striped={striped}
         selected={item === selected}
         color={color}
+        children={showStar && <StarSvg fill="white" size={6} />}
       />
     </div>
   )
@@ -122,16 +125,16 @@ const Block = styled(Box)(props => ({
   transition: 'transform .15s',
   margin: "0 2px",
   width: "8px",
-  // margin: props.selected ? "0 1px" : "0 2px",
-  // width: props.selected ? "10px" : "8px",
-  borderTop: props.selected ? '2px solid ' + props.theme.colors.dark : null,
-  // borderRight: props.selected ? '2px solid ' + props.theme.colors.dark : null,
+  padding: '1px',
+  lineHeight: '4px',
+  borderTop: props.selected ? '2px solid ' + props.theme.colors[props.color + '_dark'] : null,
   background: props.striped 
     ? striped(45, props.theme.colors[props.color], 3, props.theme.colors[props.color + '_dark'], 2)
     : props.theme.colors[props.color]
 }))
 
 const Preview = styled.div(props => ({
+  display: 'flex',
   position: 'absolute',
   bottom: '21px',
   left: props.left + 'px',

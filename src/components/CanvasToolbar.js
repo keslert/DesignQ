@@ -26,15 +26,14 @@ function CanvasToolbar(props) {
       {props.show && 
         <React.Fragment>
           <Box mb={3}>
-            {props.show &&props.showAdvance && 
-              <CanvasButton
-                mb={2}
-                onClick={() => dispatch({type: 'ADVANCE_STAGE'})}
-                SvgComponent={<JourneySvg size={45} />}
-                label="Next Stage"
-                highlight={props.highlightAdvance}
-              />
-            }
+            <CanvasButton
+              mb={2}
+              onClick={props.showAdvance ? () => dispatch({type: 'ADVANCE_STAGE'}) : null}
+              SvgComponent={<JourneySvg size={45} />}
+              label="Next Stage"
+              disabled={!props.showAdvance}
+              // highlight={props.highlightAdvance}
+            />
             {/* {props.showResume && 
               <CanvasButton
                 mb={2}
