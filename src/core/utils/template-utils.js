@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { withGroups } from '../producer';
+import { withGroups, computeFlyer } from '../producer';
 
 
 
@@ -91,7 +91,14 @@ export function getTextTypes(template) {
   return types;
 }
 
-// TODO: HACK WIP
 export function copyTemplate(flyer) {
-  return _.cloneDeep(flyer);
+  const clone = _.cloneDeepWith(flyer, customizer);
+  computeFlyer(clone);
+  normalizeTemplate(clone);
+  return clone;
+}
+
+// If customizer returns undefined, cloning is handled by the method instead
+function customizer(value, key) {
+  return _.isString(key) && key.startsWith('_') ? null : undefined;
 }

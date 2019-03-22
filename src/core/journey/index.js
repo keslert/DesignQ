@@ -25,7 +25,7 @@ export function getInitialJourney(type='basic') {
     ...STAGES.layout,
     ...STAGES.typography,
     ...STAGES.color,
-  ].map(stage => ({
+  ].map((stage, i) => ({
     type: stage.type, 
     focus: stage.focus,
     satisfied: stage.satisfied,
@@ -34,8 +34,9 @@ export function getInitialJourney(type='basic') {
     currentGeneration: [],
     currentGenerationIndex: 0,
     currentGenerationMasterDesign: null,
-    generationIterations: 0,
+    currentGenerationRound: 0,
     exhausted: false, // currentGenerationIndex >= currentGeneration.length
+    index: i,
     inJourney: _.some(journey, s => (
       stage.type === s.type && stage.focus === s.focus
     )),
@@ -44,6 +45,7 @@ export function getInitialJourney(type='basic') {
   return {
     stages,
     stage: stages[0],
+    stageTypes: _.uniq(_.map(stages, 'type')),
     recommendedStage: stages[0],
   }
 }
@@ -58,51 +60,59 @@ export function _updateJourney(state, action, update) {
     ? state.journey.stage
     : getStage(state.journey.stages, action.stage) 
   const primary = update.primary || state.primary;
-  const updatedStage = getUpdatedStage(stage, primary, action);
-  const stages = mapReplace(state.journey.stages, stage, updatedStage);
-  const recommended = getRecommendedStage(stages, primary);
   update.journey = {
     ...state.journey,
-    stages,
-    stage: updatedStage,
-    recommendedStage: recommended,
+    stage: getUpdatedStage(stage, primary, action),
   };
+  const j = update.journey;
+  j.stages = mapReplace(state.journey.stages, stage, j.stage)
+  j.recommendedStage = getRecommendedStage(j.stages, primary);
 
-  // The user clicked on the recommended stage
-  if(action.stage && stage === recommended) {
-    updatedStage.progress = getMaxProgress(updatedStage.progress, ProgressTypes.USER_SKIPPED);
+  // The user clicked ahead. Skip any stages of the current type before this new stage
+  if(action.stage && stage.index > state.journey.stage.index) {
+    j.stages = j.stages.map(s => (
+      s.index < stage.index
+        && s.index >= state.journey.stage.index
+        && s.type === state.journey.stage.type
+      ? {...s, progress: getMaxProgress(s.progress, ProgressTypes.USER_SKIPPED)}
+      : s
+    ))
   }
 
 
-  if(action.advanceStage || (updatedStage.exhausted && canAutomaticallyProceed(state))) {
-    updatedStage.progress = getMaxProgress(updatedStage.progress, ProgressTypes.USER_SKIPPED);
-    const nextRecommended = getRecommendedStage(stages, primary); // Necessary when recommended is the same as updatedStage
+  if(action.advanceStage || (j.stage.exhausted && canAutomaticallyProceed(state))) {
+    j.stage.progress = getMaxProgress(j.stage.progress, ProgressTypes.USER_SKIPPED);
+    const nextRecommended = getRecommendedStage(j.stages, primary); // Necessary when recommended is the same as updatedStage
 
     const updatedRecommended = getUpdatedStage(nextRecommended, primary, {stage: nextRecommended});
-    update.journey.stage = updatedRecommended;
-    update.journey.stages = mapReplace(stages, nextRecommended, updatedRecommended);
-    update.journey.recommendedStage = updatedRecommended;
+    j.stage = updatedRecommended;
+    j.stages = mapReplace(j.stages, nextRecommended, updatedRecommended);
+    j.recommendedStage = updatedRecommended;
   }
 }
 
 function getUpdatedStage(stage, primary, action) {
   const isMasterDesign = stage.currentGenerationMasterDesign === primary;
   const isFromStage = primary._stage.type === stage.type && primary._stage.focus === stage.focus;
-  const isFromGeneration = isFromStage && primary._stage.currentGenerationIndex === stage.currentGenerationIndex;
+  const isFromGeneration = isFromStage && primary._stage.generationRound === stage.currentGenerationRound;
 
   if(action.forceGeneration || (!isMasterDesign && !isFromGeneration)) {
     const flyers = generateFlyers(primary, stage, action);
     flyers.forEach(f => {
       computeFlyer(f)
       f.id = flyerId++;
-      f._stage = stage
+      f._stage = {
+        type: stage.type,
+        focus: stage.focus,
+        generationRound: stage.currentGenerationRound + 1,
+      }
     })
     return {
       ...stage,
       currentGeneration: flyers,
       currentGenerationIndex: 0,
       currentGenerationMasterDesign: primary,
-      generationIterations: stage.generationIterations + 1,
+      currentGenerationRound: stage.currentGenerationRound + 1,
       exhausted: false,
     }
   }

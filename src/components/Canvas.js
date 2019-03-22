@@ -33,7 +33,7 @@ function Canvas(props) {
   );
   useKeyDown(handleKeyPress);
   
-  const showNext = showPrimary && !haveList;
+  const showNext = showPrimary && !showGallery;
   const showResume = false;
   const showAdvance = !showResume && showPrimary;
   const showUpgrade = showPrimary;

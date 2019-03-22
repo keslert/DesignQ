@@ -20,6 +20,8 @@ function TextElementPanel({element}) {
   };
   const font = element.font;
 
+  // TODO: Add Line spacing Ignore descenders.
+
   return (
     <Box>
       <Field 

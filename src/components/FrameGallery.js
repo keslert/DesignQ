@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useContext, useRef, useEffect, useLayoutEffect, memo } from 'react';
 import Frame from './Frame';
 import { Box, Flex } from 'rebass';
 import { FixedSizeGrid as Grid } from 'react-window';
@@ -82,4 +82,4 @@ function FrameGallery({flyers, size, selected}) {
   )
 }
 
-export default FrameGallery;
+export default memo(FrameGallery);

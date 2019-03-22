@@ -1,4 +1,11 @@
-import React, { useRef, useEffect, useState, useCallback, useContext } from 'react';
+import React, { 
+  useRef, 
+  useEffect, 
+  useState, 
+  useCallback, 
+  useContext,
+  memo,
+} from 'react';
 import Frame from '../components/Frame';
 import styled from 'styled-components';
 import theme from '../styles/theme';
@@ -81,7 +88,7 @@ function Timeline({items, selected, width}) {
   )
 }
 
-export default Timeline;
+export default memo(Timeline);
 
 function TimelineItem({data, index, style}) {
   const { 
@@ -94,7 +101,7 @@ function TimelineItem({data, index, style}) {
   const item = items[index];
   const striped = Array.isArray(item);
   const stage = striped ? item[0]._stage : item._stage;
-  const color = COLORS[stage.type];
+  const color = item._upgradeTo ? 'dark' : COLORS[stage.type];
   return (
     <div style={style}>
       <Block

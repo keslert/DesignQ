@@ -9,11 +9,7 @@ const Button = styled(Flex)(props => ({
   '&:hover': {
     background: props.theme.colors[props.bg + '_darken'],
   },
-  '&:active': {
-    boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
-    border: 'none',
-    paddingTop: '10px',
-  },
+  
   width: '72px',
   height: '72px',
   borderRadius: '2px',
@@ -32,7 +28,17 @@ const Button = styled(Flex)(props => ({
     boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
     border: 'none',
     paddingTop: '10px',
-  })
+  }),
+  ...(props.disabled ? {
+    cursor: 'not-allowed',
+    color: props.theme.colors.dark_light,
+  } : {
+    '&:active': {
+      boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
+      border: 'none',
+      paddingTop: '10px',
+    },
+  }),
 
 }))
 

@@ -37,7 +37,7 @@ function Sidebar(props) {
       </Box>
 
 
-      <Box mx="-16px" px={16} flex={1} style={{overflowY: 'auto'}}>
+      <Box mx="-16px" px={16} flex={1} style={{overflowY: 'auto', height: 200}}>
         <EditPanel 
           selection={props.selection}
         />

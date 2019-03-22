@@ -24,20 +24,20 @@ function Selectables({items}) {
           top={item._computed.bb.t}
           width={item._computed.bb.w}
           height={item._computed.bb.h}
+          style={{
+            left: (item._computed.bb.l - 1) + 'px',
+            top: (item._computed.bb.t - 1) + 'px',
+            height: (item._computed.bb.h + 2) + 'px',
+            width: (item._computed.bb.w + 2) + 'px',
+          }}
         />
       ))}
     </React.Fragment>
   )
 }
 
-const Selectable = styled.div.attrs(props => ({
-  left: (props.left - 1) + 'px',
-  top: (props.top - 1) + 'px',
-  height: (props.height + 2) + 'px',
-  width: (props.width + 2) + 'px',
-}))(props => ({
+const Selectable = styled.div(props => ({
   position: 'absolute',
-  
   border: props.selected ? '2px solid ' + props.theme.colors.blue : null,
   '&:hover': {
     border: '2px solid ' + props.theme.colors.blue,

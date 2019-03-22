@@ -191,7 +191,7 @@ function _updatePrimary(state, action, update) {
     const secondary = state.secondary._inHistory
       ? copyFlyer(state.secondary) 
       : state.secondary;
-
+    state.primary._upgradeTo = secondary.id
     update.primary = secondary;
   }
 }
