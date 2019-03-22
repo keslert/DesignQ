@@ -1,113 +1,114 @@
+
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 900;
-  src: local('Aileron'), local('Aileron-Black'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Black.ttf?alt=media&token=a136ad3a-cda5-46dd-bed0-75f0699c22c0') format('ttf');
+  src: local('Aileron'), local('Aileron-Black'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Black.ttf?alt=media&token=a136ad3a-cda5-46dd-bed0-75f0699c22c0') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 900;
-  src: local('Aileron'), local('Aileron-BlackItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-BlackItalic.ttf?alt=media&token=7be7b5af-1a51-4b8e-a02c-14b48fd19232') format('ttf');
+  src: local('Aileron'), local('Aileron-BlackItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-BlackItalic.ttf?alt=media&token=7be7b5af-1a51-4b8e-a02c-14b48fd19232') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 700;
-  src: local('Aileron'), local('Aileron-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Bold.ttf?alt=media&token=927c16b4-3197-46eb-89cc-e3202aaf4c5d') format('ttf');
+  src: local('Aileron'), local('Aileron-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Bold.ttf?alt=media&token=927c16b4-3197-46eb-89cc-e3202aaf4c5d') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 700;
-  src: local('Aileron'), local('Aileron-BoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-BoldItalic.ttf?alt=media&token=ab23ae8b-ea27-431b-8d3a-4e091776a120') format('ttf');
+  src: local('Aileron'), local('Aileron-BoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-BoldItalic.ttf?alt=media&token=ab23ae8b-ea27-431b-8d3a-4e091776a120') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 800;
-  src: local('Aileron'), local('Aileron-Heavy'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Heavy.ttf?alt=media&token=6fa972cb-322a-4884-9c02-ad2d28e13947') format('ttf');
+  src: local('Aileron'), local('Aileron-Heavy'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Heavy.ttf?alt=media&token=6fa972cb-322a-4884-9c02-ad2d28e13947') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 800;
-  src: local('Aileron'), local('Aileron-HeavyItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-HeavyItalic.ttf?alt=media&token=b47e01d3-81e4-4057-9707-906a133572e6') format('ttf');
+  src: local('Aileron'), local('Aileron-HeavyItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-HeavyItalic.ttf?alt=media&token=b47e01d3-81e4-4057-9707-906a133572e6') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 400;
-  src: local('Aileron'), local('Aileron-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Italic.ttf?alt=media&token=4c74dac1-ed26-407c-afc2-58e0f64c878e') format('ttf');
+  src: local('Aileron'), local('Aileron-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Italic.ttf?alt=media&token=4c74dac1-ed26-407c-afc2-58e0f64c878e') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 300;
-  src: local('Aileron'), local('Aileron-Light'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Light.ttf?alt=media&token=c645c14e-26b0-46b9-96f2-37c8a4d08cf3') format('ttf');
+  src: local('Aileron'), local('Aileron-Light'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Light.ttf?alt=media&token=c645c14e-26b0-46b9-96f2-37c8a4d08cf3') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 300;
-  src: local('Aileron'), local('Aileron-LightItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-LightItalic.ttf?alt=media&token=06616fa6-0ce0-4182-872e-37965362bc6d') format('ttf');
+  src: local('Aileron'), local('Aileron-LightItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-LightItalic.ttf?alt=media&token=06616fa6-0ce0-4182-872e-37965362bc6d') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 400;
-  src: local('Aileron'), local('Aileron-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Regular.ttf?alt=media&token=c20015a7-5ea1-40a3-95c3-64c726cf2349') format('ttf');
+  src: local('Aileron'), local('Aileron-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Regular.ttf?alt=media&token=c20015a7-5ea1-40a3-95c3-64c726cf2349') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 600;
-  src: local('Aileron'), local('Aileron-SemiBold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-SemiBold.ttf?alt=media&token=6c871222-8f79-4b1f-83ce-c2d8e01db443') format('ttf');
+  src: local('Aileron'), local('Aileron-SemiBold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-SemiBold.ttf?alt=media&token=6c871222-8f79-4b1f-83ce-c2d8e01db443') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 600;
-  src: local('Aileron'), local('Aileron-SemiBoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-SemiBoldItalic.ttf?alt=media&token=8be25904-2a66-4e6b-b165-4e9849676f46') format('ttf');
+  src: local('Aileron'), local('Aileron-SemiBoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-SemiBoldItalic.ttf?alt=media&token=8be25904-2a66-4e6b-b165-4e9849676f46') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 100;
-  src: local('Aileron'), local('Aileron-Thin'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Thin.ttf?alt=media&token=858c5ab4-95cc-4013-80a2-46468f3ce0c7') format('ttf');
+  src: local('Aileron'), local('Aileron-Thin'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-Thin.ttf?alt=media&token=858c5ab4-95cc-4013-80a2-46468f3ce0c7') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 100;
-  src: local('Aileron'), local('Aileron-ThinItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-ThinItalic.ttf?alt=media&token=cd244c9e-7f3d-40a6-bfcf-fe98b6cea2ab') format('ttf');
+  src: local('Aileron'), local('Aileron-ThinItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-ThinItalic.ttf?alt=media&token=cd244c9e-7f3d-40a6-bfcf-fe98b6cea2ab') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: normal;
   font-weight: 200;
-  src: local('Aileron'), local('Aileron-UltraLight'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-UltraLight.ttf?alt=media&token=f931578d-ab24-4d3e-b6f3-0888ce40eb5e') format('ttf');
+  src: local('Aileron'), local('Aileron-UltraLight'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-UltraLight.ttf?alt=media&token=f931578d-ab24-4d3e-b6f3-0888ce40eb5e') format('truetype');
 }
 
 @font-face {
   font-family: 'Aileron';
   font-style: italic;
   font-weight: 200;
-  src: local('Aileron'), local('Aileron-UltraLightItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-UltraLightItalic.ttf?alt=media&token=6f75bfb7-8932-4a1b-b23f-8f7017938b0c') format('ttf');
+  src: local('Aileron'), local('Aileron-UltraLightItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FAileron-UltraLightItalic.ttf?alt=media&token=6f75bfb7-8932-4a1b-b23f-8f7017938b0c') format('truetype');
 }
 
 
@@ -130,30 +131,29 @@
   font-family: 'BodoniFLF';
   font-style: normal;
   font-weight: 700;
-  src: local('BodoniFLF'), local('BodoniFLF-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-Bold.ttf?alt=media&token=b744c840-82bd-4a5c-8de1-0ef8d3ff70b7') format('ttf');
+  src: local('BodoniFLF'), local('BodoniFLF-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-Bold.ttf?alt=media&token=b744c840-82bd-4a5c-8de1-0ef8d3ff70b7') format('truetype');
 }
 
 @font-face {
   font-family: 'BodoniFLF';
   font-style: italic;
   font-weight: 700;
-  src: local('BodoniFLF'), local('BodoniFLF-BoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-BoldItalic.ttf?alt=media&token=73c61d29-d725-4543-aaa6-b21cf5cb5a5a') format('ttf');
+  src: local('BodoniFLF'), local('BodoniFLF-BoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-BoldItalic.ttf?alt=media&token=73c61d29-d725-4543-aaa6-b21cf5cb5a5a') format('truetype');
 }
 
 @font-face {
   font-family: 'BodoniFLF';
   font-style: italic;
   font-weight: 400;
-  src: local('BodoniFLF'), local('BodoniFLF-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-Italic.ttf?alt=media&token=de1b4473-e0ce-4d0a-ab86-ad414af9a22d') format('ttf');
+  src: local('BodoniFLF'), local('BodoniFLF-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-Italic.ttf?alt=media&token=de1b4473-e0ce-4d0a-ab86-ad414af9a22d') format('truetype');
 }
 
 @font-face {
   font-family: 'BodoniFLF';
   font-style: normal;
   font-weight: 400;
-  src: local('BodoniFLF'), local('BodoniFLF-Roman'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-Roman.ttf?alt=media&token=79d5e026-8fce-4905-8dd0-267847c5bc50') format('ttf');
+  src: local('BodoniFLF'), local('BodoniFLF-Roman'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBodoniFLF-Roman.ttf?alt=media&token=79d5e026-8fce-4905-8dd0-267847c5bc50') format('truetype');
 }
-
 
 @font-face {
   font-family: 'Cooper Hewitt';
@@ -180,7 +180,7 @@
   font-family: 'Cooper Hewitt';
   font-style: italic;
   font-weight: 400;
-  src: local('Cooper Hewitt'), local('CooperHewitt-BookItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FCooperHewitt-BookItalic.woff?alt=media&token=ac969d07-1b29-4c62-831e-60bc22447e6a') format('woff');
+  src: local('Cooper Hewitt'), local('CooperHewitt-BookItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FCooperHewitt-BookItalic.woff?alt=media') format('woff');
 }
 
 @font-face {
@@ -253,20 +253,18 @@
   src: local('Cooper Hewitt'), local('CooperHewitt-ThinItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FCooperHewitt-ThinItalic.woff?alt=media&token=9b73d7c9-a76f-4047-b894-454bb1cee25e') format('woff');
 }
 
-
 @font-face {
   font-family: 'Edo';
   font-style: normal;
   font-weight: 400;
-  src: local('Edo'), local('Edo-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fedo.ttf?alt=media&token=b2fedef6-86e1-448b-81bc-e303927d30b5') format('ttf');
+  src: local('Edo'), local('Edo-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fedo.ttf?alt=media&token=b2fedef6-86e1-448b-81bc-e303927d30b5') format('truetype');
 }
-
 
 @font-face {
   font-family: 'Gidole';
   font-style: normal;
   font-weight: 400;
-  src: local('Gidole'), local('Gidole-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGidole-Regular.otf?alt=media&token=4ec1f6f2-f0d2-4a38-bc3c-9f2092738b0c') format('otf');
+  src: local('Gidole'), local('Gidole-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGidole-Regular.otf?alt=media&token=4ec1f6f2-f0d2-4a38-bc3c-9f2092738b0c') format('opentype');
 }
 
 
@@ -274,21 +272,21 @@
   font-family: 'Glacial Indifference';
   font-style: normal;
   font-weight: 700;
-  src: local('Glacial Indifference'), local('GlacialIndifference-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGlacialIndifference-Bold.otf?alt=media&token=6e469c8e-4b3f-49d2-9aca-76b7fd9dcd04') format('otf');
+  src: local('Glacial Indifference'), local('GlacialIndifference-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGlacialIndifference-Bold.otf?alt=media&token=6e469c8e-4b3f-49d2-9aca-76b7fd9dcd04') format('opentype');
 }
 
 @font-face {
   font-family: 'Glacial Indifference';
   font-style: italic;
   font-weight: 400;
-  src: local('Glacial Indifference'), local('GlacialIndifference-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGlacialIndifference-Italic.otf?alt=media&token=496ca670-536e-4b48-95fe-13e3c44b4914') format('otf');
+  src: local('Glacial Indifference'), local('GlacialIndifference-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGlacialIndifference-Italic.otf?alt=media&token=496ca670-536e-4b48-95fe-13e3c44b4914') format('opentype');
 }
 
 @font-face {
   font-family: 'Glacial Indifference';
   font-style: normal;
   font-weight: 400;
-  src: local('Glacial Indifference'), local('GlacialIndifference-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGlacialIndifference-Regular.otf?alt=media&token=1bf33f52-2a4b-4a8f-b10d-1e41ea8e10ce') format('otf');
+  src: local('Glacial Indifference'), local('GlacialIndifference-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FGlacialIndifference-Regular.otf?alt=media&token=1bf33f52-2a4b-4a8f-b10d-1e41ea8e10ce') format('opentype');
 }
 
 
@@ -296,43 +294,42 @@
   font-family: 'IM Fell English Pro';
   font-style: italic;
   font-weight: 400;
-  src: local('IM Fell English Pro'), local('IMFellEnglishPro-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fim-fell-english-pro-italic.otf?alt=media&token=b07dccb2-3338-4669-97c8-a9cec88994ed') format('otf');
+  src: local('IM Fell English Pro'), local('IMFellEnglishPro-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fim-fell-english-pro-italic.otf?alt=media&token=b07dccb2-3338-4669-97c8-a9cec88994ed') format('opentype');
 }
 
 @font-face {
   font-family: 'IM Fell English Pro';
   font-style: normal;
   font-weight: 400;
-  src: local('IM Fell English Pro'), local('IMFellEnglishPro-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fim-fell-english-pro-regular.otf?alt=media&token=8a74fa9b-e844-4250-89aa-fb2623ca9cc3') format('otf');
+  src: local('IM Fell English Pro'), local('IMFellEnglishPro-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fim-fell-english-pro-regular.otf?alt=media&token=8a74fa9b-e844-4250-89aa-fb2623ca9cc3') format('opentype');
 }
-
 
 @font-face {
   font-family: 'Kollektif';
   font-style: normal;
   font-weight: 700;
-  src: local('Kollektif'), local('Kollektif-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif-Bold.ttf?alt=media&token=dd4ec232-8fca-4556-b9a4-134022c04e7c') format('ttf');
+  src: local('Kollektif'), local('Kollektif-Bold'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif-Bold.ttf?alt=media&token=dd4ec232-8fca-4556-b9a4-134022c04e7c') format('truetype');
 }
 
 @font-face {
   font-family: 'Kollektif';
   font-style: italic;
   font-weight: 700;
-  src: local('Kollektif'), local('Kollektif-BoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif-BoldItalic.ttf?alt=media&token=8d8a197b-826f-41be-8fff-0ae02f63d241') format('ttf');
+  src: local('Kollektif'), local('Kollektif-BoldItalic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif-BoldItalic.ttf?alt=media&token=8d8a197b-826f-41be-8fff-0ae02f63d241') format('truetype');
 }
 
 @font-face {
   font-family: 'Kollektif';
   font-style: italic;
   font-weight: 400;
-  src: local('Kollektif'), local('Kollektif-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif-Italic.ttf?alt=media&token=c56291bb-11af-4c80-b949-cc2a044d909a') format('ttf');
+  src: local('Kollektif'), local('Kollektif-Italic'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif-Italic.ttf?alt=media&token=c56291bb-11af-4c80-b949-cc2a044d909a') format('truetype');
 }
 
 @font-face {
   font-family: 'Kollektif';
   font-style: normal;
   font-weight: 400;
-  src: local('Kollektif'), local('Kollektif-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif.ttf?alt=media&token=38fdd856-bbad-4e35-b0b7-b95dfe1cc97d') format('ttf');
+  src: local('Kollektif'), local('Kollektif-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FKollektif.ttf?alt=media&token=38fdd856-bbad-4e35-b0b7-b95dfe1cc97d') format('truetype');
 }
 
 
@@ -371,7 +368,7 @@
   font-family: 'Peace Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Peace Sans'), local('PeaceSans-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fpeace-sans.otf?alt=media&token=e93a13ca-2f6f-40db-b921-6e875ed7432e') format('otf');
+  src: local('Peace Sans'), local('PeaceSans-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fpeace-sans.otf?alt=media&token=e93a13ca-2f6f-40db-b921-6e875ed7432e') format('opentype');
 }
 
 
@@ -379,7 +376,7 @@
   font-family: 'Playlist';
   font-style: normal;
   font-weight: 400;
-  src: local('Playlist'), local('Playlist-Script'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FPlaylist-Script.otf?alt=media&token=a3dd0e10-49fb-4596-b68e-ee6843209cee') format('otf');
+  src: local('Playlist'), local('Playlist-Script'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FPlaylist-Script.otf?alt=media&token=a3dd0e10-49fb-4596-b68e-ee6843209cee') format('opentype');
 }
 
 
@@ -387,7 +384,7 @@
   font-family: 'Rubik One';
   font-style: normal;
   font-weight: 400;
-  src: local('Rubik One'), local('RubikOne-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FRubikOne-Regular.ttf?alt=media&token=4873dd9d-c369-49ac-b1ed-3a4b163b6363') format('ttf');
+  src: local('Rubik One'), local('RubikOne-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FRubikOne-Regular.ttf?alt=media&token=4873dd9d-c369-49ac-b1ed-3a4b163b6363') format('truetype');
 }
 
 
@@ -395,28 +392,27 @@
   font-family: 'Sensei';
   font-style: normal;
   font-weight: 500;
-  src: local('Sensei'), local('Sensei-Medium'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FSensei-Medium.otf?alt=media&token=32d0feda-dcc8-4c75-a6a1-309ffd56a3c1') format('otf');
+  src: local('Sensei'), local('Sensei-Medium'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FSensei-Medium.otf?alt=media&token=32d0feda-dcc8-4c75-a6a1-309ffd56a3c1') format('opentype');
 }
-
 
 @font-face {
   font-family: 'Sifonn';
   font-style: normal;
   font-weight: 400;
-  src: local('Sifonn'), local('Sifonn-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fsifonn_pro.otf?alt=media&token=806d3e7c-7b33-4e1d-b71f-7c0d0a998397') format('otf');
+  src: local('Sifonn'), local('Sifonn-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2Fsifonn_pro.otf?alt=media&token=806d3e7c-7b33-4e1d-b71f-7c0d0a998397') format('opentype');
 }
 
 @font-face {
   font-family: 'Voga';
   font-style: normal;
   font-weight: 500;
-  src: local('Voga'), local('Voga-Medium'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FVoga-Medium.otf?alt=media&token=9e2aa296-2505-4589-bd55-bc33e8a12535') format('otf');
+  src: local('Voga'), local('Voga-Medium'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FVoga-Medium.otf?alt=media&token=9e2aa296-2505-4589-bd55-bc33e8a12535') format('opentype');
 }
 
 @font-face {
   font-family: 'Bebas Neue';
   font-style: normal;
   font-weight: 500;
-  src: local('Bebas Neue'), local('BebasNeue-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBebasNeue-Regular.otf?alt=media&token=3834a940-2bce-4358-828c-ec89c9148af5') format('otf');
+  src: local('Bebas Neue'), local('BebasNeue-Regular'), url('https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/fonts%2FBebasNeue-Regular.otf?alt=media&token=3834a940-2bce-4358-828c-ec89c9148af5') format('opentype');
 }
 

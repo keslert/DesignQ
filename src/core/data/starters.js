@@ -16,7 +16,7 @@ export const empty = {
     secondary: '#f00000',
   },
   fonts: {
-    dominant: 'Open Sans',
+    dominant: 'Kollektif',
   },
 }
 
@@ -27,7 +27,7 @@ const small = {
   ],
   color: {color: '#000'},
   font: {
-    family: 'Open Sans',
+    family: 'Kollektif',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -42,7 +42,7 @@ const dominant = {
   ],
   color: {color: '#000'},
   font: {
-    family: 'Open Sans',
+    family: 'Kollektif',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -57,7 +57,7 @@ const bridge = {
   ],
   color: {color: '#000'},
   font: {
-    family: 'Open Sans',
+    family: 'Kollektif',
     letterSpacing: 0.05,
     size: 1,
     transform: 'normal',

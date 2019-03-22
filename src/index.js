@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
+import './styles/fonts.css';
 import App from './containers/App';
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider, injectGlobal } from 'styled-components'

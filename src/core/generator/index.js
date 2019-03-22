@@ -29,7 +29,7 @@ export async function precompute() {
     WebFontLoader.load({...WebFontConfig, 
       active: function () {
         resolve();
-      }
+      },
     });
   });
   _.forEach(templates, t => (computeFlyer(t), normalizeTemplate(t)))

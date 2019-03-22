@@ -40,11 +40,11 @@ export const WebFontConfig = {
       'Norwester',
       'League Gothic:n4,i4',
       'League Spartan:n7',
+      'Kollektif:n4',
       'Cooper Hewitt:n4,i4,n7,i7',
       'Peace Sans',
       'Aileron:n4,i4,n7,i7,n9',
       'Glacial Indifference:n4,i4,n7',
-      'Kollektif:n4,i4,n7,i7',
       'Playlist',
       'Aleo:n4,i4,n7,i7',
       'Rubik One',
@@ -56,7 +56,7 @@ export const WebFontConfig = {
       'Sensei',
       'Voga:n5',
     ],
-    urls: ['/fonts.css']
+    // urls: ['/fonts.css']
   }
 }
 
