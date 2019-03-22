@@ -12,7 +12,6 @@ import { Flex, Box } from 'rebass';
 import { DispatchContext } from '../containers/Queue';
 
 function CanvasToolbar(props) {
-
   const dispatch = useContext(DispatchContext);
 
   return (
@@ -24,74 +23,77 @@ function CanvasToolbar(props) {
       alignItems="center" 
       style={{position: 'relative'}}
     >
-      <Box mb={3}>
-        {props.showAdvance && 
-          <CanvasButton
-            mb={2}
-            onClick={() => dispatch({type: 'ADVANCE_STAGE'})}
-            SvgComponent={<JourneySvg size={45} />}
-            label="Next Stage"
-            highlight={props.highlightAdvance}
-          />
-        }
-        {/* {props.showResume && 
-          <CanvasButton
-            mb={2}
-            onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
-            SvgComponent={<PlaySvg size={21} />}
-            label="Resume"
-            highlight={true}
-          />
-        } */}
-      </Box>
-      <Box mb={3}>
-        <CanvasButton
-          mb={2}
-          onClick={props.showNext ? () => dispatch({type: 'STEP'}) : null}
-          SvgComponent={<LightbulbSvg size={32} />}
-          disabled={!props.showNext}
-          label="Next Design"
-        />
-        {props.showUpgrade && 
-          <CanvasButton
-            mb={2}
-            onClick={() => dispatch({type: 'STEP', upgrade: true})}
-            SvgComponent={<ArrowSvg size={24} />}
-            label="Upgrade"
-          />
-        }
-      </Box>
-      
-      {props.showCompare && 
-        <CanvasButton
-          mb={2}
-          onMouseDown={props.onCompareDown}
-          onMouseUp={props.onCompareUp}
-          onMouseLeave={props.onCompareUp}
-          SvgComponent={<EyeSvg size={30} />}
-          inset={true}
-          label="Compare"
-        />
+      {props.show && 
+        <React.Fragment>
+          <Box mb={3}>
+            {props.show &&props.showAdvance && 
+              <CanvasButton
+                mb={2}
+                onClick={() => dispatch({type: 'ADVANCE_STAGE'})}
+                SvgComponent={<JourneySvg size={45} />}
+                label="Next Stage"
+                highlight={props.highlightAdvance}
+              />
+            }
+            {/* {props.showResume && 
+              <CanvasButton
+                mb={2}
+                onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
+                SvgComponent={<PlaySvg size={21} />}
+                label="Resume"
+                highlight={true}
+              />
+            } */}
+          </Box>
+          <Box mb={3}>
+            <CanvasButton
+              mb={2}
+              onClick={props.showNext ? () => dispatch({type: 'STEP'}) : null}
+              SvgComponent={<LightbulbSvg size={32} />}
+              disabled={!props.showNext}
+              label="Next Design"
+            />
+            {props.showUpgrade && 
+              <CanvasButton
+                mb={2}
+                onClick={() => dispatch({type: 'STEP', upgrade: true})}
+                SvgComponent={<ArrowSvg size={24} />}
+                label="Upgrade"
+              />
+            }
+          </Box>
+          
+          {props.showCompare && 
+            <CanvasButton
+              mb={2}
+              onMouseDown={props.onCompareDown}
+              onMouseUp={props.onCompareUp}
+              onMouseLeave={props.onCompareUp}
+              SvgComponent={<EyeSvg size={30} />}
+              inset={true}
+              label="Compare"
+            />
+          }
+          {props.showGrid &&
+            <CanvasButton
+              mb={2}
+              onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
+              SvgComponent={<GridSvg size={34} />}
+              color={props.viewMode === 'grid' ? 'blue' : 'dark'}
+              highlight={props.viewMode === 'grid'}
+              label="Grid View"
+            />
+          }
+          {props.showMerge && 
+            <CanvasButton
+              mb={2}
+              onClick={() => dispatch({type: 'MERGE'})}
+              SvgComponent={<MergeSvg size={38} />}
+              label={"Merge"}
+            />
+          }
+        </React.Fragment>
       }
-      {props.showGrid &&
-        <CanvasButton
-          mb={2}
-          onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
-          SvgComponent={<GridSvg size={34} />}
-          color={props.viewMode === 'grid' ? 'blue' : 'dark'}
-          highlight={props.viewMode === 'grid'}
-          label="Grid View"
-        />
-      }
-      {props.showMerge && 
-        <CanvasButton
-          mb={2}
-          onClick={() => dispatch({type: 'MERGE'})}
-          SvgComponent={<MergeSvg size={38} />}
-          label={"Merge"}
-        />
-      }
-
     </Flex>
   )
 }

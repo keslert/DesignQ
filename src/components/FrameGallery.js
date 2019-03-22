@@ -74,6 +74,10 @@ function FrameGallery({flyers, size, selected}) {
         rowCount={Math.ceil(flyers.length / COLUMNS)}
         rowHeight={flyerHeight}
         width={width}
+        onItemsRendered={r => dispatch({
+          type: 'ON_GRID_SCROLL', 
+          scrolledToIndex: r.visibleRowStopIndex * COLUMNS,
+        })}
         style={{padding: '40px'}}
       >
         {GridItem}

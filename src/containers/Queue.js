@@ -85,10 +85,14 @@ const reducer = (state, action) => {
     case 'STEP':
     case 'NEXT':
       return step(state, {...action, nextDesign: true})
+    case 'PREV':
+      return step(state, {...action, prevDesign: true})
     case 'SET_STAGE':
       return step(state, action)
     case 'ADVANCE_STAGE':
       return step(state, {...action, advanceStage: true})
+    case 'ON_GRID_SCROLL':
+      return updateJourney(state, action);
 
     case 'SET_SECONDARY':
       return setSecondary(state, action);
@@ -149,6 +153,11 @@ function toggleFavorite(state, flyer) {
     ...state,
     favorites,
   }
+}
+
+function updateJourney(state, action, update={}) {
+  _updateJourney(state, action, update);
+  return {...state, ...update}
 }
 
 // A step in our hero's journey.

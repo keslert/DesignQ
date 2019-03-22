@@ -78,6 +78,7 @@ function Canvas(props) {
         
         <CanvasToolbar
           viewMode={props.viewMode}
+          show={!showContentForm}
           showNext={showNext}
           showAdvance={showAdvance}
           showResume={showResume}

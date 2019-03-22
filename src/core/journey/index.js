@@ -133,6 +133,12 @@ function getUpdatedStage(stage, primary, action) {
       progress: getProgress(stage, highest),
     }
   }
+  else if(action.prevDesign) {
+    return {
+      ...stage,
+      currentGenerationIndex: Math.max(0, stage.currentGenerationIndex - 1),
+    }
+  }
   else if(action.scrolledToIndex) {
     const highest = Math.max(stage.highestViewedIndex, action.scrolledToIndex);
     return {
