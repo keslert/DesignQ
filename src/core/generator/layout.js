@@ -18,7 +18,7 @@ export const basicStages = [
   {
     type: 'layout', 
     focus: 'order', 
-    label: 'Element Ordering',
+    label: 'Elements',
     generate: generateOrder,
     satisfied: () => true,
   },

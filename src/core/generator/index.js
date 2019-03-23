@@ -2,21 +2,13 @@ import _ from 'lodash';
 import WebFontLoader from 'webfontloader';
 import { WebFontConfig } from './web-fonts';
 
-import { 
-  stages as layoutStages,
-} from './layout';
-import {
-  stages as contentStages,
-  computeContentStats,
-} from './content';
-import { 
-  stages as colorStages,
-  computeColorStats,
-} from './color';
-import { 
-  stages as typographyStages,
-  computeTypographyStats,
-} from './typography';
+import { stages as contentStages, computeContentStats } from './content';
+import { stages as layoutStages } from './layout';
+import { stages as typographyStages, computeTypographyStats } from './typography';
+import { stages as colorStages, computeColorStats } from './color';
+import { stages as decorationStages } from './decoration';
+import { stages as polishStages } from './polish';
+import { stages as exportStages } from './export';
 
 import { templates } from '../templates';
 import { computeFlyer } from '../producer';
@@ -54,6 +46,9 @@ export const STAGES = {
   layout: layoutStages,
   typography: typographyStages,
   color: colorStages,
+  decoration: decorationStages,
+  polish: polishStages,
+  export: exportStages,
 }
 
 // function generateStage(flyer, history, stage) {

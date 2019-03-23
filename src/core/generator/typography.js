@@ -73,10 +73,17 @@ export function generateSecondary(flyer, options) {
   const secondaryTextElements = _.filter(flyer._elements, el => el.lines && el.type !== 'dominant');
   const dominantFamily = flyer._dominant.font.family;
 
-  const secondaryFamilies = _.uniq(_.flatMap(secondaryTextElements, el => {
+  let secondaryFamilies = _.uniq(_.flatMap(secondaryTextElements, el => {
     const families = Object.keys(fontStats[el.type].families)
     return _.filter(families, family => fontStats[el.type].families[family].dominantPairing[dominantFamily])
   }))
+
+  if(secondaryFamilies.length <= 1) {
+    const families = _.uniq(Object.values(fontStats.small.dominantPairing))
+    secondaryFamilies = families;
+  }
+
+
 
   const flyers = secondaryFamilies.map(family => {
     const copy = copyTemplate(flyer);

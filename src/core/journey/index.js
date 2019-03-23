@@ -3,6 +3,9 @@ import { basicStages as basicContentStages } from '../generator/content';
 import { basicStages as basicLayoutStages } from '../generator/layout';
 import { basicStages as basicTypographyStages } from '../generator/typography';
 import { basicStages as basicColorStages } from '../generator/color';
+import { basicStages as basicDecorationStages } from '../generator/decoration';
+import { basicStages as basicPolishStages } from '../generator/polish';
+import { basicStages as basicExportStages } from '../generator/export';
 import { computeFlyer } from '../producer';
 import { copyTemplate } from '../utils/template-utils';
 import _ from 'lodash';
@@ -15,6 +18,9 @@ const JOURNEYS = {
     ...basicLayoutStages,
     ...basicTypographyStages,
     ...basicColorStages,
+    ...basicDecorationStages,
+    ...basicPolishStages,
+    ...basicExportStages,
   ].map(stage => ({type: stage.type, focus: stage.focus}))
 }
 
@@ -25,6 +31,9 @@ export function getInitialJourney(type='basic') {
     ...STAGES.layout,
     ...STAGES.typography,
     ...STAGES.color,
+    ...STAGES.decoration,
+    ...STAGES.polish,
+    ...STAGES.export,
   ].map((stage, i) => ({
     type: stage.type, 
     focus: stage.focus,
@@ -120,6 +129,7 @@ function getUpdatedStage(stage, primary, action) {
     return {
       ...stage,
       currentGenerationIndex: 0,
+      exhausted: false,
     }
   }
   else if(action.nextDesign) {
