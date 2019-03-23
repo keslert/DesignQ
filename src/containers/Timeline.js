@@ -21,7 +21,7 @@ function Timeline({items, selected, width}) {
   const rootDispatch = useContext(DispatchContext);
 
   const handleMouseEnter = useCallback(e => {
-    const item = items[e.target.dataset.index];
+    const item = items[e.currentTarget.dataset.index];
     if(Array.isArray(item)) {
       setPreview(false);
     } else {
@@ -35,7 +35,7 @@ function Timeline({items, selected, width}) {
 
   const handleMouseLeave = useCallback(() => setPreview(false), []);
   const handleClick = useCallback(e => {
-    const item = items[e.target.dataset.index];
+    const item = items[e.currentTarget.dataset.index];
     if(Array.isArray(item)) {
       rootDispatch({type: 'SET_LIST', list: item, skipHistory: true});
     } 

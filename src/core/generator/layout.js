@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import { Lexer, Tagger } from 'pos';
 import { copyTemplate } from '../utils/template-utils';
-import { mimicTemplateLayout } from './content';
+import { mimicTemplateLayout, getElementStats } from './content';
 import { getDesiredNumberOfFlyers, getFromCache, validCache } from '.';
+import { withGroups } from '../producer';
 
 const tagger = new Tagger();
 
@@ -42,11 +43,7 @@ export const stages = [
 
 const cache = {};
 function generateStructure(flyer, {history, templates, multiple}) {
-  // if(validCache(flyer, cache)) {
-  //   return getFromCache(cache, multiple);
-  // }
-
-  // const list = [63, 31, 58, 83].map(id => _.find(templates, t => t.id == id));
+  // const list = [58].map(id => _.find(templates, t => t.id == id));
   // cache.index = cache.index || 0;
   // cache.genId = flyer.id;
   // cache.flyer = flyer;
@@ -59,14 +56,39 @@ function generateStructure(flyer, {history, templates, multiple}) {
   flyers.sort((a, b) => a._score < b._score ? 1 : -1);
 
   return flyers;
-
-  // return getDesiredNumberOfFlyers(cache.flyers, 0, multiple);
 }
 
-function generateOrder(flyer, {}) {
-  return _.range(0, 2).map(f => {
-    return copyTemplate(flyer);
+function generateOrder(flyer, {templates}) {
+
+  const templatesWithSameGroups = _.filter(templates, t => {
+    return !t.body === !flyer.body
+      && !t.header === !flyer.header
+      && !t.footer === !flyer.footer
   })
+
+  const validTemplates = templatesWithSameGroups.map(t => {
+    const copy = copyTemplate(flyer);
+    mimicTemplateLayout(copy, t);
+    
+    const fGroupTypes = withGroups(flyer, (g, groupType) => groupType);
+    const cGroupTypes = withGroups(copy, (g, groupType) => groupType);
+    const sameGroups = _.isEqual(fGroupTypes, cGroupTypes)
+    const fElementsTypes = _.flatMap(fGroupTypes, type => flyer.content[type].elements).map(el => el.type);
+    const cElementsTypes = _.flatMap(cGroupTypes, type => copy.content[type].elements).map(el => el.type);
+    const sameElements = _.difference(fElementsTypes, cElementsTypes).length === 0;
+    
+    return (sameGroups && sameElements) ? copy : null
+  }).filter(i => i);
+
+  const flyers = validTemplates.map(t => {
+    const copy = copyTemplate(flyer);
+    withGroups(t, g => {
+      copy.content[g.type].elements = g.elements;
+    })
+    return copy;
+  })
+
+  return flyers;
 }
 
 

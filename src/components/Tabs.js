@@ -7,8 +7,8 @@ const getUpdate = target => ({ l: target.offsetLeft, w: target.offsetWidth })
 
 function Tabs({tabs, selectedIndex, onClick}) {
   const ref = useRef();
-  const [hover, setHover] = useState({l: 0, w: 0})
-  const [marker, setMarker] = useState({l: 0, w: 0});
+  const [hover, setHover] = useState({})
+  const [marker, setMarker] = useState({});
 
   const handleMouseEnter = useCallback(e => {
     setHover(getUpdate(e.target));

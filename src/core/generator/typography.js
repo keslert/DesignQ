@@ -44,7 +44,9 @@ export function generatePrimary(flyer, {templates, multiple}) {
   //   return getFromCache(primaryCache, multiple);
   // }
 
-  const flyers = _.map(templates, template => {
+  const uniqTemplates = _.uniqBy(Object.values(templates), t => t._dominant.font.family);
+
+  const flyers = _.map(uniqTemplates, template => {
     const copy = copyTemplate(flyer);
     const textElements = _.filter(template._elements, el => el.lines);
     const secondaryTextElements = _.filter(textElements, el => el.type !== 'dominant');
@@ -63,31 +65,22 @@ export function generatePrimary(flyer, {templates, multiple}) {
   flyers.sort((a, b) => a._score <= b._score ? -1 : 1);
 
   return flyers;
-  // primaryCache.index = primaryCache.index || 0;
-  // primaryCache.flyers = flyers;
-  // primaryCache.genId = flyer.id;
-
-  // return getDesiredNumberOfFlyers(flyers, 0, multiple);
 }
 
 export function generateSecondary(flyer, options) {
-  return _.range(0, 2).map(f => {
-    return copyTemplate(flyer);
-  })
   
   const fontStats = getFontStats();
   const secondaryTextElements = _.filter(flyer._elements, el => el.lines && el.type !== 'dominant');
   const dominantFamily = flyer._dominant.font.family;
 
-  const secondaryFamilies = _.uniq(_.flatten(secondaryTextElements, el => {
-    const families = Object.keys(fontStats[el.type])
-    const valid = _.filter(families, family => fontStats[el.type][family].dominantPairing[dominantFamily])
-    return valid;
+  const secondaryFamilies = _.uniq(_.flatMap(secondaryTextElements, el => {
+    const families = Object.keys(fontStats[el.type].families)
+    return _.filter(families, family => fontStats[el.type].families[family].dominantPairing[dominantFamily])
   }))
 
   const flyers = secondaryFamilies.map(family => {
     const copy = copyTemplate(flyer);
-    flyer._elements.forEach(el => {
+    copy._elements.forEach(el => {
       if(!el.lines || el.type === 'dominant') return;
       el.font = getDefaultFontProps(dominantFamily, el.type, family);
     })
@@ -111,7 +104,7 @@ export function getElementFont(template, group, elementType) {
 function getDefaultFontProps(dominantFamily, elementType, family) {
   const fontStats = getFontStats();
   const typeStats = fontStats[elementType];
-  const familyStats = typeStats[family] || typeStats[typeStats.dominantPairing[dominantFamily]]
+  const familyStats = typeStats.families[family] || typeStats.families[typeStats.dominantPairing[dominantFamily]]
   const lettercase = _.maxBy(LETTERCASE, l => familyStats.lettercase[l]);
 
   return {
@@ -160,9 +153,9 @@ function computeFontStats(templates) {
       const family = el.font.family;
       const lettercase = el.font.transform;
       
-      _fontStats[type] = _fontStats[type] || {};
-      _fontStats[type][family] = _fontStats[type][family] || _.cloneDeep(defaultFontStat);
-      const o = _fontStats[type][family];
+      _fontStats[type] = _fontStats[type] || {families: {}};
+      _fontStats[type].families[family] = _fontStats[type].families[family] || _.cloneDeep(defaultFontStat);
+      const o = _fontStats[type].families[family];
 
       o.count++;
       o.lettercase[lettercase]++;
@@ -175,10 +168,10 @@ function computeFontStats(templates) {
   })
 
 
-  const dominantFamilies = _.keys(_fontStats.dominant);
+  const dominantFamilies = _.keys(_fontStats.dominant.families);
   _.forEach(_fontStats, (typeStats, type) => {
 
-    _.forEach(typeStats, (familyStats, family) => {
+    _.forEach(typeStats.families, (familyStats, family) => {
       ['letterSpacing', 'lineHeight', 'weight', 'style'].forEach(key => {
         _.forEach(familyStats[key], (items, lettercase) => {
           familyStats[key][`${lettercase}Mode`] = mode(items)[0];
@@ -196,12 +189,9 @@ function computeFontStats(templates) {
       })
     })
 
-    const typeFamilies = Object.keys(typeStats);
+    const typeFamilies = Object.keys(typeStats.families);
     typeStats.dominantPairing = _.zipObject(dominantFamilies, dominantFamilies.map(dominantFamily => (
-      _.maxBy(typeFamilies, typeFamily => typeStats[typeFamily].dominantPairing[dominantFamily])
+      _.maxBy(typeFamilies, typeFamily => typeStats.families[typeFamily].dominantPairing[dominantFamily])
     )))
-
   })
-
-  console.log(_fontStats);
 }

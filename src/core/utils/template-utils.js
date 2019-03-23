@@ -27,7 +27,10 @@ export function mode(arr) {
 export function normalizeTemplate(template) {
   console.log(`Normalizing ${template.title}`);
 
-  template._groups = withGroups(template, g => g);
+  template._groups = withGroups(template, (group, groupType) => {
+    group.type = groupType;
+    return group;
+  });
   
 
   template._groups.forEach(g => g.elements.forEach(el => {

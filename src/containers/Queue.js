@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useState, useEffect } from 'react';
+import React, { useReducer, useMemo, useState, useLayoutEffect } from 'react';
 import Canvas from '../components/Canvas';
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
@@ -33,7 +33,7 @@ function Queue() {
   }), [windowSize, showSidebar]);
 
   // Do initial loading
-  useEffect(() => {
+  useLayoutEffect(() => {
     getInititialState().then(state => {
       dispatch({type: 'INIT', state})
       setLoaded(true);
@@ -139,6 +139,7 @@ async function getInititialState() {
     startFlyer.id = 1;
     startFlyer.stage = {type: 'content', focus: 'text'};
 
+    const stage = {type: 'typography', focus: 'secondary'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -148,7 +149,7 @@ async function getInititialState() {
       viewMode: 'comparison',
       showSidebar: false,
       selection: null,
-    }, {advanceStage: true});
+    }, {stage});
     
     resolve(state);
   })

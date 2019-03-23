@@ -16,7 +16,7 @@ export const empty = {
     secondary: '#f00000',
   },
   fonts: {
-    dominant: 'Kollektif',
+    dominant: 'Open Sans',
   },
 }
 
@@ -27,7 +27,7 @@ const small = {
   ],
   color: {color: '#000'},
   font: {
-    family: 'Kollektif',
+    family: 'Open Sans',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -42,7 +42,7 @@ const dominant = {
   ],
   color: {color: '#000'},
   font: {
-    family: 'Kollektif',
+    family: 'Open Sans',
     letterSpacing: 0.05,
     size: 1,
     transform: 'uppercase',
@@ -57,7 +57,39 @@ const bridge = {
   ],
   color: {color: '#000'},
   font: {
-    family: 'Kollektif',
+    family: 'Open Sans',
+    letterSpacing: 0.05,
+    size: 1,
+    transform: 'normal',
+    weight: 400,
+  },
+}
+
+const heading = {
+  type: 'heading',
+  lines: [
+    {type: 'date', text: 'Sep. 5-8'},
+    {type: 'location', text: 'Park City, Utah'},
+  ],
+  color: {color: '#000'},
+  font: {
+    family: 'Open Sans',
+    letterSpacing: 0.05,
+    size: 1,
+    transform: 'normal',
+    weight: 400,
+  },
+}
+
+const paragraph = {
+  type: 'paragraph',
+  lines: [
+    {type: 'details', text: 'Take a break from your normal environmental'},
+    {type: 'details', text: 'and hit the slopes with your fellow researchers!'},
+  ],
+  color: {color: '#000'},
+  font: {
+    family: 'Open Sans',
     letterSpacing: 0.05,
     size: 1,
     transform: 'normal',
@@ -74,6 +106,8 @@ export const simpleBody = {
         small,
         dominant,
         bridge,
+        heading,
+        paragraph,
       ]
     },
   }

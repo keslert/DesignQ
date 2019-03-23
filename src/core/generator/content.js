@@ -200,6 +200,7 @@ export function mimicTemplateLayout(flyer, template) {
 function buildDefaultGroup(template, groupType) {
   const body = template.content.body;
   return {
+    type: groupType,
     alignX: body.alignX,
     itemsAlignX: body.itemsAlignX,
     textAlign: body.textAlign,
@@ -216,6 +217,7 @@ function buildDefaultElement(template, group, elementType) {
 
 // Doesn't use actual text measurements so size is estimated
 // based on number of characters.
+const MAX_CHARACTERS = 50;
 function convertTextsToShape(texts, shape) {
   const lines = [];
 
@@ -230,7 +232,13 @@ function convertTextsToShape(texts, shape) {
       }
     }
 
-    let paragraph = makeParagraph(texts[i].text, shape.firstLineCharacters * 1.05)
+    const optimalCharacters = _.clamp(
+      shape.firstLineCharacters * 1.05,
+      (texts[i].text.length / 3), 
+      MAX_CHARACTERS
+    )
+
+    let paragraph = makeParagraph(texts[i].text, optimalCharacters)
     if(paragraph.length === 2) {
       paragraph = splitInHalf(texts[i].text)
     }
@@ -258,7 +266,7 @@ function splitInHalf(text) {
 
 function makeParagraph(text, maxCharacters) {
   const pieces = text.split(' ');
-  
+
   let i = 0;
   let lines = [];
   while(i < pieces.length) {
@@ -406,7 +414,7 @@ function _computeContentStats(templates) {
 }
 
 let _elementStats;
-function getElementStats() {
+export function getElementStats() {
   return _elementStats;
 }
 

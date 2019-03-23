@@ -7,7 +7,7 @@ function Selectables({items}) {
   const selection = useContext(SelectionContext);
   const handleClick = useCallback(e => {
     e.stopPropagation();
-    const index = e.target.dataset.index;
+    const index = e.currentTarget.dataset.index;
     const item = items[index]
     dispatch({type: 'SELECT', selection: item})
   }, [items]);

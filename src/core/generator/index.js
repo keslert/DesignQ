@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { generateLayout } from './layout';
 import WebFontLoader from 'webfontloader';
 import { WebFontConfig } from './web-fonts';
 
@@ -23,15 +22,16 @@ import { templates } from '../templates';
 import { computeFlyer } from '../producer';
 import { normalizeTemplate } from '../utils/template-utils';
 
-
 export async function precompute() {
-  await new Promise((resolve, reject) => {
-    WebFontLoader.load({...WebFontConfig, 
-      active: function () {
-        resolve();
-      },
+  if(process.env.NODE_ENV === 'production') {
+    await new Promise((resolve, reject) => {
+      WebFontLoader.load({...WebFontConfig, 
+        active: function () {
+          resolve();
+        },
+      });
     });
-  });
+  }
   _.forEach(templates, t => (computeFlyer(t), normalizeTemplate(t)))
   computeContentStats(templates);
   // computeLayoutStats(templates);

@@ -39,8 +39,8 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   const rootDispatch = useContext(DispatchContext)
   
   const selectedIndex = stages.findIndex(s => s.type === stage.type);
-  const [hover, setHover] = useState({l: 50, w: 0})
-  const [marker, setMarker] = useState({l: 50, w: 0, color: 'green'});
+  const [hover, setHover] = useState({})
+  const [marker, setMarker] = useState({color: 'dark'});
 
   const handleMouseEnter = useCallback(e => {
     setHover(getUpdate(e.target));
