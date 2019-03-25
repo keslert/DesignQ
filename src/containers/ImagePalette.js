@@ -12,29 +12,45 @@ function ImagePalette() {
     const img = new Image();
     img.crossOrigin = "Anonymous";
     img.setAttribute('crossOrigin', '');
-    img.onload = () => {
+    img.onload = async () => {
       const rgbQuant = new RgbQuant({
         colors: 8,
       });
       rgbQuant.sample(img);
       rgbQuant.reduce(img, 1);
 
-      const colors = rgbQuant.idxrgb.map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
-      setPalette(colors);
+      const palette = rgbQuant.idxrgb.map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
+      setPalette(palette);
 
-      const width = img.width * 0.3;
-      const height = img.height * 0.99;
-      smartcrop.crop(img, { width, height }).then(function(result) {
-        const crop = result.topCrop;
-        const relativeCrop = {
-          x: crop.x / img.width * 100,
-          y: crop.y / img.height * 100,
-          width: crop.width / img.width * 100,
-          height: crop.height / img.height * 100,
+      const flyerSize = {w: 480, h:670};
+      const aspectW = flyerSize.w / img.width;
+      const aspectH = flyerSize.h / img.height;
+      
+      const width = aspectW > aspectH ? img.width : img.height * (flyerSize.w / flyerSize.h)
+      const height = aspectH > aspectW ? img.height : img.width * (flyerSize.h / flyerSize.w)
+      
+      const crop = await new Promise((response) => { 
+        smartcrop.crop(img, { width, height }).then(function(result) {
+          const crop = result.topCrop;
+          response({
+            x: crop.x / img.width * 100,
+            y: crop.y / img.height * 100,
+            width: crop.width / img.width * 100,
+            height: crop.height / img.height * 100,
+          })
+        });
+      })
+      setCrop(crop);
+
+      window.img = {
+        src: img.src,
+        palette,
+        crop,
+        meta: {
+          w: img.width,
+          h: img.height,
         }
-        setCrop(relativeCrop);
-      });
-
+      }
     }
     img.src = image;
   }, [image])

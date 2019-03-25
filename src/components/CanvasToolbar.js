@@ -7,6 +7,7 @@ import JourneySvg from '../svg/journey.svg';
 import GridSvg from '../svg/grid.svg';
 import MergeSvg from '../svg/merge.svg';
 import PlaySvg from '../svg/play.svg';
+import RocketshipSvg from '../svg/rocketship';
 import CanvasButton from './CanvasButton';
 import { Flex, Box } from 'rebass';
 import { DispatchContext } from '../containers/Queue';
@@ -48,10 +49,15 @@ function CanvasToolbar(props) {
             <CanvasButton
               mb={2}
               onClick={props.showNext ? () => dispatch({type: 'STEP'}) : null}
-              SvgComponent={<LightbulbSvg size={32} />}
+              SvgComponent={<RocketshipSvg size={40} />}
               disabled={!props.showNext}
               label="Next Design"
+              footer={{
+                label: 'Previous',
+                onClick: () => dispatch({type: 'PREV'}),
+              }}
             />
+
             {props.showUpgrade && 
               <CanvasButton
                 mb={2}

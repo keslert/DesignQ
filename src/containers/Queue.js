@@ -101,10 +101,12 @@ const reducer = (state, action) => {
     case 'INIT':
       return action.state;
     case 'STEP':
-    case 'NEXT':
       return step(state, {...action, nextDesign: true})
+
+    case 'NEXT':
+      return next(state, {...action, nextDesign: true});
     case 'PREV':
-      return step(state, {...action, prevDesign: true})
+      return prev(state, {...action})
     case 'SET_STAGE':
       return step(state, action)
     case 'ADVANCE_STAGE':
@@ -139,7 +141,7 @@ async function getInititialState() {
     startFlyer.id = 1;
     startFlyer.stage = {type: 'content', focus: 'text'};
 
-    const stage = {type: 'typography', focus: 'secondary'}
+    const stage = {type: 'layout', focus: 'structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -149,6 +151,7 @@ async function getInititialState() {
       viewMode: 'comparison',
       showSidebar: false,
       selection: null,
+      stage: {type: 'content', focus: 'text'},
     }, {stage});
     
     resolve(state);
@@ -182,6 +185,24 @@ function toggleFavorite(state, flyer) {
 function updateJourney(state, action, update={}) {
   _updateJourney(state, action, update);
   return {...state, ...update}
+}
+
+function next(state, action) {
+  let index = state.history.indexOf(state.secondary) + 1;
+  if(index === 0 || index >= state.history.length) {
+    return step(state, action);
+  }
+  return setSecondary(state, {secondary: state.history[index]})
+}
+
+function prev(state, action) {
+  let index = state.history.indexOf(state.secondary);
+  if(index === -1) {
+    index = state.history.length;
+  }
+  index = Math.max(0, index - 1);
+  const secondary = state.history[index];
+  return secondary ? setSecondary(state, {secondary}) : state;
 }
 
 // A step in our hero's journey.
@@ -261,6 +282,8 @@ function _updateSecondary(state, action, update) {
     return;
   }
 
-  const stage = update.journey.stage || state.journey.stage;
-  update.secondary = stage.currentGeneration[stage.currentGenerationIndex];
+  if(!update.secondary) {
+    const stage = update.journey.stage || state.journey.stage;
+    update.secondary = stage.currentGeneration[stage.currentGenerationIndex];
+  }
 }

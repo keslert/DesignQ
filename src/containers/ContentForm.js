@@ -16,8 +16,8 @@ const fields = [
   {name: 'location', label: 'Location', width: 1/3, hint: "123 Anywhere St., Phil’s House"},
   {name: 'host', label: 'host', width: 1/3, hint: "Presented by ACME Corp, ACME Corp Presents, ACME Corp"},
   {name: 'cost', label: 'Cost', width: 1/3, hint: "$15, $5 per person"},
-  {name: 'details', label: 'Details', width: 1, rows: 3, hint: "Provide a description of the event with any details someone might need to know."},
   {name: 'descriptive', label: 'Descriptive Text', width: 1, hint: "Come Join Us!, It's going to be a blast!, A special concert for the Rigby Foundation"},
+  {name: 'details', label: 'Details', width: 1, rows: 3, hint: "Provide a description of the event with any details someone might need to know."},
 ]
 
 const TEXT_STAGE = {type: 'content', focus: 'text'}
@@ -88,7 +88,7 @@ function ContentForm(props) {
         color="gray"
         style={{fontStyle: 'italic'}}
         mb={3}
-        children="Only complete the relevant fields"
+        children="Only complete the relevant fields and don't worry about the layout during this stage."
       />
 
       <Flex mx={-2} mb={3} flexWrap="wrap">
@@ -108,7 +108,7 @@ function ContentForm(props) {
       <Button
         disabled={!state.eventName}
         onClick={handleDone}
-        children="Done"
+        children="Next Stage"
       />
 
     </Box>

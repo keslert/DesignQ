@@ -3,16 +3,17 @@ import { Box, Flex, Text } from 'rebass';
 import styled from 'styled-components';
 
 const Button = styled(Flex)(props => ({
-  border: `1px solid ${props.theme.colors[
-    props.bg === 'nearwhite' ? 'lightgray' : props.bg + '_darken'
-  ]}`,
+  border: `1px solid ${props.theme.colors.lightgray}`,
   '&:hover': {
     background: props.theme.colors[props.bg + '_darken'],
   },
   
   width: '72px',
-  height: '72px',
-  borderRadius: '2px',
+  height: props.height || '72px',
+  borderTopLeftRadius: props.btr ? '2px' : 0,
+  borderTopRightRadius: props.btr ? '2px' : 0,
+  borderBottomLeftRadius: props.bbr ? '2px' : 0,
+  borderBottomRightRadius: props.bbr ? '2px' : 0,
   cursor: 'pointer',
   justifyContent: 'center',
   alignItems: 'center',
@@ -32,6 +33,7 @@ const Button = styled(Flex)(props => ({
   ...(props.disabled ? {
     cursor: 'not-allowed',
     color: props.theme.colors.dark_light,
+    // transform: 'scale(0.9)',
   } : {
     '&:active': {
       boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
@@ -47,20 +49,41 @@ Button.defaultProps = {
   color: 'dark',
 }
 
-function CanvasButton({SvgComponent, label, ...props}) {
+function CanvasButton({SvgComponent, label, footer, mb, ...props}) {
   return (
-    <Button {...props}>
-      <Flex flex={1} alignItems="center">
-        {SvgComponent}
-      </Flex>
-      <Text 
-        mt="6px"
-        fontWeight="900"
-        fontSize="8px" 
-        style={{textTransform: 'uppercase'}}
-        children={label}
-      />
-    </Button>
+    <React.Fragment>
+      <Button {...props} btr={true} bbr={!footer} mb={footer ? 0 : mb}>
+        <Flex flex={1} alignItems="center">
+          {SvgComponent}
+        </Flex>
+        <Text
+          mt="6px"
+          fontWeight="900"
+          fontSize="8px" 
+          style={{textTransform: 'uppercase'}}
+          children={label}
+        />
+      </Button>
+      {footer && 
+        <Button
+          mt="-1px"
+          mb={mb}
+          bg="nearwhite_light"
+          btr={false} 
+          bbr={true}
+          height="auto"
+          onClick={footer.onClick}
+          children={
+            <Text
+              fontWeight="900"
+              fontSize="8px" 
+              style={{textTransform: 'uppercase'}}
+              children={footer.label}
+            />
+          }
+        />
+      }
+    </React.Fragment>
   )
 }
 

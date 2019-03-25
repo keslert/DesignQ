@@ -125,14 +125,16 @@ function getUpdatedStage(stage, primary, action) {
       exhausted: false,
     }
   }
-  else if(stage.exhausted && action.stage) {
+  
+  if(stage.exhausted && action.stage) {
     return {
       ...stage,
       currentGenerationIndex: 0,
       exhausted: false,
     }
   }
-  else if(action.nextDesign) {
+  
+  if(action.nextDesign) {
     const index = stage.currentGenerationIndex + 1;
     const highest = Math.max(stage.highestViewedIndex, index);
     return {
@@ -143,13 +145,15 @@ function getUpdatedStage(stage, primary, action) {
       progress: getProgress(stage, highest),
     }
   }
-  else if(action.prevDesign) {
-    return {
-      ...stage,
-      currentGenerationIndex: Math.max(0, stage.currentGenerationIndex - 1),
-    }
-  }
-  else if(action.scrolledToIndex) {
+  
+  // if(action.prevDesign) {
+  //   return {
+  //     ...stage,
+  //     currentGenerationIndex: Math.max(0, stage.currentGenerationIndex - 1),
+  //   }
+  // }
+  
+  if(action.scrolledToIndex) {
     const highest = Math.max(stage.highestViewedIndex, action.scrolledToIndex);
     return {
       ...stage,

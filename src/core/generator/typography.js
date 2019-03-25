@@ -21,6 +21,9 @@ export const basicStages = [
     satisfied: () => true,
     generate: generateSecondary,
   },
+]
+
+export const advancedStages = [
   {
     type: 'typography', 
     focus: 'size',
@@ -28,9 +31,7 @@ export const basicStages = [
     satisfied: () => true,
     generate: generateSecondary,
   },
-]
-
-export const advancedStages = [];
+];
 export const optionalStages = []
 export const stages = [
   ...basicStages,

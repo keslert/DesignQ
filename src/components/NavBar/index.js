@@ -55,8 +55,8 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   const handleClick = useCallback((type, _focus) => {
     const stages = STAGES[type];
     const focus = _focus || (stages[0] ? stages[0].focus : null);
-    rootDispatch({type: 'SET_STAGE', stage: {type, focus}});
-  }, [])
+    rootDispatch({type: 'SET_STAGE', stage: {type, focus}, upgrade: stage.type === 'content'});
+  }, [stage])
 
   useEffect(() => {
     const el = ReactDOM.findDOMNode(ref.current);

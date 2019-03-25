@@ -148,7 +148,7 @@ const COLORS = {
   color: 'red',
   decoration: 'pink',
   polish: 'purple',
-  finish: 'blue',
+  export: 'blue',
   upgrade: 'dark',
   merge: 'off_dark',
 };

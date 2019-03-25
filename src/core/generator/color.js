@@ -28,12 +28,69 @@ export const stages = [
 
 
 function generateBackground(flyer, options) {
+
+	// Templates with similar surfaces
+		// Flyer
+		// Content
+		// Groups
+	// Decoration
+		// Decoration can just be an image, or it can be a pattern
+
+	// how many tiers of surfaces?
+	
+	const flyerSurface = true;
+	const contentSurface = flyer.content.background || flyer.content.border;
+
+	// Step #1 is all about finding the dominant image or background color
+	// - The foreground colors are simply optimal based on the color palette.
+	// How to find the dominant color or image?
+
+	// We can start sourcing images as soon as we have text.
+
+	// Double clicking a surface with an image allows you to edit zoom and position.
+
+
+	// Where to expose these options?
+	// Consider images
+	// Consider solid/gradient backgrounds
+	// Consider colorized images
+	// Consider patterns
+	// Words used to search
+	// Favor those options that are more similar to what the user currently has. 
+	
+
+	// How many colors? Typically 3? 4? Does it depend on the number of surfaces? The number of surface tiers?
+	// How often are group surfaces the same?
+	// When to use a background image?
+
+	// Is it too early to apply 
+
+	const palette = {
+		dark: '',
+		white: '',
+		primary: '',
+		secondary: '',
+	}
+	// Image is light (acts as the light or dark background)
+	// Image is dark (but a surface on top of it doesn't have to have a suitable contrast ratio)
+
+
+
+
 	return _.range(0, 2).map(f => {
     return copyTemplate(flyer);
   })
 }
 
 function generateForeground(flyer, options) {
+	// complements
+	// tertiary
+	// monochrome
+	// square
+	// colormind
+	// search amongst saved palettes
+
+
 	return _.range(0, 2).map(f => {
     return copyTemplate(flyer);
   })
