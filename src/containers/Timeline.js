@@ -28,7 +28,7 @@ function Timeline({items, selected, width}) {
       const parent = e.target.parentElement;
       const listEl = parent.parentElement.parentElement;
       const offset = parent.offsetLeft - listEl.scrollLeft + 2;
-      const left = Math.min(width - 50, offset);
+      const left = Math.min(width - 192, offset);
       setPreview({flyer: item, left});
     }
   }, [items]);
