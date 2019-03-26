@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { copyTemplate, safeIncrement } from '../utils/template-utils';
+import { copyTemplate, safeIncrement, linkTemplate, getTemplateTextTypes } from '../utils/template-utils';
 import { getElementFont } from './typography';
 import { 
   getElementColor, 
@@ -45,17 +45,9 @@ function generateContent(flyer, { userInput }) {
   return [copy];
 }
 
-// export function insertTextIntoTemplates(text, templates) {
-//   const f = groupTextContent(text);
-//   _.forEach(templates, template => {
-//     const t = groupTextContent(template._textTypes);
-//     insertTextIntoTemplate(template, f, t);
-//   })
-// }
-
 export function mimicTemplateLayout(flyer, template) {
-  const f = groupTextContent(flyer._textTypes);
-  const t = groupTextContent(template._textTypes);
+  const f = groupTextContent(getTemplateTextTypes(flyer));
+  const t = groupTextContent(getTemplateTextTypes(template));
 
 
   f.all.forEach(s => s._match = null);
@@ -169,15 +161,17 @@ export function mimicTemplateLayout(flyer, template) {
     })
   })
 
-  // Add missing layout images
+  // Add missing template images
   _.forEach(groups, (_elements, groupType) => {
     const fGroup = flyer.content[groupType];
     const tGroup = template.content[groupType]
-    const templateImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
-    templateImages.forEach(el => {
-      el.img = {
-        src: '/placeholder.png',
-        meta: {w: 500, h: 500},
+    const tImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
+    tImages.forEach(el => {
+      el.background = {
+        img: {
+          src: '/placeholder.png',
+          meta: {w: 500, h: 500},
+        }
       }
       // mimicSurface(el, el, flyer, template);
 
@@ -198,8 +192,12 @@ export function mimicTemplateLayout(flyer, template) {
     delete flyer.content[g];
   })
 
+  
   // Mimic Colors
-  mimicColors(flyer, template);
+  const leftoverImages = _.filter(flyer._elements, el => !el._match && el.type === 'image')
+    .map(el => el.background.img);
+  linkTemplate(flyer);
+  mimicColors(flyer, template, leftoverImages);
 
 }
 
@@ -358,7 +356,7 @@ function getContentStats() {
 function _computeContentStats(templates) {
   _contentStats = {};
   _.forEach(templates, template => {
-    const text = template._textTypes;
+    const text = getTemplateTextTypes(template);
     const groups = _.groupBy(text, t => t.element.id);
 
     text.forEach(t => {

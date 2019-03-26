@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
+import { safeIncrement, mode, copyTemplate, withSurfaces } from '../utils/template-utils';
 import { skiImages } from '../data/images/ski-trip'
 import { withGroups } from '../producer';
 import chroma from 'chroma-js';
@@ -37,20 +37,25 @@ function generateBackground(flyer, options) {
 
 	const flyers = images.map(img => {
 		const copy = copyTemplate(flyer);
-		copy.background = {
-			img: {
-				src: img.src,
-				meta: img.meta,
-				zoom: 1,
-				x: img.crop.x / 100,
-				y: img.crop.y / 100,
-				filters: {
-					brightness: 0.9,
-				}
-			},
+
+		// Find the most likely image surface.
+		const surface = _.find(copy._surfaces, s => s.background && s.background.img)
+			|| _.find(copy._elements, el => el.type === 'image')
+			|| copy;
+
+		surface.background = surface.background || {};
+		surface.background.img = {
+			src: img.src,
+			meta: img.meta,
+			zoom: 1,
+			x: img.crop.x / 100,
+			y: img.crop.y / 100,
+			filters: {
+				brightness: 0.9,
+			}
 		}
-		copy._textElements.forEach(el => el.color = {color: '#ffffff'});
 		copy.palette = buildPalette(img.palette);
+
 		return copy;
 	})
 	
@@ -256,7 +261,7 @@ function buildPalette(_colors) {
 
 const placeholderImage = { src: '/placeholder.png', meta: {h: 1444, w: 1444}}
 
-export function mimicColors(flyer, template) {
+export function mimicColors(flyer, template, additionalImages=[]) {
 	// Step #0: Prep & Cleanup
 	const surfaces = [
 		[flyer, template],
@@ -273,7 +278,11 @@ export function mimicColors(flyer, template) {
 	
 	/* Step #1 Assign images */
 	// TODO: Maybe sort this differently since we are giving highest priority to flyer.
-	const images = _.filter(surfaces, ([f]) => f.background && f.background.img).map(([f]) => f.background.img);
+	const images = [
+		..._.filter(surfaces, ([f]) => f.background && f.background.img).map(([f]) => f.background.img),
+		...additionalImages
+	]
+
 	let imageIndex = 0;
 	surfaces.forEach(([fSurface, tSurface]) => {
 		if(tSurface.background && tSurface.background.img) {
@@ -290,7 +299,7 @@ export function mimicColors(flyer, template) {
 	// We had images to use and we didn't use any.
 	if(images.length && !imageIndex) {
 		// Any images that should take it over?
-		const image = _.find(_.flatMap(withGroups(flyer, g => g.elements)), el => el.type === 'image');
+		const image = _.find(flyer._elements, el => el.type === 'image');
 		if(image && image.background) {
 			image.background.img = images[0];
 		}

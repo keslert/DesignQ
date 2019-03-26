@@ -116,26 +116,29 @@ export const imageBackground = {
   ...simpleBody,
   background: {
     img: {
-      src: "https://images.pexels.com/photos/257961/pexels-photo-257961.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      palette: [
-        "rgb(1, 0, 0)",
-        "rgb(132, 2, 14)",
-        "rgb(222, 134, 150)",
-        "rgb(73, 68, 65)",
-        "rgb(103, 202, 135)",
-        "rgb(3, 148, 201)",
-        "rgb(145, 238, 255)",
-        "rgb(254, 255, 255)"
+      "src": "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800",
+      "palette": [
+        "rgb(251, 251, 251)",
+        "rgb(0, 13, 29)",
+        "rgb(21, 40, 57)",
+        "rgb(49, 67, 87)",
+        "rgb(67, 113, 149)",
+        "rgb(112, 132, 157)",
+        "rgb(146, 170, 194)",
+        "rgb(191, 201, 211)"
       ],
-      crop: {
-        x: 11.700000000000001,
-        y: 0,
-        width: 53.6,
-        height: 100
+      "crop": {
+        "x": 1.7500000000000002,
+        "y": 0,
+        "width": 40.125,
+        "height": 100
       },
-      meta: {
-        w: 1000,
-        h: 750
+      "meta": {
+        "w": 1600,
+        "h": 899
+      },
+      filters: {
+        brightness: 0.9,
       }
     },
   }

@@ -13,7 +13,7 @@ import { computeFlyer } from '../core/producer';
 import _ from 'lodash';
 import { buildTemplatePalette } from '../core/generator/color';
 import { Swatch } from '../components/ColorPicker';
-import { normalizeTemplate } from '../core/utils/template-utils';
+import { linkTemplate } from '../core/utils/template-utils';
 
 // const flyers = [
 //   templates.LookingForArtVolunteers,
@@ -31,8 +31,8 @@ function Gallery({flyerSize}) {
   const [ready, setReady] = useState(false);
   useLayoutEffect(() => {
     _.forEach(flyers, flyer => {
+      linkTemplate(flyer);
       computeFlyer(flyer, flyerSize);
-      normalizeTemplate(flyer);
     });
     setPalettes(_.map(flyers, f => {
       const palette = buildTemplatePalette(f);

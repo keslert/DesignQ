@@ -4,6 +4,7 @@ import { Box, Text, Flex } from 'rebass';
 import Button from '../components/Button';
 import produce from 'immer'
 import { DispatchContext } from './Queue';
+import { getTemplateTextTypes } from '../core/utils/template-utils';
 
 const reducer = produce((draft, {name, value}) => {
   draft[name] = value;
@@ -22,16 +23,15 @@ const fields = [
 
 const TEXT_STAGE = {type: 'content', focus: 'text'}
 
-function ContentForm(props) {
+function ContentForm({flyer}) {
   const rootDispatch = useContext(DispatchContext);
   const [state, dispatch] = useReducer(reducer, {})
 
   useEffect(() => {
-    // Set the stage permanently as this until we manually click done.
-    // rootDispatch({type: 'SET_STAGE', stage: TEXT_STAGE});
-    const content = props.flyer._textTypes;
+    // TODO: This isn't working
+    const content = getTemplateTextTypes(flyer);
     content.forEach(c => dispatch({type: c.type, value: c.text}));
-  }, [])
+  }, [flyer])
 
   useEffect(() => {
     // When the state changes, update the flyer

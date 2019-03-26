@@ -24,12 +24,12 @@ export function mode(arr) {
   return _.filter(Object.keys(counts), key => counts[key] === max);
 }
 
-export function normalizeTemplate(template) {
-  console.log(`Normalizing ${template.title}`);
+export function linkTemplate(template) {
+  console.log('Linking template ' + template.title);
   template.kind = 'template';
-
-  template.content._parent = template;
+  
   template.content.kind = 'content';
+  template.content._parent = template;
 
   template._groups = withGroups(template, (group, groupType) => {
     group.type = groupType;
@@ -37,76 +37,78 @@ export function normalizeTemplate(template) {
     group._parent = template.content;
     return group;
   });
-  
 
-  template._groups.forEach(g => g.elements.forEach(el => {
+  template._elements = _.flatMap(template._groups, g => g.elements.map(el => {
     el.kind = 'element';
-    el._group = g;
     el._parent = g;
+    el._group = g;
+    return el;
   }))
-
-  template._elements = _.flatten(template._groups.map(g => g.elements));
   template._textElements = _.filter(template._elements, el => el.lines);
   template._dominant = _.find(template._textElements, el => el.type === 'dominant');
-  
-  // TODO: What color is behind content?
-  // TODO: What color is behind each group?
-  // TODO: What color is behind each element?
 
-  template._textTypes = getTextTypes(template);
+  template._surfaces = [
+    template,
+    template.content,
+    ...template._groups,
+  ]
 }
 
-export function getTextTypes(template) {  
-  const types = _.flatMap(template._elements, el => {
+export function getTemplateTextTypes(template) {
+  if(!template._textTypes) {
 
-    // flatten lists
-    const lines = _.flatMap(el.lines, (line, lineIndex) => (
-      _.isArray(line)
-        ? line.map((listItem, listIndex) => ({
-            ...listItem, 
-            lineIndex, 
-            listIndex, 
-            listId: `${el._group.type}_${lineIndex}`
-          }))
-        : {...line, lineIndex}
-    ))
+    const types = _.flatMap(template._elements, el => {
 
-    // build types
-    const types = _.reduce(lines, (ret, line) => {
-      const prev = _.last(ret) || {};
-      if(prev.type === line.type) {
-        prev.text += ' ' + line.text;
-        prev.lines.push(line);
-      } else {
-        ret.push({
-          type: line.type,
-          elementId: el.id,
-          elementType: el.type,
-          groupType: el._group.type,
-          element: el, // TODO: Delete...
-          elementIndex: el._computed.index,
-          text: line.text,
-          listId: line.listId,
-          lines: [line],
-          lineIndex: line.lineIndex,
-          listIndex: line.listIndex,
-        });
-      }
-      return ret;
-    }, [])
+      // flatten lists
+      const lines = _.flatMap(el.lines, (line, lineIndex) => (
+        _.isArray(line)
+          ? line.map((listItem, listIndex) => ({
+              ...listItem, 
+              lineIndex, 
+              listIndex, 
+              listId: `${el._group.type}_${lineIndex}`
+            }))
+          : {...line, lineIndex}
+      ))
 
-    return types;
-  })
+      // build types
+      const types = _.reduce(lines, (ret, line) => {
+        const prev = _.last(ret) || {};
+        if(prev.type === line.type) {
+          prev.text += ' ' + line.text;
+          prev.lines.push(line);
+        } else {
+          ret.push({
+            type: line.type,
+            elementId: el.id,
+            elementType: el.type,
+            groupType: el._group.type,
+            element: el, // TODO: Delete...
+            elementIndex: el._computed.index,
+            text: line.text,
+            listId: line.listId,
+            lines: [line],
+            lineIndex: line.lineIndex,
+            listIndex: line.listIndex,
+          });
+        }
+        return ret;
+      }, [])
 
-  types.forEach(t => t.element._text = {text: t.text, type: t.type});
+      return types;
+    })
 
-  return types;
+    types.forEach(t => t.element._text = {text: t.text, type: t.type});
+    template._textTypes = types;
+  }
+
+  return template._textTypes;
 }
 
 export function copyTemplate(flyer) {
   const clone = _.cloneDeepWith(flyer, customizer);
+  linkTemplate(clone);
   computeFlyer(clone);
-  normalizeTemplate(clone);
   return clone;
 }
 

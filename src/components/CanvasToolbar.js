@@ -22,6 +22,7 @@ function CanvasToolbar(props) {
       flexDirection="column"
       justifyContent="center" 
       alignItems="center" 
+      mt={3}
       style={{position: 'relative'}}
     >
       {props.show && 

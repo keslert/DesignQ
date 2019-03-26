@@ -12,7 +12,7 @@ import { stages as exportStages } from './export';
 
 import { templates } from '../templates';
 import { computeFlyer } from '../producer';
-import { normalizeTemplate } from '../utils/template-utils';
+import { linkTemplate } from '../utils/template-utils';
 
 export async function precompute() {
   if(process.env.NODE_ENV === 'production') {
@@ -25,8 +25,8 @@ export async function precompute() {
     });
   }
   _.forEach(templates, t => {
+    linkTemplate(t);
     computeFlyer(t); 
-    normalizeTemplate(t);
     t._isTemplate = true;
     t.palette = buildTemplatePalette(t);
   })
@@ -37,7 +37,7 @@ export async function precompute() {
 }
 
 export function generateFlyers(flyer, stage, options={}) {
-  normalizeTemplate(flyer);
+  linkTemplate(flyer);
   options.templates = templates;
 
   const _stage = _.find(STAGES[stage.type], s => s.focus === stage.focus)
