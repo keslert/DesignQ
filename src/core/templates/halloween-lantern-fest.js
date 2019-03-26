@@ -13,7 +13,7 @@ export default {
     color: '#4d3a6e',
     layout: 'confetti',
     items: [
-      {type: 'party-hat', color: '#fff', size: 32},
+      {type: 'party-hat', color: '#ffffff', size: 32},
       {type: 'party-hat', color: '#faa329', size: 32},
     ],
   },
@@ -27,7 +27,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Everyone is invited!'},
           ],
@@ -60,7 +60,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'date-time', text: 'October 31 @ 7pm'},
           ],

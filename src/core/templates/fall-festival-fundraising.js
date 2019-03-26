@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Meadowview County'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Rosario',
     letterSpacing: 0.15,
@@ -36,7 +36,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A charity event for the Kyobi Cancer Foundation'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Rosario',
     letterSpacing: 0.1,

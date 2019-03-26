@@ -46,7 +46,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Yoga Therapy'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,

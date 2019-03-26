@@ -36,7 +36,7 @@ export default {
           lines: [
             {type: 'host', text: 'Winslough Medical Center'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.1,
@@ -55,7 +55,7 @@ export default {
             {type: 'eventName', text: 'Health Fair'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0,
@@ -73,7 +73,7 @@ export default {
             {type: 'descriptive', text: "Participate in this year's health talks and"},
             {type: 'descriptive', text: "screenings"},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -87,7 +87,7 @@ export default {
         },
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'November 17, 2020', format: 'MMMM D, YYYY'},
@@ -98,7 +98,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Oswald',
@@ -113,7 +113,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Our health fair is free and open to everyone. Simply register'},
             {type: 'details', text: 'your attendance at www.reallygreatsite.com and take a'},

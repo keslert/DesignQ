@@ -108,6 +108,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1512207855369-643452a63d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 593 },
       filters: {
         brightness: 0.7,
       }

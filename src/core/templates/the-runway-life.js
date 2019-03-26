@@ -7,6 +7,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1545911975-d1e66f72af83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60',
+      meta: { w: 800, h: 1200 },
       x: 0.2,
       y: 0.5,
       zoom: 2,

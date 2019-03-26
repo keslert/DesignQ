@@ -26,19 +26,28 @@ export function mode(arr) {
 
 export function normalizeTemplate(template) {
   console.log(`Normalizing ${template.title}`);
+  template.kind = 'template';
+
+  template.content._parent = template;
+  template.content.kind = 'content';
 
   template._groups = withGroups(template, (group, groupType) => {
     group.type = groupType;
+    group.kind = 'group';
+    group._parent = template.content;
     return group;
   });
   
 
   template._groups.forEach(g => g.elements.forEach(el => {
+    el.kind = 'element';
     el._group = g;
+    el._parent = g;
   }))
 
   template._elements = _.flatten(template._groups.map(g => g.elements));
-  template._dominant = _.find(template._elements, el => el.type === 'dominant');
+  template._textElements = _.filter(template._elements, el => el.lines);
+  template._dominant = _.find(template._textElements, el => el.type === 'dominant');
   
   // TODO: What color is behind content?
   // TODO: What color is behind each group?

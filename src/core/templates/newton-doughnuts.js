@@ -29,7 +29,7 @@ export default {
             {type: 'eventName', text: 'Grand'}, 
             {type: 'eventName', text: 'Opening'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           mb: 0.5,
           font: {
             family: 'Bebas Neue',
@@ -52,9 +52,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             fitToWidth: true,

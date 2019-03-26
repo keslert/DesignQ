@@ -31,7 +31,7 @@ export default {
             {type: 'eventName', text: 'Brew Your'},
             {type: 'eventName', text: 'Best Coffee'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             letterSpacing: 0,
@@ -48,7 +48,7 @@ export default {
           lines: [
             {type: 'time', text: 'A coffee brewing session for the uninitiated'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -69,7 +69,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'July 15'},
@@ -81,7 +81,7 @@ export default {
           divider: {
             size: 1,
             type: 'dot',
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Josefin Slab',
@@ -96,7 +96,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Learn how to make brewed coffee right in the'},
             {type: 'details', text: 'comfort of your own home and experiment with'},
@@ -133,14 +133,14 @@ export default {
         },
         {
           type: 'small',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Vigilatte Coffee Presents'},
           ],
           divider: {
             size: 1,
             type: 'dot',
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Muli',

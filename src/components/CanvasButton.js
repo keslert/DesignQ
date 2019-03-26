@@ -71,12 +71,13 @@ function CanvasButton({SvgComponent, label, footer, mb, ...props}) {
           bg="nearwhite_light"
           btr={false} 
           bbr={true}
+          disabled={props.disabled}
           height="auto"
           onClick={footer.onClick}
           children={
             <Text
               fontWeight="900"
-              fontSize="8px" 
+              fontSize="7px" 
               style={{textTransform: 'uppercase'}}
               children={footer.label}
             />

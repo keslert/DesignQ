@@ -12,8 +12,7 @@ export const empty = {
     nearlight: '#eaeaea',
     gray: '#aaaaaa',
     dark: '#313131',
-    primary: 'tomato',
-    secondary: '#f00000',
+    primary: '#dddddd',
   },
   fonts: {
     dominant: 'Open Sans',
@@ -109,6 +108,35 @@ export const simpleBody = {
         heading,
         paragraph,
       ]
+    },
+  }
+}
+
+export const imageBackground = {
+  ...simpleBody,
+  background: {
+    img: {
+      src: "https://images.pexels.com/photos/257961/pexels-photo-257961.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      palette: [
+        "rgb(1, 0, 0)",
+        "rgb(132, 2, 14)",
+        "rgb(222, 134, 150)",
+        "rgb(73, 68, 65)",
+        "rgb(103, 202, 135)",
+        "rgb(3, 148, 201)",
+        "rgb(145, 238, 255)",
+        "rgb(254, 255, 255)"
+      ],
+      crop: {
+        x: 11.700000000000001,
+        y: 0,
+        width: 53.6,
+        height: 100
+      },
+      meta: {
+        w: 1000,
+        h: 750
+      }
     },
   }
 }

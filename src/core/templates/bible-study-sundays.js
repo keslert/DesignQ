@@ -89,6 +89,7 @@ export default {
   background: {
     img: {
       src: 'https://images.pexels.com/photos/1173794/pexels-photo-1173794.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800',
+      meta: { w: 1123, h: 749 },
       filters: {
         brightness: 0.6,
       }

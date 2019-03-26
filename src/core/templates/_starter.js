@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -20,7 +20,7 @@ const dominant = {
   lines: [
     {type: 'eventName', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -35,7 +35,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -49,7 +49,7 @@ const heading = {
   lines: [
     {type: 'descriptive', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -64,7 +64,7 @@ const paragraph = {
   lines: [
     {type: 'details', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,

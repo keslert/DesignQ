@@ -61,7 +61,7 @@ export default {
           lines: [
             {type: 'host', text: 'El Dorado University'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.13,

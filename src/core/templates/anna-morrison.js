@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'You are joyfully invited'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.08,
@@ -38,7 +38,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: "It's a birthday party that you will never forget!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.02,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: "birthday. It's going to be a fun party with"},
     {type: 'details', text: 'friends, family, and loved ones.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,

@@ -7,6 +7,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1067 },
     },
   },
   content: {
@@ -38,7 +39,7 @@ export default {
             {type: 'eventName', text: 'Garnish Delight'},
             {type: 'eventName', text: 'Bakery is Open!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Playfair Display',
             letterSpacing: 0,
@@ -67,7 +68,7 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           w: .25,
           h: 6,
         },
@@ -77,7 +78,7 @@ export default {
             {type: 'descriptive', text: 'Visit Our Little Bakery On Our Grand'},
             {type: 'descriptive', text: 'Opening Day!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.15,

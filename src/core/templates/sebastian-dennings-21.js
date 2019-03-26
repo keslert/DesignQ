@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: '#sebastianturns21'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -24,7 +24,7 @@ const dominant = {
     {type: 'eventName', text: '21st'},
     {type: 'eventName', text: 'Birthday'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: 'Join us for an evening full of'},
     {type: 'descriptive', text: 'dancing and great company!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'descriptive', text: 'Aug. 23 | 8 PM to midnight'},
     {type: 'descriptive', text: 'Levir Bar and Club'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'lot of energy. Turning 21 happens'},
     {type: 'details', text: 'only once in a lifetime!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

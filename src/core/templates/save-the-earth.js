@@ -78,7 +78,7 @@ export default {
         },
         { 
           type: 'image',
-          image: {
+          background: {
             img: {
               src: '/world.svg',
               meta: {
@@ -87,7 +87,7 @@ export default {
               },
               zoom: 1.6,
               y: 0,
-            }
+            },
           },
           fill: '#94f9ce',
           bleed: { x: 1 },

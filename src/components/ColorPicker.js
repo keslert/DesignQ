@@ -90,7 +90,7 @@ function ColorPicker(props) {
 
 export default ColorWrap(ColorPicker);
 
-const Swatch = styled.div(props => ({
+export const Swatch = styled.div(props => ({
   margin: '0 2px',
   width: '24px',
   height: '24px',

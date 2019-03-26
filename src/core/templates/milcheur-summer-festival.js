@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Whimson Productions'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'The Milcheur'},
     {type: 'eventName', text: 'Summer Festival'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Rock out to the most popular bands of the season!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'July 15 . Saturday . 4 PM - 11 PM'},
     {type: 'descriptive', text: 'San Dias Beach Resort'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'details', text: 'hottest acts perform right in front of you at the'},
     {type: 'details', text: "country's biggest music fesitval!"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

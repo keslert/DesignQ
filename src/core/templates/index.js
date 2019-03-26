@@ -163,13 +163,13 @@ import { default as WitchWars } from './witch-wars';
 
 export const templates = {
   BeechtownLodgeSummerCamp,
+  IsabelBeachBazaar,
   SaveTheEarth,
   RollinBackParty,
   BeechtownBlockParty,
   GoldCheetahSurvivalCamp,
   VolleyballTeamOpenTryouts,
   
-  IsabelBeachBazaar,
   AnnualDessertDash,
   BeechtownDanceFestival,
   CraftFair,

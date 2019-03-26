@@ -48,67 +48,71 @@ function SelectionTree({flyer}) {
   }, [flyer]);
 
   return (
-    <Box pt="12px" pb="12px">
+    <Box>
       <Text
         px="16px"
-        pb="8px"
+        py="12px"
         fontWeight="bold"
         color="white"
         fontSize={1}
         children="Selection Tree"
       />
-      <TreeNode 
-        label="Flyer" 
-        indent={0} 
-        selected={false}
-      />
-      <TreeNode 
-        label="Content" 
-        indent={1} 
-        selected={true} 
-      />
-      <DragDropContext onDragEnd={handleDragEnd}>
-        {groups.map(g => (
-          <Droppable droppableId={g.type} key={g.type}>
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
-              >
-                <TreeNode 
-                  label={g.label} 
-                  indent={2} 
-                  selected={false}
-                  disabled={!g.elements.length}
-                />
-                {g.elements.map((el, index) => (
-                  <Draggable key={el.id} draggableId={`${g.type}-${index}`} index={index}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
+      {false && 
+        <Box pb="12px">
+          <TreeNode 
+            label="Flyer" 
+            indent={0} 
+            selected={false}
+          />
+          <TreeNode 
+            label="Content" 
+            indent={1} 
+            selected={true} 
+          />
+          <DragDropContext onDragEnd={handleDragEnd}>
+            {groups.map(g => (
+              <Droppable droppableId={g.type} key={g.type}>
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    style={getListStyle(snapshot.isDraggingOver)}
+                  >
+                    <TreeNode 
+                      label={g.label} 
+                      indent={2} 
+                      selected={false}
+                      disabled={!g.elements.length}
+                    />
+                    {g.elements.map((el, index) => (
+                      <Draggable key={el.id} draggableId={`${g.type}-${index}`} index={index}>
+                        {(provided, snapshot) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            style={getItemStyle(
+                              snapshot.isDragging,
+                              provided.draggableProps.style
+                            )}
+                          >
+                            <TreeNode 
+                              label={el.lines[0].text}
+                              indent={3} 
+                              type={el.type}
+                              selected={false}
+                            />
+                          </div>
                         )}
-                      >
-                        <TreeNode 
-                          label={el.lines[0].text}
-                          indent={3} 
-                          type={el.type}
-                          selected={false}
-                        />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        ))}
-      </DragDropContext>
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            ))}
+          </DragDropContext>
+        </Box>
+      }
     </Box>
   )
 }

@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'We are proud to present'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'The Belle x Bold'},
     {type: 'eventName', text: 'Fashion Show'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'A fundraiser for the benefit of the Bijou'},
     {type: 'descriptive', text: "High's scholars"},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'February 14, 2020 | 2PM'},
     {type: 'descriptive', text: 'The Grand Wislough Hall'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: "We're bringing you fabulous fashionistas"},
     {type: 'details', text: 'flaunting local labels on the ramp!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

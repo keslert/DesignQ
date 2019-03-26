@@ -30,7 +30,7 @@ export default {
           lines: [
             {type: 'host', text: 'Grinning Stomach Presents'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0.1,
@@ -48,7 +48,7 @@ export default {
             {type: 'eventName', text: 'The Ultimate Food'},
             {type: 'eventName', text: 'Fest 2020'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Chewy',
             letterSpacing: 0,
@@ -66,7 +66,7 @@ export default {
             {type: 'descriptive', text: 'A gathering of cuisines from all'},
             {type: 'descriptive', text: 'over the globe!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -107,7 +107,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'May 13-15, 2020', format: 'MMMM D, YYYY'},
@@ -118,7 +118,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Muli',
@@ -133,7 +133,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Call 123-456-7890 for tickets now! if you\'re interested in setting up'},
             {type: 'details', text: 'a booth, contact hello@reallygreatsite.com.'},

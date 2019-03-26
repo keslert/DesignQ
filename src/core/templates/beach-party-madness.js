@@ -31,7 +31,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Come Party With Us!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.15,
@@ -48,7 +48,7 @@ export default {
             {type: 'eventName', text: 'Beachtown Beach'},
             {type: 'eventName', text: 'Party Madness'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -70,7 +70,7 @@ export default {
           lines: [
             {type: 'host', text: 'Proudly sponsored by Lamplight Mobile System'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -101,9 +101,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -127,7 +127,7 @@ export default {
             {type: 'details', text: 'and get ready for a night of partying by the'},
             {type: 'details', text: 'ocean! Everyone is invited to join!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,

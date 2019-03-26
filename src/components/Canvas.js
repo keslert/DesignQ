@@ -63,7 +63,8 @@ function Canvas(props) {
         >
           <Box>
             <FrameToolbar 
-              text={`Primary Design - #${primary.id}`}
+              label="Primary Design"
+              // id={"#" + primary.id}
               viewFavorites={true}
               onClick={() => rootDispatch({type: 'VIEW_FAVORITES'})} 
             />
@@ -101,7 +102,8 @@ function Canvas(props) {
           {!showSecondary ? null : 
             <Box>
               <FrameToolbar 
-                text={`Exploratory Design - #${secondary.id}`} 
+                label={`Exploratory Design`} 
+                id={"#" + secondary.id}
                 favorited={secondary._favorited}
                 onClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
               />

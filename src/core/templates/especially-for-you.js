@@ -94,7 +94,8 @@ export default {
   tags: ['event', 'flyer'],
   background: {
     img: {
-      src: 'https://images.unsplash.com/photo-1441861187324-6970a2587e34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+      src: 'https://images.unsplash.com/photo-1441861187324-6970a2587e34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      meta: { w: 500, h: 500 },
     },
   },
   content: {

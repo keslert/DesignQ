@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1429198739803-7db875882052?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1200 },
       filters: {
         brightness: 0.8,
       }
@@ -25,7 +26,7 @@ export default {
       elements: [
         {
           type: 'bar',
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           h: 12,
           w: 1,
         },
@@ -34,7 +35,7 @@ export default {
           lines: [
             {type: 'host', text: 'Mathika Music Productions'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
@@ -51,7 +52,7 @@ export default {
             {type: 'eventName', text: 'Autumn Music'},
             {type: 'eventName', text: 'Festival 2020'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.12,
@@ -68,7 +69,7 @@ export default {
             {type: 'time', text: 'Enjoy an afternoon of'},
             {type: 'time', text: 'amazing musical performances!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -94,9 +95,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
@@ -116,7 +117,7 @@ export default {
       elements: [
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Tickets are priced at $20 each. Buy your tickets'},
             {type: 'details', text: 'now at www.reallygreatsites.com or at designated'},

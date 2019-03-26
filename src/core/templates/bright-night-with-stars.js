@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'San Dias Youth Ministry'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.25,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'A classic movie night'},
     {type: 'descriptive', text: 'and fundraising event'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.15,
@@ -79,7 +79,7 @@ const paragraph = {
     {type: 'details', text: 'includes popcorn and a drink. Visit'},
     {type: 'details', text: 'www.reallygreatsite.com for tickets.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.41,

@@ -22,7 +22,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'For Sale'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -39,7 +39,7 @@ export default {
             {type: 'eventName', text: 'Traditional'},
             {type: 'eventName', text: 'Grace'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -52,7 +52,7 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           width: unitValue(60, 'px'),
           height: unitValue(5, 'px'),
           mb: 1,
@@ -65,7 +65,7 @@ export default {
             {type: 'descriptive', text: 'convenience. A beautiful home for those who wish'},
             {type: 'descriptive', text: 'for the quiet and quaint.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

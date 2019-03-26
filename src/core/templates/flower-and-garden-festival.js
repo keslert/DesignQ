@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1521374046855-cb3799ffbaab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1198 },
       filters: {
         brightness: 0.8,
       }
@@ -28,7 +29,7 @@ export default {
           lines: [
             {type: 'host', text: "Flora's Floral Society"},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.180,
@@ -46,7 +47,7 @@ export default {
             {type: 'eventName', text: 'Garden'},
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0,
@@ -63,7 +64,7 @@ export default {
             {type: 'descriptive', text: 'Witness beauty in bloom at this year\'s'},
             {type: 'descriptive', text: 'floral festival!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -83,7 +84,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'location', text: 'June 17-19, 2020', format: 'MMMM D, YYYY'},
             {type: 'location', text: '8 am to 4 pm'},
@@ -101,7 +102,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'cost', text: 'Entrance Fee: $6'},
             {type: 'descriptive', text: 'Includes free access to our food and beverage stalls.'},

@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Beechtown City'},
     {type: 'eventName', text: 'Job Fair 2020'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.05,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: 'from various industries! There will also be'},
     {type: 'details', text: 'career talks in the afternoon.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.05,
@@ -89,6 +89,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1533985065508-e5848b120b80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      meta: { w: 500, h: 461 },
       filters: {
         brightness: 0.7,
       },

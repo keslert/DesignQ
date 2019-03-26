@@ -28,7 +28,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'A Holiday Celebration'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.27,
@@ -64,7 +64,7 @@ export default {
             {type: 'descriptive', text: 'Join us for a holiday feast with'},
             {type: 'descriptive', text: 'friends and family!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0,
@@ -101,7 +101,7 @@ export default {
             {type: 'details', text: 'Food and beverages catered by the Beechtown Culinary Hall.'},
             {type: 'details', text: 'The event is open to all, so feel free to bring anyone you want!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0,

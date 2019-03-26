@@ -6,7 +6,7 @@ export default {
   py: 36,
   footer: null,
   header: null,
-  background: solidColor('#fff'),
+  background: solidColor('#ffffff'),
   content: {
     height: 'flex',
     width: 'flex',
@@ -49,7 +49,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'stationary for the working professional'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             size: 1.2,
             family: 'Josefin Slab',

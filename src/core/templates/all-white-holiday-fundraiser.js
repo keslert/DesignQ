@@ -5,7 +5,7 @@ export default {
   title: 'All-White Holiday Fundraiser',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-gold-all-white-party-flyer-MAC7msY4lpw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fff'),
+  background: solidColor('#ffffff'),
   border: {
     y: .01,
     yOffset: .03,

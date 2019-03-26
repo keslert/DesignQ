@@ -15,7 +15,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Explore the Outdoors!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto',
             letterSpacing: 0.19,
@@ -48,7 +48,7 @@ export default {
           lines: [
             {type: 'time', text: 'A place for building friendship and learning life skills'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto',
             letterSpacing: 0,
@@ -60,8 +60,8 @@ export default {
           },
         },
         { 
-          type: 'image',
-          image: {
+          background: {
+            type: 'image',
             img: {
               src: '/camping.png',
               meta: {
@@ -70,7 +70,7 @@ export default {
               },
               zoom: 1.2,
               y: 0.4,
-            }
+            },
           },
           fill: '#94f9ce',
           aspectRatio: .6,
@@ -101,7 +101,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'The Beechtown Lodge Summer Camp helps teens aged 14 to'},
             {type: 'details', text: '18 learn life survival skills in a fun, friendly setting.'},

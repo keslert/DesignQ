@@ -5,7 +5,7 @@ import { WebFontConfig } from './web-fonts';
 import { stages as contentStages, computeContentStats } from './content';
 import { stages as layoutStages } from './layout';
 import { stages as typographyStages, computeTypographyStats } from './typography';
-import { stages as colorStages, computeColorStats } from './color';
+import { stages as colorStages, computeColorStats, buildTemplatePalette } from './color';
 import { stages as decorationStages } from './decoration';
 import { stages as polishStages } from './polish';
 import { stages as exportStages } from './export';
@@ -24,7 +24,12 @@ export async function precompute() {
       });
     });
   }
-  _.forEach(templates, t => (computeFlyer(t), normalizeTemplate(t)))
+  _.forEach(templates, t => {
+    computeFlyer(t); 
+    normalizeTemplate(t);
+    t._isTemplate = true;
+    t.palette = buildTemplatePalette(t);
+  })
   computeContentStats(templates);
   // computeLayoutStats(templates);
   computeColorStats(templates);

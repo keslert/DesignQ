@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'White'},
     {type: 'eventName', text: 'Elephant'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Sensei',
     letterSpacing: -0.02,
@@ -77,7 +77,7 @@ const paragraph = {
   lines: [
     {type: 'details', text: ''},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0,

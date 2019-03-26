@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1508116916455-2857e44c161e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1200 },
       zoom: 1,
       y: 1.0,
     }
@@ -25,7 +26,7 @@ export default {
             {type: 'eventName', text: 'Austham Charity'},
             {type: 'eventName', text: 'Food Drive'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.04,
@@ -42,7 +43,7 @@ export default {
             {type: 'descriptive', text: "Let's give a helping hand to the victims"},
             {type: 'descriptive', text: "of Typhoon Ovia."},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.04,
@@ -65,9 +66,9 @@ export default {
           divider: {
             type: 'blank',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -84,7 +85,7 @@ export default {
             {type: 'details', text: "Typhoon Ovia caused great damage to the community of San Clemence."},
             {type: 'details', text: "Hundreds of evacuees are in dire need of food."},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -108,7 +109,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'A Little Goes A'},
             {type: 'descriptive', text: 'Long Way!'},

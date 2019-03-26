@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'descriptive', text: 'Join in on the fun!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Lora',
     letterSpacing: 0.0,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Beach'},
     {type: 'eventName', text: 'Bazaar'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.03,

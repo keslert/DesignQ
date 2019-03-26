@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.pexels.com/photos/691710/pexels-photo-691710.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+      meta: { w: 1000, h: 737 },
     },
     color: striped(135, '#f68464', 80, '#454a80', 40),
     backgroundBlendMode: 'overlay',

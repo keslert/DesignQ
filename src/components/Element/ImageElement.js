@@ -18,7 +18,7 @@ function ImageElement({element}) {
     // flex: element.flex,
     width: '100%',
     height: '100%',
-    ...getBackgroundStyle(element.image),
+    ...getBackgroundStyle(element),
     flexShrink: 0,
   }
 

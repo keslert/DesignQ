@@ -11,6 +11,7 @@ export default {
     background: {
       img: {
         src: 'https://images.unsplash.com/photo-1447768005573-3b54cdf058a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        meta: { w: 800, h: 1422 },
         w: 421,
         h: 729,
       },
@@ -49,7 +50,7 @@ export default {
           lines: [
             {type: 'host', text: 'Night Owl Pet Center'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.31,
@@ -68,7 +69,7 @@ export default {
             {type: 'eventName', text: 'The Park'},
             {type: 'eventName', text: 'Fundraiser'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0.05,
@@ -86,7 +87,7 @@ export default {
             {type: 'descriptive', text: 'A benefit event for the stray dogs of'},
             {type: 'descriptive', text: 'Nightowl PPC'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.05,
@@ -105,7 +106,7 @@ export default {
             {type: 'time', text: '8 am to 4 pm'},
             {type: 'location', text: '123 Anywhere St., Any City'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.07,
@@ -124,7 +125,7 @@ export default {
             {type: 'details', text: 'We\'ll be having loads of fun activities and'},
             {type: 'details', text: 'awesome games for all attendees.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.05,

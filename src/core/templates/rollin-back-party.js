@@ -94,14 +94,14 @@ const paragraph = {
 
 const image = { 
   type: 'image',
-  image: {
+  background: {
     img: {
       src: 'https://images.unsplash.com/photo-1512333325950-03bcdceec88d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
       meta: {
         w: 800,
         h: 533,
       },
-    }
+    },
   },
   h: 'fill',
   fill: '#94f9ce',

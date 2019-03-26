@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Sing to God:'},
     {type: 'eventName', text: 'A Gospel Concert'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Vidaloka',
     letterSpacing: 0,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#fff'),
+    color: solidColor('#ffffff'),
   },
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,

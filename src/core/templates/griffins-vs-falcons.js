@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1538358755974-f350d26af7bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=60',
+      meta: { w: 1200, h: 857 },
       zoom: 2,
       x: 0.35,
       y: 0.6,
@@ -51,7 +52,7 @@ export default {
             {type: 'descriptive', text: 'A viewing party organized by'},
             {type: 'host', text: 'the Silton Football Circle'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0.04,
@@ -69,7 +70,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Get Ready for Game Day!'},
           ],
@@ -96,7 +97,7 @@ export default {
             {type: 'location', text: 'The Curtain Sports Bar'},
           ],
           background: solidColor('#f98e25'),
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,
@@ -114,7 +115,7 @@ export default {
             {type: 'details', text: 'Get your tickets now! For other reservations and other'},
             {type: 'details', text: 'ticket-related inquiries, visit www.reallygreatsite.com.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,

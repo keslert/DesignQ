@@ -8,6 +8,7 @@ export default {
   background: {
     img: { 
       src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-blue-lines-pattern-food-drive-flyer-MAC3TYAY1fE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+      meta: { w: 393, h: 550 },
     },
   },
   content: {

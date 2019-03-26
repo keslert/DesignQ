@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'McDowell Digital Media'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.1,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'Sept. 22, 2020 | 1 PM to 10 PM'},
     {type: 'descriptive', text: 'McDowell Digital Center'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.09,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: "For the benefit of Winslough Children's"},
     {type: 'descriptive', text: 'Foundation'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.14,
@@ -82,7 +82,7 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#e25232'),
+  background: solidColor('#e45330'),
   w: .5,
   h: 2,
 }

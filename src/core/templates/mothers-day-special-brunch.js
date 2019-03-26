@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'The Stockton Cafe'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Josefin Sans',
     letterSpacing: 0.15,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: "Mother's Day"},
     {type: 'eventName', text: 'Special Brunch'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Playfair Display',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Celebrate with us and make your mother feel special!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Josefin Sans',
     letterSpacing: 0.03,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'date', text: 'Visit us on May 10, 2020,'},
     {type: 'time', text: 'between 10:00 AM and 2:00 PM.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Playfair Display',
     letterSpacing: 0,

@@ -22,7 +22,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'A Valentine\'s Celebration'},
           ],
@@ -44,7 +44,7 @@ export default {
             {type: 'eventName', text: 'you'},
             {type: 'eventName', text: 'so'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Voga',
             weight: 400,
@@ -68,7 +68,7 @@ export default {
               {type: 'time', text: 'Doors open at 7PM'},
             ]
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           divider: {
             type: 'line',
             size: 2,
@@ -97,7 +97,7 @@ export default {
         lines: [
           {type: 'contact', text: 'For more information contact Daniel Rose at 202 555 4321'},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         font: {
           family: 'Muli',
           weight: 400,

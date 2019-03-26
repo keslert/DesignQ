@@ -19,7 +19,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'host', text: 'The Winslough Hospital'},
           ],
@@ -39,7 +39,7 @@ export default {
             {type: 'eventName', text: 'Health is'},
             {type: 'eventName', text: 'Wealth Fair 2020'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Fredoka One',
             weight: 400,
@@ -52,7 +52,7 @@ export default {
         },
         { 
           type: 'bridge', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [
               {type: 'descriptive', text: 'Join us for the annual community health fair!'},
@@ -70,7 +70,7 @@ export default {
         },
         { 
           type: 'heading', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           background: {
             color: '#ff8b7b',
             borderRadius: 8,
@@ -88,7 +88,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Fredoka One',
@@ -102,7 +102,7 @@ export default {
         },
         { 
           type: 'paragraph', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Make your health always your priority.'},
             {type: 'details', text: 'Participate in this year\'s exciting activities'},

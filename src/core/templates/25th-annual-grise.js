@@ -7,6 +7,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1523275033438-8c0a9239935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 533 },
       filters: {
         brightness: .8,
       },
@@ -19,7 +20,7 @@ export default {
   content: {
     body: {
       bleed: { x: 2 },
-      background: solidColor('#fff'),
+      background: solidColor('#ffffff'),
       alignY: 'top',
       h: 'auto',
       elements: [
@@ -80,7 +81,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [ 
               {type: 'date', text: 'March 3-5, 2020', format: 'MMMM D, YYYY'},
@@ -91,7 +92,7 @@ export default {
           divider: {
             size: 1,
             type: 'line',
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'League Spartan',
@@ -105,7 +106,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Did you know that thousands of households struggle'},
             {type: 'details', text: 'with food security everyday? You can help change'},

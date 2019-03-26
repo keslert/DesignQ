@@ -23,7 +23,7 @@ export default {
             {type: 'eventName', text: 'Fall'}, 
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             weight: 700,
@@ -39,7 +39,7 @@ export default {
             {type: 'location', text: 'Orange County'},
             {type: 'location', text: 'Open Grounds'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             weight: 400,
@@ -61,9 +61,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             weight: 400,
@@ -85,7 +85,7 @@ export default {
         lines: [
           {type: 'descriptive', text: 'Come Join The Fun'},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         font: {
           family: 'Josefin Slab',
           weight: 700,
@@ -106,7 +106,7 @@ export default {
         lines: [
           {type: 'descriptive', text: 'It\'s The Annual'},
         ],
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         font: {
           family: 'Josefin Slab',
           weight: 700,

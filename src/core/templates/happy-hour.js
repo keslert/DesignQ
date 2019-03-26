@@ -32,9 +32,9 @@ export default {
           divider: {
             type: 'none',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           mb: 0.5,
           font: {
             family: 'Bebas Neue',

@@ -45,7 +45,7 @@ export default {
             {type: 'descriptive', text: 'Photography'},
             {type: 'descriptive', text: 'Workshop'},  
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -73,7 +73,7 @@ export default {
             {type: 'day-of-week', text: 'Friday'}, 
             {type: 'date', text: 'June 5, 2019', format: 'MMM D, YYYY'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,

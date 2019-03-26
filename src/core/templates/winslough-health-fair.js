@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.pexels.com/photos/1498933/pexels-photo-1498933.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+      meta: { w: 1000, h: 1500 },
       filters: {
         brightness: 0.7
       }
@@ -123,7 +124,7 @@ export default {
             {type: 'details', text: 'Winslough Elders Association covers the cost of vaccines for those'},
             {type: 'details', text: 'without insurance. Don\'t miss out on the opportunity!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.05,

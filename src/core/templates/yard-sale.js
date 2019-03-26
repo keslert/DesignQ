@@ -45,7 +45,7 @@ export default {
           ],
           width: unitValue(100, '%'),
           color: solidColor('#031f52'),
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           bleed: {left: true, right: true },
           font: {
             family: 'Muli',

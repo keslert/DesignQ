@@ -97,9 +97,9 @@ export default {
             weight: 700,
           },
         },
-        { 
-          type: 'image',
-          image: {
+        {
+          background: {
+            type: 'image',
             img: {
               src: '/mountain.svg',
               meta: {
@@ -108,7 +108,7 @@ export default {
               },
               zoom: 1.2,
               y: 0.6,
-            }
+            },
           },
           bleed: { x: 1 },
           fill: '#94f9ce',

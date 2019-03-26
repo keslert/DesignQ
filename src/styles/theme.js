@@ -11,7 +11,7 @@ const theme = {
     gray: '#9296A0',
     lightgray: '#E8EFF2',
     nearwhite: '#F7F9FA',
-    white: '#fff',
+    white: '#ffffff',
 
     // dark: '#353D4D',
     dark: '#262d3c',

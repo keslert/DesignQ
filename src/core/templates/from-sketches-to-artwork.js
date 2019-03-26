@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'hello@reallygreatsite.com. More inforamtion at'},
     {type: 'details', text: 'www.reallygreatsite.com'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.07,
@@ -92,6 +92,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1485841938031-1bf81239b815?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      meta: { w: 500, h: 796 },
     }
   },
   content: {

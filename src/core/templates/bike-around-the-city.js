@@ -28,7 +28,7 @@ export default {
             {type: 'eventName', text: 'Around'},
             {type: 'eventName', text: 'The City'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -42,7 +42,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'website', text: 'bikeclub.co'},
           ],

@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Volleyball Team Open'},
     {type: 'eventName', text: 'Tryouts'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -95,7 +95,7 @@ export default {
         bridge,
         { 
           type: 'image',
-          image: {
+          background: {
             img: {
               src: '/volleyball.svg',
               meta: {
@@ -104,7 +104,7 @@ export default {
               },
               zoom: 0.8,
               y: 0,
-            }
+            },
           },
           fill: '#94f9ce',
           aspectRatio: .6,

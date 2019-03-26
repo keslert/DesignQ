@@ -136,12 +136,12 @@ const reducer = (state, action) => {
 async function getInititialState() {
   return new Promise(async (resolve, reject) => {
     await precompute();
-    const startFlyer = starters.simpleBody
+    const startFlyer = process.env.NODE_ENV === 'production' ? starters.empty : starters.imageBackground
     computeFlyer(startFlyer);
     startFlyer.id = 1;
     startFlyer.stage = {type: 'content', focus: 'text'};
 
-    const stage = {type: 'layout', focus: 'structure'}
+    const stage = process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'layout', focus: 'structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -151,6 +151,7 @@ async function getInititialState() {
       viewMode: 'comparison',
       showSidebar: false,
       selection: null,
+      // selection: startFlyer.content.body.elements[1],
       stage: {type: 'content', focus: 'text'},
     }, {stage});
     

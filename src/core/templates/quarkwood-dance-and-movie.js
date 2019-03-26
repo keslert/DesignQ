@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'We are inviting you!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Dance &'},
     {type: 'eventName', text: 'Movie Night'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Join us as we sing and dance our hearts out!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: '16 October 2020 | 6 p.m. - 9 p.m.'},
     {type: 'descriptive', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'details', text: 'This annual event is organized and hosted by the Beechtown Music'},
     {type: 'details', text: 'Group for the residents of the Quarkwood Geriatric Center.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

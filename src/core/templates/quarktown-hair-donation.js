@@ -20,7 +20,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Long overdue for a cut?'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.2,
@@ -53,7 +53,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Get a drastic haircut to contribute to a noble cause!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -88,7 +88,7 @@ export default {
             {type: 'details', text: 'into a wig and be donated to people suffering'},
             {type: 'details', text: 'from sudden and extreme hair loss.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,

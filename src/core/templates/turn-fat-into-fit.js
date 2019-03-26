@@ -35,7 +35,7 @@ export default {
             {type: 'eventName', text: 'Into'},
             {type: 'eventName', text: 'Fit!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -49,7 +49,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           background: solidColor('#fb7c00'),
           lines: [
             {type: 'host', text: 'Bellar\'s Fitness Gym'},

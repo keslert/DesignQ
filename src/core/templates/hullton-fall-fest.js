@@ -17,7 +17,7 @@ export default {
     bleed: { x: 1, b: 0},
     mb: 0,
     body: {
-      background: solidColor('#fff'),
+      background: solidColor('#ffffff'),
       elements: [
         {
           type: 'small',
@@ -100,7 +100,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'See you all at the Hullton Village Park for a fun day of food'},
             {type: 'details', text: 'games, shopping and prizes! Bringing of pets is highly'},

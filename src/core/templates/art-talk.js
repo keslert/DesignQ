@@ -5,7 +5,6 @@ export default {
   px: 48,
   py: 36,
   background: {
-    type: 'image',
     url: 'https://images.unsplash.com/photo-1532640331846-d2da5987c3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1993&q=80',
     filters: [],
   },
@@ -17,7 +16,7 @@ export default {
       bleed: {all: true },
       alignX: 'flex-start',
       alignY: 'center',
-      background: solidColor('#fff'), 
+      background: solidColor('#ffffff'), 
       border: {
         color: '#EE445A',
         top: 12,

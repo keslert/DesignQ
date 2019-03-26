@@ -28,7 +28,7 @@ export default {
           lines: [
             {type: 'host', text: 'San Dias Church Presents'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -65,7 +65,7 @@ export default {
             {type: 'descriptive', text: 'Learn, Love, and Live the Life'},
             {type: 'descriptive', text: 'of Jesus Christ'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -110,7 +110,7 @@ export default {
             {type: 'details', text: "our Lord, study the Bible, meet new"},
             {type: 'details', text: "friends, and have loads of fun!"},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,

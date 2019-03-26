@@ -19,6 +19,7 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
         <Toolbar 
           onClick={() => onFavorite(flyer)} 
           favorite={flyer._favorite} 
+          id={"#" + flyer.id}
         />
         <Frame 
           onClick={() => onClick(flyer)}

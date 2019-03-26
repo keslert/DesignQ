@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 800 },
     },
   },
   content: {
@@ -26,7 +27,7 @@ export default {
           lines: [
             {type: 'host', text: 'Beechtown City Council'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.13,
@@ -44,7 +45,7 @@ export default {
             {type: 'eventName', text: 'Beechtown'},
             {type: 'eventName', text: 'Food Fest'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.05,
@@ -61,7 +62,7 @@ export default {
             {type: 'descriptive', text: 'Admission is free! Hope'},
             {type: 'descriptive', text: 'to see you there!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.149,
@@ -80,7 +81,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'date', text: 'January 16 - 20, 2020', format: 'MMMM D, YYYY'},
             {type: 'time', text: '10 am to 5 pm'},
@@ -98,7 +99,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'For more information about the food fest, visit'},
             {type: 'details', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},

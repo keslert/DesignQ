@@ -9,7 +9,7 @@ export default {
     all: 80,
     color: splitColor(0, '#fec458', '#ed5744'),
   },
-  background: solidColor('#fff'),
+  background: solidColor('#ffffff'),
   content: {
     height: 'flex',
     width: 'flex',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'rebass';
+import { Flex, Box } from 'rebass';
 import { Textarea } from '../FormInput'
 import Slider from '../Slider';
 import Select from '../Select';
@@ -7,6 +7,7 @@ import ColorPicker from '../ColorPicker';
 import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
 import { DQ_FONTS } from '../../core/utils/text-utils';
+import Checkbox from '../Checkbox';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
@@ -20,7 +21,6 @@ function TextElementPanel({element}) {
   };
   const font = element.font;
 
-  // TODO: Add Line spacing ignore descenders.
   // TODO: Add translateXY for minor adjustments.
 
   return (
@@ -37,19 +37,6 @@ function TextElementPanel({element}) {
           onChange={() => null}
         />
       </Field>
-
-      <Field 
-        label="Type"
-        onExploreClick={() => null}
-      >
-        <Select
-          bg="dark"
-          color="white"
-          value={element.type}
-          options={['Heading 1', 'Heading 2', 'Heading 3', 'Subheading', 'Paragraph']}
-        />
-      </Field>
-
 
       <Field 
         label="Font"
@@ -70,7 +57,7 @@ function TextElementPanel({element}) {
         <ColorPicker
           onChangeComplete={color => console.log(color)}
           color={element.color.color}
-          palette={template._palette}
+          palette={template._palette || []}
           width={226}
         />
       </Field>
@@ -138,22 +125,6 @@ function TextElementPanel({element}) {
       </Field>
 
       <Field 
-        label="Line Spacing"
-        onExploreClick={() => null}
-      >
-        <Slider
-          name="lineHeight"
-          bg="dark"
-          color="white"
-          value={font.lineHeight}
-          step={.1}
-          min={1}
-          max={2}
-          showValue={true}
-        />
-      </Field>
-
-      <Field 
         label="Letter Spacing"
         onExploreClick={() => null}
       >
@@ -167,6 +138,39 @@ function TextElementPanel({element}) {
           max={3}
           showValue={true}
         />
+      </Field>
+
+      <Field 
+        label="Line Height"
+        onExploreClick={() => null}
+      >
+        <Slider
+          name="lineHeight"
+          bg="dark"
+          color="white"
+          value={font.lineHeight}
+          step={.1}
+          min={1}
+          max={2}
+          showValue={true}
+        />
+        <Flex mt="2px" justifyContent="center">
+          <Box mr={2}>
+            <Checkbox 
+              label="Ignore Ascenders"
+              onClick={() => null}
+              checked={true}
+            />
+          </Box>
+          <Box>
+            <Checkbox 
+              label="Ignore Descenders"
+              onClick={() => null}
+              checked={true}
+            />
+          </Box>
+        </Flex>
+
       </Field>
 
       <Field 
@@ -211,6 +215,18 @@ function TextElementPanel({element}) {
           t={element.pt}
           b={element.pb}
           onChange={() => null}
+        />
+      </Field>
+
+      <Field 
+        label="Type"
+        onExploreClick={() => null}
+      >
+        <Select
+          bg="dark"
+          color="white"
+          value={element.type}
+          options={['Heading 1', 'Heading 2', 'Heading 3', 'Subheading', 'Paragraph']}
         />
       </Field>
 

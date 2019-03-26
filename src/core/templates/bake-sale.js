@@ -36,7 +36,7 @@ export default {
             {type: 'eventName', text: 'Holiday Bake Sale'},
           ],
           color: solidColor('#D786D5'),
-          // background: solidColor('#fff'),
+          // background: solidColor('#ffffff'),
           px: 1.5,
           py: 1.1,
           font: {
@@ -55,7 +55,7 @@ export default {
           lines: [
             {type: 'time', text: 'Wednesday at 12pm'}
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -80,7 +80,7 @@ export default {
       width: unitValue(100, '%'),
       elements: [{
         type: 'small',
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         lines: [
           {type: 'descriptive', text: 'Proceeds Benefit Spark High School Spirit Squad'}
         ],

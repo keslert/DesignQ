@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Have a fabulous fall!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.18,
@@ -45,9 +45,9 @@ const bridge = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#fff'),
+    color: solidColor('#ffffff'),
   },
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.06,
@@ -81,7 +81,7 @@ const paragraph = {
     {type: 'details', text: 'season with appetizing food and'},
     {type: 'details', text: 'free-flowing drinks!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.14,

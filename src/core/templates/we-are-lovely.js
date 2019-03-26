@@ -22,7 +22,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Valentine\'s Celebration'},
           ],
@@ -43,7 +43,7 @@ export default {
             {type: 'eventName', text: 'We Are'},
             {type: 'eventName', text: 'Lovely'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Voga',
             weight: 400,
@@ -62,7 +62,7 @@ export default {
               {type: 'time', text: '6PM'},
             ],
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           divider: {
             type: 'line',
             size: 2,

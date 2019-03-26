@@ -44,7 +44,7 @@ export default {
             {type: 'eventName', text: 'Jazz Night'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.02,

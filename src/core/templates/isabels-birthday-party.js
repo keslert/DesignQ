@@ -89,6 +89,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1526205711417-6f36af4f3c55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      meta: { w: 500, h: 750 },
     },
   },
   content: {

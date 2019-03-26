@@ -18,7 +18,7 @@ function FontCanvas({family, fontSize, text, loaded, width}) {
     const y = fontSize;
 
     function draw(text) {
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#000';
       ctx.fillText(text, x, y);
@@ -37,7 +37,7 @@ function FontCanvas({family, fontSize, text, loaded, width}) {
     const superAscender = findFromTop(ctx, width, height);
     const baseline = findFromBottom(ctx, width, height);
 
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     [
       [superAscender, "#0C5EE8"],

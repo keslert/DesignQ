@@ -29,7 +29,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Brooklyn Community'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,
@@ -47,7 +47,7 @@ export default {
             {type: 'eventName', text: 'Health'},
             {type: 'eventName', text: 'Fair 2019'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -64,7 +64,7 @@ export default {
           lines: [
             {type: 'date-and-time', text: 'September 25-27 at 10AM'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

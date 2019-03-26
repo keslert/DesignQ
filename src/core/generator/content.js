@@ -1,7 +1,11 @@
 import _ from 'lodash';
 import { copyTemplate, safeIncrement } from '../utils/template-utils';
 import { getElementFont } from './typography';
-import { getElementColor, mimicSurface } from './color';
+import { 
+  getElementColor, 
+  mimicSurface, 
+  mimicColors,
+} from './color';
 
 export const basicStages = [
   {
@@ -36,7 +40,6 @@ export const stages = [
 function generateContent(flyer, { userInput }) {
   const copy = copyTemplate(flyer);
   copy._textTypes = userInput ? userInput.text : [];
-
   mimicTemplateLayout(copy, flyer); 
 
   return [copy];
@@ -172,11 +175,11 @@ export function mimicTemplateLayout(flyer, template) {
     const tGroup = template.content[groupType]
     const templateImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
     templateImages.forEach(el => {
-      el.image.img = {
+      el.img = {
         src: '/placeholder.png',
-        meta: {w: 1444, h: 1444},
+        meta: {w: 500, h: 500},
       }
-      mimicSurface(el, el, flyer, template);
+      // mimicSurface(el, el, flyer, template);
 
       if(el._computed.isFirst) {
         fGroup.elements.unshift(el);
@@ -195,12 +198,16 @@ export function mimicTemplateLayout(flyer, template) {
     delete flyer.content[g];
   })
 
+  // Mimic Colors
+  mimicColors(flyer, template);
+
 }
 
 function buildDefaultGroup(template, groupType) {
   const body = template.content.body;
   return {
     type: groupType,
+    _parent: template.content,
     alignX: body.alignX,
     itemsAlignX: body.itemsAlignX,
     textAlign: body.textAlign,
@@ -210,6 +217,7 @@ function buildDefaultGroup(template, groupType) {
 function buildDefaultElement(template, group, elementType) {
   return {
     type: elementType,
+    _parent: group,
     color: getElementColor(template, group, elementType),
     font: getElementFont(template, group, elementType),
   }

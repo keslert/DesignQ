@@ -6,7 +6,7 @@ export default {
   py: 36,
   border: {
     all: 12,
-    color: '#fff',
+    color: '#ffffff',
   },
   content: {
     height: 'flex',
@@ -32,7 +32,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Celebrate the Day of Hearts'},
           ],
@@ -72,11 +72,11 @@ export default {
               {type: 'location', text: '71 Park Lane'},
             ],
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           divider: {
             type: 'line',
             size: 2,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           mb: 1,
           font: {

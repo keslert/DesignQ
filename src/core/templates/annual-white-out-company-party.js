@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Portal Tech Co.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Annual White Out'},
     {type: 'eventName', text: 'Company Party'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Gear up in your all-white ensemble and enjoy the party!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'October 22, 2020 | 6:00PM onwards'},
     {type: 'descriptive', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -68,7 +68,7 @@ const paragraph = {
     {type: 'details', text: 'Have loads of fun for a great cause! All proceeds from this'},
     {type: 'details', text: 'event will go to the San Dias Security Foundation.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,

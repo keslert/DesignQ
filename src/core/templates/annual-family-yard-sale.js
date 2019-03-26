@@ -21,7 +21,7 @@ export default {
           lines: [
             {type: 'eventName', text: 'Annual'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: '',
             letterSpacing: 0,
@@ -38,7 +38,7 @@ export default {
           lines: [
             {type: 'time', text: '10AM'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -60,7 +60,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'location', text: '123 Anywhere St.'},
           ],

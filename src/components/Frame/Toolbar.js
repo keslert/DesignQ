@@ -26,9 +26,17 @@ function Toolbar(props) {
         </OpacityButton>
       </Box>
 
-      <Text fontSize={0} color="gray" children={props.text} fontWeight="bold" />
+      <Text fontSize={0} color="gray" children={props.label} fontWeight="bold" />
         
-      <Box flex={1} />
+      <Box flex={1}>
+        <Text 
+          textAlign="right"
+          fontSize={0} 
+          color="gray" 
+          children={props.id} 
+          fontWeight="bold" 
+        />
+      </Box>
     </Flex>
   )
 }

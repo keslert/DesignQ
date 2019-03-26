@@ -11,6 +11,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1461532257246-777de18cd58b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 530 },
       filters: {
         brightness: 0.8,
         grayscale: 1,
@@ -36,7 +37,7 @@ export default {
             {type: 'eventName', text: 'For Art'},
             {type: 'eventName', text: 'Volunteers'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -54,7 +55,7 @@ export default {
             {type: 'descriptive', text: 'Come over and join us at'},
             {type: 'descriptive', text: 'the Youth Arts Exhibit 2020!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -71,7 +72,7 @@ export default {
             {type: 'contact', text: 'Call us up at (123) 456 7890'},
             {type: 'contact', text: 'If you want to sign up!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -89,7 +90,7 @@ export default {
             {type: 'details', text: 'talent for instruction, boundless creativity,'},
             {type: 'details', text: 'and 18-21 y/o, you should join!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -108,7 +109,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Quark Community Center'},
           ],

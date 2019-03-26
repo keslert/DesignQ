@@ -18,7 +18,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Dr. Nathanial Morrison Presents'},
           ],
@@ -40,7 +40,7 @@ export default {
             {type: 'eventName', text: 'Health is'},
             {type: 'eventName', text: 'Wealth Fair'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Fredoka One',
             weight: 400,
@@ -54,7 +54,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           background: solidColor('#ff8b7b'),
           borderRadius: unitValue(8, 'px'),
           lines: [
@@ -67,7 +67,7 @@ export default {
           divider: {
             size: 2,
             type: 'dot',
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Nunito',

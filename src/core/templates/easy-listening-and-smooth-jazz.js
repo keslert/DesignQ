@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'The Union Club and Bar'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0.02,
@@ -25,7 +25,7 @@ const dominant = {
     {type: 'eventName', text: 'And Smooth'},
     {type: 'eventName', text: 'Jazz'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'League Gothic',
     letterSpacing: 0.01,
@@ -41,7 +41,7 @@ const bridge = {
     {type: 'descriptive', text: 'Listen, relax, and enjoy the'},
     {type: 'descriptive', text: 'hottest covers'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0.02,
@@ -57,7 +57,7 @@ const heading = {
     {type: 'descriptive', text: 'Brought to you by Amara Jazz Productions &'},
     {type: 'descriptive', text: 'Lightshow Co.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'League Gothic',
     letterSpacing: 0.08,
@@ -74,7 +74,7 @@ const paragraph = {
     {type: 'details', text: 'For table bookings and ticket packages, please feel'},
     {type: 'details', text: 'free to contact us.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0.02,

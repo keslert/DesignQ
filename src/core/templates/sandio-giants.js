@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: "the Cubs, or will the Cubs' undefeated record"},
     {type: 'details', text: 'remain pristine? Be part of history!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.08,
@@ -87,7 +87,10 @@ export default {
   title: 'Sandios Giants',
   tags: ['event', 'flyer'],
   background: {
-    img: { src: 'https://images.unsplash.com/photo-1522602043785-821a161a5238?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' },
+    img: { 
+      src: 'https://images.unsplash.com/photo-1522602043785-821a161a5238?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1115 },
+    },
   },
   decor: {
     t: .2,

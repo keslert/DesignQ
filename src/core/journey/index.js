@@ -93,10 +93,12 @@ export function _updateJourney(state, action, update) {
     j.stage.progress = getMaxProgress(j.stage.progress, ProgressTypes.USER_SKIPPED);
     const nextRecommended = getRecommendedStage(j.stages, primary); // Necessary when recommended is the same as updatedStage
 
-    const updatedRecommended = getUpdatedStage(nextRecommended, primary, {stage: nextRecommended});
-    j.stage = updatedRecommended;
-    j.stages = mapReplace(j.stages, nextRecommended, updatedRecommended);
-    j.recommendedStage = updatedRecommended;
+    if(nextRecommended) {
+      const updatedRecommended = getUpdatedStage(nextRecommended, primary, {stage: nextRecommended});
+      j.stage = updatedRecommended;
+      j.stages = mapReplace(j.stages, nextRecommended, updatedRecommended);
+      j.recommendedStage = updatedRecommended;
+    }
   }
 }
 
@@ -139,7 +141,7 @@ function getUpdatedStage(stage, primary, action) {
     const highest = Math.max(stage.highestViewedIndex, index);
     return {
       ...stage,
-      currentGenerationIndex: index,
+      currentGenerationIndex: Math.min(stage.currentGeneration.length - 1, index),
       highestViewedIndex: highest,
       exhausted: index >= stage.currentGeneration.length,
       progress: getProgress(stage, highest),

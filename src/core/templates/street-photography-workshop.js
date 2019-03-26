@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Shutter Club NY'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Learn the best photography'},
     {type: 'descriptive', text: 'techniques from the pros!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'different stories through different'},
     {type: 'details', text: 'frames and styles.!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -104,6 +104,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1465925508512-1e7052bb62e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1200 },
       filters: {
         grayscale: 1,
       },

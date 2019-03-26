@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Altercave Productions'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.16,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Music'},
     {type: 'eventName', text: 'Festival'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Sifonn',
     letterSpacing: 0,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: "Music from the 50's to the 90's on"},
     {type: 'descriptive', text: 'different stages!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -56,7 +56,7 @@ const heading = {
     {type: 'time', text: '5:00 PM - 12:00 MN'},
     {type: 'location', text: 'Downtown Quarkwood'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Sifonn',
     letterSpacing: 0.09,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'in the past! Walk to and from several music'},
     {type: 'details', text: 'venues hosting different musical eras!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   background: solidColor ('#e369d2'),
   bleed: { a: 1 },
   w: 'fill',
@@ -97,6 +97,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1527618802231-5054ec72758b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      meta: { w: 500, h: 333 },
     }
   },
   content: {

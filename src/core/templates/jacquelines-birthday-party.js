@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1494652588305-d663c5a1eb31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1198 },
       zoom: 1.8,
       y: 0.65,
       filters: {
@@ -28,7 +29,7 @@ export default {
           lines: [
             {type: 'descriptive', text: "You're All Invited!"},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Mr Dafoe',
             letterSpacing: 0.01,
@@ -62,7 +63,7 @@ export default {
             {type: 'descriptive', text: "Let's Party and Celebrate 21 Awesome"},
             {type: 'descriptive', text: "Years!"},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.15,

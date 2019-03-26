@@ -5,7 +5,7 @@ export default {
   title: 'Annual All-White Charity Party',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-and-charcoal-all-white-party-flyer-MAC7mt5CsZA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fff'),
+  background: solidColor('#ffffff'),
   content: {
     body: {
       elements: [
@@ -78,7 +78,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'October 12, 2020', format: 'MMMM D, YYYY'},
@@ -89,7 +89,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
           font: {
             family: 'Aileron',
@@ -103,7 +103,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'This year, all proceeds from this event will go to the George'},
             {type: 'details', text: 'Hewes Foundation. Come and party for a good cause!'},

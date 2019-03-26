@@ -16,7 +16,7 @@ export function computeBackgrounds(template) {
 
   const images = _.flatten(withGroups(template, g => g.elements.filter(el => el.type === 'image')))
   images.forEach(img => {
-    computeBackground(template, img, img.image);
+    computeBackground(template, img, img.background);
   })
 
 }

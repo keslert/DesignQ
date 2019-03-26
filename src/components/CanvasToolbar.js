@@ -48,7 +48,7 @@ function CanvasToolbar(props) {
           <Box mb={3}>
             <CanvasButton
               mb={2}
-              onClick={props.showNext ? () => dispatch({type: 'STEP'}) : null}
+              onClick={props.showNext ? () => dispatch({type: 'NEXT'}) : null}
               SvgComponent={<RocketshipSvg size={40} />}
               disabled={!props.showNext}
               label="Next Design"

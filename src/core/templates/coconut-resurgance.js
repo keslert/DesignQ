@@ -25,7 +25,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           background: solidColor('#8F5B68'),
           bleed: { left: true },
           width: unitValue(100, '%'),

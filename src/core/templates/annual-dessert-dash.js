@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Bromson Cake Café'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.110,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: "We're donating 50% of the proceeds"},
     {type: 'descriptive', text: 'from our desserts.'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'Restaurant Council and City Charity Office.'},
     {type: 'details', text: 'Join the movement!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -97,7 +97,10 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-yellow-ice-cream-parlor-fundraiser-flyer-MAC5D0kbNIw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
-    img: { src: 'https://images.pexels.com/photos/749102/pexels-photo-749102.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500' },
+    img: { 
+      src: 'https://images.pexels.com/photos/749102/pexels-photo-749102.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+      meta: { w: 1000, h: 563 },
+    },
   },
   content: {
     h: 'auto',

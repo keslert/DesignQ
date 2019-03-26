@@ -12,7 +12,7 @@ export default {
     color: '#191e3c',
     layout: 'confetti',
     items: [
-      {type: 'party-hat', color: '#fff', size: 32},
+      {type: 'party-hat', color: '#ffffff', size: 32},
       {type: 'party-hat', color: '#ff8400', size: 32},
       {type: 'party-hat', color: '#fa905e', size: 32},
     ],
@@ -30,7 +30,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Bawres Fort Presents'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,
@@ -87,9 +87,9 @@ export default {
           divider: {
             type: 'dot',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

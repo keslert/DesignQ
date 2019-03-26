@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: '5th Annual Health'},
     {type: 'eventName', text: 'is Wealth Fair'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Aileron',
     letterSpacing: -0.02,
@@ -91,6 +91,7 @@ export default {
   background: {
     img: {
       src: 'https://images.pexels.com/photos/42273/doctor-medical-medicine-health-42273.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+      meta: { w: 1000, h: 667 },
       filters: {
         brightness: 0.7,
       }

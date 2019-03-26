@@ -53,7 +53,7 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           width: unitValue(5, '%'),
           height: unitValue(4, 'px'),
           mb: 1,
@@ -83,7 +83,7 @@ export default {
       py: .75,
       elements: [{
         type: 'small',
-        color: solidColor('#fff'),
+        color: solidColor('#ffffff'),
         lines: [
           {type: 'website', text: 'treatstempations.co'}
         ],

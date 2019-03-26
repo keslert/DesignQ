@@ -28,7 +28,7 @@ const makeBodyFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -250,7 +250,7 @@ const makeBodyFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -278,7 +278,7 @@ const makeBodyFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -424,7 +424,7 @@ const makeBodyHeaderFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -452,7 +452,7 @@ const makeBodyHeaderFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -567,7 +567,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -595,7 +595,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -623,7 +623,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -802,7 +802,7 @@ const makeElementsFlyer = (options, i) => ({
             {type: 'eventName', text: 'Body Test'},
           ],
           background: solidColor('#ffffff99'),
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -822,7 +822,7 @@ const makeElementsFlyer = (options, i) => ({
             {type: 'eventName', text: 'Body Test'},
           ],
           background: solidColor('#ffffff99'),
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,

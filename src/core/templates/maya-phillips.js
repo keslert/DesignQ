@@ -8,10 +8,11 @@ export default {
   background: {
     img: {
       src: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-colorful-confetti-background-birthday-celebration-event-flyer-MAC7mrsHwDA.jpg?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
+      meta: { w: 393, h: 550 },
     }
   },
   content: {
-    background: solidColor('#fff'),
+    background: solidColor('#ffffff'),
     body: {
       elements: [
         {

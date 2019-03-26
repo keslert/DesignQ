@@ -22,7 +22,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: '#jointheearthmovement'},
           ],
@@ -59,7 +59,7 @@ export default {
             {type: 'descriptive', text: 'Providing organic and environmentally'},
             {type: 'descriptive', text: 'friendly cleaning services since 2019'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

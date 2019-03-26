@@ -8,6 +8,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1534534665817-8493579d3fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 1385 },
       zoom: 2,
       y: .35,
       filters: {
@@ -29,7 +30,7 @@ export default {
           lines: [
             {type: 'host', text: 'Baks Clothing Company'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             lineHeight: 1.4,
@@ -47,7 +48,7 @@ export default {
             {type: 'eventName', text: 'In Black'},
             {type: 'eventName', text: 'And White'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Playfair Display',
             letterSpacing: 0,
@@ -63,7 +64,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Modified classic silhouettes. Timeless color stories.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             size: 1,
             family: 'Glacial Indifference',
@@ -83,7 +84,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Fashion show'},
             {type: 'date', text: 'June 20, 2020', format: 'MMMM D, YYYY'},
@@ -100,7 +101,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'details', text: 'A collection inspired by vintage music festival'},
             {type: 'details', text: 'photos, Summer in Black and White will feel'},

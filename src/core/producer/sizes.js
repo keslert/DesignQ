@@ -2,16 +2,6 @@ import { getTextOffset } from '../utils/text-utils';
 import _ from 'lodash';
 import { CONTENT_GROUPS, withGroups } from '.';
 
-
-// flyer
-  // - border
-  // - decor
-  // - padding
-  // flyerContent (doesn't constrain left & right & background is a separate div)
-    // header
-    // body
-    // footer
-
 export function computeSizes(template, scaleDominant) {
   const dominant = _.find(template.content.body.elements, el => el.type === 'dominant');
   if(dominant) {

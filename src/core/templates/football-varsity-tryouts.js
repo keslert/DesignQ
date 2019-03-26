@@ -9,7 +9,7 @@ export default {
   border: {
     l: 50,
     background: {
-      color: striped(30, '#000', 40, '#fff', 40),
+      color: striped(30, '#000', 40, '#ffffff', 40),
     },
   },
   decor: {
@@ -17,6 +17,7 @@ export default {
     background: {
       img: {
         src: 'http://pngimg.com/uploads/american_football/american_football_PNG113.png',
+        meta: { w: 483, h: 807 },
         zoom: 1,
         x: 0,
       },
@@ -78,7 +79,7 @@ export default {
             {type: 'location', text: 'Football Field'},
           ],
           background: solidColor('#000'),
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,
@@ -125,7 +126,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Broadus High School'},
           ],

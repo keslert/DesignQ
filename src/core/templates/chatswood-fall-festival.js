@@ -100,13 +100,13 @@ export default {
   id: 95,
   title: 'Chatswood Fall Festival',
   tags: ['event', 'flyer'],
-  background: solidColor('#fff'),
+  background: solidColor('#ffffff'),
   decor: {
     y: .3,
   },
   content: {
     h: 'auto',
-    background: solidColor('#fff'),
+    background: solidColor('#ffffff'),
     bleed: { a: 1 },
     body: {
       elements: [

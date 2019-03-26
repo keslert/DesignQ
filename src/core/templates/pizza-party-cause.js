@@ -5,7 +5,7 @@ export default {
   px: 48,
   py: 72,
   border: {
-    color: striped(45, '#000', 60, '#fff', 60),
+    color: striped(45, '#000', 60, '#ffffff', 60),
     all: 10,
   },
   background: {
@@ -28,7 +28,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Help feed the kids!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,
@@ -47,7 +47,7 @@ export default {
             {type: 'eventName', text: 'For A'}, 
             {type: 'eventName', text: 'Cause'},   
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -64,7 +64,7 @@ export default {
           lines: [
             {type: 'date', text: '09.18.19', format: 'MM.DD.YY'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -88,9 +88,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#fff'),
+            color: solidColor('#ffffff'),
           },
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,

@@ -92,7 +92,7 @@ const paragraph = {
 
 const image = {
   type: 'image',
-  image: {
+  background: {
     img: {
       src: 'https://images.unsplash.com/photo-1525804017725-0ac671aea1fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
       meta: {

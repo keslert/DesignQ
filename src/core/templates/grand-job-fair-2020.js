@@ -7,6 +7,7 @@ export default {
   background: {
     img: {
       src: 'https://images.unsplash.com/photo-1519176510496-cd5b5b74c808?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+      meta: { w: 800, h: 534 },
       zoom: 2.4,
       y: .1,
       filters: {
@@ -26,7 +27,7 @@ export default {
             {type: 'eventName', text: 'Job Fair'},
             {type: 'eventName', text: 'Of 2020'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Aileron',
             letterSpacing: 0.04,
@@ -39,7 +40,7 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#fff'),
+          background: solidColor('#ffffff'),
           w: 1,
           h: 6,
         },
@@ -49,7 +50,7 @@ export default {
             {type: 'time', text: 'Get to know over 60 companies'},
             {type: 'time', text: 'and jumpstart your career!'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Aileron',
             letterSpacing: 0,
@@ -64,7 +65,7 @@ export default {
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#fff'),
+      background: solidColor('#ffffff'),
       elements: [
         {
           type: 'heading',
@@ -113,7 +114,7 @@ export default {
     },
     header: {
       bleed: { t: 1 },
-      background: solidColor('#fff'),
+      background: solidColor('#ffffff'),
       w: 'auto',
       textAlign: 'center',
       elements: [
@@ -135,7 +136,7 @@ export default {
             {type: 'host', text: 'Beechtown'},
             {type: 'host', text: 'Careers Co.'},
           ],
-          color: solidColor('#fff'),
+          color: solidColor('#ffffff'),
           font: {
             family: 'Aileron',
             letterSpacing: 0.13,

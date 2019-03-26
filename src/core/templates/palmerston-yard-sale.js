@@ -5,7 +5,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Serendipitous Shopping'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: '9 AM - 5 PM'},
     {type: 'descriptive', text: 'The Palmerston Residence'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: 'Our yard sale is a treasure trove of vintage items. Happy'},
     {type: 'details', text: 'shopping!'},
   ],
-  color: solidColor('#fff'),
+  color: solidColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
