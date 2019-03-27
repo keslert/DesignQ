@@ -1,12 +1,12 @@
 import React from 'react';
-import { getBackgroundStyle } from '../core/utils/render-utils';
+import { getBackgroundStyle, getColorStyle } from '../core/utils/render-utils';
 
 function ListDivider({divider, fontSize}) {
 
   const style = {
     width: `${fontSize * divider.size}px`,
     // height: `${fontSize}px`,
-    lineHeight: 0.5,
+    // lineHeight: 0.5,
     textAlign: 'center',
     display: 'inline-block',
   }
@@ -20,6 +20,9 @@ function ListDivider({divider, fontSize}) {
             width: Math.ceil(fontSize * .05),
             height: `${fontSize}px`,
             ...getBackgroundStyle(divider.color),
+            // color: getColorStyle(divider.color),
+            // fontSize: fontSize + 'px',
+            // textAlign: 'center',
           }}
           // children="|"
         />

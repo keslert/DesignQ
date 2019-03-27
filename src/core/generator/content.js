@@ -1,11 +1,7 @@
 import _ from 'lodash';
 import { copyTemplate, safeIncrement, linkTemplate, getTemplateTextTypes } from '../utils/template-utils';
 import { getElementFont } from './typography';
-import { 
-  getElementColor, 
-  mimicSurface, 
-  mimicColors,
-} from './color';
+import { getElementColor, transferSurface, transferColors } from './color';
 
 export const basicStages = [
   {
@@ -135,8 +131,8 @@ export function mimicTemplateLayout(flyer, template) {
   // inject new elements & groups
   flyer.id = template.id;
   flyer.title = template.title;
-  mimicSurface(flyer, template, flyer, template);
-  mimicSurface(flyer.content, template.content, flyer, template);
+  transferSurface(flyer, template, flyer, template);
+  transferSurface(flyer.content, template.content, flyer, template);
   _.forEach(groups, (elements, groupType) => {
     if(!flyer.content[groupType]) {
       flyer.content[groupType] = buildDefaultGroup(flyer, groupType);
@@ -145,7 +141,7 @@ export function mimicTemplateLayout(flyer, template) {
     const fGroup = flyer.content[groupType];
 
     if(tGroup) {
-      mimicSurface(fGroup, tGroup, flyer, template);
+      transferSurface(fGroup, tGroup, flyer, template);
     }
 
     fGroup.elements = elements.map(el => {
@@ -153,7 +149,7 @@ export function mimicTemplateLayout(flyer, template) {
         || buildDefaultElement(flyer, fGroup, el.type);
       const gElement = tGroup && _.find(tGroup.elements, ({type}) => type === el.type);
       if(gElement) {
-        mimicSurface(fElement, gElement, flyer, template, 'nearlight');
+        transferSurface(fElement, gElement, flyer, template, 'nearlight');
       }
 
       fElement.lines = el.lines;
@@ -167,12 +163,12 @@ export function mimicTemplateLayout(flyer, template) {
     const tGroup = template.content[groupType]
     const tImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
     tImages.forEach(el => {
-      el.background = {
-        img: {
-          src: '/placeholder.png',
-          meta: {w: 500, h: 500},
-        }
-      }
+      // el.background = {
+      //   img: {
+      //     src: '/placeholder.png',
+      //     meta: {w: 500, h: 500},
+      //   }
+      // }
       // mimicSurface(el, el, flyer, template);
 
       if(el._computed.isFirst) {
@@ -197,7 +193,7 @@ export function mimicTemplateLayout(flyer, template) {
   const leftoverImages = _.filter(flyer._elements, el => !el._match && el.type === 'image')
     .map(el => el.background.img);
   linkTemplate(flyer);
-  mimicColors(flyer, template, leftoverImages);
+  transferColors(flyer, template, leftoverImages);
 
 }
 

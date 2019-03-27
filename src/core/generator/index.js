@@ -14,6 +14,8 @@ import { templates } from '../templates';
 import { computeFlyer } from '../producer';
 import { linkTemplate } from '../utils/template-utils';
 
+const placeholderImage = { src: '/placeholder.png', meta: {w: 500, h: 500}}
+
 export async function precompute() {
   if(process.env.NODE_ENV === 'production') {
     await new Promise((resolve, reject) => {
@@ -29,6 +31,10 @@ export async function precompute() {
     computeFlyer(t); 
     t._isTemplate = true;
     t.palette = buildTemplatePalette(t);
+    [...t._surfaces, t.decor, ...t._elements].forEach(i => 
+      i.background && i.background.img && (i.background.img = placeholderImage)
+    )
+
   })
   computeContentStats(templates);
   // computeLayoutStats(templates);

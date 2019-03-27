@@ -60,8 +60,8 @@ export default {
           },
         },
         { 
+          type: 'image',
           background: {
-            type: 'image',
             img: {
               src: '/camping.png',
               meta: {

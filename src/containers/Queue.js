@@ -8,6 +8,7 @@ import { computeFlyer } from '../core/producer';
 import { Flex, Box } from 'rebass';
 import { precompute } from '../core/generator';
 import { useWindowSize } from '../core/lib/hooks';
+import queryString from 'query-string';
 import { 
   copyFlyer,
   getInitialJourney,
@@ -22,7 +23,7 @@ const loadStyle = {
   fontWeight: 700,
 }
 
-function Queue() {
+function Queue(props) {
   const windowSize = useWindowSize();
   const [loaded, setLoaded] = useState(false);
   const [state, dispatch] = useReducer(reducer, {});
@@ -34,7 +35,7 @@ function Queue() {
 
   // Do initial loading
   useLayoutEffect(() => {
-    getInititialState().then(state => {
+    getInititialState(props).then(state => {
       dispatch({type: 'INIT', state})
       setLoaded(true);
     });
@@ -133,15 +134,21 @@ const reducer = (state, action) => {
   }
 }
 
-async function getInititialState() {
+async function getInititialState(props) {
   return new Promise(async (resolve, reject) => {
     await precompute();
-    const startFlyer = process.env.NODE_ENV === 'production' ? starters.empty : starters.imageBackground
+    const query = queryString.parse(props.location.search);
+    
+    const startFlyer = starters[query.starter] || (
+      process.env.NODE_ENV === 'production'  ? starters.empty : starters.simpleBody
+    )
     computeFlyer(startFlyer);
     startFlyer.id = 1;
     startFlyer.stage = {type: 'content', focus: 'text'};
 
-    const stage = process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'layout', focus: 'structure'}
+    const stage = (query.stage && query.focus)
+      ? {type: query.stage, focus: query.focus}
+      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'layout', focus: 'structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,

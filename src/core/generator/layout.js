@@ -2,7 +2,6 @@ import _ from 'lodash';
 import { Lexer, Tagger } from 'pos';
 import { copyTemplate } from '../utils/template-utils';
 import { mimicTemplateLayout, getElementStats } from './content';
-import { getDesiredNumberOfFlyers, getFromCache, validCache } from '.';
 import { withGroups } from '../producer';
 
 const tagger = new Tagger();
@@ -41,19 +40,17 @@ export const stages = [
   ...optionalStages,
 ]
 
-const cache = {};
 function generateStructure(flyer, {history, templates, multiple}) {
-  // const list = [58].map(id => _.find(templates, t => t.id == id));
-  // cache.index = cache.index || 0;
-  // cache.genId = flyer.id;
-  // cache.flyer = flyer;
   const flyers = _.map(templates, template => {
     const copy = copyTemplate(flyer);
     mimicTemplateLayout(copy, template);
     copy.genId = flyer.id;
     return copy;
   })
-  // flyers.sort((a, b) => a._score < b._score ? 1 : -1);
+  
+  if(process.env.NODE_ENV === 'production') {
+    flyers.sort((a, b) => a._score < b._score ? 1 : -1);
+  }
 
   return flyers;
 }

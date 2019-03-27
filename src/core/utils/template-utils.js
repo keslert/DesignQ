@@ -30,6 +30,7 @@ export function linkTemplate(template) {
   
   template.content.kind = 'content';
   template.content._parent = template;
+  template.decor && (template.decor._parent = template);
 
   template._groups = withGroups(template, (group, groupType) => {
     group.type = groupType;
@@ -56,7 +57,7 @@ export function linkTemplate(template) {
 
 export function getTemplateTextTypes(template) {
   if(!template._textTypes) {
-
+    computeFlyer(template);
     const types = _.flatMap(template._elements, el => {
 
       // flatten lists
@@ -108,7 +109,7 @@ export function getTemplateTextTypes(template) {
 export function copyTemplate(flyer) {
   const clone = _.cloneDeepWith(flyer, customizer);
   linkTemplate(clone);
-  computeFlyer(clone);
+  // computeFlyer(clone);
   return clone;
 }
 

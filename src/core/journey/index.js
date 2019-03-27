@@ -88,7 +88,6 @@ export function _updateJourney(state, action, update) {
     ))
   }
 
-
   if(action.advanceStage || (j.stage.exhausted && canAutomaticallyProceed(state))) {
     j.stage.progress = getMaxProgress(j.stage.progress, ProgressTypes.USER_SKIPPED);
     const nextRecommended = getRecommendedStage(j.stages, primary); // Necessary when recommended is the same as updatedStage
@@ -136,7 +135,7 @@ function getUpdatedStage(stage, primary, action) {
     }
   }
   
-  if(action.nextDesign) {
+  if(action.nextDesign || action.stage) {
     const index = stage.currentGenerationIndex + 1;
     const highest = Math.max(stage.highestViewedIndex, index);
     return {
@@ -147,13 +146,6 @@ function getUpdatedStage(stage, primary, action) {
       progress: getProgress(stage, highest),
     }
   }
-  
-  // if(action.prevDesign) {
-  //   return {
-  //     ...stage,
-  //     currentGenerationIndex: Math.max(0, stage.currentGenerationIndex - 1),
-  //   }
-  // }
   
   if(action.scrolledToIndex) {
     const highest = Math.max(stage.highestViewedIndex, action.scrolledToIndex);

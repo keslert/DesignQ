@@ -31,7 +31,7 @@ function ContentForm({flyer}) {
     // TODO: This isn't working
     const content = getTemplateTextTypes(flyer);
     content.forEach(c => dispatch({type: c.type, value: c.text}));
-  }, [flyer])
+  }, [])
 
   useEffect(() => {
     // When the state changes, update the flyer

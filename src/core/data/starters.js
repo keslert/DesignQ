@@ -9,10 +9,8 @@ export const empty = {
   },
   palette: {
     light: '#ffffff',
-    nearlight: '#eaeaea',
-    gray: '#aaaaaa',
-    dark: '#313131',
-    primary: '#dddddd',
+    dark: '#484848',
+    primary: '#bbbbbb',
   },
   fonts: {
     dominant: 'Open Sans',

@@ -6,12 +6,19 @@ import chroma from 'chroma-js';
 import get from 'lodash/get';
 
 export const basicStages = [
-	{ 
+	{
 		type: "color", 
 		focus: "background", 
 		label: 'Background',
 		satisfied: () => true,
 		generate: generateBackground,
+	},
+	{
+		type: "color", 
+		focus: "filters", 
+		label: 'Filters',
+		satisfied: () => true,
+		generate: f => ([copyTemplate(f), copyTemplate(f)]),
 	},
 	{ 
 		type: "color", 
@@ -31,11 +38,11 @@ export const stages = [
 ]
 
 
-function generateBackground(flyer, options) {
+function generateBackground(flyer, {templates}) {
 
 	const images = skiImages;
 
-	const flyers = images.map(img => {
+	const imageFlyers = images.map(img => {
 		const copy = copyTemplate(flyer);
 
 		// Find the most likely image surface.
@@ -47,73 +54,41 @@ function generateBackground(flyer, options) {
 		surface.background.img = {
 			src: img.src,
 			meta: img.meta,
+			colors: img.colors,
 			zoom: 1,
 			x: img.crop.x / 100,
 			y: img.crop.y / 100,
 			filters: {
 				brightness: 0.9,
-			}
+			},
 		}
-		copy.palette = buildPalette(img.palette);
+		copy.palette = buildPalette(img.colors);
+
+		mimicBackgroundColors(copy, flyer);
+		mimicForegroundColors(copy, flyer);
+
+		return copy;
+	})
+
+	const uniqBgs = _.uniqBy(_.filter(templates, t => t.background.color), t => t.background.color)
+	const colorFlyers = uniqBgs.map(t => {
+		const copy = copyTemplate(flyer);
+		const surface = _.find(copy._surfaces, s => s.background && s.background.img)
+			|| _.find(copy._elements, el => el.type === 'image')
+			|| copy;
+		delete surface.background.img;
+		copy.palette = t.palette;
+		mimicBackgroundColors(copy, flyer);
+		mimicForegroundColors(copy, flyer);
 
 		return copy;
 	})
 	
-	return flyers;
+	return [
+		...colorFlyers,
+		...imageFlyers,
+	];
 
-
-	const colors = [];
-	// Templates with similar surfaces
-		// Flyer
-		// Content
-		// Groups
-	// Decoration
-		// Decoration can just be an image, or it can be a pattern
-
-	// how many tiers of surfaces?
-	
-	const flyerSurface = true;
-	const contentSurface = flyer.content.background || flyer.content.border;
-
-	// Step #1 is all about finding the dominant image or background color
-	// - The foreground colors are simply optimal based on the color palette.
-	// How to find the dominant color or image?
-
-	// We can start sourcing images as soon as we have text.
-
-	// Double clicking a surface with an image allows you to edit zoom and position.
-
-
-	// Where to expose these options?
-	// Consider images
-	// Consider solid/gradient backgrounds
-	// Consider colorized images
-	// Consider patterns
-	// Words used to search
-	// Favor those options that are more similar to what the user currently has. 
-	
-
-	// How many colors? Typically 3? 4? Does it depend on the number of surfaces? The number of surface tiers?
-	// How often are group surfaces the same?
-	// When to use a background image?
-
-	// Is it too early to apply 
-
-	const palette = {
-		dark: '',
-		white: '',
-		primary: '',
-		secondary: '',
-	}
-	// Image is light (acts as the light or dark background)
-	// Image is dark (but a surface on top of it doesn't have to have a suitable contrast ratio)
-
-
-
-
-	return _.range(0, 2).map(f => {
-    return copyTemplate(flyer);
-  })
 }
 
 function generateForeground(flyer, options) {
@@ -182,6 +157,195 @@ function computeBackgroundStats(templates) {
 		return background;
 	})
 }
+
+
+
+
+
+const placeholderImage = { src: '/placeholder.png', meta: {h: 500, w: 500}}
+
+export function transferColors(flyer, template, extraImages=[]) {
+	
+	/* Step #1 Transfer images */
+	// TODO: Maybe sort this differently since we are giving highest priority to flyer.
+	const images = [
+		..._.filter(flyer._surfaces, s => s.background && s.background.img).map(s => s.background.img),
+		...extraImages,
+	]
+
+	let imageIndex = 0;
+	flyer._surfaces.forEach((fSurface, i) => {
+		const tSurface = template._surfaces[i];
+		if(tSurface.background && tSurface.background.img) {
+			const img = images[imageIndex++] || placeholderImage;
+
+			// fSurface.background = _.defaults(fSurface.background, tSurface.background);
+			fSurface.background = fSurface.background || {};
+			fSurface.background.img = img;
+		} 
+		else if(fSurface.background) {
+			delete fSurface.background.img;
+		}
+	})
+	// We had images to use and we didn't use any.
+	if(images.length && !imageIndex) {
+		// Any images that should take it over?
+		const image = _.find(flyer._elements, el => el.type === 'image');
+		if(image) {
+			image.background.img = images[0];
+		}
+		else if(flyer.decor && flyer.decor.background) {
+			flyer.decor.background.img = images[0];
+		}
+		else {
+			flyer.background = {...template.background, img: images[0]}
+		}
+	}
+
+	mimicBackgroundColors(flyer, template)
+	mimicForegroundColors(flyer, template);
+}
+
+function getColorType(color, palette) {
+	return _.findKey(palette, c => c === color) || color;
+}
+
+
+// The background of the closest ancestor
+function getBackdrop(item) {
+	let current = item;
+	while(current = current._parent) {
+		if(current.background && current.background.color !== 'transparent') {
+			return current.background;
+		}
+	}
+	if(item.kind === 'template') {
+		return item.background;
+	}
+}
+
+function getOptimalBackgroundColor(surface, palette, preferences) {
+	if(preferences[0] === 'transparent') {
+		return 'transparent';
+	}
+	
+	const backdrop = getBackdrop(surface);
+	const colorPreferences = preferences.map(pref => palette[pref]);
+
+	const color = _.find(colorPreferences, color => {
+		return color && backdrop.color !== color;
+	}) || getOptimalBackgroundColorForSurfaceType(surface, palette, backdrop);
+
+	return color;
+}
+
+function getOptimalForegroundColor(item, palette) {
+	const backdrop = item.background || getBackdrop(item);
+
+	const type = getColorType(backdrop.color, palette);
+	return {
+		color: type === 'light' ? palette.dark : palette.light
+	}
+}
+
+// TODO: Use stats for this.
+function getOptimalBackgroundColorForSurfaceType(surface, palette, backdropColor) {
+	let colors;
+	switch(surface.kind) {
+		case 'template':
+			colors = [palette.dark, palette.light]
+			break;
+		case 'content':
+			colors = [palette.dark, palette.light]
+			break;
+		case 'group':
+			colors = [palette.light, palette.primary, palette.dark]
+			break;
+		case 'element':
+			colors = [palette.primary, palette.secondary, palette.light, palette.dark]
+			break;
+	}
+
+	return _.find(colors, color => color && color !== backdropColor);
+}
+
+
+export function transferSurface(fSurface, tSurface, flyer, template, preference) {
+	mimicBackgroundColor(fSurface, tSurface, flyer, template, preference);
+	mimicDecor(fSurface, tSurface, flyer, template);
+	// fSurface.border = mimicBorder(fSurface, tSurface, flyer, template);
+	fSurface.bleed = tSurface.bleed;
+	fSurface.h = tSurface.h;
+	fSurface.w = tSurface.w;
+	fSurface.alignX = tSurface.alignX;
+	fSurface.alignY = tSurface.alignY;
+	fSurface.itemsAlignX = tSurface.itemsAlignX;
+	fSurface.itemsAlignY = tSurface.itemsAlignY;
+	fSurface.textAlign = tSurface.textAlign;
+	fSurface.pl = tSurface.pl;
+	fSurface.pr = tSurface.pr;
+	fSurface.pt = tSurface.pt;
+	fSurface.pb = tSurface.pb;
+	fSurface.ml = tSurface.ml;
+	fSurface.mr = tSurface.mr;
+	fSurface.mt = tSurface.mt;
+	fSurface.mb = tSurface.mb;
+}
+
+function mimicBackgroundColors(flyer, template, preference='dark') {
+	flyer._surfaces.forEach((fSurface, i) => {
+		const tSurface = template._surfaces[i];
+		mimicBackgroundColor(fSurface, tSurface, flyer, template, preference);
+	})
+
+	flyer._elements.forEach(el => {
+		if(el.background) {
+			el.background.color = getOptimalBackgroundColor(el, flyer.palette, [
+				getColorType(el.background.color, flyer.palette),
+				preference,
+			])
+		}
+	})
+}
+
+function mimicDecor(fSurface, tSurface, flyer, template, preference) {
+
+
+
+	if(tSurface.decor) {
+		fSurface.decor = {...tSurface.decor};
+		mimicBackgroundColor(fSurface.decor, tSurface.decor, flyer, template, preference);
+	}
+	else {
+		delete fSurface.decor;
+	}
+}
+
+function mimicBackgroundColor(fSurface, tSurface, flyer, template, preference) {
+	if(tSurface.background) {
+		fSurface.background = fSurface.background || {};
+		fSurface.background.color = getOptimalBackgroundColor(fSurface, flyer.palette, _.filter([
+			// getColorType(get(fSurface, ['background', 'color']), flyer.palette),
+			getColorType(tSurface.background.color, template.palette),
+			fSurface.background.img && 'dark',
+			preference,
+		]))
+	}
+	else {
+		delete fSurface.background;
+	}
+}
+
+function mimicForegroundColors(flyer, template, preference='light') {
+	flyer._elements.forEach(el => {
+		el.color = getOptimalForegroundColor(el, flyer.palette);
+		if(el.divider) {
+			// TODO: This is not always true.
+			el.divider.color = el.color;
+		}
+	})
+}
+
 
 export function buildTemplatePalette(template) {
 
@@ -258,213 +422,6 @@ function buildPalette(_colors) {
 }
 
 
-
-const placeholderImage = { src: '/placeholder.png', meta: {h: 1444, w: 1444}}
-
-export function mimicColors(flyer, template, additionalImages=[]) {
-	// Step #0: Prep & Cleanup
-	const surfaces = [
-		[flyer, template],
-		[flyer.content, template.content],
-		...withGroups(flyer, (g, type) => (
-			[flyer.content[type], template.content[type]]
-		)),
-	]
-	
-	// surfaces.forEach(([fSurface]) => {
-	// 	fSurface._background = fSurface.background;
-	// 	delete fSurface.background;
-	// })
-	
-	/* Step #1 Assign images */
-	// TODO: Maybe sort this differently since we are giving highest priority to flyer.
-	const images = [
-		..._.filter(surfaces, ([f]) => f.background && f.background.img).map(([f]) => f.background.img),
-		...additionalImages
-	]
-
-	let imageIndex = 0;
-	surfaces.forEach(([fSurface, tSurface]) => {
-		if(tSurface.background && tSurface.background.img) {
-			const img = images[imageIndex++] || placeholderImage;
-			fSurface.background = _.cloneDeep(tSurface.background);
-			fSurface.background.img = img;
-			fSurface.backgroundBlendMode = get(fSurface, ['background', 'backgroundBlendMode']) || tSurface.background.backgroundBlendMode;
-			fSurface.filters = get(fSurface, ['background', 'filters']) || tSurface.background.filters;
-		} 
-		else if(fSurface.background) {
-			delete fSurface.background.img;
-		}
-	})
-	// We had images to use and we didn't use any.
-	if(images.length && !imageIndex) {
-		// Any images that should take it over?
-		const image = _.find(flyer._elements, el => el.type === 'image');
-		if(image && image.background) {
-			image.background.img = images[0];
-		}
-		else {
-			flyer.background = {...template.background, img: images[0]}
-		}
-	}
-
-	/* Step #2 Assign background colors */
-	surfaces.forEach(([fSurface, tSurface]) => {
-		if(tSurface.background) {
-			fSurface.background = fSurface.background || {};
-			fSurface.background.color = tSurface.background.color !== 'transparent' 
-				? getOptimalBackgroundColor(fSurface, flyer.palette, _.filter([
-						getColorType(get(fSurface, ['_background', 'color']), flyer.palette),
-						getColorType(tSurface.background.color, template.palette) || 'dark',
-					]))
-				: 'transparent'
-		}
-		else {
-			delete fSurface.background;
-		}
-	})
-
-	withGroups(flyer, g => g.elements.forEach(el => {
-		el.color = getOptimalForegroundColor(el, flyer.palette);
-	}))
-
-
-	/* Step #3 Assign foregrounds */
-	// fSurface.
-
-}
-
-function getColorType(color, palette) {
-	return _.findKey(palette, c => c === color);
-}
-
-
-// The background of the closest ancestor
-function getBackdrop(item) {
-	let current = item;
-	while(current = current._parent) {
-		if(current.background && current.background.color !== 'transparent') {
-			return current.background;
-		}
-	}
-}
-
-function getOptimalBackgroundColor(surface, palette, preferences) {
-	const backdrop = surface.background || getBackdrop(surface);
-
-	if(preferences[0] === 'transparent') return 'transparent';
-
-	const colorPreferences = preferences.map(pref => palette[pref]);
-
-	const color = _.find(colorPreferences, color => {
-		return color && backdrop.color !== color;
-	}) || getOptimalBackgroundColorForSurfaceType(surface, palette, backdrop);
-
-	return color;
-}
-
-function getOptimalForegroundColor(item, palette) {
-	const backdrop = item.background || getBackdrop(item);
-
-	const type = getColorType(backdrop.color, palette);
-	return {
-		color: type === 'light' ? palette.dark : palette.light
-	}
-}
-
-// TODO: Use stats for this.
-function getOptimalBackgroundColorForSurfaceType(surface, palette, backdropColor) {
-	let colors;
-	switch(surface.kind) {
-		case 'template':
-			colors = [palette.light, palette.dark]
-			break;
-		case 'content':
-			colors = [palette.light, palette.dark]
-			break;
-		case 'group':
-			colors = [palette.light, palette.primary, palette.dark]
-			break;
-		case 'element':
-			colors = [palette.primary, palette.secondary, palette.light, palette.dark]
-			break;
-	}
-
-	return _.find(colors, color => color && color !== backdropColor);
-}
-
-
-export function mimicSurface(surfaceA, surfaceB, templateA, templateB, preference) {
-	// surfaceA.background = mimicBackground(surfaceA, surfaceB, templateA, templateB, preference);
-	// surfaceA.decor = mimicDecor(surfaceA, surfaceB, templateA, templateB);
-	// surfaceA.border = mimicBorder(surfaceA, surfaceB, templateA, templateB);
-	surfaceA.bleed = surfaceB.bleed;
-	surfaceA.h = surfaceB.h;
-	surfaceA.w = surfaceB.w;
-	surfaceA.alignX = surfaceB.alignX;
-	surfaceA.alignY = surfaceB.alignY;
-	surfaceA.itemsAlignX = surfaceB.itemsAlignX;
-	surfaceA.itemsAlignY = surfaceB.itemsAlignY;
-	surfaceA.textAlign = surfaceB.textAlign;
-	surfaceA.pl = surfaceB.pl;
-	surfaceA.pr = surfaceB.pr;
-	surfaceA.pt = surfaceB.pt;
-	surfaceA.pb = surfaceB.pb;
-	surfaceA.ml = surfaceB.ml;
-	surfaceA.mr = surfaceB.mr;
-	surfaceA.mt = surfaceB.mt;
-	surfaceA.mb = surfaceB.mb;
-}
-
-function mimicBackgroundColor(surfaceA, surfaceB, templateA, templateB, preference) {
-	const bgA = surfaceA.background || {};
-	const bgB = surfaceB.background || {};
-	if(!bgB) return false
-
-	const bg = {...bgB}
-	// if(bgB.img) {
-	// 	bg.img = bgA.img || ((templateB._isTemplate || !bgB.img)
-	// 		? 
-	// 		: bgB.img
-	// 	)
-	// }
-	// if(bgB.color) {
-	// 	bg.color = bgA.color || mimicColor(bgB.color, templateA, templateB, preference)
-	// }
-	// bg.backgroundBlendMode = bgA.backgroundBlendMode;
-
-	return bg;
-}
-
-function mimicDecor(surface, templateA, templateB) {
-	const decor = surface.decor;
-	if(!decor) return false
-
-	// TOOD: 
-	// return {
-	// 	...decor,
-	// 	background: mimicBackground(decor, templateA, templateB, 'gray'),
-	// }
-}
-
-function mimicBorder(surface, templateA, templateB) {
-	const border = surface.border;
-	if(!border) return false
-
-	// TOOD: 
-	// return {
-	// 	...border,
-	// 	background: mimicBackground(border, templateA, templateB, 'gray'),
-	// };
-}
-
-function mimicColor(color, templateA, templateB, preference='light') {
-	if(color === 'transparent') return color;
-
-	return templateA.palette[preference];
-}
-
-
 /*
 # How to estimate proper colors
 - eventName
@@ -507,3 +464,42 @@ Image Meta Data
 - color-palette
 - smart-crop
 */
+
+
+
+
+// Templates with similar surfaces
+	// Flyer
+	// Content
+	// Groups
+// Decoration
+	// Decoration can just be an image, or it can be a pattern
+
+// how many tiers of surfaces?
+
+// Step #1 is all about finding the dominant image or background color
+// - The foreground colors are simply optimal based on the color palette.
+// How to find the dominant color or image?
+
+// We can start sourcing images as soon as we have text.
+
+// Double clicking a surface with an image allows you to edit zoom and position.
+
+
+// Where to expose these options?
+// Consider images
+// Consider solid/gradient backgrounds
+// Consider colorized images
+// Consider patterns
+// Words used to search
+// Favor those options that are more similar to what the user currently has. 
+
+
+// How many colors? Typically 3? 4? Does it depend on the number of surfaces? The number of surface tiers?
+// How often are group surfaces the same?
+// When to use a background image?
+
+// Is it too early to apply 
+
+// Image is light (acts as the light or dark background)
+// Image is dark (but a surface on top of it doesn't have to have a suitable contrast ratio)

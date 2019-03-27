@@ -162,6 +162,10 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  BarkInThePark,
+  BlastFromThePast,
+  IsabelsBirthdayParty,
+  SupportSandiosFoodDrive,
   IsabelBeachBazaar,
   BeechtownLodgeSummerCamp,
   SaveTheEarth,
@@ -207,7 +211,6 @@ export const templates = {
   // Functionality lacking
   ElDoradoBakeSale,
   FootballVarsityTryouts,
-  BlastFromThePast,  
 
   
 
@@ -228,7 +231,6 @@ export const templates = {
   GriffinsVsFalcons,
   AllWhiteHolidayFundraiser,
   FlowerAndGardenFestival,
-  BarkInThePark,
   AutumnMusicFestival,
   JakobHansonsBirthday,
   LetsGrooveJazzNight,
@@ -236,12 +238,10 @@ export const templates = {
   AustfamCharityFoodDrive,
   JacquelinesBirthdayParty,
   
-  SupportSandiosFoodDrive,
   TheRunwayLife,
   GarnishDelightBakery,
   SummerInBlackAndWhite,
   AnnualGrise25th,
-  IsabelsBirthdayParty,
   KicksByKyobi,
   LookingForArtVolunteers,
   MayaPhillips,

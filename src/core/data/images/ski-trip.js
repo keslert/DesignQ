@@ -1,7 +1,7 @@
 export const skiImages = [
   {
     "src": "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800",
-    "palette": [
+    "colors": [
       "rgb(251, 251, 251)",
       "rgb(0, 13, 29)",
       "rgb(21, 40, 57)",
@@ -24,7 +24,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/47356/freerider-skiing-ski-sports-47356.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800",
-    "palette": [
+    "colors": [
       "rgb(140, 16, 24)",
       "rgb(205, 49, 60)",
       "rgb(47, 141, 125)",
@@ -47,7 +47,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/1271147/pexels-photo-1271147.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800",
-    "palette": [
+    "colors": [
       "rgb(79, 3, 16)",
       "rgb(239, 70, 77)",
       "rgb(134, 89, 0)",
@@ -70,7 +70,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/257961/pexels-photo-257961.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(1, 0, 0)",
       "rgb(132, 2, 14)",
       "rgb(222, 134, 150)",
@@ -93,7 +93,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/869263/pexels-photo-869263.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(255, 255, 255)",
       "rgb(116, 115, 111)",
       "rgb(147, 158, 64)",
@@ -116,7 +116,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/356808/pexels-photo-356808.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(254, 254, 254)",
       "rgb(147, 47, 47)",
       "rgb(52, 47, 41)",
@@ -139,7 +139,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/844528/pexels-photo-844528.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(12, 12, 12)",
       "rgb(211, 211, 211)",
       "rgb(103, 72, 44)",
@@ -162,7 +162,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/1878052/pexels-photo-1878052.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(203, 43, 55)",
       "rgb(236, 107, 102)",
       "rgb(239, 197, 89)",
@@ -185,7 +185,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/877864/pexels-photo-877864.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(0, 0, 0)",
       "rgb(237, 237, 237)",
       "rgb(208, 78, 114)",
@@ -208,7 +208,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/1635086/pexels-photo-1635086.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(187, 187, 187)",
       "rgb(153, 75, 53)",
       "rgb(204, 106, 81)",
@@ -231,7 +231,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/416728/pexels-photo-416728.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(255, 255, 255)",
       "rgb(212, 173, 130)",
       "rgb(246, 223, 171)",
@@ -254,7 +254,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/352093/pexels-photo-352093.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(244, 244, 244)",
       "rgb(238, 163, 105)",
       "rgb(52, 58, 54)",
@@ -277,7 +277,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/851095/pexels-photo-851095.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(255, 255, 255)",
       "rgb(104, 62, 64)",
       "rgb(134, 146, 108)",
@@ -300,7 +300,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/880497/pexels-photo-880497.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(249, 249, 249)",
       "rgb(121, 71, 82)",
       "rgb(19, 20, 15)",
@@ -323,7 +323,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/1705667/pexels-photo-1705667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(189, 161, 18)",
       "rgb(255, 248, 61)",
       "rgb(26, 28, 43)",
@@ -346,7 +346,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/306002/pexels-photo-306002.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(123, 17, 37)",
       "rgb(135, 73, 60)",
       "rgb(209, 199, 75)",
@@ -369,7 +369,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/939900/pexels-photo-939900.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(0, 0, 0)",
       "rgb(156, 12, 11)",
       "rgb(162, 60, 20)",
@@ -392,7 +392,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/209878/pexels-photo-209878.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(1, 0, 0)",
       "rgb(47, 39, 20)",
       "rgb(180, 154, 137)",
@@ -415,7 +415,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/2016572/pexels-photo-2016572.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(255, 0, 67)",
       "rgb(193, 126, 99)",
       "rgb(120, 81, 64)",
@@ -438,7 +438,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/1635089/pexels-photo-1635089.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(229, 229, 229)",
       "rgb(255, 255, 255)",
       "rgb(80, 81, 83)",
@@ -461,7 +461,7 @@ export const skiImages = [
   },
   {
     "src": "https://images.pexels.com/photos/66100/pexels-photo-66100.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "palette": [
+    "colors": [
       "rgb(249, 249, 249)",
       "rgb(11, 0, 0)",
       "rgb(166, 51, 0)",

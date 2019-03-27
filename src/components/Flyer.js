@@ -16,7 +16,7 @@ function Flyer({flyer, selectable}) {
   const elements = groups.map(g => g.elements).flat();
 
   return (
-    <S_Flyer key={flyer.id}>
+    <S_Flyer key={flyer.id} title={flyer.title}>
       <Surface surface={flyer} />
       <Surface surface={flyer.content} />
 
