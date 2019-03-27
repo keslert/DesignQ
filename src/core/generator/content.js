@@ -44,6 +44,15 @@ function generateContent(flyer, { userInput }) {
 export function mimicTemplateLayout(flyer, template) {
   const f = groupTextContent(getTemplateTextTypes(flyer));
   const t = groupTextContent(getTemplateTextTypes(template));
+  
+  const originalImages = _.chain([
+    ...flyer._surfaces,
+    ...flyer._elements,
+  ]).map(item => ([
+    _.get(item, ['background', 'img']), 
+    _.get(item, ['decor', 'background', 'img'])
+  ])).flatten().filter().value();
+
 
 
   f.all.forEach(s => s._match = null);
@@ -169,7 +178,7 @@ export function mimicTemplateLayout(flyer, template) {
       //     meta: {w: 500, h: 500},
       //   }
       // }
-      // mimicSurface(el, el, flyer, template);
+      transferSurface(el, el, flyer, template);
 
       if(el._computed.isFirst) {
         fGroup.elements.unshift(el);
@@ -190,11 +199,10 @@ export function mimicTemplateLayout(flyer, template) {
 
   
   // Mimic Colors
-  const leftoverImages = _.filter(flyer._elements, el => !el._match && el.type === 'image')
-    .map(el => el.background.img);
+  // const leftoverImages = _.filter(flyer._elements, el => !el._match && el.type === 'image')
+  //   .map(el => el.background.img);
   linkTemplate(flyer);
-  transferColors(flyer, template, leftoverImages);
-
+  transferColors(flyer, template, originalImages);
 }
 
 function buildDefaultGroup(template, groupType) {

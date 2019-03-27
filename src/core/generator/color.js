@@ -48,6 +48,7 @@ function generateBackground(flyer, {templates}) {
 		// Find the most likely image surface.
 		const surface = _.find(copy._surfaces, s => s.background && s.background.img)
 			|| _.find(copy._elements, el => el.type === 'image')
+			|| (get(copy, ['decor', 'background', 'img']) ? copy.decor: null)
 			|| copy;
 
 		surface.background = surface.background || {};
@@ -85,8 +86,8 @@ function generateBackground(flyer, {templates}) {
 	})
 	
 	return [
-		...colorFlyers,
 		...imageFlyers,
+		...colorFlyers,
 	];
 
 }
@@ -264,6 +265,8 @@ function getOptimalBackgroundColorForSurfaceType(surface, palette, backdropColor
 		case 'element':
 			colors = [palette.primary, palette.secondary, palette.light, palette.dark]
 			break;
+		default:
+			colors = [palette.light, palette.dark]
 	}
 
 	return _.find(colors, color => color && color !== backdropColor);
@@ -273,7 +276,7 @@ function getOptimalBackgroundColorForSurfaceType(surface, palette, backdropColor
 export function transferSurface(fSurface, tSurface, flyer, template, preference) {
 	mimicBackgroundColor(fSurface, tSurface, flyer, template, preference);
 	mimicDecor(fSurface, tSurface, flyer, template);
-	// fSurface.border = mimicBorder(fSurface, tSurface, flyer, template);
+	mimicBorder(fSurface, tSurface, flyer, template);
 	fSurface.bleed = tSurface.bleed;
 	fSurface.h = tSurface.h;
 	fSurface.w = tSurface.w;
@@ -296,6 +299,12 @@ function mimicBackgroundColors(flyer, template, preference='dark') {
 	flyer._surfaces.forEach((fSurface, i) => {
 		const tSurface = template._surfaces[i];
 		mimicBackgroundColor(fSurface, tSurface, flyer, template, preference);
+		
+		['decor', 'border'].forEach(prop => {
+			if(tSurface[prop]) {
+				mimicBackgroundColor(fSurface[prop], tSurface[prop], flyer, template, preference)
+			}
+		})
 	})
 
 	flyer._elements.forEach(el => {
@@ -309,15 +318,22 @@ function mimicBackgroundColors(flyer, template, preference='dark') {
 }
 
 function mimicDecor(fSurface, tSurface, flyer, template, preference) {
-
-
-
 	if(tSurface.decor) {
 		fSurface.decor = {...tSurface.decor};
 		mimicBackgroundColor(fSurface.decor, tSurface.decor, flyer, template, preference);
 	}
 	else {
 		delete fSurface.decor;
+	}
+}
+
+function mimicBorder(fSurface, tSurface, flyer, template, preference) {
+	if(tSurface.border) {
+		fSurface.border = {...tSurface.border};
+		mimicBackgroundColor(fSurface.border, tSurface.border, flyer, template, preference);
+	}
+	else {
+		delete fSurface.border;
 	}
 }
 

@@ -27,15 +27,17 @@ export function mode(arr) {
 export function linkTemplate(template) {
   console.log('Linking template ' + template.title);
   template.kind = 'template';
+  linkSurfaceProperties(template);
   
   template.content.kind = 'content';
   template.content._parent = template;
-  template.decor && (template.decor._parent = template);
+  linkSurfaceProperties(template.content);
 
   template._groups = withGroups(template, (group, groupType) => {
     group.type = groupType;
     group.kind = 'group';
     group._parent = template.content;
+    linkSurfaceProperties(group);
     return group;
   });
 
@@ -43,6 +45,7 @@ export function linkTemplate(template) {
     el.kind = 'element';
     el._parent = g;
     el._group = g;
+    linkSurfaceProperties(el);
     return el;
   }))
   template._textElements = _.filter(template._elements, el => el.lines);
@@ -53,6 +56,11 @@ export function linkTemplate(template) {
     template.content,
     ...template._groups,
   ]
+}
+
+function linkSurfaceProperties(item) {
+  item.decor && (item.decor._parent = item)
+  item.border && (item.border._parent = item)
 }
 
 export function getTemplateTextTypes(template) {
