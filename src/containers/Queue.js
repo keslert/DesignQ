@@ -148,7 +148,7 @@ async function getInititialState(props) {
 
     const stage = (query.stage && query.focus)
       ? {type: query.stage, focus: query.focus}
-      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'layout', focus: 'structure'}
+      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'color', focus: 'background'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -157,8 +157,8 @@ async function getInititialState(props) {
       history: [],
       viewMode: 'comparison',
       showSidebar: false,
-      selection: null,
-      // selection: startFlyer.content.body.elements[1],
+      // selection: null,
+      selection: startFlyer,
       stage: {type: 'content', focus: 'text'},
     }, {stage});
     

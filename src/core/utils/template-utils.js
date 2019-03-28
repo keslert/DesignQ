@@ -27,10 +27,12 @@ export function mode(arr) {
 export function linkTemplate(template) {
   console.log('Linking template ' + template.title);
   template.kind = 'template';
+  template._template = template;
   linkSurfaceProperties(template);
   
   template.content.kind = 'content';
   template.content._parent = template;
+  template.content._template = template;
 
   linkSurfaceProperties(template.content);
 
@@ -38,6 +40,7 @@ export function linkTemplate(template) {
     group.type = groupType;
     group.kind = 'group';
     group._parent = template.content;
+    group._template = template;
     linkSurfaceProperties(group);
     return group;
   });
@@ -45,7 +48,7 @@ export function linkTemplate(template) {
   template._elements = _.flatMap(template._groups, g => g.elements.map(el => {
     el.kind = 'element';
     el._parent = g;
-    el._group = g;
+    el._template = template;
     linkSurfaceProperties(el);
     return el;
   }))
@@ -77,7 +80,7 @@ export function getTemplateTextTypes(template) {
               ...listItem, 
               lineIndex, 
               listIndex, 
-              listId: `${el._group.type}_${lineIndex}`
+              listId: `${el._parent.type}_${lineIndex}`
             }))
           : {...line, lineIndex}
       ))
@@ -93,7 +96,7 @@ export function getTemplateTextTypes(template) {
             type: line.type,
             elementId: el.id,
             elementType: el.type,
-            groupType: el._group.type,
+            groupType: el._parent.type,
             element: el, // TODO: Delete...
             elementIndex: el._computed.index,
             text: line.text,

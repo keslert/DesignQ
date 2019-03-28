@@ -1,25 +1,23 @@
 import React from 'react';
 import { Box, Flex, Text } from 'rebass';
 import TextElementPanel from './TextElementPanel';
+import SurfacePanel from './SurfacePanel';
 
 function EditPanel(props) {
-  switch(props.selection.type) {
-    case 'footer':
-    case 'body':
-    case 'header':
-      return null
+  switch(props.selection.kind) {
+    case 'template':
+    case 'content':
+    case 'group':
+      return <SurfacePanel surface={props.selection} />
 
     case 'image':
     case 'icon':
       return null;
 
-    case 'dominant':
-    case 'small':
-    case 'heading':
-    case 'bridge':
-    case 'paragraph':
-    case 'descriptive':
-      return <TextElementPanel element={props.selection} />
+    case 'element':
+      return props.selection.lines
+        ? <TextElementPanel element={props.selection} />
+        : null
     default:
       return null;
   }

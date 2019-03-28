@@ -11,6 +11,8 @@ const ImagePicker = React.lazy(() => import('./ImagePicker'))
 const CalcFonts = React.lazy(() => import('./calc/CalcFonts'));
 const CalcImages = React.lazy(() => import('./calc/CalcImages'));
 const ContentGallery = React.lazy(() => import('./test/ContentGallery'));
+const ImageProcessing = React.lazy(() => import('./test/ImageProcessing'));
+
 // const LayoutGallery = React.lazy(() => import('./test/LayoutGallery'));
 
 const loadStyle = {
@@ -34,6 +36,7 @@ function App() {
         <Route path="/calc/fonts" component={CalcFonts} />
         <Route path="/calc/images" component={CalcImages} />
         <Route path="/test/layout" component={props => <ContentGallery flyerSize={flyerSize} {...props} />} />
+        <Route path="/test/image-processing" component={props => <ImageProcessing flyerSize={flyerSize} {...props} />} />
 
         <Route component={() => <div>DQ</div>} />
         

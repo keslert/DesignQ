@@ -24,17 +24,18 @@ function Sidebar(props) {
       <Box 
         onClick={() => rootDispatch({type: 'SELECT', selected: null})}
         style={{position: 'absolute', right: "-16px", top: '0', cursor: 'pointer'}}
-      >
-        <TabSvg fill="currentColor" size={100} />
-      </Box>
+        children={<TabSvg size={100} />}
+      />
 
-      <Box mb={2}>
-        <Tabs
-          tabs={["AI Actions", "User Edits"]}
-          selectedIndex={1}
-          onClick={(tab, index) => null}
-        />
-      </Box>
+      {false && 
+        <Box mb={2}>
+          <Tabs
+            tabs={["AI Actions", "User Edits"]}
+            selectedIndex={1}
+            onClick={(tab, index) => null}
+          />
+        </Box>
+      }
 
 
       <Box mx="-16px" px={16} flex={1} style={{overflowY: 'auto', height: 200}}>

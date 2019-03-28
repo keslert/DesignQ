@@ -367,7 +367,7 @@ function _computeContentStats(templates) {
       _contentStats[t.type] = _contentStats[t.type] || _.cloneDeep(defaultTextTypeInfo);
       const o = _contentStats[t.type];
       safeIncrement(o.elementTypes, t.element.type);
-      safeIncrement(o.groupTypes, t.element._group.type)
+      safeIncrement(o.groupTypes, t.element._parent.type)
       safeIncrement(o.prevElementTypes, t.element._prev && t.element._prev.type)
       groups[t.element.id].forEach(t => {
         safeIncrement(o.buddyTypes, t.type)

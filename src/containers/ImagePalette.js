@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import RgbQuant from '../core/lib/rgbquant';
 import smartcrop from 'smartcrop';
 import { Flex } from 'rebass';
+const ColorThief = require('../core/lib/color-thief');
 
 function ImagePalette() {
   const [image, setImage] = useState('https://images.unsplash.com/photo-1551863041-08f9690b6200?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
   const [palette, setPalette] = useState([]);
+  const [palette2, setPalette2] = useState([]);
   const [crop, setCrop] = useState({});
 
   useEffect(() => {
@@ -13,14 +15,19 @@ function ImagePalette() {
     img.crossOrigin = "Anonymous";
     img.setAttribute('crossOrigin', '');
     img.onload = async () => {
-      const rgbQuant = new RgbQuant({
-        colors: 8,
-      });
+      const numColors = 6;
+      let t0 = performance.now();
+      const rgbQuant = new RgbQuant({colors: numColors});
       rgbQuant.sample(img);
-      rgbQuant.reduce(img, 1);
-
-      const palette = rgbQuant.idxrgb.map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
+      const palette = rgbQuant.palette(true, true).map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
+      console.log(performance.now() - t0)
       setPalette(palette);
+
+      t0 = performance.now();
+      const colorThief = new ColorThief();
+      const palette2 = colorThief.getPalette(img, numColors, true).map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
+      console.log(performance.now() - t0);
+      setPalette2(palette2);
 
       const flyerSize = {w: 480, h:670};
       const aspectW = flyerSize.w / img.width;
@@ -30,8 +37,10 @@ function ImagePalette() {
       const height = aspectH > aspectW ? img.height : img.width * (flyerSize.h / flyerSize.w)
       
       const crop = await new Promise((response) => { 
+        t0 = performance.now();
         smartcrop.crop(img, { width, height }).then(function(result) {
           const crop = result.topCrop;
+          console.log(performance.now() - t0)
           response({
             x: crop.x / img.width * 100,
             y: crop.y / img.height * 100,
@@ -76,6 +85,18 @@ function ImagePalette() {
       </div>
       <Flex>
         {palette.map(swatch => (
+          <div 
+            key={swatch}
+            style={{
+              width: '40px',
+              height: '20px',
+              background: swatch,
+            }}
+          />
+        ))}
+      </Flex>
+      <Flex>
+        {palette2.map(swatch => (
           <div 
             key={swatch}
             style={{
