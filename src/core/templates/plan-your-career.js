@@ -5,7 +5,9 @@ export default {
   title: 'Plan Your Career',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-black-vector-job-fair-flyer-MAC7m4cpzFQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fbab32'),
+  background: { 
+  color: solidColor('#fbab32'),
+},
   content: {
     body: {
       alignX: 'left',
@@ -54,7 +56,9 @@ export default {
       bleed: { a: 1 },
       alignX: 'left',
       textAlign: 'left',
-      background: solidColor('#2b2b2b'),
+      background: { 
+  color: solidColor('#2b2b2b'),
+},
       elements: [
         {
           type: 'small',

@@ -16,7 +16,9 @@ export default {
     width: 'flex',
     body: {
       bleed: { all: true },
-      background: solidColor('#25334bee'),
+      background: { 
+  color: solidColor('#25334bee'),
+},
       alignX: 'flex-end',
       alignY: 'center',
       textAlign: 'center',
@@ -81,7 +83,9 @@ export default {
           type: 'bar',
           height: unitValue(5, 'px'),
           width: unitValue(100, '%'),
-          background: solidColor('#dfdbc1'),
+          background: { 
+  color: solidColor('#dfdbc1'),
+},
         },
         {
           type: 'heading',

@@ -16,7 +16,9 @@ export default {
   content: {
     body: {
       bleed: { a: 1 },
-      background: solidColor('#262c2a'),
+      background: { 
+  color: solidColor('#262c2a'),
+},
       alignX: 'center',
       alignY: 'bottom',
       elements: [
@@ -101,7 +103,9 @@ export default {
     header: {
       w: 'auto',
       bleed: { r: 1 },
-      background: solidColor('#262c2a'),
+      background: { 
+  color: solidColor('#262c2a'),
+},
       pl: 3,
       py: 0.5,
       alignX: 'right',

@@ -20,7 +20,9 @@ export default {
     body: {
       w: 'auto',
       bleed: { l: 1 },
-      background: solidColor('#251a4b'),
+      background: { 
+  color: solidColor('#251a4b'),
+},
       alignX: 'left',
       alignY: 'bottom',
       textAlign: 'left',

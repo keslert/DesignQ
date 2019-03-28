@@ -5,12 +5,14 @@ export default {
   tags: ['event', 'halloween'],
   px: 36,
   py: 36,
-  background: solidColor('#4d3a6e'),
+  background: { 
+  color: solidColor('#4d3a6e'),
+},
   border: {
     top: 150, 
     bottom: 150,
     seed: 2,
-    color: '#4d3a6e',
+    color: solidColor('#4d3a6e'),
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#ffffff', size: 32},

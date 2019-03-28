@@ -84,7 +84,9 @@ export default {
   id: 24,
   title: 'Summer Camp 2019',
   tags: ['event', 'flyer'],
-  background: solidColor('#69c3cb'),
+  background: { 
+  color: solidColor('#69c3cb'),
+},
   content: {
     body: {
       alignX: 'left',

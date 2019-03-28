@@ -40,7 +40,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#ff5145'),
+          background: { 
+  color: solidColor('#ff5145'),
+},
           width: unitValue(60, '%'),
           height: unitValue(32, 'px'),
           mb: 1,

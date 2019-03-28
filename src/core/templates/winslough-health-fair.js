@@ -22,7 +22,7 @@ export default {
           src: '/heart.svg',
           fill: '#90c8cf',
           background: {
-            color: '#ffffff',
+            color: solidColor('#ffffff'),
             borderRadius: 9999,
           },
           size: 1,
@@ -91,7 +91,9 @@ export default {
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#90c8cf'),
+      background: { 
+  color: solidColor('#90c8cf'),
+},
       elements: [
         {
           type: 'heading',

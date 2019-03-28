@@ -11,7 +11,7 @@ export default {
         brightness: 0.4,
       }
     },
-    color: '#516c5c',
+    color: solidColor('#516c5c'),
     backgroundBlendMode: 'overlay',
   },
   content: {
@@ -61,7 +61,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#f7f1af'),
+          background: { 
+  color: solidColor('#f7f1af'),
+},
           w: .25,
           h: 8,
         },
@@ -116,7 +118,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#f7f1af'),
+          background: { 
+  color: solidColor('#f7f1af'),
+},
           w: .25,
           h: 8,
         },

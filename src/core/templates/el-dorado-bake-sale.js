@@ -5,14 +5,18 @@ export default {
   title: 'El Dorado Bake Sale',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-illustrated-bake-sale-flyer-MAC4C3eiDho.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#c8deb7'),
+  background: { 
+  color: solidColor('#c8deb7'),
+},
   decor: {
     t: .3,
   },
   content: {
     body: {
       bleed: { a: 1 },
-      background: solidColor('#fff4e9'),
+      background: { 
+  color: solidColor('#fff4e9'),
+},
       alignY: 'bottom',
       elements: [
         {
@@ -20,7 +24,7 @@ export default {
           src: '/shop.svg',
           fill: '#fff4e9',
           background: {
-            color: '#c3996f',
+            color: solidColor('#c3996f'),
             borderRadius: 9999,
           },
           overlap: 0.5,

@@ -50,7 +50,9 @@ export default {
         { 
           type: 'small', 
           color: solidColor('#ffffff'),
-          background: solidColor('#fb7c00'),
+          background: { 
+  color: solidColor('#fb7c00'),
+},
           lines: [
             {type: 'host', text: 'Bellar\'s Fitness Gym'},
           ],

@@ -99,9 +99,13 @@ export default {
     body: {
       border: {
         t: .03,
-        background: solidColor('#a52122'),
+        background: { 
+  color: solidColor('#a52122'),
+},
       },
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       bleed: { a: 1 },
       alignY: 'bottom',
       mb: 0,
@@ -112,7 +116,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#a52122'),
+      background: { 
+  color: solidColor('#a52122'),
+},
       bleed: { a: 1 },
       elements: [
         heading,

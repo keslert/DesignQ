@@ -5,7 +5,9 @@ export default {
   title: 'Fallfields Fall Festival',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-red-leaves-fall-festival-flyer-MAC5t4eyqbI.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fdcf19'),
+  background: { 
+  color: solidColor('#fdcf19'),
+},
   border: {
     r: .3,
   },
@@ -53,7 +55,9 @@ export default {
         },
         {
           type: 'bar',
-          background:  solidColor('#db4439'),
+          background: {
+            color: solidColor('#db4439'),
+          },
           h: 10,
           w: .33,
         },

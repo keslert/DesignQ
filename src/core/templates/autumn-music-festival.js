@@ -26,7 +26,9 @@ export default {
       elements: [
         {
           type: 'bar',
-          background: solidColor('#ffffff'),
+          background: { 
+  color: solidColor('#ffffff'),
+},
           h: 12,
           w: 1,
         },

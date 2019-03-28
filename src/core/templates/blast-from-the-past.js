@@ -74,7 +74,9 @@ const paragraph = {
     {type: 'details', text: 'venues hosting different musical eras!'},
   ],
   color: solidColor('#ffffff'),
-  background: solidColor ('#e369d2'),
+  background: {
+    color: solidColor('#e369d2'),
+  },
   bleed: { a: 1 },
   w: 'fill',
   font: {

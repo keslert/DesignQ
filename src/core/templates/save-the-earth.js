@@ -5,7 +5,9 @@ export default {
   title: 'Save the Earth',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-purple-and-green-earth-volunteer-flyer-MAC7mtoG_Mk.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#2d1b4d'),
+  background: { 
+    color: solidColor('#2d1b4d'),
+  },
   content: {
     body: {
       h: 'fill',
@@ -98,7 +100,9 @@ export default {
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#e4fde1'),
+      background: { 
+        color: solidColor('#e4fde1'),
+      },
       elements: [
         {
           type: 'paragraph',

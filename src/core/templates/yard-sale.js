@@ -4,7 +4,9 @@ export default {
   title: 'Yard Sale',
   px: 36,
   py: 36,
-  background: solidColor('#fed631'),
+  background: { 
+  color: solidColor('#fed631'),
+},
   overlay: {
     type: 'image',
     src: '/grunge-2.png',
@@ -14,7 +16,9 @@ export default {
     height: 'flex',
     width: 'flex',
     body: {
-      background: solidColor('#fed631'),
+      background: { 
+  color: solidColor('#fed631'),
+},
       elements: [
         { 
           type: 'image',
@@ -45,7 +49,9 @@ export default {
           ],
           width: unitValue(100, '%'),
           color: solidColor('#031f52'),
-          background: solidColor('#ffffff'),
+          background: { 
+            color: solidColor('#ffffff'),
+          },
           bleed: {left: true, right: true },
           font: {
             family: 'Muli',

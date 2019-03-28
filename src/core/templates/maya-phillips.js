@@ -12,7 +12,9 @@ export default {
     }
   },
   content: {
-    background: solidColor('#ffffff'),
+    background: { 
+  color: solidColor('#ffffff'),
+},
     body: {
       elements: [
         {
@@ -80,7 +82,9 @@ export default {
             color: solidColor('#ffffff'),
           },
           color: solidColor('#ffffff'),
-          background: solidColor('#000000'),
+          background: { 
+  color: solidColor('#000000'),
+},
           w: 'auto',
           py: 1.5,
           font: {

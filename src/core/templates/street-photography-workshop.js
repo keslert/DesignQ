@@ -112,7 +112,9 @@ export default {
   },
   content: {
     h: 'auto',
-    background: solidColor('#000000'),
+    background: { 
+  color: solidColor('#000000'),
+},
     body: {
       elements: [
         small,

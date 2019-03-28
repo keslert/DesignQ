@@ -82,7 +82,9 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#e45330'),
+  background: { 
+  color: solidColor('#e45330'),
+},
   w: .5,
   h: 2,
 }
@@ -92,12 +94,16 @@ export default {
   id: 69,
   title: 'Fall Fundraising Event 2020',
   tags: ['event', 'flyer'],
-  background: solidColor('#424242'),
+  background: { 
+  color: solidColor('#424242'),
+},
   decor: {
     y: .2,
   },
   content: {
-    background: solidColor('#424242'),
+    background: { 
+  color: solidColor('#424242'),
+},
     bleed: { a: 1 },
     body: {
       elements: [

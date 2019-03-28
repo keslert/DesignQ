@@ -92,7 +92,9 @@ export default {
   title: "Isabel's Beach Bazaar",
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-pink-&-white-tropical-minimalist-simple-clean-summer-event-flyer-MAC3TdMQ9sU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#ffbec0'),
+  background: { 
+  color: solidColor('#ffbec0'),
+},
   px: 3.5,
   py: 1.5,
   content: {
@@ -114,7 +116,9 @@ export default {
       itemsAlignX: 'left',
       itemsAlignY: 'top',
       textAlign: 'left',
-      background: solidColor('transparent'),
+      background: { 
+        color: {type: 'transparent'},
+      },
       bleed: { l: 2, t: 1 },
       px: 1.5,
       elements: [
@@ -123,7 +127,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#ffffff'),
+      background: { 
+        color: solidColor('#ffffff'),
+      },
       textAlign: 'left',
       elements: [
         bridge,

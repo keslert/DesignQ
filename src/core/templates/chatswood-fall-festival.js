@@ -90,7 +90,9 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#6d4d43'),
+  background: { 
+  color: solidColor('#6d4d43'),
+},
   w: .25,
   h: 8,
 }
@@ -100,13 +102,17 @@ export default {
   id: 95,
   title: 'Chatswood Fall Festival',
   tags: ['event', 'flyer'],
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   decor: {
     y: .3,
   },
   content: {
     h: 'auto',
-    background: solidColor('#ffffff'),
+    background: { 
+  color: solidColor('#ffffff'),
+},
     bleed: { a: 1 },
     body: {
       elements: [

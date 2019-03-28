@@ -130,7 +130,7 @@ const Block = styled(Box)(props => ({
   borderTop: props.selected ? '2px solid ' + props.theme.colors[props.color + '_dark'] : null,
   background: props.striped 
     ? striped(45, props.theme.colors[props.color], 3, props.theme.colors[props.color + '_dark'], 2)
-    : props.theme.colors[props.color]
+    : props.theme.colors[props.color + '_med']
 }))
 
 const Preview = styled.div(props => ({
@@ -142,9 +142,9 @@ const Preview = styled.div(props => ({
 
 
 const COLORS = {
-  content: 'green', 
-  layout: 'yellow', 
-  typography: 'orange', 
+  content: 'green',
+  layout: 'yellow',
+  typography: 'orange',
   color: 'red',
   decoration: 'pink',
   polish: 'purple',

@@ -4,13 +4,17 @@ export default {
   title: 'Back to School',
   px: 64,
   py: 36,
-  background: solidColor('#030F5B'),
+  background: { 
+  color: solidColor('#030F5B'),
+},
   content: {
     height: 'flex',
     width: 'flex',
     body: {
       bleed: {all: true },
-      background: solidColor('#030F5B'),
+      background: { 
+  color: solidColor('#030F5B'),
+},
       width: unitValue(100, '%'),
       flex: 1,
       elements: [
@@ -36,7 +40,6 @@ export default {
             {type: 'eventName', text: 'Holiday Bake Sale'},
           ],
           color: solidColor('#D786D5'),
-          // background: solidColor('#ffffff'),
           px: 1.5,
           py: 1.1,
           font: {
@@ -76,7 +79,9 @@ export default {
     },
     footer: {
       bleed: {all: true },
-      background: solidColor('#D978C9'),
+      background: { 
+  color: solidColor('#D978C9'),
+},
       width: unitValue(100, '%'),
       elements: [{
         type: 'small',

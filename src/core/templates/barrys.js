@@ -6,7 +6,9 @@ export default {
   py: 36,
   footer: null,
   header: null,
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   content: {
     height: 'flex',
     width: 'flex',
@@ -15,7 +17,9 @@ export default {
       flex: 1,
       alignX: 'left',
       alignY: 'center',
-      background: solidColor('#000'),
+      background: { 
+  color: solidColor('#000'),
+},
       bleed: {all: true },
       elements: [
         { 
@@ -30,7 +34,9 @@ export default {
           lines: [
             {type: 'brandName', text: 'Barry\'s'}
           ],
-          background: solidColor('#FFD2A7'),
+          background: { 
+  color: solidColor('#FFD2A7'),
+},
           color: solidColor('#000'),
           font: {
             transform: 'uppercase',
@@ -63,7 +69,9 @@ export default {
           type: 'bar',
           width: unitValue(120, 'px'),
           height: unitValue(3, 'px'),
-          background: solidColor('#FFD2A7'),
+          background: { 
+  color: solidColor('#FFD2A7'),
+},
           marginBottom: 1,
         },
         {

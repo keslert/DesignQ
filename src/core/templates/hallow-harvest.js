@@ -4,10 +4,12 @@ export default {
   title: 'Hallow Harvest',
   px: 36,
   py: 36,
-  background: solidColor('#150612'),
+  background: { 
+  color: solidColor('#150612'),
+},
   border: {
     all: 80,
-    color: 'orange',
+    color: solidColor('#f0f000'),
     items: [
       { 
         src: 'img.jpg', 

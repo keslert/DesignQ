@@ -5,13 +5,17 @@ export default {
   tags: ['event', 'flyer'],
   px: 36,
   py: 36,
-  background: solidColor('#e54049'),
+  background: { 
+  color: solidColor('#e54049'),
+},
   content: {
     height: 'flex',
     width: 'flex',
     body: {
       bleed: { all: true },
-      background: solidColor('#e54049'),
+      background: { 
+  color: solidColor('#e54049'),
+},
       alignX: 'center',
       alignY: 'center',
       textAlign: 'left',
@@ -54,7 +58,9 @@ export default {
     },
     footer: {
       bleed: { all: true },
-      background: solidColor('#6b6f39'),
+      background: { 
+  color: solidColor('#6b6f39'),
+},
       width: unitValue(100, '%'),
       textAlign: 'left',
       elements: [

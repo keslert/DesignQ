@@ -6,7 +6,9 @@ export default {
   tags: ['event'],
   px: 48,
   py: 48,
-  background: solidColor('#58c4ce'),
+  background: { 
+  color: solidColor('#58c4ce'),
+},
   content: {
     height: 'flex',
     width: 'flex',
@@ -55,7 +57,9 @@ export default {
         { 
           type: 'small', 
           color: solidColor('#ffffff'),
-          background: solidColor('#ff8b7b'),
+          background: { 
+  color: solidColor('#ff8b7b'),
+},
           borderRadius: unitValue(8, 'px'),
           lines: [
             [

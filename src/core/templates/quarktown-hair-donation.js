@@ -4,7 +4,9 @@ export default {
   id: 12,
   title: 'Quarktown Hair Donation Program',
   tags: ['event', 'flyer'],
-  background: solidColor('#f2f0e2'),
+  background: { 
+  color: solidColor('#f2f0e2'),
+},
   border: {
     a: .04,
     aOffset: .02,

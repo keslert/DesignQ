@@ -16,7 +16,7 @@ export default {
         grayscale: 0.4,
       },
     },
-    color: '#404040',
+    color: solidColor('#404040'),
     backgroundBlendMode: 'multiply',
   },
   decor: {
@@ -96,7 +96,9 @@ export default {
             {type: 'time', text: '5:00 PM to 9:00 PM'},
             {type: 'location', text: 'The Curtain Sports Bar'},
           ],
-          background: solidColor('#f98e25'),
+          background: { 
+  color: solidColor('#f98e25'),
+},
           color: solidColor('#ffffff'),
           font: {
             family: 'Arvo',

@@ -12,7 +12,7 @@ export default {
       y: 0.5,
       zoom: 2,
     },
-    color: '#86a7ab',
+    color: solidColor('#86a7ab'),
   },
   decor: {
     r: .2,
@@ -33,7 +33,9 @@ export default {
             {type: 'host', text: 'Baks Clothing Company'},
           ],
           color: solidColor('#000'),
-          background: solidColor('#ffffff'),
+          background: { 
+  color: solidColor('#ffffff'),
+},
           w: 'fill',
           font: {
             family: 'Montserrat',

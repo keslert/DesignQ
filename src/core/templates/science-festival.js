@@ -8,7 +8,9 @@ export default {
     t: .3,
     b: .2,
   },
-  background: solidColor("#1f2534"),
+  background: { 
+    color: solidColor("#1f2534"),
+  },
   content: {
     body: {
       alignX: "center",
@@ -25,15 +27,9 @@ export default {
           divider: {
             type: "line",
             size: 1.5,
-            color: {
-              type: "solid",
-              color: "#fff"
-            }
+            color: solidColor("#fff"),
           },
-          color: {
-            type: "solid",
-            color: "#fff"
-          },
+          color: solidColor("#fff"),
           font: {
             family: "Aileron",
             weight: 400,
@@ -73,10 +69,7 @@ export default {
             }
             
           ],
-          color: {
-            type: "solid",
-            color: "#fff"
-          },
+          color: solidColor("#fff"),
           font: {
             family: "Aileron",
             fitToWidth: false,
@@ -91,7 +84,7 @@ export default {
         {
           type: "bar",
           background: {
-            color: "#e7d244"
+            color: solidColor("#e7d244"),
           },
           h: 5,
           w: .4,
@@ -118,15 +111,9 @@ export default {
           divider: {
             type: "line",
             size: 1.5,
-            color: {
-              type: "solid",
-              color: "#e7d244"
-            }
+            color: solidColor("#e7d244"),
           },
-          color: {
-            type: "solid",
-            color: "#e7d244"
-          },
+          color: solidColor("#e7d244"),
           font: {
             family: "Aileron",
             weight: 700,
@@ -149,10 +136,7 @@ export default {
               text: "from all over the country, plus listen to cool lectures!"
             }
           ],
-          color: {
-            type: "solid",
-            color: "#fff"
-          },
+          color: solidColor("#fff"),
           font: {
             family: "Aileron",
             fitToWidth: false,

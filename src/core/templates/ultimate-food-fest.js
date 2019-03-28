@@ -7,7 +7,7 @@ export default {
   py: 36,
   background: {
     url: 'https://images.unsplash.com/photo-1536487051162-1fcc4fdf4cc0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: '#253b58',
+    color: solidColor('#253b58'),
     zoom: 1.2,
     x: 1, 
     y: 1,
@@ -101,7 +101,9 @@ export default {
     },
     footer: {
       bleed: { all: true },
-      background: solidColor('#f64b42'),
+      background: { 
+  color: solidColor('#f64b42'),
+},
       width: unitValue(100, '%'),
       textAlign: 'center',
       elements: [

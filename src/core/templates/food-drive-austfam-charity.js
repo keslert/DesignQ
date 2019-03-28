@@ -122,7 +122,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#81ba5b'),
+      background: { 
+  color: solidColor('#81ba5b'),
+},
       bleed: { a: 1 },
       elements: [
         heading,

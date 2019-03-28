@@ -6,7 +6,9 @@ const small = {
   lines: [
     {type: 'descriptive', text: "Let's jam for a cause!"},
   ],
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   color: solidColor('#201f05'),
   font: {
     family: 'Open Sans',
@@ -96,7 +98,9 @@ export default {
   id: 43,
   title: 'Rock out for the cure concert',
   tags: ['event', 'flyer'],
-  background: solidColor('#fcd901'),
+  background: { 
+  color: solidColor('#fcd901'),
+},
   decor: {
     t: .5,
   },

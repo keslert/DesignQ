@@ -79,7 +79,9 @@ export default {
             {type: 'host', text: 'True Chic Apparel'},
           ],
           color: solidColor('#ffffff'),
-          background: solidColor('#ff8c8c'),
+          background: { 
+  color: solidColor('#ff8c8c'),
+},
           font: {
             transform: 'uppercase',
             size: 1.4,

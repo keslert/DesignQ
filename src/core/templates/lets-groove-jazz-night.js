@@ -5,10 +5,14 @@ export default {
   title: "Let's Groove Jazz Night",
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-yellow-and-black-jazz-night-saxophone-illustration-concert-flyer-MAC4_opPoG0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#000000'),
+  background: { 
+  color: solidColor('#000000'),
+},
   border: {
     r: .05,
-    background: solidColor('#f3d030'),
+    background: { 
+  color: solidColor('#f3d030'),
+},
   },
   decor: {
     r: .2,
@@ -57,7 +61,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#f4d55e'),
+          background: { 
+  color: solidColor('#f4d55e'),
+},
           h: 8,
           w: .2,
         },

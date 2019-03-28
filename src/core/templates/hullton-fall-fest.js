@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-yellow-and-orange-leaves-fall-festival-flyer-MAC3ZKCrIds.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
-    color: '#23374a',
+    color: solidColor('#23374a'),
   },
   decor: {
     t: .3,
@@ -17,7 +17,9 @@ export default {
     bleed: { x: 1, b: 0},
     mb: 0,
     body: {
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       elements: [
         {
           type: 'small',
@@ -71,7 +73,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#23374a'),
+      background: { 
+  color: solidColor('#23374a'),
+},
       elements: [
         {
           type: 'heading',

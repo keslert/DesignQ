@@ -7,7 +7,7 @@ export default {
   background: {
     url: 'https://images.unsplash.com/photo-1546624538-0a85938a4f2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
     backgroundBlendMode: 'hard-light',
-    color: '#000',
+    color: solidColor('#000000'),
     filters: {
       brightness: .4,
     },
@@ -62,10 +62,12 @@ export default {
             {type: 'time', text: '9:00am - 10:00pm'},
           ],
           color: solidColor('#00f8e6'),
-          background: solidColor('transparent'),
+          background: { 
+  color: solidColor('transparent'),
+},
           border: {
             all: 2,
-            color: '#00f8e6',
+            color: solidColor('#00f8e6'),
           },
           mb: 1.25,
           font: {

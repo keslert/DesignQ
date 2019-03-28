@@ -12,7 +12,9 @@ export default {
     },
   },
   content: {
-    background: solidColor('#f1e4c6'),
+    background: { 
+  color: solidColor('#f1e4c6'),
+},
     h: 'auto',
     alignY: 'center',
     body: {

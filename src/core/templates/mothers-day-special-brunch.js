@@ -86,7 +86,9 @@ export default {
   id: 84,
   title: 'Mother\'s Day Special Brunch',
   tags: ['event', 'flyer'],
-  background: solidColor('#ff7f7d'),
+  background: { 
+  color: solidColor('#ff7f7d'),
+},
   decor: {
     t: .3,
     l: .1,
@@ -104,7 +106,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       bleed: { l: 2, r: 1, b: 1 },
       alignX: 'right',
       itemsAlignX: 'right',

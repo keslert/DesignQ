@@ -76,7 +76,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#000'),
+      background: { 
+  color: solidColor('#000'),
+},
       bleed: { a: 1 },
       alignX: 'left',
       itemsAlignX: 'left',

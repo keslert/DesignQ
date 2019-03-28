@@ -86,7 +86,9 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#ffeaa2'),
+  background: { 
+  color: solidColor('#ffeaa2'),
+},
   w: 1,
   h: 8,
 }
@@ -104,7 +106,9 @@ export default {
   },
   content: {
     h: 'auto',
-    background: solidColor('#212328cc'),
+    background: { 
+  color: solidColor('#212328cc'),
+},
     body: {
       elements: [
         small,

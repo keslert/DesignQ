@@ -93,7 +93,9 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#7ece97'),
+  background: { 
+  color: solidColor('#7ece97'),
+},
   w: .33,
   h: 8,
 }
@@ -102,7 +104,9 @@ export default {
   id: 48,
   title: 'Winslough Summer Festival',
   tags: ['event', 'flyer'],
-  background: solidColor('#146b77'),
+  background: { 
+  color: solidColor('#146b77'),
+},
   content: {
     body: {
       elements: [

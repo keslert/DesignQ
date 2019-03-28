@@ -29,12 +29,31 @@ export async function precompute() {
   _.forEach(templates, t => {
     linkTemplate(t);
     computeFlyer(t); 
-    t._isTemplate = true;
+    const all = [...t._surfaces, t.decor, ...t._elements];
     t.palette = buildTemplatePalette(t);
-    [...t._surfaces, t.decor, ...t._elements].forEach(i => 
-      i.background && i.background.img && (i.background.img = placeholderImage)
-    )
-
+    // replace images
+    const defaultImageColor = {type: 'solid', color: t.palette.dark, paletteKey: 'dark'};
+    all.forEach(item => {
+      const img = _.get(item, ['background', 'img'])
+      if(img) {
+        item.background.img = placeholderImage;
+        item.background.color = item.background.color || defaultImageColor;
+      }
+    })
+    
+    // connect colors to palette
+    all.forEach(item => {
+      const colors = _.filter([
+        _.get(item, ['background', 'color']),
+        _.get(item, ['decor', 'background', 'color']),
+        item.color,
+      ])
+      colors.forEach(color => {
+        color.paletteKey = color.type !== 'transparent'
+          ? _.findKey(t.palette, c => c === color.color)
+          : 'transparent'
+      })
+    })
   })
   computeContentStats(templates);
   // computeLayoutStats(templates);

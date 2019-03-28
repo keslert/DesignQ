@@ -6,7 +6,7 @@ export default {
   py: 36,
   border: {
     all: 12,
-    color: '#ffffff',
+    color: solidColor('#ffffff'),
   },
   content: {
     height: 'flex',
@@ -17,7 +17,9 @@ export default {
       alignX: 'center',
       alignY: 'center',
       textAlign: 'center',
-      background: solidColor('#31302c'),
+      background: { 
+  color: solidColor('#31302c'),
+},
       bleed: {all: true},
       flex: 1,
       elements: [

@@ -7,9 +7,13 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-with-monkey-llustration-birthday-flyer-MAC5t3-JpG8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   border: {
     a: .05,
-    background: solidColor('#ffffff'),
+    background: { 
+  color: solidColor('#ffffff'),
+},
   },
-  background: solidColor('#fff9ea'),
+  background: { 
+  color: solidColor('#fff9ea'),
+},
   content: {
     body: {
       elements: [
@@ -75,7 +79,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#fbd071'),
+          background: { 
+  color: solidColor('#fbd071'),
+},
           h: 8,
           w: .33,
         },

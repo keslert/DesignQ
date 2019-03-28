@@ -5,7 +5,9 @@ export default {
   title: 'Beechtown Lodge Summer Camp',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-and-orange-tent-flyer-summer-camp-flyer-MAC3TSOmKhg.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#022f2f'),
+  background: { 
+  color: solidColor('#022f2f'),
+},
   content: {
     body: {
       h: 'fill',
@@ -80,7 +82,9 @@ export default {
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#fbad5c'),
+      background: { 
+  color: solidColor('#fbad5c'),
+},
       elements: [
         {
           type: 'heading',

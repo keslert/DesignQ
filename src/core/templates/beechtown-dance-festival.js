@@ -90,7 +90,9 @@ export default {
   id: 78,
   title: 'The Beechtown Dance Festival',
   tags: ['event', 'flyer'],
-  background: solidColor('#ba3e7f'),
+  background: { 
+  color: solidColor('#ba3e7f'),
+},
   decor: {
     a: .1,
   },

@@ -1,11 +1,13 @@
-import { solidColor, unitValue, striped } from '.'
+import { solidColor, unitValue, striped, alphaColor } from '.'
 
 export default {
   id: 33,
   title: 'Bark in the Park',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-dog-with-shades-pet-fundraising-flyer-MAC4XeJseVQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#32641f'),
+  background: { 
+  color: solidColor('#32641f'),
+},
   decor: {
     r: .3,
     background: {
@@ -15,7 +17,7 @@ export default {
         w: 421,
         h: 729,
       },
-      color: '#400D2A',
+      color: solidColor('#400D2A'),
       zoom: .8,
       x: 2,
     }
@@ -25,11 +27,11 @@ export default {
       y: .02,
       yOffset: .03,
       background: {
-        color: '#ffffffaa',
+        color: alphaColor('#ffffff', .75),
       },
     },
     background: {
-      color: '#32641f',
+      color: solidColor('#32641f'),
     },
     bleed: {a: 1},
     alignX: 'left',

@@ -7,7 +7,9 @@ const small = {
     {type: 'descriptive', text: 'Hop on over and join us!'},
   ],
   color: solidColor('#ffffff'),
-  background: solidColor('#ffc6c6'),
+  background: { 
+  color: solidColor('#ffc6c6'),
+},
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,
@@ -89,7 +91,9 @@ export default {
   id: 76,
   title: 'Easter Fair and Egg Hunt',
   tags: ['event', 'flyer'],
-  background: solidColor('#44d9e5'),
+  background: { 
+  color: solidColor('#44d9e5'),
+},
   content: {
     body: {
       elements: [

@@ -84,7 +84,9 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   w: .25,
   h: 10,
 }
@@ -107,7 +109,9 @@ export default {
       w: 'auto',
       alignY: 'top',
       bleed: { t: 1 },
-      background: solidColor('#af232d'),
+      background: { 
+  color: solidColor('#af232d'),
+},
       elements: [
         small,
         dominant,
@@ -117,7 +121,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#af232d'),
+      background: { 
+  color: solidColor('#af232d'),
+},
       bleed: { a: 1 },
       elements: [
         paragraph,

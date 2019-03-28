@@ -85,7 +85,9 @@ export default {
   title: 'Volleyball Team Open Tryouts',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-pink-and-turquoise-illustrated-volleyball-sports-flyer-MAC3TfTE7XM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#79cecd'),
+  background: { 
+  color: solidColor('#79cecd'),
+},
   content: {
     body: {
       h: 'fill',
@@ -113,7 +115,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       bleed: { a: 1 },
       elements: [
         heading,

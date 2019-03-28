@@ -5,7 +5,9 @@ export default {
   title: 'Fall Festival Waltford Park',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-orange-leaves-fall-festival-flyer-MAC3X3Fhbtc.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#222c34'),
+  background: { 
+  color: solidColor('#222c34'),
+},
   decor: {
     y: .2,
     x: .1,

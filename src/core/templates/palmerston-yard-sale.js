@@ -84,7 +84,9 @@ const paragraph = {
 export default {
   title: '',
   tags: ['event', 'flyer'],
-  background: solidColor('#deb815'),
+  background: { 
+  color: solidColor('#deb815'),
+},
   content: {
     body: {
       elements: [

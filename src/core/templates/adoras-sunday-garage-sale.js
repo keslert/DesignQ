@@ -9,7 +9,9 @@ export default {
     all: 80,
     color: splitColor(0, '#fec458', '#ed5744'),
   },
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   content: {
     height: 'flex',
     width: 'flex',
@@ -97,7 +99,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: '#ed5744',
+            color: solidColor('#ed5744'),
           },
           color: solidColor('#ed5744'),
           font: {

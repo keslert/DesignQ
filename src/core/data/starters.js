@@ -22,7 +22,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Stanford HCI'},
   ],
-  color: {color: '#000'},
+  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -37,7 +37,7 @@ const dominant = {
   lines: [
     {type: 'eventName', text: 'Ski Trip'},
   ],
-  color: {color: '#000'},
+  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -52,7 +52,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Bundle up and get ready for fun!'},
   ],
-  color: {color: '#000'},
+  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -68,7 +68,7 @@ const heading = {
     {type: 'date', text: 'Sep. 5-8'},
     {type: 'location', text: 'Park City, Utah'},
   ],
-  color: {color: '#000'},
+  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -84,7 +84,7 @@ const paragraph = {
     {type: 'details', text: 'Take a break from your normal environmental'},
     {type: 'details', text: 'and hit the slopes with your fellow researchers!'},
   ],
-  color: {color: '#000'},
+  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -97,6 +97,9 @@ const paragraph = {
 
 export const simpleBody = {
   ...empty,
+  background: {
+    color: {type: 'solid', color: empty.palette.light, paletteKey: 'light'}
+  },
   content: {
     body: {
       elements: [
@@ -113,27 +116,28 @@ export const simpleBody = {
 export const imageBackground = {
   ...simpleBody,
   background: {
+    color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
     img: {
-      "src": "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800",
-      "palette": [
-        "rgb(251, 251, 251)",
-        "rgb(0, 13, 29)",
-        "rgb(21, 40, 57)",
-        "rgb(49, 67, 87)",
-        "rgb(67, 113, 149)",
-        "rgb(112, 132, 157)",
-        "rgb(146, 170, 194)",
-        "rgb(191, 201, 211)"
+      "src": "https://images.pexels.com/photos/257961/pexels-photo-257961.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "colors": [
+        "rgb(1, 0, 0)",
+        "rgb(132, 2, 14)",
+        "rgb(222, 134, 150)",
+        "rgb(73, 68, 65)",
+        "rgb(103, 202, 135)",
+        "rgb(3, 148, 201)",
+        "rgb(145, 238, 255)",
+        "rgb(254, 255, 255)"
       ],
       "crop": {
-        "x": 1.7500000000000002,
+        "x": 11.700000000000001,
         "y": 0,
-        "width": 40.125,
+        "width": 53.6,
         "height": 100
       },
       "meta": {
-        "w": 1600,
-        "h": 899
+        "w": 1000,
+        "h": 750
       },
       filters: {
         brightness: 0.9,

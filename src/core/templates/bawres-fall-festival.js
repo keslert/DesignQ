@@ -4,12 +4,14 @@ export default {
   title: 'Bawres Fall Festival',
   px: 64,
   py: 32,
-  background: solidColor('#191e3c'),
+  background: { 
+  color: solidColor('#191e3c'),
+},
   border: {
     top: 100, 
     bottom: 100,
     seed: 2,
-    color: '#191e3c',
+    color: solidColor('#191e3c'),
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#ffffff', size: 32},

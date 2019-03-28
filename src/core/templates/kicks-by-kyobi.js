@@ -13,7 +13,9 @@ export default {
   },
   pa: 1.5,
   content: {
-    background: solidColor('#1a1a1a'),
+    background: { 
+  color: solidColor('#1a1a1a'),
+},
     body: {
       elements: [
         {

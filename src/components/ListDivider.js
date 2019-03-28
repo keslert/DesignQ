@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBackgroundStyle, getColorStyle } from '../core/utils/render-utils';
+import { getBackgroundStyle } from '../core/utils/render-utils';
 
 function ListDivider({divider, fontSize}) {
 
@@ -19,12 +19,8 @@ function ListDivider({divider, fontSize}) {
             display: 'inline-block',
             width: Math.ceil(fontSize * .05),
             height: `${fontSize}px`,
-            ...getBackgroundStyle(divider.color),
-            // color: getColorStyle(divider.color),
-            // fontSize: fontSize + 'px',
-            // textAlign: 'center',
+            ...getBackgroundStyle(divider),
           }}
-          // children="|"
         />
       }
       {divider.type === 'dot' &&
@@ -34,7 +30,7 @@ function ListDivider({divider, fontSize}) {
           height: Math.ceil(fontSize * .25 * divider.size),
           verticalAlign: 'middle',
           borderRadius: '9999px',
-          ...getBackgroundStyle(divider.color),
+          ...getBackgroundStyle(divider),
         }}/>
       }
     </div>

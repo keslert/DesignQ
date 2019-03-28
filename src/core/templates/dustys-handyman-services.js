@@ -5,7 +5,9 @@ export default {
   tags: ['service', 'brand'],
   px: 36,
   py: 36,
-  background: solidColor('#eaeff0'),
+  background: { 
+  color: solidColor('#eaeff0'),
+},
   content: {
     height: 'flex',
     width: 'flex',

@@ -12,7 +12,9 @@ export default {
     },
   },
   content: {
-    background: solidColor('#28373b'),
+    background: { 
+  color: solidColor('#28373b'),
+},
     h: 'auto',
     py: 2,
     body: {

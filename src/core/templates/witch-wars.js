@@ -5,10 +5,14 @@ export default {
   title: 'Witch Wars',
   tags: ['event', 'flyer'],
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-purple-orange-witch's-hat-halloween-flyer-MAC5D3BIrJY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
-  background: solidColor('#bf6a1a'),
+  background: { 
+  color: solidColor('#bf6a1a'),
+},
   border: {
     a: .05,
-    background: solidColor('#3c2e3e'),
+    background: { 
+  color: solidColor('#3c2e3e'),
+},
   },
   content: {
     body: {
@@ -83,7 +87,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#3c2e3e'),
+          background: { 
+  color: solidColor('#3c2e3e'),
+},
           h: 10,
           w: .15,
         },

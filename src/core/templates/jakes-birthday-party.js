@@ -4,12 +4,14 @@ export default {
   title: 'Jake\'s Birthday Party',
   px: 72,
   py: 36,
-  background: solidColor('#403B57'),
+  background: { 
+  color: solidColor('#403B57'),
+},
   border: {
     top: 90, 
     bottom: 90,
     seed: 2,
-    color: '#403B57',
+    color: solidColor('#403B57'),
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#F26C46', size: 32},
@@ -78,7 +80,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#59D2CC'),
+          background: { 
+  color: solidColor('#59D2CC'),
+},
           width: unitValue(90, 'px'),
           height: unitValue(12, 'px'),
           mb: 1.5,

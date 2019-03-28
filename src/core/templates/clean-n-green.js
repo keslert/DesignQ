@@ -5,11 +5,13 @@ export default {
   version: 1,
   px: 36,
   py: 36,
-  background: solidColor('#1B5C50'),
+  background: { 
+  color: solidColor('#1B5C50'),
+},
   border: {
     top: 120, 
     bottom: 120,
-    color: '#B9E6BF',
+    color: solidColor('#B9E6BF'),
   },
   content: {
     height: 'flex',

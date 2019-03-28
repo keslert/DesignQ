@@ -31,6 +31,7 @@ export function linkTemplate(template) {
   
   template.content.kind = 'content';
   template.content._parent = template;
+
   linkSurfaceProperties(template.content);
 
   template._groups = withGroups(template, (group, groupType) => {
@@ -59,6 +60,7 @@ export function linkTemplate(template) {
 }
 
 function linkSurfaceProperties(item) {
+  item._self = item;
   item.decor && (item.decor._parent = item)
   item.border && (item.border._parent = item)
 }

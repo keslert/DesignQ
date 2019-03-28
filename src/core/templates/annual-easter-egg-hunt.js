@@ -88,7 +88,9 @@ export default {
   id: 86,
   title: 'Annual Easter Egg Hunt 2020',
   tags: ['event', 'flyer'],
-  background: solidColor('#96cfdd'),
+  background: { 
+  color: solidColor('#96cfdd'),
+},
   decor: {
     l: .2,
   },

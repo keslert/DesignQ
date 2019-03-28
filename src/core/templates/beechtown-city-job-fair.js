@@ -94,7 +94,7 @@ export default {
         brightness: 0.7,
       },
     },
-    color: '#1b92a5',
+    color: solidColor('#1b92a5'),
     backgroundBlendMode: 'overlay',
   },
   content: {

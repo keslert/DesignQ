@@ -14,7 +14,7 @@ export default {
         brightness: 0.7,
       },
     },
-    color: '#284b82',
+    color: solidColor('#284b82'),
     backgroundBlendMode: 'luminosity',
   },
   content: {
@@ -40,7 +40,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#ffffff'),
+          background: { 
+  color: solidColor('#ffffff'),
+},
           w: 1,
           h: 6,
         },
@@ -65,7 +67,9 @@ export default {
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       elements: [
         {
           type: 'heading',
@@ -114,7 +118,9 @@ export default {
     },
     header: {
       bleed: { t: 1 },
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       w: 'auto',
       textAlign: 'center',
       elements: [

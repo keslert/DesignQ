@@ -15,12 +15,16 @@ export default {
   },
   border: {
     a: .05,
-    background: solidColor('#000000'),
+    background: { 
+  color: solidColor('#000000'),
+},
   },
   content: {
     body: {
       bleed: { x: 2 },
-      background: solidColor('#ffffff'),
+      background: { 
+  color: solidColor('#ffffff'),
+},
       alignY: 'top',
       h: 'auto',
       elements: [

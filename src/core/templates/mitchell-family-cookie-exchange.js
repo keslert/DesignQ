@@ -5,7 +5,9 @@ export default {
   title: 'Mitchell Family Cookie Exchange',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-and-red-cookie-exchange-consumer-personal-flyer-MADI6f2rupo.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fefffa'),
+  background: { 
+  color: solidColor('#fefffa'),
+},
   decor: {
     a: .15,
   },

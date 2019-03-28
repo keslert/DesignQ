@@ -13,7 +13,9 @@ export default {
   content: {
     body: {
       bleed: { l: 1 },
-      background: solidColor('#3a3d58ee'),
+      background: { 
+  color: solidColor('#3a3d58ee'),
+},
       alignX: 'left',
       textAlign: 'left',
       elements: [
@@ -68,7 +70,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#ffffff'),
+          background: { 
+  color: solidColor('#ffffff'),
+},
           w: .25,
           h: 6,
         },

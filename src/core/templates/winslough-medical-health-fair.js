@@ -6,7 +6,9 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-photo-health-fair-flyer-MAC4WqK5At4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   border: {
     l: 25,
-    background: solidColor('#fb972e'),
+    background: { 
+  color: solidColor('#fb972e'),
+},
   },
   background: {
     img: {
@@ -16,7 +18,7 @@ export default {
       },
       x: 0.25,
     },
-    color: '#58a2c1',
+    color: solidColor('#58a2c1'),
     backgroundBlendMode: 'luminosity',
   },
   content: {

@@ -7,7 +7,9 @@ const small = {
     {type: 'host', text: 'San Dias Cantina presents'},
   ],
   color: solidColor('#2f292b'),
-  background: solidColor('#faaf40'),
+  background: { 
+  color: solidColor('#faaf40'),
+},
   font: {
     family: 'Montserrat',
     letterSpacing: 0.130,
@@ -95,7 +97,9 @@ export default {
   id: 94,
   title: 'Cinco de Mayo',
   tags: ['event', 'flyer'],
-  background: solidColor('#2f292b'),
+  background: { 
+  color: solidColor('#2f292b'),
+},
   decor: {
     y: .2,
   },

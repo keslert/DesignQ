@@ -87,10 +87,14 @@ export default {
   title: 'The Art of Healthy Living',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-&-olive-green-minimal-health-fair-flyer-MAC5v18P9fU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   border: {
     a: .03,
-    background: solidColor('#ffffff'),
+    background: { 
+  color: solidColor('#ffffff'),
+},
   },
   decor: {
     t: .45,
@@ -106,7 +110,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#697b60'),
+      background: { 
+  color: solidColor('#697b60'),
+},
       bleed: { a: 1 },
       elements: [
         paragraph,

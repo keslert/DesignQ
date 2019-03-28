@@ -119,7 +119,9 @@ export default {
   title: 'Beechtown Block Party',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-and-cream-block-party-flyer-MAC5uGwBvFY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#ffefd5'),
+  background: { 
+  color: solidColor('#ffefd5'),
+},
   content: {
     body: {
       h: 'fill',
@@ -132,7 +134,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#ffefd5'),
+      background: { 
+  color: solidColor('#ffefd5'),
+},
       bleed: { a: 1 },
       elements: [
         heading,

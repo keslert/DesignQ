@@ -1,11 +1,12 @@
 import _ from 'lodash';
+import chroma from 'chroma-js';
 
 export function getBackgroundStyle(bg) {
   if(!bg) return null;
 
   const background = _.filter([
     bg.img && `url(${bg.img.src}) no-repeat`,
-    bg.color,
+    resolveColor(bg.color),
   ]).join(',');
 
   const c = bg._computed || {};
@@ -20,13 +21,6 @@ export function getBackgroundStyle(bg) {
   };
 }
 
-export function getColorStyle(c) {
-  if(!c) return null;
-  switch(c.type) {
-    default: return c.color
-  }
-}
-
 export function textAlignToFlexAlign(align) {
   switch(align) {
     case 'top':
@@ -37,25 +31,32 @@ export function textAlignToFlexAlign(align) {
   }
 }
 
+// export function getUnitStyle(u) {
+//   if(!u) return null;
+//   return u.value + u.unit;
+// }
 
-export function getUnitStyle(u) {
-  if(!u) return null;
-  return u.value + u.unit;
-}
+// export function getWidth(width, {ml, mr}) {
+//   return `calc(${getUnitStyle(width)} - ${ml + mr}px)`
+// }
 
-export function getWidth(width, {ml, mr}) {
-  return `calc(${getUnitStyle(width)} - ${ml + mr}px)`
-}
+export function resolveColor(color) {
+  if(!color) return null;
 
-export function getBorderStyles(border) {
-  if(!border) return {};
-
-  const color = border.color || 'transparent';
-
-  return {
-    borderTop: border.top ? `${border.top}px solid ${color}` : null,
-    borderBottom: border.bottom ? `${border.bottom}px solid ${color}` : null,
-    borderLeft: border.left ? `${border.left}px solid ${color}` : null,
-    borderRight: border.right ? `${border.right}px solid ${color}` : null,
-  };
+  switch(color.type) {
+    case 'solid':
+      return color.color;
+    case 'alpha':
+      return chroma(color.color).alpha(color.alpha).css()
+    case 'transparent':
+      return 'transparent';
+    case 'linear':
+      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB)}, ${resolveColor(color.colorA)})`
+    case 'striped': 
+      return `repeating-linear-gradient(${color.deg}deg, ${resolveColor(color.colorB)}, ${resolveColor(color.colorB)} ${color.widthA}px, ${resolveColor(color.colorB)} ${color.widthA}px, ${resolveColor(color.colorA)} ${color.widthA + color.widthB}px)`
+    case 'split-color':
+      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB)}, ${resolveColor(color.colorB)} 50%, ${resolveColor(color.colorA)} 50%)`;
+    default:
+      throw Error("Unknown Color Type!")
+  }
 }

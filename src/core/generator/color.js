@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { safeIncrement, mode, copyTemplate, withSurfaces } from '../utils/template-utils';
-import { skiImages } from '../data/images/ski-trip'
-import { withGroups } from '../producer';
+import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
+import { skiImages } from '../data/images/ski-trip';
+import { solidColor, alphaColor } from '../templates';
 import chroma from 'chroma-js';
 import get from 'lodash/get';
 
@@ -17,8 +17,9 @@ export const basicStages = [
 		type: "color", 
 		focus: "filters", 
 		label: 'Filters',
+		relevant: flyer => !!getProminantImageSurface(flyer),
 		satisfied: () => true,
-		generate: f => ([copyTemplate(f), copyTemplate(f)]),
+		generate: generateFilters,
 	},
 	{ 
 		type: "color", 
@@ -46,10 +47,7 @@ function generateBackground(flyer, {templates}) {
 		const copy = copyTemplate(flyer);
 
 		// Find the most likely image surface.
-		const surface = _.find(copy._surfaces, s => s.background && s.background.img)
-			|| _.find(copy._elements, el => el.type === 'image')
-			|| (get(copy, ['decor', 'background', 'img']) ? copy.decor: null)
-			|| copy;
+		const surface = getProminantImageSurface(copy) || copy;
 
 		surface.background = surface.background || {};
 		surface.background.img = {
@@ -89,6 +87,68 @@ function generateBackground(flyer, {templates}) {
 		...imageFlyers,
 		...colorFlyers,
 	];
+}
+
+function getProminantImageSurface(flyer) {
+	return _.find(flyer._surfaces, s => s.background && s.background.img)
+		|| _.find(flyer._elements, el => el.type === 'image')
+		|| (get(flyer, ['decor', 'background', 'img']) ? flyer.decor: null)
+}
+
+function generateFilters(flyer, {templates}) {
+	// if we have an image
+	// multi color backgrounds
+	const prominantImageSurface = getProminantImageSurface(flyer);
+
+	const flyers = [];
+	if(prominantImageSurface) {
+		const palette = flyer.palette;
+		const filters = [
+			{color: alphaColor('#000000', .3), blendMode: 'overlay'},
+			{color: alphaColor('#000000', .5), blendMode: 'overlay'},
+			{color: alphaColor('#000000', .7), blendMode: 'overlay'},
+			{color: alphaColor('#000000', .85), blendMode: 'overlay'},
+			{color: alphaColor(palette.primary, 1), blendMode: 'overlay'},
+			{color: alphaColor(palette.primary, .5), blendMode: 'darken'},
+			{color: alphaColor(palette.primary, 1), blendMode: 'soft-light'},
+			{color: alphaColor(palette.primary, .5), blendMode: 'multiply'},
+			{color: alphaColor(palette.secondary, 1), blendMode: 'overlay'},
+			{color: alphaColor(palette.secondary, .5), blendMode: 'darken'},
+			{color: alphaColor(palette.secondary, 1), blendMode: 'soft-light'},
+			{color: alphaColor(palette.secondary, .5), blendMode: 'multiply'},
+			{color: alphaColor(palette.dark, .8), blendMode: 'overlay'},
+			{color: alphaColor(palette.dark, .5), blendMode: 'overlay'},
+			{color: alphaColor(palette.dark, .5), blendMode: 'darken'},
+			{color: alphaColor(palette.dark, .5), blendMode: 'soft-light'},
+			{color: alphaColor(palette.dark, .3), blendMode: 'multiply'},
+		].filter(f => f.color)
+
+
+		// Try other colors in the image?
+		flyers.push(...filters.map(filter => {
+			const copy = copyTemplate(flyer);
+			const surface = getProminantImageSurface(copy);
+			surface.background.backgroundBlendMode = filter.blendMode;
+			surface.background.color = filter.color;
+			surface.background.img.filters = filter.filters;
+			return copy;
+		}))
+
+		// const filters = instagramFilters;
+		// flyers.push(...filters.map(filter => {
+		// 	const copy = copyTemplate(flyer);
+		// 	const surface = getProminantImageSurface(copy);
+		// 	// Object.assign(surface.background, filter);
+		// 	surface.background.img.filters = filter.filters;
+		// 	surface.background.color = filter.color || surface.background.color;
+		// 	surface.background.backgroundBlendMode = filter.backgroundBlendMode;
+		// 	return copy;
+		// }))
+
+	}
+	
+	return flyers;
+
 
 }
 
@@ -130,7 +190,7 @@ export function getElementColor(template, group, elementType) {
 
 	// TODO: Choose the best color from the color palette
 	// return {color: '#000000'};
-	return { color: template.palette.dark };
+	return solidColor(template.palette.dark);
 }
 
 
@@ -207,70 +267,6 @@ export function transferColors(flyer, template, extraImages=[]) {
 	mimicForegroundColors(flyer, template);
 }
 
-function getColorType(color, palette) {
-	return _.findKey(palette, c => c === color) || color;
-}
-
-
-// The background of the closest ancestor
-function getBackdrop(item) {
-	let current = item;
-	while(current = current._parent) {
-		if(current.background && current.background.color !== 'transparent') {
-			return current.background;
-		}
-	}
-	if(item.kind === 'template') {
-		return item.background;
-	}
-}
-
-function getOptimalBackgroundColor(surface, palette, preferences) {
-	if(preferences[0] === 'transparent') {
-		return 'transparent';
-	}
-	
-	const backdrop = getBackdrop(surface);
-	const colorPreferences = preferences.map(pref => palette[pref]);
-
-	const color = _.find(colorPreferences, color => {
-		return color && backdrop.color !== color;
-	}) || getOptimalBackgroundColorForSurfaceType(surface, palette, backdrop);
-
-	return color;
-}
-
-function getOptimalForegroundColor(item, palette) {
-	const backdrop = item.background || getBackdrop(item);
-
-	const type = getColorType(backdrop.color, palette);
-	return {
-		color: type === 'light' ? palette.dark : palette.light
-	}
-}
-
-// TODO: Use stats for this.
-function getOptimalBackgroundColorForSurfaceType(surface, palette, backdropColor) {
-	let colors;
-	switch(surface.kind) {
-		case 'template':
-			colors = [palette.dark, palette.light]
-			break;
-		case 'content':
-			colors = [palette.dark, palette.light]
-			break;
-		case 'group':
-			colors = [palette.light, palette.primary, palette.dark]
-			break;
-		case 'element':
-			colors = [palette.primary, palette.secondary, palette.light, palette.dark]
-			break;
-		default:
-			colors = [palette.light, palette.dark]
-	}
-
-	return _.find(colors, color => color && color !== backdropColor);
-}
 
 
 export function transferSurface(fSurface, tSurface, flyer, template, preference) {
@@ -298,9 +294,7 @@ export function transferSurface(fSurface, tSurface, flyer, template, preference)
 function mimicBackgroundColors(flyer, template, preference='dark') {
 	flyer._surfaces.forEach((fSurface, i) => {
 		const tSurface = template._surfaces[i];
-		mimicBackgroundColor(fSurface, tSurface, flyer, template, preference);
-		
-		['decor', 'border'].forEach(prop => {
+		['_self', 'decor', 'border'].forEach(prop => {
 			if(tSurface[prop]) {
 				mimicBackgroundColor(fSurface[prop], tSurface[prop], flyer, template, preference)
 			}
@@ -310,16 +304,18 @@ function mimicBackgroundColors(flyer, template, preference='dark') {
 	flyer._elements.forEach(el => {
 		if(el.background) {
 			el.background.color = getOptimalBackgroundColor(el, flyer.palette, [
-				getColorType(el.background.color, flyer.palette),
+				el.background.color.paletteKey,
 				preference,
 			])
 		}
 	})
 }
 
+
+const DECOR_PROPS = ['t','b','l','r','tOffset','bOffset','lOffset','rOffset', 'background'];
 function mimicDecor(fSurface, tSurface, flyer, template, preference) {
 	if(tSurface.decor) {
-		fSurface.decor = {...tSurface.decor};
+		Object.assign(fSurface.decor, _.pick(tSurface.decor, DECOR_PROPS));
 		mimicBackgroundColor(fSurface.decor, tSurface.decor, flyer, template, preference);
 	}
 	else {
@@ -341,8 +337,8 @@ function mimicBackgroundColor(fSurface, tSurface, flyer, template, preference) {
 	if(tSurface.background) {
 		fSurface.background = fSurface.background || {};
 		fSurface.background.color = getOptimalBackgroundColor(fSurface, flyer.palette, _.filter([
-			// getColorType(get(fSurface, ['background', 'color']), flyer.palette),
-			getColorType(tSurface.background.color, template.palette),
+			// get(fSurface, ['background', 'color', 'paletteKey']),
+			get(tSurface.background, ['color', 'paletteKey']),
 			fSurface.background.img && 'dark',
 			preference,
 		]))
@@ -362,6 +358,61 @@ function mimicForegroundColors(flyer, template, preference='light') {
 	})
 }
 
+// The background of the closest ancestor
+function getBackdrop(item) {
+	let current = item;
+	while(current = current._parent) {
+		const color = get(current, ['background', 'color']);
+		if(color && color.type !== 'transparent') {
+			return current.background;
+		}
+	}
+	if(item.kind === 'template') {
+		return {type: 'solid', paletteKey: 'light'};
+	}
+}
+
+function getOptimalBackgroundColor(surface, palette, preferences) {
+	const backdrop = getBackdrop(surface);
+	// const backdropColor = backdrop.paletteKey // : palette.dark;
+
+	if(preferences[0] === 'transparent') {
+		return {type: 'transparent', color: 'rgba(0,0,0,0)', paletteKey: 'transparent'}
+	} else if(surface.background && surface.background.img) {
+		return {type: 'solid', color: palette.dark, paletteKey: 'dark'};
+	}
+
+	let key = _.find(preferences, pref => {
+		return palette[pref] && backdrop.paletteKey !== pref;
+	})
+
+	if(!key) {
+		key = _.find(getBackgroundColorSurfaceKindPreference(surface), pref => {
+			return palette[pref] && backdrop.paletteKey !== pref;
+		})
+	}
+
+	return {type: 'solid', color: palette[key], paletteKey: key};
+}
+
+function getOptimalForegroundColor(item, palette) {
+	const backdrop = item.background || getBackdrop(item);
+
+	const key = backdrop.color.paletteKey === 'light' ? 'dark' : 'light';
+	return {type: 'solid', color: palette[key], paletteKey: key};
+}
+
+// TODO: Use stats for this.
+function getBackgroundColorSurfaceKindPreference(surface) {
+	switch(surface.kind) {
+		case 'template': return ['dark', 'light']
+		case 'content': return ['dark', 'light']
+		case 'group': return ['light', 'primary', 'dark']
+		case 'element': return ['primary', 'secondary', 'light', 'dark']
+		default: return ['light', 'dark']
+	}
+}
+
 
 export function buildTemplatePalette(template) {
 
@@ -373,7 +424,7 @@ export function buildTemplatePalette(template) {
 
 
 	// const dominant = t._dominant.color.color;
-	const textColors = template._textElements.map(el => el.color.color);
+	const textColors = template._textElements.map(el => el.color);
 
 	const surfaces = [
 		template,
@@ -394,7 +445,7 @@ export function buildTemplatePalette(template) {
 	const colors = _.uniq(_.filter([
 		...textColors,
 		...surfaceColors,
-	], c => c && c.startsWith('#')));
+	], c => c && c.color).map(c => c.color));
 
 	const palette = buildPalette(colors);
 
@@ -405,7 +456,6 @@ const WHITE = '#ffffff';
 const BLACK = '#000000';
 function buildPalette(_colors) {
 	const colors = _colors.map(color => {
-		const c = chroma(color);
 		const fromWhite = chroma.distance(WHITE, color);
 		const fromBlack = chroma.distance(BLACK, color);
 		return {

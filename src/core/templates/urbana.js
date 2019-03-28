@@ -16,7 +16,9 @@ export default {
     width: 'flex',
     body: {
       w: .6,
-      background: solidColor('#202020'),
+      background: { 
+  color: solidColor('#202020'),
+},
       alignX: 'center',
       alignY: 'center',
       textAlign: 'center',

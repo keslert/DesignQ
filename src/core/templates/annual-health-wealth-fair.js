@@ -96,7 +96,7 @@ export default {
         brightness: 0.7,
       }
     },
-    color: '#0d2839',
+    color: solidColor('#0d2839'),
     backgroundBlendMode: 'luminosity',
   },
   content: {
@@ -109,7 +109,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#13b694'),
+      background: { 
+  color: solidColor('#13b694'),
+},
       bleed: { a: 1 },
       elements: [
         heading,

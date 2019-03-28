@@ -90,7 +90,9 @@ export default {
   id: 19,
   title: 'Easy Listening and Smooth Jazz',
   tags: ['event', 'flyer'],
-  background: solidColor('#e54049'),
+  background: { 
+  color: solidColor('#e54049'),
+},
   decor: {
     r: .3,
   },

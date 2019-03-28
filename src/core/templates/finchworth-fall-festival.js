@@ -98,7 +98,9 @@ export default {
   title: 'Finchworth Fall Festival',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-orange-leaves-fall-festival-flyer-MAC3Ta-ko3M.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#283442'),
+  background: { 
+  color: solidColor('#283442'),
+},
   decor: {
     r: .3,
   },

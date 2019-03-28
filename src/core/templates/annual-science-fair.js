@@ -92,7 +92,9 @@ export default {
   id: 42,
   title: 'Annual Science Fair',
   tags: ['event', 'flyer'],
-  background: solidColor('#316a77'),
+  background: { 
+  color: solidColor('#316a77'),
+},
   decor: {
     r: .5,
     background: {

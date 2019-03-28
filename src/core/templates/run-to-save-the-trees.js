@@ -93,7 +93,9 @@ export default {
   id: 104,
   title: 'Run to save the trees',
   tags: ['event', 'flyer'],
-  background: solidColor('#ffd20e'),
+  background: { 
+  color: solidColor('#ffd20e'),
+},
   decor: {
     y: .2,
   },

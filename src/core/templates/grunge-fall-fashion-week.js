@@ -13,7 +13,9 @@ export default {
   content: {
     h: 'auto',
     body: {
-      background: solidColor('#000000'),
+      background: { 
+  color: solidColor('#000000'),
+},
       elements: [
         {
           type: 'small',
@@ -69,7 +71,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#000000'),
+      background: { 
+  color: solidColor('#000000'),
+},
       elements: [
         {
           type: 'heading',

@@ -6,7 +6,7 @@ export default {
   py: 72,
   background: {
     url: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: '#3c342d',
+    color: solidColor('#3c342d'),
     backgroundBlendMode: 'exclusion',
     filters: {
       brightness: 0.5,
@@ -17,7 +17,9 @@ export default {
     width: 'flex',
     body: {
       bleed: { left: true, top: true, bottom: true },
-      background: solidColor('#692a3b'),
+      background: { 
+  color: solidColor('#692a3b'),
+},
       alignX: 'center',
       alignY: 'center',
       textAlign: 'left',

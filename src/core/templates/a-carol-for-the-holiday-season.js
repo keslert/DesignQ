@@ -18,7 +18,9 @@ export default {
     w: 'auto',
     alignX: 'left',
     bleed: { l: 1 },
-    background: solidColor('#fcfdf5'),
+    background: { 
+  color: solidColor('#fcfdf5'),
+},
     body: {
       alignX: 'left',
       alignY: 'center',

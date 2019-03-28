@@ -16,7 +16,7 @@ export default {
         grayscale: 1,
       },
     },
-    color: '#909090',
+    color: solidColor('#909090'),
     backgroundBlendMode: 'overlay',
   },
   content: {
@@ -78,7 +78,9 @@ export default {
     },
     footer: {
       bleed: { a: 1 },
-      background: solidColor('#1d1e20'),
+      background: { 
+  color: solidColor('#1d1e20'),
+},
       width: unitValue(100, '%'),
       textAlign: 'center',
       mb: 2,

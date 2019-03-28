@@ -96,7 +96,7 @@ export default {
     body: {
       alignY: 'bottom',
       background: {
-        color: '#ffffff',
+        color: solidColor('#ffffff'),
         mask: {},
       },
       bleed: { x: 1 },

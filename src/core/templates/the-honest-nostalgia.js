@@ -12,7 +12,9 @@ export default {
     },
   },
   content: {
-    background: solidColor('#fefaef'),
+    background: { 
+  color: solidColor('#fefaef'),
+},
     body: {
       textAlign: 'left',
       alignX: 'left',

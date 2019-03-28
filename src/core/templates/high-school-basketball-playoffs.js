@@ -61,7 +61,9 @@ export default {
     },
     footer: {
       bleed: { x: 1, b: 1 },
-      background: solidColor('#fcbf2f'),
+      background: { 
+  color: solidColor('#fcbf2f'),
+},
       textAlign: 'left',
       elements: [
         {

@@ -116,7 +116,9 @@ export default {
   title: 'Rollin Back to the 90s',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-yellow-colorful-90s-photo-skate-party-flyer-MAC5uH-riCQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#b80f04'),
+  background: { 
+  color: solidColor('#b80f04'),
+},
   content: {
     body: {
       h: 'fill',
@@ -133,7 +135,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#ffbb49'),
+      background: { 
+  color: solidColor('#ffbb49'),
+},
       bleed: {a: 1},
       textAlign: 'left',
       alignX: 'left',

@@ -17,7 +17,9 @@ export default {
     width: 'flex',
     body: {
       w: .6,
-      background: solidColor('rgba(156,34,16,.84)'),
+      background: { 
+  color: solidColor('rgba(156,34,16,.84)'),
+},
       flex: 1,
       alignX: 'flex-end',
       alignY: 'center',

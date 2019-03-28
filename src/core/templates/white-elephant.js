@@ -93,7 +93,9 @@ export default {
   id: 67,
   title: 'White Elephant',
   tags: ['event', 'flyer'],
-  background: solidColor('#87c3c1'),
+  background: { 
+  color: solidColor('#87c3c1'),
+},
   decor: {
     t: .45,
   },

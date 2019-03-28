@@ -4,9 +4,11 @@ export default {
   title: 'Job Fair 2019',
   px: 36,
   py: 36,
-  background: solidColor('#ffffff'),
+  background: { 
+  color: solidColor('#ffffff'),
+},
   border: {
-    color: '#ddd1e2',
+    color: solidColor('#ddd1e2'),
     top: 80, 
     bottom: 80,
   },

@@ -162,12 +162,12 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  IsabelBeachBazaar,
   FootballVarsityTryouts,
   BarkInThePark,
   BlastFromThePast,
   IsabelsBirthdayParty,
   SupportSandiosFoodDrive,
-  IsabelBeachBazaar,
   BeechtownLodgeSummerCamp,
   SaveTheEarth,
   RollinBackParty,
@@ -333,18 +333,39 @@ export function solidColor(color) {
   return { type: 'solid', color }
 }
 
+export function alphaColor(color, alpha) {
+  return { type: 'alpha', color, alpha }
+}
+
 export function unitValue(value, unit) {
   return { value, unit }
 }
 
 export function striped(deg, colorA, widthA, colorB, widthB) {
-  return `repeating-linear-gradient(${deg}deg, ${colorA}, ${colorA} ${widthA}px, ${colorB} ${widthA}px, ${colorB} ${widthA + widthB}px)`
+  return {
+    type: 'striped',
+    deg,
+    colorA: solidColor(colorA),
+    widthA,
+    colorB: solidColor(colorB),
+    widthB
+  }
 }
 
 export function linear(deg, colorA, colorB) {
-  return `linear-gradient(${deg}deg, ${colorB}, ${colorA})`;
+  return {
+    type: 'linear',
+    deg,
+    colorA: solidColor(colorA),
+    colorB: solidColor(colorB),
+  }
 }
 
 export function splitColor(deg, colorA, colorB) {
-  return `linear-gradient(${deg}deg, ${colorB}, ${colorB} 50%, ${colorA} 50%)`;
+  return {
+    type: 'split-color',
+    deg,
+    colorA: solidColor(colorA),
+    colorB: solidColor(colorB),
+  }
 }

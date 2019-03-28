@@ -40,7 +40,7 @@ function Element({element}) {
 function getElement(type) {
   switch(type) {
     case 'icon':
-    case 'image': return ImageElement
+    case 'image': return () => null
     case 'bar': return BarElement
     default: return TextElement
   }

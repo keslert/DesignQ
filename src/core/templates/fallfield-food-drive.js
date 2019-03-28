@@ -11,8 +11,7 @@ export default {
   content: {
     h: 'auto',
     background: {
-      color: '#ffffff',
-      // borderRadius: 12,
+      color: solidColor('#ffffff'),
     },
     body: {
       elements: [

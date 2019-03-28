@@ -1,5 +1,5 @@
 import React from 'react';
-import { getColorStyle } from '../../core/utils/render-utils';
+import { resolveColor } from '../../core/utils/render-utils';
 import ListDivider from '../ListDivider';
 
 const debug = false;
@@ -11,7 +11,7 @@ function TextElement({element}) {
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
-    color: getColorStyle(element.color),
+    color: resolveColor(element.color),
   }
 
   const spacerStyle = {

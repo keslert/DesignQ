@@ -7,7 +7,7 @@ export default {
   py: 48,
   border: {
     bottom: 10,
-    color: '#5ea9df',
+    color: solidColor('#5ea9df'),
   },
   content: {
     height: 'flex',
@@ -17,7 +17,9 @@ export default {
       flex: 1,
       alignX: 'left',
       alignY: 'center',
-      background: solidColor('#ffeeca'),
+      background: { 
+  color: solidColor('#ffeeca'),
+},
       bleed: { all: true },
       elements: [
         { 
@@ -32,7 +34,9 @@ export default {
             {type: 'eventName', text: 'Yard'},
             {type: 'eventName', text: 'Sale!'},
           ],
-          background: solidColor('#e64d45'),
+          background: { 
+  color: solidColor('#e64d45'),
+},
           color: solidColor('#fcda57'),
           font: {
             transform: 'uppercase',

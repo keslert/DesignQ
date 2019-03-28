@@ -5,7 +5,9 @@ export default {
   title: 'Basketball Tournament',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-orange-basketball-fundraiser-flyer-MAC5Lp6K9A8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#101010'),
+  background: { 
+  color: solidColor('#101010'),
+},
   decor: {
     a: .1,
   },

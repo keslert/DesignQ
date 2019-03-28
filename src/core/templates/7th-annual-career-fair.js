@@ -109,7 +109,9 @@ export default {
     r: .2,
   },
   content: {
-    background: solidColor('#da3c33'),
+    background: { 
+  color: solidColor('#da3c33'),
+},
     h: 'auto',
     w: 'auto',
     alignX: 'left',

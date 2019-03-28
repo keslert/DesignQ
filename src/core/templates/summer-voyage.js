@@ -5,7 +5,9 @@ export default {
   title: 'Summer Voyage',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-brown-and-grey-illustrated-icons-summer-camp-flyer-MAC3XzSjncw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fef8e9'),
+  background: { 
+  color: solidColor('#fef8e9'),
+},
   decor: {
     t: .3,
   },
@@ -14,7 +16,9 @@ export default {
       h: 'auto',
       bleed: { a: 1 },
       alignY: 'bottom',
-      background: solidColor('#363440'),
+      background: { 
+  color: solidColor('#363440'),
+},
       elements: [
         {
           type: 'small',

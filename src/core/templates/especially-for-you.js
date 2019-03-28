@@ -99,7 +99,9 @@ export default {
     },
   },
   content: {
-    background: solidColor('#fffdeef0'),
+    background: { 
+  color: solidColor('#fffdeef0'),
+},
     h: 'auto',
     alignY: 'bottom',
     bleed: { x: 1 },

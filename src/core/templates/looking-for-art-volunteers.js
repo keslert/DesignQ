@@ -6,7 +6,9 @@ export default {
   tags: ['event', 'flyer'],
   border: {
     a: .05,
-    background: solidColor('#ffffff'),
+    background: { 
+  color: solidColor('#ffffff'),
+},
   },
   background: {
     img: {
@@ -22,7 +24,9 @@ export default {
     body: {
       w: 'auto',
       bleed: { b: 2, r: 2 },
-      background: solidColor('#c21b2e'),
+      background: { 
+  color: solidColor('#c21b2e'),
+},
       alignX: 'right',
       alignY: 'bottom',
       itemsAlignX: 'left',

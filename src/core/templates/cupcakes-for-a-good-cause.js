@@ -5,11 +5,15 @@ export default {
   title: 'Cupcakes for a Good Cause',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-cream-and-blue-cupcake-fundraiser-flyer-MAC5EBZuooM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#fff4e9'),
+  background: { 
+  color: solidColor('#fff4e9'),
+},
   border: {
     x: .03,
     xOffset: .03,
-    background: solidColor('#9ddcdc'),
+    background: { 
+  color: solidColor('#9ddcdc'),
+},
   },
   content: {
     body: {

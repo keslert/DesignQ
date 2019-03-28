@@ -8,7 +8,7 @@ export default {
   background: {
     type: 'image',
     url: 'https://images.unsplash.com/photo-1530016910220-faf7fab2125c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: '#1c1611',
+    color: solidColor('#1c1611'),
     zoom: 1.4,
     y: .0,
   },

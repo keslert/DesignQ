@@ -12,7 +12,9 @@ export default {
   },
   content: {
     body: {
-      background: solidColor('#fffcf2'),
+      background: { 
+  color: solidColor('#fffcf2'),
+},
       elements: [
         {
           type: 'small',
@@ -67,7 +69,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#394e6d'),
+          background: { 
+  color: solidColor('#394e6d'),
+},
           h: 5,
           w: .33,
         },
@@ -93,7 +97,9 @@ export default {
     },
     footer: {
       bleed: { x: 1, b: 1 },
-      background: solidColor('#fffcf2'),
+      background: { 
+  color: solidColor('#fffcf2'),
+},
       elements: [
         {
           type: 'paragraph',

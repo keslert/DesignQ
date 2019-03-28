@@ -83,7 +83,9 @@ const paragraph = {
 
 const bar = {
   type: 'bar',
-  background: solidColor('#eab6d1'),
+  background: { 
+  color: solidColor('#eab6d1'),
+},
   w: 1,
   h: 8,
 }
@@ -93,7 +95,9 @@ export default {
   id: 50,
   title: 'Anna Morrison',
   tags: ['event', 'flyer'],
-  background: solidColor('#211834'),
+  background: { 
+  color: solidColor('#211834'),
+},
   decor: {
     x: .2,
   },

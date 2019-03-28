@@ -91,7 +91,9 @@ export default {
   id: 74,
   title: 'Fall Festival & Fundraising',
   tags: ['event', 'flyer'],
-  background: solidColor('#1a1f3b'),
+  background: { 
+  color: solidColor('#1a1f3b'),
+},
   decor: {
     y: .2,
   },

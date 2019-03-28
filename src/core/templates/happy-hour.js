@@ -4,7 +4,9 @@ export default {
   title: 'Happy Hour',
   px: 36,
   py: 36,
-  background: solidColor('#ED5B48'),
+  background: { 
+  color: solidColor('#ED5B48'),
+},
   overlay: {
     img: {
       src: '/grunge-1.png',

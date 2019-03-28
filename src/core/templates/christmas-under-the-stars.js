@@ -14,7 +14,9 @@ export default {
       color: striped(135, "#303030", 16, "#d99b47", 16),
     },
   },
-  background: solidColor('#303030'),
+  background: { 
+  color: solidColor('#303030'),
+},
   content: {
     body: {
       alignX: 'center',

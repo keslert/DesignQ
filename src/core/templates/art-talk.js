@@ -16,9 +16,11 @@ export default {
       bleed: {all: true },
       alignX: 'flex-start',
       alignY: 'center',
-      background: solidColor('#ffffff'), 
+      background: { 
+  color: solidColor('#ffffff'),
+}, 
       border: {
-        color: '#EE445A',
+        color: solidColor('#EE445A'),
         top: 12,
         bottom: 12,
       },
@@ -42,7 +44,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#FECF82'),
+          background: { 
+  color: solidColor('#FECF82'),
+},
           width: unitValue(80, 'px'),
           height: unitValue(8, 'px'),
           mb: 1,
@@ -83,7 +87,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#FECF82'),
+          background: { 
+  color: solidColor('#FECF82'),
+},
           width: unitValue(80, 'px'),
           height: unitValue(8, 'px'),
           mb: 1,

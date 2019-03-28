@@ -78,7 +78,9 @@ export default {
     footer: {
       overlay: false,
       width: unitValue(100, '%'),
-      background: solidColor('#d26d32'),
+      background: { 
+  color: solidColor('#d26d32'),
+},
       bleed: { all: true },
       elements: [{
         type: 'small',
@@ -99,7 +101,9 @@ export default {
     header: {
       overlay: false,
       width: unitValue(100, '%'),
-      background: solidColor('#d26d32'),
+      background: { 
+  color: solidColor('#d26d32'),
+},
       bleed: { all: true },
       elements: [{
         type: 'small',

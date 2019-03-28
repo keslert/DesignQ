@@ -10,7 +10,7 @@ export default {
     x: .35,
     y: 1,
     zoom: 1.75,
-    color: '#49065f',
+    color: solidColor('#49065f'),
     filters: {
       brightness: .7,
     },
@@ -60,7 +60,9 @@ export default {
     },
     footer: {
       overlay: false,
-      background: solidColor('#49065f'),
+      background: { 
+  color: solidColor('#49065f'),
+},
       textAlign: 'center',
       width: unitValue(100, '%'),
       bleed: {all: true },

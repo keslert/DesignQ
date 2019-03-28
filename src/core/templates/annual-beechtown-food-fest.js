@@ -17,7 +17,7 @@ export default {
       w: 'auto',
       pa: 3,
       background: {
-        color: '#6b6f39',
+        color: solidColor('#6b6f39'),
         borderRadius: 9999,
       },
       aspectRatio: 1,
@@ -76,7 +76,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#6b6f39'),
+      background: { 
+  color: solidColor('#6b6f39'),
+},
       bleed: { x: 1, b: 1 },
       elements: [
         {

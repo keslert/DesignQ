@@ -1,0 +1,4 @@
+
+
+Skipping stages if they are irrelevant.
+Soft-ejects: If the user starts absolutely positioning things, we stop controlling layout, but we continue to assist with X.

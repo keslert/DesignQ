@@ -13,7 +13,9 @@ export default {
     width: 'flex',
     body: {
       w: .6,
-      background: solidColor('rgba(0,0,0,.9'),
+      background: { 
+  color: solidColor('rgba(0,0,0,.9'),
+},
       alignX: 'center',
       alignY: 'center',
       bleed: { all: true },
@@ -53,7 +55,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#ffffff'),
+          background: { 
+  color: solidColor('#ffffff'),
+},
           width: unitValue(5, '%'),
           height: unitValue(4, 'px'),
           mb: 1,
@@ -77,7 +81,9 @@ export default {
       ]
     },
     footer: {
-      background: solidColor('#000'),
+      background: { 
+  color: solidColor('#000'),
+},
       width: unitValue(100, '%'),
       bleed: { all: true },
       py: .75,

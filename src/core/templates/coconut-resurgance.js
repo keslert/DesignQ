@@ -26,7 +26,9 @@ export default {
         { 
           type: 'small', 
           color: solidColor('#ffffff'),
-          background: solidColor('#8F5B68'),
+          background: { 
+  color: solidColor('#8F5B68'),
+},
           bleed: { left: true },
           width: unitValue(100, '%'),
           lines: [
@@ -60,7 +62,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#8F5B68'),
+          background: { 
+  color: solidColor('#8F5B68'),
+},
           width: unitValue(70, '%'),
           height: unitValue(8, 'px'),
         },

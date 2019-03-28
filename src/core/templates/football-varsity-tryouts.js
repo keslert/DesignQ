@@ -5,11 +5,13 @@ export default {
   title: 'Football Varsity Tryouts',
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-&-white-bold-creative-sport-football-tryouts-flyer-MAC6S8qYjo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
-  background: solidColor('#FF5200'),
+  background: { 
+    color: solidColor('#FF5200'),
+  },
   border: {
     l: 50,
     background: {
-      color: striped(30, '#000', 40, '#ffffff', 40),
+      color: striped(30, '#000000', 40, '#ffffff', 40),
     },
   },
   decor: {
@@ -22,7 +24,7 @@ export default {
         x: 0,
       },
       backgroundBlendMode: 'multiply',
-      color: '#FF5200',
+      color: solidColor('#FF5200'),
     }
   },
   content: {
@@ -41,7 +43,7 @@ export default {
             {type: 'eventName', text: 'Varsity'},
             {type: 'eventName', text: 'Tryouts 2020'},
           ],
-          color: solidColor('#000'),
+          color: solidColor('#000000'),
           font: {
             family: 'Bebas Neue',
             letterSpacing: 0.01,
@@ -59,7 +61,7 @@ export default {
             {type: 'descriptive', text: 'Represent the school by'},
             {type: 'descriptive', text: 'doing what you love the most!'},
           ],
-          color: solidColor('#000'),
+          color: solidColor('#000000'),
           font: {
             family: 'Arvo',
             letterSpacing: 0.04,
@@ -78,7 +80,9 @@ export default {
             {type: 'time', text: '4:00 PM - 6:00 PM'},
             {type: 'location', text: 'Football Field'},
           ],
-          background: solidColor('#000'),
+          background: { 
+  color: solidColor('#000000'),
+},
           color: solidColor('#ffffff'),
           font: {
             family: 'Arvo',
@@ -101,7 +105,7 @@ export default {
             {type: 'details', text: 'hardworking, and talented football players'},
             {type: 'details', text: 'to join the team.'},
           ],
-          color: solidColor('#000'),
+          color: solidColor('#000000'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,
@@ -122,7 +126,6 @@ export default {
       itemsAlignY: 'top',
       itemsAlignX: 'left',
       textAlign: 'left',
-      // background: solidColor('#f00'),
       elements: [
         {
           type: 'small',

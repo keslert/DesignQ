@@ -88,7 +88,9 @@ export default {
   id: 102,
   title: 'Whimson Cakes',
   tags: ['event', 'flyer'],
-  background: solidColor('#94d6cd'),
+  background: { 
+  color: solidColor('#94d6cd'),
+},
   decor: {
     a: .1,
   },

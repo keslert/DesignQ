@@ -52,7 +52,9 @@ export default {
         },
         {
           type: 'bar',
-          background: solidColor('#ffffff'),
+          background: { 
+  color: solidColor('#ffffff'),
+},
           width: unitValue(60, 'px'),
           height: unitValue(5, 'px'),
           mb: 1,

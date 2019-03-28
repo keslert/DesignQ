@@ -92,7 +92,9 @@ export default {
   id: 39,
   title: 'The Winter Wonderful Apparel Sale',
   tags: ['event', 'flyer'],
-  background: solidColor('#fffaf0'),
+  background: { 
+  color: solidColor('#fffaf0'),
+},
   content: {
     body: {
       elements: [
