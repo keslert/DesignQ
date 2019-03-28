@@ -72,6 +72,7 @@ function CanvasToolbar(props) {
           {props.showCompare && 
             <CanvasButton
               mb={2}
+              small={true}
               onMouseDown={props.onCompareDown}
               onMouseUp={props.onCompareUp}
               onMouseLeave={props.onCompareUp}
@@ -83,6 +84,7 @@ function CanvasToolbar(props) {
           {props.showGrid &&
             <CanvasButton
               mb={2}
+              small={true}
               onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
               SvgComponent={<GridSvg size={34} />}
               color={props.viewMode === 'grid' ? 'blue' : 'dark'}
@@ -92,6 +94,7 @@ function CanvasToolbar(props) {
           }
           {props.showMerge && 
             <CanvasButton
+              small={true}
               mb={2}
               onClick={() => dispatch({type: 'MERGE'})}
               SvgComponent={<MergeSvg size={38} />}

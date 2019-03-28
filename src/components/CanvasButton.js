@@ -7,9 +7,8 @@ const Button = styled(Flex)(props => ({
   '&:hover': {
     background: props.theme.colors[props.bg + '_darken'],
   },
-  
-  width: '72px',
-  height: props.height || '72px',
+  width: props.small ? '60px' : '72px',
+  height: props.height || (props.small ? '60px' : '72px'),
   borderTopLeftRadius: props.btr ? '2px' : 0,
   borderTopRightRadius: props.btr ? '2px' : 0,
   borderBottomLeftRadius: props.bbr ? '2px' : 0,
@@ -21,9 +20,6 @@ const Button = styled(Flex)(props => ({
   flexShrink: 0,
   letterSpacing: '.025em',
   userSelect: 'none',
-  'svg': {
-    fill: 'currentColor',
-  },
   padding: '8px 0', 
   ...(!props.highlight ? {} : {
     boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
@@ -59,7 +55,7 @@ function CanvasButton({SvgComponent, label, footer, mb, ...props}) {
         <Text
           mt="6px"
           fontWeight="900"
-          fontSize="8px" 
+          fontSize={props.small ? "7px" : "8px"}
           style={{textTransform: 'uppercase'}}
           children={label}
         />

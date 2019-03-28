@@ -345,9 +345,9 @@ export function striped(deg, colorA, widthA, colorB, widthB) {
   return {
     type: 'striped',
     deg,
-    colorA: solidColor(colorA),
+    colorA: (typeof colorA === 'string') ? solidColor(colorA) : colorA,
     widthA,
-    colorB: solidColor(colorB),
+    colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
     widthB
   }
 }
@@ -356,8 +356,8 @@ export function linear(deg, colorA, colorB) {
   return {
     type: 'linear',
     deg,
-    colorA: solidColor(colorA),
-    colorB: solidColor(colorB),
+    colorA: (typeof colorA === 'string') ? solidColor(colorA) : colorA,
+    colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
   }
 }
 
@@ -365,7 +365,7 @@ export function splitColor(deg, colorA, colorB) {
   return {
     type: 'split-color',
     deg,
-    colorA: solidColor(colorA),
-    colorB: solidColor(colorB),
+    colorA: (typeof colorA === 'string') ? solidColor(colorA) : colorA,
+    colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
   }
 }

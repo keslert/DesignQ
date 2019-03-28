@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
 import { skiImages } from '../data/images/ski-trip';
-import { solidColor, alphaColor } from '../templates';
+import { solidColor, alphaColor, linear } from '../templates';
 import chroma from 'chroma-js';
 import get from 'lodash/get';
 
@@ -100,14 +100,16 @@ function generateFilters(flyer, {templates}) {
 	// multi color backgrounds
 	const prominantImageSurface = getProminantImageSurface(flyer);
 
+
 	const flyers = [];
 	if(prominantImageSurface) {
+		const black = '#000000';
 		const palette = flyer.palette;
 		const filters = [
-			{color: alphaColor('#000000', .3), blendMode: 'overlay'},
-			{color: alphaColor('#000000', .5), blendMode: 'overlay'},
-			{color: alphaColor('#000000', .7), blendMode: 'overlay'},
-			{color: alphaColor('#000000', .85), blendMode: 'overlay'},
+			{color: alphaColor(black, .3), blendMode: 'overlay'},
+			{color: alphaColor(black, .5), blendMode: 'overlay'},
+			{color: alphaColor(black, .7), blendMode: 'overlay'},
+			{color: alphaColor(black, .85), blendMode: 'overlay'},
 			{color: alphaColor(palette.primary, 1), blendMode: 'overlay'},
 			{color: alphaColor(palette.primary, .5), blendMode: 'darken'},
 			{color: alphaColor(palette.primary, 1), blendMode: 'soft-light'},
@@ -121,6 +123,14 @@ function generateFilters(flyer, {templates}) {
 			{color: alphaColor(palette.dark, .5), blendMode: 'darken'},
 			{color: alphaColor(palette.dark, .5), blendMode: 'soft-light'},
 			{color: alphaColor(palette.dark, .3), blendMode: 'multiply'},
+			{color: linear(0, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(45, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(135, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(180, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(0, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
+			{color: linear(45, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
+			{color: linear(135, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
+			{color: linear(180, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
 		].filter(f => f.color)
 
 
@@ -454,7 +464,7 @@ export function buildTemplatePalette(template) {
 
 const WHITE = '#ffffff';
 const BLACK = '#000000';
-function buildPalette(_colors) {
+export function buildPalette(_colors) {
 	const colors = _colors.map(color => {
 		const fromWhite = chroma.distance(WHITE, color);
 		const fromBlack = chroma.distance(BLACK, color);

@@ -1,3 +1,5 @@
+import { buildPalette } from "../generator/color";
+
 export const empty = {
   id: 1,
   title: 'Untitled Flyer',
@@ -145,6 +147,8 @@ export const imageBackground = {
     },
   }
 }
+imageBackground.palette = buildPalette(imageBackground.background.img.colors);
+
 
 export const basicText = [
   {type: 'host', text: 'Stanford HCI'},
