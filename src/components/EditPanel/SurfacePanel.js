@@ -21,6 +21,7 @@ function SurfacePanel({surface}) {
       {img &&
         <Field label="Image Crop">
           <ImageCrop
+            key={img.src}
             img={img}
             size={surface._computed.bb}
             onComplete={(crop, pixelCrop) => {

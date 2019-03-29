@@ -28,11 +28,13 @@ export function linkTemplate(template) {
   console.log('Linking ' + template.title);
   template.kind = 'template';
   template._root = template;
+  template._key = 'template';
   linkSurfaceProperties(template);
   
   template.content.kind = 'content';
   template.content._parent = template;
   template.content._root = template;
+  template.content._key = 'content';
 
   linkSurfaceProperties(template.content);
 
@@ -41,14 +43,16 @@ export function linkTemplate(template) {
     group.kind = 'group';
     group._parent = template.content;
     group._root = template;
+    group._key = groupType;
     linkSurfaceProperties(group);
     return group;
   });
 
-  template._elements = _.flatMap(template._groups, g => g.elements.map(el => {
+  template._elements = _.flatMap(template._groups, g => g.elements.map((el, i) => {
     el.kind = 'element';
     el._parent = g;
     el._root = template;
+    el._key = i;
     linkSurfaceProperties(el);
     return el;
   }))
@@ -130,12 +134,19 @@ function customizer(value, key) {
   return _.isString(key) && key.startsWith('_') ? null : undefined;
 }
 
-// function getPath(item) {
-//   let iter = item;
-//   const path = [];
-//   do {
-//     path.push(iter._key);
-//   } while(iter = ) {
-    
-//   }
-// }
+function getPath(item) {
+  let iter = item;
+  const path = [];
+  do {
+    path.push(iter._key);
+  } while(iter = iter._parent)
+  
+  return path;
+}
+
+export function getItemFromFlyer(item, flyer) {
+  if(item.kind === 'template') return flyer;
+  
+  const path = getPath(item).reverse().slice(1);
+  return _.get(flyer, path);
+}

@@ -142,7 +142,7 @@ export const imageBackground = {
         "h": 750
       },
       x: 0.5,
-      y: 0.5,
+      y: 0,
       zoom: 1,
       filters: {
         brightness: 0.9,

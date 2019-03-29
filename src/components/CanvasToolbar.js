@@ -76,7 +76,7 @@ function CanvasToolbar(props) {
               onMouseDown={props.onCompareDown}
               onMouseUp={props.onCompareUp}
               onMouseLeave={props.onCompareUp}
-              SvgComponent={<EyeSvg size={30} />}
+              SvgComponent={<EyeSvg size={28} />}
               inset={true}
               label="Compare"
             />
@@ -86,7 +86,7 @@ function CanvasToolbar(props) {
               mb={2}
               small={true}
               onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
-              SvgComponent={<GridSvg size={34} />}
+              SvgComponent={<GridSvg size={28} />}
               color={props.viewMode === 'grid' ? 'blue' : 'dark'}
               highlight={props.viewMode === 'grid'}
               label="Grid View"

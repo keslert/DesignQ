@@ -14,7 +14,7 @@ import {
   getInitialJourney,
   _updateJourney,
 } from '../core/journey';
-import { linkTemplate } from '../core/utils/template-utils';
+import { linkTemplate, copyTemplate, getItemFromFlyer } from '../core/utils/template-utils';
 import set from 'lodash/set';
 
 export const DispatchContext = React.createContext();
@@ -305,29 +305,25 @@ function updateSelected(state, action, update={}) {
   const selected = state.selection;
   const flyer = selected._root;
   
+  const copy = copyTemplate(flyer);
+  copy.id = window.__flyerId++;
 
-  const inHistory = state.history.includes(flyer)
-  const lastFlyer = state.history[state.history.length - 1] || {};
-  const sameEdit = lastFlyer.editedTo === flyer.id;
-
-  if(!inHistory && !sameEdit) {
-    const copy = copyFlyer(flyer);
-    const id = copy.id;
-    copy.id = flyer.id;
-    flyer.id = id;
-    copy.editedTo = id;
-
-    update.history = [...state.history, copy];
-  }
-
+  const copySelected = getItemFromFlyer(selected, copy);
   Object.entries(action.update).forEach(([path, value]) => {
-    set(selected, path, value);
+    set(copySelected, path, value);
   })
 
   const key = flyer === state.primary ? 'primary' : 'secondary';
+  update[key] = copy
+  update.selection = copySelected;
+  produceFlyer(copy);
 
-  update[key] = {...flyer};
-  produceFlyer(update[key]);
+  // Update history
+  const lastFlyer = state.history[state.history.length - 1] || {};
+  if(copy.editId === undefined || lastFlyer.id !== copy.editId) {
+    copy.editId = flyer.id;
+    update.history = [...state.history, flyer];
+  }
 
   return {...state, ...update};
 }

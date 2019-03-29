@@ -1,12 +1,12 @@
-import React, { useState, useLayoutEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 function ImageCrop({img, size, onComplete}) {
-  const [crop, setCrop] = useState({});
-  useLayoutEffect(() => {
-    setCrop(getCrop(img, size))
-  }, [size, img])
+  const [crop, setCrop] = useState(() => getCrop(img, size));
+  // useEffect(() => {
+  //   setCrop(getCrop(img, size))
+  // }, [size, img])
 
   return (
     <div>
@@ -41,6 +41,6 @@ function getCrop(img, size) {
     x: img._computed.cropX,
     y: img._computed.cropY,
   }
-  console.log(crop);  
+  console.log('GET_CROP', crop);  
   return crop;
 }
