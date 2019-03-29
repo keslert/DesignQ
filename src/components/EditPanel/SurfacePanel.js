@@ -23,11 +23,20 @@ function SurfacePanel({surface}) {
           <ImageCrop
             img={img}
             size={surface._computed.bb}
-            onComplete={crop => rootDispatch({type: 'UPDATE_SELECTED', update: {
-              'background.img.x': crop.x / 100,
-              'background.img.y': crop.y / 100,
-              // 'background.img.zoom': crop.zoom,
-            }})}
+            onComplete={(crop, pixelCrop) => {
+              const zoom = Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100;
+              const x = Math.round(crop.x / (100 - crop.width) * 100) / 100 || 0;
+              const y = Math.round(crop.y / (100 - crop.height) * 100) / 100 || 0;
+              if(x !== img.x || y !== img.y || zoom !== img.zoom) {
+                rootDispatch({type: 'UPDATE_SELECTED', update: {
+                  'background.img.x': x,
+                  'background.img.y': y,
+                  'background.img.zoom': zoom,
+                }})
+              }
+              console.log(crop, pixelCrop);
+              return crop;
+            }}
           />
         </Field>
       }

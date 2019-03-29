@@ -19,27 +19,39 @@ export function computeBackgrounds(template) {
 }
 
 function computeBackground(template, container, bg, type) {
-  const imgSize = bg.img.meta;
-  const imgRatio = imgSize.w / imgSize.h;
-  
-  const containerSize = container._computed.bb;
-  const containerRatio = containerSize.w / containerSize.h;
-
-  const size = imgRatio < containerRatio
-    ? {w: containerSize.w, h: imgSize.h * (containerSize.w / imgSize.w)}
-    : {h: containerSize.h, w: imgSize.w * (containerSize.h / imgSize.h)}
-
   const zoom = bg.img.zoom || 1;
   const x = bg.img.x !== undefined ? bg.img.x : .5;
   const y = bg.img.y !== undefined ? bg.img.y : .5;
+  const imgSize = bg.img.meta;
+  const containerSize = container._computed.bb;
 
-  size.w *= zoom;
-  size.h *= zoom;
+  const scale = Math.max(containerSize.w / imgSize.w, containerSize.h / imgSize.h);
+  const fillSize = {
+    w: imgSize.w * scale,
+    h: imgSize.h * scale,
+  }
+  
+  const w = fillSize.w * zoom;
+  const h = fillSize.h * zoom;
+  
+  const spaceX = w - containerSize.w;
+  const spaceY = h - containerSize.h
 
-  bg._computed = {
-    ...size,
-    x: (containerSize.w - size.w) * x,
-    y: (containerSize.h - size.h) * y,
-    maxW: imgRatio < containerRatio ? 1 : containerRatio / imgRatio,
+  const offsetX = spaceX * x;
+  const offsetY = spaceY * y;
+  
+  const cropW = containerSize.w / w * 100;
+  const cropX = offsetX / w * 100;
+  const cropY = offsetY / h * 100;
+
+
+  bg.img._computed = {
+    w,
+    h,
+    x: offsetX,
+    y: offsetY,
+    cropW,
+    cropX,
+    cropY,
   }
 }

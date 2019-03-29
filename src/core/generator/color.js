@@ -56,8 +56,8 @@ function generateBackground(flyer, {templates}) {
 			colors: img.colors,
 			crop: img.crop,
 			zoom: 1,
-			x: img.crop.x / 100,
-			y: img.crop.y / 100,
+			x: Math.round(img.crop.x) / 100,
+			y: Math.round(img.crop.y) / 100,
 			filters: {
 				brightness: 0.9,
 			},

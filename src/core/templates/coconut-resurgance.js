@@ -8,8 +8,8 @@ export default {
     type: 'image',
     url: 'https://images.pexels.com/photos/1030973/pexels-photo-1030973.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     zoom: 2.20,
-    x: .01,
-    y: .69,
+    x: 1,
+    y: 69,
     filters: {
       sepia: 0.4,
     },

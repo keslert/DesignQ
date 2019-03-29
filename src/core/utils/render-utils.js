@@ -9,12 +9,12 @@ export function getBackgroundStyle(bg) {
     resolveColor(bg.color),
   ]).join(',');
 
-  const c = bg._computed || {};
+  const c = bg.img ? bg.img._computed : {};
   return {
     background,
     backgroundSize: `${c.w}px ${c.h}px`,
-    backgroundPositionX: `${c.x}px`,
-    backgroundPositionY: `${c.y}px`,
+    backgroundPositionX: `${-c.x}px`,
+    backgroundPositionY: `${-c.y}px`,
     filter: bg.img && _.map(bg.img.filters, (v, k) => `${k}(${v})`).join(' '),
     backgroundBlendMode: bg.backgroundBlendMode,
     borderRadius: bg.borderRadius ? bg.borderRadius + 'px' : null,
