@@ -142,7 +142,10 @@ function Canvas(props) {
 export default Canvas;
 
 const makeHandleKeyPress = dispatch => e => {
-  if(e.target.hasOwnProperty('value')) return; // don't listen to input or textarea.
+  if(
+    e.target.hasOwnProperty('value') 
+    || e.target.className.includes("ReactCrop")
+  ) return; // don't listen to input or textarea ReactCrop;
 
   if(e.code === 'ArrowRight') { 
     const type = e.shiftKey ? 'STEP' : 'NEXT';

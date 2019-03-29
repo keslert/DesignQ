@@ -1,8 +1,9 @@
 import React from 'react';
 import { templates } from '../../core/templates';
-import { computeFlyer, withGroups } from '../../core/producer';
+import { produceFlyer, withGroups } from '../../core/producer';
 import canvaFlyers from '../../core/data/canva/event-flyers';
 import _ from 'lodash';
+import { linkTemplate } from '../../core/utils/template-utils';
 
 
 function CalcFonts() {
@@ -11,8 +12,8 @@ function CalcFonts() {
   const res = _.map(templates, t => {
     const elements = _.flatten(withGroups(t, g => g.elements))
     elements.forEach(el => el.font && (el.font.size = 1))
-
-    computeFlyer(t);
+    linkTemplate(t);
+    produceFlyer(t);
 
     const canvaFlyer = _.find(canvaFlyers, f => f.id === t.id);
 

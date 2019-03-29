@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { Flex, Box, Text } from 'rebass';
 import Frame from '../../components/Frame';
 import * as starterTemplates from '../../core/data/starters';
-import { computeFlyer } from '../../core/producer';
+import { produceFlyer } from '../../core/producer';
 import { generateFlyers, precompute } from '../../core/generator';
 import _ from 'lodash';
 
@@ -12,34 +12,34 @@ function ContentGallery({flyerSize}) {
   const [flyers, setFlyers] = useState([]);
   useLayoutEffect(() => {
     precompute();
-    computeFlyer(flyer, flyerSize);
+    produceFlyer(flyer, flyerSize);
     
     const contentFlyer = generateFlyers(flyer, {
       stage: {type: 'content', focus: 'text'}, 
       userInput: {text: starterTemplates.basicText},
     });
-    computeFlyer(contentFlyer, flyerSize)
+    produceFlyer(contentFlyer, flyerSize)
     setFlyers([contentFlyer]);
 
     const layoutFlyers = generateFlyers(contentFlyer, {
       stage: {type: 'layout', focus: 'elements'},
       variations: 999,
     });
-    layoutFlyers.forEach(f => computeFlyer(f, flyerSize));
+    layoutFlyers.forEach(f => produceFlyer(f, flyerSize));
     setFlyers(layoutFlyers);
 
     const typographyFlyers = generateFlyers(layoutFlyers[6], {
       stage: {type: 'typography', focus: 'primary'},
       variations: 999,
     });
-    typographyFlyers.forEach(f => computeFlyer(f, flyerSize));
+    typographyFlyers.forEach(f => produceFlyer(f, flyerSize));
     setFlyers(typographyFlyers);
 
     // const secondaryTypographyFlyers = generateFlyer(typographyFlyers[10], {
     //   stage: {type: 'typography', focus: 'secondary'},
     //   variations: 999,
     // });
-    // secondaryTypographyFlyers.forEach(f => computeFlyer(f, flyerSize));
+    // secondaryTypographyFlyers.forEach(f => produceFlyer(f, flyerSize));
     // setFlyers(secondaryTypographyFlyers);
 
     

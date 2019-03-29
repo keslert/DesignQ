@@ -11,7 +11,7 @@ import { stages as polishStages } from './polish';
 import { stages as exportStages } from './export';
 
 import { templates } from '../templates';
-import { computeFlyer } from '../producer';
+import { produceFlyer } from '../producer';
 import { linkTemplate } from '../utils/template-utils';
 
 const placeholderImage = { src: '/placeholder.png', meta: {w: 500, h: 500}}
@@ -28,7 +28,7 @@ export async function precompute() {
   }
   _.forEach(templates, t => {
     linkTemplate(t);
-    computeFlyer(t); 
+    produceFlyer(t); 
     const all = [...t._surfaces, t.decor, ...t._elements];
     t.palette = buildTemplatePalette(t);
     // replace images

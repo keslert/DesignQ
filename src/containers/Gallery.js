@@ -9,7 +9,7 @@ import {
   bodyTests,
   elementTests,
 } from '../core/templates/test-flyers';
-import { computeFlyer } from '../core/producer';
+import { produceFlyer } from '../core/producer';
 import _ from 'lodash';
 import { buildTemplatePalette } from '../core/generator/color';
 import { Swatch } from '../components/ColorPicker';
@@ -32,7 +32,7 @@ function Gallery({flyerSize}) {
   useLayoutEffect(() => {
     _.forEach(flyers, flyer => {
       linkTemplate(flyer);
-      computeFlyer(flyer, flyerSize);
+      produceFlyer(flyer, flyerSize);
     });
     setPalettes(_.map(flyers, f => {
       const palette = buildTemplatePalette(f);

@@ -9,14 +9,12 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import JSONEditor from 'jsoneditor';
 import { Box, Flex, Image } from 'rebass';
 import { templates } from '../core/templates';
-import { computeFlyer } from '../core/producer';
+import { produceFlyer } from '../core/producer';
 import _ from 'lodash';
 
 import 'jsoneditor/dist/jsoneditor.css';
+import { linkTemplate } from '../core/utils/template-utils';
 
-
-// const defaultTemplate = templates.LetsGrooveJazzNight;
-// computeFlyer(defaultTemplate)
 function Editor(props) {
   const jsonDiv = useRef();
   const jsonEditor = useRef();
@@ -54,7 +52,8 @@ function Editor(props) {
   useEffect(() => {
     _template.current = _.cloneDeep(template);
     try {
-      computeFlyer(_template.current, props.flyerSize);
+      linkTemplate(_template.current);
+      produceFlyer(_template.current, props.flyerSize);
       setVersion(version + 1);
     }
     catch(error) {

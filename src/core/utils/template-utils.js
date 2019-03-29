@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { withGroups, computeFlyer } from '../producer';
+import { withGroups, produceFlyer } from '../producer';
 
 
 
@@ -25,14 +25,14 @@ export function mode(arr) {
 }
 
 export function linkTemplate(template) {
-  console.log('Linking template ' + template.title);
+  console.log('Linking ' + template.title);
   template.kind = 'template';
-  template._template = template;
+  template._root = template;
   linkSurfaceProperties(template);
   
   template.content.kind = 'content';
   template.content._parent = template;
-  template.content._template = template;
+  template.content._root = template;
 
   linkSurfaceProperties(template.content);
 
@@ -40,7 +40,7 @@ export function linkTemplate(template) {
     group.type = groupType;
     group.kind = 'group';
     group._parent = template.content;
-    group._template = template;
+    group._root = template;
     linkSurfaceProperties(group);
     return group;
   });
@@ -48,7 +48,7 @@ export function linkTemplate(template) {
   template._elements = _.flatMap(template._groups, g => g.elements.map(el => {
     el.kind = 'element';
     el._parent = g;
-    el._template = template;
+    el._root = template;
     linkSurfaceProperties(el);
     return el;
   }))
@@ -70,7 +70,7 @@ function linkSurfaceProperties(item) {
 
 export function getTemplateTextTypes(template) {
   if(!template._textTypes) {
-    computeFlyer(template);
+    produceFlyer(template);
     const types = _.flatMap(template._elements, el => {
 
       // flatten lists
@@ -122,7 +122,6 @@ export function getTemplateTextTypes(template) {
 export function copyTemplate(flyer) {
   const clone = _.cloneDeepWith(flyer, customizer);
   linkTemplate(clone);
-  // computeFlyer(clone);
   return clone;
 }
 
@@ -130,3 +129,13 @@ export function copyTemplate(flyer) {
 function customizer(value, key) {
   return _.isString(key) && key.startsWith('_') ? null : undefined;
 }
+
+// function getPath(item) {
+//   let iter = item;
+//   const path = [];
+//   do {
+//     path.push(iter._key);
+//   } while(iter = ) {
+    
+//   }
+// }

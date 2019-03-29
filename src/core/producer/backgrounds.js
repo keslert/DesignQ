@@ -1,11 +1,8 @@
-import imageData from '../data/canva/image-data';
 import { withGroups } from './';
 import _ from 'lodash';
 
 export function computeBackgrounds(template) {
-  const surfaces = [template, template.content, ...withGroups(template, g => g)]
-
-  surfaces.forEach(surface => {
+  template._surfaces.forEach(surface => {
     if(surface.background && surface.background.img) {
       computeBackground(template, surface, surface.background, 'background');
     }
@@ -14,7 +11,7 @@ export function computeBackgrounds(template) {
     }
   })
 
-  const images = _.flatten(withGroups(template, g => g.elements.filter(el => el.type === 'image')))
+  const images = template._elements.filter(el => el.type === 'image')
   images.forEach(img => {
     computeBackground(template, img, img.background);
   })
@@ -22,7 +19,7 @@ export function computeBackgrounds(template) {
 }
 
 function computeBackground(template, container, bg, type) {
-  const imgSize = bg.img.meta || imageData[template.id][type];
+  const imgSize = bg.img.meta;
   const imgRatio = imgSize.w / imgSize.h;
   
   const containerSize = container._computed.bb;
@@ -43,5 +40,6 @@ function computeBackground(template, container, bg, type) {
     ...size,
     x: (containerSize.w - size.w) * x,
     y: (containerSize.h - size.h) * y,
+    maxW: imgRatio < containerRatio ? 1 : containerRatio / imgRatio,
   }
 }

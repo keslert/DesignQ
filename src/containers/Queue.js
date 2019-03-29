@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
 import Timeline from './Timeline';
 import * as starters from '../core/data/starters';
-import { computeFlyer } from '../core/producer';
+import { produceFlyer } from '../core/producer';
 import { Flex, Box } from 'rebass';
 import { precompute } from '../core/generator';
 import { useWindowSize } from '../core/lib/hooks';
@@ -14,6 +14,8 @@ import {
   getInitialJourney,
   _updateJourney,
 } from '../core/journey';
+import { linkTemplate } from '../core/utils/template-utils';
+import set from 'lodash/set';
 
 export const DispatchContext = React.createContext();
 export const SelectionContext = React.createContext();
@@ -129,6 +131,8 @@ const reducer = (state, action) => {
       return toggleFavorite(state, action.flyer)
     case 'SELECT':
       return {...state, selection: action.selection};
+    case 'UPDATE_SELECTED':
+      return updateSelected(state, action);
     default:
       return state;
   }
@@ -142,7 +146,8 @@ async function getInititialState(props) {
     const startFlyer = starters[query.starter] || (
       process.env.NODE_ENV === 'production'  ? starters.empty : starters.imageBackground
     )
-    computeFlyer(startFlyer);
+    linkTemplate(startFlyer);
+    produceFlyer(startFlyer);
     startFlyer.id = 1;
     startFlyer.stage = {type: 'content', focus: 'text'};
 
@@ -294,4 +299,35 @@ function _updateSecondary(state, action, update) {
     const stage = update.journey.stage || state.journey.stage;
     update.secondary = stage.currentGeneration[stage.currentGenerationIndex];
   }
+}
+
+function updateSelected(state, action, update={}) {
+  const selected = state.selection;
+  const flyer = selected._root;
+  
+
+  const inHistory = state.history.includes(flyer)
+  const lastFlyer = state.history[state.history.length - 1] || {};
+  const sameEdit = lastFlyer.editedTo === flyer.id;
+
+  if(!inHistory && !sameEdit) {
+    const copy = copyFlyer(flyer);
+    const id = copy.id;
+    copy.id = flyer.id;
+    flyer.id = id;
+    copy.editedTo = id;
+
+    update.history = [...state.history, copy];
+  }
+
+  Object.entries(action.update).forEach(([path, value]) => {
+    set(selected, path, value);
+  })
+
+  const key = flyer === state.primary ? 'primary' : 'secondary';
+
+  update[key] = {...flyer};
+  produceFlyer(update[key]);
+
+  return {...state, ...update};
 }

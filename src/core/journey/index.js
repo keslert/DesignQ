@@ -6,11 +6,11 @@ import { basicStages as basicColorStages } from '../generator/color';
 import { basicStages as basicDecorationStages } from '../generator/decoration';
 import { basicStages as basicPolishStages } from '../generator/polish';
 import { basicStages as basicExportStages } from '../generator/export';
-import { computeFlyer } from '../producer';
+import { produceFlyer } from '../producer';
 import { copyTemplate } from '../utils/template-utils';
 import _ from 'lodash';
 
-let flyerId = 3;
+window.__flyerId = 3; // eslint-disable-line no-restricted-globals
 
 const JOURNEYS = {
   basic: [
@@ -109,8 +109,8 @@ function getUpdatedStage(stage, primary, action) {
   if(action.forceGeneration || (!isMasterDesign && !isFromGeneration)) {
     const flyers = generateFlyers(primary, stage, action);
     flyers.forEach(f => {
-      computeFlyer(f)
-      f.id = flyerId++;
+      produceFlyer(f)
+      f.id = window.__flyerId++; // eslint-disable-line no-restricted-globals
       f.stage = {
         type: stage.type,
         focus: stage.focus,
@@ -224,7 +224,7 @@ const progressLevels = [
 
 export function copyFlyer(flyer) {
   const copy = copyTemplate(flyer);
-  copy.id = flyerId++;
-  computeFlyer(copy);
+  copy.id = window.__flyerId++; // eslint-disable-line no-restricted-globals
+  produceFlyer(copy);
   return copy;
 }
