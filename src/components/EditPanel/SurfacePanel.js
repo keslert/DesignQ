@@ -16,12 +16,36 @@ function SurfacePanel({surface}) {
   const rootDispatch = useContext(DispatchContext)
   const img = surface.background && surface.background.img;
 
+  // Image
+    // Upload
+    // Explore
+    // Remove
+
+  // Background
+  // Border
+    // Background Color
+    // Directional Offsets
+    // Directional Widths
+  // Decor
+    // Image
+    // Direction Offsets
+    // Directional Widths
+  
+  // Directional Padding
+  // Directional Bleeds
+  // Margin
+  // Palette
+
+  // Advanced Color
+    // Solid
+    // Linear
+
   return (
     <Box>
       {img &&
         <Field label="Image Crop">
           <ImageCrop
-            key={img.src}
+            key={surface._root.id}
             img={img}
             size={surface._computed.bb}
             onComplete={(crop, pixelCrop) => {
@@ -35,8 +59,6 @@ function SurfacePanel({surface}) {
                   'background.img.zoom': zoom,
                 }})
               }
-              console.log(crop, pixelCrop);
-              return crop;
             }}
           />
         </Field>

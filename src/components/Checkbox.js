@@ -15,15 +15,14 @@ const S_Checkbox = styled.input(props => ({
 
 }))
 
-function Checkbox({label, checked, onClick}) {
+function Checkbox({label, ...props}) {
 
   return (
     <Label>
       {label}
       <S_Checkbox
         type="checkbox"
-        onClick={onClick}
-        checked={checked}
+        {...props}
       />
     </Label>
   )

@@ -12,7 +12,7 @@ function Field({label, onExploreClick, children}) {
           color="white"
           children={label}
         />
-        {onExploreClick &&
+        {(false && onExploreClick) &&
           <OpacityButton onClick={onExploreClick}>
             <Text
               fontSize={0}

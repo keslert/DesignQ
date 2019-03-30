@@ -163,7 +163,8 @@ async function getInititialState(props) {
       viewMode: 'comparison',
       showSidebar: false,
       // selection: null,
-      selection: startFlyer,
+      // selection: startFlyer,
+      selection: startFlyer.content.body.elements[1],
       stage: {type: 'content', focus: 'text'},
     }, {stage});
     
@@ -306,7 +307,8 @@ function updateSelected(state, action, update={}) {
   const flyer = selected._root;
   
   const copy = copyTemplate(flyer);
-  copy.id = window.__flyerId++;
+  copy.id = flyer.id; // I'm not sure the implications of this id switch...
+  flyer.id = window.__flyerId++;
 
   const copySelected = getItemFromFlyer(selected, copy);
   Object.entries(action.update).forEach(([path, value]) => {

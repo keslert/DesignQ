@@ -17,12 +17,13 @@ const inputStyles = props => ({
   background: props.theme.colors[props.bg],
   color: props.theme.colors[props.color],
   border: '1px solid hsla(222,23%,24%, 0.1)',
+  opacity: props.disabled ? 0.2 : 1,
   '&:focus, &:hover': {
     borderColor: props.theme.colors.blue,
   },
   '&::placeholder': {
     color: props.theme.colors.gray,
-  }
+  },
 })
 
 const defaultProps = {

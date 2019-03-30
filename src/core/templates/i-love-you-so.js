@@ -52,7 +52,8 @@ export default {
             style: 'normal',
             transform: 'none',
             lineHeight: 1.05,
-            ignoreAscendersDescenders: true,
+            ignoreAscenders: true,
+            ignoreDescenders: true,
           },
         },
         { 

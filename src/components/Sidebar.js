@@ -76,7 +76,7 @@ function Sidebar(props) {
       }
       <Box mx="-16px" bg="dark">
         <SelectionTree
-          flyer={props.selection._computed.template}
+          flyer={props.selection._root}
         />
       
       </Box>

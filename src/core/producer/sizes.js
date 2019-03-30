@@ -176,7 +176,7 @@ function computeGroupLogoSize(group) {
 export function measureText(t) {
   const lines = t._computed.lines;
   const allText = _.flatMap(lines, line => line.text).join('')
-  const offset = getTextOffset(allText, t.font.family, t.font.ignoreAscendersDescenders)
+  const offset = getTextOffset(allText, t.font.family, t.font.ignoreAscenders, t.font.ignoreDescenders);
   
   lines.forEach((line, i) => {
     const isArray = Array.isArray(line.text);

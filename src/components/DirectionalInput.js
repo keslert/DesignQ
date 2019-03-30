@@ -29,6 +29,7 @@ function DirectionalInput(props) {
           color="white"
           value={props.l}
           name="l"
+          disabled={props.lDisabled}
           onChange={handleChange}
         />
       </Box>
@@ -45,6 +46,7 @@ function DirectionalInput(props) {
             color="white"
             value={props.t}
             name="t"
+            disabled={props.tDisabled}
             onChange={handleChange}
           />
         </Box>
@@ -58,6 +60,7 @@ function DirectionalInput(props) {
             color="white"
             value={props.b}
             name="b"
+            disabled={props.bDisabled}
             onChange={handleChange}
           />
           <Text fontSize={0} color="white" textAlign="center" mt={1} children="bottom" />
@@ -75,6 +78,7 @@ function DirectionalInput(props) {
           color="white"
           value={props.r}
           name="r"
+          disabled={props.rDisabled}
           onChange={handleChange}
         />
       </Box>

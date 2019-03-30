@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useCallback } from 'react';
 import { Flex, Box } from 'rebass';
 import { Textarea } from '../FormInput'
 import Slider from '../Slider';
@@ -6,13 +6,17 @@ import Select from '../Select';
 import ColorPicker from '../ColorPicker';
 import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
-import { DQ_FONTS } from '../../core/utils/text-utils';
+import { DQ_FONTS, WeightToText, TextToWeight } from '../../core/utils/text-utils';
 import Checkbox from '../Checkbox';
+import { DispatchContext } from '../../containers/Queue';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
 function TextElementPanel({element}) {
-  const template = element._computed.template;
+  const rootDispatch = useContext(DispatchContext);
+  const update = useCallback(update => {
+    rootDispatch({type: 'UPDATE_SELECTED', update});
+  }, [rootDispatch]);
 
   const item = {
     color: 'rgba(255,0,0,.5)',
@@ -47,6 +51,7 @@ function TextElementPanel({element}) {
           color="white"
           value={font.family}
           options={FONT_FAMILIES}
+          onChange={e => update({'font.family': e.target.value})}
         />
       </Field>
 
@@ -55,9 +60,13 @@ function TextElementPanel({element}) {
         onExploreClick={() => null}
       >
         <ColorPicker
-          onChangeComplete={color => console.log(color)}
+          onChangeComplete={color => {
+            const hex = color.hex;
+            const alpha = color.alpha;
+            update({'color': {type: 'solid', color: hex}})
+          }}
           color={element.color.color}
-          palette={template._palette || []}
+          palette={Object.values(element._root.palette)}
           width={226}
         />
       </Field>
@@ -71,17 +80,21 @@ function TextElementPanel({element}) {
 
       <Field 
         label="Size"
-        onExploreClick={() => null}
+        // onExploreClick={() => null}
       >
         <Slider
           name="size"
           bg="dark"
           color="white"
           value={font.size}
-          step={.1}
+          step={.05}
           min={0}
           max={element.type === 'dominant' ? 1 : 2}
           showValue={true}
+          onChange={e => {
+            const value = e.target.value;
+            update({'font.size': e.target.value});
+          }}
         />
       </Field>
 
@@ -93,8 +106,9 @@ function TextElementPanel({element}) {
           name="weight"
           bg="dark"
           color="white"
-          value={font.weight}
+          value={WeightToText[font.weight]}
           options={['Thin', 'Extra Light', 'Light', 'Regular', 'Medium', 'Semi Bold', 'Bold', 'Extra Bold', 'Heavy']}
+          onChange={e => update({'font.weight': TextToWeight[e.target.value]})}
         />
       </Field>
 
@@ -108,6 +122,7 @@ function TextElementPanel({element}) {
           color="white"
           value={font.transform}
           options={["normal", "uppercase", "lowercase"]}
+          onChange={e => update({'font.transform': e.target.value})}
         />
       </Field>
 
@@ -121,6 +136,7 @@ function TextElementPanel({element}) {
           color="white"
           value={font.style}
           options={["normal", "italic"]}
+          onChange={e => update({'font.style': e.target.value})}
         />
       </Field>
 
@@ -133,10 +149,11 @@ function TextElementPanel({element}) {
           bg="dark"
           color="white"
           value={font.letterSpacing}
-          step={.05}
+          step={.025}
           min={-.1}
-          max={3}
+          max={.4}
           showValue={true}
+          onChange={e => update({'font.letterSpacing': e.target.value})}
         />
       </Field>
 
@@ -150,23 +167,24 @@ function TextElementPanel({element}) {
           color="white"
           value={font.lineHeight}
           step={.1}
-          min={1}
+          min={.8}
           max={2}
           showValue={true}
+          onChange={e => update({'font.lineHeight': e.target.value})}
         />
         <Flex mt="2px" justifyContent="center">
           <Box mr={2}>
             <Checkbox 
               label="Ignore Ascenders"
-              onClick={() => null}
-              checked={true}
+              checked={!!font.ignoreAscenders}
+              onChange={e => update({'font.ignoreAscenders': e.target.checked})}
             />
           </Box>
           <Box>
             <Checkbox 
               label="Ignore Descenders"
-              onClick={() => null}
-              checked={true}
+              checked={!!font.ignoreDescenders}
+              onChange={e => update({'font.ignoreDescenders': e.target.checked})}
             />
           </Box>
         </Flex>
@@ -186,6 +204,7 @@ function TextElementPanel({element}) {
           min={-.1}
           max={3}
           showValue={true}
+          onChange={e => update({'mb': e.target.value})}
         />
       </Field>
 
@@ -198,37 +217,48 @@ function TextElementPanel({element}) {
           l={element.bleed.l}
           r={element.bleed.r}
           t={element.bleed.t}
+          tDisabled={true}
           b={element.bleed.b}
-          onChange={() => null}
+          bDisabled={true}
+          onChange={values => update({'bleed': values})}
         />
       </Field>
 
-      <Field 
-        label="Padding"
-        onExploreClick={() => null}
-      >
-        <DirectionalInput
-          name="padding"
-          step={.1}
-          l={element.pl}
-          r={element.pr}
-          t={element.pt}
-          b={element.pb}
-          onChange={() => null}
-        />
-      </Field>
+      {element.background && 
+        <Field 
+          label="Padding"
+          onExploreClick={() => null}
+        >
+          <DirectionalInput
+            name="padding"
+            step={.1}
+            l={element.pl}
+            r={element.pr}
+            t={element.pt}
+            b={element.pb}
+            onChange={values => update({
+              'pl': values.l,
+              'pr': values.r,
+              'pt': values.t,
+              'pb': values.b,
+            })}
+          />
+        </Field>
+      }
 
-      <Field 
-        label="Type"
-        onExploreClick={() => null}
-      >
-        <Select
-          bg="dark"
-          color="white"
-          value={element.type}
-          options={['Heading 1', 'Heading 2', 'Heading 3', 'Subheading', 'Paragraph']}
-        />
-      </Field>
+      {false && (
+        <Field 
+          label="Type"
+          onExploreClick={() => null}
+        >
+          <Select
+            bg="dark"
+            color="white"
+            value={element.type}
+            options={['Heading 1', 'Heading 2', 'Heading 3', 'Subheading', 'Paragraph']}
+          />
+        </Field>
+      )}
 
     </Box>
   )

@@ -1,7 +1,7 @@
 
 
 
-export function getTextOffset(str, family, ignoreAscendersDescenders) {
+export function getTextOffset(str, family, ignoreAscenders, ignoreDescenders) {
   const font = DQ_FONTS[family]
   if(!font) {
     return { top: 0, bottom: 0 };
@@ -11,10 +11,10 @@ export function getTextOffset(str, family, ignoreAscendersDescenders) {
   const descenders = font.descenders || defaultDescenders;
 
   return {
-    top: !ignoreAscendersDescenders && ascenders.test(str)
+    top: !ignoreAscenders && ascenders.test(str)
       ? font.ascender
       : font.xHeight,
-    bottom: !ignoreAscendersDescenders && descenders.test(str)
+    bottom: !ignoreDescenders && descenders.test(str)
       ? font.descender
       : font.baseline,
   }
@@ -409,4 +409,28 @@ const FONT_SUBSTITUTES = {
   'Voga': '',
   'Glacial Indifference': '',
   'Cooper Hewitt': '',
+}
+
+export const TextToWeight = {
+  'Thin': 100,
+  'Extra Light': 200,
+  'Light': 300,
+  'Regular': 400,
+  'Medium': 500,
+  'Semi Bold': 600,
+  'Bold': 700,
+  'Extra Bold': 800,
+  'Heavy': 900,
+}
+
+export const WeightToText = {
+  100: 'Thin',
+  200: 'Extra Light',
+  300: 'Light',
+  400: 'Regular',
+  500: 'Medium',
+  600: 'Semi Bold',
+  700: 'Bold',
+  800: 'Extra Bold',
+  900: 'Heavy',
 }

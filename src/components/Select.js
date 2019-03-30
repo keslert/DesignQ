@@ -7,7 +7,7 @@ function Select({options, ...props}) {
   return (
     <S_Select {...props}>
       {options.map(option => (
-        <option value={option}>{option}</option>
+        <option key={option} value={option}>{option}</option>
       ))}
     </S_Select>
   )

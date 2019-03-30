@@ -16,8 +16,8 @@ const JOURNEYS = {
   basic: [
     ...basicContentStages,
     ...basicLayoutStages,
-    ...basicTypographyStages,
     ...basicColorStages,
+    ...basicTypographyStages,
     ...basicDecorationStages,
     ...basicPolishStages,
     ...basicExportStages,
@@ -29,8 +29,8 @@ export function getInitialJourney(type='basic') {
   const stages = [
     ...STAGES.content,
     ...STAGES.layout,
-    ...STAGES.typography,
     ...STAGES.color,
+    ...STAGES.typography,
     ...STAGES.decoration,
     ...STAGES.polish,
     ...STAGES.export,

@@ -52,7 +52,7 @@ export function linkTemplate(template) {
     el.kind = 'element';
     el._parent = g;
     el._root = template;
-    el._key = i;
+    el._key = 'elements.' + i;
     linkSurfaceProperties(el);
     return el;
   }))
@@ -147,6 +147,6 @@ function getPath(item) {
 export function getItemFromFlyer(item, flyer) {
   if(item.kind === 'template') return flyer;
   
-  const path = getPath(item).reverse().slice(1);
+  const path = getPath(item).reverse().slice(1).join('.');
   return _.get(flyer, path);
 }
