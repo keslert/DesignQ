@@ -362,8 +362,8 @@ function mimicBackgroundColor(fSurface, tSurface, flyer, template, preference) {
 function mimicForegroundColors(flyer, template, preference='light') {
 	flyer._elements.forEach(el => {
 		el.color = getOptimalForegroundColor(el, flyer.palette);
+		// TODO: This is not always true.
 		if(el.divider) {
-			// TODO: This is not always true.
 			el.divider.color = el.color;
 		}
 	})

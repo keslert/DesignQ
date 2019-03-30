@@ -30,6 +30,7 @@ function Toolbar(props) {
         
       <Box flex={1}>
         <Text 
+          mr="1px"
           textAlign="right"
           fontSize={0} 
           color="gray" 

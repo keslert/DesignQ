@@ -131,6 +131,13 @@ function initGroup(group, groupType) {
           .join(' | ').length
         )
       )
+
+      el._text = el.lines.map(line => Array.isArray(line)
+        ? line.map(l => l.text).join(' | ')
+        : line.text
+      ).join('\n');
+      el._hasList = _.some(el.lines, line => Array.isArray(line));
+      
       _.defaults(el, {
         divider: {
           type: 'line',

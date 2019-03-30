@@ -36,7 +36,7 @@ Input.defaultProps = defaultProps;
 export const Textarea = styled.textarea(inputStyles);
 Textarea.defaultProps = defaultProps;
 
-function FormInput(props) {
+function FormInput({label, hint, ...props}) {
 
   const Component = props.rows ? Textarea : Input
 
@@ -49,23 +49,16 @@ function FormInput(props) {
         fontWeight="700"
         mb={1}
         style={{textTransform: 'uppercase'}}
-        children={props.label}
+        children={label}
       />
       <Box mb="2px">
-        <Component
-          name={props.name}
-          value={props.value}
-          rows={props.rows}
-          placeholder={props.placeholder}
-          onChange={props.onChange}
-          
-        />
+        <Component {...props} />
       </Box>
       <Text
         color="gray"
         fontSize={0}
         style={{fontStyle: 'italic'}}
-        children={props.hint}
+        children={hint}
       />
     </Box>
   )

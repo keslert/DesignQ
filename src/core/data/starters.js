@@ -1,4 +1,5 @@
 import { buildPalette } from "../generator/color";
+import cloneDeep from 'lodash/cloneDeep';
 
 export const empty = {
   id: 1,
@@ -98,7 +99,7 @@ const paragraph = {
 
 
 export const simpleBody = {
-  ...empty,
+  ...cloneDeep(empty),
   background: {
     color: {type: 'solid', color: empty.palette.light, paletteKey: 'light'}
   },
@@ -116,30 +117,30 @@ export const simpleBody = {
 }
 
 export const imageBackground = {
-  ...simpleBody,
+  ...cloneDeep(simpleBody),
   background: {
     color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
     img: {
-      "src": "https://images.pexels.com/photos/257961/pexels-photo-257961.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      "src": "https://images.pexels.com/photos/1705667/pexels-photo-1705667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       "colors": [
-        "rgb(1, 0, 0)",
-        "rgb(132, 2, 14)",
-        "rgb(222, 134, 150)",
-        "rgb(73, 68, 65)",
-        "rgb(103, 202, 135)",
-        "rgb(3, 148, 201)",
-        "rgb(145, 238, 255)",
-        "rgb(254, 255, 255)"
+        "rgb(189, 161, 18)",
+        "rgb(255, 248, 61)",
+        "rgb(26, 28, 43)",
+        "rgb(73, 158, 241)",
+        "rgb(211, 209, 214)",
+        "rgb(255, 254, 255)",
+        "rgb(203, 13, 103)",
+        "rgb(218, 87, 141)"
       ],
       "crop": {
-        "x": 11.700000000000001,
+        "x": 17.299999999999997,
         "y": 0,
-        "width": 53.6,
+        "width": 49.5,
         "height": 100
       },
       "meta": {
         "w": 1000,
-        "h": 750
+        "h": 693
       },
       x: 0.5,
       y: 0,
@@ -151,6 +152,10 @@ export const imageBackground = {
   }
 }
 imageBackground.palette = buildPalette(imageBackground.background.img.colors);
+imageBackground.content.body.elements.forEach(el => {
+  el.color.key = 'light';
+  el.color.color = imageBackground.palette.light;
+})
 
 
 export const basicText = [

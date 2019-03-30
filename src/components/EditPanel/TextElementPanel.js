@@ -16,16 +16,11 @@ function TextElementPanel({element}) {
   const rootDispatch = useContext(DispatchContext);
   const update = useCallback(update => {
     rootDispatch({type: 'UPDATE_SELECTED', update});
-  }, [rootDispatch]);
-
-  const item = {
-    color: 'rgba(255,0,0,.5)',
-    palette: ['#000', 'rgba(255,255,200,.5)', '#aaaeaa'],
-    bleed: {l: 0, r: 0, t: 0, b: 0},
-  };
+  }, []);
   const font = element.font;
 
   // TODO: Add translateXY for minor adjustments.
+  // TODO: Add divider color.
 
   return (
     <Box>
@@ -34,11 +29,26 @@ function TextElementPanel({element}) {
         onExploreClick={() => null}
       >
         <Textarea
+          key={element._root.id + element._key}
           name="text"
           bg="dark"
           color="white"
-          value={item._text}
-          onChange={() => null}
+          defaultValue={element._text}
+          rows={5}
+          onChange={e => {
+            // TODO: What to do about empty lines?
+            // TODO: Estimate each line and list type.
+            const type = Array.isArray(element.lines[0]) ? element.lines[0][0].type : element.lines[0].type;
+            const lines = e.target.value.split('\n').map(line => {
+              const items = line.split('|');
+              if(items.length > 1) {
+                return items.map(item => ({type, text: item.trim()}));
+              }
+              return {type, text: line.trim()}
+            })
+            update({'lines': lines});
+          }}
+          style={textareaStyle}
         />
       </Field>
 
@@ -188,8 +198,23 @@ function TextElementPanel({element}) {
             />
           </Box>
         </Flex>
-
       </Field>
+
+      {element._hasList && 
+        <Field 
+          label="List Divider"
+          onExploreClick={() => null}
+        >
+          <Select
+            name="divider-type"
+            bg="dark"
+            color="white"
+            value={element.divider.type}
+            options={["line", "dot"]}
+            onChange={e => update({'divider.type': e.target.value})}
+          />
+        </Field>
+      }
 
       <Field 
         label="Margin"
@@ -281,3 +306,9 @@ export default TextElementPanel;
     // lOffset
     // bOffset
     // tOffset
+
+const textareaStyle = {
+  whiteSpace: 'pre',
+  overflowWrap: 'normal',
+  overflowX: 'scroll',
+}

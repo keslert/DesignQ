@@ -29,8 +29,8 @@ function ListDivider({divider, fontSize}) {
           width: Math.ceil(fontSize * .25 * divider.size),
           height: Math.ceil(fontSize * .25 * divider.size),
           verticalAlign: 'middle',
-          borderRadius: '9999px',
           ...getBackgroundStyle(divider),
+          borderRadius: '9999px',
         }}/>
       }
     </div>

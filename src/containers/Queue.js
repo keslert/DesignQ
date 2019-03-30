@@ -144,7 +144,7 @@ async function getInititialState(props) {
     const query = queryString.parse(props.location.search);
     
     const startFlyer = starters[query.starter] || (
-      process.env.NODE_ENV === 'production'  ? starters.empty : starters.imageBackground
+      process.env.NODE_ENV === 'production'  ? starters.empty : starters.simpleBody
     )
     linkTemplate(startFlyer);
     produceFlyer(startFlyer);
