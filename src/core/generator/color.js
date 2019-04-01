@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
+import { safeIncrement, mode, copyTemplate, getItemFromFlyer } from '../utils/template-utils';
 import { skiImages } from '../data/images/ski-trip';
-import { solidColor, alphaColor, linear } from '../templates';
+import { solidColor, linear } from '../templates';
 import chroma from 'chroma-js';
 import get from 'lodash/get';
 
@@ -43,11 +43,19 @@ function generateBackground(flyer, {templates}) {
 
 	const images = skiImages;
 
+	// If there was no image before, delete the overlay color.
+	const flyer_ = copyTemplate(flyer);
+	const prominantSurface = getProminantImageSurface(flyer_) || flyer_;
+	if(!prominantSurface.background.img) {
+		prominantSurface.background.img = placeholderImage;
+		delete prominantSurface.background.color;
+	}
+
 	const imageFlyers = images.map(img => {
-		const copy = copyTemplate(flyer);
+		const copy = copyTemplate(flyer_);
 
 		// Find the most likely image surface.
-		const surface = getProminantImageSurface(copy) || copy;
+		const surface = getItemFromFlyer(prominantSurface, copy);
 
 		surface.background = surface.background || {};
 		surface.background.img = {
@@ -64,8 +72,8 @@ function generateBackground(flyer, {templates}) {
 		}
 		copy.palette = buildPalette(img.colors);
 
-		mimicBackgroundColors(copy, flyer);
-		mimicForegroundColors(copy, flyer);
+		mimicBackgroundColors(copy, flyer_);
+		mimicForegroundColors(copy, flyer_);
 
 		return copy;
 	})
@@ -107,31 +115,31 @@ function generateFilters(flyer, {templates}) {
 		const black = '#000000';
 		const palette = flyer.palette;
 		const filters = [
-			{color: alphaColor(black, .3), blendMode: 'overlay'},
-			{color: alphaColor(black, .5), blendMode: 'overlay'},
-			{color: alphaColor(black, .7), blendMode: 'overlay'},
-			{color: alphaColor(black, .85), blendMode: 'overlay'},
-			{color: alphaColor(palette.primary, 1), blendMode: 'overlay'},
-			{color: alphaColor(palette.primary, .5), blendMode: 'darken'},
-			{color: alphaColor(palette.primary, 1), blendMode: 'soft-light'},
-			{color: alphaColor(palette.primary, .5), blendMode: 'multiply'},
-			{color: alphaColor(palette.secondary, 1), blendMode: 'overlay'},
-			{color: alphaColor(palette.secondary, .5), blendMode: 'darken'},
-			{color: alphaColor(palette.secondary, 1), blendMode: 'soft-light'},
-			{color: alphaColor(palette.secondary, .5), blendMode: 'multiply'},
-			{color: alphaColor(palette.dark, .8), blendMode: 'overlay'},
-			{color: alphaColor(palette.dark, .5), blendMode: 'overlay'},
-			{color: alphaColor(palette.dark, .5), blendMode: 'darken'},
-			{color: alphaColor(palette.dark, .5), blendMode: 'soft-light'},
-			{color: alphaColor(palette.dark, .3), blendMode: 'multiply'},
-			{color: linear(0, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(45, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(135, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(180, alphaColor(black, 0.1), alphaColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(0, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
-			{color: linear(45, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
-			{color: linear(135, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
-			{color: linear(180, alphaColor(black, 0.2), alphaColor(black, .5)), blendMode: 'overlay'},
+			{color: solidColor(black, .3), blendMode: 'overlay'},
+			{color: solidColor(black, .5), blendMode: 'overlay'},
+			{color: solidColor(black, .7), blendMode: 'overlay'},
+			{color: solidColor(black, .85), blendMode: 'overlay'},
+			{color: solidColor(palette.primary, 1), blendMode: 'overlay'},
+			{color: solidColor(palette.primary, .5), blendMode: 'darken'},
+			{color: solidColor(palette.primary, 1), blendMode: 'soft-light'},
+			{color: solidColor(palette.primary, .5), blendMode: 'multiply'},
+			{color: solidColor(palette.secondary, 1), blendMode: 'overlay'},
+			{color: solidColor(palette.secondary, .5), blendMode: 'darken'},
+			{color: solidColor(palette.secondary, 1), blendMode: 'soft-light'},
+			{color: solidColor(palette.secondary, .5), blendMode: 'multiply'},
+			{color: solidColor(palette.dark, .8), blendMode: 'overlay'},
+			{color: solidColor(palette.dark, .5), blendMode: 'overlay'},
+			{color: solidColor(palette.dark, .5), blendMode: 'darken'},
+			{color: solidColor(palette.dark, .5), blendMode: 'soft-light'},
+			{color: solidColor(palette.dark, .3), blendMode: 'multiply'},
+			{color: linear(0, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(45, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(135, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(180, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
+			{color: linear(0, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
+			{color: linear(45, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
+			{color: linear(135, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
+			{color: linear(180, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
 		].filter(f => f.color)
 
 
@@ -345,7 +353,7 @@ function mimicBorder(fSurface, tSurface, flyer, template, preference) {
 }
 
 function mimicBackgroundColor(fSurface, tSurface, flyer, template, preference) {
-	if(tSurface.background) {
+	if(tSurface.background && tSurface.background.color) {
 		fSurface.background = fSurface.background || {};
 		fSurface.background.color = getOptimalBackgroundColor(fSurface, flyer.palette, _.filter([
 			// get(fSurface, ['background', 'color', 'paletteKey']),
@@ -354,8 +362,8 @@ function mimicBackgroundColor(fSurface, tSurface, flyer, template, preference) {
 			preference,
 		]))
 	}
-	else {
-		delete fSurface.background;
+	else if(fSurface.background) {
+		delete fSurface.background.color;
 	}
 }
 
@@ -370,22 +378,22 @@ function mimicForegroundColors(flyer, template, preference='light') {
 }
 
 // The background of the closest ancestor
-function getBackdrop(item) {
+function getBackdropPaletteKey(item) {
 	let current = item;
 	while(current = current._parent) {
 		const color = get(current, ['background', 'color']);
 		if(color && color.type !== 'transparent') {
-			return current.background;
+			return color.paletteKey;
+		}
+		if(get(current, ['background', 'img'])) {
+			return 'dark'
 		}
 	}
-	if(item.kind === 'template') {
-		return {type: 'solid', paletteKey: 'light'};
-	}
+	return 'light'
 }
 
 function getOptimalBackgroundColor(surface, palette, preferences) {
-	const backdrop = getBackdrop(surface);
-	// const backdropColor = backdrop.paletteKey // : palette.dark;
+	const paletteKey = getBackdropPaletteKey(surface);
 
 	if(preferences[0] === 'transparent') {
 		return {type: 'transparent', color: 'rgba(0,0,0,0)', paletteKey: 'transparent'}
@@ -394,12 +402,12 @@ function getOptimalBackgroundColor(surface, palette, preferences) {
 	}
 
 	let key = _.find(preferences, pref => {
-		return palette[pref] && backdrop.paletteKey !== pref;
+		return palette[pref] && paletteKey !== pref;
 	})
 
 	if(!key) {
 		key = _.find(getBackgroundColorSurfaceKindPreference(surface), pref => {
-			return palette[pref] && backdrop.paletteKey !== pref;
+			return palette[pref] && paletteKey !== pref;
 		})
 	}
 
@@ -407,10 +415,10 @@ function getOptimalBackgroundColor(surface, palette, preferences) {
 }
 
 function getOptimalForegroundColor(item, palette) {
-	const backdrop = item.background || getBackdrop(item);
+	const key = getBackdropPaletteKey({_parent: item});
 
-	const key = backdrop.color.paletteKey === 'light' ? 'dark' : 'light';
-	return {type: 'solid', color: palette[key], paletteKey: key};
+	const contrastKey = key === 'light' ? 'dark' : 'light';
+	return {type: 'solid', color: palette[contrastKey], paletteKey: contrastKey};
 }
 
 // TODO: Use stats for this.
@@ -421,6 +429,16 @@ function getBackgroundColorSurfaceKindPreference(surface) {
 		case 'group': return ['light', 'primary', 'dark']
 		case 'element': return ['primary', 'secondary', 'light', 'dark']
 		default: return ['light', 'dark']
+	}
+}
+
+
+function getBackgroundPaletteKey(background) {
+	if(background.color) {
+		return background.paletteKey;
+	}
+	else if(background.img) {
+		return 'dark'
 	}
 }
 
@@ -456,7 +474,7 @@ export function buildTemplatePalette(template) {
 	const colors = _.uniq(_.filter([
 		...textColors,
 		...surfaceColors,
-	], c => c && c.color).map(c => c.color));
+	], c => c && c.type === 'solid').map(c => c.color));
 
 	const palette = buildPalette(colors);
 

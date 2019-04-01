@@ -4,6 +4,7 @@ import React, {
   useContext,
   useEffect, 
   useRef,
+  memo,
 } from 'react';
 import ReactDOM from 'react-dom';
 import NavItem from './NavItem';
@@ -155,4 +156,4 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   )
 }
 
-export default NavBar;
+export default memo(NavBar);

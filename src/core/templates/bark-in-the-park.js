@@ -1,4 +1,4 @@
-import { solidColor, unitValue, striped, alphaColor } from '.'
+import { solidColor, unitValue, striped } from '.'
 
 export default {
   id: 33,
@@ -27,7 +27,7 @@ export default {
       y: .02,
       yOffset: .03,
       background: {
-        color: alphaColor('#ffffff', .75),
+        color: solidColor('#ffffff', .75),
       },
     },
     background: {

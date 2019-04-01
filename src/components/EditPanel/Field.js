@@ -2,12 +2,12 @@ import React from 'react';
 import OpacityButton from '../OpacityButton';
 import { Box, Flex, Text } from 'rebass';
 
-function Field({label, onExploreClick, children}) {
+function Field({label, onExploreClick, children, fontSize=2}) {
   return (
     <Box mb={4}>
       <Flex justifyContent="space-between" alignItems="center" mb={2}>
         <Text
-          fontSize={2}
+          fontSize={fontSize}
           fontWeight="700"
           color="white"
           children={label}

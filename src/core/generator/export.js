@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
 
+// https://gist.github.com/malyw/b4e8284e42fdaeceab9a67a9b0263743
+
 export const basicStages = [
 	{ 
 		type: "export", 

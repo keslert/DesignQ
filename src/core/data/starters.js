@@ -4,7 +4,9 @@ import cloneDeep from 'lodash/cloneDeep';
 export const empty = {
   id: 1,
   title: 'Untitled Flyer',
-  background: { color: '#ffffff' },
+  background: { 
+    color: {type: 'solid', color: '#ffffff', paletteKey: 'light' }
+  },
   content: {
     body: {
       elements: [],
@@ -119,7 +121,7 @@ export const simpleBody = {
 export const imageBackground = {
   ...cloneDeep(simpleBody),
   background: {
-    color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
+    color: {type: 'solid', color: empty.palette.dark, alpha: .5, paletteKey: 'dark'},
     img: {
       "src": "https://images.pexels.com/photos/1705667/pexels-photo-1705667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       "colors": [

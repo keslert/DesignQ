@@ -329,43 +329,39 @@ export const templates = {
   // SoccerVarsityTeam,
 }
 
-export function solidColor(color) {
-  return { type: 'solid', color }
-}
-
-export function alphaColor(color, alpha) {
-  return { type: 'alpha', color, alpha }
+export function solidColor(color, alpha) {
+  return { type: 'solid', color, alpha }
 }
 
 export function unitValue(value, unit) {
   return { value, unit }
 }
 
-export function striped(deg, colorA, widthA, colorB, widthB) {
+export function striped(deg, color, width, colorB, widthB) {
   return {
     type: 'striped',
     deg,
-    colorA: (typeof colorA === 'string') ? solidColor(colorA) : colorA,
-    widthA,
+    color: (typeof color === 'string') ? solidColor(color) : color,
+    width,
     colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
     widthB
   }
 }
 
-export function linear(deg, colorA, colorB) {
+export function linear(deg, color, colorB) {
   return {
     type: 'linear',
     deg,
-    colorA: (typeof colorA === 'string') ? solidColor(colorA) : colorA,
+    color: (typeof color === 'string') ? solidColor(color) : color,
     colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
   }
 }
 
-export function splitColor(deg, colorA, colorB) {
+export function splitColor(deg, color, colorB) {
   return {
     type: 'split-color',
     deg,
-    colorA: (typeof colorA === 'string') ? solidColor(colorA) : colorA,
+    color: (typeof color === 'string') ? solidColor(color) : color,
     colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
   }
 }

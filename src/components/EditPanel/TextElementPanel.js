@@ -17,13 +17,12 @@ function TextElementPanel({element}) {
   const update = useCallback(update => {
     rootDispatch({type: 'UPDATE_SELECTED', update});
   }, []);
-  const font = element.font;
 
   // TODO: Add translateXY for minor adjustments.
   // TODO: Add divider color.
 
   return (
-    <Box>
+    <Box pt={3}>
       <Field 
         label="Text"
         onExploreClick={() => null}
@@ -34,7 +33,7 @@ function TextElementPanel({element}) {
           bg="dark"
           color="white"
           defaultValue={element._text}
-          rows={5}
+          rows={4}
           onChange={e => {
             // TODO: What to do about empty lines?
             // TODO: Estimate each line and list type.
@@ -59,7 +58,7 @@ function TextElementPanel({element}) {
         <Select
           bg="dark"
           color="white"
-          value={font.family}
+          value={element.font.family}
           options={FONT_FAMILIES}
           onChange={e => update({'font.family': e.target.value})}
         />
@@ -73,7 +72,7 @@ function TextElementPanel({element}) {
           onChangeComplete={color => {
             const hex = color.hex;
             const alpha = color.alpha;
-            update({'color': {type: 'solid', color: hex}})
+            update({'color': {type: 'solid', color: hex, alpha}})
           }}
           color={element.color.color}
           palette={Object.values(element._root.palette)}
@@ -90,21 +89,18 @@ function TextElementPanel({element}) {
 
       <Field 
         label="Size"
-        // onExploreClick={() => null}
+        onExploreClick={() => null}
       >
         <Slider
           name="size"
           bg="dark"
           color="white"
-          value={font.size}
+          value={element.font.size}
           step={.05}
           min={0}
           max={element.type === 'dominant' ? 1 : 2}
           showValue={true}
-          onChange={e => {
-            const value = e.target.value;
-            update({'font.size': e.target.value});
-          }}
+          onChange={e => update({'font.size': e.target.value})}
         />
       </Field>
 
@@ -116,7 +112,7 @@ function TextElementPanel({element}) {
           name="weight"
           bg="dark"
           color="white"
-          value={WeightToText[font.weight]}
+          value={WeightToText[element.font.weight]}
           options={['Thin', 'Extra Light', 'Light', 'Regular', 'Medium', 'Semi Bold', 'Bold', 'Extra Bold', 'Heavy']}
           onChange={e => update({'font.weight': TextToWeight[e.target.value]})}
         />
@@ -130,7 +126,7 @@ function TextElementPanel({element}) {
           name="transform"
           bg="dark"
           color="white"
-          value={font.transform}
+          value={element.font.transform}
           options={["normal", "uppercase", "lowercase"]}
           onChange={e => update({'font.transform': e.target.value})}
         />
@@ -144,7 +140,7 @@ function TextElementPanel({element}) {
           name="style"
           bg="dark"
           color="white"
-          value={font.style}
+          value={element.font.style}
           options={["normal", "italic"]}
           onChange={e => update({'font.style': e.target.value})}
         />
@@ -158,7 +154,7 @@ function TextElementPanel({element}) {
           name="letterSpacing"
           bg="dark"
           color="white"
-          value={font.letterSpacing}
+          value={element.font.letterSpacing}
           step={.025}
           min={-.1}
           max={.4}
@@ -175,7 +171,7 @@ function TextElementPanel({element}) {
           name="lineHeight"
           bg="dark"
           color="white"
-          value={font.lineHeight}
+          value={element.font.lineHeight}
           step={.1}
           min={.8}
           max={2}
@@ -186,14 +182,14 @@ function TextElementPanel({element}) {
           <Box mr={2}>
             <Checkbox 
               label="Ignore Ascenders"
-              checked={!!font.ignoreAscenders}
+              checked={!!element.font.ignoreAscenders}
               onChange={e => update({'font.ignoreAscenders': e.target.checked})}
             />
           </Box>
           <Box>
             <Checkbox 
               label="Ignore Descenders"
-              checked={!!font.ignoreDescenders}
+              checked={!!element.font.ignoreDescenders}
               onChange={e => update({'font.ignoreDescenders': e.target.checked})}
             />
           </Box>
@@ -216,22 +212,25 @@ function TextElementPanel({element}) {
         </Field>
       }
 
-      <Field 
-        label="Margin"
-        onExploreClick={() => null}
-      >
-        <Slider
-          name="mb"
-          bg="dark"
-          color="white"
-          value={element.mb}
-          step={.05}
-          min={-.1}
-          max={3}
-          showValue={true}
-          onChange={e => update({'mb': e.target.value})}
+      {element._computed.next &&
+        <Field 
+          label="Margin"
+          onExploreClick={() => null}
+          children={
+            <Slider
+              name="mb"
+              bg="dark"
+              color="white"
+              value={element.mb}
+              step={.05}
+              min={-.1}
+              max={3}
+              showValue={true}
+              onChange={e => update({'mb': e.target.value})}
+            />
+          }
         />
-      </Field>
+      }
 
       <Field 
         label="Bleed"
@@ -239,6 +238,7 @@ function TextElementPanel({element}) {
       >
         <DirectionalInput
           name="bleed"
+          min={0}
           l={element.bleed.l}
           r={element.bleed.r}
           t={element.bleed.t}
@@ -256,7 +256,8 @@ function TextElementPanel({element}) {
         >
           <DirectionalInput
             name="padding"
-            step={.1}
+            step={.25}
+            min={0}
             l={element.pl}
             r={element.pr}
             t={element.pt}

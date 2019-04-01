@@ -144,7 +144,7 @@ async function getInititialState(props) {
     const query = queryString.parse(props.location.search);
     
     const startFlyer = starters[query.starter] || (
-      process.env.NODE_ENV === 'production'  ? starters.empty : starters.simpleBody
+      process.env.NODE_ENV === 'production'  ? starters.empty : starters.imageBackground
     )
     linkTemplate(startFlyer);
     produceFlyer(startFlyer);
@@ -163,8 +163,8 @@ async function getInititialState(props) {
       viewMode: 'comparison',
       showSidebar: false,
       // selection: null,
-      // selection: startFlyer,
-      selection: startFlyer.content.body.elements[1],
+      selection: startFlyer,
+      // selection: startFlyer.content.body.elements[1],
       stage: {type: 'content', focus: 'text'},
     }, {stage});
     
@@ -326,6 +326,8 @@ function updateSelected(state, action, update={}) {
     copy.editId = flyer.id;
     update.history = [...state.history, flyer];
   }
+
+  // TODO: Push all edits of the same type to an editHistory so we can undo/redo easily.
 
   return {...state, ...update};
 }

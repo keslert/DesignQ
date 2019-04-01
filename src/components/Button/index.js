@@ -14,4 +14,13 @@ Button.defaultProps = {
   py: 3,
   px: 3,
 }
+
+
+export const SmallButton = styled(Button)
+SmallButton.defaultProps = {
+  py: 1,
+  px: 1,
+  fontSize: 1,
+}
+
 export default Button;

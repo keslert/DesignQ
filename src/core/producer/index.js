@@ -17,6 +17,10 @@ export function produceFlyer(template, size={w: 480, h:670}) {
   console.log(`Producing ${template.title}`);
 
   initSetup(template)
+  template.background = template.background;
+  if(!template.background.color && !template.background.img) {
+    template.background.color = {type: 'solid', color: template.palette.light, paletteKey: 'light'}
+  }
   template._computed.size = size;
   template._computed.template = template;
   
@@ -66,15 +70,16 @@ function initSetup(template) {
     group._computed = {};
     group._computed.content = template.content;
     group._computed.template = template;
+    group._w = template.content.w === 'auto' ? 'auto' : group.w;
+    group._h = template.content.h === 'auto' ? 'auto' : group.h;
     initGroup(group, groupType);
   });
-
-  // Setup IDs
-  // template.content.id = template.id + '-content'
-  // withGroups(template, g => {
-  //   g.id = template.id + '-' + g.type;
-  //   g.elements.forEach((el, i) => el.id = g.id + '-' + el.type + '-' + i)
-  // })
+  if(template.content.header) {
+    template.content.header._computed.next = template.content.body;
+  }
+  if(template.content.footer) {
+    template.content.body._computed.next = template.content.footer;
+  }
 }
 
 function initGroup(group, groupType) {
@@ -104,6 +109,8 @@ function initGroup(group, groupType) {
     el._computed.group = group;
     el._computed.content = group._computed.content;
     el._computed.template = group._computed.template;
+    el._w = group._w === 'auto' ? 'auto' : el.w;
+    el._h = group._h === 'auto' ? 'auto' : el.h;
     normalize(el);
     // normalizeWidthAndHeight(el, 'auto', 'auto');
 

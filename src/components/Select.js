@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 function Select({options, ...props}) {
 
   return (
@@ -31,6 +30,7 @@ const S_Select = styled.select(props => ({
   backgroundPosition: 'right .85em top 50%, 0 0',
   backgroundSize: '.65em auto, 100%',
   WebkitAppearance: 'none',
+  textTransform: 'capitalize',
 }))
 
 S_Select.defaultProps = {

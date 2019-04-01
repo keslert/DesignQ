@@ -159,7 +159,7 @@ function computeContentWidth(template) {
 function computeGroupWidths(template) {
   withGroups(template, g => {
     const c = g._computed;
-    c.bb.w = (g.w === 'fill') 
+    c.bb.w = (g._w === 'fill') 
       ? template._computed.size.w - c.ml - c.mr
       : c.bb.autoW
   })
@@ -168,7 +168,7 @@ function computeGroupWidths(template) {
 function computeElementWidths(template) {
   withGroups(template, g => g.elements.forEach(el => {
     const c = el._computed;
-    c.bb.w = (el.w === 'fill') 
+    c.bb.w = (el._w === 'fill') 
       ? template._computed.size.w - c.ml - c.mr
       : c.bb.autoW
   }))
