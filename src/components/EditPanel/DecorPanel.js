@@ -16,57 +16,62 @@ function DecorPanel({surface, decor={}, path}) {
 
   return (
     <Box>
-      <h2>Decor</h2>
       <BackgroundPanel
+        typeLabel="Decor"
         surface={surface}
         path={path + 'background.'}
         background={decor.background}
+        bgOptions={['none', 'image']}
       />
       
-      <Field 
-        label="Decor Width"
-        onExploreClick={() => null}
-        children={
-          <DirectionalInput
-            name="width"
-            max={.5}
-            min={0}
-            step={.01}
-            l={decor.l}
-            r={decor.r}
-            t={decor.t}
-            b={decor.b}
-            onChange={values => update({
-              'l': values.l,
-              'r': values.r,
-              't': values.t,
-              'b': values.b,
-            })}
+      {decor.background && 
+        <React.Fragment>
+          <Field 
+            label="Decor Width"
+            onExploreClick={() => null}
+            children={
+              <DirectionalInput
+                name="width"
+                max={.5}
+                min={0}
+                step={.01}
+                l={decor.l}
+                r={decor.r}
+                t={decor.t}
+                b={decor.b}
+                onChange={values => update({
+                  'l': values.l,
+                  'r': values.r,
+                  't': values.t,
+                  'b': values.b,
+                })}
+              />
+            }
           />
-        }
-      />
-      <Field 
-        label="Decor Offset"
-        onExploreClick={() => null}
-        children={
-          <DirectionalInput
-            name="width"
-            max={.5}
-            min={0}
-            step={.01}
-            l={decor.lOffset}
-            r={decor.rOffset}
-            t={decor.tOffset}
-            b={decor.bOffset}
-            onChange={values => update({
-              'lOffset': values.l,
-              'rOffset': values.r,
-              'tOffset': values.t,
-              'bOffset': values.b,
-            })}
+          <Field 
+            label="Decor Offset"
+            onExploreClick={() => null}
+            children={
+              <DirectionalInput
+                name="width"
+                max={.5}
+                min={0}
+                step={.01}
+                l={decor.lOffset}
+                r={decor.rOffset}
+                t={decor.tOffset}
+                b={decor.bOffset}
+                onChange={values => update({
+                  'lOffset': values.l,
+                  'rOffset': values.r,
+                  'tOffset': values.t,
+                  'bOffset': values.b,
+                })}
+              />
+            }
           />
-        }
-      />
+        </React.Fragment>
+      }
     </Box>
   )
 }

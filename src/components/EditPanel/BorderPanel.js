@@ -24,64 +24,73 @@ function BorderPanel({surface, border={}, path}) {
         label="Border Color"
         children={
           <ColorPicker
-            color={color ? resolveColor(color) : false}
+            color={color ? resolveColor(color) : ''}
             palette={Object.values(surface._root.palette)}
             onClear={() => update({'background': null})}
-            onChangeComplete={color => update({
+            onChangeComplete={({hex, rgb}) => update({
               'background': border.background || {},
               'background.color': {
                 type: 'solid',
-                color: color.hex,
-                alpha: color.rgb.a,
-              }
+                color: hex,
+                alpha: rgb.a,
+              },
+              'l': color ? border.l : .05,
+              'r': color ? border.r : .05,
+              't': color ? border.t : .05,
+              'b': color ? border.b : .05,
             })}
           />
         }
       />
-      <Field 
-        label="Border Width"
-        onExploreClick={() => null}
-        children={
-          <DirectionalInput
-            name="width"
-            max={.5}
-            min={0}
-            step={.01}
-            l={border.l}
-            r={border.r}
-            t={border.t}
-            b={border.b}
-            onChange={values => update({
-              'l': values.l,
-              'r': values.r,
-              't': values.t,
-              'b': values.b,
-            })}
+
+      {color && 
+        <React.Fragment>
+          <Field 
+            label="Border Width"
+            onExploreClick={() => null}
+            children={
+              <DirectionalInput
+                name="width"
+                max={.5}
+                min={0}
+                step={.01}
+                l={border.l}
+                r={border.r}
+                t={border.t}
+                b={border.b}
+                onChange={values => update({
+                  'l': values.l,
+                  'r': values.r,
+                  't': values.t,
+                  'b': values.b,
+                })}
+              />
+            }
           />
-        }
-      />
-      <Field 
-        label="Border Offset"
-        onExploreClick={() => null}
-        children={
-          <DirectionalInput
-            name="width"
-            max={.5}
-            min={0}
-            step={.01}
-            l={border.lOffset}
-            r={border.rOffset}
-            t={border.tOffset}
-            b={border.bOffset}
-            onChange={values => update({
-              'lOffset': values.l,
-              'rOffset': values.r,
-              'tOffset': values.t,
-              'bOffset': values.b,
-            })}
+          <Field 
+            label="Border Offset"
+            onExploreClick={() => null}
+            children={
+              <DirectionalInput
+                name="width"
+                max={.5}
+                min={0}
+                step={.01}
+                l={border.lOffset}
+                r={border.rOffset}
+                t={border.tOffset}
+                b={border.bOffset}
+                onChange={values => update({
+                  'lOffset': values.l,
+                  'rOffset': values.r,
+                  'tOffset': values.t,
+                  'bOffset': values.b,
+                })}
+              />
+            }
           />
-        }
-      />
+        </React.Fragment>
+      }
     </Box>
   )
 }

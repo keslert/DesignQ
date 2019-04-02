@@ -12,7 +12,14 @@ import chroma from 'chroma-js';
 import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
 
-function BackgroundPanel({surface, background={}, path, type}) {
+function BackgroundPanel({
+  surface, 
+  background={}, 
+  path, 
+  type,
+  typeLabel="Background",
+  bgOptions=['none', 'color', 'gradient', 'image'],
+}) {
   const rootDispatch = useContext(DispatchContext)
   const update = useCallback(update => rootDispatch({
       type: 'UPDATE_SELECTED', 
@@ -22,15 +29,12 @@ function BackgroundPanel({surface, background={}, path, type}) {
   const img = background.img;
   const paletteColors = Object.values(surface._root.palette);
   const bgType = img ? 'image' : background.color ? background.color.type : 'none';
-  const bgOptions = surface.kind === 'template' 
-    ? ['color', 'gradient', 'image']
-    : ['none', 'color', 'gradient', 'image'];
     
   return (
     <Box>
       {!type && 
         <Field 
-          label="Background"
+          label={typeLabel}
           children={
             <Select
               bg="dark"
@@ -87,7 +91,6 @@ function BackgroundPanel({surface, background={}, path, type}) {
             />
             <Flex mt={2} justifyContent="space-between">
               <Button
-                variant="light"
                 fontSize={0}
                 px={1}
                 py={2}

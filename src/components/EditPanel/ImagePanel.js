@@ -42,7 +42,7 @@ function ImagePanel({image, onUpdate}) {
         />
         <Box mt={1}>
           <Checkbox
-            label="Sticky"
+            label="Stick to footer"
             checked={!!image.sticky}
             onChange={e => onUpdate({'sticky': e.target.checked})}
           />

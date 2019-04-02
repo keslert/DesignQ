@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OpacityButton from '../OpacityButton';
 import { Box, Flex, Text } from 'rebass';
+import InfoSvg from '../../svg/info.svg';
 
-function Field({label, onExploreClick, children, fontSize=2}) {
+function Field({
+  label, 
+  onExploreClick, 
+  fontSize=2,
+  hint,
+  children, 
+}) {
+  const [showHint, setShowHint] = useState(false);
+
   return (
     <Box mb={4}>
       <Flex justifyContent="space-between" alignItems="center" mb={2}>
-        <Text
-          fontSize={fontSize}
-          fontWeight="700"
-          color="white"
-          children={label}
-        />
+        <Flex color="white">
+          <Text
+            fontSize={fontSize}
+            fontWeight="700"
+            color="white"
+            children={label}
+          />
+          {hint && 
+            <OpacityButton
+              ml={2}
+              onClick={() => setShowHint(!showHint)}
+              children={<InfoSvg size={12} />}
+            />
+          }
+        </Flex>
         {(false && onExploreClick) &&
           <OpacityButton onClick={onExploreClick}>
             <Text
@@ -22,6 +40,15 @@ function Field({label, onExploreClick, children, fontSize=2}) {
           </OpacityButton>
         }
       </Flex>
+      {showHint && 
+        <Text 
+          fontSize={0}
+          mb={2}
+          color="white"
+          style={{fontStyle: 'italic'}}
+          children={hint}
+        />
+      }
       {children}
     </Box>
   )

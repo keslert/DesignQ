@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Flex, Box } from 'rebass';
 import { 
   Alpha, 
@@ -7,33 +7,48 @@ import {
   Hue, 
   Saturation, 
 } from 'react-color/lib/components/common';
+import colorHelper from 'react-color/lib/helpers/color';
+import { Input } from './FormInput'
 import styled from 'styled-components';
 import chroma from 'chroma-js';
 
 function ColorPicker(props) {
   const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = useState(props.color);
+  const handleChange = useCallback(data => {
+    const colors = colorHelper.toState(data);
+    const value = colors.hex + (colors.rgb.a === 1 ? '' : Math.floor(colors.rgb.a * 255).toString(16))
+    setInputValue(value);
+    props.onChange(data);
+  }, [])
+
   return (
-    <Box bg="dark" p="8px 10px" style={{position: 'relative', borderRadius: '3px'}} onClick={() => setOpen(true)}>
+    <Box bg="dark" p="8px 10px" style={{position: 'relative', borderRadius: '3px'}}>
 
       <Box style={{position: 'relative'}} mx="-10px">
         <Box style={{position: 'absolute', top: '3px', left: '8px', pointerEvents: 'none'}}>
           <Swatch color={props.hex} />
         </Box>
-        <EditableInput
-          style={{ input: {
+        <Input
+          onFocus={() => setOpen(true)}
+          onBlur={() => setOpen(false)}
+          style={{
             outline: 'none',
             background: 'transparent',
             color: 'white',
             border: 'none',
             width: '100%',
             padding: '8px 10px 8px 42px'
-          }}}
-          value={props.rgb.a === 1 ? props.hex : (props.hex + Math.floor(props.rgb.a * 255).toString(16))}
-          onChange={value => {
+          }}
+          placeholder="(none)"
+          value={inputValue}
+          onChange={e => {
+            const value = e.target.value;
+            setInputValue(value);
             if(value === '') {
               props.onClear && props.onClear();
             }
-            else {
+            else if(colorHelper.simpleCheckForValidColor(value)) {
               props.onChange(value);
             }
           }}
@@ -48,7 +63,12 @@ function ColorPicker(props) {
           <Flex mx="-2px" mb={2}>
             {props.palette.map(color => 
               <Swatch 
-                onClick={() => props.onChange(chroma(color).alpha(props.rgb.a).css())}
+                onMouseDown={e => {
+                  // e.stopPropagation();
+                  e.preventDefault();
+                  const c = chroma(color).alpha(props.rgb.a)
+                  handleChange(c.css());
+                }}
                 key={color} 
                 color={color} 
               />
@@ -58,22 +78,22 @@ function ColorPicker(props) {
 
           <Box 
             style={{position: 'relative', height: '150px'}} 
-            mb={2}
+            mb={1}
           >
             <Saturation 
               hsl={props.hsl}
               hsv={props.hsv}
-              onChange={props.onChange}
+              onChange={handleChange}
             />
           </Box>
 
           <Box 
             style={{position: 'relative', height: "10px"}}
-            mb={2}
+            mb={1}
           >
             <Hue 
               hsl={props.hsl} 
-              onChange={props.onChange}
+              onChange={handleChange}
             />
           </Box>
             
@@ -85,7 +105,7 @@ function ColorPicker(props) {
               rgb={props.rgb}
               hsl={props.hsl}
               renderers={props.renderers}
-              onChange={props.onChange}
+              onChange={handleChange}
             />
           </Box>
           
@@ -102,6 +122,8 @@ ColorPicker.defaultProps = {
 }
 
 export const Swatch = styled.div(props => ({
+  position: 'relative',
+  zIndex: 999,
   margin: '0 2px',
   width: '24px',
   height: '24px',

@@ -131,9 +131,10 @@ function computeGroupAutoWidths(template) {
   withGroups(template, g => {
     const maxElement = _.maxBy(g.elements, el => el._computed.bb.autoW)
     const maxElementWidth = maxElement ? maxElement._computed.bb.autoW : 0;
-    const borderWidth = g.border._computed.l + g.border._computed.r;
-    const padWidth = g._computed.pl + g._computed.pr;
-    g._computed.bb.autoW = maxElementWidth + borderWidth + padWidth;
+    const border = g.border._computed.l + g.border._computed.r;
+    // const padWidth = g._computed.pl + g._computed.pr;
+    const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
+    g._computed.bb.autoW = maxElementWidth + border + pad;
   })
 }
 
@@ -141,8 +142,8 @@ function computeContentAutoWidth(template) {
   // group width + content border + content pad;
   const maxGroupWidth = _.max(withGroups(template, g => {
     const width = g._computed.bb.autoW
-    const border = _.sum(getEdgeValues(g, ['l', 'r'], 'content-border'));
-    const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
+    // const border = _.sum(getEdgeValues(g, ['l', 'r'], 'content-border'));
+    // const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
     
     // return width + border + pad;
     return width;

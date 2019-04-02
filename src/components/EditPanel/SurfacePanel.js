@@ -31,12 +31,13 @@ function SurfacePanel({surface, onUpdate}) {
       <BackgroundPanel
         surface={surface}
         background={surface.background}
+        bgOptions={surface.kind === 'template' ? ['color', 'gradient', 'image'] : undefined}
         path='background.'
       />
       
       <ThematicBreak />
 
-      {canFill(surface, 'w') && // Width & Horizontal Alignment
+      {canFillWidth(surface) &&
         <React.Fragment>
           <Field 
             label="Width"
@@ -73,38 +74,39 @@ function SurfacePanel({surface, onUpdate}) {
       
       
 
-      {canFill(surface, 'h') && 
-        <Field 
-          label="Height"
-          onExploreClick={() => null}
-          children={
-            <Select
-              name="height"
-              bg="dark"
-              color="white"
-              value={WidthToText[surface.h]}
-              options={['max', 'min']}
-              onChange={e => onUpdate({'h': TextToWidth[e.target.value]})}
+      {canFillHeight(surface) && 
+        <React.Fragment>
+          <Field 
+            label="Height"
+            onExploreClick={() => null}
+            children={
+              <Select
+                name="height"
+                bg="dark"
+                color="white"
+                value={WidthToText[surface.h]}
+                options={['max', 'min']}
+                onChange={e => onUpdate({'h': TextToWidth[e.target.value]})}
+              />
+            }
+          />
+          {surface.h === 'auto' && 
+            <Field 
+              label="Vertical Alignment"
+              onExploreClick={() => null}
+              children={
+                <Select
+                  name="alignX"
+                  bg="dark"
+                  color="white"
+                  value={surface.alignY}
+                  options={['top', 'center', 'bottom']}
+                  onChange={e => onUpdate({'alignY': e.target.value})}
+                />
+              }
             />
           }
-        />
-      }
-
-      {surface.h === 'auto' && 
-        <Field 
-          label="Vertical Alignment"
-          onExploreClick={() => null}
-          children={
-            <Select
-              name="alignX"
-              bg="dark"
-              color="white"
-              value={surface.alignY}
-              options={['top', 'center', 'bottom']}
-              onChange={e => onUpdate({'alignY': e.target.value})}
-            />
-          }
-        />
+        </React.Fragment>
       }
 
       {surface.kind === 'group' && 
@@ -127,6 +129,7 @@ function SurfacePanel({surface, onUpdate}) {
       {surface._computed.next && 
         <Field 
           label="Margin"
+          hint="The amount of space between this item and the item beneath it."
           onExploreClick={() => null}
           children={
             <Slider
@@ -147,6 +150,7 @@ function SurfacePanel({surface, onUpdate}) {
       {surface.kind !== 'template' &&
         <Field 
           label="Bleed"
+          hint="The number of edges this item extends across."
           onExploreClick={() => null}
           children={
             <DirectionalInput
@@ -166,6 +170,7 @@ function SurfacePanel({surface, onUpdate}) {
       {surface.background && 
         <Field 
           label="Padding"
+          hint="The amount of space between this item and its children."
           onExploreClick={() => null}
           children={
             <DirectionalInput
@@ -222,4 +227,14 @@ function canFill(surface, dir) {
     parent = parent._parent;
   }
   return surface.kind !== 'template';
+}
+
+function canFillHeight(surface) {
+  return surface.kind === 'template' 
+    || surface.kind === 'content'
+    || (surface.type === 'body' && surface._parent.h === 'fill')
+}
+
+function canFillWidth(surface) {
+
 }

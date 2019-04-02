@@ -215,6 +215,7 @@ function TextElementPanel({element}) {
       {element._computed.next &&
         <Field 
           label="Margin"
+          hint="The amount of space between this item and the item beneath it."
           onExploreClick={() => null}
           children={
             <Slider
@@ -252,6 +253,7 @@ function TextElementPanel({element}) {
       {element.background && 
         <Field 
           label="Padding"
+          hint="The amount of space between the background and the text."
           onExploreClick={() => null}
         >
           <DirectionalInput

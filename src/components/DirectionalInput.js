@@ -1,8 +1,12 @@
 import React, { useCallback } from 'react';
 import { Flex, Box, Text } from 'rebass';
 import { Input } from './FormInput';
+import Slider from './Slider';
 
-function DirectionalInput({step=1, ...props}) {
+function DirectionalInput({
+  step=1, 
+  ...props
+}) {
 
   const handleChange = useCallback(e => {
     const dir = e.target.name;
@@ -29,6 +33,7 @@ function DirectionalInput({step=1, ...props}) {
           color="white"
           value={props.l}
           name="l"
+          autoComplete="off"
           disabled={props.lDisabled}
           onChange={handleChange}
         />
@@ -46,6 +51,7 @@ function DirectionalInput({step=1, ...props}) {
             color="white"
             value={props.t}
             name="t"
+            autoComplete="off"
             disabled={props.tDisabled}
             onChange={handleChange}
           />
@@ -60,6 +66,7 @@ function DirectionalInput({step=1, ...props}) {
             color="white"
             value={props.b}
             name="b"
+            autoComplete="off"
             disabled={props.bDisabled}
             onChange={handleChange}
           />
@@ -70,6 +77,7 @@ function DirectionalInput({step=1, ...props}) {
       <Box p={2} mt={-3}>
         <Text fontSize={0} color="white" textAlign="center" mb={1} children="right" />
         <Input
+          showValue={true}
           type="number"
           min={props.min}
           max={props.max}
@@ -78,6 +86,7 @@ function DirectionalInput({step=1, ...props}) {
           color="white"
           value={props.r}
           name="r"
+          autoComplete="off"
           disabled={props.rDisabled}
           onChange={handleChange}
         />

@@ -61,18 +61,16 @@ function initSetup(template) {
     alignX: 'center',
     alignY: 'center',
   })
-
   normalize(template.content);
-  normalizeWidthAndHeight(template.content, 'fill', 'fill');
 
   withGroups(template, (group, groupType) => {
     group.id = groupType;
     group._computed = {};
     group._computed.content = template.content;
     group._computed.template = template;
+    initGroup(group, groupType);
     group._w = template.content.w === 'auto' ? 'auto' : group.w;
     group._h = template.content.h === 'auto' ? 'auto' : group.h;
-    initGroup(group, groupType);
   });
   if(template.content.header) {
     template.content.header._computed.next = template.content.body;
@@ -96,7 +94,6 @@ function initGroup(group, groupType) {
   })
   
   normalize(group);
-  normalizeWidthAndHeight(group, 'fill', 'auto');
 
   group.elements.forEach((el, i) => {
     el.id = el.id || elementId++;
@@ -109,14 +106,13 @@ function initGroup(group, groupType) {
     el._computed.group = group;
     el._computed.content = group._computed.content;
     el._computed.template = group._computed.template;
-    el._w = group._w === 'auto' ? 'auto' : el.w;
-    el._h = group._h === 'auto' ? 'auto' : el.h;
     normalize(el);
-    // normalizeWidthAndHeight(el, 'auto', 'auto');
-
     _.defaults(el, {
       w: elementDefaultWidth(el),
+      h: 'auto',
     })
+    el._w = group._w === 'auto' ? 'auto' : el.w;
+
     _.defaults(el.font, {
       letterSpacing: 0,
       lineHeight: 1.4,
