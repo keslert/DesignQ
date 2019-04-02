@@ -9,7 +9,7 @@ export default {
     color: solidColor('#FF5200'),
   },
   border: {
-    l: 50,
+    l: .05,
     background: {
       color: striped(30, '#000000', 40, '#ffffff', 40),
     },

@@ -8,7 +8,6 @@ function Decor({decor, bb}) {
     return <Border border={decor} bb={bb} />
   }
 
-
   const c = decor._computed;
   const style = {
     position: 'absolute',

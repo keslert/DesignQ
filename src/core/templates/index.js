@@ -162,6 +162,8 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  VolleyballTeamOpenTryouts,
+  VolleyballVarsityTryouts,
   IsabelBeachBazaar,
   FootballVarsityTryouts,
   BarkInThePark,
@@ -173,7 +175,6 @@ export const templates = {
   RollinBackParty,
   BeechtownBlockParty,
   GoldCheetahSurvivalCamp,
-  VolleyballTeamOpenTryouts,
   
   AnnualDessertDash,
   BeechtownDanceFestival,
@@ -183,7 +184,6 @@ export const templates = {
   
   // adding
   FoodDriveForHomeless,
-  VolleyballVarsityTryouts,
   SeventhAnnualCareerFair,
   FallFundraisingEvent,
   AnnualBeachTownFoodFest,

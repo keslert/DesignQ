@@ -29,7 +29,14 @@ function ColorPicker(props) {
             padding: '8px 10px 8px 42px'
           }}}
           value={props.rgb.a === 1 ? props.hex : (props.hex + Math.floor(props.rgb.a * 255).toString(16))}
-          onChange={props.onChange}
+          onChange={value => {
+            if(value === '') {
+              props.onClear && props.onClear();
+            }
+            else {
+              props.onChange(value);
+            }
+          }}
         />
       </Box>
 

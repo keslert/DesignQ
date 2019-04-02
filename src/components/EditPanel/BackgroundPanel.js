@@ -10,8 +10,9 @@ import mapKeys from 'lodash/mapKeys';
 import Button from '../Button';
 import chroma from 'chroma-js';
 import { resolveColor } from '../../core/utils/render-utils';
+import { getOptimalBackgroundColor } from '../../core/generator/color';
 
-function BackgroundPanel({surface, background={}, path}) {
+function BackgroundPanel({surface, background={}, path, type}) {
   const rootDispatch = useContext(DispatchContext)
   const update = useCallback(update => rootDispatch({
       type: 'UPDATE_SELECTED', 
@@ -27,43 +28,45 @@ function BackgroundPanel({surface, background={}, path}) {
     
   return (
     <Box>
-      <Field 
-        label="Background"
-        children={
-          <Select
-            bg="dark"
-            color="white"
-            value={BackgroundTypeToText[bgType]}
-            options={bgOptions}
-            onChange={e => {
-              const type = e.target.value;
-              const o = {};
+      {!type && 
+        <Field 
+          label="Background"
+          children={
+            <Select
+              bg="dark"
+              color="white"
+              value={BackgroundTypeToText[bgType]}
+              options={bgOptions}
+              onChange={e => {
+                const type = e.target.value;
+                const o = {};
 
-              if(background.img && type !== 'image') {
-                o._img = img;
-                o.img = null;
-              }
+                if(background.img && type !== 'image') {
+                  o.prevImg = img;
+                  o.img = null;
+                }
 
-              if(type === 'none') {
-                o._color = background.color;
-                o.color = null;
-              }
-              else if(type === 'color') {
-                o.color = getSolid(background, surface.palette);
-              }
-              else if(type === 'gradient') {
-                o.color = getGradient(background, surface.palette);
-              }
-              else if(type === 'image') {
-                o.img = img || background._img || placeholderImg;
-                o._color = background.color;
-                o.color = null;
-              }
-              update(o);
-            }}
-          />
-        }
-      />
+                if(type === 'none') {
+                  o._color = background.color;
+                  o.color = null;
+                }
+                else if(type === 'color') {
+                  o.color = getSolid(surface, background, surface._root.palette);
+                }
+                else if(type === 'gradient') {
+                  o.color = getGradient(surface, background, surface._root.palette);
+                }
+                else if(type === 'image') {
+                  o.img = img || background.prevImg || placeholderImg;
+                  o._color = background.color;
+                  o.color = null;
+                }
+                update(o);
+              }}
+            />
+          }
+        />
+      }
       
 
       {img &&
@@ -82,12 +85,20 @@ function BackgroundPanel({surface, background={}, path}) {
                 }
               }}
             />
-            <Flex mt={2}>
+            <Flex mt={2} justifyContent="space-between">
               <Button
+                variant="light"
                 fontSize={0}
                 px={1}
-                py={1}
+                py={2}
                 children="Search Images"
+              />
+              <Button
+                variant="subtle"
+                fontSize={0}
+                px={1}
+                py={2}
+                children="Upload"
               />
             </Flex>
           </Box>
@@ -109,10 +120,10 @@ function BackgroundPanel({surface, background={}, path}) {
                     o.color = null;
                   }
                   else if(type === 'color') {
-                    o.color = getSolid(background, surface.palette, .5);
+                    o.color = getSolid(surface, background, surface._root.palette, .5);
                   }
                   else if(type === 'gradient') {
-                    o.color = getGradient(background, surface.palette, .5);
+                    o.color = getGradient(surface, background, surface._root.palette, .5);
                   }
                   update(o);
                 }}
@@ -129,6 +140,7 @@ function BackgroundPanel({surface, background={}, path}) {
             <ColorPicker
               color={resolveColor(background.color)}
               palette={paletteColors}
+              onClear={() => update({'color': null})}
               onChangeComplete={color => update({
                 'color.type': 'solid',
                 'color.color': color.hex,
@@ -207,17 +219,17 @@ const placeholderImg = {
   colors: [],
 }
 
-function getSolid(bg, palette, defaultAlpha=1) {
+function getSolid(surface, bg, palette, defaultAlpha=1) {
   const type = 'solid';
   const c = bg.color || bg._color;
 
   if(!c) {
-    return { type, alpha: defaultAlpha, color: palette.dark }
+    const optimalColor = getOptimalBackgroundColor(surface, palette);
+    return {...optimalColor, alpha: defaultAlpha}
   }
   else if(c.type === 'solid') {
     const alpha = !(c.alpha < 1) ? defaultAlpha : c.alpha
-    
-    return { type, alpha, color: c.color.color }
+    return { type, alpha, color: c.color }
   }
   else if(c.type === 'linear') {
     const alpha = !(c.color.alpha < 1) ? defaultAlpha : c.color.alpha
@@ -226,14 +238,16 @@ function getSolid(bg, palette, defaultAlpha=1) {
   }
 }
 
-function getGradient(bg, palette, defaultAlpha=1) {
+function getGradient(surface, bg, palette, defaultAlpha=1) {
   const c = bg.color || bg._color;
 
   if(!c) {
+    const optimalColor = getOptimalBackgroundColor(surface, palette);
+
     return {
       type: 'linear',
-      color: {type: 'solid', alpha: defaultAlpha, color: palette.dark},
-      colorB: {type: 'solid', alpha: defaultAlpha, color: chroma(palette.dark).darken(1).hex()},
+      color: {...optimalColor, alpha: defaultAlpha},
+      colorB: {...optimalColor, alpha: defaultAlpha, color: chroma(optimalColor.color).darken(1).hex()},
       deg: 45,
     }
   }

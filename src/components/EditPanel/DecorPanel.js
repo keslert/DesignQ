@@ -1,45 +1,30 @@
 import React, { useContext, useCallback } from 'react';
 import BackgroundPanel from './BackgroundPanel';
-import ColorPicker from '../ColorPicker';
 import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
-import get from 'lodash/get';
 import mapKeys from 'lodash/mapKeys';
 import { Box } from 'rebass';
 import { DispatchContext } from '../../containers/Queue';
-import { resolveColor } from '../../core/utils/render-utils';
 
-function BorderPanel({surface, border={}, path}) {
+function DecorPanel({surface, decor={}, path}) {
   const rootDispatch = useContext(DispatchContext)
   const update = useCallback(update => rootDispatch({
       type: 'UPDATE_SELECTED', 
       update: mapKeys(update, (v, k) => path + k),
   }), []);
 
-  const color = get(border, ['background', 'color']);
 
   return (
     <Box>
-      <Field 
-        label="Border Color"
-        children={
-          <ColorPicker
-            color={color ? resolveColor(color) : false}
-            palette={Object.values(surface._root.palette)}
-            onClear={() => update({'background': null})}
-            onChangeComplete={color => update({
-              'background': border.background || {},
-              'background.color': {
-                type: 'solid',
-                color: color.hex,
-                alpha: color.rgb.a,
-              }
-            })}
-          />
-        }
+      <h2>Decor</h2>
+      <BackgroundPanel
+        surface={surface}
+        path={path + 'background.'}
+        background={decor.background}
       />
+      
       <Field 
-        label="Border Width"
+        label="Decor Width"
         onExploreClick={() => null}
         children={
           <DirectionalInput
@@ -47,10 +32,10 @@ function BorderPanel({surface, border={}, path}) {
             max={.5}
             min={0}
             step={.01}
-            l={border.l}
-            r={border.r}
-            t={border.t}
-            b={border.b}
+            l={decor.l}
+            r={decor.r}
+            t={decor.t}
+            b={decor.b}
             onChange={values => update({
               'l': values.l,
               'r': values.r,
@@ -61,7 +46,7 @@ function BorderPanel({surface, border={}, path}) {
         }
       />
       <Field 
-        label="Border Offset"
+        label="Decor Offset"
         onExploreClick={() => null}
         children={
           <DirectionalInput
@@ -69,10 +54,10 @@ function BorderPanel({surface, border={}, path}) {
             max={.5}
             min={0}
             step={.01}
-            l={border.lOffset}
-            r={border.rOffset}
-            t={border.tOffset}
-            b={border.bOffset}
+            l={decor.lOffset}
+            r={decor.rOffset}
+            t={decor.tOffset}
+            b={decor.bOffset}
             onChange={values => update({
               'lOffset': values.l,
               'rOffset': values.r,
@@ -86,4 +71,4 @@ function BorderPanel({surface, border={}, path}) {
   )
 }
 
-export default BorderPanel;
+export default DecorPanel;

@@ -153,7 +153,7 @@ async function getInititialState(props) {
 
     const stage = (query.stage && query.focus)
       ? {type: query.stage, focus: query.focus}
-      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'color', focus: 'background'}
+      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'layout', focus: 'structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,

@@ -2,7 +2,7 @@ import { Button as RebassButton } from 'rebass'
 import styled from 'styled-components';
 
 const Button = styled(RebassButton)(props => ({
-  minWidth: '140px',
+  minWidth: '120px',
   cursor: 'pointer',
   opacity: props.disabled ? 0.5 : 1,
   pointerEvents: props.disabled ? 'none' : 'all',

@@ -44,8 +44,8 @@ function generateBackground(flyer, {templates}) {
 	const images = skiImages;
 
 	// If there was no image before, delete the overlay color.
-	const flyer_ = copyTemplate(flyer);
-	const prominantSurface = getProminantImageSurface(flyer_) || flyer_;
+	let flyer_ = copyTemplate(flyer);
+	let prominantSurface = getProminantImageSurface(flyer_) || flyer_;
 	if(!prominantSurface.background.img) {
 		prominantSurface.background.img = placeholderImage;
 		delete prominantSurface.background.color;
@@ -78,16 +78,22 @@ function generateBackground(flyer, {templates}) {
 		return copy;
 	})
 
+
+	flyer_ = copyTemplate(flyer);
+	prominantSurface = getProminantImageSurface(flyer_) || flyer_;
+	if(prominantSurface.background.color) {
+		prominantSurface.background.color.alpha = 1;
+	}
 	const uniqBgs = _.uniqBy(_.filter(templates, t => t.background.color), t => t.background.color)
 	const colorFlyers = uniqBgs.map(t => {
-		const copy = copyTemplate(flyer);
+		const copy = copyTemplate(flyer_);
 		const surface = _.find(copy._surfaces, s => s.background && s.background.img)
 			|| _.find(copy._elements, el => el.type === 'image')
 			|| copy;
 		delete surface.background.img;
 		copy.palette = t.palette;
-		mimicBackgroundColors(copy, flyer);
-		mimicForegroundColors(copy, flyer);
+		mimicBackgroundColors(copy, flyer_);
+		mimicForegroundColors(copy, flyer_);
 
 		return copy;
 	})
@@ -108,8 +114,6 @@ function generateFilters(flyer, {templates}) {
 	// if we have an image
 	// multi color backgrounds
 	const prominantImageSurface = getProminantImageSurface(flyer);
-
-
 	const flyers = [];
 	if(prominantImageSurface) {
 		const black = '#000000';
@@ -120,18 +124,9 @@ function generateFilters(flyer, {templates}) {
 			{color: solidColor(black, .7), blendMode: 'overlay'},
 			{color: solidColor(black, .85), blendMode: 'overlay'},
 			{color: solidColor(palette.primary, 1), blendMode: 'overlay'},
-			{color: solidColor(palette.primary, .5), blendMode: 'darken'},
-			{color: solidColor(palette.primary, 1), blendMode: 'soft-light'},
-			{color: solidColor(palette.primary, .5), blendMode: 'multiply'},
 			{color: solidColor(palette.secondary, 1), blendMode: 'overlay'},
-			{color: solidColor(palette.secondary, .5), blendMode: 'darken'},
-			{color: solidColor(palette.secondary, 1), blendMode: 'soft-light'},
-			{color: solidColor(palette.secondary, .5), blendMode: 'multiply'},
 			{color: solidColor(palette.dark, .8), blendMode: 'overlay'},
 			{color: solidColor(palette.dark, .5), blendMode: 'overlay'},
-			{color: solidColor(palette.dark, .5), blendMode: 'darken'},
-			{color: solidColor(palette.dark, .5), blendMode: 'soft-light'},
-			{color: solidColor(palette.dark, .3), blendMode: 'multiply'},
 			{color: linear(0, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
 			{color: linear(45, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
 			{color: linear(135, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
@@ -273,6 +268,7 @@ export function transferColors(flyer, template, extraImages=[]) {
 		const image = _.find(flyer._elements, el => el.type === 'image');
 		if(image) {
 			image.background.img = images[0];
+			delete image.background.color;
 		}
 		else if(flyer.decor && flyer.decor.background) {
 			flyer.decor.background.img = images[0];
@@ -321,7 +317,7 @@ function mimicBackgroundColors(flyer, template, preference='dark') {
 	})
 
 	flyer._elements.forEach(el => {
-		if(el.background) {
+		if(el.background && el.background.color) {
 			el.background.color = getOptimalBackgroundColor(el, flyer.palette, [
 				el.background.color.paletteKey,
 				preference,
@@ -361,6 +357,7 @@ function mimicBackgroundColor(fSurface, tSurface, flyer, template, preference) {
 			fSurface.background.img && 'dark',
 			preference,
 		]))
+		fSurface.background.color.alpha = tSurface.background.color.alpha;
 	}
 	else if(fSurface.background) {
 		delete fSurface.background.color;
@@ -392,7 +389,7 @@ function getBackdropPaletteKey(item) {
 	return 'light'
 }
 
-function getOptimalBackgroundColor(surface, palette, preferences) {
+export function getOptimalBackgroundColor(surface, palette, preferences=[]) {
 	const paletteKey = getBackdropPaletteKey(surface);
 
 	if(preferences[0] === 'transparent') {

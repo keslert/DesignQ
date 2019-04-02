@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBackgroundStyle } from '../../core/utils/render-utils';
+import { getBackgroundStyle, resolveColor } from '../../core/utils/render-utils';
 
 // clip-path solution (without svg)
 // https://bennettfeely.com/clippy/
@@ -46,6 +46,7 @@ y4 _______________  w,h
   const style = {
     position: 'absolute',
     ...getBackgroundStyle(border.background),
+    background: border.background && resolveColor(border.background.color),
     left: 0,
     top: 0,
     width: '100%',

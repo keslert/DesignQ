@@ -28,7 +28,7 @@ function TextElementPanel({element}) {
         onExploreClick={() => null}
       >
         <Textarea
-          key={element._root.id + element._key}
+          key={element._root.id + element._parent._key + element._key}
           name="text"
           bg="dark"
           color="white"

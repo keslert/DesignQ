@@ -32,12 +32,23 @@ export async function precompute() {
     const all = [...t._surfaces, t.decor, ...t._elements];
     t.palette = buildTemplatePalette(t);
     // replace images
-    const defaultImageColor = {type: 'solid', color: t.palette.dark, paletteKey: 'dark'};
+    // const defaultImageColor = {type: 'solid', color: t.palette.dark, paletteKey: 'dark'};
     all.forEach(item => {
       const img = _.get(item, ['background', 'img'])
       if(img) {
         item.background.img = placeholderImage;
-        item.background.color = item.background.color || defaultImageColor;
+
+        if(item.background.color) {
+          const color = item.background.color;
+          if(color.type === 'solid' && !color.alpha) {
+            color.alpha = 0.5;
+          } else if(color.type === 'linear') {
+            color.color.alpha = 0.5;
+            color.colorB.alpha = 0.5;
+          }
+
+          // item.background.color = item.background.color || defaultImageColor;
+        }
       }
     })
     

@@ -23,9 +23,10 @@ function Background({background, bb}) {
   }
 
   return (
-    <div datatype="background" style={style}>
+    <React.Fragment>
+      <div datatype="background" style={style}/>
       <div style={colorStyle} />
-    </div>
+    </React.Fragment>
   )
 }
 export default Background;

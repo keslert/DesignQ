@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { Flex, Box, Text } from 'rebass';
 import { Input } from './FormInput';
 
-function DirectionalInput(props) {
+function DirectionalInput({step=1, ...props}) {
 
   const handleChange = useCallback(e => {
     const dir = e.target.name;
@@ -11,7 +11,7 @@ function DirectionalInput(props) {
       r: props.r,
       t: props.t,
       b: props.b,
-      [dir]: e.target.value,
+      [dir]: Number.parseFloat(e.target.value),
     })
 
   }, [props]);
@@ -24,7 +24,7 @@ function DirectionalInput(props) {
           type="number"
           min={props.min}
           max={props.max}
-          step={props.step}
+          step={step}
           bg="off_dark"
           color="white"
           value={props.l}
@@ -41,7 +41,7 @@ function DirectionalInput(props) {
             type="number"
             min={props.min}
             max={props.max}
-            step={props.step}
+            step={step}
             bg="off_dark"
             color="white"
             value={props.t}
@@ -55,7 +55,7 @@ function DirectionalInput(props) {
             type="number"
             min={props.min}
             max={props.max}
-            step={props.step}
+            step={step}
             bg="off_dark"
             color="white"
             value={props.b}
@@ -73,7 +73,7 @@ function DirectionalInput(props) {
           type="number"
           min={props.min}
           max={props.max}
-          step={props.step}
+          step={step}
           bg="off_dark"
           color="white"
           value={props.r}

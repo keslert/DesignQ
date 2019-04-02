@@ -6,13 +6,13 @@ import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
 import { DispatchContext } from '../../containers/Queue';
 import BackgroundPanel from './BackgroundPanel';
+import BorderPanel from './BorderPanel';
+import ThematicBreak from './ThematicBreak';
+import DecorPanel from './DecorPanel';
 
 
-function SurfacePanel({surface}) {
-  const rootDispatch = useContext(DispatchContext)
-  const update = useCallback(update => {
-    rootDispatch({type: 'UPDATE_SELECTED', update});
-  }, []);
+function SurfacePanel({surface, onUpdate}) {
+  
 
   // Border
     // Background Color
@@ -27,12 +27,15 @@ function SurfacePanel({surface}) {
   // Palette
 
   return (
-    <Box pt={3}>
+    <Box pt={4}>
       <BackgroundPanel
         surface={surface}
         background={surface.background}
         path='background.'
       />
+      
+      <ThematicBreak />
+
       {canFill(surface, 'w') && // Width & Horizontal Alignment
         <React.Fragment>
           <Field 
@@ -45,7 +48,7 @@ function SurfacePanel({surface}) {
                 color="white"
                 value={WidthToText[surface.w]}
                 options={['max', 'min']}
-                onChange={e => update({'w': TextToWidth[e.target.value]})}
+                onChange={e => onUpdate({'w': TextToWidth[e.target.value]})}
               />
             }
           />
@@ -60,7 +63,7 @@ function SurfacePanel({surface}) {
                   color="white"
                   value={surface.alignX}
                   options={['left', 'center', 'right']}
-                  onChange={e => update({'alignX': e.target.value})}
+                  onChange={e => onUpdate({'alignX': e.target.value})}
                 />
               }
             />
@@ -81,7 +84,7 @@ function SurfacePanel({surface}) {
               color="white"
               value={WidthToText[surface.h]}
               options={['max', 'min']}
-              onChange={e => update({'h': TextToWidth[e.target.value]})}
+              onChange={e => onUpdate({'h': TextToWidth[e.target.value]})}
             />
           }
         />
@@ -98,7 +101,7 @@ function SurfacePanel({surface}) {
               color="white"
               value={surface.alignY}
               options={['top', 'center', 'bottom']}
-              onChange={e => update({'alignY': e.target.value})}
+              onChange={e => onUpdate({'alignY': e.target.value})}
             />
           }
         />
@@ -115,7 +118,7 @@ function SurfacePanel({surface}) {
               color="white"
               value={surface.textAlign}
               options={['left', 'center', 'right']}
-              onChange={e => update({'textAlign': e.target.value})}
+              onChange={e => onUpdate({'textAlign': e.target.value})}
             />
           }
         />
@@ -135,7 +138,7 @@ function SurfacePanel({surface}) {
               min={-.1}
               max={3}
               showValue={true}
-              onChange={e => update({'mb': e.target.value})}
+              onChange={e => onUpdate({'mb': e.target.value})}
             />
           }
         />
@@ -152,7 +155,9 @@ function SurfacePanel({surface}) {
               r={surface.bleed.r}
               t={surface.bleed.t}
               b={surface.bleed.b}
-              onChange={values => update({'bleed': values})}
+              tDisabled={surface.h === 'auto' && surface.alignY !== 'top'}
+              bDisabled={surface.h === 'auto' && surface.alignY !== 'bottom'}
+              onChange={values => onUpdate({'bleed': values})}
             />
           }
         />
@@ -171,7 +176,7 @@ function SurfacePanel({surface}) {
               r={surface.pr}
               t={surface.pt}
               b={surface.pb}
-              onChange={values => update({
+              onChange={values => onUpdate({
                 'pl': values.l,
                 'pr': values.r,
                 'pt': values.t,
@@ -181,6 +186,23 @@ function SurfacePanel({surface}) {
           }
         />
       }
+
+      <ThematicBreak />
+      
+      <BorderPanel
+        surface={surface}
+        border={surface.border}
+        path='border.'
+      />
+
+      <ThematicBreak />
+
+      <DecorPanel
+        surface={surface}
+        decor={surface.decor}
+        path='decor.'
+      />
+
     </Box>
   )
 }
