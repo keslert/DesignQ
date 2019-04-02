@@ -13,6 +13,7 @@ import SearchInput from '../SearchInput';
 import ImagePicker from '../../containers/ImagePicker';
 import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
+import ImageSearch from '../../containers/ImageSearch';
 
 function BackgroundPanel({
   surface, 
@@ -79,7 +80,7 @@ function BackgroundPanel({
         <React.Fragment>
           <Box mt={-3} mb={3}>
             <ImageCrop
-              key={surface._root.id}
+              key={surface._root.id + img.src}
               img={img}
               size={surface._computed.bb}
               onComplete={(crop, pixelCrop) => {
@@ -110,39 +111,27 @@ function BackgroundPanel({
 
           { true && 
             <Box mb={3}>
-              <Box>
-                <SearchInput
-                  placeholder={"Search..."}
-                  hasBackButton={false}
-                  value={''}
-                  onChange={e => null}
-                  onSubmit={e => null}
-                />
-              </Box>
-              <Box py={1} bg="dark" style={imagePickerStyle}>
-                <ImagePicker 
-                  columns={2}
-                  margin={4}
-                  onClick={(e, {photo}) => {
-                    const o = {};
-                    const color = background.color;
-                    if(color && (!color.alpha || color.alpha === 1)) {
-                      o['color.alpha'] = 0.1;
-                    }
+              <ImageSearch
+                galleryStyle={imagePickerStyle}
+                size={surface._computed.bb}
+                onSelect={(e, {photo}) => {
+                  const o = {};
+                  const color = background.color;
+                  if(color && (!color.alpha || color.alpha === 1)) {
+                    o['color.alpha'] = 0.1;
+                  }
 
-                    o['img'] = {
-                      src: photo.src,
-                      meta: { w: photo.width, h: photo.height },
-                      colors: [],
-                      zoom: 1,
-                      x: 0.5,
-                      y: 0.5,
-                    };
+                  o['img'] = {
+                    ...photo,
+                    zoom: 1,
+                    x: 0.5,
+                    y: 0.5,
+                  };
 
-                    update(o);
-                  }}
-                />
-              </Box>
+                  update(o);
+                }}
+
+              />
             </Box>
           }
           

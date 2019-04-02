@@ -48,9 +48,9 @@ const GalleryImage = ({
       <Flex className="credit" flexWrap="wrap">
         <a 
           className="author"
-          href={`https://unsplash.com/@${photo.user.username}`}
+          href={photo.meta.photographer_url}
           target="_blank"
-          children={photo.user.name}
+          children={photo.meta.photographer}
         />
         <span>&nbsp;@&nbsp;</span>
         <a 
