@@ -9,6 +9,8 @@ import { DispatchContext } from '../../containers/Queue';
 import mapKeys from 'lodash/mapKeys';
 import Button from '../Button';
 import chroma from 'chroma-js';
+import SearchInput from '../SearchInput';
+import ImagePicker from '../../containers/ImagePicker';
 import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
 
@@ -81,9 +83,9 @@ function BackgroundPanel({
               img={img}
               size={surface._computed.bb}
               onComplete={(crop, pixelCrop) => {
-                const zoom = Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100;
-                const x = Math.round(crop.x / (100 - crop.width) * 100) / 100 || 0;
-                const y = Math.round(crop.y / (100 - crop.height) * 100) / 100 || 0;
+                const zoom = (Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100) || 1;
+                const x = (Math.round(crop.x / (100 - crop.width) * 100) / 100) || 0;
+                const y = (Math.round(crop.y / (100 - crop.height) * 100) / 100) || 0;
                 if(x !== img.x || y !== img.y || zoom !== img.zoom) {
                   update({'img.x': x, 'img.y': y, 'img.zoom': zoom})
                 }
@@ -91,23 +93,61 @@ function BackgroundPanel({
             />
             <Flex mt={2} justifyContent="space-between">
               <Button
-                fontSize={0}
+                fontSize={1}
                 px={1}
                 py={2}
                 children="Search Images"
               />
               <Button
                 variant="subtle"
-                fontSize={0}
+                fontSize={1}
                 px={1}
                 py={2}
                 children="Upload"
               />
             </Flex>
           </Box>
+
+          { true && 
+            <Box mb={3}>
+              <Box>
+                <SearchInput
+                  placeholder={"Search..."}
+                  hasBackButton={false}
+                  value={''}
+                  onChange={e => null}
+                  onSubmit={e => null}
+                />
+              </Box>
+              <Box py={1} bg="dark" style={imagePickerStyle}>
+                <ImagePicker 
+                  columns={2}
+                  margin={4}
+                  onClick={(e, {photo}) => {
+                    const o = {};
+                    const color = background.color;
+                    if(color && (!color.alpha || color.alpha === 1)) {
+                      o['color.alpha'] = 0.1;
+                    }
+
+                    o['img'] = {
+                      src: photo.src,
+                      meta: { w: photo.width, h: photo.height },
+                      colors: [],
+                      zoom: 1,
+                      x: 0.5,
+                      y: 0.5,
+                    };
+
+                    update(o);
+                  }}
+                />
+              </Box>
+            </Box>
+          }
           
           <Field 
-            label="Overlay"
+            label="Image Overlay"
             children={
               <Select
                 bg="dark"
@@ -251,7 +291,7 @@ function getGradient(surface, bg, palette, defaultAlpha=1) {
       type: 'linear',
       color: {...optimalColor, alpha: defaultAlpha},
       colorB: {...optimalColor, alpha: defaultAlpha, color: chroma(optimalColor.color).darken(1).hex()},
-      deg: 45,
+      deg: 0,
     }
   }
   else if(c.type === 'solid') {
@@ -261,7 +301,7 @@ function getGradient(surface, bg, palette, defaultAlpha=1) {
       type: 'linear',
       color: {type: 'solid', alpha, color: c.color},
       colorB: {type: 'solid', alpha, color: chroma(c.color).darken(1).hex()},
-      deg: 45,
+      deg: 0,
     }
   }
   else if(c.type === 'linear') {
@@ -281,4 +321,10 @@ const BackgroundTypeToText = {
   solid: 'color',
   linear: 'gradient',
   image: 'image',
+}
+
+const imagePickerStyle = {
+  borderRadius: '4px',
+  maxHeight: 300,
+  overflowY: 'auto',
 }

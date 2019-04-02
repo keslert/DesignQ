@@ -111,5 +111,14 @@ const photos = [
     },
     width: 4,
     height: 3
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1553969546-6f7388a7e07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
+    user: {
+      name: 'Josh Gordon',
+      username: 'joshgordon',
+    },
+    width: 386,
+    height: 578,
   }
 ];

@@ -15,13 +15,12 @@ const Image = styled(Box)`
     color: #ffffff;
     a {
       color: currentColor;
-      font-weight: bold;
       text-decoration: none;
     }
   }
 
   &:hover {
-    outline: 2px solid ${props => props.theme.colors.blue};
+    // outline: 2px solid ${props => props.theme.colors.blue};
     .credit {
       display: block;
     }
@@ -53,7 +52,7 @@ const GalleryImage = ({
           target="_blank"
           children={photo.user.name}
         />
-        <span>&nbsp;on&nbsp;</span>
+        <span>&nbsp;@&nbsp;</span>
         <a 
           className="author"
           href="https://unsplash.com"

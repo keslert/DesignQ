@@ -27,7 +27,7 @@ function SurfacePanel({surface, onUpdate}) {
   // Palette
 
   return (
-    <Box pt={4}>
+    <Box>
       <BackgroundPanel
         surface={surface}
         background={surface.background}
@@ -37,7 +37,7 @@ function SurfacePanel({surface, onUpdate}) {
       
       <ThematicBreak />
 
-      {canFillWidth(surface) &&
+      {canControlWidth(surface) &&
         <React.Fragment>
           <Field 
             label="Width"
@@ -74,7 +74,7 @@ function SurfacePanel({surface, onUpdate}) {
       
       
 
-      {canFillHeight(surface) && 
+      {canControlHeight(surface) && 
         <React.Fragment>
           <Field 
             label="Height"
@@ -229,12 +229,12 @@ function canFill(surface, dir) {
   return surface.kind !== 'template';
 }
 
-function canFillHeight(surface) {
-  return surface.kind === 'template' 
-    || surface.kind === 'content'
+function canControlHeight(surface) {
+  return surface.kind === 'content'
     || (surface.type === 'body' && surface._parent.h === 'fill')
 }
 
-function canFillWidth(surface) {
-
+function canControlWidth(surface) {
+  return surface.kind === 'content'
+    || (surface.kind === 'group' && surface._parent.w === 'fill');
 }

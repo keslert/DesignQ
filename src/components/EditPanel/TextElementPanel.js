@@ -21,14 +21,16 @@ function TextElementPanel({element}) {
   // TODO: Add translateXY for minor adjustments.
   // TODO: Add divider color.
 
+  const uniqKey = element._root.id + element._parent._key + element._key
+
   return (
-    <Box pt={3}>
+    <Box>
       <Field 
         label="Text"
         onExploreClick={() => null}
       >
         <Textarea
-          key={element._root.id + element._parent._key + element._key}
+          key={uniqKey}
           name="text"
           bg="dark"
           color="white"
@@ -69,6 +71,7 @@ function TextElementPanel({element}) {
         onExploreClick={() => null}
       >
         <ColorPicker
+          key={uniqKey}
           onChangeComplete={color => {
             const hex = color.hex;
             const alpha = color.alpha;
@@ -163,38 +166,41 @@ function TextElementPanel({element}) {
         />
       </Field>
 
-      <Field 
-        label="Line Height"
-        onExploreClick={() => null}
-      >
-        <Slider
-          name="lineHeight"
-          bg="dark"
-          color="white"
-          value={element.font.lineHeight}
-          step={.1}
-          min={.8}
-          max={2}
-          showValue={true}
-          onChange={e => update({'font.lineHeight': e.target.value})}
-        />
-        <Flex mt="2px" justifyContent="center">
-          <Box mr={2}>
-            <Checkbox 
-              label="Ignore Ascenders"
-              checked={!!element.font.ignoreAscenders}
-              onChange={e => update({'font.ignoreAscenders': e.target.checked})}
-            />
-          </Box>
-          <Box>
-            <Checkbox 
-              label="Ignore Descenders"
-              checked={!!element.font.ignoreDescenders}
-              onChange={e => update({'font.ignoreDescenders': e.target.checked})}
-            />
-          </Box>
-        </Flex>
-      </Field>
+      {element.lines.length > 1 && 
+        <Field 
+          label="Line Height"
+          hint="The amount of space between each line of text in this element."
+          onExploreClick={() => null}
+        >
+          <Slider
+            name="lineHeight"
+            bg="dark"
+            color="white"
+            value={element.font.lineHeight}
+            step={.1}
+            min={.8}
+            max={2}
+            showValue={true}
+            onChange={e => update({'font.lineHeight': e.target.value})}
+          />
+          <Flex mt="2px" ml={1}>
+            <Box mr={2}>
+              <Checkbox 
+                label="Ignore Ascenders"
+                checked={!!element.font.ignoreAscenders}
+                onChange={e => update({'font.ignoreAscenders': e.target.checked})}
+              />
+            </Box>
+            <Box>
+              <Checkbox 
+                label="Ignore Descenders"
+                checked={!!element.font.ignoreDescenders}
+                onChange={e => update({'font.ignoreDescenders': e.target.checked})}
+              />
+            </Box>
+          </Flex>
+        </Field>
+      }
 
       {element._hasList && 
         <Field 
@@ -214,7 +220,7 @@ function TextElementPanel({element}) {
 
       {element._computed.next &&
         <Field 
-          label="Margin"
+          label="Margin Bottom"
           hint="The amount of space between this item and the item beneath it."
           onExploreClick={() => null}
           children={
