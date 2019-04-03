@@ -17,6 +17,7 @@ export default {
       h: 'auto',
       alignX: 'left',
       alignY: 'bottom',
+      itemsAlignX: 'left',
       textAlign: 'left',
       elements: [
         {

@@ -9,10 +9,10 @@ export function calculateHeightResize(template) {
   
   // TODO: I'm not so sure about these Math.abs... (but they seem to work. see id: 35)
 
-  const tops = _.filter([
-    header && (header._computed.bb.t + header._computed.bb.h + header._computed.mb),
+  // const tops = _.filter([
+  //   header && (header._computed.bb.t + header._computed.bb.h + header._computed.mb),
 
-  ])
+  // ])
 
 
   const top = header

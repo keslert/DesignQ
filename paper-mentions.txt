@@ -2,3 +2,11 @@
 
 Skipping stages if they are irrelevant.
 Soft-ejects: If the user starts absolutely positioning things, we stop controlling layout, but we continue to assist with X.
+
+Where to sneak computations?
+- Places where people anticipate waiting (e.g., searching for images)
+
+
+Validity Checks.
+- When the generator makes automatic updates, there should be a way to undo those updates. Similar to how code editors will autoformat something but undoing will first undo the autoformat and a second undo will undo the paste.
+- Allow the user to turn off these automatic tweaks.

@@ -21,13 +21,18 @@ function DirectionalInput({
   }, [props]);
 
   return (
-    <Flex alignItems="center" bg="dark" style={{borderRadius: '3px'}}>
+    <Flex 
+      justifyContent="center" 
+      alignItems="center" 
+      bg="dark" 
+      style={{borderRadius: '3px'}}
+    >
       <Box p={2} mt={-3}>
         <Text fontSize={0} color="white" textAlign="center" mb={1} children="left" />
         <Input
           type="number"
           min={props.min}
-          max={props.max}
+          max={props.lMax !== undefined ? props.lMax : props.max}
           step={step}
           bg="off_dark"
           color="white"
@@ -45,7 +50,7 @@ function DirectionalInput({
           <Input
             type="number"
             min={props.min}
-            max={props.max}
+            max={props.tMax !== undefined ? props.tMax : props.max}
             step={step}
             bg="off_dark"
             color="white"
@@ -60,7 +65,7 @@ function DirectionalInput({
           <Input
             type="number"
             min={props.min}
-            max={props.max}
+            max={props.bMax !== undefined ? props.bMax : props.max}
             step={step}
             bg="off_dark"
             color="white"
@@ -80,7 +85,7 @@ function DirectionalInput({
           showValue={true}
           type="number"
           min={props.min}
-          max={props.max}
+          max={props.rMax !== undefined ? props.rMax : props.max}
           step={step}
           bg="off_dark"
           color="white"

@@ -246,11 +246,17 @@ function TextElementPanel({element}) {
         <DirectionalInput
           name="bleed"
           min={0}
-          l={element.bleed.l}
-          r={element.bleed.r}
-          t={element.bleed.t}
+          l={element._computed.canBleed.l ? element.bleed.l : 0}
+          r={element._computed.canBleed.r ? element.bleed.r : 0}
+          t={0}
+          b={0}
+          lMax={element._computed.edges.l.length}
+          rMax={element._computed.edges.r.length}
+          tMax={0}
+          bMax={0}
+          lDisabled={!element._computed.canBleed.l}
+          rDisabled={!element._computed.canBleed.r}
           tDisabled={true}
-          b={element.bleed.b}
           bDisabled={true}
           onChange={values => update({'bleed': values})}
         />

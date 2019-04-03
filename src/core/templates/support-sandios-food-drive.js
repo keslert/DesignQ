@@ -14,17 +14,18 @@ export default {
       zoom: 1,
     },
     color: splitColor(0, 'transparent', '#fff1d9'),
-    backgroundBlendMode: 'lighten',
+    // backgroundBlendMode: 'lighten',
   },
   content: {
     body: {
       w: 'auto',
       bleed: { l: 1 },
       background: { 
-  color: solidColor('#251a4b'),
-},
+        color: solidColor('#251a4b'),
+      },
       alignX: 'left',
       alignY: 'bottom',
+      itemsAlignX: 'left',
       textAlign: 'left',
       elements: [
         {

@@ -1,5 +1,6 @@
 import React, { useReducer, useMemo, useState, useLayoutEffect } from 'react';
 import Canvas from '../components/Canvas';
+import Export from './Export';
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
 import Timeline from './Timeline';
@@ -29,7 +30,8 @@ function Queue(props) {
   const windowSize = useWindowSize();
   const [loaded, setLoaded] = useState(false);
   const [state, dispatch] = useReducer(reducer, {});
-  const showSidebar = state.showSidebar || state.selection;
+  const showExport = state.journey && state.journey.stage.type === 'export';
+  const showSidebar = !showExport && (state.showSidebar || state.selection);
   const canvasSize = useMemo(() => ({
     width: windowSize.width - (showSidebar ? 280 : 0),
     height: windowSize.height - 91 - 21, // - navbar - timeline
@@ -48,6 +50,7 @@ function Queue(props) {
     return <Flex style={loadStyle} alignItems="center" justifyContent="center">Loading Fonts...</Flex>
   }
 
+  
 
   return (
     <DispatchContext.Provider value={dispatch}>
@@ -65,14 +68,19 @@ function Queue(props) {
             }
             <Flex flex={1} flexDirection="column">
               <Box flex={1}>
-                <Canvas
-                  size={canvasSize}
-                  stage={state.journey.stage}
-                  primary={state.primary}
-                  secondary={state.secondary}
-                  list={state.list}
-                  viewMode={state.viewMode}
-                />
+                {showExport
+                  ? <Export
+                      primary={state.primary}
+                    />
+                  : <Canvas
+                      size={canvasSize}
+                      stage={state.journey.stage}
+                      primary={state.primary}
+                      secondary={state.secondary}
+                      list={state.list}
+                      viewMode={state.viewMode}
+                    />
+                }
               </Box>
 
               <Timeline
@@ -144,7 +152,7 @@ async function getInititialState(props) {
     const query = queryString.parse(props.location.search);
     
     const startFlyer = starters[query.starter] || (
-      process.env.NODE_ENV === 'production'  ? starters.empty : starters.imageBackground
+      process.env.NODE_ENV === 'production'  ? starters.empty : starters.simpleBody
     )
     linkTemplate(startFlyer);
     produceFlyer(startFlyer);
@@ -165,7 +173,7 @@ async function getInititialState(props) {
       // selection: null,
       selection: startFlyer,
       // selection: startFlyer.content.body.elements[1],
-      stage: {type: 'content', focus: 'text'},
+      // stage: {type: 'content', focus: 'text'},
     }, {stage});
     
     resolve(state);

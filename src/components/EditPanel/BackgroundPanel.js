@@ -1,19 +1,18 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
 import { Flex, Box } from 'rebass';
 import Slider from '../Slider';
 import Select from '../Select';
 import ColorPicker from '../ColorPicker';
 import Field from './Field';
 import ImageCrop from '../ImageCrop';
-import { DispatchContext } from '../../containers/Queue';
 import mapKeys from 'lodash/mapKeys';
 import Button from '../Button';
 import chroma from 'chroma-js';
-import SearchInput from '../SearchInput';
-import ImagePicker from '../../containers/ImagePicker';
+import { DispatchContext } from '../../containers/Queue';
 import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
 import ImageSearch from '../../containers/ImageSearch';
+import { darkenColor } from '../../core/templates';
 
 function BackgroundPanel({
   surface, 
@@ -28,6 +27,7 @@ function BackgroundPanel({
       type: 'UPDATE_SELECTED', 
       update: mapKeys(update, (v, k) => path + k),
   }), []);
+  const [showSearch, setShowSearch] = useState(false);
 
   const img = background.img;
   const paletteColors = Object.values(surface._root.palette);
@@ -97,7 +97,8 @@ function BackgroundPanel({
                 fontSize={1}
                 px={1}
                 py={2}
-                children="Search Images"
+                onClick={() => setShowSearch(!showSearch)}
+                children="Browse Images"
               />
               <Button
                 variant="subtle"
@@ -109,7 +110,7 @@ function BackgroundPanel({
             </Flex>
           </Box>
 
-          { true && 
+          { showSearch && 
             <Box mb={3}>
               <ImageSearch
                 galleryStyle={imagePickerStyle}
@@ -261,12 +262,12 @@ function getSolid(surface, bg, palette, defaultAlpha=1) {
   }
   else if(c.type === 'solid') {
     const alpha = !(c.alpha < 1) ? defaultAlpha : c.alpha
-    return { type, alpha, color: c.color }
+    return { ...c, alpha }
   }
   else if(c.type === 'linear') {
     const alpha = !(c.color.alpha < 1) ? defaultAlpha : c.color.alpha
     
-    return { type, alpha, color: c.color.color }
+    return { ...c.color, type, alpha }
   }
 }
 
@@ -279,7 +280,7 @@ function getGradient(surface, bg, palette, defaultAlpha=1) {
     return {
       type: 'linear',
       color: {...optimalColor, alpha: defaultAlpha},
-      colorB: {...optimalColor, alpha: defaultAlpha, color: chroma(optimalColor.color).darken(1).hex()},
+      colorB: darkenColor(optimalColor),
       deg: 0,
     }
   }
@@ -288,8 +289,8 @@ function getGradient(surface, bg, palette, defaultAlpha=1) {
 
     return {
       type: 'linear',
-      color: {type: 'solid', alpha, color: c.color},
-      colorB: {type: 'solid', alpha, color: chroma(c.color).darken(1).hex()},
+      color: {...c, alpha },
+      colorB: darkenColor(c),
       deg: 0,
     }
   }

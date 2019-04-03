@@ -16,7 +16,7 @@ function Flyer({flyer, selectable}) {
   const elements = groups.map(g => g.elements).flat();
 
   return (
-    <S_Flyer key={flyer.id} title={flyer.title}>
+    <S_Flyer id={flyer.id} key={flyer.id} title={flyer.title}>
       <Surface surface={flyer} />
       <Surface surface={flyer.content} />
 
@@ -53,4 +53,5 @@ const S_Flyer = styled.div({
   userSelect: 'none',
   overflow: 'hidden',
   background: '#ffffff',
+  fontVariant: 'normal',
 })

@@ -123,33 +123,37 @@ function computeElementOverlap(template) {
 
 function computeElementAutoWidths(template) {
   withGroups(template, g => g.elements.forEach(el => {
-    el._computed.bb.autoW = el._computed.w + el._computed.pl + el._computed.pr;
+    // TODO: Add border?
+    const ePad = el._computed.pl + el._computed.pr;
+    el._computed.bb.autoW = el._computed.w + ePad;
   }))
 }
 
 function computeGroupAutoWidths(template) {
   withGroups(template, g => {
-    const maxElement = _.maxBy(g.elements, el => el._computed.bb.autoW)
-    const maxElementWidth = maxElement ? maxElement._computed.bb.autoW : 0;
+    const widths = g.elements.map(el => {
+      const pad = _.sum(getEdgeValues(el, ['l', 'r'], 'group-padding'));
+      return el._computed.bb.autoW + pad;
+    })
+    const maxElementWidth = _.max(widths) || 0;
+    // const maxElementWidth = maxElement ? maxElement._computed.bb.autoW : 0;
     const border = g.border._computed.l + g.border._computed.r;
-    // const padWidth = g._computed.pl + g._computed.pr;
-    const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
-    g._computed.bb.autoW = maxElementWidth + border + pad;
+    // const pad = g._computed.pl + g._computed.pr;
+    // const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
+    g._computed.bb.autoW = maxElementWidth + border;
   })
 }
 
 function computeContentAutoWidth(template) {
-  // group width + content border + content pad;
+  const content = template.content;
   const maxGroupWidth = _.max(withGroups(template, g => {
-    const width = g._computed.bb.autoW
-    // const border = _.sum(getEdgeValues(g, ['l', 'r'], 'content-border'));
-    // const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
-    
-    // return width + border + pad;
-    return width;
+    const pad = _.sum(getEdgeValues(g, ['l', 'r'], 'content-padding'));
+    return g._computed.bb.autoW + pad;
   }));
+  const { l: borderL, r: borderR} = content.border._computed;
+  const border = borderL + borderR;
 
-  template.content._computed.bb.autoW = maxGroupWidth;
+  content._computed.bb.autoW = maxGroupWidth + border;
 }
 
 function computeContentWidth(template) {

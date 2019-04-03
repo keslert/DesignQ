@@ -15,7 +15,7 @@ export function getBackgroundStyle(bg) {
     backgroundSize: `${c.w}px ${c.h}px`,
     backgroundPositionX: `${-c.x}px`,
     backgroundPositionY: `${-c.y}px`,
-    filter: bg.img && _.map(bg.img.filters, (v, k) => `${k}(${v})`).join(' '),
+    // filter: bg.img && _.map(bg.img.filters, (v, k) => `${k}(${v})`).join(' '),
     // backgroundBlendMode: bg.backgroundBlendMode,
     borderRadius: bg.borderRadius ? bg.borderRadius + 'px' : null,
   };

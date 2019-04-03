@@ -55,9 +55,9 @@ const GalleryImage = ({
         <span>&nbsp;@&nbsp;</span>
         <a 
           className="author"
-          href="https://unsplash.com"
+          href="https://pexels.com"
           target="_blank"
-          children="Unsplash"
+          children="Pexels"
         />
       </Flex>
       

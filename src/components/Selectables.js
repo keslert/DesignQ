@@ -40,7 +40,7 @@ const Selectable = styled.div(props => ({
   position: 'absolute',
   border: props.selected ? '2px solid ' + props.theme.colors.blue : null,
   '&:hover': {
-    border: props.selected ? undefined : '1px solid ' + props.theme.colors.blue,
+    border: props.selected ? undefined : '2px solid ' + props.theme.colors.blue_darken,
     // transform: 'translate3d(0, 0, 0)',
     boxSizing: 'border-box',
     // cursor: move;

@@ -155,12 +155,19 @@ function SurfacePanel({surface, onUpdate}) {
           children={
             <DirectionalInput
               name="bleed"
-              l={surface.bleed.l}
-              r={surface.bleed.r}
-              t={surface.bleed.t}
-              b={surface.bleed.b}
-              tDisabled={surface.h === 'auto' && surface.alignY !== 'top'}
-              bDisabled={surface.h === 'auto' && surface.alignY !== 'bottom'}
+              min={0}
+              l={surface._computed.canBleed.l ? surface.bleed.l : 0}
+              r={surface._computed.canBleed.r ? surface.bleed.r : 0}
+              t={surface._computed.canBleed.t ? surface.bleed.t : 0}
+              b={surface._computed.canBleed.b ? surface.bleed.b : 0}
+              lMax={surface._computed.edges.l.length}
+              rMax={surface._computed.edges.r.length}
+              tMax={surface._computed.edges.t.length}
+              bMax={surface._computed.edges.b.length}
+              lDisabled={!surface._computed.canBleed.l}
+              rDisabled={!surface._computed.canBleed.r}
+              tDisabled={!surface._computed.canBleed.t}
+              bDisabled={!surface._computed.canBleed.b}
               onChange={values => onUpdate({'bleed': values})}
             />
           }

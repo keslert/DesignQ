@@ -1,4 +1,5 @@
 // https://www.canva.com/templates/flyers/event/
+import chroma from 'chroma-js';
 
 import { default as ACarolForTheHolidaySeason } from './a-carol-for-the-holiday-season';
 import { default as AdorasSundayGarageSale } from './adoras-sunday-garage-sale';
@@ -149,8 +150,6 @@ import { default as WinsloughSummerFestival } from './winslough-summer-festival'
 import { default as WinterWonderfulApparelSale } from './winter-wonderful-apparel-sale';
 import { default as WitchWars } from './witch-wars';
 
-
-
 // https://www.smashingmagazine.com/2015/02/design-principles-dominance-dominant-points-hierarchy/
 
 // https://en.wikipedia.org/wiki/Bar_form: Flyers are like western music
@@ -162,17 +161,17 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  IsabelBeachBazaar,
+  RollinBackParty,
+  SupportSandiosFoodDrive,
   VolleyballTeamOpenTryouts,
   VolleyballVarsityTryouts,
-  IsabelBeachBazaar,
   FootballVarsityTryouts,
   BarkInThePark,
   BlastFromThePast,
   IsabelsBirthdayParty,
-  SupportSandiosFoodDrive,
   BeechtownLodgeSummerCamp,
   SaveTheEarth,
-  RollinBackParty,
   BeechtownBlockParty,
   GoldCheetahSurvivalCamp,
   
@@ -363,5 +362,16 @@ export function splitColor(deg, color, colorB) {
     deg,
     color: (typeof color === 'string') ? solidColor(color) : color,
     colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
+  }
+}
+
+export function darkenColor(color, amount=1) {
+  return {
+    ...color,
+    color: chroma(color.color).darken(amount).hex(),
+    colorTransform: {
+      paletteKey: color.paletteKey,
+      darken: amount,
+    }
   }
 }

@@ -61,6 +61,8 @@ function initSetup(template) {
     alignX: 'center',
     alignY: 'center',
   })
+  template.content._w = template.content.w;
+  template.content._h = template.content.h;
   normalize(template.content);
 
   withGroups(template, (group, groupType) => {
@@ -69,14 +71,14 @@ function initSetup(template) {
     group._computed.content = template.content;
     group._computed.template = template;
     initGroup(group, groupType);
-    group._w = template.content.w === 'auto' ? 'auto' : group.w;
-    group._h = template.content.h === 'auto' ? 'auto' : group.h;
   });
   if(template.content.header) {
     template.content.header._computed.next = template.content.body;
+    template.content.body._computed.prev = template.content.header;
   }
   if(template.content.footer) {
     template.content.body._computed.next = template.content.footer;
+    template.content.footer._computed.prev = template.content.body;
   }
 }
 
@@ -88,10 +90,12 @@ function initGroup(group, groupType) {
     type: groupType,
     alignX: 'center',
     alignY: 'center',
-    itemsAlignX: 'center',
-    itemsAlignY: 'center',
     textAlign: 'center',
   })
+  group._w = group._parent.w === 'auto' ? 'auto' : group.w;
+  group._h = group._parent.h === 'auto' ? 'auto' : group.h;
+  group.itemsAlignX = group.itemsAlignX || group.alignX;
+  group.itemsAlignY = group.itemsAlignY || group.alignY;
   
   normalize(group);
 

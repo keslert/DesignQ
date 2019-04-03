@@ -411,7 +411,7 @@ export function getOptimalBackgroundColor(surface, palette, preferences=[]) {
 	return {type: 'solid', color: palette[key], paletteKey: key};
 }
 
-function getOptimalForegroundColor(item, palette) {
+export function getOptimalForegroundColor(item, palette) {
 	const key = getBackdropPaletteKey({_parent: item});
 
 	const contrastKey = key === 'light' ? 'dark' : 'light';
