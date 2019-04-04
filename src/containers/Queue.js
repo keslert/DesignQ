@@ -283,6 +283,7 @@ function step(state, action, update={}) {
   _updateJourney(state, action, update);
   _updateHistory(state, action, update);
   _updateSecondary(state, action, update);
+  _updateSelection(state, action, update);
 
   return {...state, ...update}
 }
@@ -291,6 +292,7 @@ function setSecondary(state, action, update={}) {
   _updateHistory(state, action, update);
   _updateList(state, action, update);
   _updateSecondary(state, action, update);
+  _updateSelection(state, action, update);
 
   return {...state, ...update};
 }
@@ -356,6 +358,19 @@ function _updateSecondary(state, action, update) {
       console.log('NO MORE SECONDARY!')
     }
   }
+}
+
+function _updateSelection(state, action, update) {
+  if(!state.selection) return;
+  
+  const selectedFlyer = state.selection._root;
+  if(update.primary && selectedFlyer === state.primary) {
+    update.selection = getItemFromFlyer(state.selection, update.primary);
+  }
+  else if(update.secondary && selectedFlyer === state.secondary) {
+    update.selection = getItemFromFlyer(state.selection, update.secondary);
+  }
+
 }
 
 function updateSelected(state, action, update={}) {
