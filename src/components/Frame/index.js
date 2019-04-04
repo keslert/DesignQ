@@ -7,8 +7,8 @@ import Flyer from '../Flyer';
 
 function Frame({scale, flyer, selectable, ...props}) {
 
-  const width = flyer._computed.bb.w;
-  const height = flyer._computed.bb.h;
+  const width = flyer.size.w;
+  const height = flyer.size.h;
   const scaledHeight = height * scale;
   const scaledWidth = width * scale;
 

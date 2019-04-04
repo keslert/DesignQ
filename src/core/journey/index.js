@@ -63,7 +63,6 @@ export function getInitialJourney(type='basic') {
 // on step
 // on scroll
 // on select
-
 export function _updateJourney(state, action, update) {
   const stage = !action.stage 
     ? state.journey.stage
@@ -71,7 +70,7 @@ export function _updateJourney(state, action, update) {
   const primary = update.primary || state.primary;
   update.journey = {
     ...state.journey,
-    stage: getUpdatedStage(stage, primary, action),
+    stage: getUpdatedStage(stage, primary, action, state),
   };
   const j = update.journey;
   j.stages = mapReplace(state.journey.stages, stage, j.stage)
@@ -101,15 +100,29 @@ export function _updateJourney(state, action, update) {
   }
 }
 
-function getUpdatedStage(stage, primary, action) {
+function shouldTrigger(trigger, stage, prevStage) {
+  const isNewStage = stage.type !== prevStage.type || stage.focus !== prevStage.focus;
+
+  return (
+    isNewStage && 
+    trigger.when === 'onLeave' && 
+    prevStage.type === trigger.stage.type && 
+    prevStage.focus === trigger.stage.focus
+  )
+}
+
+
+function getUpdatedStage(stage, primary, action, state) {
   const isMasterDesign = stage.currentGenerationMasterDesign === primary;
   const isFromStage = primary.stage.type === stage.type && primary.stage.focus === stage.focus;
   const isFromGeneration = isFromStage && primary.stage.generationRound === stage.currentGenerationRound;
 
   if(action.forceGeneration || (!isMasterDesign && !isFromGeneration)) {
-    const flyers = generateFlyers(primary, stage, action);
+    const flyers = generateFlyers(primary, stage, {...action, state});
     flyers.forEach(f => {
-      produceFlyer(f)
+      if(!f.pending) {
+        produceFlyer(f)
+      }
       f.id = window.__flyerId++; // eslint-disable-line no-restricted-globals
       f.stage = {
         type: stage.type,

@@ -16,7 +16,7 @@ import { linkTemplate } from '../utils/template-utils';
 
 const placeholderImage = { src: '/placeholder.png', meta: {w: 500, h: 500}}
 
-export async function precompute() {
+export async function precompute(flyerSize) {
   if(process.env.NODE_ENV === 'production') {
     await new Promise((resolve, reject) => {
       WebFontLoader.load({...WebFontConfig, 
@@ -27,9 +27,10 @@ export async function precompute() {
     });
   }
   _.forEach(templates, t => {
+    t.size = flyerSize;
     linkTemplate(t);
     produceFlyer(t); 
-    const all = [...t._surfaces, t.decor, ...t._elements];
+    const all = [...t._containers, t.decor, ...t._elements];
     t.palette = buildTemplatePalette(t);
     // replace images
     // const defaultImageColor = {type: 'solid', color: t.palette.dark, paletteKey: 'dark'};

@@ -13,7 +13,8 @@ let elementId = 100000;
 export const CONTENT_GROUPS = ['header', 'footer', 'body'];
 
 // Line breaks have already been determined at this point.
-export function produceFlyer(template, size={w: 480, h:670}) {
+export function produceFlyer(template) {
+  const size = template.size;
   console.log(`Producing ${template.title}`);
 
   initSetup(template)

@@ -1,10 +1,7 @@
 import _ from 'lodash';
-import { Lexer, Tagger } from 'pos';
 import { copyTemplate } from '../utils/template-utils';
-import { mimicTemplateLayout, getElementStats } from './content';
+import { mimicTemplateLayout } from './content';
 import { withGroups } from '../producer';
-
-const tagger = new Tagger();
 
 export const basicStages = [
   {
@@ -88,42 +85,6 @@ function generateOrder(flyer, {templates}) {
   return flyers;
 }
 
-
-
-
-function getLineBreaks(text, options) {
-  const words = new Lexer().lex(text);
-  const tagged = tagger.tag(words)
-  // const tagged = [];
-
-  return tagged.reduce((res, [word, tag], i) => {
-    console.log(word, tag);
-    return res;
-  }, [''])
-}
-
-function subtract(a, b) {
-  const res = [];
-  for(let i = 0; i < a.length; i++) {
-    const index = _.findIndex(b, a[0]);
-    if(index === -1) {
-      res.push(a[0]);
-    } else {
-      b.splice(index, 1);
-    }
-  }
-  return res;
-}
-
-
-
-// var taggedWords = tagger.tag(words);
-// for (i in taggedWords) {
-//     var taggedWord = taggedWords[i];
-//     var word = taggedWord[0];
-//     var tag = taggedWord[1];
-//     console.log(word + " /" + tag);
-// }
 
 // Maybe 25 common layouts?
 // Half of those can be removed based on the content provided.

@@ -46,7 +46,7 @@ export function mimicTemplateLayout(flyer, template) {
   const t = groupTextContent(getTemplateTextTypes(template));
   
   const originalImages = _.chain([
-    ...flyer._surfaces,
+    ...flyer._containers,
     ...flyer._elements,
   ]).map(item => ([
     _.get(item, ['background', 'img']), 

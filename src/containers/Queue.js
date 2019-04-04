@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useState, useLayoutEffect } from 'react';
+import React, { useReducer, useMemo, useState, useLayoutEffect, useEffect } from 'react';
 import Canvas from '../components/Canvas';
 import Export from './Export';
 import NavBar from '../components/NavBar';
@@ -16,10 +16,20 @@ import {
   _updateJourney,
 } from '../core/journey';
 import { linkTemplate, copyTemplate, getItemFromFlyer } from '../core/utils/template-utils';
+import { resolveItem } from '../core/resolver';
 import set from 'lodash/set';
+import some from 'lodash/some';
+import difference from 'lodash/difference';
+import debounce from 'lodash/debounce';
+import { getKeyword } from '../core/utils/content-utils';
+import { fetchImageSearch } from '../core/fetch';
+import { processImage } from '../core/utils/color-utils';
+import loadState from '../core/data/load-states/ski'
 
 export const DispatchContext = React.createContext();
 export const SelectionContext = React.createContext();
+export const ImageContext = React.createContext();
+
 const loadStyle = {
   height: '100vh',
   fontSize: '24px',
@@ -28,10 +38,10 @@ const loadStyle = {
 
 function Queue(props) {
   const windowSize = useWindowSize();
-  const [loaded, setLoaded] = useState(false);
-  const [state, dispatch] = useReducer(reducer, {});
+  const [state, dispatch] = useReducer(reducer, {loading: true});
+
   const showExport = state.journey && state.journey.stage.type === 'export';
-  const showSidebar = !showExport && (state.showSidebar || state.selection);
+  const showSidebar = !showExport && state.selection;
   const canvasSize = useMemo(() => ({
     width: windowSize.width - (showSidebar ? 280 : 0),
     height: windowSize.height - 91 - 21, // - navbar - timeline
@@ -39,68 +49,86 @@ function Queue(props) {
 
   // Do initial loading
   useLayoutEffect(() => {
-    getInititialState(props).then(state => {
+    getInitialState(props, dispatch).then(state => {
       dispatch({type: 'INIT', state})
-      setLoaded(true);
     });
     return;
   }, [])
 
-  if(!loaded) {
+  useEffect(() => {
+    if(state.primary) {
+      console.log('primary changed: checking image search');
+      checkImageSearch(state, dispatch);
+    }
+  }, [state.primary])
+
+  useEffect(() => {
+    if(state.imageCache) {
+      patchImageFlyers(state, dispatch)
+    }
+  }, [state.imageCache]);
+
+  const imageContextValue = useMemo(() => ({
+    cache: state.imageCache,
+    lastSearch: state.lastImageSearch,
+  }), [state.imageCache, state.lastImageSearch]);
+
+
+  if(state.loading) {
     return <Flex style={loadStyle} alignItems="center" justifyContent="center">Loading Fonts...</Flex>
   }
 
-  
-
   return (
     <DispatchContext.Provider value={dispatch}>
-      <SelectionContext.Provider value={state.selection}>
-        <Flex bg="white" flexDirection="column" style={{height: '100%'}}>
-          <NavBar 
-            stage={state.journey.stage}
-            recommendedStage={state.journey.recommendedStage}
-          />
-          <Flex flex={1}>
-            {showSidebar && 
-              <Sidebar 
-                selection={state.selection}
-              />
-            }
-            <Flex flex={1} flexDirection="column">
-              <Box flex={1}>
-                {showExport
-                  ? <Export
-                      primary={state.primary}
-                    />
-                  : <Canvas
-                      size={canvasSize}
-                      stage={state.journey.stage}
-                      primary={state.primary}
-                      secondary={state.secondary}
-                      list={state.list}
-                      viewMode={state.viewMode}
-                    />
-                }
-              </Box>
+    <SelectionContext.Provider value={state.selection}>
+    <ImageContext.Provider value={imageContextValue}>
+      <Flex bg="white" flexDirection="column" style={{height: '100%'}}>
+        <NavBar 
+          stage={state.journey.stage}
+          recommendedStage={state.journey.recommendedStage}
+        />
+        <Flex flex={1}>
+          {showSidebar && 
+            <Sidebar 
+              selection={state.selection}
+            />
+          }
+          <Flex flex={1} flexDirection="column">
+            <Box flex={1}>
+              {showExport
+                ? <Export
+                    primary={state.primary}
+                  />
+                : <Canvas
+                    size={canvasSize}
+                    stage={state.journey.stage}
+                    primary={state.primary}
+                    secondary={state.secondary}
+                    list={state.list}
+                    viewMode={state.viewMode}
+                  />
+              }
+            </Box>
 
-              <Timeline
-                width={canvasSize.width}
-                selected={state.secondary}
-                items={state.history}
-              />
-            </Flex>
+            <Timeline
+              width={canvasSize.width}
+              selected={state.secondary}
+              items={state.history}
+            />
           </Flex>
-          <style>{`
-            body { 
-              overflow: hidden; 
-              height: 100vh; 
-            } 
-            #root { 
-              height: 100%; 
-            }
-          `}</style>
         </Flex>
-      </SelectionContext.Provider>
+        <style>{`
+          body { 
+            overflow: hidden; 
+            height: 100vh; 
+          } 
+          #root { 
+            height: 100%; 
+          }
+        `}</style>
+      </Flex>
+    </ImageContext.Provider>
+    </SelectionContext.Provider>
     </DispatchContext.Provider>
   );
 }
@@ -127,6 +155,10 @@ const reducer = (state, action) => {
 
     case 'SET_SECONDARY':
       return setSecondary(state, action);
+    case 'SET_HISTORY':
+      return {...state, history: action.history}
+    case 'UPDATE_JOURNEY_STAGE':
+      return updateJourneyStage(state, action);
     case 'SET_INDEX':
       return {...state, secondary: state.history[action.index], index: action.index}
     case 'SET_VIEW_MODE':
@@ -141,39 +173,57 @@ const reducer = (state, action) => {
       return {...state, selection: action.selection};
     case 'UPDATE_SELECTED':
       return updateSelected(state, action);
+    case 'INIT_IMAGE_SEARCH':
+      return initImageSearch(state, action);
+    case 'SET_IMAGE_CACHE_KEY':
+      return {...state, imageCache: {...state.imageCache,
+        [action.key]: {
+          timestamp: Date.now(),
+          value: action.value,
+        }
+      }}
+    case 'SET_LAST_IMAGE_SEARCH':
+      return {...state, lastImageSearch: action.search}
+    
     default:
       return state;
   }
 }
 
-async function getInititialState(props) {
+async function getInitialState(props, dispatch) {
   return new Promise(async (resolve, reject) => {
-    await precompute();
+    await precompute(props.flyerSize);
     const query = queryString.parse(props.location.search);
     
     const startFlyer = starters[query.starter] || (
-      process.env.NODE_ENV === 'production'  ? starters.empty : starters.simpleBody
+      process.env.NODE_ENV === 'production'  ? starters.empty : starters.empty
     )
     linkTemplate(startFlyer);
+    startFlyer.size = props.flyerSize;
     produceFlyer(startFlyer);
     startFlyer.id = 1;
     startFlyer.stage = {type: 'content', focus: 'text'};
 
     const stage = (query.stage && query.focus)
       ? {type: query.stage, focus: query.focus}
-      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'layout', focus: 'structure'}
+      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'content', focus: 'text'}
     const state = step({
       primary: startFlyer,
       secondary: null,
       list: [],
-      journey: getInitialJourney('basic'),
       history: [],
       viewMode: 'comparison',
-      showSidebar: false,
-      // selection: null,
-      selection: startFlyer,
+      journey: getInitialJourney('basic'),
+      imageCache: {},
+      lastImageSearch: {
+        text: '',
+        query: '',
+        images: [],
+      },
+      // selection: startFlyer,
       // selection: startFlyer.content.body.elements[1],
       // stage: {type: 'content', focus: 'text'},
+      ...(loadState || {}),
     }, {stage});
     
     resolve(state);
@@ -282,14 +332,6 @@ function _updateHistory(state, action, update) {
     state.secondary._inHistory = true;
     update.history = [...history, state.secondary];
   }
-
-  // TODO: If current generation not in history
-  // if(update.journey.step.currentGeneration.length > 1) {
-  //   update.history = [
-  //     ...(update.history || state.history), 
-  //     update.journey.step.currentGeneration,
-  //   ];
-  // }
 }
 
 function _updateList(state, action, update) {
@@ -306,7 +348,14 @@ function _updateSecondary(state, action, update) {
 
   if(!update.secondary) {
     const stage = update.journey.stage || state.journey.stage;
-    update.secondary = stage.currentGeneration[stage.currentGenerationIndex];
+    const secondary = stage.currentGeneration[stage.currentGenerationIndex];
+    if(secondary) {
+      update.secondary = secondary;
+    } 
+    else {
+      // TODO: What to do?
+      console.log('NO MORE SECONDARY!')
+    }
   }
 }
 
@@ -335,7 +384,138 @@ function updateSelected(state, action, update={}) {
     update.history = [...state.history, flyer];
   }
 
+  resolveItem(copySelected, selected, action.update);
+
   // TODO: Push all edits of the same type to an editHistory so we can undo/redo easily.
 
   return {...state, ...update};
+}
+
+const patchImageFlyers = debounce((state, dispatch) => {
+  const cache = state.imageCache;
+  
+  if(state.secondary.pending) {
+    const secondary = patchFlyer(state.secondary, 'image', cache);
+    dispatch({type: 'SET_SECONDARY', secondary});
+  }
+
+  const stage = state.journey.stages.find(s => s.type === 'color' && s.focus === 'background');
+  const stageUpdate = {
+    type: 'color',
+    focus: 'background',
+    currentGeneration: stage.currentGeneration.map(flyer => patchFlyer(flyer, 'image', cache)),
+  }
+
+  dispatch({type: 'UPDATE_JOURNEY_STAGE', stage: stageUpdate});
+
+  if(some(state.history, f => f.pending)) {
+    const history = state.history.map(flyer => patchFlyer(flyer, 'image', cache));
+    dispatch({type: 'SET_HISTORY', history});
+  }
+}, 300, {maxWait: 1000})
+
+function patchFlyer(flyer, type, cache) {
+  if(!flyer.pending) return flyer;
+
+  const resolved = flyer.pending.filter(p => p.type === type && cache[p.cacheKey]);
+  if(resolved.length) {
+    const copy = copyTemplate(flyer);
+    resolved.forEach(p => p.resolve(copy, cache[p.cacheKey].value))
+    copy.pending = difference(flyer.pending, resolved);
+    if(!copy.pending.length) {
+      delete copy.pending;
+      produceFlyer(copy);
+    }
+    return copy;
+  }
+
+  return flyer;
+}
+
+function checkImageSearch(state, dispatch) {
+  const search = state.lastImageSearch;
+  const text = state.primary._dominant && state.primary._dominant._text;
+  if(!search.userProvided && text && text !== search.text) {
+    const query = getKeyword(text);
+    if(query !== search.query) {
+      initImageSearch(state, {query, userProvided: false, dispatch});
+    }
+  }
+} 
+
+function initImageSearch(state, {query, userProvided, dispatch}) {
+  fetchImageSearch(query).then(res => {
+    const photos = res.data.photos;
+    photos.forEach(photo => {
+      if(!state.imageCache[photo.id]) {
+        processImage(photo.src.large, ({palette}) => {
+          dispatch({type: 'SET_IMAGE_CACHE_KEY', key: photo.id, value: {colors: palette}})
+        })
+      }
+    })
+
+    const search = {
+      query,
+      fetching: false,
+      userProvided,
+      images: photos.map(photo => ({
+        id: photo.id,
+        src: photo.src.large,
+        meta: {
+          w: photo.width,
+          h: photo.height,
+          photographer: photo.photographer,
+          photographer_url: photo.photographer_url,
+        },
+        width: photo.width,
+        height: photo.height,
+      })),
+    }
+
+    dispatch({type: 'SET_LAST_IMAGE_SEARCH', search})
+
+    // Update stage: color.background
+    const update = {};
+    const stage = state.journey.stages.find(s => s.type === 'color' && s.focus === 'background');
+    _updateJourney({...state, lastImageSearch: search}, {stage, forceGeneration: true}, update)
+
+    const stageUpdate = {
+      type: 'color',
+      focus: 'background',
+      currentGeneration: update.journey.stage.currentGeneration, 
+      currentGenerationIndex: 0,
+    }
+    dispatch({type: 'UPDATE_JOURNEY_STAGE', stage: stageUpdate});
+
+    // Update secondary if part of previous stage
+    if(
+      state.secondary.stage.type === 'color' &&
+      state.secondary.stage.focus === 'background'
+    ) {
+      dispatch({type: 'SET_SECONDARY', secondary: update.journey.stage.currentGeneration[0]});
+    }
+
+  })
+
+  return {...state, imageSearch: {
+    query,
+    fetching: true,
+    userProvided,
+    images: [],
+  }}
+}
+
+function updateJourneyStage(state, action) {
+  const stages = state.journey.stages.map(s => {
+    if(s.type === action.stage.type && s.focus === action.stage.focus) {
+      return {...s, ...action.stage}
+    }
+    return s;
+  })
+
+  return {...state, journey: {
+    ...state.journey,
+    stages,
+    stage: stages.find(s => s.type === state.journey.stage.type && s.focus === state.journey.stage.focus),
+  }}
 }

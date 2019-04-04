@@ -116,7 +116,7 @@ function TextElementPanel({element}) {
           bg="dark"
           color="white"
           value={WeightToText[element.font.weight]}
-          options={['Thin', 'Extra Light', 'Light', 'Regular', 'Medium', 'Semi Bold', 'Bold', 'Extra Bold', 'Heavy']}
+          options={DQ_FONTS[element.font.family].weights.map(w => WeightToText[w])}
           onChange={e => update({'font.weight': TextToWeight[e.target.value]})}
         />
       </Field>
@@ -144,7 +144,7 @@ function TextElementPanel({element}) {
           bg="dark"
           color="white"
           value={element.font.style}
-          options={["normal", "italic"]}
+          options={DQ_FONTS[element.font.family].styles}
           onChange={e => update({'font.style': e.target.value})}
         />
       </Field>

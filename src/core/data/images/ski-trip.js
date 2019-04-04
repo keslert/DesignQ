@@ -115,7 +115,7 @@ export const skiImages = [
     }
   },
   {
-    "src": "https://images.pexels.com/photos/356808/pexels-photo-356808.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    "src": "https://images.pexels.com/photos/356808/pexels-photo-356808.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
     "colors": [
       "rgb(254, 254, 254)",
       "rgb(147, 47, 47)",
@@ -133,8 +133,8 @@ export const skiImages = [
       "height": 100
     },
     "meta": {
-      "w": 1000,
-      "h": 667
+      "w": 940,
+      "h": 650
     }
   },
   {

@@ -4,8 +4,18 @@ import Surface from './Surface';
 import Element from './Element';
 import styled from 'styled-components';
 import Selectables from './Selectables';
+import MDSpinner from 'react-md-spinner';
 
 function Flyer({flyer, selectable}) {
+
+  if(flyer.pending) {
+    return (
+      <div style={pendingStyle}>
+        <MDSpinner singleColor="#262d3c" />
+      </div>
+    )
+  }
+
   
   const groups = [
     flyer.content.header,
@@ -55,3 +65,11 @@ const S_Flyer = styled.div({
   background: '#ffffff',
   fontVariant: 'normal',
 })
+
+const pendingStyle = {
+  display: 'flex', 
+  height: '100%', 
+  justifyContent: 'center', 
+  alignItems: 'center', 
+  flexDirection: 'column',
+}

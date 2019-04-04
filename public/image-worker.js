@@ -1,19 +1,30 @@
-// import RgbQuant from '../src/core/lib/rgbquant';
-// import smartcrop from 'smartcrop';
-importScripts('/_rgbquant.js', '/_smartcrop.js');
+importScripts('/_rgbquant.js');
 
 const NUM_COLORS = 6;
 self.addEventListener('message', e => { // eslint-disable-line no-restricted-globals
-  const { buf8Buffer, imgSize, cropSize } = e.data;
-  const buf32 = new Uint32Array(buf8Buffer);
-  const rgbQuant = new RgbQuant({colors: NUM_COLORS});
-  rgbQuant.sample(buf32, imgSize.width);
-  const palette = rgbQuant.palette(true, true).map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
+  if(e.data.src) {
+    fetch(e.data.src, { mode: 'cors' })
+    .then(response => response.blob())
+    .then(blob => createImageBitmap(blob))
+    .then(bitmap => {
+      self.postMessage({bitmap}, [bitmap]);
+      // const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+      // const ctx = canvas.getContext('bitmaprenderer');
+      // ctx.transferToImageBitmap(bitmap);
 
-  const crop = {} // smartcrop(buf8Buffer, imgSize, cropSize);
+      // self.postMessage({palette: ['green', 'red', 'blue']});
+    })
+  } else if(e.data.buf8Buffer) {
+    const { buf8Buffer, imgSize } = e.data;
+    const buf32 = new Uint32Array(buf8Buffer);
+    const rgbQuant = new RgbQuant({colors: NUM_COLORS});
+    rgbQuant.sample(buf32, imgSize.width);
+    const palette = rgbQuant.palette(true, true).map(([r,g,b]) => `rgb(${r}, ${g}, ${b})`);
 
+    self.postMessage({palette});
+  }
 
-  self.postMessage({palette, crop});
+  // self.postMessage({palette: ['green', 'red', 'blue']});
 })
 
 

@@ -1,11 +1,10 @@
 import axios from 'axios';
 import pexelsSki from '../data/images/pexels-ski';
 
-export function searchImages(query) {
-  if(true) {
+export function fetchImageSearch(query) {
+  if(false && process.env.NODE_ENV !== 'production') {
     return Promise.resolve({data: pexelsSki});
   }
-
 
   return axios({
     method: 'get',

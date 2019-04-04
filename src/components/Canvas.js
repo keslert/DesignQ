@@ -39,6 +39,7 @@ function Canvas(props) {
   const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED);
   const showUpgrade = showPrimary;
   const showCompare = showPrimary;
+  const showSearch = props.stage.type === 'color' && props.stage.focus === 'background';
   const showGridBtn = showPrimary && !haveList;
   const showMerge = false && showPrimary;
   
@@ -57,7 +58,7 @@ function Canvas(props) {
       <Flex flex={1} style={{height:"100%"}}>
         <Flex 
           flex={1} 
-          alignItems="center" 
+          alignItems="center"
           justifyContent="center" 
           onClick={clearSelection}
         >
@@ -70,8 +71,8 @@ function Canvas(props) {
             />
             <Frame 
               scale={scale} 
-              width={primary._computed.bb.w} 
-              height={primary._computed.bb.h} 
+              width={primary.size.w} 
+              height={primary.size.h} 
               flyer={primary}
               selectable={true}
             />
@@ -87,6 +88,7 @@ function Canvas(props) {
           showUpgrade={showUpgrade}
           showCompare={showCompare}
           showGrid={showGridBtn}
+          showSearch={showSearch}
           showMerge={showMerge}
           onCompareDown={() => setShowComparison(true)}
           onCompareUp={() => setShowComparison(false)}
@@ -109,8 +111,8 @@ function Canvas(props) {
               />
               <Frame 
                 scale={scale} 
-                width={secondary._computed.bb.w} 
-                height={secondary._computed.bb.h}
+                width={secondary.size.w}
+                height={secondary.size.h}
                 flyer={secondary}
                 selectable={true}
               />

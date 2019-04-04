@@ -1,44 +1,113 @@
 import get from 'lodash/get';
 import chroma from 'chroma-js';
-import { getOptimalBackgroundColor } from '../generator/color';
+import { getOptimalBackgroundColor, getOptimalForegroundColor } from '../generator/color';
+import { DQ_FONTS } from '../utils/text-utils';
+import { getDescendants } from '../utils/template-utils';
+import _ from 'lodash';
+import { darkenColor } from '../templates';
+import { getSolidColors } from '../utils/color-utils';
 
 // Validation mutates template
-export function resolveSurface(surface, oldSurface, update) {
-  // palettes
-  const palette = surface._root.palette;
+export function resolveItem(item, oldItem, update) {
 
-  if(!_.isEqual(palette, oldSurface._root.palette)) {
-    resolvePalette(palette)
-    resolvePaletteColors(surface._root, oldSurface._root);
+
+  // palette
+  // if(!_.isEqual(item._root.palette, oldItem._root.palette)) {
+    resolveTemplatePalette(item._root);
+    // resolvePaletteColors(item._root);
+  // }
+  
+  // font
+  if(item.lines && item.font.family !== oldItem.font.family) {
+    resolveFont(item.font)
   }
 
-  // surface background and foreground colors
-  resolveSurfaceColors(surface, oldSurface);
+  // background and foreground colors
+  if(!_.isEqual(item.background, oldItem.background)) {
+    resolveItemColors(item);
+  }
 }
 
-function resolveSurfaceColors(surface, oldSurface) {
-  [...template._surfaces, ...template._elements].forEach(surface => {
-    const color = get(surface, ['background', 'color']);
+function resolveItemColors(item) {
+  const palette = item._root.palette;
+  const descendants = getDescendants(item);
+  
+  descendants.forEach(item => {
+    const color = get(item, ['background', 'color']);
     if(color) {
-      resolveBackgroundColor(color, template.palette, surface);
+      item.background.color = getOptimalBackgroundColor(
+        item, 
+        palette, 
+        _.uniq([color.paletteKey, 'light', 'dark'])
+      )
+      // resolveBackgroundColor(color, palette, item);
+    }
+    if(item.color) {
+      item.color = getOptimalForegroundColor(
+        item, 
+        palette, 
+        _.uniq([item.color.paletteKey, 'dark', 'light'])
+      );
+      // item.color = resolveForegroundColor(item.color, palette, item);
     }
   })
 }
 
-function resolvePaletteColors(template, prevTemplate) {
+function resolveFont(font) {
+  const family = DQ_FONTS[font.family]
+  const weights = family.weights;
+  if(!weights.includes(font.weight)) {
+    font.weight = _.sortBy(weights, w => {
+      const diff = font.weight - w;
+      const multiplier = (font.weight < 400 && diff < 0) ? -10 : 1
+      return diff * multiplier;
+    })[0];
+  }
+
+  const styles = family.styles;
+  if(!styles.includes(font.style)) {
+    font.style = styles[0];
+  }
+}
+
+function resolveTemplatePalette(template) {
+  const palette = _.chain(template._all)
+    .flatMap(item => [item.color, get(item, ['background', 'color'])])
+    .filter()
+    .flatMap(getSolidColors)
+    .uniqBy(color => color.paletteKey)
+    .map(color => [color.paletteKey, color.color])
+    .fromPairs()
+    .value();
+
+  // Put back in the original colors
+  palette.dark = template.palette.dark;
+  palette.light = template.palette.light;
+  // _.forEach(template.palette, (color, paletteKey) => {
+  //   if(!paletteKey.startsWith('user-defined')) {
+  //     palette[paletteKey] = color;
+  //   }
+  // })
+  
+  template.palette = palette;
+}
+
+function resolvePaletteColors(template) {
   // TODO: Ensure the palette has adequate contrasting colors?
   // Repick darks and lights?
 
-  [...template._surfaces, ...template._elements].forEach(surface => {
+  [...template._containers, ...template._elements].forEach(surface => {
     const color = get(surface, ['background', 'color']);
     if(color) {
-      resolveBackgroundColor(color, template.palette, surface);
+      getOptimalBackgroundColor(surface, template.palette, _.uniq([color.paletteKey, 'light', 'dark']));
+      // resolveBackgroundColor(color, template.palette, surface);
     }
   })
   
   template._elements.forEach(el => {
     if(el.color) {
-      resolveForegroundColor(color, template.palette, el);
+      getOptimalForegroundColor(el, template.palette, _.uniq([el.color.paletteKey, 'light', 'dark']));
+      // resolveForegroundColor(el.color, template.palette, el);
     }
   })
 }
@@ -97,7 +166,7 @@ function resolveLinearColor(color, palette, surface, fallback) {
   }
 }
 
-function transformColor(colorStr, palette) {
+function transformColor(colorStr, transform) {
   if(transform.darken) {
     return chroma(colorStr).darken(transform.darken);
   }

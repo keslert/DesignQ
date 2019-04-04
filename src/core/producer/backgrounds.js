@@ -2,7 +2,7 @@ import { withGroups } from './';
 import _ from 'lodash';
 
 export function computeBackgrounds(template) {
-  template._surfaces.forEach(surface => {
+  template._containers.forEach(surface => {
     if(surface.background && surface.background.img) {
       computeBackground(template, surface, surface.background, 'background');
     }

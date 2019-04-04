@@ -1,8 +1,6 @@
 import _ from 'lodash';
 import { withGroups, produceFlyer } from '../producer';
 
-
-
 export function safeIncrement(obj, key, amount=1) {
   obj[key] = (obj[key] || 0) + amount;
 }
@@ -59,10 +57,16 @@ export function linkTemplate(template) {
   template._textElements = _.filter(template._elements, el => el.lines);
   template._dominant = _.find(template._textElements, el => el.type === 'dominant');
 
-  template._surfaces = [
+  // Note: This ordering is important
+  template._containers = [
     template,
     template.content,
     ...template._groups,
+  ]
+
+  template._all = [
+    ...template._containers,
+    ...template._elements,
   ]
 }
 
@@ -149,4 +153,13 @@ export function getItemFromFlyer(item, flyer) {
   
   const path = getPath(item).reverse().slice(1).join('.');
   return _.get(flyer, path);
+}
+
+export function getDescendants(item) {
+  switch(item.kind) {
+    case 'template': return [item.content, ...item._groups, ...item._elements];
+    case 'content': return [...item._root._groups, ...item._root._elements];
+    case 'group': return [...item.elements];
+    default: return [];
+  }
 }

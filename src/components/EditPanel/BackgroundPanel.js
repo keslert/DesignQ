@@ -13,6 +13,9 @@ import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
 import ImageSearch from '../../containers/ImageSearch';
 import { darkenColor } from '../../core/templates';
+import { findPaletteKey } from '../../core/utils/color-utils';
+
+let paletteKeyId = 1; 
 
 function BackgroundPanel({
   surface, 
@@ -178,6 +181,7 @@ function BackgroundPanel({
                 'color.type': 'solid',
                 'color.color': color.hex,
                 'color.alpha': color.rgb.a,
+                'color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
               })}
             />
           }
@@ -196,6 +200,7 @@ function BackgroundPanel({
                   'color.color.type': 'solid',
                   'color.color.color': color.hex,
                   'color.color.alpha': color.rgb.a,
+                  'color.color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
                 })}
               />
             }
@@ -211,6 +216,7 @@ function BackgroundPanel({
                   'color.colorB.type': 'solid',
                   'color.colorB.color': color.hex,
                   'color.colorB.alpha': color.rgb.a,
+                  'color.colorB.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
                 })}
               />
             }
@@ -314,7 +320,8 @@ const BackgroundTypeToText = {
 }
 
 const imagePickerStyle = {
-  borderRadius: '4px',
   maxHeight: 300,
   overflowY: 'auto',
+  marginTop: -20,
+  paddingTop: 24,
 }

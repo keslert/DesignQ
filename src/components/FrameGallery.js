@@ -43,9 +43,9 @@ function FrameGallery({flyers, size, selected}) {
   const dispatch = useContext(DispatchContext);
   const width = size.width - PL - PR;
   const columnWidth = width / COLUMNS
-  const bb = flyers[0] ? flyers[0]._computed.bb : {};
-  const scale = (columnWidth - FLYER_PX * 2) / bb.w;
-  const flyerHeight = bb.h * scale + FLYER_PY * 2 + TOOLBAR_HEIGHT;
+  const flyerSize = flyers[0] ? flyers[0].size : {};
+  const scale = (columnWidth - FLYER_PX * 2) / flyerSize.w;
+  const flyerHeight = flyerSize.h * scale + FLYER_PY * 2 + TOOLBAR_HEIGHT;
 
   useLayoutEffect(() => {
     const index = Math.max(flyers.indexOf(selected), 0)
