@@ -38,7 +38,7 @@ function ContentForm({flyer}) {
     console.log("UPDATING FLYER");
 
     const text = Object.entries(state)
-      .filter(([type, text]) => text.trim().length)
+      .filter(([type, text]) => text.trim().length && type !== 'keywords')
       .map(([type, text]) => ({text, type}))
 
     rootDispatch({
@@ -46,7 +46,7 @@ function ContentForm({flyer}) {
       stage: TEXT_STAGE, 
       skipHistory: true,
       forceGeneration: true,
-      userInput: {text}
+      userInput: {text, keywords: state.keywords}
     })
   }, [state])
 
@@ -64,16 +64,28 @@ function ContentForm({flyer}) {
   return (
     <Box px={4}>
       
-      <Box mb={3}>
-        <FormInput
-          label="Event Name"
-          value={state.eventName || ''}
-          placeholder="Required"
-          name="eventName"
-          hint="Hurrican Relief Food Drive, Varsity Volleyball Tryouts"
-          onChange={handleInputChange}
-        />
-      </Box>
+      <Flex mb={3} mx={-2}>
+        <Box width={1/2} px={2}>
+          <FormInput
+            label="Event Name"
+            value={state.eventName || ''}
+            placeholder="Required"
+            name="eventName"
+            hint="Hurrican Relief Food Drive, Varsity Volleyball Tryouts"
+            onChange={handleInputChange}
+          />
+        </Box>
+        <Box width={1/2} px={2}>
+          <FormInput
+            label="Keyword (for image searches)"
+            value={state.keywords || ''}
+            placeholder="Volleyball, Birthday Party"
+            name="keywords"
+            hint="What words should we use to search for images."
+            onChange={handleInputChange}
+          />
+        </Box>
+      </Flex>
 
       <Text
         textAlign="left"

@@ -31,6 +31,7 @@ function Gallery({flyerSize}) {
   const [ready, setReady] = useState(false);
   useLayoutEffect(() => {
     _.forEach(flyers, flyer => {
+      flyer.size = flyerSize;
       linkTemplate(flyer);
       produceFlyer(flyer, flyerSize);
     });

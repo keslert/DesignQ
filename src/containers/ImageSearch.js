@@ -23,7 +23,7 @@ function ImageSearch(props) {
             type: 'INIT_IMAGE_SEARCH', 
             dispatch, 
             query: value,
-            userProvided: true
+            userProvided: true,
           })}
         />
       </Box>

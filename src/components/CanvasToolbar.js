@@ -8,16 +8,17 @@ import MergeSvg from '../svg/merge.svg';
 import RocketshipSvg from '../svg/rocketship';
 import SearchInput from './SearchInput';
 import { Flex, Box, Text } from 'rebass';
-import { DispatchContext } from '../containers/Queue';
+import { DispatchContext, ImageContext } from '../containers/Queue';
 
 function CanvasToolbar(props) {
   const dispatch = useContext(DispatchContext);
+  const { lastSearch } = useContext(ImageContext);
 
   const handleSuggestion = useCallback(query => {
     dispatch({
       type: 'INIT_IMAGE_SEARCH',
       query,
-      userDefined: true,
+      userProvided: true,
       dispatch,
     })
   }, [])
@@ -45,7 +46,7 @@ function CanvasToolbar(props) {
               />
               <SearchInput
                 borderColor="dark"
-                defaultValue={"Ski trip"}
+                defaultValue={lastSearch.query}
                 onSubmit={handleSuggestion}
               />
             </Box>

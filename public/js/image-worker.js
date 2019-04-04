@@ -1,6 +1,7 @@
 importScripts('/_rgbquant.js');
 
 const NUM_COLORS = 6;
+
 self.addEventListener('message', e => { // eslint-disable-line no-restricted-globals
   if(e.data.src) {
     fetch(e.data.src, { mode: 'cors' })
@@ -27,6 +28,24 @@ self.addEventListener('message', e => { // eslint-disable-line no-restricted-glo
   // self.postMessage({palette: ['green', 'red', 'blue']});
 })
 
+
+
+// const child = new SuperWorkers.WorkerThread();
+
+// // child.exposeMethods({
+// //   getImage: getImage,
+// //   getPalette: ,
+// // })
+
+
+// async function getImage(src) {
+
+// fetch(e.data.src, { mode: 'cors' })
+//   .then(response => response.blob())
+//   .then(blob => createImageBitmap(blob))
+//   .then(bitmap => {
+//     self.postMessage({bitmap}, [bitmap]);
+// }
 
 // fetch(src, { mode: 'cors' })
 // .then(response => response.blob())

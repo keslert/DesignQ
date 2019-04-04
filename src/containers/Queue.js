@@ -57,7 +57,6 @@ function Queue(props) {
 
   useEffect(() => {
     if(state.primary) {
-      console.log('primary changed: checking image search');
       checkImageSearch(state, dispatch);
     }
   }, [state.primary])
@@ -434,9 +433,9 @@ function patchFlyer(flyer, type, cache) {
 
 function checkImageSearch(state, dispatch) {
   const search = state.lastImageSearch;
-  const text = state.primary._dominant && state.primary._dominant._text;
+  const text = state.primary.keywords;
   if(!search.userProvided && text && text !== search.text) {
-    const query = getKeyword(text);
+    const query = text; // getKeyword(text);
     if(query !== search.query) {
       initImageSearch(state, {query, userProvided: false, dispatch});
     }

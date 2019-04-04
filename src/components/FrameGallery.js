@@ -50,7 +50,7 @@ function FrameGallery({flyers, size, selected}) {
   useLayoutEffect(() => {
     const index = Math.max(flyers.indexOf(selected), 0)
     ref.current.scrollToItem({rowIndex: Math.floor(index / COLUMNS + .01), columnIndex: 0, align: 'center'})
-  }, [flyers])
+  }, [flyers[0]])
 
   const data = {
     scale,
