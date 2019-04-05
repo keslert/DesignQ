@@ -161,12 +161,12 @@ import { default as WitchWars } from './witch-wars';
 // avoid splitting adjective and noun (hallow harvest)
 
 export const templates = {
+  SupportSandiosFoodDrive,
   FootballVarsityTryouts,
   AnnualScienceFair,
   VolleyballVarsityTryouts,
   RollinBackParty,
   IsabelBeachBazaar,
-  SupportSandiosFoodDrive,
   VolleyballTeamOpenTryouts,
   BarkInThePark,
   BlastFromThePast,

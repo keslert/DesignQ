@@ -1,21 +1,14 @@
-import _ from 'lodash';
 import chroma from 'chroma-js';
 
-export function getBackgroundStyle(bg) {
-  if(!bg) return null;
+export function getBackgroundImgStyle(bg) {
+  if(!bg || !bg.img) return null;
 
-  const background = _.filter([
-    bg.img && `url(${bg.img.src}) no-repeat`,
-  
-  ]).join(',');
-
-  const c = bg.img ? bg.img._computed : {};
+  const c = bg.img._computed;
   return {
-    background,
+    backgroundImage: `url('${bg.img.src}')`,
     backgroundSize: `${c.w}px ${c.h}px`,
-    backgroundPositionX: `${-c.x}px`,
-    backgroundPositionY: `${-c.y}px`,
-    borderRadius: bg.borderRadius ? bg.borderRadius + 'px' : null,
+    backgroundPosition: `${-c.x}px ${-c.y}px`,
+    backgroundRepeat: 'no-repeat',
   };
 }
 

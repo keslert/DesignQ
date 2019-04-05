@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBackgroundStyle, resolveColor } from '../../core/utils/render-utils';
+import { getBackgroundImgStyle, resolveColor } from '../../core/utils/render-utils';
 
 function Background({background, bb, style: propStyle={}}) {
 
@@ -9,7 +9,8 @@ function Background({background, bb, style: propStyle={}}) {
     top: bb.t + 'px',
     height: bb.h + 'px',
     width: bb.w + 'px',
-    ...getBackgroundStyle(background),
+    ...getBackgroundImgStyle(background),
+    borderRadius: background.borderRadius ? (background.borderRadius + 'px') : null,
     // background: '#00000033'
     ...propStyle,
   }

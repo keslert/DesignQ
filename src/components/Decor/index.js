@@ -1,6 +1,5 @@
 import React from 'react';
-import Border from '../Border';
-import { getBackgroundStyle, getClipPath } from '../../core/utils/render-utils';
+import { getClipPath } from '../../core/utils/render-utils';
 import Background from '../Background';
 
 function Decor({decor, bb}) {
@@ -23,7 +22,6 @@ function Decor({decor, bb}) {
   // const c = decor._computed;
   // const style = {
   //   position: 'absolute',
-  //   ...getBackgroundStyle(decor.background),
   //   top: 0,
   //   left: 0,
   //   height: '100%',

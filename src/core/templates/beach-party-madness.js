@@ -62,8 +62,8 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#f7f1af'),
-},
+            color: solidColor('#f7f1af'),
+          },
           w: .25,
           h: 8,
         },

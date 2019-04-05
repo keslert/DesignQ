@@ -84,7 +84,7 @@ function BackgroundPanel({
         <React.Fragment>
           <Box mt={-3} mb={3}>
             <ImageCrop
-              key={surface._root.id + img.src}
+              key={(surface._root.editId || surface._root.id) + img.src}
               img={img}
               size={bb || surface._computed.bb}
               onComplete={(crop, pixelCrop) => {

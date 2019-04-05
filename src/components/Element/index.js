@@ -1,8 +1,6 @@
 import React from 'react';
-import ImageElement from '../Element/ImageElement';
 import TextElement from '../Element/TextElement';
 import BarElement from '../Element/BarElement';
-import { getBackgroundStyle } from '../../core/utils/render-utils';
 import Surface from '../Surface';
 
 function Element({element}) {

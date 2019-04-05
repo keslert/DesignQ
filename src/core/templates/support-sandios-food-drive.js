@@ -9,7 +9,7 @@ export default {
     color: solidColor('#fff1d9'),
   },
   decor: {
-    t: .5,
+    t: .75,
     background: {
       img: {
         src: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBackgroundStyle } from '../../core/utils/render-utils';
+import { getBackgroundImgStyle } from '../../core/utils/render-utils';
 import SVG from 'react-inlinesvg';
 
 function ImageElement({element}) {
@@ -7,7 +7,7 @@ function ImageElement({element}) {
   const style = {
     width: '100%',
     height: '100%',
-    ...getBackgroundStyle(element),
+    // ...getBackgroundImgStyle(element),
     flexShrink: 0,
   }
 

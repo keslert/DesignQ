@@ -20,7 +20,7 @@ function DecorPanel({surface, decor={}, path}) {
         typeLabel="Decor"
         surface={surface}
         path={path + 'background.'}
-        bb={decor._computed.bb}
+        bb={decor._computed && decor._computed.bb}
         background={decor.background}
         bgOptions={['none', 'image']}
       />
@@ -33,7 +33,7 @@ function DecorPanel({surface, decor={}, path}) {
             children={
               <DirectionalInput
                 name="width"
-                max={.75}
+                max={1}
                 min={0}
                 step={.01}
                 l={decor.l}
@@ -55,7 +55,7 @@ function DecorPanel({surface, decor={}, path}) {
             children={
               <DirectionalInput
                 name="width"
-                max={.75}
+                max={1}
                 min={0}
                 step={.01}
                 l={decor.lOffset}
