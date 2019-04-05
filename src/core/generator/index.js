@@ -13,8 +13,7 @@ import { stages as exportStages } from './export';
 import { templates } from '../templates';
 import { produceFlyer } from '../producer';
 import { linkTemplate } from '../utils/template-utils';
-
-const placeholderImage = { src: '/placeholder.png', meta: {w: 500, h: 500}}
+import { PLACEHOLDER_IMAGE } from '../utils/color-utils';
 
 export async function precompute(flyerSize) {
   if(process.env.NODE_ENV === 'production') {
@@ -36,7 +35,7 @@ export async function precompute(flyerSize) {
     t._all.forEach(item => {
       const img = _.get(item, ['background', 'img'])
       if(img) {
-        item.background.img = placeholderImage;
+        item.background.img = PLACEHOLDER_IMAGE;
 
         if(item.background.color) {
           const color = item.background.color;

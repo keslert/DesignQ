@@ -163,12 +163,6 @@ export function mimicTemplateLayout(flyer, template) {
     const tGroup = template.content[groupType]
     const tImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
     tImages.forEach(el => {
-      // el.background = {
-      //   img: {
-      //     src: '/placeholder.png',
-      //     meta: {w: 500, h: 500},
-      //   }
-      // }
       transferSurface(el, el, flyer, template);
 
       if(el._computed.isFirst) {

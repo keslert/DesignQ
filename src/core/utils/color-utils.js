@@ -1,6 +1,14 @@
 import findKey from 'lodash/findKey';
 import chroma from 'chroma-js';
 
+export const PLACEHOLDER_IMAGE = { 
+  src: '/placeholder.png', 
+  meta: {h: 500, w: 500}, 
+  zoom: 1, 
+  x: 0.5, 
+  y: 0.5,
+}
+
 export function findPaletteKey(colorStr, palette) {
   return findKey(palette, v => v === colorStr);
 }

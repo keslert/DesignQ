@@ -4,7 +4,7 @@ import { skiImages } from '../data/images/ski-trip';
 import { solidColor, linear } from '../templates';
 import chroma from 'chroma-js';
 import get from 'lodash/get';
-import { buildPaletteColor, getContrast, fixAlpha } from '../utils/color-utils';
+import { buildPaletteColor, getContrast, fixAlpha, PLACEHOLDER_IMAGE } from '../utils/color-utils';
 
 export const basicStages = [
 	{
@@ -48,7 +48,7 @@ function generateBackground(flyer, {templates, state}) {
 	const flyer_ = copyTemplate(flyer);
 	const prominantSurface = getProminantImageSurface(flyer_) || flyer_;
 	if(!prominantSurface.background.img) {
-		prominantSurface.background.img = placeholderImage;
+		prominantSurface.background.img = PLACEHOLDER_IMAGE;
 		delete prominantSurface.background.color;
 	}
 
@@ -250,7 +250,7 @@ function computeBackgroundStats(templates) {
 
 
 
-const placeholderImage = { src: '/placeholder.png', meta: {h: 500, w: 500}}
+
 
 export function transferColors(flyer, template, extraImages=[]) {
 	
@@ -265,7 +265,7 @@ export function transferColors(flyer, template, extraImages=[]) {
 	flyer._containers.forEach((fSurface, i) => {
 		const tSurface = template._containers[i];
 		if(tSurface.background && tSurface.background.img) {
-			const img = images[imageIndex++] || placeholderImage;
+			const img = images[imageIndex++] || PLACEHOLDER_IMAGE;
 
 			// fSurface.background = _.defaults(fSurface.background, tSurface.background);
 			fSurface.background = fSurface.background || {};

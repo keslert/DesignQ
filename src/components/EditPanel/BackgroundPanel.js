@@ -13,7 +13,7 @@ import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
 import ImageSearch from '../../containers/ImageSearch';
 import { darkenColor } from '../../core/templates';
-import { findPaletteKey } from '../../core/utils/color-utils';
+import { findPaletteKey, PLACEHOLDER_IMAGE } from '../../core/utils/color-utils';
 
 let paletteKeyId = 1; 
 
@@ -68,7 +68,7 @@ function BackgroundPanel({
                   o.color = getGradient(surface, background, surface._root.palette);
                 }
                 else if(type === 'image') {
-                  o.img = img || background.prevImg || placeholderImg;
+                  o.img = img || background.prevImg || PLACEHOLDER_IMAGE;
                   o._color = background.color;
                   o.color = null;
                 }
@@ -247,16 +247,6 @@ function BackgroundPanel({
 }
 
 export default BackgroundPanel;
-
-
-const placeholderImg = { 
-  src: '/placeholder.png', 
-  meta: {h: 500, w: 500},
-  zoom: 1,
-  x: 0.5,
-  y: 0.5,
-  colors: [],
-}
 
 function getSolid(surface, bg, palette, defaultAlpha=1) {
   const type = 'solid';
