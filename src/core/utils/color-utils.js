@@ -22,6 +22,13 @@ export function getSolidColors(color) {
   }
 }
 
+const ALPHA_THRESHOLD = 0.9;
+export function fixAlpha(color, fixedAlpha=0.5) {
+  if(color && (!color.alpha || color.alpha > ALPHA_THRESHOLD)) {
+    color.alpha = fixedAlpha;
+  }
+}
+
 
 
 // const sp = new SuperWorkers.MainThread({

@@ -53,7 +53,7 @@ function CanvasButton({SvgComponent, label, onClick, footer, mb, ...props}) {
         btr={true} 
         bbr={!footer} 
         mb={footer ? 0 : mb}
-        onClick={!props.disabled && onClick}
+        onClick={props.disabled ? null : onClick}
       >
         <Flex flex={1} alignItems="center">
           {SvgComponent}

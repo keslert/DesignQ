@@ -352,13 +352,7 @@ function _updateSecondary(state, action, update) {
   if(!update.secondary) {
     const stage = update.journey.stage || state.journey.stage;
     const secondary = stage.currentGeneration[stage.currentGenerationIndex];
-    // if(secondary) {
-      update.secondary = secondary;
-    // } 
-    // else {
-    //   // TODO: What to do?
-    //   console.log('NO MORE SECONDARY!')
-    // }
+    update.secondary = secondary;
   }
 }
 
@@ -366,7 +360,7 @@ function _updateSelection(state, action, update) {
   if(!state.selection) return;
 
   const selectedFlyer = state.selection._root;
-  if(update.primary && selectedFlyer === state.primary) {
+  if(update.primary) {
     update.selection = getItemFromFlyer(state.selection, update.primary);
   }
   else if(update.secondary && selectedFlyer === state.secondary) {
@@ -385,19 +379,27 @@ function updateSelected(state, action, update={}) {
 
   const copySelected = getItemFromFlyer(selected, copy);
   Object.entries(action.update).forEach(([path, value]) => {
-    set(copySelected, path, value);
+    if(path.includes('_root')) {
+      // HACK: This feels wrong, but... components don't have full control of the path.
+      const _path = path.split('_root')[1];
+      set(copy, _path, value);
+    }
+    else {
+      set(copySelected, path, value);
+    }
   })
-
-  const key = flyer === state.primary ? 'primary' : 'secondary';
-  update[key] = copy
-  update.selection = copySelected;
   produceFlyer(copy);
 
-  // Update history
-  const lastFlyer = state.history[state.history.length - 1] || {};
-  if(copy.editId === undefined || lastFlyer.id !== copy.editId) {
-    copy.editId = flyer.id;
-    update.history = [...state.history, flyer];
+  update.secondary = copy;
+  update.selection = copySelected;
+  
+  if(!copy.editId || copy.editId !== state.primary.id) {
+    copy.editId = state.primary.id;
+    _updateHistory(state, {}, update);
+  }
+
+  if(false) {
+    update.list = [copy, copy];
   }
 
   resolveItem(copySelected, selected, action.update);

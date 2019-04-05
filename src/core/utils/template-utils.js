@@ -64,15 +64,23 @@ export function linkTemplate(template) {
     ...template._groups,
   ]
 
+  template._decors = _.filter(_.map(template._containers, 'decor'))
+
   template._all = [
     ...template._containers,
     ...template._elements,
+    ...template._decors,
   ]
 }
 
 function linkSurfaceProperties(item) {
   item._self = item;
-  item.decor && (item.decor._parent = item)
+  if(item.decor) {
+    item.decor._kind = 'decor';
+    item.decor._root = item._root;
+    item.decor._parent = item;
+    item.decor._key = 'decor';
+  }
   item.border && (item.border._parent = item)
 }
 

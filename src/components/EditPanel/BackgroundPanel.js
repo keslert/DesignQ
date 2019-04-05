@@ -18,7 +18,8 @@ import { findPaletteKey } from '../../core/utils/color-utils';
 let paletteKeyId = 1; 
 
 function BackgroundPanel({
-  surface, 
+  surface,
+  bb,
   background={}, 
   path, 
   type,
@@ -85,7 +86,7 @@ function BackgroundPanel({
             <ImageCrop
               key={surface._root.id + img.src}
               img={img}
-              size={surface._computed.bb}
+              size={bb || surface._computed.bb}
               onComplete={(crop, pixelCrop) => {
                 const zoom = (Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100) || 1;
                 const x = (Math.round(crop.x / (100 - crop.width) * 100) / 100) || 0;
@@ -117,7 +118,6 @@ function BackgroundPanel({
             <Box mb={3}>
               <ImageSearch
                 galleryStyle={imagePickerStyle}
-                size={surface._computed.bb}
                 onSelect={(e, {photo}) => {
                   const o = {};
                   const color = background.color;

@@ -40,7 +40,7 @@ function generateStructure(flyer, {history, templates, multiple}) {
     flyers.sort((a, b) => a._score < b._score ? 1 : -1);
   }
 
-  return flyers.slice(0, 4);
+  return flyers;
 }
 
 function generateOrder(flyer, {templates}) {

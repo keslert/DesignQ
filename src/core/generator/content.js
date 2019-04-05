@@ -46,8 +46,6 @@ export function mimicTemplateLayout(flyer, template) {
     _.get(item, ['decor', 'background', 'img'])
   ])).flatten().filter().value();
 
-
-
   f.all.forEach(s => s._match = null);
   const groupTypes = template._groups.map(g => g.type);
   const contentStats = getContentStats();

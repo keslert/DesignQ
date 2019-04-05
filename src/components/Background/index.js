@@ -1,7 +1,7 @@
 import React from 'react';
 import { getBackgroundStyle, resolveColor } from '../../core/utils/render-utils';
 
-function Background({background, bb}) {
+function Background({background, bb, style: propStyle={}}) {
 
   const style = {
     position: 'absolute',
@@ -11,6 +11,7 @@ function Background({background, bb}) {
     width: bb.w + 'px',
     ...getBackgroundStyle(background),
     // background: '#00000033'
+    ...propStyle,
   }
 
   const colorStyle = background.color && {
@@ -20,6 +21,7 @@ function Background({background, bb}) {
     height: bb.h + 'px',
     width: bb.w + 'px',
     background: resolveColor(background.color),
+    ...propStyle,
   }
 
   return (

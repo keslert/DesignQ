@@ -4,7 +4,7 @@ import { skiImages } from '../data/images/ski-trip';
 import { solidColor, linear } from '../templates';
 import chroma from 'chroma-js';
 import get from 'lodash/get';
-import { buildPaletteColor, getContrast } from '../utils/color-utils';
+import { buildPaletteColor, getContrast, fixAlpha } from '../utils/color-utils';
 
 export const basicStages = [
 	{
@@ -270,6 +270,7 @@ export function transferColors(flyer, template, extraImages=[]) {
 			// fSurface.background = _.defaults(fSurface.background, tSurface.background);
 			fSurface.background = fSurface.background || {};
 			fSurface.background.img = img;
+			fixAlpha(fSurface.background.color);
 		} 
 		else if(fSurface.background) {
 			delete fSurface.background.img;
@@ -285,15 +286,11 @@ export function transferColors(flyer, template, extraImages=[]) {
 		}
 		else if(flyer.decor && flyer.decor.background) {
 			flyer.decor.background.img = images[0];
+			fixAlpha(flyer.decor.background.color);
 		}
 		else {
-			const origAlpha = get(flyer, ['background', 'color', 'alpha']);
 			flyer.background = {...template.background, img: images[0]}
-			if(flyer.background.color) {
-				if(!origAlpha || origAlpha === 1) {
-					flyer.background.color.alpha = origAlpha === 1 ? 0.5 : origAlpha || 0.5;
-				}
-			}
+			fixAlpha(flyer.background.color)
 		}
 	}
 
@@ -414,7 +411,7 @@ export function getOptimalBackgroundColor(surface, palette, preferences=[]) {
 	if(preferences[0] === 'transparent') {
 		return {type: 'transparent', color: 'rgba(0,0,0,0)', paletteKey: 'transparent'}
 	} else if(surface.background && surface.background.img) {
-		return {type: 'solid', color: palette.dark, paletteKey: 'dark'};
+		return buildPaletteColor('dark', palette, get(surface, ['background', 'color', 'alpha']));
 	}
 
 	let key = _.find(preferences, pref => {

@@ -16,10 +16,10 @@ export default {
         meta: { w: 800, h: 1422 },
         w: 421,
         h: 729,
+        zoom: 1,
+        x: 0.6
       },
-      color: solidColor('#400D2A'),
-      zoom: .8,
-      x: 2,
+      // color: solidColor('#400D2A', .5),
     }
   },
   content: {

@@ -391,6 +391,8 @@ export const DQ_FONTS = {
     descender: 0.05,
   },
   'Rubik One': {
+    weights: [400],
+    styles: ['normal'],
     file: 'custom',
     ascender: -0.11,
     xHeight: -0.29,

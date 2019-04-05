@@ -6,19 +6,24 @@ export default {
   tags: ['event', 'flyer', 'food-drive'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-cream-and-purple-icons-food-drive-flyer-MAC5t38U8lM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
-    img: {
-      src: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-      meta: { w: 800, h: 533 },
-      x: 0,
-      y: 0,
-      zoom: 1,
-    },
-    color: splitColor(0, 'transparent', '#fff1d9'),
-    // backgroundBlendMode: 'lighten',
+    color: solidColor('#fff1d9'),
   },
+  decor: {
+    t: .5,
+    background: {
+      img: {
+        src: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        meta: { w: 800, h: 533 },
+        x: 0,
+        y: 0,
+        zoom: 1,
+      },
+    }
+  },
+  pr: 2,
   content: {
+    bleed: { t: 1 },
     body: {
-      w: 'auto',
       bleed: { l: 1 },
       background: { 
         color: solidColor('#251a4b'),

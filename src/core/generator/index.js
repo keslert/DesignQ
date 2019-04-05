@@ -30,11 +30,10 @@ export async function precompute(flyerSize) {
     t.size = flyerSize;
     linkTemplate(t);
     produceFlyer(t); 
-    const all = [...t._containers, t.decor, ...t._elements];
     t.palette = buildTemplatePalette(t);
     // replace images
     // const defaultImageColor = {type: 'solid', color: t.palette.dark, paletteKey: 'dark'};
-    all.forEach(item => {
+    t._all.forEach(item => {
       const img = _.get(item, ['background', 'img'])
       if(img) {
         item.background.img = placeholderImage;
@@ -54,7 +53,7 @@ export async function precompute(flyerSize) {
     })
     
     // connect colors to palette
-    all.forEach(item => {
+    t._all.forEach(item => {
       const colors = _.filter([
         _.get(item, ['background', 'color']),
         _.get(item, ['decor', 'background', 'color']),

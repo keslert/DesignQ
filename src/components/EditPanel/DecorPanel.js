@@ -9,8 +9,8 @@ import { DispatchContext } from '../../containers/Queue';
 function DecorPanel({surface, decor={}, path}) {
   const rootDispatch = useContext(DispatchContext)
   const update = useCallback(update => rootDispatch({
-      type: 'UPDATE_SELECTED', 
-      update: mapKeys(update, (v, k) => path + k),
+    type: 'UPDATE_SELECTED', 
+    update: mapKeys(update, (v, k) => path + k),
   }), []);
 
 
@@ -20,6 +20,7 @@ function DecorPanel({surface, decor={}, path}) {
         typeLabel="Decor"
         surface={surface}
         path={path + 'background.'}
+        bb={decor._computed.bb}
         background={decor.background}
         bgOptions={['none', 'image']}
       />
@@ -32,7 +33,7 @@ function DecorPanel({surface, decor={}, path}) {
             children={
               <DirectionalInput
                 name="width"
-                max={.5}
+                max={.75}
                 min={0}
                 step={.01}
                 l={decor.l}
@@ -54,7 +55,7 @@ function DecorPanel({surface, decor={}, path}) {
             children={
               <DirectionalInput
                 name="width"
-                max={.5}
+                max={.75}
                 min={0}
                 step={.01}
                 l={decor.lOffset}
