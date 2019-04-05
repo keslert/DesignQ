@@ -4,7 +4,7 @@ import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
 export const basicStages = [
 	{ 
 		type: "decoration", 
-		focus: "decoration", 
+		key: 'decoration',
 		label: 'Decoration',
 		satisfied: () => true,
 		generate: flyer => [copyTemplate(flyer)],

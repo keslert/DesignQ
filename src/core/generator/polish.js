@@ -7,9 +7,9 @@ import { safeIncrement, mode, copyTemplate } from '../utils/template-utils';
 
 export const basicStages = [
 	{ 
-		type: "polish", 
-		focus: "filter", 
-		label: 'Filter',
+		type: 'polish',
+		key: "polish.overlay", 
+		label: 'Overlay',
 		satisfied: () => true,
 		generate: flyer => [copyTemplate(flyer)],
 	},

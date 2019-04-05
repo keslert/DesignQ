@@ -5,26 +5,18 @@ import { getElementColor, transferSurface, transferColors } from './color';
 
 export const basicStages = [
   {
-    type: 'content', 
-    focus: 'text',
+    type: 'content',
+    key: 'content.text', 
     label: 'Text',
     generate: generateContent,
     satisfied: f => {
-      return _.some(f.content.body.elements, el => el.type === 'dominant')
+      return !!f._dominant;
     }
   },
 ]
 
 export const advancedStages = [];
-export const optionalStages = [
-  // {
-  //   type: 'content', 
-  //   focus: 'media',
-  //   label: 'Images',
-  //   generate: generateContent,
-  //   satisfied: () => true
-  // },
-]
+export const optionalStages = [];
 
 export const stages = [
   ...basicStages,

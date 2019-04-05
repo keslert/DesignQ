@@ -21,7 +21,7 @@ const JOURNEYS = {
     ...basicDecorationStages,
     ...basicPolishStages,
     ...basicExportStages,
-  ].map(stage => ({type: stage.type, focus: stage.focus}))
+  ].map(stage => ({type: stage.type, key: stage.key}))
 }
 
 export function getInitialJourney(type='basic') {
@@ -36,7 +36,7 @@ export function getInitialJourney(type='basic') {
     ...STAGES.export,
   ].map((stage, i) => ({
     type: stage.type, 
-    focus: stage.focus,
+    key: stage.key,
     satisfied: stage.satisfied,
     progress: ProgressTypes.UNEXPLORED, // updated using designsViewed and confidence
     highestViewedIndex: 0,
@@ -46,9 +46,7 @@ export function getInitialJourney(type='basic') {
     currentGenerationRound: 0,
     exhausted: false, // currentGenerationIndex >= currentGeneration.length
     index: i,
-    inJourney: _.some(journey, s => (
-      stage.type === s.type && stage.focus === s.focus
-    )),
+    inJourney: _.some(journey, s => stage.key === s.key),
   }))
 
   return {
@@ -59,14 +57,10 @@ export function getInitialJourney(type='basic') {
   }
 }
 
-// Update current stage metrics
-// on step
-// on scroll
-// on select
 export function _updateJourney(state, action, update) {
   const stage = !action.stage 
     ? state.journey.stage
-    : getStage(state.journey.stages, action.stage) 
+    : getStage(state.journey.stages, action.stage)
   const primary = update.primary || state.primary;
   update.journey = {
     ...state.journey,
@@ -87,12 +81,13 @@ export function _updateJourney(state, action, update) {
     ))
   }
 
-  if(action.advanceStage || (j.stage.exhausted && canAutomaticallyProceed(state))) {
+  // Turned off automatic stage proceeding for now...
+  if(action.advanceStage || (false && j.stage.exhausted && canAutomaticallyProceed(state))) {
     j.stage.progress = getMaxProgress(j.stage.progress, ProgressTypes.USER_SKIPPED);
     const nextRecommended = getRecommendedStage(j.stages, primary); // Necessary when recommended is the same as updatedStage
 
     if(nextRecommended) {
-      const updatedRecommended = getUpdatedStage(nextRecommended, primary, {stage: nextRecommended});
+      const updatedRecommended = getUpdatedStage(nextRecommended, primary, {stage: nextRecommended}, state);
       j.stage = updatedRecommended;
       j.stages = mapReplace(j.stages, nextRecommended, updatedRecommended);
       j.recommendedStage = updatedRecommended;
@@ -100,21 +95,9 @@ export function _updateJourney(state, action, update) {
   }
 }
 
-function shouldTrigger(trigger, stage, prevStage) {
-  const isNewStage = stage.type !== prevStage.type || stage.focus !== prevStage.focus;
-
-  return (
-    isNewStage && 
-    trigger.when === 'onLeave' && 
-    prevStage.type === trigger.stage.type && 
-    prevStage.focus === trigger.stage.focus
-  )
-}
-
-
 function getUpdatedStage(stage, primary, action, state) {
   const isMasterDesign = stage.currentGenerationMasterDesign === primary;
-  const isFromStage = primary.stage.type === stage.type && primary.stage.focus === stage.focus;
+  const isFromStage = primary.stage.key === stage.key;
   const isFromGeneration = isFromStage && primary.stage.generationRound === stage.currentGenerationRound;
 
   if(action.forceGeneration || (!isMasterDesign && !isFromGeneration)) {
@@ -126,7 +109,7 @@ function getUpdatedStage(stage, primary, action, state) {
       f.id = window.__flyerId++; // eslint-disable-line no-restricted-globals
       f.stage = {
         type: stage.type,
-        focus: stage.focus,
+        key: stage.key,
         generationRound: stage.currentGenerationRound + 1,
       }
     })
@@ -153,7 +136,7 @@ function getUpdatedStage(stage, primary, action, state) {
     const highest = Math.max(stage.highestViewedIndex, index);
     return {
       ...stage,
-      currentGenerationIndex: Math.min(stage.currentGeneration.length - 1, index),
+      currentGenerationIndex: Math.min(stage.currentGeneration.length, index),
       highestViewedIndex: highest,
       exhausted: index >= stage.currentGeneration.length,
       progress: getProgress(stage, highest),
@@ -207,8 +190,8 @@ function getRecommendedStage(stages, primary) {
   return stage;
 }
 
-function getStage(stages, {type, focus}) {
-  return _.find(stages, s => s.type === type && s.focus === focus);
+function getStage(stages, {key}) {
+  return _.find(stages, s => s.key === key);
 }
 
 function canAutomaticallyProceed(state) {

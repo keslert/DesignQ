@@ -8,23 +8,23 @@ import { buildPaletteColor, getContrast } from '../utils/color-utils';
 
 export const basicStages = [
 	{
-		type: "color", 
-		focus: "background", 
+		type: 'color',
+		key: "color.background", 
 		label: 'Background',
 		satisfied: () => true,
 		generate: generateBackground,
 	},
 	{
-		type: "color", 
-		focus: "filters", 
+		type: 'color',
+		key: "color.filters", 
 		label: 'Filters',
 		relevant: flyer => !!getProminantImageSurface(flyer),
 		satisfied: () => true,
 		generate: generateFilters,
 	},
-	{ 
-		type: "color", 
-		focus: "foreground", 
+	{
+		type: 'color',
+		key: "color.foreground", 
 		label: 'Foreground',
 		satisfied: () => true,
 		generate: generateForeground,
@@ -55,7 +55,7 @@ function generateBackground(flyer, {templates, state}) {
 	const generated = [];
 
 	// Images
-	if(true) {
+	if(images.length) {
 		generated.push(...images.map(img => {
 			const copy = copyTemplate(flyer_);
 
@@ -100,7 +100,8 @@ function generateBackground(flyer, {templates, state}) {
 	}
 
 	// Colored
-	if(false && prominantSurface === flyer_) {
+	if(!images.length) {
+	// if(false && prominantSurface === flyer_) {
 		const uniqBgs = _.uniqBy(_.filter(templates, t => t.background.color), t => t.background.color.color)
 		generated.push(...uniqBgs.map(t => {
 			const copy = copyTemplate(flyer_);
@@ -286,7 +287,13 @@ export function transferColors(flyer, template, extraImages=[]) {
 			flyer.decor.background.img = images[0];
 		}
 		else {
+			const origAlpha = get(flyer, ['background', 'color', 'alpha']);
 			flyer.background = {...template.background, img: images[0]}
+			if(flyer.background.color) {
+				if(!origAlpha || origAlpha === 1) {
+					flyer.background.color.alpha = origAlpha === 1 ? 0.5 : origAlpha || 0.5;
+				}
+			}
 		}
 	}
 

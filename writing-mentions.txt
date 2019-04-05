@@ -10,3 +10,6 @@ Where to sneak computations?
 Validity Checks.
 - When the generator makes automatic updates, there should be a way to undo those updates. Similar to how code editors will autoformat something but undoing will first undo the autoformat and a second undo will undo the paste.
 - Allow the user to turn off these automatic tweaks.
+
+# Using the visual sizes of fonts.
+http://westonthayer.com/writing/intro-to-font-metrics/

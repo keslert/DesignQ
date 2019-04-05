@@ -45,10 +45,16 @@ Button.defaultProps = {
   color: 'dark',
 }
 
-function CanvasButton({SvgComponent, label, footer, mb, ...props}) {
+function CanvasButton({SvgComponent, label, onClick, footer, mb, ...props}) {
   return (
     <React.Fragment>
-      <Button {...props} btr={true} bbr={!footer} mb={footer ? 0 : mb}>
+      <Button 
+        {...props} 
+        btr={true} 
+        bbr={!footer} 
+        mb={footer ? 0 : mb}
+        onClick={!props.disabled && onClick}
+      >
         <Flex flex={1} alignItems="center">
           {SvgComponent}
         </Flex>
@@ -67,7 +73,7 @@ function CanvasButton({SvgComponent, label, footer, mb, ...props}) {
           bg="nearwhite_light"
           btr={false} 
           bbr={true}
-          disabled={props.disabled}
+          // disabled={props.disabled}
           height="auto"
           onClick={footer.onClick}
           children={

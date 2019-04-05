@@ -5,28 +5,19 @@ import { withGroups } from '../producer';
 
 export const basicStages = [
   {
-    type: 'layout', 
-    focus: 'structure',
+    type: 'layout',
+    key: 'layout.structure', 
     label: 'Structure',
     generate: generateStructure,
     satisfied: () => true,
   },
   {
-    type: 'layout', 
-    focus: 'order', 
+    type: 'layout',
+    key: 'layout.order', 
     label: 'Elements',
     generate: generateOrder,
     satisfied: () => true,
   },
-  // {
-  //   type: 'layout', 
-  //   focus: 'line-breaks', 
-  //   label: 'Line Breaks',
-  //   generate: generateOrder,
-  //   satisfied: f => {
-  //     return false;
-  //   },
-  // },
 ]
 
 export const advancedStages = [];
@@ -49,7 +40,7 @@ function generateStructure(flyer, {history, templates, multiple}) {
     flyers.sort((a, b) => a._score < b._score ? 1 : -1);
   }
 
-  return flyers;
+  return flyers.slice(0, 4);
 }
 
 function generateOrder(flyer, {templates}) {

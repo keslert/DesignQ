@@ -15,33 +15,25 @@ function ContentGallery({flyerSize}) {
     produceFlyer(flyer, flyerSize);
     
     const contentFlyer = generateFlyers(flyer, {
-      stage: {type: 'content', focus: 'text'}, 
+      stage: {type: 'content', key: 'content.text'}, 
       userInput: {text: starterTemplates.basicText},
     });
     produceFlyer(contentFlyer, flyerSize)
     setFlyers([contentFlyer]);
 
     const layoutFlyers = generateFlyers(contentFlyer, {
-      stage: {type: 'layout', focus: 'elements'},
+      stage: {type: 'layout', key: 'layout.structure'},
       variations: 999,
     });
     layoutFlyers.forEach(f => produceFlyer(f, flyerSize));
     setFlyers(layoutFlyers);
 
     const typographyFlyers = generateFlyers(layoutFlyers[6], {
-      stage: {type: 'typography', focus: 'primary'},
+      stage: {type: 'typography', key: 'typography.primary'},
       variations: 999,
     });
     typographyFlyers.forEach(f => produceFlyer(f, flyerSize));
     setFlyers(typographyFlyers);
-
-    // const secondaryTypographyFlyers = generateFlyer(typographyFlyers[10], {
-    //   stage: {type: 'typography', focus: 'secondary'},
-    //   variations: 999,
-    // });
-    // secondaryTypographyFlyers.forEach(f => produceFlyer(f, flyerSize));
-    // setFlyers(secondaryTypographyFlyers);
-
     
   }, [])
 

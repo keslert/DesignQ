@@ -39,7 +39,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   const ref = useRef();
   const rootDispatch = useContext(DispatchContext)
   
-  const selectedIndex = stages.findIndex(s => s.type === stage.type);
+  const selectedIndex = stages.findIndex(s => stage.type === s.type);
   const [hover, setHover] = useState({})
   const [marker, setMarker] = useState({color: 'dark'});
 
@@ -53,10 +53,10 @@ function NavBar({stage, recommendedStage, stageProgress}) {
     setHover(getUpdate(child));
   }, [selectedIndex])
 
-  const handleClick = useCallback((type, _focus) => {
-    const stages = STAGES[type];
-    const focus = _focus || (stages[0] ? stages[0].focus : null);
-    rootDispatch({type: 'SET_STAGE', stage: {type, focus}, upgrade: stage.type === 'content'});
+  const handleClick = useCallback((type, key) => {
+    const nextStage = key ? {type, key} : STAGES[type][0];
+    
+    rootDispatch({type: 'SET_STAGE', stage: nextStage, upgrade: stage.type === 'content'});
   }, [stage])
 
   useEffect(() => {
@@ -67,7 +67,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   }, [selectedIndex])
 
 
-  const stageFocusVisible = recommendedStage && stage.type === recommendedStage.type;
+  const stageFociVisible = recommendedStage && stage.type === recommendedStage.type;
   const stageCueVisible = recommendedStage 
     && stage.progress !== ProgressTypes.UNEXPLORED
     && recommendedStage !== stage
@@ -95,7 +95,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
                 text={stage.label}
                 visible={
                   stageCueVisible 
-                  && !stageFocusVisible 
+                  && !stageFociVisible 
                   && recommendedStage && recommendedStage.type === stage.type
                 }
                 highlight={stageCueHighlighted}
@@ -130,18 +130,18 @@ function NavBar({stage, recommendedStage, stageProgress}) {
           boxShadow: '0 0px 1px rgba(0,0,0,.25)'
         }}
       >
-        {foci.map(({type, focus, label}) => (
-          <Box key={focus} mr={1}>
+        {foci.map(({type, key, label}) => (
+          <Box key={key} mr={1}>
             <SubNavItem
-              selected={focus === stage.focus}
-              onClick={() => handleClick(type, focus)}
+              selected={key === stage.key}
+              onClick={() => handleClick(type, key)}
               children={
                 <NavText
                   text={label}
                   visible={
                     stageCueVisible 
-                    && stageFocusVisible 
-                    && focus === recommendedStage.focus
+                    && stageFociVisible 
+                    && key === recommendedStage.key
                   }
                   highlight={stageCueHighlighted}
                   flashing={stageCueFlashing}

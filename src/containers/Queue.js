@@ -195,17 +195,20 @@ async function getInitialState(props, dispatch) {
     const query = queryString.parse(props.location.search);
     
     const startFlyer = starters[query.starter] || (
-      process.env.NODE_ENV === 'production'  ? starters.empty : starters.empty
+      process.env.NODE_ENV === 'production'  ? starters.empty : starters.imageBackground
     )
     linkTemplate(startFlyer);
     startFlyer.size = props.flyerSize;
     produceFlyer(startFlyer);
     startFlyer.id = 1;
-    startFlyer.stage = {type: 'content', focus: 'text'};
+    startFlyer.stage = {type: 'content', key: 'content.text'};
 
-    const stage = (query.stage && query.focus)
-      ? {type: query.stage, focus: query.focus}
-      : process.env.NODE_ENV === 'production' ? {type: 'content', focus: 'text' } : {type: 'content', focus: 'text'}
+    const stage = query.stage
+      ? {type: query.stage.split('.')[0], key: query.stage}
+      : process.env.NODE_ENV === 'production' 
+        ? {type: 'content', key: 'content.text' } 
+        // : {type: 'color', key: 'color.background'}
+        : {type: 'layout', key: 'layout.structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -221,7 +224,6 @@ async function getInitialState(props, dispatch) {
       },
       // selection: startFlyer,
       // selection: startFlyer.content.body.elements[1],
-      // stage: {type: 'content', focus: 'text'},
       ...(loadState || {}),
     }, {stage});
     
@@ -350,19 +352,19 @@ function _updateSecondary(state, action, update) {
   if(!update.secondary) {
     const stage = update.journey.stage || state.journey.stage;
     const secondary = stage.currentGeneration[stage.currentGenerationIndex];
-    if(secondary) {
+    // if(secondary) {
       update.secondary = secondary;
-    } 
-    else {
-      // TODO: What to do?
-      console.log('NO MORE SECONDARY!')
-    }
+    // } 
+    // else {
+    //   // TODO: What to do?
+    //   console.log('NO MORE SECONDARY!')
+    // }
   }
 }
 
 function _updateSelection(state, action, update) {
   if(!state.selection) return;
-  
+
   const selectedFlyer = state.selection._root;
   if(update.primary && selectedFlyer === state.primary) {
     update.selection = getItemFromFlyer(state.selection, update.primary);
@@ -413,10 +415,9 @@ const patchImageFlyers = debounce((state, dispatch) => {
     dispatch({type: 'SET_SECONDARY', secondary});
   }
 
-  const stage = state.journey.stages.find(s => s.type === 'color' && s.focus === 'background');
+  const stage = state.journey.stages.find(s => s.key === 'color.background');
   const stageUpdate = {
-    type: 'color',
-    focus: 'background',
+    key: 'color.background',
     currentGeneration: stage.currentGeneration.map(flyer => patchFlyer(flyer, 'image', cache)),
   }
 
@@ -490,22 +491,18 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
 
     // Update stage: color.background
     const update = {};
-    const stage = state.journey.stages.find(s => s.type === 'color' && s.focus === 'background');
+    const stage = state.journey.stages.find(s => s.key === 'color.background');
     _updateJourney({...state, lastImageSearch: search}, {stage, forceGeneration: true}, update)
 
     const stageUpdate = {
-      type: 'color',
-      focus: 'background',
+      key: 'color.background',
       currentGeneration: update.journey.stage.currentGeneration, 
       currentGenerationIndex: 0,
     }
     dispatch({type: 'UPDATE_JOURNEY_STAGE', stage: stageUpdate});
 
     // Update secondary if part of previous stage
-    if(
-      state.secondary.stage.type === 'color' &&
-      state.secondary.stage.focus === 'background'
-    ) {
+    if(state.secondary.stage.key === 'color.background') {
       dispatch({type: 'SET_SECONDARY', secondary: update.journey.stage.currentGeneration[0]});
     }
 
@@ -521,7 +518,7 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
 
 function updateJourneyStage(state, action) {
   const stages = state.journey.stages.map(s => {
-    if(s.type === action.stage.type && s.focus === action.stage.focus) {
+    if(s.key === action.stage.key) {
       return {...s, ...action.stage}
     }
     return s;
@@ -530,6 +527,6 @@ function updateJourneyStage(state, action) {
   return {...state, journey: {
     ...state.journey,
     stages,
-    stage: stages.find(s => s.type === state.journey.stage.type && s.focus === state.journey.stage.focus),
+    stage: stages.find(s => s.key === state.journey.stage.key),
   }}
 }

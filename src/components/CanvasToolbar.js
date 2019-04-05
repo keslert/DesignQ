@@ -61,20 +61,12 @@ function CanvasToolbar(props) {
               disabled={!props.showAdvance}
               // highlight={props.highlightAdvance}
             />
-            {/* {props.showResume && 
-              <CanvasButton
-                mb={2}
-                onClick={() => dispatch({type: 'SET_STAGE', stage: null})}
-                SvgComponent={<PlaySvg size={21} />}
-                label="Resume"
-                highlight={true}
-              />
-            } */}
           </Box>
+
           <Box mb={3}>
             <CanvasButton
               mb={2}
-              onClick={props.showNext ? () => dispatch({type: 'NEXT'}) : null}
+              onClick={() => dispatch({type: 'NEXT'})}
               SvgComponent={<RocketshipSvg size={40} />}
               disabled={!props.showNext}
               label="Next Design"
@@ -84,28 +76,27 @@ function CanvasToolbar(props) {
               }}
             />
 
-            {props.showUpgrade && 
-              <CanvasButton
-                mb={2}
-                onClick={() => dispatch({type: 'STEP', upgrade: true})}
-                SvgComponent={<ArrowSvg size={24} />}
-                label="Upgrade"
-              />
-            }
-          </Box>
-          
-          {props.showCompare && 
             <CanvasButton
               mb={2}
-              small={true}
-              onMouseDown={props.onCompareDown}
-              onMouseUp={props.onCompareUp}
-              onMouseLeave={props.onCompareUp}
-              SvgComponent={<EyeSvg size={28} />}
-              inset={true}
-              label="Compare"
+              disabled={!props.showUpgrade}
+              onClick={() => dispatch({type: 'STEP', upgrade: true})}
+              SvgComponent={<ArrowSvg size={24} />}
+              label="Upgrade"
             />
-          }
+          </Box>
+          
+          <CanvasButton
+            mb={2}
+            small={true}
+            disabled={!props.showCompare}
+            onMouseDown={props.showCompare && props.onCompareDown}
+            onMouseUp={props.showCompare && props.onCompareUp}
+            onMouseLeave={props.showCompare && props.onCompareUp}
+            SvgComponent={<EyeSvg size={28} />}
+            inset={true}
+            label="Compare"
+          />
+
           {props.showGrid &&
             <CanvasButton
               mb={2}

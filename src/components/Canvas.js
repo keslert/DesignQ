@@ -8,6 +8,7 @@ import { DispatchContext } from '../containers/Queue';
 import { Flex, Box, Text } from 'rebass';
 import { useKeyDown } from '../core/lib/hooks';
 import { ProgressTypes } from '../core/journey';
+import StageExhausted from './StageExhausted';
 
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
@@ -23,9 +24,10 @@ function Canvas(props) {
   const haveList = props.list && props.list.length;
   const showContentForm = props.stage && props.stage.type === 'content';
   const showGallery = !showContentForm && (props.viewMode === 'grid'|| haveList);
+  const showStageExhaused = !showGallery && !props.secondary; // props.stage.exhausted;
 
   const showPrimary = !showContentForm;
-  const showSecondary = !showGallery && !showContentForm;
+  const showSecondary = !showGallery && !showContentForm && !showStageExhaused;
 
   // Only listen for keypresses when secondary is visible.
   const handleKeyPress = useCallback(
@@ -34,12 +36,12 @@ function Canvas(props) {
   );
   useKeyDown(handleKeyPress);
   
-  const showNext = showPrimary && !showGallery;
+  const showNext = showPrimary && !showGallery && !showStageExhaused;
   const showResume = false;
   const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED);
-  const showUpgrade = showPrimary;
-  const showCompare = showPrimary;
-  const showSearch = props.stage.type === 'color' && props.stage.focus === 'background';
+  const showUpgrade = showPrimary && props.secondary;
+  const showCompare = showPrimary && props.secondary;
+  const showSearch = props.stage.key === 'color.background';
   const showGridBtn = showPrimary && !haveList;
   const showMerge = false && showPrimary;
   
@@ -133,6 +135,10 @@ function Canvas(props) {
                 height: props.size.height,
               }}
             />
+          }
+
+          {!showStageExhaused ? null :
+            <StageExhausted />
           }
 
         </Flex>

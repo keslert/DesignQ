@@ -77,7 +77,7 @@ export function generateFlyers(flyer, stage, options={}) {
   linkTemplate(flyer);
   options.templates = templates;
 
-  const _stage = _.find(STAGES[stage.type], s => s.focus === stage.focus)
+  const _stage = _.find(STAGES[stage.type], s => s.key === stage.key)
   const generated = _stage.generate(flyer, options);
   return generated;
 }

@@ -8,15 +8,15 @@ import { getFromCache, getDesiredNumberOfFlyers, validCache } from '.';
 
 export const basicStages = [
   {
-    type: 'typography', 
-    focus: 'primary', 
+    type: 'typography',
+    key: 'typography.primary', 
     label: 'Primary Font',
     satisfied: () => true, 
     generate: generatePrimary,
   },
   {
-    type: 'typography', 
-    focus: 'secondary', 
+    type: 'typography',
+    key: 'typography.secondary', 
     label: 'Secondary Font',
     satisfied: () => true,
     generate: generateSecondary,
@@ -25,8 +25,8 @@ export const basicStages = [
 
 export const advancedStages = [
   {
-    type: 'typography', 
-    focus: 'size',
+    type: 'typography',
+    key: 'typography.size', 
     label: 'Font Sizes',
     satisfied: () => true,
     generate: generateSecondary,
@@ -39,12 +39,7 @@ export const stages = [
   ...optionalStages,
 ]
 
-const primaryCache = {};
-export function generatePrimary(flyer, {templates, multiple}) {
-  // if(validCache(flyer, primaryCache)) {
-  //   return getFromCache(primaryCache, multiple);
-  // }
-
+export function generatePrimary(flyer, {templates}) {
   const uniqTemplates = _.uniqBy(Object.values(templates), t => t._dominant.font.family);
 
   const flyers = _.map(uniqTemplates, template => {

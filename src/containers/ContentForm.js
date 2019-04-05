@@ -21,7 +21,7 @@ const fields = [
   {name: 'details', label: 'Details', width: 1, rows: 3, hint: "Provide a description of the event with any details someone might need to know."},
 ]
 
-const TEXT_STAGE = {type: 'content', focus: 'text'}
+const TEXT_STAGE = {type: 'content', key: 'content.text'}
 
 function ContentForm({flyer}) {
   const rootDispatch = useContext(DispatchContext);
@@ -81,7 +81,7 @@ function ContentForm({flyer}) {
             value={state.keywords || ''}
             placeholder="Volleyball, Birthday Party"
             name="keywords"
-            hint="What words should we use to search for images."
+            hint="What word(s) should we use to search for images."
             onChange={handleInputChange}
           />
         </Box>
