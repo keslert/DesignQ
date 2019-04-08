@@ -103,7 +103,7 @@ function TimelineItem({data, index, style}) {
   const striped = Array.isArray(item);
   const stage = striped ? item[0].stage : item.stage;
   const color =  COLORS[stage.type];
-  const showStar = !!item._upgradeTo
+  const showStar = !!item.upgradeTo
   return (
     <div style={style}>
       <Block

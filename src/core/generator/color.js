@@ -81,6 +81,7 @@ function generateBackground(flyer, {templates, state}) {
 				const { colors } = cache[img.id].value;
 				surface.background.img.colors = colors;
 				copy.palette = buildPalette(colors);
+				flyer_.background.color = flyer_.background.color || buildPaletteColor('dark', copy.palette, 0.33);
 				mimicBackgroundColors(copy, flyer_);
 				mimicForegroundColors(copy, flyer_);
 			}
@@ -524,16 +525,16 @@ export function buildPalette(_colors) {
 	const darkest = colors[0] || {color: BLACK};
 	_.remove(colors, darkest);
 
-	const primary = colors[0];
-	const secondary = colors[1];
+	const accent = colors[0];
+	const accent2 = colors[1];
 
 	const palette = {
 		light: lightest.color,
 		dark: darkest.color,
 	}
 
-	if(primary) palette.primary = primary.color;
-	if(secondary) palette.secondary = secondary.color;
+	if(accent) palette.accent = accent.color;
+	if(accent2) palette.accent2 = accent2.color;
 
 	return palette;
 }

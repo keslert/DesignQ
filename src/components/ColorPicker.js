@@ -97,17 +97,19 @@ function ColorPicker(props) {
             />
           </Box>
             
-          <Box 
-            style={{position: 'relative', height: '10px'}} 
-            bg="white"
-          >
-            <Alpha  
-              rgb={props.rgb}
-              hsl={props.hsl}
-              renderers={props.renderers}
-              onChange={handleChange}
-            />
-          </Box>
+          {!props.hideAlpha && 
+            <Box 
+              style={{position: 'relative', height: '10px'}} 
+              bg="white"
+            >
+              <Alpha  
+                rgb={props.rgb}
+                hsl={props.hsl}
+                renderers={props.renderers}
+                onChange={handleChange}
+              />
+            </Box>
+          }
           
         </Box>
       }

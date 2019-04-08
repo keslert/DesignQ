@@ -135,9 +135,11 @@ export function getTemplateTextTypes(template, force) {
   return template._textTypes;
 }
 
-export function copyTemplate(flyer) {
+export function copyTemplate(flyer, noLink) {
   const clone = _.cloneDeepWith(flyer, customizer);
-  linkTemplate(clone);
+  if(!noLink) {
+    linkTemplate(clone);
+  }
   return clone;
 }
 

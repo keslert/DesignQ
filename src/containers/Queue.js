@@ -55,6 +55,16 @@ function Queue(props) {
   }, [])
 
   useEffect(() => {
+    // setInterval(() => {
+    if(state.primary && props.location.search.includes('backup')) {
+      const copied = copyTemplate(state.primary, true);
+      localStorage.setItem('savedPrimary', JSON.stringify(copied));
+      localStorage.setItem('savedHistory', JSON.stringify(state.history.map(f => copyTemplate(f, true))));
+    }
+    // }, 5 * 1000)
+  }, [state.primary])
+
+  useEffect(() => {
     if(state.primary) {
       checkImageSearch(state, dispatch);
     }
@@ -191,6 +201,7 @@ const reducer = (state, action) => {
 }
 
 async function getInitialState(props, dispatch) {
+
   return new Promise(async (resolve, reject) => {
     await precompute(props.flyerSize);
     const query = queryString.parse(props.location.search);
@@ -198,8 +209,8 @@ async function getInitialState(props, dispatch) {
     const startFlyer = starters[query.starter] || (
       process.env.NODE_ENV === 'production'  
         ? starters.empty 
-        // : starters.simpleBody
-        : starters.empty
+        : starters.simpleBody
+        // : starters.empty
     )
     linkTemplate(startFlyer);
     startFlyer.size = props.flyerSize;
@@ -211,8 +222,8 @@ async function getInitialState(props, dispatch) {
       ? {type: query.stage.split('.')[0], key: query.stage}
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
-        : {type: 'content', key: 'content.text' } 
-        // : {type: 'color', key: 'color.background'}
+        // : {type: 'content', key: 'content.text' } 
+        : {type: 'color', key: 'color.background'}
         // : {type: 'layout', key: 'layout.order'}
     const state = step({
       primary: startFlyer,
@@ -227,10 +238,21 @@ async function getInitialState(props, dispatch) {
         query: '',
         images: [],
       },
-      // selection: startFlyer,
+      selection: startFlyer,
       // selection: startFlyer.content.body.elements[1],
       ...(loadState || {}),
     }, {stage});
+
+
+    if(query.backup) {
+      state.primary = JSON.parse(localStorage.getItem('savedPrimary'));
+      state.history = JSON.parse(localStorage.getItem('savedHistory'));
+      [state.primary, ...state.history].forEach(f => {
+        linkTemplate(f);
+        produceFlyer(f);
+      })
+    }
+
     
     resolve(state);
   })
@@ -325,7 +347,7 @@ function _updatePrimary(state, action, update) {
     const secondary = state.secondary._inHistory
       ? copyFlyer(state.secondary) 
       : state.secondary;
-    state.primary._upgradeTo = secondary.id
+    state.primary.upgrateTo = secondary.id
     update.primary = secondary;
   }
 }

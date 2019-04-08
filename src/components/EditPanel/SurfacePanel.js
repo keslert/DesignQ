@@ -14,6 +14,7 @@ import {
   TextToWidth,
   WidthToText,
 } from '../../core/utils/template-utils';
+import PalettePanel from './PalettePanel';
 
 function SurfacePanel({surface, onUpdate}) {
   
@@ -28,6 +29,12 @@ function SurfacePanel({surface, onUpdate}) {
         path='background.'
       />
       
+      <ThematicBreak />
+
+      <PalettePanel 
+        template={surface._root} 
+      />
+
       <ThematicBreak />
 
       {canControlWidth(surface) &&
@@ -122,7 +129,7 @@ function SurfacePanel({surface, onUpdate}) {
       {surface._computed.next && 
         <Field 
           label="Margin"
-          hint="The amount of space between this item and the item beneath it."
+          hint="The amount of space between this item and the item below it."
           onExploreClick={() => null}
           children={
             <Slider

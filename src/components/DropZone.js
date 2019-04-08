@@ -4,7 +4,7 @@ import { Box } from 'rebass';
 
 function DropZone({item, isAfter, highlight, connectDropTarget}) {
 
-  const height = item._computed.mb || 20;
+  const height = item._computed.mb || 80;
   return connectDropTarget(
     <div 
       style={{

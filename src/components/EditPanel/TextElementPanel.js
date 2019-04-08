@@ -223,7 +223,7 @@ function TextElementPanel({element}) {
       {element._computed.next &&
         <Field 
           label="Margin Bottom"
-          hint="The amount of space between this item and the item beneath it."
+          hint="The amount of space between this item and the item below it."
           onExploreClick={() => null}
           children={
             <Slider

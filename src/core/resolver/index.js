@@ -81,14 +81,12 @@ function resolveTemplatePalette(template) {
     .value();
 
   // Put back in the original colors
-  palette.dark = template.palette.dark;
-  palette.light = template.palette.light;
-  // _.forEach(template.palette, (color, paletteKey) => {
-  //   if(!paletteKey.startsWith('user-defined')) {
-  //     palette[paletteKey] = color;
-  //   }
-  // })
-  
+  _.forEach(template.palette, (color, key) => {
+    if(!key.startsWith('user-defined')) {
+      palette[key] = color;
+    }
+  })
+
   template.palette = palette;
 }
 
