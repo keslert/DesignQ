@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { CONTENT_GROUPS, withGroups } from '.';
 
 export function computeSizes(template, scaleDominant) {
-  const dominant = _.find(template.content.body.elements, el => el.type === 'dominant');
+  const dominant = template._dominant;
   if(dominant) {
     computeDominant(template, dominant, scaleDominant);
   }

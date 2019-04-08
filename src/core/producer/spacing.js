@@ -3,7 +3,7 @@ import { scaleElementFontSizes } from './sizes';
 import { withGroups, withSides } from '.';
 
 export function computeSpacing(template) {
-  const dominant = _.find(template.content.body.elements, e => e.type === 'dominant');
+  const dominant = template._dominant;
   const elementSpacing = dominant ? Math.log(dominant._computed.fontSize * .2) * 10 : 40;
 
   const c = template.content._computed;

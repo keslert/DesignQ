@@ -9,6 +9,8 @@ import Field from './Field';
 import { DQ_FONTS, WeightToText, TextToWeight } from '../../core/utils/text-utils';
 import Checkbox from '../Checkbox';
 import { DispatchContext } from '../../containers/Queue';
+import BackgroundPanel from './BackgroundPanel';
+import { canControlWidth, WidthToText, TextToWidth } from '../../core/utils/template-utils';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
@@ -83,12 +85,12 @@ function TextElementPanel({element}) {
         />
       </Field>
 
-      <Field 
-        label="Background"
-        onExploreClick={() => null}
-      >
-        
-      </Field>
+      <BackgroundPanel
+        surface={element}
+        background={element.background}
+        bgOptions={['none', 'color', 'gradient']}
+        path="background."
+      />
 
       <Field 
         label="Size"
@@ -284,6 +286,22 @@ function TextElementPanel({element}) {
             })}
           />
         </Field>
+      }
+      {canControlWidth(element) &&
+        <Field 
+          label="Width"
+          onExploreClick={() => null}
+          children={
+            <Select
+              name="width"
+              bg="dark"
+              color="white"
+              value={WidthToText[element.w]}
+              options={['max', 'min']}
+              onChange={e => update({'w': TextToWidth[e.target.value]})}
+            />
+          }
+        />
       }
 
       {false && (

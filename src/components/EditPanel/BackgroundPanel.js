@@ -171,7 +171,7 @@ function BackgroundPanel({
 
       {(background.color && background.color.type === 'solid') &&
         <Field 
-          label="Color"
+          label="Background Color"
           children={
             <ColorPicker
               color={resolveColor(background.color)}
@@ -191,7 +191,7 @@ function BackgroundPanel({
       {(background.color && background.color.type === 'linear') &&
         <React.Fragment>
           <Field 
-            label="Color #1"
+            label="Background Color #1"
             children={
               <ColorPicker
                 color={resolveColor(background.color.color)}
@@ -207,7 +207,7 @@ function BackgroundPanel({
           />
 
           <Field 
-            label="Color #2"
+            label="Background Color #2"
             children={
               <ColorPicker
                 color={resolveColor(background.color.colorB)}

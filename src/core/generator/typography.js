@@ -148,7 +148,7 @@ function computeFontStats(templates) {
   
   
   _.forEach(templates, template => {
-    const dominant = _.find(template._elements, el => el.type === 'dominant');
+    const dominant = template._dominant;
     template._elements.forEach(el => {
       if(!el.lines) return;
 

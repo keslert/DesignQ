@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo, useState, useLayoutEffect, useEffect } from 'react';
+import React, { useReducer, useMemo, useLayoutEffect, useEffect } from 'react';
 import Canvas from '../components/Canvas';
 import Export from './Export';
 import NavBar from '../components/NavBar';
@@ -21,7 +21,6 @@ import set from 'lodash/set';
 import some from 'lodash/some';
 import difference from 'lodash/difference';
 import debounce from 'lodash/debounce';
-import { getKeyword } from '../core/utils/content-utils';
 import { fetchImageSearch } from '../core/fetch';
 import { processImage } from '../core/utils/color-utils';
 import loadState from '../core/data/load-states/ski'
@@ -183,6 +182,8 @@ const reducer = (state, action) => {
       }}
     case 'SET_LAST_IMAGE_SEARCH':
       return {...state, lastImageSearch: action.search}
+    case 'REORDER':
+      return reorder(state, action);
     
     default:
       return state;
@@ -412,7 +413,7 @@ function updateSelected(state, action, update={}) {
 const patchImageFlyers = debounce((state, dispatch) => {
   const cache = state.imageCache;
   
-  if(state.secondary.pending) {
+  if(state.secondary && state.secondary.pending) {
     const secondary = patchFlyer(state.secondary, 'image', cache);
     dispatch({type: 'SET_SECONDARY', secondary});
   }
@@ -504,7 +505,7 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
     dispatch({type: 'UPDATE_JOURNEY_STAGE', stage: stageUpdate});
 
     // Update secondary if part of previous stage
-    if(state.secondary.stage.key === 'color.background') {
+    if(!state.secondary || state.secondary.stage.key === 'color.background') {
       dispatch({type: 'SET_SECONDARY', secondary: update.journey.stage.currentGeneration[0]});
     }
 
@@ -531,4 +532,37 @@ function updateJourneyStage(state, action) {
     stages,
     stage: stages.find(s => s.key === state.journey.stage.key),
   }}
+}
+
+function reorder(state, {source, target, isAfter}) {
+  const key = state.primary === target._root ? 'primary' : 'secondary';
+
+  const flyer = state[key];
+  const copy = copyTemplate(flyer);
+  copy.id = window.__flyerId++;
+  const element = getItemFromFlyer(source, copy);
+  
+
+  const sourceGroupKey = source._parent._key;
+  const sourceIndex = source._computed.index;
+  copy.content[sourceGroupKey].elements.splice(sourceIndex, 1);
+
+  const targetGroupKey = target._parent._key;
+  const targetIndex = target._computed.index
+    + (isAfter ? 1 : 0)
+    + ((sourceGroupKey === targetGroupKey && sourceIndex <= target._computed.index) ? -1 : 0)
+  copy.content[targetGroupKey].elements.splice(targetIndex, 0, element);
+
+  // TODO: What to do if group is now empty..
+  if(!source._parent.elements.length) {
+    delete source._root.content[sourceGroupKey];
+  }
+
+  linkTemplate(copy);
+  resolveItem(element._parent, source._parent);
+  produceFlyer(copy);
+
+  const update = {};
+  _updateHistory(state, {}, update);
+  return {...state, ...update, [key]: copy};
 }

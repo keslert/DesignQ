@@ -51,99 +51,99 @@ function Canvas(props) {
   const secondary = props.secondary;
 
   return (
-    <Flex 
-      style={{width: '100%', height: '100%'}} 
-      justifyContent="center" 
-      alignItems="center"
-      onClick={clearSelection}
-    >
-      <Flex flex={1} style={{height:"100%"}}>
-        <Flex 
-          flex={1} 
-          alignItems="center"
-          justifyContent="center" 
-          onClick={clearSelection}
-        >
-          <Box>
-            <FrameToolbar 
-              label="Primary Design"
-              // id={"#" + primary.id}
-              viewFavorites={true}
-              onClick={() => rootDispatch({type: 'VIEW_FAVORITES'})} 
-            />
-            <Frame 
-              scale={scale} 
-              width={primary.size.w} 
-              height={primary.size.h} 
-              flyer={primary}
-              selectable={true}
-            />
-          </Box>
-        </Flex>
-        
-        <CanvasToolbar
-          viewMode={props.viewMode}
-          show={!showContentForm}
-          showNext={showNext}
-          showAdvance={showAdvance}
-          showResume={showResume}
-          showUpgrade={showUpgrade}
-          showCompare={showCompare}
-          showGrid={showGridBtn}
-          showSearch={showSearch}
-          showMerge={showMerge}
-          onCompareDown={() => setShowComparison(true)}
-          onCompareUp={() => setShowComparison(false)}
-        />
-
-        <Flex 
-          flex={1} 
-          bg="nearwhite" 
-          alignItems="center" 
-          justifyContent="center" 
-          onClick={clearSelection}
-        >
-          {!showSecondary ? null : 
+      <Flex 
+        style={{width: '100%', height: '100%'}} 
+        justifyContent="center" 
+        alignItems="center"
+        onClick={clearSelection}
+      >
+        <Flex flex={1} style={{height:"100%"}}>
+          <Flex 
+            flex={1} 
+            alignItems="center"
+            justifyContent="center" 
+            onClick={clearSelection}
+          >
             <Box>
               <FrameToolbar 
-                label={`Exploratory Design`} 
-                id={"#" + secondary.id}
-                favorited={secondary._favorited}
-                onClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
+                label="Primary Design"
+                // id={"#" + primary.id}
+                viewFavorites={true}
+                onClick={() => rootDispatch({type: 'VIEW_FAVORITES'})} 
               />
               <Frame 
                 scale={scale} 
-                width={secondary.size.w}
-                height={secondary.size.h}
-                flyer={secondary}
+                width={primary.size.w} 
+                height={primary.size.h} 
+                flyer={primary}
                 selectable={true}
               />
             </Box>
-          }
-          {!showContentForm ? null :
-            <ContentForm 
-              flyer={secondary}
-            />
-          }
+          </Flex>
+          
+          <CanvasToolbar
+            viewMode={props.viewMode}
+            show={!showContentForm}
+            showNext={showNext}
+            showAdvance={showAdvance}
+            showResume={showResume}
+            showUpgrade={showUpgrade}
+            showCompare={showCompare}
+            showGrid={showGridBtn}
+            showSearch={showSearch}
+            showMerge={showMerge}
+            onCompareDown={() => setShowComparison(true)}
+            onCompareUp={() => setShowComparison(false)}
+          />
 
-          {!showGallery ? null :
-            <FrameGallery
-              flyers={haveList ? props.list : props.stage.currentGeneration}
-              selected={secondary}
-              size={{
-                width: (props.size.width / 2) - 1,
-                height: props.size.height,
-              }}
-            />
-          }
+          <Flex 
+            flex={1} 
+            bg="nearwhite" 
+            alignItems="center" 
+            justifyContent="center" 
+            onClick={clearSelection}
+          >
+            {!showSecondary ? null : 
+              <Box>
+                <FrameToolbar 
+                  label={`Exploratory Design`} 
+                  id={"#" + secondary.id}
+                  favorited={secondary._favorited}
+                  onClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
+                />
+                <Frame 
+                  scale={scale} 
+                  width={secondary.size.w}
+                  height={secondary.size.h}
+                  flyer={secondary}
+                  selectable={true}
+                />
+              </Box>
+            }
+            {!showContentForm ? null :
+              <ContentForm 
+                flyer={secondary}
+              />
+            }
 
-          {!showStageExhaused ? null :
-            <StageExhausted />
-          }
+            {!showGallery ? null :
+              <FrameGallery
+                flyers={haveList ? props.list : props.stage.currentGeneration}
+                selected={secondary}
+                size={{
+                  width: (props.size.width / 2) - 1,
+                  height: props.size.height,
+                }}
+              />
+            }
 
+            {!showStageExhaused ? null :
+              <StageExhausted />
+            }
+
+          </Flex>
         </Flex>
       </Flex>
-    </Flex>
   )
 }
 

@@ -1,28 +1,21 @@
-import React, { useContext, useCallback } from 'react';
+import React from 'react';
 import { Flex, Box } from 'rebass';
 import Slider from '../Slider';
 import Select from '../Select';
 import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
-import { DispatchContext } from '../../containers/Queue';
 import BackgroundPanel from './BackgroundPanel';
 import BorderPanel from './BorderPanel';
 import ThematicBreak from './ThematicBreak';
 import DecorPanel from './DecorPanel';
-
+import { 
+  canControlHeight, 
+  canControlWidth,
+  TextToWidth,
+  WidthToText,
+} from '../../core/utils/template-utils';
 
 function SurfacePanel({surface, onUpdate}) {
-  
-
-  // Border
-    // Background Color
-    // Directional Offsets
-    // Directional Widths
-  
-    // Decor
-    // Image
-    // Direction Offsets
-    // Directional Widths
   
   // Palette
 
@@ -220,28 +213,3 @@ function SurfacePanel({surface, onUpdate}) {
 }
 
 export default SurfacePanel;
-
-
-const TextToWidth = { max: 'fill', min: 'auto'}
-const WidthToText = { fill: 'max', auto: 'min'}
-
-function canFill(surface, dir) {
-  let parent = surface._parent;
-  while(parent) {
-    if(parent.kind !== 'template' && parent[dir] === 'auto') {
-      return false;
-    }
-    parent = parent._parent;
-  }
-  return surface.kind !== 'template';
-}
-
-function canControlHeight(surface) {
-  return surface.kind === 'content'
-    || (surface.type === 'body' && surface._parent.h === 'fill')
-}
-
-function canControlWidth(surface) {
-  return surface.kind === 'content'
-    || (surface.kind === 'group' && surface._parent.w === 'fill');
-}

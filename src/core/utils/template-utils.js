@@ -171,3 +171,17 @@ export function getDescendants(item) {
     default: return [];
   }
 }
+
+export function canControlHeight(surface) {
+  return surface.kind === 'content'
+    || (surface.type === 'body' && surface._parent._h === 'fill')
+}
+
+export function canControlWidth(surface) {
+  return surface.kind === 'content'
+    || (surface.kind === 'group' && surface._parent._w === 'fill')
+    || (surface.kind === 'element' && surface._parent._w === 'fill')
+}
+
+export const TextToWidth = { max: 'fill', min: 'auto'}
+export const WidthToText = { fill: 'max', auto: 'min'}

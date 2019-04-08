@@ -114,7 +114,7 @@ function generateBackground(flyer, {templates, state}) {
 		}))
 	}
 	
-	return generated;
+	return generated.slice(0, 4);
 }
 
 function getProminantImageSurface(flyer) {

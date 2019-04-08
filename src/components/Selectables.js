@@ -1,6 +1,8 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { DispatchContext, SelectionContext } from '../containers/Queue';
+import { DragSource } from 'react-dnd'
+import DropZone from './DropZone';
 
 function Selectables({items}) {
   const dispatch = useContext(DispatchContext);
@@ -12,37 +14,113 @@ function Selectables({items}) {
     dispatch({type: 'SELECT', selection: item})
   }, [items]);
 
+  const handleReorder = useCallback((target, source, isAfter) => {
+    dispatch({type: 'REORDER', target, source, isAfter});
+  }, [items]);
+
+  const elements = items.filter(item => item.kind === 'element');
+
+
   return (
     <React.Fragment>
       {items.map((item, i) => (
         <Selectable
           key={item.id}
-          data-index={i}
+          item={item}
+          index={i}
           onClick={handleClick}
           selected={selection === item}
+          onReorder={handleReorder}
+        />
+      ))}
+
+      
+      {elements.map((item, i) => (
+        <React.Fragment key={item.id}>
+          {!item._computed.isFirst ? null :
+            <DropZone
+              onDrop={handleReorder}
+              type="element"
+              item={item}
+              isAfter={false}
+            />
+          }
+          <DropZone
+            onDrop={handleReorder}
+            type="element"
+            item={item}
+            isAfter={true}
+          />
+        </React.Fragment>
+      ))}
+
+    </React.Fragment>
+  )
+}
+
+const source = {
+  beginDrag(props) { return props.item },
+  canDrag(props, monitor) {
+    return props.item.kind === 'element' && props.item._parent.elements.length > 1
+  }
+}
+
+function collectSource(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging(),
+  }
+}
+
+const Selectable = DragSource('selectable', source, collectSource)(
+  ({
+    item,
+    index,
+    selected,
+    onClick, 
+    connectDragSource,
+    connectDragPreview,
+    isDragging,
+  }) => {
+    useEffect(() => {
+      const img = new Image();
+      img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAJCAMAAABAMpO9AAAAA1BMVEUmLTyU/yHgAAAAFklEQVQ4y2NgGAWjYBSMglEwCkYBAwAHEQABial+VQAAAABJRU5ErkJggg=='
+      img.onload = () => connectDragPreview(img);
+    }, [])
+
+    return connectDragSource(
+      <div>
+        <SelectableBox
+          data-index={index}
+          onClick={onClick}
+          selected={selected}
+          isDragging={isDragging}
           left={item._computed.bb.l}
           top={item._computed.bb.t}
           width={item._computed.bb.w}
           height={item._computed.bb.h}
           style={{
-            left: (item._computed.bb.l - 1) + 'px',
-            top: (item._computed.bb.t - 1) + 'px',
-            height: (item._computed.bb.h + 2) + 'px',
-            width: (item._computed.bb.w + 2) + 'px',
+            left: (item._computed.bb.l) + 'px',
+            top: (item._computed.bb.t) + 'px',
+            height: (item._computed.bb.h) + 'px',
+            width: (item._computed.bb.w) + 'px',
           }}
         />
-      ))}
-    </React.Fragment>
-  )
-}
+      </div>
+    )
+  },
+)
 
-const Selectable = styled.div(props => ({
+const SelectableBox = styled.div(props => ({
   position: 'absolute',
-  border: props.selected ? '2px solid ' + props.theme.colors.blue : null,
+  background: props.isDragging ? '#ccc' : null,
+  border: props.selected ? '1px solid ' + props.theme.colors.blue : null,
+
   '&:hover': {
-    border: props.selected ? undefined : '2px solid ' + props.theme.colors.blue_darken,
-    // transform: 'translate3d(0, 0, 0)',
+    border: props.selected ? undefined : '2px solid ' + props.theme.colors.blue,
     boxSizing: 'border-box',
+    // transform: 'translate3d(0, 0, 0)',
     // cursor: move;
     // box-shadow: 0 0 0 9999em rgba(0, 0, 0, 0.5);
     // border: 1px solid;
@@ -51,6 +129,5 @@ const Selectable = styled.div(props => ({
     // borderImageRepeat: 'repeat'
   }
 }))
-
 
 export default Selectables;

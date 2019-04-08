@@ -17,6 +17,7 @@ function Frame({scale, flyer, selectable, ...props}) {
       <Box style={{transformOrigin: '0 0', transform: `scale(${scale})`}}>
         <Box style={{height, width, background: theme.gradients.light}}>
           <Flyer
+            scale={scale}
             flyer={flyer} 
             selectable={selectable} 
           />

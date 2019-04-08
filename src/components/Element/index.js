@@ -30,9 +30,6 @@ function Element({element}) {
       />
     </React.Fragment>
   )
-
-  
-  
 }
 
 function getElement(type) {

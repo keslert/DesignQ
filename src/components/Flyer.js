@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Selectables from './Selectables';
 import MDSpinner from 'react-md-spinner';
 
-function Flyer({flyer, selectable}) {
+function Flyer({flyer, scale, selectable}) {
 
   if(flyer.pending) {
     return (
@@ -35,7 +35,11 @@ function Flyer({flyer, selectable}) {
       ))}
 
       {elements.map(el => (
-        <Element element={el} key={el.id} />
+        <Element 
+          key={el.id} 
+          scale={scale}
+          element={el}
+        />
       ))}
 
       {selectable && 

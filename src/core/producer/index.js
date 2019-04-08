@@ -10,7 +10,8 @@ import _ from 'lodash';
 
 
 let elementId = 100000;
-export const CONTENT_GROUPS = ['header', 'footer', 'body'];
+// Note the order of these is important.
+export const CONTENT_GROUPS = ['header', 'body', 'footer'];
 
 // Line breaks have already been determined at this point.
 export function produceFlyer(template) {
@@ -73,13 +74,18 @@ function initSetup(template) {
     group._computed.template = template;
     initGroup(group, groupType);
   });
+  
+  template.content.body._computed.index = 0;
   if(template.content.header) {
     template.content.header._computed.next = template.content.body;
     template.content.body._computed.prev = template.content.header;
+    template.content.header._computed.index = 0;
+    template.content.body._computed.index = 1;
   }
   if(template.content.footer) {
     template.content.body._computed.next = template.content.footer;
     template.content.footer._computed.prev = template.content.body;
+    template.content.footer._computed.index = template.content.body._computed.index + 1;
   }
 }
 
@@ -102,6 +108,7 @@ function initGroup(group, groupType) {
 
   group.elements.forEach((el, i) => {
     el.id = el.id || elementId++;
+    el.fullId = group._root.id + group.id + el.id;
     el._computed = {};
     el._computed.index = i;
     el._computed.isFirst = i === 0;
