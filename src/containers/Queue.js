@@ -196,7 +196,10 @@ async function getInitialState(props, dispatch) {
     const query = queryString.parse(props.location.search);
     
     const startFlyer = starters[query.starter] || (
-      process.env.NODE_ENV === 'production'  ? starters.empty : starters.simpleBody
+      process.env.NODE_ENV === 'production'  
+        ? starters.empty 
+        : starters.simpleBody
+        // : starters.empty
     )
     linkTemplate(startFlyer);
     startFlyer.size = props.flyerSize;
@@ -208,8 +211,9 @@ async function getInitialState(props, dispatch) {
       ? {type: query.stage.split('.')[0], key: query.stage}
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
+        // : {type: 'content', key: 'content.text' } 
         // : {type: 'color', key: 'color.background'}
-        : {type: 'layout', key: 'layout.structure'}
+        : {type: 'layout', key: 'layout.order'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -224,7 +228,7 @@ async function getInitialState(props, dispatch) {
         images: [],
       },
       // selection: startFlyer,
-      selection: startFlyer.content.body.elements[1],
+      // selection: startFlyer.content.body.elements[1],
       ...(loadState || {}),
     }, {stage});
     

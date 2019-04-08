@@ -16,8 +16,8 @@ const fields = [
   {name: 'time', label: 'Time', width: 1/3, hint: "4pm - 6pm, Starting at noon"},
   {name: 'location', label: 'Location', width: 1/3, hint: "123 Anywhere St., Phil’s House"},
   {name: 'host', label: 'host', width: 1/3, hint: "Presented by ACME Corp, ACME Corp Presents, ACME Corp"},
-  {name: 'cost', label: 'Cost', width: 1/3, hint: "$15, $5 per person"},
-  {name: 'descriptive', label: 'Descriptive Text', width: 1, hint: "Come Join Us!, It's going to be a blast!, A special concert for the Rigby Foundation"},
+  // {name: 'cost', label: 'Cost', width: 1/3, hint: "$15, $5 per person"},
+  {name: 'descriptive', label: 'Descriptive Text', width: 2/3, hint: "Come Join Us!, It's going to be a blast!, A special concert for the Rigby Foundation"},
   {name: 'details', label: 'Details', width: 1, rows: 3, hint: "Provide a description of the event with any details someone might need to know."},
 ]
 
@@ -28,9 +28,8 @@ function ContentForm({flyer}) {
   const [state, dispatch] = useReducer(reducer, {})
 
   useEffect(() => {
-    // TODO: This isn't working
-    const content = getTemplateTextTypes(flyer);
-    content.forEach(c => dispatch({type: c.type, value: c.text}));
+    const content = getTemplateTextTypes(flyer, true);
+    content.forEach(c => dispatch({name: c.type, value: c.text}));
   }, [])
 
   useEffect(() => {
@@ -64,7 +63,7 @@ function ContentForm({flyer}) {
   return (
     <Box px={4}>
       
-      <Flex mb={3} mx={-2}>
+      <Flex mb={4} mx={-2}>
         <Box width={1/2} px={2}>
           <FormInput
             label="Event Name"
@@ -91,16 +90,16 @@ function ContentForm({flyer}) {
         textAlign="left"
         fontSize={3}
         mb={1}
-        color="gray"
+        color="dark"
         children="What should someone know about the event?"
       />
       <Text
         textAlign="left"
         fontSize={0}
-        color="gray"
+        color="dark"
         style={{fontStyle: 'italic'}}
         mb={3}
-        children="Only complete the relevant fields and don't worry about the layout during this stage."
+        children="Only complete the relevant fields and don't worry about layout during this stage."
       />
 
       <Flex mx={-2} mb={3} flexWrap="wrap">

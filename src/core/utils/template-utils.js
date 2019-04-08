@@ -84,8 +84,8 @@ function linkSurfaceProperties(item) {
   item.border && (item.border._parent = item)
 }
 
-export function getTemplateTextTypes(template) {
-  if(!template._textTypes) {
+export function getTemplateTextTypes(template, force) {
+  if(!template._textTypes || force) {
     produceFlyer(template);
     const types = _.flatMap(template._elements, el => {
 

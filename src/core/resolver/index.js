@@ -28,7 +28,7 @@ export function resolveItem(item, oldItem, update) {
   }
 }
 
-function resolveItemColors(item) {
+export function resolveItemColors(item) {
   const palette = item._root.palette;
   const descendants = getDescendants(item);
   

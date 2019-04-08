@@ -82,6 +82,7 @@ export function mimicTemplateLayout(flyer, template) {
     const info = contentStats[text.type]
     const groupType = info.groupTypes.header === 1 
       ? 'header' : (info.groupTypes.footer === 1 ? 'footer' : 'body')
+    // const groupType = 'body';
     
     const elementType = info.orderedElementTypes[0];
     text._match = { elementId: `generic-${i}`, groupType, elementType };

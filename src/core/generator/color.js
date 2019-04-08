@@ -5,6 +5,7 @@ import { solidColor, linear } from '../templates';
 import chroma from 'chroma-js';
 import get from 'lodash/get';
 import { buildPaletteColor, getContrast, fixAlpha, PLACEHOLDER_IMAGE } from '../utils/color-utils';
+import { resolveItemColors } from '../resolver';
 
 export const basicStages = [
 	{
@@ -17,15 +18,15 @@ export const basicStages = [
 	{
 		type: 'color',
 		key: "color.filters", 
-		label: 'Filters',
+		label: 'Background Filters',
 		relevant: flyer => !!getProminantImageSurface(flyer),
 		satisfied: () => true,
 		generate: generateFilters,
 	},
 	{
 		type: 'color',
-		key: "color.foreground", 
-		label: 'Foreground',
+		key: "color.palette", 
+		label: 'Alternate Palettes',
 		satisfied: () => true,
 		generate: generateForeground,
 	}
@@ -114,7 +115,7 @@ function generateBackground(flyer, {templates, state}) {
 		}))
 	}
 	
-	return generated.slice(0, 4);
+	return generated;
 }
 
 function getProminantImageSurface(flyer) {
@@ -129,26 +130,22 @@ function generateFilters(flyer, {templates}) {
 	const prominantImageSurface = getProminantImageSurface(flyer);
 	const flyers = [];
 	if(prominantImageSurface) {
-		const black = '#000000';
-		const palette = flyer.palette;
-		const filters = [
-			{color: solidColor(black, .3), blendMode: 'overlay'},
-			{color: solidColor(black, .5), blendMode: 'overlay'},
-			{color: solidColor(black, .7), blendMode: 'overlay'},
-			{color: solidColor(black, .85), blendMode: 'overlay'},
-			{color: solidColor(palette.primary, 1), blendMode: 'overlay'},
-			{color: solidColor(palette.secondary, 1), blendMode: 'overlay'},
-			{color: solidColor(palette.dark, .8), blendMode: 'overlay'},
-			{color: solidColor(palette.dark, .5), blendMode: 'overlay'},
-			{color: linear(0, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(45, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(135, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(180, solidColor(black, 0.1), solidColor(black, .4)), blendMode: 'overlay'},
-			{color: linear(0, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
-			{color: linear(45, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
-			{color: linear(135, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
-			{color: linear(180, solidColor(black, 0.2), solidColor(black, .5)), blendMode: 'overlay'},
-		].filter(f => f.color)
+		// const black = '#000000';
+		// const palette = flyer.palette;
+		const filters = _.flatMap(flyer.palette, (color, paletteKey) => ([
+			{color: {...solidColor(color, .3), paletteKey}},
+			{color: {...solidColor(color, .5), paletteKey}},
+			{color: {...solidColor(color, .7), paletteKey}},
+			{color: {...solidColor(color, .85), paletteKey}},
+			// {color: linear(0, solidColor(color, 0.1), solidColor(color, .4))},
+			// {color: linear(45, solidColor(color, 0.1), solidColor(color, .4))},
+			// {color: linear(135, solidColor(color, 0.1), solidColor(color, .4))},
+			// {color: linear(180, solidColor(color, 0.1), solidColor(color, .4))},
+			// {color: linear(0, solidColor(color, 0.2), solidColor(color, .5))},
+			// {color: linear(45, solidColor(color, 0.2), solidColor(color, .5))},
+			// {color: linear(135, solidColor(color, 0.2), solidColor(color, .5))},
+			// {color: linear(180, solidColor(color, 0.2), solidColor(color, .5))},
+		]))
 
 
 		// Try other colors in the image?
@@ -158,6 +155,7 @@ function generateFilters(flyer, {templates}) {
 			surface.background.backgroundBlendMode = filter.blendMode;
 			surface.background.color = filter.color;
 			surface.background.img.filters = filter.filters;
+			resolveItemColors(copy);
 			return copy;
 		}))
 
@@ -264,7 +262,7 @@ export function transferColors(flyer, template, extraImages=[]) {
 	let imageIndex = 0;
 	flyer._containers.forEach((fSurface, i) => {
 		const tSurface = template._containers[i];
-		if(tSurface.background && tSurface.background.img) {
+		if(tSurface && tSurface.background && tSurface.background.img) {
 			const img = images[imageIndex++] || PLACEHOLDER_IMAGE;
 
 			// fSurface.background = _.defaults(fSurface.background, tSurface.background);
@@ -324,7 +322,7 @@ export function transferSurface(fSurface, tSurface, flyer, template, preference)
 
 function mimicBackgroundColors(flyer, template, preference='dark') {
 	flyer._containers.forEach((fSurface, i) => {
-		const tSurface = template._containers[i];
+		const tSurface = template._containers[i] || {};
 		['_self', 'decor', 'border'].forEach(prop => {
 			if(tSurface[prop]) {
 				mimicBackgroundColor(fSurface[prop], tSurface[prop], flyer, template, preference)

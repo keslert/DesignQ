@@ -37,7 +37,7 @@ function TreeNode(props) {
 function SelectionTree() {
   const dispatch = useContext(DispatchContext);
   const selection = useContext(SelectionContext);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const flyer = selection._root;
 
   const groups = filter([

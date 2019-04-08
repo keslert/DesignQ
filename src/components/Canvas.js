@@ -76,7 +76,7 @@ function Canvas(props) {
                 width={primary.size.w} 
                 height={primary.size.h} 
                 flyer={primary}
-                selectable={true}
+                selectable={primary === props.primary}
               />
             </Box>
           </Flex>
@@ -122,7 +122,7 @@ function Canvas(props) {
             }
             {!showContentForm ? null :
               <ContentForm 
-                flyer={secondary}
+                flyer={primary}
               />
             }
 

@@ -24,7 +24,7 @@ export function produceFlyer(template) {
     template.background.color = {type: 'solid', color: template.palette.light, paletteKey: 'light'}
   }
   template._computed.size = size;
-  template._computed.template = template;
+  // template._computed.template = template;
   
   computeBorders(template);
   computeDecor(template);
@@ -56,7 +56,7 @@ function initSetup(template) {
   
   template.content.id = 'content';
   template.content._computed = {};
-  template.content._computed.template = template;
+  // template.content._computed.template = template;
   _.defaults(template.content, {
     w: 'fill',
     h: 'fill',
@@ -71,7 +71,7 @@ function initSetup(template) {
     group.id = groupType;
     group._computed = {};
     group._computed.content = template.content;
-    group._computed.template = template;
+    // group._computed.template = template;
     initGroup(group, groupType);
   });
   
@@ -108,7 +108,6 @@ function initGroup(group, groupType) {
 
   group.elements.forEach((el, i) => {
     el.id = el.id || elementId++;
-    el.fullId = group._root.id + group.id + el.id;
     el._computed = {};
     el._computed.index = i;
     el._computed.isFirst = i === 0;
@@ -117,7 +116,7 @@ function initGroup(group, groupType) {
     el._computed.next = group.elements[i + 1];
     el._computed.group = group;
     el._computed.content = group._computed.content;
-    el._computed.template = group._computed.template;
+    // el._computed.template = group._computed.template;
     normalize(el);
     _.defaults(el, {
       w: elementDefaultWidth(el),

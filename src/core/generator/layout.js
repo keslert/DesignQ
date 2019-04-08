@@ -1,7 +1,8 @@
 import _ from 'lodash';
-import { copyTemplate } from '../utils/template-utils';
+import { copyTemplate, linkTemplate } from '../utils/template-utils';
 import { mimicTemplateLayout } from './content';
-import { withGroups } from '../producer';
+import { withGroups, produceFlyer } from '../producer';
+import { resolveItemColors } from '../resolver';
 
 export const basicStages = [
   {
@@ -70,6 +71,8 @@ function generateOrder(flyer, {templates}) {
     withGroups(t, g => {
       copy.content[g.type].elements = g.elements;
     })
+    linkTemplate(copy);
+    resolveItemColors(copy);
     return copy;
   })
 
