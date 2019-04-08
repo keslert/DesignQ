@@ -35,7 +35,7 @@ export async function precompute(flyerSize) {
     t._all.forEach(item => {
       const img = _.get(item, ['background', 'img'])
       if(img) {
-        item.background.img = PLACEHOLDER_IMAGE;
+        item.background.img = {...PLACEHOLDER_IMAGE};
 
         if(item.background.color) {
           const color = item.background.color;

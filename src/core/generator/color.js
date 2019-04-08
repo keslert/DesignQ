@@ -49,7 +49,7 @@ function generateBackground(flyer, {templates, state}) {
 	const flyer_ = copyTemplate(flyer);
 	const prominantSurface = getProminantImageSurface(flyer_) || flyer_;
 	if(!prominantSurface.background.img) {
-		prominantSurface.background.img = PLACEHOLDER_IMAGE;
+		prominantSurface.background.img = {...PLACEHOLDER_IMAGE};
 		delete prominantSurface.background.color;
 	}
 
@@ -263,7 +263,7 @@ export function transferColors(flyer, template, extraImages=[]) {
 	flyer._containers.forEach((fSurface, i) => {
 		const tSurface = template._containers[i];
 		if(tSurface && tSurface.background && tSurface.background.img) {
-			const img = images[imageIndex++] || PLACEHOLDER_IMAGE;
+			const img = images[imageIndex++] || {...PLACEHOLDER_IMAGE};
 
 			// fSurface.background = _.defaults(fSurface.background, tSurface.background);
 			fSurface.background = fSurface.background || {};

@@ -68,7 +68,7 @@ function BackgroundPanel({
                   o.color = getGradient(surface, background, surface._root.palette);
                 }
                 else if(type === 'image') {
-                  o.img = img || background.prevImg || PLACEHOLDER_IMAGE;
+                  o.img = img || background.prevImg || {...PLACEHOLDER_IMAGE};
                   o._color = background.color;
                   o.color = null;
                 }

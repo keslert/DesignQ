@@ -37,7 +37,7 @@ function generateStructure(flyer, {history, templates, multiple}) {
     return copy;
   })
   
-  if(process.env.NODE_ENV === 'production') {
+  if(true || process.env.NODE_ENV === 'production') {
     flyers.sort((a, b) => a._score < b._score ? 1 : -1);
   }
 
