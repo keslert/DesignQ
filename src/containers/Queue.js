@@ -224,7 +224,7 @@ async function getInitialState(props, dispatch) {
         images: [],
       },
       // selection: startFlyer,
-      // selection: startFlyer.content.body.elements[1],
+      selection: startFlyer.content.body.elements[1],
       ...(loadState || {}),
     }, {stage});
     
@@ -535,13 +535,18 @@ function updateJourneyStage(state, action) {
 }
 
 function reorder(state, {source, target, isAfter}) {
+  const update = {};
   const key = state.primary === target._root ? 'primary' : 'secondary';
-
   const flyer = state[key];
   const copy = copyTemplate(flyer);
   copy.id = window.__flyerId++;
   const element = getItemFromFlyer(source, copy);
   
+  if(state.selection) {
+    update.selection = state.selection === source 
+      ? element 
+      : getItemFromFlyer(state.selection, copy)
+  }
 
   const sourceGroupKey = source._parent._key;
   const sourceIndex = source._computed.index;
@@ -562,7 +567,9 @@ function reorder(state, {source, target, isAfter}) {
   resolveItem(element._parent, source._parent);
   produceFlyer(copy);
 
-  const update = {};
+  
   _updateHistory(state, {}, update);
+
+
   return {...state, ...update, [key]: copy};
 }
