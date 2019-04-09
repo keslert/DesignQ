@@ -224,8 +224,12 @@ function mimicBackgroundColor(fItem, tItem, preference) {
 			preference,
 		])
 
-		fItem.background.color = getOptimalBackgroundColor(fItem, fItem._root.palette, preferences)
-		// fItem.background.color.alpha = tItem.background.color.alpha;
+		fItem.background.color = getOptimalBackgroundColor(
+			fItem, 
+			fItem._root.palette, 
+			preferences,
+			tItem.background.color.alpha,
+		)
 	}
 	else if(fItem.background) {
 		delete fItem.background.color;
@@ -242,36 +246,39 @@ function mimicForegroundColors(flyer, template, preference='light') {
 	})
 }
 
-export function getOptimalBackgroundColor(surface, palette, preferences=[]) {
-	const paletteKey = getBackdropPaletteKey(surface);
+export function getOptimalBackgroundColor(surface, palette, preferences=[], alpha) {
+	const backdropKey = getBackdropPaletteKey(surface);
 
 	if(surface.background && surface.background.img) {
 		return paletteColor('dark', get(surface, ['background', 'color', 'alpha']));
 	}
 
-	let key = _.find(preferences, pref => {
-		return palette[pref] && paletteKey !== pref;
-	})
+	let key = _.find(preferences, key => palette[key] && backdropKey !== key)
 
 	if(!key) {
 		key = _.find(getBackgroundColorSurfaceKindPreference(surface), pref => {
-			return palette[pref] && paletteKey !== pref;
+			return palette[pref] && backdropKey !== pref;
 		})
 	}
 
 	console.assert(key, 'Should have key!');
-	return paletteColor(key);
+	return paletteColor(key, alpha);
 }
 
-export function getOptimalForegroundColor(item, palette, preferences=[]) {
+export function getOptimalForegroundColor(item, palette, preferences=[], alpha) {
 	const backdropKey = getBackdropPaletteKey({_parent: item});
 	const backdropColor = palette[backdropKey];
 
-	const keys = _.uniq([...preferences, 'dark', 'light']);
-	const key = _.find(keys, k => getContrast(backdropColor, palette[k]) > 3.0);
-	console.assert(key, 'Palette key missing');
+	const keys = _.uniq([...preferences, 'dark', 'light', ...Object.keys(palette)]);
+	const validKeys = _.filter(keys, k => palette[k]);
+	let key = _.find(validKeys, k => getContrast(backdropColor, palette[k]) > 2.5);
 
-	return paletteColor(key);
+	if(!key) {
+		key = _.maxBy(validKeys, k => getContrast(backdropColor, palette[k]));
+	}
+	
+	// console.assert(key, 'Palette key missing');
+	return paletteColor(key, alpha);
 }
 
 // TODO: Use stats for this.
@@ -279,8 +286,8 @@ function getBackgroundColorSurfaceKindPreference(surface) {
 	switch(surface.kind) {
 		case 'template': return ['dark', 'light']
 		case 'content': return ['dark', 'light']
-		case 'group': return ['light', 'primary', 'dark']
-		case 'element': return ['primary', 'secondary', 'light', 'dark']
+		case 'group': return ['light', 'accent', 'dark']
+		case 'element': return ['accent', 'accent2', 'light', 'dark']
 		default: return ['light', 'dark']
 	}
 }
@@ -358,6 +365,7 @@ export function transferSurface(fSurface, tSurface, preference) {
 const DECOR_PROPS = ['t','b','l','r','tOffset','bOffset','lOffset','rOffset'];
 function transferDecor(fSurface, tSurface) {
 	if(tSurface.decor) {
+		fSurface.decor = fSurface.decor || {};
 		Object.assign(fSurface.decor, _.pick(tSurface.decor, DECOR_PROPS));
 	}
 	else {
@@ -367,6 +375,7 @@ function transferDecor(fSurface, tSurface) {
 
 function transferBorder(fSurface, tSurface) {
 	if(tSurface.border) {
+		fSurface.border = fSurface.border || {};
 		Object.assign(fSurface.border, _.pick(tSurface.border, DECOR_PROPS));
 	}
 	else {

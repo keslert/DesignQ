@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { copyTemplate, linkTemplate } from '../utils/template-utils';
 import { mimicTemplateLayout } from './content';
-import { withGroups, produceFlyer } from '../producer';
+import { withGroups } from '../producer';
 import { resolveItemColors } from '../resolver';
 
 export const basicStages = [
@@ -15,7 +15,7 @@ export const basicStages = [
   {
     type: 'layout',
     key: 'layout.order', 
-    label: 'Elements',
+    label: 'Alternate Layouts',
     generate: generateOrder,
     satisfied: () => true,
   },
@@ -59,11 +59,13 @@ function generateOrder(flyer, {templates}) {
     const fGroupTypes = withGroups(flyer, (g, groupType) => groupType);
     const cGroupTypes = withGroups(copy, (g, groupType) => groupType);
     const sameGroups = _.isEqual(fGroupTypes, cGroupTypes)
-    const fElementsTypes = _.flatMap(fGroupTypes, type => flyer.content[type].elements).map(el => el.type);
-    const cElementsTypes = _.flatMap(cGroupTypes, type => copy.content[type].elements).map(el => el.type);
-    const sameElements = _.difference(fElementsTypes, cElementsTypes).length === 0;
+    const fElementsTypes = _.map(flyer._elements, 'type');
+    // const cElementsTypes = _.map(copy._elements, 'type');
+    // const sameElements = _.intersection(fElementsTypes, cElementsTypes).length === cElementsTypes.length;
+    const similarImages = _.some(flyer._elements, el => el.type === 'image') === _.some(copy._elements, el => el.type === 'image')
+
     
-    return (sameGroups && sameElements) ? copy : null
+    return (sameGroups && similarImages) ? copy : null
   }).filter(i => i);
 
   const flyers = validTemplates.map(t => {

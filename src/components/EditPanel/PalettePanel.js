@@ -29,12 +29,13 @@ function PalettePanel({template}) {
     <Box>
       <Field label="Palette Colors"> 
         {swatches.map(swatch => (
-          <Flex alignItems="center" key={swatch.key} mb={1}>
+          <Flex key={swatch.key} mb={1}>
             <Text
               color="white"
               width={75}
               fontSize={1}
               children={swatch.label}
+              mt="15px"
               mr={1}
             />
             <ColorPicker

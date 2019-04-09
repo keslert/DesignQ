@@ -158,11 +158,11 @@ function getUpdatedStage(stage, primary, action, state) {
 function getProgress(stage, index) {
   const percentage = index / stage.currentGeneration.length;
   const progress = 
-    index > 150 || (index > 20 && percentage > .8)
+    index > 50 || (index > 20 && percentage > .8)
       ? ProgressTypes.THOROUGHLY_EXPLORED
-      : index > 20 || (percentage > .10)
+      : (index > 0 // || (percentage > .10)
         ? ProgressTypes.EXPLORED
-        : ProgressTypes.UNEXPLORED
+        : ProgressTypes.UNEXPLORED)
 
   return getMaxProgress(stage.progress, progress);
 }

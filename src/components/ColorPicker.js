@@ -38,7 +38,8 @@ function ColorPicker(props) {
             color: 'white',
             border: 'none',
             width: '100%',
-            padding: '8px 10px 8px 42px'
+            padding: '8px 10px 8px 42px',
+            fontFamily: 'monospace',
           }}
           placeholder="(none)"
           value={inputValue}

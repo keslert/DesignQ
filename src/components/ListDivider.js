@@ -1,5 +1,4 @@
 import React from 'react';
-import { resolveColor } from '../core/utils/render-utils';
 
 function ListDivider({divider, fontSize}) {
 
@@ -19,7 +18,7 @@ function ListDivider({divider, fontSize}) {
             display: 'inline-block',
             width: Math.ceil(fontSize * .05),
             height: `${fontSize}px`,
-            background: resolveColor(divider.color)
+            background: divider.color && divider.color._str,
           }}
         />
       }
@@ -29,7 +28,7 @@ function ListDivider({divider, fontSize}) {
           width: Math.ceil(fontSize * .25 * divider.size),
           height: Math.ceil(fontSize * .25 * divider.size),
           verticalAlign: 'middle',
-          background: resolveColor(divider.color),
+          background: divider.color && divider.color._str,
           borderRadius: '9999px',
         }}/>
       }

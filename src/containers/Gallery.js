@@ -12,7 +12,7 @@ import {
 import { produceFlyer } from '../core/producer';
 import _ from 'lodash';
 import { Swatch } from '../components/ColorPicker';
-import { linkTemplate } from '../core/utils/template-utils';
+import { linkTemplate, convertV1Template } from '../core/utils/template-utils';
 import { extractColorStrsFromTemplate, generatePalette } from '../core/utils/color-utils';
 
 // const flyers = [
@@ -33,12 +33,11 @@ function Gallery({flyerSize}) {
     _.forEach(flyers, flyer => {
       flyer.size = flyerSize;
       linkTemplate(flyer);
-      produceFlyer(flyer, flyerSize);
+      convertV1Template(flyer, {keepImages: true});
+      produceFlyer(flyer);
     });
     setPalettes(_.map(flyers, f => {
-      const colors = extractColorStrsFromTemplate(f);
-      const palette = generatePalette(colors);
-      return Object.values(_.pick(palette, ['dark', 'primary', 'secondary', 'light']));
+      return Object.values(_.pick(f.palette, ['dark', 'light', 'accent', 'accent2']));
     }))
     setReady(true);
   }, [])

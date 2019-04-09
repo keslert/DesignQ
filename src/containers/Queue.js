@@ -94,11 +94,6 @@ function Queue(props) {
           recommendedStage={state.journey.recommendedStage}
         />
         <Flex flex={1}>
-          {showSidebar && 
-            <Sidebar 
-              selection={state.selection}
-            />
-          }
           <Flex flex={1} flexDirection="column">
             <Box flex={1}>
               {showExport
@@ -122,6 +117,11 @@ function Queue(props) {
               items={state.history}
             />
           </Flex>
+          {showSidebar && 
+            <Sidebar 
+              selection={state.selection}
+            />
+          }
         </Flex>
         <style>{`
           body { 
@@ -221,8 +221,8 @@ async function getInitialState(props, dispatch) {
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
         // : {type: 'content', key: 'content.text' } 
-        : {type: 'color', key: 'color.background'}
-        // : {type: 'layout', key: 'layout.order'}
+        // : {type: 'color', key: 'color.background'}
+        : {type: 'layout', key: 'layout.structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -236,13 +236,13 @@ async function getInitialState(props, dispatch) {
         query: '',
         images: [],
       },
-      selection: startFlyer,
+      // selection: startFlyer,
       // selection: startFlyer.content.body.elements[1],
       ...(loadState || {}),
     }, {stage});
 
 
-    if(query.backup) {
+    if(query.backup && localStorage.getItem('savedPrimary')) {
       state.primary = JSON.parse(localStorage.getItem('savedPrimary'));
       state.history = JSON.parse(localStorage.getItem('savedHistory'));
       [state.primary, ...state.history].forEach(f => {
@@ -413,6 +413,7 @@ function updateSelected(state, action, update={}) {
       set(copySelected, path, value);
     }
   })
+  resolveItem(copySelected, selected, action.update);
   produceFlyer(copy);
 
   update.secondary = copy;
@@ -426,8 +427,6 @@ function updateSelected(state, action, update={}) {
   if(false) {
     update.list = [copy, copy];
   }
-
-  resolveItem(copySelected, selected, action.update);
 
   // TODO: Push all edits of the same type to an editHistory so we can undo/redo easily.
 

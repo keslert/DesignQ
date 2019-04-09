@@ -197,14 +197,14 @@ export function canControlWidth(surface) {
     || (surface.kind === 'element' && surface._parent._w === 'fill')
 }
 
-export function convertV1Template(template) {
+export function convertV1Template(template, options={}) {
   const colorStrs = extractColorStrsFromTemplate(template);
   template.palette = generatePalette(colorStrs);
 
   // replace images and fix color overlays
   template._all.forEach(item => {
     const img = _.get(item, ['background', 'img'])
-    if(img) {
+    if(img && !options.keepImages) {
       item.background.img = {...PLACEHOLDER_IMAGE};
 
       if(item.background.color) {

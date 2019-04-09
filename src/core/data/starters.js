@@ -14,8 +14,8 @@ export const empty = {
   },
   palette: {
     light: '#ffffff',
-    dark: '#484848',
-    primary: '#bbbbbb',
+    dark: '#484851',
+    accent: '#bbbbbf',
   },
   fonts: {
     dominant: 'Open Sans',

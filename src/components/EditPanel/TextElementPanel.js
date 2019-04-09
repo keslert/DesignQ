@@ -79,7 +79,7 @@ function TextElementPanel({element}) {
             const alpha = color.alpha;
             update({'color': {type: 'solid', color: hex, alpha}})
           }}
-          color={element.color.color}
+          color={element.color._str}
           palette={Object.values(element._root.palette)}
           width={226}
         />

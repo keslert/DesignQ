@@ -15,33 +15,45 @@ export function resolveItem(item, oldItem, update) {
   }
 
   // if(!_.isEqual(item.background, oldItem.background)) {
-  //   resolveItemColors(item);
+    resolveItemColors(item);
   // }
 }
 
 export function resolveItemColors(item) {
   const palette = item._root.palette;
-  const descendants = getDescendants(item);
-  
-  descendants.forEach(item => {
-    const color = get(item, ['background', 'color']);
-    if(color) {
-      item.background.color = getOptimalBackgroundColor(
-        item, 
-        palette, 
-        _.uniq([color.paletteKey, 'light', 'dark'])
-      )
-      // resolveBackgroundColor(color, palette, item);
-    }
+
+  if(item.kind === 'element') {
     if(item.color) {
       item.color = getOptimalForegroundColor(
-        item, 
+        item,
         palette, 
-        _.uniq([item.color.paletteKey, 'dark', 'light'])
+        [item.color.paletteKey],
+        item.color.alpha
       );
-      // item.color = resolveForegroundColor(item.color, palette, item);
     }
-  })
+  }
+  else { 
+    
+    getDescendants(item).forEach(item => {
+      const bgColor = get(item, ['background', 'color']);
+      if(bgColor) {
+        item.background.color = getOptimalBackgroundColor(
+          item, 
+          palette, 
+          [bgColor.paletteKey],
+          bgColor.alpha
+        )
+      }
+      if(item.color) {
+        item.color = getOptimalForegroundColor(
+          item,
+          palette, 
+          [item.color.paletteKey],
+          item.color.alpha
+        );
+      }
+    })
+  }
 }
 
 function resolveFont(font) {

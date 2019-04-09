@@ -32,20 +32,22 @@ export function getBackdropPaletteKey(item) {
 }
 
 export function findPaletteKey(colorStr, palette) {
-  return findKey(palette, v => v === colorStr);
+  const key = findKey(palette, v => v === colorStr);
+  console.assert(key, 'Missing key!');
+  return key;
 }
 
 export function convertColorToPaletteColor(color, palette) {
   switch(color.type) {
     case 'basic': 
-      return paletteColor(findPaletteKey(color.str, palette))
+      return paletteColor(findPaletteKey(chroma(color.str).hex(), palette), color.alpha)
     case 'linear':
     case 'split-color':
     case 'striped':
       return {
         ...color,
-        colorA: paletteColor(findPaletteKey(color.colorA.str, palette)),
-        colorB: paletteColor(findPaletteKey(color.colorB.str, palette)),
+        colorA: convertColorToPaletteColor(color.colorA, palette),
+        colorB: convertColorToPaletteColor(color.colorB, palette),
       }
     default:
       throw Error('Unknown Color Type');
@@ -59,6 +61,8 @@ export function getContrast(c1, c2) {
 }
 
 export function fixAlpha(color, alpha=0.5) {
+  if(!color) return;
+
   switch(color.type) {
     case 'basic':
     case 'palette': 
@@ -75,7 +79,7 @@ export function fixAlpha(color, alpha=0.5) {
 
 const ALPHA_THRESHOLD = 0.9;
 function _fixAlpha(color, alpha) {
-  if(!color.alpha || color.alpha > ALPHA_THRESHOLD) {
+  if(color.alpha === undefined || color.alpha > ALPHA_THRESHOLD) {
     color.alpha = alpha;
   }
 }
@@ -123,6 +127,9 @@ export function generatePalette(colors) {
   return generatePlausiblePalettes(colors, 1)[0];
 }
 
+
+const FROM_WHITE_THRESHOLD = 40;
+const CONTRAST_WITH_LIGHT_THRESHOLD = 3;
 export function generatePlausiblePalettes(colors, limit=10) {
   console.assert(colors.length > 1, 'More than one color');
 
@@ -135,10 +142,12 @@ export function generatePlausiblePalettes(colors, limit=10) {
     }
   });
 
-  const light = minBy(chromas, 'fromWhite') || {c: WHITE};
+  // TODO: If no light
+  const validLights = chromas.filter(c => c.fromWhite < FROM_WHITE_THRESHOLD)
+  const light = minBy(validLights, 'fromWhite') || {c: WHITE};
   chromas.forEach(c => c.contrastWithLight = chroma.contrast(c.c, light.c));
   
-  const validDarks = chromas.filter(c => c.contrastWithLight > 3);
+  const validDarks = chromas.filter(c => c.contrastWithLight > CONTRAST_WITH_LIGHT_THRESHOLD);
   if(!validDarks.length) {
     validDarks.push(_.maxBy(chromas, 'contrastWithLight'));
   }

@@ -22,7 +22,7 @@ function Sidebar(props) {
       <Box 
         onClick={() => rootDispatch({type: 'SELECT', selected: null})}
         style={tabStyle}
-        children={<TabSvg size={100} />}
+        children={<TabSvg size={90} />}
       />
 
       <Box mx="-16px" px={16} flex={1} pt={3} style={scrollStyle}>
@@ -44,6 +44,5 @@ function Sidebar(props) {
 
 export default Sidebar;
 
-const tabStyle = {position: 'absolute', right: "-16px", top: '0', cursor: 'pointer'}
+const tabStyle = {position: 'absolute', left: "-16px", top: '10px', cursor: 'pointer'}
 const scrollStyle = {overflowY: 'auto', height: 200};
-const stickyStyle = {position: 'sticky', top: 0, zIndex: 999};
