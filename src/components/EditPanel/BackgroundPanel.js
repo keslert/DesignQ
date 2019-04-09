@@ -62,7 +62,7 @@ function BackgroundPanel({
                   o.color = null;
                 }
                 else if(type === 'color') {
-                  o.color = getSolid(surface, background, surface._root.palette);
+                  o.color = getBasic(surface, background, surface._root.palette);
                 }
                 else if(type === 'gradient') {
                   o.color = getGradient(surface, background, surface._root.palette);
@@ -156,7 +156,7 @@ function BackgroundPanel({
                     o.color = null;
                   }
                   else if(type === 'color') {
-                    o.color = getSolid(surface, background, surface._root.palette, .5);
+                    o.color = getBasic(surface, background, surface._root.palette, .5);
                   }
                   else if(type === 'gradient') {
                     o.color = getGradient(surface, background, surface._root.palette, .5);
@@ -178,7 +178,7 @@ function BackgroundPanel({
               palette={paletteColors}
               onClear={() => update({'color': null})}
               onChangeComplete={color => update({
-                // 'color.type': 'solid',
+                // 'color.type': 'basic',
                 // 'color.color': color.hex,
                 'color.alpha': color.rgb.a,
                 'color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
@@ -197,7 +197,7 @@ function BackgroundPanel({
                 color={resolveColor(background.color.color)}
                 palette={paletteColors}
                 onChangeComplete={color => update({
-                  'color.color.type': 'solid',
+                  'color.color.type': 'basic',
                   'color.color.color': color.hex,
                   'color.color.alpha': color.rgb.a,
                   'color.color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
@@ -213,7 +213,7 @@ function BackgroundPanel({
                 color={resolveColor(background.color.colorB)}
                 palette={paletteColors}
                 onChangeComplete={color => update({
-                  'color.colorB.type': 'solid',
+                  'color.colorB.type': 'basic',
                   'color.colorB.color': color.hex,
                   'color.colorB.alpha': color.rgb.a,
                   'color.colorB.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
@@ -248,15 +248,15 @@ function BackgroundPanel({
 
 export default BackgroundPanel;
 
-function getSolid(surface, bg, palette, defaultAlpha=1) {
-  const type = 'solid';
+function getBasic(surface, bg, palette, defaultAlpha=1) {
+  const type = 'basic';
   const c = bg.color || bg._color;
 
   if(!c) {
     const optimalColor = getOptimalBackgroundColor(surface, palette);
     return {...optimalColor, alpha: defaultAlpha}
   }
-  else if(c.type === 'solid') {
+  else if(c.type === 'basic') {
     const alpha = !(c.alpha < 1) ? defaultAlpha : c.alpha
     return { ...c, alpha }
   }
@@ -280,7 +280,7 @@ function getGradient(surface, bg, palette, defaultAlpha=1) {
       deg: 0,
     }
   }
-  else if(c.type === 'solid') {
+  else if(c.type === 'basic') {
     const alpha = !(c.alpha < 1) ? defaultAlpha : c.alpha
 
     return {
@@ -304,7 +304,7 @@ function getGradient(surface, bg, palette, defaultAlpha=1) {
 
 const BackgroundTypeToText = {
   none: 'none',
-  solid: 'color',
+  basic: 'color',
   linear: 'gradient',
   image: 'image',
 }

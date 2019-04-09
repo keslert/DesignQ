@@ -31,6 +31,7 @@ export function resolveColor(color, palette) {
         ? chroma(palette[color.paletteKey]).alpha(color.alpha).css() 
         : palette[color.paletteKey]
     case 'solid':
+      console.assert("Shouldn't have solid colors");
       return color.alpha !== undefined ? chroma(color.str).alpha(color.alpha).css() : color.str;
     case 'linear':
       return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorA, palette)})`

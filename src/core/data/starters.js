@@ -5,7 +5,7 @@ export const empty = {
   id: 1,
   title: 'Untitled Flyer',
   background: { 
-    color: {type: 'solid', color: '#ffffff', paletteKey: 'light' }
+    color: paletteColor('light'),
   },
   content: {
     body: {
@@ -27,7 +27,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Stanford HCI'},
   ],
-  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
+  color: paletteColor('dark'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -42,7 +42,7 @@ const dominant = {
   lines: [
     {type: 'eventName', text: 'Ski Trip'},
   ],
-  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
+  color: paletteColor('dark'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -57,7 +57,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Bundle up and get ready for fun!'},
   ],
-  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
+  color: paletteColor('dark'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -73,7 +73,7 @@ const heading = {
     {type: 'date', text: 'Sep. 5-8'},
     {type: 'location', text: 'Park City, Utah'},
   ],
-  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
+  color: paletteColor('dark'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -89,7 +89,7 @@ const paragraph = {
     {type: 'details', text: 'Take a break from your normal environmental'},
     {type: 'details', text: 'and hit the slopes with your fellow researchers!'},
   ],
-  color: {type: 'solid', color: empty.palette.dark, paletteKey: 'dark'},
+  color: paletteColor('dark'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.05,
@@ -103,7 +103,7 @@ const paragraph = {
 export const simpleBody = {
   ...cloneDeep(empty),
   background: {
-    color: {type: 'solid', color: empty.palette.light, paletteKey: 'light'}
+    color: paletteColor('light'),
   },
   content: {
     body: {
@@ -122,7 +122,7 @@ export const simpleBody = {
 export const imageBackground = {
   ...cloneDeep(simpleBody),
   background: {
-    color: {type: 'solid', color: empty.palette.dark, alpha: .5, paletteKey: 'dark'},
+    color: paletteColor('dark', .5),
     img: {
       "src": "https://images.pexels.com/photos/1705667/pexels-photo-1705667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       "colors": [

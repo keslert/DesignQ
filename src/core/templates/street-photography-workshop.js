@@ -88,7 +88,6 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: {
-    type: 'solid',
     color: stripedColor(135, '#f5d300', 6, basicColor('#f5d300', 0), 2)
   },
   w: .5,

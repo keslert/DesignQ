@@ -8,15 +8,15 @@ import { darkenColor, getBasicColors } from '../utils/color-utils';
 
 // Mutates template
 export function resolveItem(item, oldItem, update) {
-  resolveTemplatePalette(item._root);
+  // resolveTemplatePalette(item._root);
   
   if(item.lines && item.font.family !== oldItem.font.family) {
     resolveFont(item.font)
   }
 
-  if(!_.isEqual(item.background, oldItem.background)) {
-    resolveItemColors(item);
-  }
+  // if(!_.isEqual(item.background, oldItem.background)) {
+  //   resolveItemColors(item);
+  // }
 }
 
 export function resolveItemColors(item) {

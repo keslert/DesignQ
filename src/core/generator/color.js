@@ -259,7 +259,8 @@ export function getOptimalBackgroundColor(surface, palette, preferences=[]) {
 		})
 	}
 
-	return {type: 'solid', color: palette[key], paletteKey: key};
+	console.assert(key, 'Should have key!');
+	return paletteColor(key);
 }
 
 export function getOptimalForegroundColor(item, palette, preferences=[]) {
