@@ -22,20 +22,22 @@ export function textAlignToFlexAlign(align) {
   }
 }
 
-export function resolveColor(color) {
+export function resolveColor(color, palette) {
   if(!color) return null;
 
   switch(color.type) {
+    case 'palette':
+      return color.alpha !== undefined 
+        ? chroma(palette[color.paletteKey]).alpha(color.alpha).css() 
+        : palette[color.paletteKey]
     case 'solid':
-      return color.alpha ? chroma(color.color).alpha(color.alpha).css() : color.color;
-    case 'transparent':
-      return 'transparent';
+      return color.alpha !== undefined ? chroma(color.str).alpha(color.alpha).css() : color.str;
     case 'linear':
-      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB)}, ${resolveColor(color.color)})`
+      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorA, palette)})`
     case 'striped': 
-      return `repeating-linear-gradient(${color.deg}deg, ${resolveColor(color.colorB)}, ${resolveColor(color.colorB)} ${color.width}px, ${resolveColor(color.color)} ${color.width}px, ${resolveColor(color.color)} ${color.width + color.widthB}px)`
+      return `repeating-linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorB, palette)} ${color.widthA}px, ${resolveColor(color.colorA, palette)} ${color.widthA}px, ${resolveColor(color.colorA, palette)} ${color.widthA + color.widthB}px)`
     case 'split-color':
-      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB)}, ${resolveColor(color.colorB)} 50%, ${resolveColor(color.color)} 50%)`;
+      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorB, palette)} 50%, ${resolveColor(color.colorA, palette)} 50%)`;
     default:
       throw Error("Unknown Color Type!")
   }

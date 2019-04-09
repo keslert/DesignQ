@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Beechtown Foundation'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.110,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'for the'},
     {type: 'eventName', text: 'Homeless'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.05,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: "It's never a bad time to help those who are in"},
     {type: 'descriptive', text: 'need.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'city-state', text: 'Sacramento, CA 94260 any'},
     {type: 'descriptive', text: 'day!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.110,
@@ -71,7 +71,7 @@ const paragraph = {
     {type: 'contact', text: "This summer we're open daily from 9am to 5pm If you have"},
     {type: 'contact', text: 'questions, just call +123 456 7890 and look for Janna Murphy.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,
@@ -85,7 +85,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   w: .25,
   h: 10,
@@ -110,7 +110,7 @@ export default {
       alignY: 'top',
       bleed: { t: 1 },
       background: { 
-  color: solidColor('#af232d'),
+  color: basicColor('#af232d'),
 },
       elements: [
         small,
@@ -122,7 +122,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#af232d'),
+  color: basicColor('#af232d'),
 },
       bleed: { a: 1 },
       elements: [

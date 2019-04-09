@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'descriptive', text: 'Join in on the fun!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Lora',
     letterSpacing: 0.0,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Beach'},
     {type: 'eventName', text: 'Bazaar'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.03,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: "It's out with the old and in"},
     {type: 'descriptive', text: 'with the new this summer'},
   ],
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.120,
@@ -56,7 +56,7 @@ const heading = {
     {type: 'time', text: '10 AM to 8 PM'},
     {type: 'location', text: 'Silton Beach'},
   ],
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
   font: {
     family: 'Lora',
     letterSpacing: 0,
@@ -74,7 +74,7 @@ const paragraph = {
     {type: 'details', text: 'the bazaar? Get in touch with Isabel for'},
     {type: 'details', text: 'more details. Call 123 456 7890.'},
   ],
-  color: solidColor('#ffbec0'),
+  color: basicColor('#ffbec0'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -93,7 +93,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-pink-&-white-tropical-minimalist-simple-clean-summer-event-flyer-MAC3TdMQ9sU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#ffbec0'),
+  color: basicColor('#ffbec0'),
 },
   px: 3.5,
   py: 1.5,
@@ -117,7 +117,7 @@ export default {
       itemsAlignY: 'top',
       textAlign: 'left',
       background: { 
-        color: {type: 'transparent'},
+        color: basicColor('#ffbec0', 0),
       },
       bleed: { l: 2, t: 1 },
       px: 1.5,
@@ -128,7 +128,7 @@ export default {
     },
     footer: {
       background: { 
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
       },
       textAlign: 'left',
       elements: [

@@ -249,7 +249,6 @@
 					}
 
 					// palette reduction pass
-					// console.log("palette length: " + palLen);
 
 					// if palette is still much larger than target, increment by larger initDist
 					thold += (palLen > this.colors * 3) ? this.initDist : this.distIncr;

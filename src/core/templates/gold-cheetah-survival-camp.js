@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 62,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-mountains-summer-camp-flyer-MAC3Y6D0AFU.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#fef8e9'),
+  color: basicColor('#fef8e9'),
 },
   content: {
     body: {
@@ -29,7 +29,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Trek! Swim! Paddle!'},
           ],
-          color: solidColor('#f25938'),
+          color: basicColor('#f25938'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
@@ -46,7 +46,7 @@ export default {
             {type: 'eventName', text: 'Gold Cheetah Survival'},
             {type: 'eventName', text: 'Summer Camp'},
           ],
-          color: solidColor('#f25938'),
+          color: basicColor('#f25938'),
           font: {
             family: 'Norwester',
             letterSpacing: 0,
@@ -63,7 +63,7 @@ export default {
             {type: 'descriptive', text: 'Get together with friends and be wilderness'},
             {type: 'descriptive', text: 'explorers!'},
           ],
-          color: solidColor('#f25938'),
+          color: basicColor('#f25938'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -76,7 +76,7 @@ export default {
         },
         {
           type: 'heading',
-          color: solidColor('#f25938'),
+          color: basicColor('#f25938'),
           lines: [
             [
               {type: 'date', text: 'June 8-21, 2020', format: 'MMMM D, YYYY'},
@@ -87,7 +87,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#f25938'),
+            color: basicColor('#f25938'),
           },
           font: {
             family: 'Montserrat',
@@ -121,7 +121,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#f48842'),
+  color: basicColor('#f48842'),
 },
       bleed: { a: 1 },
       py: .5,
@@ -132,7 +132,7 @@ export default {
             {type: 'details', text: 'Open for kids aged 11 to 13. Our team of skilled and'},
             {type: 'details', text: 'professional camp counselors ensures all kids are safe 24/7.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,

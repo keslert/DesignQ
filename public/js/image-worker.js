@@ -1,7 +1,6 @@
 importScripts('/_rgbquant.js');
 
-const NUM_COLORS = 6;
-
+const NUM_COLORS = 8;
 self.addEventListener('message', e => { // eslint-disable-line no-restricted-globals
   if(e.data.src) {
     fetch(e.data.src, { mode: 'cors' })

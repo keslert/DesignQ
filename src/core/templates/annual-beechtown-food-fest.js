@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 58,
@@ -17,7 +17,7 @@ export default {
       w: 'auto',
       pa: 3,
       background: {
-        color: solidColor('#6b6f39'),
+        color: basicColor('#6b6f39'),
         borderRadius: 9999,
       },
       aspectRatio: 1,
@@ -27,7 +27,7 @@ export default {
           lines: [
             {type: 'host', text: 'Beechtown City Council'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.13,
@@ -45,7 +45,7 @@ export default {
             {type: 'eventName', text: 'Beechtown'},
             {type: 'eventName', text: 'Food Fest'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.05,
@@ -62,7 +62,7 @@ export default {
             {type: 'descriptive', text: 'Admission is free! Hope'},
             {type: 'descriptive', text: 'to see you there!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.149,
@@ -77,13 +77,13 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#6b6f39'),
+  color: basicColor('#6b6f39'),
 },
       bleed: { x: 1, b: 1 },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'date', text: 'January 16 - 20, 2020', format: 'MMMM D, YYYY'},
             {type: 'time', text: '10 am to 5 pm'},
@@ -101,7 +101,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'For more information about the food fest, visit'},
             {type: 'details', text: 'www.reallygreatsite.com. You may also call us at (123) 456-7890'},

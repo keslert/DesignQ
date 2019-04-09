@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 27,
@@ -6,13 +7,13 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-cream-and-blue-cupcake-fundraiser-flyer-MAC5EBZuooM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#fff4e9'),
+  color: basicColor('#fff4e9'),
 },
   border: {
     x: .03,
     xOffset: .03,
     background: { 
-  color: solidColor('#9ddcdc'),
+  color: basicColor('#9ddcdc'),
 },
   },
   content: {
@@ -35,7 +36,7 @@ export default {
           lines: [
             {type: 'host', text: 'Kyobi Confections'},
           ],
-          color: solidColor('#9ddcdc'),
+          color: basicColor('#9ddcdc'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.04,
@@ -52,7 +53,7 @@ export default {
             {type: 'eventName', text: 'Cupcakes for'},
             {type: 'eventName', text: 'a Good Cause'},
           ],
-          color: solidColor('#e77880'),
+          color: basicColor('#e77880'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.02,
@@ -69,7 +70,7 @@ export default {
             {type: 'descriptive', text: 'A charity bake sale to'},
             {type: 'descriptive', text: 'help fight world hunger'},
           ],
-          color: solidColor('#9ddcdc'),
+          color: basicColor('#9ddcdc'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.02,
@@ -82,7 +83,7 @@ export default {
         },
         {
           type: 'heading',
-          color: solidColor('#e77880'),
+          color: basicColor('#e77880'),
           lines: [
             [
               {type: 'date', text: 'May 15-17, 2020', format: 'MMMM D, YYYY'},
@@ -93,7 +94,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#e77880'),
+            color: basicColor('#e77880'),
           },
           font: {
             family: 'Kollektif',
@@ -107,7 +108,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#9ddcdc'),
+          color: basicColor('#9ddcdc'),
           lines: [
             {type: 'details', text: 'Have an enjoyable weekend that\'s sure'},
             {type: 'details', text: "to make your tummy and heart feel good!"},

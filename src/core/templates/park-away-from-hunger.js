@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 1,
@@ -13,7 +13,7 @@ export default {
   },
   content: {
     background: { 
-  color: solidColor('#f1e4c6'),
+  color: basicColor('#f1e4c6'),
 },
     h: 'auto',
     alignY: 'center',
@@ -29,7 +29,7 @@ export default {
           lines: [
             {type: 'host', text: 'Quark Community Center'},
           ],
-          color: solidColor('#442d34'),
+          color: basicColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.1,
@@ -49,7 +49,7 @@ export default {
             {type: 'eventName', text: 'Hunger'},
             {type: 'eventName', text: 'Food Drive'},
           ],
-          color: solidColor('#442d34'),
+          color: basicColor('#442d34'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.05,
@@ -67,7 +67,7 @@ export default {
             {type: 'descriptive', text: "The county's best food trucks gather for"},
             {type: 'descriptive', text: 'a good cause'},
           ],
-          color: solidColor('#442d34'),
+          color: basicColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.05,
@@ -85,7 +85,7 @@ export default {
             {type: 'time', text: '2:00PM-8:00PM'},
             {type: 'location', text: '123 Anywhere Street'},
           ],
-          color: solidColor('#442d34'),
+          color: basicColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.05,
@@ -103,7 +103,7 @@ export default {
             {type: 'details', text: 'raise money and food supplies for the homeless'},
             {type: 'details', text: 'victims of the recent tornado.'},
           ],
-          color: solidColor('#442d34'),
+          color: basicColor('#442d34'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.05,

@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,9 +6,9 @@ const small = {
   lines: [
     {type: 'host', text: 'San Dias Cantina presents'},
   ],
-  color: solidColor('#2f292b'),
+  color: basicColor('#2f292b'),
   background: { 
-  color: solidColor('#faaf40'),
+  color: basicColor('#faaf40'),
 },
   font: {
     family: 'Montserrat',
@@ -25,7 +25,7 @@ const dominant = {
     {type: 'eventName', text: 'Cinco de Mayo'},
     {type: 'eventName', text: 'Fiesta 2020'},
   ],
-  color: solidColor('#8bc53f'),
+  color: basicColor('#8bc53f'),
   font: {
     family: 'Knewave',
     letterSpacing: 0.01,
@@ -41,7 +41,7 @@ const bridge = {
     {type: 'descriptive', text: "It's the biggest party of the year!"},
     {type: 'descriptive', text: "Don't miss out!"},
   ],
-  color: solidColor('#faaf40'),
+  color: basicColor('#faaf40'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.03,
@@ -62,9 +62,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#8bc53f'),
+    color: basicColor('#8bc53f'),
   },
-  color: solidColor('#8bc53f'),
+  color: basicColor('#8bc53f'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.130,
@@ -81,7 +81,7 @@ const paragraph = {
     {type: 'details', text: 'margaritas, beer and tapas all day (and night) '},
     {type: 'details', text: 'long! Happy Cinco de Mayo!'},
   ],
-  color: solidColor('#faaf40'),
+  color: basicColor('#faaf40'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.03,
@@ -98,7 +98,7 @@ export default {
   title: 'Cinco de Mayo',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#2f292b'),
+  color: basicColor('#2f292b'),
 },
   decor: {
     y: .2,

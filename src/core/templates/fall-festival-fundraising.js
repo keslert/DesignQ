@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Meadowview County'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Rosario',
     letterSpacing: 0.15,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Fall Festival &'},
     {type: 'eventName', text: 'Fundraising'},
   ],
-  color: solidColor('#fe906a'),
+  color: basicColor('#fe906a'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.05,
@@ -36,7 +36,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A charity event for the Kyobi Cancer Foundation'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Rosario',
     letterSpacing: 0.1,
@@ -57,9 +57,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#fe906a'),
+    color: basicColor('#fe906a'),
   },
-  color: solidColor('#fe906a'),
+  color: basicColor('#fe906a'),
   font: {
     family: 'Arvo',
     letterSpacing: 0,
@@ -76,7 +76,7 @@ const paragraph = {
     {type: 'details', text: "welcome the season. This year we're supporting a"},
     {type: 'details', text: 'great cause, too!'},
   ],
-  color: solidColor('#e25232'),
+  color: basicColor('#e25232'),
   font: {
     family: 'Rosario',
     letterSpacing: 0.07,
@@ -92,7 +92,7 @@ export default {
   title: 'Fall Festival & Fundraising',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#1a1f3b'),
+  color: basicColor('#1a1f3b'),
 },
   decor: {
     y: .2,

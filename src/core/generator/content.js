@@ -132,8 +132,8 @@ export function mimicTemplateLayout(flyer, template) {
   // inject new elements & groups
   flyer.id = template.id;
   flyer.title = template.title;
-  transferSurface(flyer, template, flyer, template);
-  transferSurface(flyer.content, template.content, flyer, template);
+  transferSurface(flyer, template);
+  transferSurface(flyer.content, template.content);
   _.forEach(groups, (elements, groupType) => {
     if(!flyer.content[groupType]) {
       flyer.content[groupType] = buildDefaultGroup(flyer, groupType);
@@ -142,7 +142,7 @@ export function mimicTemplateLayout(flyer, template) {
     const fGroup = flyer.content[groupType];
 
     if(tGroup) {
-      transferSurface(fGroup, tGroup, flyer, template);
+      transferSurface(fGroup, tGroup);
     }
 
     fGroup.elements = elements.map(el => {
@@ -150,7 +150,7 @@ export function mimicTemplateLayout(flyer, template) {
         || buildDefaultElement(flyer, fGroup, el.type);
       const gElement = tGroup && _.find(tGroup.elements, ({type}) => type === el.type);
       if(gElement) {
-        transferSurface(fElement, gElement, flyer, template, 'nearlight');
+        transferSurface(fElement, gElement, 'nearlight');
       }
 
       fElement.lines = el.lines;
@@ -164,7 +164,7 @@ export function mimicTemplateLayout(flyer, template) {
     const tGroup = template.content[groupType]
     const tImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
     tImages.forEach(el => {
-      transferSurface(el, el, flyer, template);
+      transferSurface(el, el);
 
       if(el._computed.isFirst) {
         fGroup.elements.unshift(el);

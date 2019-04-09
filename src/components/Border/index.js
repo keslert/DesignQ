@@ -45,7 +45,7 @@ y4 _______________  w,h
 
   const style = {
     position: 'absolute',
-    background: border.background && resolveColor(border.background.color),
+    background: border.background && border.background.color && border.background.color._str,
     left: 0,
     top: 0,
     width: '100%',

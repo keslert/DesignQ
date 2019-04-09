@@ -1,4 +1,4 @@
-import { solidColor, striped } from './'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'descriptive', text: 'Time to head outside!'},
   ],
-  color: solidColor('#343434'),
+  color: basicColor('#343434'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.15,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Beechtown'},
     {type: 'eventName', text: 'Block Party!'},
   ],
-  color: solidColor('#b5322c'),
+  color: basicColor('#b5322c'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
@@ -39,7 +39,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: "We're closing off the streets for a good time."},
   ],
-  color: solidColor('#343434'),
+  color: basicColor('#343434'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.003,
@@ -60,9 +60,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#b5322c'),
+    color: basicColor('#b5322c'),
   },
-  color: solidColor('#b5322c'),
+  color: basicColor('#b5322c'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.078,
@@ -79,7 +79,7 @@ const paragraph = {
     {type: 'details', text: 'refreshments, listen to good music, and meet the'},
     {type: 'details', text: 'community. We promise you a good time!'},
   ],
-  color: solidColor('#343434'),
+  color: basicColor('#343434'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
@@ -104,7 +104,7 @@ const image = {
   border: {
     y: 0.02,
     background: {
-      color: striped(135, '#b5322c', 3, 'transparent', 2),
+      color: stripedColor(135, '#b5322c', 3, basicColor('#b5322c', 0), 2),
     }
   },
   h: 'fill',
@@ -120,7 +120,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-and-cream-block-party-flyer-MAC5uGwBvFY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#ffefd5'),
+  color: basicColor('#ffefd5'),
 },
   content: {
     body: {
@@ -135,7 +135,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#ffefd5'),
+  color: basicColor('#ffefd5'),
 },
       bleed: { a: 1 },
       elements: [

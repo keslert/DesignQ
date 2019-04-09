@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'I love you more than',
@@ -22,7 +23,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Burger Soldier Presents'},
           ],
@@ -45,7 +46,7 @@ export default {
             {type: 'eventName', text: 'More'},
             {type: 'eventName', text: 'Than'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Londrina Sketch',
             weight: 700,
@@ -62,7 +63,7 @@ export default {
             {type: 'descriptive', text: 'Celebrate your Valentines with this'},
             {type: 'descriptive', text: 'treat for two promo'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           mb: 1,
           font: {
             family: 'Muli',
@@ -78,7 +79,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Buy 1 Get 1 Free'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           mb: 1,
           font: {
             family: 'Londrina Sketch',
@@ -94,7 +95,7 @@ export default {
           lines: [
             {type: 'descriptive|location', text: 'Visit us at 334 Homestead Drive Mount Holly, NJ 08060'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

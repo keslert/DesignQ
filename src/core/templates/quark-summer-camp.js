@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 14,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-tent-summer-camp-flyer-MAC5t7rVvJ4.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08', 
   background: { 
-  color: solidColor('#212932'),
+  color: basicColor('#212932'),
 },
   decor: {
     b: .4,
@@ -19,7 +19,7 @@ export default {
           lines: [
             {type: 'host', text: 'Quark Adventure Club'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'PT Sans',
             letterSpacing: 0.15,
@@ -37,7 +37,7 @@ export default {
             {type: 'eventName', text: 'Join Us for Quark'},
             {type: 'eventName', text: 'Summer Camp 2020'},
           ],
-          color: solidColor('#f5d746'),
+          color: basicColor('#f5d746'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.05,
@@ -54,7 +54,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Ready to spend a fun-filled summer in the woodlands?'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'PT Sans',
             letterSpacing: 0.05,
@@ -69,7 +69,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#f5d746'),
+  color: basicColor('#f5d746'),
 },
           h: 6,
           w: .25,
@@ -81,7 +81,7 @@ export default {
             {type: 'call-to-action', text: 'hello@reallygreatsite.com'},
             {type: 'call-to-action', text: 'to sign up!'},
           ],
-          color: solidColor('#f5d746'),
+          color: basicColor('#f5d746'),
           font: {
             family: 'PT Sans',
             letterSpacing: 0.1,
@@ -100,7 +100,7 @@ export default {
             {type: 'details', text: 'a fire, swimming in the lake, or watching out for the'},
             {type: 'details', text: 'forest wildlife!'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'PT Sans',
             letterSpacing: 0.09,

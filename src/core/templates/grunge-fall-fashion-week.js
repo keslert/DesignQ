@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 46,
@@ -14,7 +14,7 @@ export default {
     h: 'auto',
     body: {
       background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
       elements: [
         {
@@ -22,7 +22,7 @@ export default {
           lines: [
             {type: 'host', text: 'Sandra Morgan Outfitters'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0.1,
@@ -40,7 +40,7 @@ export default {
             {type: 'eventName', text: '& Winter'},
             {type: 'eventName', text: 'Fashion Week'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Special Elite',
             letterSpacing: 0,
@@ -57,7 +57,7 @@ export default {
             {type: 'descriptive', text: 'Experience the latest in grunge'},
             {type: 'descriptive', text: 'fashion nationwide'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0.05,
@@ -72,12 +72,12 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'date|time', text: 'Oct. 4 @ 5pm'},
@@ -91,7 +91,7 @@ export default {
           divider: {
             type: 'bar',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Special Elite',
@@ -110,7 +110,7 @@ export default {
             {type: 'details', text: 'time slot to get a glimpse of our latest collection'},
             {type: 'details', text: 'before it hits the stores!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0.05,

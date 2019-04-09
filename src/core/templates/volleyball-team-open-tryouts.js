@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Algies Bay High School'},
   ],
-  color: solidColor('#273c58'),
+  color: basicColor('#273c58'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.16,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Volleyball Team Open'},
     {type: 'eventName', text: 'Tryouts'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'Tryouts for the Algies Bay Volleycats for AY'},
     {type: 'descriptive', text: '2020-2021'},
   ],
-  color: solidColor('#273c58'),
+  color: basicColor('#273c58'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.03,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'Sept. 20-22,2020 - 3 PM to 5 PM'},
     {type: 'descriptive', text: 'ABHS Covered Court'},
   ],
-  color: solidColor('#273c58'),
+  color: basicColor('#273c58'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.12,
@@ -68,7 +68,7 @@ const paragraph = {
     {type: 'details', text: 'The ABHS Volleycats is on the lookout for new talents to join'},
     {type: 'details', text: 'the team. Tryouts are open to all junior and senior students.'},
   ],
-  color: solidColor('#273c58'),
+  color: basicColor('#273c58'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -86,7 +86,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-pink-and-turquoise-illustrated-volleyball-sports-flyer-MAC3TfTE7XM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#79cecd'),
+  color: basicColor('#79cecd'),
 },
   content: {
     body: {
@@ -116,7 +116,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       bleed: { a: 1 },
       elements: [

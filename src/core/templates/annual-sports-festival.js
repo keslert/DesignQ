@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 61,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: "https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-white-icons-sports-flyer-MAC3TYnQPGY.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08",
   background: { 
-  color: solidColor('#ec6b42'),
+  color: basicColor('#ec6b42'),
 },
   decor: {
     r: .3,
@@ -23,7 +23,7 @@ export default {
           lines: [
             {type: 'host', text: 'Mueller Montessori School'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.1,
@@ -41,7 +41,7 @@ export default {
             {type: 'eventName', text: 'Sports'},
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0,
@@ -58,7 +58,7 @@ export default {
             {type: 'descriptive', text: 'Theme: Instilling great values through'},
             {type: 'descriptive', text: 'playing sports'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -76,7 +76,7 @@ export default {
             {type: 'location', text: 'School Covered Court &'},
             {type: 'location', text: 'Open Field'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.02,
@@ -95,7 +95,7 @@ export default {
             {type: 'details', text: "sports and enjoy friendly matches"},
             {type: 'details', text: "in our annual sports fest!"},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,

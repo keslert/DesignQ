@@ -1,21 +1,22 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Hallow Harvest',
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#150612'),
+  color: basicColor('#150612'),
 },
   border: {
     all: 80,
-    color: solidColor('#f0f000'),
+    color: basicColor('#f0f000'),
     items: [
       { 
         src: 'img.jpg', 
         bb: { x: 30, y: 40, w: 100, h: 50},
         colors: [
-          solidColor('#CF6200'),
+          basicColor('#CF6200'),
         ],
       },
     ]
@@ -33,7 +34,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Charlotte, NC'},
           ],
-          color: solidColor('#AA4524'),
+          color: basicColor('#AA4524'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -49,7 +50,7 @@ export default {
             {type: 'eventName', text: 'Hallow'},
             {type: 'eventName', text: 'Harvest'},
           ],
-          color: solidColor('#D06000'),
+          color: basicColor('#D06000'),
           skewed: 20,
           font: {
             family: 'Yellowtail',
@@ -61,7 +62,7 @@ export default {
         },
         {
           type: 'bridge',
-          color: solidColor('#AA4524'),
+          color: basicColor('#AA4524'),
           lines: [
             {type: 'descriptive', text: 'Join the Annual'},
             {type: 'descriptive', text: 'Hallow Harvest this'},
@@ -85,7 +86,7 @@ export default {
           lines: [
             {type: 'location', text: 'Barnes Field'},
           ],
-          color: solidColor('#D06000'),
+          color: basicColor('#D06000'),
           font: {
             family: 'Muli',
             weight: 700,

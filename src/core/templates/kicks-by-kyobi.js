@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 13,
@@ -14,7 +14,7 @@ export default {
   pa: 1.5,
   content: {
     background: { 
-  color: solidColor('#1a1a1a'),
+  color: basicColor('#1a1a1a'),
 },
     body: {
       elements: [
@@ -24,7 +24,7 @@ export default {
             {type: 'descriptive', text: 'Calling All'},
             {type: 'descriptive', text: 'Sneakerheads!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.2,
@@ -43,7 +43,7 @@ export default {
             {type: 'eventName', text: 'Kyobi Sale is'},
             {type: 'eventName', text: 'Here!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.05,
@@ -60,7 +60,7 @@ export default {
             {type: 'descriptive', text: 'Enjoy up to 70% off on all'},
             {type: 'descriptive', text: 'shoe styles and trends!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.05,
@@ -77,7 +77,7 @@ export default {
             {type: 'time', text: 'Hurry! Sale runs from June 15 -'},
             {type: 'time', text: 'August 15, 2020.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.11,
@@ -95,7 +95,7 @@ export default {
             {type: 'details', text: 'new ones at affordable prices! Shop in-'},
             {type: 'details', text: 'store at 123 Anywhere St., Any City today!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.05,

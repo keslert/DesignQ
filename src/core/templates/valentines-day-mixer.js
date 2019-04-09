@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Valentines Day Mixer',
@@ -6,7 +7,7 @@ export default {
   py: 36,
   border: {
     all: 12,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
   content: {
     height: 'flex',
@@ -18,7 +19,7 @@ export default {
       alignY: 'center',
       textAlign: 'center',
       background: { 
-  color: solidColor('#31302c'),
+  color: basicColor('#31302c'),
 },
       bleed: {all: true},
       flex: 1,
@@ -34,7 +35,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Celebrate the Day of Hearts'},
           ],
@@ -55,7 +56,7 @@ export default {
             {type: 'eventName', text: 'Valentine\'s'},
             {type: 'eventName', text: 'Day Mixer'},
           ],
-          color: solidColor('#D1BC8B'),
+          color: basicColor('#D1BC8B'),
           font: {
             family: 'Josefin Slab',
             weight: 400,
@@ -74,11 +75,11 @@ export default {
               {type: 'location', text: '71 Park Lane'},
             ],
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           divider: {
             type: 'line',
             size: 2,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           mb: 1,
           font: {

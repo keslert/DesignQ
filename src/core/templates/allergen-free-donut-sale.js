@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 41,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-with-donuts-bake-sale-flyer-MAC4CsQClwE.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   content: {
     h: 'auto',
@@ -29,7 +29,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Indulge the Safe Way'},
           ],
-          color: solidColor('#d45e8f'),
+          color: basicColor('#d45e8f'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.14,
@@ -46,7 +46,7 @@ export default {
             {type: 'eventName', text: "Cia's Allergen-Free"},
             {type: 'eventName', text: 'Donut Sale'},
           ],
-          color: solidColor('#d45e8f'),
+          color: basicColor('#d45e8f'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.02,
@@ -70,9 +70,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#d45e8f'),
+            color: basicColor('#d45e8f'),
           },
-          color: solidColor('#d45e8f'),
+          color: basicColor('#d45e8f'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0.03,
@@ -86,7 +86,7 @@ export default {
         {
           type: 'bar',
           background: { 
-            color: solidColor('#d45e8f'),
+            color: basicColor('#d45e8f'),
           },
           h: 6,
           w: .33,
@@ -97,7 +97,7 @@ export default {
             {type: 'detials', text: "Now's your chance to get a batch of these special homemade donuts"},
             {type: 'detials', text: "while they're still hot and fresh from the oven!"},
           ],
-          color: solidColor('#d45e8f'),
+          color: basicColor('#d45e8f'),
           font: {
             family: 'Kollektif',
             letterSpacing: 0,

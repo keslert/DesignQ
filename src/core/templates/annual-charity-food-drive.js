@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 23,
@@ -13,7 +13,7 @@ export default {
   content: {
     body: {
       background: { 
-  color: solidColor('#fffcf2'),
+  color: basicColor('#fffcf2'),
 },
       elements: [
         {
@@ -21,7 +21,7 @@ export default {
           lines: [
             {type: 'host', text: 'Beechtown High School'},
           ],
-          color: solidColor('#394e6d'),
+          color: basicColor('#394e6d'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.15,
@@ -39,7 +39,7 @@ export default {
             {type: 'eventName', text: 'Charity Food'},
             {type: 'eventName', text: 'Drive 2020'},
           ],
-          color: solidColor('#394e6d'),
+          color: basicColor('#394e6d'),
           font: {
             family: 'Sifonn',
             letterSpacing: 0,
@@ -56,7 +56,7 @@ export default {
             {type: 'descriptive', text: 'We welcome donations'},
             {type: 'descriptive', text: 'and student volunteers!'},
           ],
-          color: solidColor('#394e6d'),
+          color: basicColor('#394e6d'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.03,
@@ -70,7 +70,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#394e6d'),
+  color: basicColor('#394e6d'),
 },
           h: 5,
           w: .33,
@@ -82,7 +82,7 @@ export default {
             {type: 'time', text: '10:00AM Onwards'},
             {type: 'location', text: 'Room 123'},
           ],
-          color: solidColor('#394e6d'),
+          color: basicColor('#394e6d'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.15,
@@ -98,12 +98,12 @@ export default {
     footer: {
       bleed: { x: 1, b: 1 },
       background: { 
-  color: solidColor('#fffcf2'),
+  color: basicColor('#fffcf2'),
 },
       elements: [
         {
           type: 'paragraph',
-          color: solidColor('#394e6d'),
+          color: basicColor('#394e6d'),
           lines: [
             {type: 'details', text: "This year's food drive will be done for"},
             {type: 'details', text: "Beechtown's Homeless Foundation."},

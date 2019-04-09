@@ -2,9 +2,15 @@ import React from 'react';
 import { DropTarget } from 'react-dnd'
 import { Box } from 'rebass';
 
-function DropZone({item, isAfter, highlight, connectDropTarget}) {
+function DropZone({
+  item, 
+  isAfter, 
+  highlight, 
+  draggedItem,
+  connectDropTarget,
+}) {
 
-  const height = item._computed.mb || 80;
+  const height = item._computed.mb || 40;
   return connectDropTarget(
     <div 
       style={{
@@ -12,6 +18,7 @@ function DropZone({item, isAfter, highlight, connectDropTarget}) {
         left: item._computed.bb.l,
         width: item._computed.bb.w,
         height: height,
+        pointerEvents: draggedItem ? 'all' : 'none',
         top: (item._computed.bb.t + (isAfter
           ? item._computed.bb.h
           : - height)
@@ -45,7 +52,6 @@ const target = {
 
 function collectTarget(connect, monitor) {
   const highlight = monitor.isOver() && monitor.canDrop();
-  console.log(monitor.isOver())
   return {
     connectDropTarget: connect.dropTarget(),
     highlight,

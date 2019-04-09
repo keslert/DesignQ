@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 37,
@@ -16,14 +16,14 @@ export default {
   border: {
     a: .05,
     background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
   },
   content: {
     body: {
       bleed: { x: 2 },
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       alignY: 'top',
       h: 'auto',
@@ -33,7 +33,7 @@ export default {
           lines: [
             {type: 'time', text: 'Feed Someone In Need'},
           ],
-          color: solidColor('#dc8120'),
+          color: basicColor('#dc8120'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.230,
@@ -51,7 +51,7 @@ export default {
             {type: 'eventName', text: '25th Annual Grise'},
             {type: 'eventName', text: 'Fiord Food Drive'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.05,
@@ -67,7 +67,7 @@ export default {
           lines: [
             {type: 'time', text: 'A campaign by the Grise Fiord Fishermen\'s Assoc.' },
           ],
-          color: solidColor('#dc8120'),
+          color: basicColor('#dc8120'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.04,
@@ -85,7 +85,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [ 
               {type: 'date', text: 'March 3-5, 2020', format: 'MMMM D, YYYY'},
@@ -96,7 +96,7 @@ export default {
           divider: {
             size: 1,
             type: 'line',
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'League Spartan',
@@ -110,7 +110,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Did you know that thousands of households struggle'},
             {type: 'details', text: 'with food security everyday? You can help change'},

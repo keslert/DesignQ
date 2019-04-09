@@ -1,4 +1,4 @@
-import { solidColor, striped } from './'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   id: 49,
@@ -10,7 +10,7 @@ export default {
       src: 'https://images.pexels.com/photos/691710/pexels-photo-691710.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
       meta: { w: 1000, h: 737 },
     },
-    color: striped(135, '#f68464', 80, '#454a80', 40),
+    color: stripedColor(135, '#f68464', 80, '#454a80', 40),
     backgroundBlendMode: 'overlay',
   },
   content: {
@@ -19,7 +19,7 @@ export default {
     alignX: 'left',
     bleed: { l: 1 },
     background: { 
-  color: solidColor('#fcfdf5'),
+  color: basicColor('#fcfdf5'),
 },
     body: {
       alignX: 'left',
@@ -31,7 +31,7 @@ export default {
           lines: [
             {type: 'host', text: 'The Winslough Chapel'},
           ],
-          color: solidColor('#454a80'),
+          color: basicColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.02,
@@ -49,7 +49,7 @@ export default {
             {type: 'eventName', text: 'The Holiday'},
             {type: 'eventName', text: 'Season'},
           ],
-          color: solidColor('#f68464'),
+          color: basicColor('#f68464'),
           font: {
             family: 'Aleo',
             letterSpacing: 0,
@@ -67,7 +67,7 @@ export default {
             {type: 'descriptive', text: 'A special concert by the Winslough\'s'},
             {type: 'descriptive', text: 'award-winning choir.'},
           ],
-          color: solidColor('#454a80'),
+          color: basicColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.02,
@@ -93,9 +93,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#454a80'),
+            color: basicColor('#454a80'),
           },
-          color: solidColor('#454a80'),
+          color: basicColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.02,
@@ -113,7 +113,7 @@ export default {
             {type: 'details', text: "the Winslough Songbirds perform the best"},
             {type: 'details', text: "Christmas carols"},
           ],
-          color: solidColor('#454a80'),
+          color: basicColor('#454a80'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.02,

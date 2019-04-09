@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Beach Party Madness',
@@ -11,7 +12,7 @@ export default {
         brightness: 0.4,
       }
     },
-    color: solidColor('#516c5c'),
+    color: basicColor('#516c5c'),
     backgroundBlendMode: 'overlay',
   },
   content: {
@@ -31,7 +32,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Come Party With Us!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.15,
@@ -48,7 +49,7 @@ export default {
             {type: 'eventName', text: 'Beachtown Beach'},
             {type: 'eventName', text: 'Party Madness'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -62,7 +63,7 @@ export default {
         {
           type: 'bar',
           background: { 
-            color: solidColor('#f7f1af'),
+            color: basicColor('#f7f1af'),
           },
           w: .25,
           h: 8,
@@ -72,7 +73,7 @@ export default {
           lines: [
             {type: 'host', text: 'Proudly sponsored by Lamplight Mobile System'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -103,9 +104,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -119,7 +120,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#f7f1af'),
+  color: basicColor('#f7f1af'),
 },
           w: .25,
           h: 8,
@@ -131,7 +132,7 @@ export default {
             {type: 'details', text: 'and get ready for a night of partying by the'},
             {type: 'details', text: 'ocean! Everyone is invited to join!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,

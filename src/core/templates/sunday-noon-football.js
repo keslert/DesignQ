@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 3,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer', 'football'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-yellow-icon-sports-flyer-MAC5t7rcTo0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#fed23c'),
+  color: basicColor('#fed23c'),
 },
   content: {
     body: {
@@ -38,7 +38,7 @@ export default {
             {type: 'eventName', text: 'Noon'},
             {type: 'eventName', text: 'Football'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Raleway',
             letterSpacing: 0.01,
@@ -53,7 +53,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#000'),
+  color: basicColor('#000'),
 },
           w: 1,
           h: 12,
@@ -64,7 +64,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Experience football like you never have before!'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Raleway',
             letterSpacing: 0.04,
@@ -82,7 +82,7 @@ export default {
             {type: 'date-time', text: 'February 26, 2020 from 12NN'},
             {type: 'location', text: 'at Cormoran Sports Pub'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Raleway',
             letterSpacing: 0.04,
@@ -101,7 +101,7 @@ export default {
             {type: 'descriptive', text: 'Entrance is free, but reservations are required.'},
             {type: 'contact', text: 'Call ahead: (123) 456-7890'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Raleway',
             letterSpacing: 0.06,
@@ -122,7 +122,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           lines: [
             {type: 'host', text: 'Cormoran Sports Pub'},
           ],

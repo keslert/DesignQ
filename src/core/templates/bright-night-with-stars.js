@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'San Dias Youth Ministry'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.25,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'A Bright Night'},
     {type: 'eventName', text: 'with the Stars'},
   ],
-  color: solidColor('#ff5a52'),
+  color: basicColor('#ff5a52'),
   font: {
     family: 'Rubik One',
     letterSpacing: 0.03,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'A classic movie night'},
     {type: 'descriptive', text: 'and fundraising event'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.15,
@@ -60,9 +60,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 2,
-    color: solidColor('#ff5a52'),
+    color: basicColor('#ff5a52'),
   },
-  color: solidColor('#ff5a52'),
+  color: basicColor('#ff5a52'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.13,
@@ -79,7 +79,7 @@ const paragraph = {
     {type: 'details', text: 'includes popcorn and a drink. Visit'},
     {type: 'details', text: 'www.reallygreatsite.com for tickets.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Anonymous Pro',
     letterSpacing: 0.41,
@@ -95,7 +95,7 @@ export default {
   title: 'A Bright Night with the Stars',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#00344b'),
+  color: basicColor('#00344b'),
 },
   decor: {
     t: .45,

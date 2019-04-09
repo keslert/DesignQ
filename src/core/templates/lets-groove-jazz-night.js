@@ -1,4 +1,4 @@
-import { solidColor } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 10,
@@ -6,12 +6,12 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-yellow-and-black-jazz-night-saxophone-illustration-concert-flyer-MAC4_opPoG0.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
   border: {
     r: .05,
     background: { 
-  color: solidColor('#f3d030'),
+  color: basicColor('#f3d030'),
 },
   },
   decor: {
@@ -30,7 +30,7 @@ export default {
           lines: [
             {type: 'host', text: 'Audios Co. Presents'},
           ],
-          color: solidColor('#f4d55e'),
+          color: basicColor('#f4d55e'),
           font: {
             family: 'Raleway',
             letterSpacing: 0.16,
@@ -48,7 +48,7 @@ export default {
             {type: 'eventName', text: 'Jazz Night'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.02,
@@ -62,7 +62,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#f4d55e'),
+  color: basicColor('#f4d55e'),
 },
           h: 8,
           w: .2,
@@ -73,7 +73,7 @@ export default {
             {type: 'descriptive', text: 'Enjoy a night of soothing music'},
             {type: 'descriptive', text: 'from the best artists.'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'Raleway',
             letterSpacing: 0.09,
@@ -91,7 +91,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#f4d55e'),
+          color: basicColor('#f4d55e'),
           lines: [
             {type: 'date', text: 'March 19, 2020', format: 'MMMM D, YYYY'},
             {type: 'time', text: '6:30pm'},
@@ -110,7 +110,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           lines: [
             {type: 'details', text: 'Join us for jaxx night and enjoy'},
             {type: 'details', text: 'great music from the best'},

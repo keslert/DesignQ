@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Have a fabulous fall!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.18,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Festival'},
     {type: 'eventName', text: '2020'},
   ],
-  color: solidColor('#f89e4b'),
+  color: basicColor('#f89e4b'),
   font: {
     family: 'Abril Fatface',
     letterSpacing: 0,
@@ -45,9 +45,9 @@ const bridge = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.06,
@@ -63,7 +63,7 @@ const heading = {
     {type: 'descriptive', text: 'crafts, and a whole lot'},
     {type: 'descriptive', text: 'of fun.'},
   ],
-  color: solidColor('#f89e4b'),
+  color: basicColor('#f89e4b'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.18,
@@ -81,7 +81,7 @@ const paragraph = {
     {type: 'details', text: 'season with appetizing food and'},
     {type: 'details', text: 'free-flowing drinks!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.14,
@@ -99,7 +99,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-orange-leaves-fall-festival-flyer-MAC3Ta-ko3M.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#283442'),
+  color: basicColor('#283442'),
 },
   decor: {
     r: .3,

@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 44,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-orange-basketball-fundraiser-flyer-MAC5Lp6K9A8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#101010'),
+  color: basicColor('#101010'),
 },
   decor: {
     a: .1,
@@ -19,7 +19,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Let the games begin!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0.2,
@@ -37,7 +37,7 @@ export default {
             {type: 'eventName', text: 'Basketball'},
             {type: 'eventName', text: 'Tournament'},
           ],
-          color: solidColor('#db6936'),
+          color: basicColor('#db6936'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -54,7 +54,7 @@ export default {
             {type: 'descriptive', text: 'A fundraising game for the'},
             {type: 'descriptive', text: 'Beechtown Foundation'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -72,7 +72,7 @@ export default {
             {type: 'time', text: 'Starts at 1 P.M.'},
             {type: 'location', text: 'Forestov Court'},
           ],
-          color: solidColor('#db6936'),
+          color: basicColor('#db6936'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0.08,
@@ -90,7 +90,7 @@ export default {
             {type: 'details', text: 'teams vie for the championship!'},
             {type: 'details', text: 'Tickets are now on sale at reallygreatsite.com!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,

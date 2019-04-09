@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'descriptive', text: 'We proudly bring you'},
   ],
-  color: solidColor('#7f9f47'),
+  color: basicColor('#7f9f47'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.02,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'the Trees'},
     {type: 'eventName', text: '2020'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Peace Sans',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'An annual fundraiser for the'},
     {type: 'descriptive', text: 'Quarkoak Foundation'},
   ],
-  color: solidColor('#7f9f47'),
+  color: basicColor('#7f9f47'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.02,
@@ -59,9 +59,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.02,
@@ -78,7 +78,7 @@ const paragraph = {
     {type: 'details', text: 'protect the trees, conserve out forests, and'},
     {type: 'details', text: 'save our planet!'},
   ],
-  color: solidColor('#7f9f47'),
+  color: basicColor('#7f9f47'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.02,
@@ -94,7 +94,7 @@ export default {
   title: 'Run to save the trees',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#ffd20e'),
+  color: basicColor('#ffd20e'),
 },
   decor: {
     y: .2,

@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 31,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-and-orange-tent-flyer-summer-camp-flyer-MAC3TSOmKhg.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#022f2f'),
+  color: basicColor('#022f2f'),
 },
   content: {
     body: {
@@ -17,7 +17,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Explore the Outdoors!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto',
             letterSpacing: 0.19,
@@ -34,7 +34,7 @@ export default {
             {type: 'eventName', text: 'Beechtown Lodge'},
             {type: 'eventName', text: 'Teen Summer Camp'},
           ],
-          color: solidColor('#fbad5c'),
+          color: basicColor('#fbad5c'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.05,
@@ -50,7 +50,7 @@ export default {
           lines: [
             {type: 'time', text: 'A place for building friendship and learning life skills'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto',
             letterSpacing: 0,
@@ -83,12 +83,12 @@ export default {
     footer: {
       bleed: { a: 1 },
       background: { 
-  color: solidColor('#fbad5c'),
+  color: basicColor('#fbad5c'),
 },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#022f2f'),
+          color: basicColor('#022f2f'),
           lines: [
             {type: 'date', text: 'June 21 to 23, 2020', format: "MMMM D, YYYY"},
             {type: 'location', text: 'Beechtown Lodge & National Park'},
@@ -105,7 +105,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'The Beechtown Lodge Summer Camp helps teens aged 14 to'},
             {type: 'details', text: '18 learn life survival skills in a fun, friendly setting.'},

@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: "You're Invited!"},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.25,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Sun, Sand, and'},
     {type: 'eventName', text: 'Surf Soiree'},
   ],
-  color: solidColor('#96fdfc'),
+  color: basicColor('#96fdfc'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.01,
@@ -36,7 +36,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A summer party hosted by MLKD Burger Shack!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'slash',
     size: 1,
-    color: solidColor('#96fdfc'),
+    color: basicColor('#96fdfc'),
   },
-  color: solidColor('#96fdfc'),
+  color: basicColor('#96fdfc'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.05,
@@ -77,7 +77,7 @@ const paragraph = {
     {type: 'details', text: 'drinks, plus awesome beach activities and games'},
     {type: 'details', text: 'for all the attendees!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -92,7 +92,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#96fdfc'),
+  color: basicColor('#96fdfc'),
 },
   w: 1,
   h: 8,
@@ -115,7 +115,7 @@ export default {
   border: {
     a: .02,
     background: { 
-  color: solidColor('#152a50'),
+  color: basicColor('#152a50'),
 },
   },
   content: {

@@ -1,4 +1,5 @@
-import { linear, solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { linearColor, basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Dessert Dash',
@@ -14,7 +15,7 @@ export default {
     body: {
       w: .6,
       background: { 
-  color: solidColor('rgba(0,0,0,.9'),
+  color: basicColor('rgba(0,0,0,.9'),
 },
       alignX: 'center',
       alignY: 'center',
@@ -26,7 +27,7 @@ export default {
             {type: 'eventName', text: 'Dessert'},
             {type: 'eventName', text: 'Dash'},
           ],
-          color: solidColor('#E5E5E5'),
+          color: basicColor('#E5E5E5'),
           font: {
             family: 'Josefin Slab',
             weight: 700,
@@ -41,7 +42,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Fundraiser'},
           ],
-          color: solidColor('#E5E5E5'),
+          color: basicColor('#E5E5E5'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -56,7 +57,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
           width: unitValue(5, '%'),
           height: unitValue(4, 'px'),
@@ -68,7 +69,7 @@ export default {
             {type: 'date', text: '08 June 2019', format: 'DD MMMM YYYY'}, 
             {type: 'time', text: '2PM-Closing'},
           ],
-          color: solidColor('#E5E5E5'),
+          color: basicColor('#E5E5E5'),
           font: {
             family: 'Josefin Slab',
             weight: 700,
@@ -82,14 +83,14 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#000'),
+  color: basicColor('#000'),
 },
       width: unitValue(100, '%'),
       bleed: { all: true },
       py: .75,
       elements: [{
         type: 'small',
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         lines: [
           {type: 'website', text: 'treatstempations.co'}
         ],

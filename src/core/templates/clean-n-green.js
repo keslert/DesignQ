@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Clean & Green',
@@ -6,12 +7,12 @@ export default {
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#1B5C50'),
+  color: basicColor('#1B5C50'),
 },
   border: {
     top: 120, 
     bottom: 120,
-    color: solidColor('#B9E6BF'),
+    color: basicColor('#B9E6BF'),
   },
   content: {
     height: 'flex',
@@ -24,7 +25,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: '#jointheearthmovement'},
           ],
@@ -44,7 +45,7 @@ export default {
             {type: 'eventName', text: '&'}, 
             {type: 'eventName', text: 'Green'}
           ],
-          color: solidColor('#F9CE00'),
+          color: basicColor('#F9CE00'),
           font: {
             family: 'Muli',
             weight: 900,
@@ -61,7 +62,7 @@ export default {
             {type: 'descriptive', text: 'Providing organic and environmentally'},
             {type: 'descriptive', text: 'friendly cleaning services since 2019'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

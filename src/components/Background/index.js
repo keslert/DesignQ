@@ -21,7 +21,7 @@ function Background({background, bb, style: propStyle={}}) {
     top: bb.t + 'px',
     height: bb.h + 'px',
     width: bb.w + 'px',
-    background: resolveColor(background.color),
+    background: background.color && background.color._str,
     ...propStyle,
   }
 

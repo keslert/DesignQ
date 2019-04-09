@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 34,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-illustrated-bake-sale-flyer-MAC4C3eiDho.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#c8deb7'),
+  color: basicColor('#c8deb7'),
 },
   decor: {
     t: .3,
@@ -15,7 +15,7 @@ export default {
     body: {
       bleed: { a: 1 },
       background: { 
-  color: solidColor('#fff4e9'),
+  color: basicColor('#fff4e9'),
 },
       alignY: 'bottom',
       elements: [
@@ -24,7 +24,7 @@ export default {
           src: '/shop.svg',
           fill: '#fff4e9',
           background: {
-            color: solidColor('#c3996f'),
+            color: basicColor('#c3996f'),
             borderRadius: 9999,
           },
           overlap: 0.5,
@@ -44,7 +44,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Bread for a Cause'},
           ],
-          color: solidColor('#c3996f'),
+          color: basicColor('#c3996f'),
           font: {
             family: 'Cooper Hewitt',
             letterSpacing: 0.15,
@@ -61,7 +61,7 @@ export default {
             {type: 'eventName', text: 'El Dorado Bake Sale'},
             {type: 'eventName', text: 'Bazaar'},
           ],
-          color: solidColor('#c3996f'),
+          color: basicColor('#c3996f'),
           font: {
             family: 'Norwester',
             letterSpacing: 0,
@@ -77,7 +77,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Baked goodies from more than 10 concessionaires'},
           ],
-          color: solidColor('#c3996f'),
+          color: basicColor('#c3996f'),
           font: {
             family: 'Cooper Hewitt',
             letterSpacing: 0.03,
@@ -90,7 +90,7 @@ export default {
         },
         {
           type: 'heading',
-          color: solidColor('#c3996f'),
+          color: basicColor('#c3996f'),
           lines: [
             {type: 'descriptive', text: 'See you there on July 8 at El Dorado Field', meta: ['date', 'location']},
           ],
@@ -106,7 +106,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#c3996f'),
+          color: basicColor('#c3996f'),
           lines: [
             {type: 'details', text: 'All proceeds obtained from the Bazaar will be donated to El'},
             {type: 'details', text: 'Dorado Public Academy for their upcoming scholarship program.'},

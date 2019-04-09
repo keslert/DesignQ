@@ -1,11 +1,12 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Back to School',
   px: 64,
   py: 36,
   background: { 
-  color: solidColor('#030F5B'),
+  color: basicColor('#030F5B'),
 },
   content: {
     height: 'flex',
@@ -13,7 +14,7 @@ export default {
     body: {
       bleed: {all: true },
       background: { 
-  color: solidColor('#030F5B'),
+  color: basicColor('#030F5B'),
 },
       width: unitValue(100, '%'),
       flex: 1,
@@ -23,7 +24,7 @@ export default {
           lines: [
             {type: 'eventNameIntro', text: 'Back to School'},
           ],
-          color: solidColor('#D786D5'),
+          color: basicColor('#D786D5'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -39,7 +40,7 @@ export default {
           lines: [
             {type: 'eventName', text: 'Holiday Bake Sale'},
           ],
-          color: solidColor('#D786D5'),
+          color: basicColor('#D786D5'),
           px: 1.5,
           py: 1.1,
           font: {
@@ -58,7 +59,7 @@ export default {
           lines: [
             {type: 'time', text: 'Wednesday at 12pm'}
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -80,12 +81,12 @@ export default {
     footer: {
       bleed: {all: true },
       background: { 
-  color: solidColor('#D978C9'),
+  color: basicColor('#D978C9'),
 },
       width: unitValue(100, '%'),
       elements: [{
         type: 'small',
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         lines: [
           {type: 'descriptive', text: 'Proceeds Benefit Spark High School Spirit Squad'}
         ],

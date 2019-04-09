@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
@@ -6,7 +6,7 @@ const small = {
     {type: 'host', text: 'The Talent Center'},
     {type: 'host', text: 'Presents'},
   ],
-  color: solidColor('#fffff9'),
+  color: basicColor('#fffff9'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.08,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Summer'},
     {type: 'eventName', text: "Camp '19"},
   ],
-  color: solidColor('#fffff9'),
+  color: basicColor('#fffff9'),
   font: {
     family: 'Kollektif',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'date', text: 'March 10 - 15, 2019', format: 'MMMM D, YYYY'},
     {type: 'descriptive', text: 'Open to ages 10 to 14'},
   ],
-  color: solidColor('#fffff9'),
+  color: basicColor('#fffff9'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.08,
@@ -85,7 +85,7 @@ export default {
   title: 'Summer Camp 2019',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#69c3cb'),
+  color: basicColor('#69c3cb'),
 },
   content: {
     body: {

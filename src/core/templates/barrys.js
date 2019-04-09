@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Barry\'s',
@@ -7,7 +8,7 @@ export default {
   footer: null,
   header: null,
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   content: {
     height: 'flex',
@@ -18,7 +19,7 @@ export default {
       alignX: 'left',
       alignY: 'center',
       background: { 
-  color: solidColor('#000'),
+  color: basicColor('#000'),
 },
       bleed: {all: true },
       elements: [
@@ -35,9 +36,9 @@ export default {
             {type: 'brandName', text: 'Barry\'s'}
           ],
           background: { 
-  color: solidColor('#FFD2A7'),
+  color: basicColor('#FFD2A7'),
 },
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             transform: 'uppercase',
             size: 1,
@@ -55,7 +56,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'stationary for the working professional'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             size: 1.2,
             family: 'Josefin Slab',
@@ -70,7 +71,7 @@ export default {
           width: unitValue(120, 'px'),
           height: unitValue(3, 'px'),
           background: { 
-  color: solidColor('#FFD2A7'),
+  color: basicColor('#FFD2A7'),
 },
           marginBottom: 1,
         },
@@ -79,7 +80,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Since 1989'},
           ],
-          color: solidColor('#FFD2A7'),
+          color: basicColor('#FFD2A7'),
           font: {
             transform: 'uppercase',
             size: 1,

@@ -1,4 +1,5 @@
-import { solidColor, unitValue, linear } from '.'
+import { unitValue } from '.'
+import { basicColor, linearColor } from '../utils/color-utils';
 
 export default {
   title: 'Inhale Exhale',
@@ -10,7 +11,7 @@ export default {
     x: .35,
     y: 1,
     zoom: 1.75,
-    color: solidColor('#49065f'),
+    color: basicColor('#49065f'),
     filters: {
       brightness: .7,
     },
@@ -31,7 +32,7 @@ export default {
             {type: 'eventName', text: 'Inhale'}, 
             {type: 'eventName', text: 'Exhale'},
           ],
-          color: solidColor('#fade77'),
+          color: basicColor('#fade77'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -46,7 +47,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Yoga Therapy'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -61,7 +62,7 @@ export default {
     footer: {
       overlay: false,
       background: { 
-  color: solidColor('#49065f'),
+  color: basicColor('#49065f'),
 },
       textAlign: 'center',
       width: unitValue(100, '%'),
@@ -71,7 +72,7 @@ export default {
         lines: [
           {type: 'website', text: 'www.silkyoga.com'},
         ],
-        color: solidColor('#fade77'),
+        color: basicColor('#fade77'),
         font: {
           family: 'Roboto Condensed',
           weight: 400,

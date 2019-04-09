@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Christian Youth Week',
@@ -17,7 +18,7 @@ export default {
     body: {
       bleed: { all: true },
       background: { 
-  color: solidColor('#25334bee'),
+  color: basicColor('#25334bee'),
 },
       alignX: 'flex-end',
       alignY: 'center',
@@ -30,7 +31,7 @@ export default {
           lines: [
             {type: 'host', text: 'San Dias Church Presents'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -49,7 +50,7 @@ export default {
             {type: 'eventName', text: 'Youth Week'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#dfdbc1'),
+          color: basicColor('#dfdbc1'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -67,7 +68,7 @@ export default {
             {type: 'descriptive', text: 'Learn, Love, and Live the Life'},
             {type: 'descriptive', text: 'of Jesus Christ'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -84,7 +85,7 @@ export default {
           height: unitValue(5, 'px'),
           width: unitValue(100, '%'),
           background: { 
-  color: solidColor('#dfdbc1'),
+  color: basicColor('#dfdbc1'),
 },
         },
         {
@@ -95,7 +96,7 @@ export default {
             {type: 'time', text: '10am - 5pm'},
             {type: 'location', text: 'Hall A, San Dias Church'},
           ],
-          color: solidColor('#dfdbc1'),
+          color: basicColor('#dfdbc1'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -114,7 +115,7 @@ export default {
             {type: 'details', text: "our Lord, study the Bible, meet new"},
             {type: 'details', text: "friends, and have loads of fun!"},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,

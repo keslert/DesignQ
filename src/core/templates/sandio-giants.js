@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: "You can't miss this!"},
   ],
-  color: solidColor('#a52122'),
+  color: basicColor('#a52122'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.120,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Sandio Giants vs.'},
     {type: 'eventName', text: 'Fallfield Cubs'},
   ],
-  color: solidColor('#0b0b0b'),
+  color: basicColor('#0b0b0b'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Game 1 of the most exciting'},
     {type: 'descriptive', text: 'battle ever seen in hockey.'},
   ],
-  color: solidColor('#a52122'),
+  color: basicColor('#a52122'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.08,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'May 19th, 2020 | 3 PM to'},
     {type: 'descriptive', text: '6 PM | Sandio Stadium'},
   ],
-  color: solidColor('#0b0b0b'),
+  color: basicColor('#0b0b0b'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.120,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: "the Cubs, or will the Cubs' undefeated record"},
     {type: 'details', text: 'remain pristine? Be part of history!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.08,
@@ -100,11 +100,11 @@ export default {
       border: {
         t: .03,
         background: { 
-  color: solidColor('#a52122'),
+  color: basicColor('#a52122'),
 },
       },
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       bleed: { a: 1 },
       alignY: 'bottom',
@@ -117,7 +117,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#a52122'),
+  color: basicColor('#a52122'),
 },
       bleed: { a: 1 },
       elements: [

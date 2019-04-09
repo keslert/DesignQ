@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'descriptive', text: 'Choose the right job'},
   ],
-  color: solidColor('#ffebbf'),
+  color: basicColor('#ffebbf'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.167,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Beechtown City'},
     {type: 'eventName', text: 'Job Fair 2020'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.05,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'Get to know companies from'},
     {type: 'descriptive', text: 'various industries'},
   ],
-  color: solidColor('#ffebbf'),
+  color: basicColor('#ffebbf'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.045,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'time', text: '10 AM - 4 PM'},
     {type: 'location', text: 'Heiman Convention Center'},
   ],
-  color: solidColor('#ffebbf'),
+  color: basicColor('#ffebbf'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.147,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: 'from various industries! There will also be'},
     {type: 'details', text: 'career talks in the afternoon.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.05,
@@ -94,7 +94,7 @@ export default {
         brightness: 0.7,
       },
     },
-    color: solidColor('#1b92a5'),
+    color: basicColor('#1b92a5'),
     backgroundBlendMode: 'overlay',
   },
   content: {

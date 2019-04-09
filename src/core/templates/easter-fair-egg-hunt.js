@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,9 +6,9 @@ const small = {
   lines: [
     {type: 'descriptive', text: 'Hop on over and join us!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   background: { 
-  color: solidColor('#ffc6c6'),
+  color: basicColor('#ffc6c6'),
 },
   font: {
     family: 'Glacial Indifference',
@@ -25,7 +25,7 @@ const dominant = {
     {type: 'eventName', text: 'Easter Fair and'},
     {type: 'eventName', text: 'Egg Hunt 2020'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Fredoka One',
     letterSpacing: 0,
@@ -41,7 +41,7 @@ const bridge = {
     {type: 'descriptive', text: 'An event organized by the '},
     {type: 'descriptive', text: 'Winslough City Council'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.04,
@@ -57,7 +57,7 @@ const heading = {
     {type: 'date|time', text: '12 April 2020 at 11 A.M.'},
     {type: 'location', text: 'The Winslough Park'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Fredoka One',
     letterSpacing: 0.18,
@@ -75,7 +75,7 @@ const paragraph = {
     {type: 'contact', text: 'Get your tickets now at (123) 456-7890 or'},
     {type: 'contact', text: 'hello@reallygreatsite.com'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.03,
@@ -92,7 +92,7 @@ export default {
   title: 'Easter Fair and Egg Hunt',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#44d9e5'),
+  color: basicColor('#44d9e5'),
 },
   content: {
     body: {

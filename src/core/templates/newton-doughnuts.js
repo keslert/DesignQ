@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Newton Doughnuts',
@@ -8,7 +9,7 @@ export default {
   background: {
     type: 'image',
     url: 'https://images.unsplash.com/photo-1530016910220-faf7fab2125c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: solidColor('#1c1611'),
+    color: basicColor('#1c1611'),
     zoom: 1.4,
     y: .0,
   },
@@ -29,7 +30,7 @@ export default {
             {type: 'eventName', text: 'Grand'}, 
             {type: 'eventName', text: 'Opening'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           mb: 0.5,
           font: {
             family: 'Bebas Neue',
@@ -52,9 +53,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             fitToWidth: true,

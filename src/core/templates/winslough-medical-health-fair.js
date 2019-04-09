@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Winslow Medical Health Fair',
@@ -7,7 +7,7 @@ export default {
   border: {
     l: 25,
     background: { 
-  color: solidColor('#fb972e'),
+  color: basicColor('#fb972e'),
 },
   },
   background: {
@@ -18,7 +18,7 @@ export default {
       },
       x: 0.25,
     },
-    color: solidColor('#58a2c1'),
+    color: basicColor('#58a2c1'),
     backgroundBlendMode: 'luminosity',
   },
   content: {
@@ -38,7 +38,7 @@ export default {
           lines: [
             {type: 'host', text: 'Winslough Medical Center'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.1,
@@ -57,7 +57,7 @@ export default {
             {type: 'eventName', text: 'Health Fair'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0,
@@ -75,7 +75,7 @@ export default {
             {type: 'descriptive', text: "Participate in this year's health talks and"},
             {type: 'descriptive', text: "screenings"},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -89,7 +89,7 @@ export default {
         },
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'November 17, 2020', format: 'MMMM D, YYYY'},
@@ -100,7 +100,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Oswald',
@@ -115,7 +115,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Our health fair is free and open to everyone. Simply register'},
             {type: 'details', text: 'your attendance at www.reallygreatsite.com and take a'},

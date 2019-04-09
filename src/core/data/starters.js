@@ -1,4 +1,4 @@
-import { buildPalette } from "../generator/color";
+import { generatePalette, paletteColor } from "../utils/color-utils";
 import cloneDeep from 'lodash/cloneDeep';
 
 export const empty = {
@@ -154,10 +154,9 @@ export const imageBackground = {
     },
   }
 }
-imageBackground.palette = buildPalette(imageBackground.background.img.colors);
+imageBackground.palette = generatePalette(imageBackground.background.img.colors);
 imageBackground.content.body.elements.forEach(el => {
-  el.color.key = 'light';
-  el.color.color = imageBackground.palette.light;
+  el.color = paletteColor('light');
 })
 
 

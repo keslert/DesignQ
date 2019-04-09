@@ -1,17 +1,18 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Jake\'s Birthday Party',
   px: 72,
   py: 36,
   background: { 
-  color: solidColor('#403B57'),
+  color: basicColor('#403B57'),
 },
   border: {
     top: 90, 
     bottom: 90,
     seed: 2,
-    color: solidColor('#403B57'),
+    color: basicColor('#403B57'),
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#F26C46', size: 32},
@@ -30,7 +31,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#D7D55F'),
+          color: basicColor('#D7D55F'),
           lines: [
             {type: 'eventNameIntro', text: 'Come Join Us For A'},
           ],
@@ -50,7 +51,7 @@ export default {
             {type: 'eventName', text: 'Birthday'}, 
             {type: 'eventName', text: 'Party'},
           ],
-          color: solidColor('#59D2CC'),
+          color: basicColor('#59D2CC'),
           font: {
             family: 'Chewy',
             weight: 400,
@@ -63,7 +64,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#D7D55F'),
+          color: basicColor('#D7D55F'),
           lines: [
             {type: 'descriptive', text: 'Jake Is Turning 10!'}
           ],
@@ -81,7 +82,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#59D2CC'),
+  color: basicColor('#59D2CC'),
 },
           width: unitValue(90, 'px'),
           height: unitValue(12, 'px'),
@@ -100,9 +101,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#D7D55F'),
+            color: basicColor('#D7D55F'),
           },
-          color: solidColor('#D7D55F'),
+          color: basicColor('#D7D55F'),
           font: {
             family: 'Muli',
             weight: 400,

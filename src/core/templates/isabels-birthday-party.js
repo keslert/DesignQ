@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'descriptive', text: 'Dance the night away!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Kollektif',
     letterSpacing: 0.12,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: "Isabel's 21st"},
     {type: 'eventName', text: 'Birthday Party'},
   ],
-  color: solidColor('#2c7b99'),
+  color: basicColor('#2c7b99'),
   font: {
     family: 'Edo',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'A night of music, danceing, and'},
     {type: 'descriptive', text: 'a whole lot of fun!'},
   ],
-  color: solidColor('#2c7b99'),
+  color: basicColor('#2c7b99'),
   font: {
     family: 'Kollektif',
     letterSpacing: 0.04,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'time', text: 'Dancing starts at 9:00 PM'},
     {type: 'location', text: 'Club Audora'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Kollektif',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'details', text: 'Present this birthday inviation at the bar to get 2 free cocktails of'},
     {type: 'details', text: "your choice. Can't wait to see you there!"},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Kollektif',
     letterSpacing: 0,
@@ -96,7 +96,7 @@ export default {
     body: {
       alignY: 'bottom',
       background: {
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         mask: {},
       },
       bleed: { x: 1 },

@@ -5,65 +5,27 @@ import { WebFontConfig } from './web-fonts';
 import { stages as contentStages, computeContentStats } from './content';
 import { stages as layoutStages } from './layout';
 import { stages as typographyStages, computeTypographyStats } from './typography';
-import { stages as colorStages, computeColorStats, buildTemplatePalette } from './color';
+import { stages as colorStages, computeColorStats } from './color';
 import { stages as decorationStages } from './decoration';
 import { stages as polishStages } from './polish';
 import { stages as exportStages } from './export';
 
 import { templates } from '../templates';
 import { produceFlyer } from '../producer';
-import { linkTemplate } from '../utils/template-utils';
-import { PLACEHOLDER_IMAGE } from '../utils/color-utils';
+import { linkTemplate, convertV1Template } from '../utils/template-utils';
 
 export async function precompute(flyerSize) {
   if(process.env.NODE_ENV === 'production') {
     await new Promise((resolve, reject) => {
-      WebFontLoader.load({...WebFontConfig, 
-        active: function () {
-          resolve();
-        },
-      });
+      WebFontLoader.load({...WebFontConfig, active: resolve});
     });
   }
+  
   _.forEach(templates, t => {
     t.size = flyerSize;
     linkTemplate(t);
-    produceFlyer(t); 
-    t.palette = buildTemplatePalette(t);
-    // replace images
-    // const defaultImageColor = {type: 'solid', color: t.palette.dark, paletteKey: 'dark'};
-    t._all.forEach(item => {
-      const img = _.get(item, ['background', 'img'])
-      if(img) {
-        item.background.img = {...PLACEHOLDER_IMAGE};
-
-        if(item.background.color) {
-          const color = item.background.color;
-          if(color.type === 'solid' && !color.alpha) {
-            color.alpha = 0.5;
-          } else if(color.type === 'linear') {
-            color.color.alpha = 0.5;
-            color.colorB.alpha = 0.5;
-          }
-
-          // item.background.color = item.background.color || defaultImageColor;
-        }
-      }
-    })
-    
-    // connect colors to palette
-    t._all.forEach(item => {
-      const colors = _.filter([
-        _.get(item, ['background', 'color']),
-        _.get(item, ['decor', 'background', 'color']),
-        item.color,
-      ])
-      colors.forEach(color => {
-        color.paletteKey = color.type !== 'transparent'
-          ? _.findKey(t.palette, c => c === color.color)
-          : 'transparent'
-      })
-    })
+    convertV1Template(t);
+    produceFlyer(t);
   })
   computeContentStats(templates);
   // computeLayoutStats(templates);

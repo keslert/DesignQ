@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { withGroups, produceFlyer } from '../producer';
+import { extractColorStrsFromTemplate, PLACEHOLDER_IMAGE, generatePalette, fixAlpha, convertColorToPaletteColor } from './color-utils';
 
 export function safeIncrement(obj, key, amount=1) {
   obj[key] = (obj[key] || 0) + amount;
@@ -27,14 +28,14 @@ export function linkTemplate(template) {
   template.kind = 'template';
   template._root = template;
   template._key = 'template';
-  linkSurfaceProperties(template);
+  linkSurface(template);
   
   template.content.kind = 'content';
   template.content._parent = template;
   template.content._root = template;
   template.content._key = 'content';
 
-  linkSurfaceProperties(template.content);
+  linkSurface(template.content);
 
   template._groups = withGroups(template, (group, groupType) => {
     group.type = groupType;
@@ -42,7 +43,7 @@ export function linkTemplate(template) {
     group._parent = template.content;
     group._root = template;
     group._key = groupType;
-    linkSurfaceProperties(group);
+    linkSurface(group);
     return group;
   });
 
@@ -51,7 +52,7 @@ export function linkTemplate(template) {
     el._parent = g;
     el._root = template;
     el._key = 'elements.' + i;
-    linkSurfaceProperties(el);
+    linkSurface(el);
     return el;
   }))
   template._textElements = _.filter(template._elements, el => el.lines);
@@ -64,24 +65,34 @@ export function linkTemplate(template) {
     ...template._groups,
   ]
 
-  template._decors = _.filter(_.map(template._containers, 'decor'))
-
-  template._all = [
+  template._surfaces = [
     ...template._containers,
     ...template._elements,
+  ]
+
+  template._decors = _.filter(_.map(template._surfaces, 'decor'))
+  template._borders = _.filter(_.map(template._surfaces, 'border'));
+
+  template._all = [
+    ...template._surfaces,
     ...template._decors,
+    ...template._borders,
   ]
 }
 
-function linkSurfaceProperties(item) {
-  item._self = item;
+function linkSurface(item) {
   if(item.decor) {
     item.decor._kind = 'decor';
     item.decor._root = item._root;
     item.decor._parent = item;
     item.decor._key = 'decor';
   }
-  item.border && (item.border._parent = item)
+  if(item.border) {
+    item.border._kind = 'border';
+    item.border._root = item._root;
+    item.border._parent = item;
+    item.border._key = 'border';
+  }
 }
 
 export function getTemplateTextTypes(template, force) {
@@ -158,7 +169,7 @@ function getPath(item) {
   return path;
 }
 
-export function getItemFromFlyer(item, flyer) {
+export function getItemFromTemplate(item, flyer) {
   if(item.kind === 'template') return flyer;
   
   const path = getPath(item).reverse().slice(1).join('.');
@@ -174,16 +185,41 @@ export function getDescendants(item) {
   }
 }
 
+export const TextToWidth = { max: 'fill', min: 'auto'}
+export const WidthToText = { fill: 'max', auto: 'min'}
 export function canControlHeight(surface) {
   return surface.kind === 'content'
     || (surface.type === 'body' && surface._parent._h === 'fill')
 }
-
 export function canControlWidth(surface) {
   return surface.kind === 'content'
     || (surface.kind === 'group' && surface._parent._w === 'fill')
     || (surface.kind === 'element' && surface._parent._w === 'fill')
 }
 
-export const TextToWidth = { max: 'fill', min: 'auto'}
-export const WidthToText = { fill: 'max', auto: 'min'}
+export function convertV1Template(template) {
+  const colorStrs = extractColorStrsFromTemplate(template);
+  template.palette = generatePalette(colorStrs);
+
+  // replace images and fix color overlays
+  template._all.forEach(item => {
+    const img = _.get(item, ['background', 'img'])
+    if(img) {
+      item.background.img = {...PLACEHOLDER_IMAGE};
+
+      if(item.background.color) {
+        fixAlpha(item.background.color);
+      }
+    }
+  })
+  
+  // connect colors to palette
+  template._all.forEach(item => {
+    const paths = [['color'], ['background', 'color']];
+    paths.forEach(path => {
+      if(_.has(item, path)) {
+        _.set(item, path, convertColorToPaletteColor(_.get(item, path), template.palette))
+      }
+    })
+  })
+}

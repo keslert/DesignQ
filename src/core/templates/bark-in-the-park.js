@@ -1,4 +1,5 @@
-import { solidColor, unitValue, striped } from '.'
+import { unitValue } from '.'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   id: 33,
@@ -6,7 +7,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-dog-with-shades-pet-fundraising-flyer-MAC4XeJseVQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#32641f'),
+  color: basicColor('#32641f'),
 },
   decor: {
     r: .3,
@@ -27,11 +28,11 @@ export default {
       y: .02,
       yOffset: .03,
       background: {
-        color: solidColor('#ffffff', .75),
+        color: basicColor('#ffffff', .75),
       },
     },
     background: {
-      color: solidColor('#32641f'),
+      color: basicColor('#32641f'),
     },
     bleed: {a: 1},
     alignX: 'left',
@@ -52,7 +53,7 @@ export default {
           lines: [
             {type: 'host', text: 'Night Owl Pet Center'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.31,
@@ -71,7 +72,7 @@ export default {
             {type: 'eventName', text: 'The Park'},
             {type: 'eventName', text: 'Fundraiser'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0.05,
@@ -89,7 +90,7 @@ export default {
             {type: 'descriptive', text: 'A benefit event for the stray dogs of'},
             {type: 'descriptive', text: 'Nightowl PPC'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.05,
@@ -108,7 +109,7 @@ export default {
             {type: 'time', text: '8 am to 4 pm'},
             {type: 'location', text: '123 Anywhere St., Any City'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.07,
@@ -127,7 +128,7 @@ export default {
             {type: 'details', text: 'We\'ll be having loads of fun activities and'},
             {type: 'details', text: 'awesome games for all attendees.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.05,

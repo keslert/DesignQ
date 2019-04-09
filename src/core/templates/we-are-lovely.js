@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'We are lovely',
@@ -22,7 +23,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Valentine\'s Celebration'},
           ],
@@ -43,7 +44,7 @@ export default {
             {type: 'eventName', text: 'We Are'},
             {type: 'eventName', text: 'Lovely'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Voga',
             weight: 400,
@@ -62,11 +63,11 @@ export default {
               {type: 'time', text: '6PM'},
             ],
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           divider: {
             type: 'line',
             size: 2,
-            color: solidColor('#D1BC8B'),
+            color: basicColor('#D1BC8B'),
           },
           mb: 1,
           font: {

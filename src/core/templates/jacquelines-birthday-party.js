@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 26,
@@ -16,7 +17,7 @@ export default {
         grayscale: 1,
       },
     },
-    color: solidColor('#909090'),
+    color: basicColor('#909090'),
     backgroundBlendMode: 'overlay',
   },
   content: {
@@ -29,7 +30,7 @@ export default {
           lines: [
             {type: 'descriptive', text: "You're All Invited!"},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Mr Dafoe',
             letterSpacing: 0.01,
@@ -46,7 +47,7 @@ export default {
             {type: 'eventName', text: "Jacqueline's"},
             {type: 'eventName', text: "Birthday Party"},
           ],
-          color: solidColor('#f17365'),
+          color: basicColor('#f17365'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.05,
@@ -63,7 +64,7 @@ export default {
             {type: 'descriptive', text: "Let's Party and Celebrate 21 Awesome"},
             {type: 'descriptive', text: "Years!"},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.15,
@@ -79,7 +80,7 @@ export default {
     footer: {
       bleed: { a: 1 },
       background: { 
-  color: solidColor('#1d1e20'),
+  color: basicColor('#1d1e20'),
 },
       width: unitValue(100, '%'),
       textAlign: 'center',
@@ -87,7 +88,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#f17365cc'),
+          color: basicColor('#f17365cc'),
           lines: [
             {type: 'date', text: 'September 20, 2020'},
             {type: 'time', text: 'Party Starts 8:00 pm'},
@@ -105,7 +106,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#f17365cc'),
+          color: basicColor('#f17365cc'),
           lines: [
             {type: 'details', text: 'There will be beer kegs, cocktails, and loads of bar chow! Let me know if you'},
             {type: 'details', text: 'can make it through hello@reallygreatsite.com'},

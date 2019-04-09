@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Art Talk',
@@ -17,17 +18,17 @@ export default {
       alignX: 'flex-start',
       alignY: 'center',
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 }, 
       border: {
-        color: solidColor('#EE445A'),
+        color: basicColor('#EE445A'),
         top: 12,
         bottom: 12,
       },
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#EF4260'),
+          color: basicColor('#EF4260'),
           lines: [
             {type: 'date', text: '3rd of', format: 'Do of'}, 
             {type: 'date', text: 'September', format: 'MMMM'}
@@ -45,7 +46,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#FECF82'),
+  color: basicColor('#FECF82'),
 },
           width: unitValue(80, 'px'),
           height: unitValue(8, 'px'),
@@ -57,7 +58,7 @@ export default {
             {type: 'eventName', text: 'Art'}, 
             {type: 'eventName', text: 'Talk'},
           ],
-          color: solidColor('#EF4260'),
+          color: basicColor('#EF4260'),
           font: {
             family: 'Bebas Neue',
             weight: 400,
@@ -74,7 +75,7 @@ export default {
             {type: 'descriptive', text: 'Things you need to know'}, 
             {type: 'descriptive', text: 'about your art'},
           ],
-          color: solidColor('#8C8C8C'),
+          color: basicColor('#8C8C8C'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -88,7 +89,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#FECF82'),
+  color: basicColor('#FECF82'),
 },
           width: unitValue(80, 'px'),
           height: unitValue(8, 'px'),
@@ -96,7 +97,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#EF4260'),
+          color: basicColor('#EF4260'),
           lines: [
             {type: 'time', text: '4-7pm'}, 
             {type: 'location', text: 'Athena Hall'},

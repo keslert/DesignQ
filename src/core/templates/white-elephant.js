@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'descriptive', text: 'For the Children Fundraiser'},
   ],
-  color: solidColor('#507473'),
+  color: basicColor('#507473'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.1,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'White'},
     {type: 'eventName', text: 'Elephant'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Sensei',
     letterSpacing: -0.02,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'All money raised in this event will proceed to'},
     {type: 'descriptive', text: 'the For the Children Organization.'},
   ],
-  color: solidColor('#507473'),
+  color: basicColor('#507473'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.06,
@@ -60,9 +60,9 @@ const heading = {
   divider: {
     type: 'bar',
     size: 1,
-    color: solidColor('#507473'),
+    color: basicColor('#507473'),
   },
-  color: solidColor('#507473'),
+  color: basicColor('#507473'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0.1,
@@ -77,7 +77,7 @@ const paragraph = {
   lines: [
     {type: 'details', text: ''},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Roboto Condensed',
     letterSpacing: 0,
@@ -94,7 +94,7 @@ export default {
   title: 'White Elephant',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#87c3c1'),
+  color: basicColor('#87c3c1'),
 },
   decor: {
     t: .45,

@@ -1,17 +1,18 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Bawres Fall Festival',
   px: 64,
   py: 32,
   background: { 
-  color: solidColor('#191e3c'),
+  color: basicColor('#191e3c'),
 },
   border: {
     top: 100, 
     bottom: 100,
     seed: 2,
-    color: solidColor('#191e3c'),
+    color: basicColor('#191e3c'),
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#ffffff', size: 32},
@@ -32,7 +33,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Bawres Fort Presents'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,
@@ -48,7 +49,7 @@ export default {
             {type: 'eventName', text: 'Fall'}, 
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#ff8400'),
+          color: basicColor('#ff8400'),
           font: {
             family: 'Josefin Slab',
             weight: 700,
@@ -63,7 +64,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'A Fundraising Event'},
           ],
-          color: solidColor('#fa905e'),
+          color: basicColor('#fa905e'),
           font: {
             family: 'Muli',
             weight: 400,
@@ -89,9 +90,9 @@ export default {
           divider: {
             type: 'dot',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

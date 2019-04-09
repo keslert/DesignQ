@@ -1,11 +1,12 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Yard Sale',
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#fed631'),
+  color: basicColor('#fed631'),
 },
   overlay: {
     type: 'image',
@@ -17,7 +18,7 @@ export default {
     width: 'flex',
     body: {
       background: { 
-  color: solidColor('#fed631'),
+  color: basicColor('#fed631'),
 },
       elements: [
         { 
@@ -28,7 +29,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#031f52'),
+          color: basicColor('#031f52'),
           lines: [
             {type: 'descriptive', text: 'A huge assorted'},
           ],
@@ -48,9 +49,9 @@ export default {
             {type: 'eventName', text: 'Yard Sale'},
           ],
           width: unitValue(100, '%'),
-          color: solidColor('#031f52'),
+          color: basicColor('#031f52'),
           background: { 
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           bleed: {left: true, right: true },
           font: {
@@ -68,11 +69,11 @@ export default {
           lines: [
             {type: 'date', text: 'September 22-25, 2019', format: 'MMMM D, YYYY'},
           ],
-          color: solidColor('#031f52'),
+          color: basicColor('#031f52'),
           divider: {
             type: 'line',
             px: 1,
-            color: solidColor('#D1BC8B'),
+            color: basicColor('#D1BC8B'),
           },
           font: {
             family: 'Muli',

@@ -1,11 +1,11 @@
-import { solidColor } from '.'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'descriptive', text: 'You are invited to attend'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.26,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Salon Makeup'},
     {type: 'eventName', text: 'Seminar'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Playfair Display',
     letterSpacing: 0.01,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Thorough tutorials for newbie makeup artists'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.11,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'comma',
     size: 1,
-    color: solidColor('#21294d'),
+    color: basicColor('#21294d'),
   },
-  color: solidColor('#21294d'),
+  color: basicColor('#21294d'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.04,
@@ -77,7 +77,7 @@ const paragraph = {
     {type: 'details', text: 'that can be learned. Let us be your teachers! Everbody\'s'},
     {type: 'details', text: 'welcome to learn.'},
   ],
-  color: solidColor('#21294d'),
+  color: basicColor('#21294d'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.06,
@@ -113,7 +113,7 @@ export default {
         brightness: 0.7,
       }
     },
-    color: solidColor('#21294d'),
+    color: basicColor('#21294d'),
     backgroundBlendMode: 'hard-light',
   },
   content: {
@@ -127,7 +127,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#f9cfa2'),
+  color: basicColor('#f9cfa2'),
 },
       bleed: { a: 1 },
       elements: [

@@ -1,4 +1,4 @@
-import { solidColor, striped } from './'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   id: 6,
@@ -11,11 +11,11 @@ export default {
   border: {
     b: .035,
     background: {
-      color: striped(135, "#303030", 16, "#d99b47", 16),
+      color: stripedColor(135, "#303030", 16, "#d99b47", 16),
     },
   },
   background: { 
-  color: solidColor('#303030'),
+  color: basicColor('#303030'),
 },
   content: {
     body: {
@@ -30,7 +30,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'A Holiday Celebration'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.27,
@@ -48,7 +48,7 @@ export default {
             {type: 'eventName', text: 'Christmas Under'},
             {type: 'eventName', text: 'the Stars'},
           ],
-          color: solidColor('#d99b47'),
+          color: basicColor('#d99b47'),
           font: {
             family: 'Grand Hotel',
             letterSpacing: 0,
@@ -66,7 +66,7 @@ export default {
             {type: 'descriptive', text: 'Join us for a holiday feast with'},
             {type: 'descriptive', text: 'friends and family!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0,
@@ -85,7 +85,7 @@ export default {
             {type: 'time', text: '6:00 in the evening'},
             {type: 'location', text: 'At the Wine Canopy'},
           ],
-          color: solidColor('#d99b47'),
+          color: basicColor('#d99b47'),
           font: {
             family: 'Lato',
             letterSpacing: 0.09,
@@ -103,7 +103,7 @@ export default {
             {type: 'details', text: 'Food and beverages catered by the Beechtown Culinary Hall.'},
             {type: 'details', text: 'The event is open to all, so feel free to bring anyone you want!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0,

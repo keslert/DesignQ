@@ -1,4 +1,5 @@
-import { striped, solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { stripedColor, basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Urbana',
@@ -17,7 +18,7 @@ export default {
     body: {
       w: .6,
       background: { 
-  color: solidColor('#202020'),
+  color: basicColor('#202020'),
 },
       alignX: 'center',
       alignY: 'center',
@@ -29,7 +30,7 @@ export default {
           lines: [
             {type: 'eventName', text: 'Urbana'},
           ],
-          color: solidColor('#f5d300'),
+          color: basicColor('#f5d300'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,
@@ -47,7 +48,7 @@ export default {
             {type: 'descriptive', text: 'Photography'},
             {type: 'descriptive', text: 'Workshop'},  
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -63,7 +64,7 @@ export default {
           type: 'bar',
           background: {
             type: 'solid',
-            color: striped(135, '#f5d300', 6, '#202020', 2)
+            color: stripedColor(135, '#f5d300', 6, '#202020', 2)
           },
           width: unitValue(50, '%'),
           height: unitValue(16, 'px'),
@@ -75,7 +76,7 @@ export default {
             {type: 'day-of-week', text: 'Friday'}, 
             {type: 'date', text: 'June 5, 2019', format: 'MMM D, YYYY'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,

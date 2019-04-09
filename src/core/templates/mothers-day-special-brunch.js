@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'The Stockton Cafe'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Josefin Sans',
     letterSpacing: 0.15,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: "Mother's Day"},
     {type: 'eventName', text: 'Special Brunch'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Playfair Display',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Celebrate with us and make your mother feel special!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Josefin Sans',
     letterSpacing: 0.03,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'date', text: 'Visit us on May 10, 2020,'},
     {type: 'time', text: 'between 10:00 AM and 2:00 PM.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Playfair Display',
     letterSpacing: 0,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'call-to-action', text: "Don't miss out. Reserve a table now! Call us at (123) 456-7890 or"},
     {type: 'call-to-action', text: 'use our online booking system. Visit www.reallygreatsite.com.'},
   ],
-  color: solidColor('#ff7f7d'),
+  color: basicColor('#ff7f7d'),
   font: {
     family: 'Josefin Sans',
     letterSpacing: 0,
@@ -87,7 +87,7 @@ export default {
   title: 'Mother\'s Day Special Brunch',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#ff7f7d'),
+  color: basicColor('#ff7f7d'),
 },
   decor: {
     t: .3,
@@ -107,7 +107,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       bleed: { l: 2, r: 1, b: 1 },
       alignX: 'right',

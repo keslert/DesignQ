@@ -1,4 +1,4 @@
-import { solidColor } from '.'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'You are joyfully invited'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.08,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Morrison is'},
     {type: 'eventName', text: 'Turning 18'},
   ],
-  color: solidColor('#eab6d1'),
+  color: basicColor('#eab6d1'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.02,
@@ -38,7 +38,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: "It's a birthday party that you will never forget!"},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.02,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'See you at Lalalo Bistro on'},
     {type: 'descriptive', text: '04/24/20. Party starts 7pm'},
   ],
-  color: solidColor('#eab6d1'),
+  color: basicColor('#eab6d1'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.04,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: "birthday. It's going to be a fun party with"},
     {type: 'details', text: 'friends, family, and loved ones.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,
@@ -84,7 +84,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#eab6d1'),
+  color: basicColor('#eab6d1'),
 },
   w: 1,
   h: 8,
@@ -96,7 +96,7 @@ export default {
   title: 'Anna Morrison',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#211834'),
+  color: basicColor('#211834'),
 },
   decor: {
     x: .2,

@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 47,
@@ -26,7 +26,7 @@ export default {
           lines: [
             {type: 'host', text: 'Winslough Academy'},
           ],
-          color: solidColor('#fcbf2f'),
+          color: basicColor('#fcbf2f'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.08,
@@ -45,7 +45,7 @@ export default {
             {type: 'eventName', text: 'Basketball'},
             {type: 'eventName', text: 'Playoffs'},
           ],
-          color: solidColor('#fcbf2f'),
+          color: basicColor('#fcbf2f'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0,
@@ -62,13 +62,13 @@ export default {
     footer: {
       bleed: { x: 1, b: 1 },
       background: { 
-  color: solidColor('#fcbf2f'),
+  color: basicColor('#fcbf2f'),
 },
       textAlign: 'left',
       elements: [
         {
           type: 'bridge',
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           lines: [
             {type: 'descriptive', text: 'Basketball games in celebration of'},
             {type: 'descriptive', text: 'intramurals week'},
@@ -85,7 +85,7 @@ export default {
         },
         {
           type: 'heading',
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           lines: [
             [
               {type: 'date', text: 'Sept. 6, 2020'},
@@ -96,7 +96,7 @@ export default {
           divider: {
             type: 'bar',
             size: 1,
-            color: solidColor('#000000'),
+            color: basicColor('#000000'),
           },
           font: {
             family: 'League Spartan',
@@ -110,7 +110,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           lines: [
             {type: 'details', text: 'Show support for your year-level teams! Get in the'},
             {type: 'details', text: 'game and come to the gymnasium to cheer the players'},

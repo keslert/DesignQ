@@ -13,6 +13,7 @@ function DecorPanel({surface, decor={}, path}) {
     update: mapKeys(update, (v, k) => path + k),
   }), []);
 
+  const img = decor.background && decor.background.img;
 
   return (
     <Box>
@@ -25,7 +26,7 @@ function DecorPanel({surface, decor={}, path}) {
         bgOptions={['none', 'image']}
       />
       
-      {decor.background && 
+      {img && 
         <React.Fragment>
           <Field 
             label="Decor Width"

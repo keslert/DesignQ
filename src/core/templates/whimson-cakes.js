@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Now open to serve you!'},
   ],
-  color: solidColor('#f5efde'),
+  color: basicColor('#f5efde'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.130,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Cakes and'},
     {type: 'eventName', text: 'Pastries'},
   ],
-  color: solidColor('#fd7b7b'),
+  color: basicColor('#fd7b7b'),
   font: {
     family: 'Lilita One',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Delectable sweet treats with a touch of'},
     {type: 'descriptive', text: 'whimsy.'},
   ],
-  color: solidColor('#f5efde'),
+  color: basicColor('#f5efde'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -54,7 +54,7 @@ const heading = {
     {type: 'time', text: 'Open daily 8 AM to 10 PM'},
     {type: 'location', text: '1234 Churchill Plaza'},
   ],
-  color: solidColor('#fd7b7b'),
+  color: basicColor('#fd7b7b'),
   font: {
     family: 'Lilita One',
     letterSpacing: 0,
@@ -72,7 +72,7 @@ const paragraph = {
     {type: 'details', text: 'to delight diners with every bite of our'},
     {type: 'details', text: 'sweets.'},
   ],
-  color: solidColor('#f5efde'),
+  color: basicColor('#f5efde'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -89,7 +89,7 @@ export default {
   title: 'Whimson Cakes',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#94d6cd'),
+  color: basicColor('#94d6cd'),
 },
   decor: {
     a: .1,

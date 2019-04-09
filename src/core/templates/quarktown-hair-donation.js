@@ -1,17 +1,18 @@
-import { solidColor, unitValue, striped } from '.'
+import { unitValue } from '.'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   id: 12,
   title: 'Quarktown Hair Donation Program',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#f2f0e2'),
+  color: basicColor('#f2f0e2'),
 },
   border: {
     a: .04,
     aOffset: .02,
     background: {
-      color: striped(45, '#43a7dd', 40, '#ee505a'),
+      color: stripedColor(45, '#43a7dd', 40, '#ee505a'),
     },
   },
   content: {
@@ -22,7 +23,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Long overdue for a cut?'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.2,
@@ -39,7 +40,7 @@ export default {
             {type: 'eventName', text: 'Quarktown Hair'},
             {type: 'eventName', text: 'Donation Program'},
           ],
-          color: solidColor('#43a7dd'),
+          color: basicColor('#43a7dd'),
           font: {
             family: 'Playlist',
             letterSpacing: 0,
@@ -55,7 +56,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Get a drastic haircut to contribute to a noble cause!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -72,7 +73,7 @@ export default {
             {type: 'contact', text: 'Interested? Sign up now by'},
             {type: 'contact', text: 'calling us at (123) 456 7890'},
           ],
-          color: solidColor('#43a7dd'),
+          color: basicColor('#43a7dd'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -90,7 +91,7 @@ export default {
             {type: 'details', text: 'into a wig and be donated to people suffering'},
             {type: 'details', text: 'from sudden and extreme hair loss.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,

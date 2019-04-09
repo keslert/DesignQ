@@ -24,6 +24,14 @@ function ImagePanel({image, onUpdate}) {
       />
 
       <ThematicBreak />
+      
+      <BorderPanel
+        surface={image}
+        border={image.border}
+        path='border.'
+      />
+
+      <ThematicBreak />
 
       <Field 
         label="Bleed"

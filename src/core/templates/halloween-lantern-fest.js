@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Halloween Lantern Fest',
@@ -6,13 +7,13 @@ export default {
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#4d3a6e'),
+  color: basicColor('#4d3a6e'),
 },
   border: {
     top: 150, 
     bottom: 150,
     seed: 2,
-    color: solidColor('#4d3a6e'),
+    color: basicColor('#4d3a6e'),
     layout: 'confetti',
     items: [
       {type: 'party-hat', color: '#ffffff', size: 32},
@@ -29,7 +30,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Everyone is invited!'},
           ],
@@ -49,7 +50,7 @@ export default {
             {type: 'eventName', text: 'Halloween'}, 
             {type: 'eventName', text: 'Lantern Fest'},
           ],
-          color: solidColor('#faa329'),
+          color: basicColor('#faa329'),
           font: {
             family: 'Londrina Sketch',
             weight: 700,
@@ -62,7 +63,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'date-time', text: 'October 31 @ 7pm'},
           ],

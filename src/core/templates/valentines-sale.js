@@ -1,4 +1,5 @@
-import { solidColor, unitValue, splitColor } from '.'
+import { unitValue } from '.'
+import { basicColor, splitColor } from '../utils/color-utils';
 
 export default {
   title: 'Valentine\'s Sale',
@@ -22,7 +23,7 @@ export default {
           lines: [
             {type: 'eventName', text: 'Valentine\'s Sale'}
           ],
-          color: solidColor('#fef6f0'),
+          color: basicColor('#fef6f0'),
           font: {
             transform: 'uppercase',
             size: 1,
@@ -44,7 +45,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Up to 70% Off'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             fitToWidth: true,
             size: 1,
@@ -62,7 +63,7 @@ export default {
           lines: [
             {type: 'date', text: '02.14.2018', format: 'MM.DD.YYYY'},
           ],
-          color: solidColor('#ff8c8c'),
+          color: basicColor('#ff8c8c'),
           font: {
             transform: 'uppercase',
             size: 1.5,
@@ -78,9 +79,9 @@ export default {
           lines: [
             {type: 'host', text: 'True Chic Apparel'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           background: { 
-  color: solidColor('#ff8c8c'),
+  color: basicColor('#ff8c8c'),
 },
           font: {
             transform: 'uppercase',

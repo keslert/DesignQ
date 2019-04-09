@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 71,
@@ -7,7 +7,7 @@ export default {
   border: {
     a: .05,
     background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   },
   background: {
@@ -25,7 +25,7 @@ export default {
       w: 'auto',
       bleed: { b: 2, r: 2 },
       background: { 
-  color: solidColor('#c21b2e'),
+  color: basicColor('#c21b2e'),
 },
       alignX: 'right',
       alignY: 'bottom',
@@ -41,7 +41,7 @@ export default {
             {type: 'eventName', text: 'For Art'},
             {type: 'eventName', text: 'Volunteers'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -59,7 +59,7 @@ export default {
             {type: 'descriptive', text: 'Come over and join us at'},
             {type: 'descriptive', text: 'the Youth Arts Exhibit 2020!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -76,7 +76,7 @@ export default {
             {type: 'contact', text: 'Call us up at (123) 456 7890'},
             {type: 'contact', text: 'If you want to sign up!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -94,7 +94,7 @@ export default {
             {type: 'details', text: 'talent for instruction, boundless creativity,'},
             {type: 'details', text: 'and 18-21 y/o, you should join!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Open Sans',
             letterSpacing: 0,
@@ -113,7 +113,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Quark Community Center'},
           ],

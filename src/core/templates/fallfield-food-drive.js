@@ -1,4 +1,4 @@
-import { solidColor, striped } from '.'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   id: 22,
@@ -6,12 +6,12 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-orange-border-diagonal-line-food-drive-flyer-MAC3TTBdtfM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
-    color: striped(45, "#ef8332", 22, "#f19a57", 20),
+    color: stripedColor(45, "#ef8332", 22, "#f19a57", 20),
   },
   content: {
     h: 'auto',
     background: {
-      color: solidColor('#ffffff'),
+      color: basicColor('#ffffff'),
     },
     body: {
       elements: [
@@ -20,7 +20,7 @@ export default {
           lines: [
             {type: 'host', text: 'Fallfield Foundation'},
           ],
-          color: solidColor('#f38229'),
+          color: basicColor('#f38229'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.13,
@@ -38,7 +38,7 @@ export default {
             {type: 'eventName', text: 'Fairfield Food'},
             {type: 'eventName', text: 'Drive'},
           ],
-          color: solidColor('#07284f'),
+          color: basicColor('#07284f'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -55,7 +55,7 @@ export default {
             {type: 'descriptive', text: 'For the homeless members of the'},
             {type: 'descriptive', text: 'Fallfield community.'},
           ],
-          color: solidColor('#f38229'),
+          color: basicColor('#f38229'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -78,9 +78,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#07284f')
+            color: basicColor('#07284f')
           },
-          color: solidColor('#07284f'),
+          color: basicColor('#07284f'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -98,7 +98,7 @@ export default {
             {type: 'details', text: 'Together we can make a difference in the'},
             {type: 'details', text: 'lives of others! Let\'s spread the love!'},
           ],
-          color: solidColor('#f38229'),
+          color: basicColor('#f38229'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,

@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'McDowell Digital Media'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.1,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Fall Fundraising'},
     {type: 'eventName', text: 'Event 2020'},
   ],
-  color: solidColor('#e45330'),
+  color: basicColor('#e45330'),
   font: {
     family: 'Oswald',
     letterSpacing: 0.1,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'Sept. 22, 2020 | 1 PM to 10 PM'},
     {type: 'descriptive', text: 'McDowell Digital Center'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.09,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: "For the benefit of Winslough Children's"},
     {type: 'descriptive', text: 'Foundation'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.14,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'details', text: 'Nature. Our fall fundraising event combines good fun'},
     {type: 'details', text: 'with a great cause.'},
   ],
-  color: solidColor('#e45330'),
+  color: basicColor('#e45330'),
   font: {
     family: 'Gidole',
     letterSpacing: 0.1,
@@ -83,7 +83,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#e45330'),
+  color: basicColor('#e45330'),
 },
   w: .5,
   h: 2,
@@ -95,14 +95,14 @@ export default {
   title: 'Fall Fundraising Event 2020',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#424242'),
+  color: basicColor('#424242'),
 },
   decor: {
     y: .2,
   },
   content: {
     background: { 
-  color: solidColor('#424242'),
+  color: basicColor('#424242'),
 },
     bleed: { a: 1 },
     body: {

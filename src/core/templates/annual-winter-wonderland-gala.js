@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Araico Theater presents'},
   ],
-  color: solidColor('#64492c'),
+  color: basicColor('#64492c'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.185,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'The Annual Winter'},
     {type: 'eventName', text: 'Wonderland Gala'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: 'Featuring the one and only Beechtown'},
     {type: 'descriptive', text: 'Company of Dancers'},
   ],
-  color: solidColor('#64492c'),
+  color: basicColor('#64492c'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.02,
@@ -59,9 +59,9 @@ const heading = {
   divider: {
     type: 'slash',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -77,7 +77,7 @@ const paragraph = {
     {type: 'details', text: 'Get your tickets now! Visit www.reallygreatsite.com to purchase.'},
     {type: 'details', text: 'Limited tickets available. Prices start at $80.'},
   ],
-  color: solidColor('#64492c'),
+  color: basicColor('#64492c'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.02,
@@ -94,7 +94,7 @@ export default {
   title: 'Annual Winter Wonderland Gala',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#ddb64a'),
+  color: basicColor('#ddb64a'),
 },
   decor: {
     t: .45,

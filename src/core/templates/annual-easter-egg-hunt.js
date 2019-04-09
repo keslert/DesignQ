@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Winslough County Presents'},
   ],
-  color: solidColor('#fff4dc'),
+  color: basicColor('#fff4dc'),
   font: {
     family: 'Lato',
     letterSpacing: 0.03,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Easter Egg'},
     {type: 'eventName', text: 'Hunt 2020'},
   ],
-  color: solidColor('#fff4dc'),
+  color: basicColor('#fff4dc'),
   font: {
     family: 'Lilita One',
     letterSpacing: 0,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: 'Come and join the fun'},
     {type: 'descriptive', text: 'with the whole family!'},
   ],
-  color: solidColor('#fff4dc'),
+  color: basicColor('#fff4dc'),
   font: {
     family: 'Lato',
     letterSpacing: 0.08,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'date|time', text: 'April 12, 2:00 P.M., at the'},
     {type: 'location', text: 'Winslough County Park'},
   ],
-  color: solidColor('#fff4dc'),
+  color: basicColor('#fff4dc'),
   font: {
     family: 'Lato',
     letterSpacing: 0.09,
@@ -72,7 +72,7 @@ const paragraph = {
     {type: 'details', text: 'www.reallygreatsite.com or sign-up at the'},
     {type: 'details', text: 'Community Affairs Office by April 11, 4:00 PM'},
   ],
-  color: solidColor('#fff4dc'),
+  color: basicColor('#fff4dc'),
   font: {
     family: 'Lato',
     letterSpacing: 0.04,
@@ -89,7 +89,7 @@ export default {
   title: 'Annual Easter Egg Hunt 2020',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#96cfdd'),
+  color: basicColor('#96cfdd'),
 },
   decor: {
     l: .2,

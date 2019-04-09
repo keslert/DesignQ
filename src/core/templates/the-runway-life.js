@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 59,
@@ -12,7 +12,7 @@ export default {
       y: 0.5,
       zoom: 2,
     },
-    color: solidColor('#86a7ab'),
+    color: basicColor('#86a7ab'),
   },
   decor: {
     r: .2,
@@ -32,9 +32,9 @@ export default {
           lines: [
             {type: 'host', text: 'Baks Clothing Company'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
           w: 'fill',
           font: {
@@ -55,7 +55,7 @@ export default {
             {type: 'eventName', text: 'Life: Fierce'},
             {type: 'eventName', text: '& Fabulous'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0,
@@ -72,7 +72,7 @@ export default {
             {type: 'time', text: 'A charity fashion show'},
             {type: 'time', text: 'for the women of BWC'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,
@@ -90,7 +90,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'price', text: 'Tickets: $5'},
             {type: 'date', text: 'June 20, 2020'},
@@ -109,7 +109,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Watch the hottest trends go down the runway'},
             {type: 'details', text: 'with looks from our Spring/Summer \'20 collection.'},

@@ -1,4 +1,4 @@
-import { solidColor, striped } from './'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   id: 9,
@@ -6,12 +6,12 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-&-white-bold-creative-sport-football-tryouts-flyer-MAC6S8qYjo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-    color: solidColor('#FF5200'),
+    color: basicColor('#FF5200'),
   },
   border: {
     l: .05,
     background: {
-      color: striped(30, '#000000', 40, '#ffffff', 40),
+      color: stripedColor(30, '#000000', 40, '#ffffff', 40),
     },
   },
   decor: {
@@ -24,7 +24,7 @@ export default {
         x: 0,
       },
       backgroundBlendMode: 'multiply',
-      color: solidColor('#FF5200'),
+      color: basicColor('#FF5200'),
     }
   },
   content: {
@@ -43,7 +43,7 @@ export default {
             {type: 'eventName', text: 'Varsity'},
             {type: 'eventName', text: 'Tryouts 2020'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Bebas Neue',
             letterSpacing: 0.01,
@@ -61,7 +61,7 @@ export default {
             {type: 'descriptive', text: 'Represent the school by'},
             {type: 'descriptive', text: 'doing what you love the most!'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Arvo',
             letterSpacing: 0.04,
@@ -81,9 +81,9 @@ export default {
             {type: 'location', text: 'Football Field'},
           ],
           background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,
@@ -105,7 +105,7 @@ export default {
             {type: 'details', text: 'hardworking, and talented football players'},
             {type: 'details', text: 'to join the team.'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,
@@ -129,7 +129,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Broadus High School'},
           ],

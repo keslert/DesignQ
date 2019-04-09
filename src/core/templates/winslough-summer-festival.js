@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Beat the summer heat.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.170,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Winslough'},
     {type: 'eventName', text: 'Summer Festival'},
   ],
-  color: solidColor('#7ece97'),
+  color: basicColor('#7ece97'),
   font: {
     family: 'IM Fell English Pro',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Presented by Oddball Imaging Studio'},
     {type: 'descriptive', text: 'and Vigilatte Coffee'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'IM Fell English Pro',
     letterSpacing: 0.041,
@@ -61,9 +61,9 @@ const heading = {
   divider: {
     type: 'dot',
     size: 1,
-    color: solidColor('#7ece97'),
+    color: basicColor('#7ece97'),
   },
-  color: solidColor('#7ece97'),
+  color: basicColor('#7ece97'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.101,
@@ -80,7 +80,7 @@ const paragraph = {
     {type: 'details', text: 'genres such as pop, jazz, and R&B. Featuring'},
     {type: 'details', text: 'the hottest acts in the country today.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'IM Fell English Pro',
     letterSpacing: 0.047,
@@ -94,7 +94,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#7ece97'),
+  color: basicColor('#7ece97'),
 },
   w: .33,
   h: 8,
@@ -105,7 +105,7 @@ export default {
   title: 'Winslough Summer Festival',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#146b77'),
+  color: basicColor('#146b77'),
 },
   content: {
     body: {

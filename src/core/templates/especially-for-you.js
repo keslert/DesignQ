@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Vigilatte Cultural Club'},
   ],
-  color: solidColor('#cca882'),
+  color: basicColor('#cca882'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.152,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Especially for'},
     {type: 'eventName', text: 'You: A Concert'},
   ],
-  color: solidColor('#e9a390'),
+  color: basicColor('#e9a390'),
   font: {
     family: 'Abril Fatface',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
     {type: 'descriptive', text: "In celebration of Mother's Day this"},
     {type: 'date', text: 'May 10, 2020'},
   ],
-  color: solidColor('#cca882'),
+  color: basicColor('#cca882'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.03,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#e9a390'),
+    color: basicColor('#e9a390'),
   },
-  color: solidColor('#e9a390'),
+  color: basicColor('#e9a390'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.073,
@@ -77,7 +77,7 @@ const paragraph = {
     {type: 'contact', text: 'www.reallygreatsite.com or get your ticket'},
     {type: 'contact', text: 'straight from Alfredo Torres as (123) 456-7890!'},
   ],
-  color: solidColor('#cca882'),
+  color: basicColor('#cca882'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.03,
@@ -100,7 +100,7 @@ export default {
   },
   content: {
     background: { 
-  color: solidColor('#fffdeef0'),
+  color: basicColor('#fffdeef0'),
 },
     h: 'auto',
     alignY: 'bottom',

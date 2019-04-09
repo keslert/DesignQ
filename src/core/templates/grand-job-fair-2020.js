@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 77,
@@ -14,7 +14,7 @@ export default {
         brightness: 0.7,
       },
     },
-    color: solidColor('#284b82'),
+    color: basicColor('#284b82'),
     backgroundBlendMode: 'luminosity',
   },
   content: {
@@ -27,7 +27,7 @@ export default {
             {type: 'eventName', text: 'Job Fair'},
             {type: 'eventName', text: 'Of 2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Aileron',
             letterSpacing: 0.04,
@@ -41,7 +41,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
           w: 1,
           h: 6,
@@ -52,7 +52,7 @@ export default {
             {type: 'time', text: 'Get to know over 60 companies'},
             {type: 'time', text: 'and jumpstart your career!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Aileron',
             letterSpacing: 0,
@@ -68,12 +68,12 @@ export default {
     footer: {
       bleed: { a: 1 },
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#284b82'),
+          color: basicColor('#284b82'),
           lines: [
             [
               {type: 'date', text: 'July 19, 2020', format: 'MMMM D, YYYY'},
@@ -84,7 +84,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#284b82'),
+            color: basicColor('#284b82'),
           },
           font: {
             family: 'Aileron',
@@ -98,7 +98,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#284b82'),
+          color: basicColor('#284b82'),
           lines: [
             {type: 'details', text: 'No matter which field you\'re in, you\'ll surely find'},
             {type: 'details', text: 'a job post that perfectly fits you and your capabilities.'},
@@ -119,7 +119,7 @@ export default {
     header: {
       bleed: { t: 1 },
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       w: 'auto',
       textAlign: 'center',
@@ -142,7 +142,7 @@ export default {
             {type: 'host', text: 'Beechtown'},
             {type: 'host', text: 'Careers Co.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Aileron',
             letterSpacing: 0.13,

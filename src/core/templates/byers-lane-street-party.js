@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'You are invited!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.08,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Street Party'},
     {type: 'eventName', text: 'for All'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.02,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'An annual event to celebrate life in the bustling city.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.04,
@@ -52,7 +52,7 @@ const heading = {
     {type: 'descriptive', text: 'Oct 3. 2020 | Register at'},
     {type: 'descriptive', text: '408 Byers Lane | 7PM onwards'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.07,
@@ -69,7 +69,7 @@ const paragraph = {
     {type: 'details', text: 'Just another night full of music, art, good food,'},
     {type: 'details', text: 'and great company.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.04,

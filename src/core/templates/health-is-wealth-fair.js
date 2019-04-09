@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 20,
@@ -6,7 +6,7 @@ export default {
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-illustrated-heart-health-fair-flyer-MAC7m1QGUWA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   tags: ['flyer', 'event'],
   background: { 
-  color: solidColor('#58c4ce'),
+  color: basicColor('#58c4ce'),
 },
   decor: {
     t: .4,
@@ -21,7 +21,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'host', text: 'The Winslough Hospital'},
           ],
@@ -41,7 +41,7 @@ export default {
             {type: 'eventName', text: 'Health is'},
             {type: 'eventName', text: 'Wealth Fair 2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Fredoka One',
             weight: 400,
@@ -54,7 +54,7 @@ export default {
         },
         { 
           type: 'bridge', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'descriptive', text: 'Join us for the annual community health fair!'},
@@ -72,9 +72,9 @@ export default {
         },
         { 
           type: 'heading', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           background: {
-            color: solidColor('#ff8b7b'),
+            color: basicColor('#ff8b7b'),
             borderRadius: 8,
           },
           w: 'auto',
@@ -90,7 +90,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Fredoka One',
@@ -104,7 +104,7 @@ export default {
         },
         { 
           type: 'paragraph', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Make your health always your priority.'},
             {type: 'details', text: 'Participate in this year\'s exciting activities'},

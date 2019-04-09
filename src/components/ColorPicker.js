@@ -60,7 +60,7 @@ function ColorPicker(props) {
 
           <Box bg="off_dark" mx="-10px" my={2} style={{height: '1px'}} />
 
-          <Flex mx="-2px" mb={2}>
+          <Flex mx="-2px" mb={1} flexWrap="wrap">
             {props.palette.map(color => 
               <Swatch 
                 onMouseDown={e => {
@@ -126,7 +126,7 @@ ColorPicker.defaultProps = {
 export const Swatch = styled.div(props => ({
   position: 'relative',
   zIndex: 999,
-  margin: '0 2px',
+  margin: '2px',
   width: '24px',
   height: '24px',
   borderRadius: '3px',

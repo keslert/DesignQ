@@ -1,4 +1,4 @@
-import { solidColor, linear } from './'
+import { basicColor, linearColor } from '../utils/color-utils';
 
 export default {
   id: 90,
@@ -13,7 +13,7 @@ export default {
         brightness: 0.8,
       }
     },
-    color: linear(0, '#0a5673', '#2fa992'),
+    color: linearColor(0, '#0a5673', '#2fa992'),
     backgroundBlendMode: 'soft-light',
   },
   content: {
@@ -27,7 +27,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
           h: 12,
           w: 1,
@@ -37,7 +37,7 @@ export default {
           lines: [
             {type: 'host', text: 'Mathika Music Productions'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
@@ -54,7 +54,7 @@ export default {
             {type: 'eventName', text: 'Autumn Music'},
             {type: 'eventName', text: 'Festival 2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.12,
@@ -71,7 +71,7 @@ export default {
             {type: 'time', text: 'Enjoy an afternoon of'},
             {type: 'time', text: 'amazing musical performances!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -97,9 +97,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
@@ -119,7 +119,7 @@ export default {
       elements: [
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Tickets are priced at $20 each. Buy your tickets'},
             {type: 'details', text: 'now at www.reallygreatsites.com or at designated'},

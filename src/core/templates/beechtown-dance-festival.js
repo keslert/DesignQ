@@ -1,4 +1,4 @@
-import { solidColor } from '.'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'We are proud to present'},
   ],
-  color: solidColor('#b7f6ff'),
+  color: basicColor('#b7f6ff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.15,
@@ -24,7 +24,7 @@ const dominant = {
     {type: 'eventName', text: 'Dance'},
     {type: 'eventName', text: 'Festival 2020'},
   ],
-  color: solidColor('#caf843'),
+  color: basicColor('#caf843'),
   font: {
     family: 'Oswald',
     letterSpacing: 0,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: 'Join us for two days of non-stop'},
     {type: 'descriptive', text: 'dancing and partying!'},
   ],
-  color: solidColor('#b7f6ff'),
+  color: basicColor('#b7f6ff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
@@ -56,7 +56,7 @@ const heading = {
     {type: 'descriptive', text: 'Starts at 11 A.M.'},
     {type: 'descriptive', text: 'Beechtown Resort'},
   ],
-  color: solidColor('#caf843'),
+  color: basicColor('#caf843'),
   font: {
     family: 'Oswald',
     letterSpacing: 0.1,
@@ -74,7 +74,7 @@ const paragraph = {
     {type: 'details', text: 'packed with the most celebrated names'},
     {type: 'details', text: 'in the industry!'},
   ],
-  color: solidColor('#b7f6ff'),
+  color: basicColor('#b7f6ff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.05,
@@ -91,7 +91,7 @@ export default {
   title: 'The Beechtown Dance Festival',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#ba3e7f'),
+  color: basicColor('#ba3e7f'),
 },
   decor: {
     a: .1,

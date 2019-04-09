@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'descriptive', text: 'We are proud to present'},
   ],
-  color: solidColor('#30a6c0'),
+  color: basicColor('#30a6c0'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.05,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'The 5th Annual'},
     {type: 'eventName', text: 'Summer Food Fest'},
   ],
-  color: solidColor('#f76991'),
+  color: basicColor('#f76991'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.01,
@@ -36,7 +36,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A festival of food & fun all celebrated under the sun'},
   ],
-  color: solidColor('#30a6c0'),
+  color: basicColor('#30a6c0'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.03,
@@ -57,9 +57,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#f76991'),
+    color: basicColor('#f76991'),
   },
-  color: solidColor('#f76991'),
+  color: basicColor('#f76991'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.09,
@@ -76,7 +76,7 @@ const paragraph = {
     {type: 'details', text: "fantastic festival that's perfect for you, your friends,"},
     {type: 'details', text: 'and the whole community!'},
   ],
-  color: solidColor('#30a6c0'),
+  color: basicColor('#30a6c0'),
   font: {
     family: 'Arvo',
     letterSpacing: 0.03,
@@ -106,7 +106,7 @@ export default {
   title: 'Annual Summer Food Fest',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   decor: {
     t: .2,

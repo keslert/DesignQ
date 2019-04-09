@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 38,
@@ -8,11 +8,11 @@ export default {
   border: {
     a: .05,
     background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   },
   background: { 
-  color: solidColor('#fff9ea'),
+  color: basicColor('#fff9ea'),
 },
   content: {
     body: {
@@ -33,7 +33,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'You Are Cordially Invited'},
           ],
-          color: solidColor('#66712c'),
+          color: basicColor('#66712c'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.13,
@@ -50,7 +50,7 @@ export default {
             {type: 'eventName', text: 'Jakob Hanson\'s'},
             {type: 'eventName', text: '9th Birthday'},
           ],
-          color: solidColor('#fbd071'),
+          color: basicColor('#fbd071'),
           font: {
             family: 'Lilita One',
             letterSpacing: 0.03,
@@ -66,7 +66,7 @@ export default {
           lines: [
             {type: 'time', text: 'Bring your friends and enjoy the night with us!'},
           ],
-          color: solidColor('#66712c'),
+          color: basicColor('#66712c'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.04,
@@ -80,7 +80,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#fbd071'),
+  color: basicColor('#fbd071'),
 },
           h: 8,
           w: .33,
@@ -97,9 +97,9 @@ export default {
           divider: {
             type: 'dot',
             size: 1,
-            color: solidColor('#fbd071'),
+            color: basicColor('#fbd071'),
           },
-          color: solidColor('#fbd071'),
+          color: basicColor('#fbd071'),
           font: {
             family: 'Lilita One',
             letterSpacing: 0.05,
@@ -116,7 +116,7 @@ export default {
             {type: 'details', text: 'Please join the Hanson family in celebrating the special day'},
             {type: 'details', text: 'of our beloved, rambunctious little boy! See you there!'},
           ],
-          color: solidColor('#66712c'),
+          color: basicColor('#66712c'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.04,

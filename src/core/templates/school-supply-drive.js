@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'School Supply Drive',
@@ -19,7 +20,7 @@ export default {
             {type: 'host', text: 'Ridgewood'},
             {type: 'host', text: 'High School'},
           ],
-          color: solidColor('#404040'),
+          color: basicColor('#404040'),
           font: {
             size: 1,
             family: 'Muli',
@@ -36,7 +37,7 @@ export default {
             {type: 'eventName', text: 'Supply'},
             {type: 'eventName', text: 'Drive'},
           ],
-          color: solidColor('#fd8e74'),
+          color: basicColor('#fd8e74'),
           font: {
             transform: 'uppercase',
             size: 1,
@@ -53,7 +54,7 @@ export default {
           lines: [
             {type: 'date', text: 'July 21-26, 2019', format: 'MMMM D, YYYY'},
           ],
-          color: solidColor('#404040'),
+          color: basicColor('#404040'),
           font: {
             size: 1,
             family: 'Muli',

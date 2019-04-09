@@ -1,11 +1,12 @@
-import { striped, solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { stripedColor, basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Pizza Party for Cause',
   px: 48,
   py: 72,
   border: {
-    color: striped(45, '#000', 60, '#ffffff', 60),
+    color: stripedColor(45, '#000', 60, '#ffffff', 60),
     all: 10,
   },
   background: {
@@ -18,7 +19,7 @@ export default {
     body: {
       w: .6,
       background: { 
-  color: solidColor('rgba(156,34,16,.84)'),
+  color: basicColor('rgba(156,34,16,.84)'),
 },
       flex: 1,
       alignX: 'flex-end',
@@ -30,7 +31,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Help feed the kids!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,
@@ -49,7 +50,7 @@ export default {
             {type: 'eventName', text: 'For A'}, 
             {type: 'eventName', text: 'Cause'},   
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -66,7 +67,7 @@ export default {
           lines: [
             {type: 'date', text: '09.18.19', format: 'MM.DD.YY'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -90,9 +91,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,

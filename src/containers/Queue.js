@@ -15,7 +15,7 @@ import {
   getInitialJourney,
   _updateJourney,
 } from '../core/journey';
-import { linkTemplate, copyTemplate, getItemFromFlyer } from '../core/utils/template-utils';
+import { linkTemplate, copyTemplate, getItemFromTemplate } from '../core/utils/template-utils';
 import { resolveItem } from '../core/resolver';
 import set from 'lodash/set';
 import some from 'lodash/some';
@@ -23,7 +23,7 @@ import difference from 'lodash/difference';
 import debounce from 'lodash/debounce';
 import { fetchImageSearch } from '../core/fetch';
 import { processImage } from '../core/utils/color-utils';
-import loadState from '../core/data/load-states/ski'
+import loadState from '../core/data/load-states/celebrate'
 
 export const DispatchContext = React.createContext();
 export const SelectionContext = React.createContext();
@@ -55,13 +55,11 @@ function Queue(props) {
   }, [])
 
   useEffect(() => {
-    // setInterval(() => {
     if(state.primary && props.location.search.includes('backup')) {
       const copied = copyTemplate(state.primary, true);
       localStorage.setItem('savedPrimary', JSON.stringify(copied));
-      localStorage.setItem('savedHistory', JSON.stringify(state.history.map(f => copyTemplate(f, true))));
+      localStorage.setItem('savedHistory', JSON.stringify(state.history.slice(-50).map(f => copyTemplate(f, true))));
     }
-    // }, 5 * 1000)
   }, [state.primary])
 
   useEffect(() => {
@@ -388,10 +386,10 @@ function _updateSelection(state, action, update) {
 
   const selectedFlyer = state.selection._root;
   if(update.primary) {
-    update.selection = getItemFromFlyer(state.selection, update.primary);
+    update.selection = getItemFromTemplate(state.selection, update.primary);
   }
   else if(update.secondary && selectedFlyer === state.secondary) {
-    update.selection = getItemFromFlyer(state.selection, update.secondary);
+    update.selection = getItemFromTemplate(state.selection, update.secondary);
   }
 
 }
@@ -404,7 +402,7 @@ function updateSelected(state, action, update={}) {
   copy.id = flyer.id; // I'm not sure the implications of this id switch...
   flyer.id = window.__flyerId++;
 
-  const copySelected = getItemFromFlyer(selected, copy);
+  const copySelected = getItemFromTemplate(selected, copy);
   Object.entries(action.update).forEach(([path, value]) => {
     if(path.includes('_root')) {
       // HACK: This feels wrong, but... components don't have full control of the path.
@@ -566,12 +564,12 @@ function reorder(state, {source, target, isAfter}) {
   const flyer = state[key];
   const copy = copyTemplate(flyer);
   copy.id = window.__flyerId++;
-  const element = getItemFromFlyer(source, copy);
+  const element = getItemFromTemplate(source, copy);
   
   if(state.selection) {
     update.selection = state.selection === source 
       ? element 
-      : getItemFromFlyer(state.selection, copy)
+      : getItemFromTemplate(state.selection, copy)
   }
 
   const sourceGroupKey = source._parent._key;

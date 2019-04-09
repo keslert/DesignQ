@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Coconut Resurgance',
@@ -25,9 +26,9 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           background: { 
-  color: solidColor('#8F5B68'),
+  color: basicColor('#8F5B68'),
 },
           bleed: { left: true },
           width: unitValue(100, '%'),
@@ -50,7 +51,7 @@ export default {
             {type: 'eventName', text: 'Resurgance'}, 
             {type: 'eventName', text: 'of Coconut'},
           ],
-          color: solidColor('#6b474f'),
+          color: basicColor('#6b474f'),
           font: {
             family: 'Bebas Neue',
             weight: 400,
@@ -63,7 +64,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#8F5B68'),
+  color: basicColor('#8F5B68'),
 },
           width: unitValue(70, '%'),
           height: unitValue(8, 'px'),
@@ -78,7 +79,7 @@ export default {
             {type: 'descriptive', text: 'coconut is a staple in the diet and provides'},
             {type: 'descriptive', text: 'the majority of the food eaten.'},
           ],
-          color: solidColor('#6b474f'),
+          color: basicColor('#6b474f'),
           font: {
             family: 'Muli',
             weight: 400,
@@ -99,7 +100,7 @@ export default {
         lines: [
           {type: 'website', text: 'coconutfacts.net'},
         ],
-        color: solidColor('#8F5B68'),
+        color: basicColor('#8F5B68'),
         font: {
           family: 'Muli',
           weight: 400,

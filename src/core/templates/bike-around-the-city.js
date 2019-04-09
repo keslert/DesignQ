@@ -1,4 +1,5 @@
-import { solidColor, unitValue, striped, linear } from '.'
+import { unitValue } from '.'
+import { basicColor, stripedColor, linearColor } from '../utils/color-utils';
 
 export default {
   title: 'Bike Around the City',
@@ -7,7 +8,7 @@ export default {
   py: 48,
   background: {
     url: 'https://images.unsplash.com/photo-1514505485426-fff326709c60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: linear(135, '#3F5EFB', '#FC466B'),
+    color: linearColor(135, '#3F5EFB', '#FC466B'),
     backgroundBlendMode: 'soft-light',
     filters: {
       brightness: .6,
@@ -28,7 +29,7 @@ export default {
             {type: 'eventName', text: 'Around'},
             {type: 'eventName', text: 'The City'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -42,7 +43,7 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'website', text: 'bikeclub.co'},
           ],

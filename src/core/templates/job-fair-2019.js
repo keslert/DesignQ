@@ -1,14 +1,15 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Job Fair 2019',
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   border: {
-    color: solidColor('#ddd1e2'),
+    color: basicColor('#ddd1e2'),
     top: 80, 
     bottom: 80,
   },
@@ -25,7 +26,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Middleton College'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,
@@ -43,7 +44,7 @@ export default {
             {type: 'eventName', text: 'Fair'},
             {type: 'eventName', text: '2019'},
           ],
-          color: solidColor('#51aad6'),
+          color: basicColor('#51aad6'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -61,7 +62,7 @@ export default {
             {type: 'time', text: '9am - 4pm'},
             {type: 'location', text: 'Jackson Function Hall'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,

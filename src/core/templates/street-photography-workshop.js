@@ -1,11 +1,11 @@
-import { solidColor, striped } from './'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Shutter Club NY'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Photography'},
     {type: 'eventName', text: 'Workshop'},
   ],
-  color: solidColor('#f5d300'),
+  color: basicColor('#f5d300'),
   font: {
     family: 'Gidole',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Learn the best photography'},
     {type: 'descriptive', text: 'techniques from the pros!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'time', text: '10 A.M. onwards'},
     {type: 'location', text: '123 Anywhere St.'},
   ],
-  color: solidColor('#f5d300'),
+  color: basicColor('#f5d300'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'different stories through different'},
     {type: 'details', text: 'frames and styles.!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.05,
@@ -89,7 +89,7 @@ const bar = {
   type: 'bar',
   background: {
     type: 'solid',
-    color: striped(135, '#f5d300', 6, 'transparent', 2)
+    color: stripedColor(135, '#f5d300', 6, basicColor('#f5d300', 0), 2)
   },
   w: .5,
   h: 16,
@@ -113,7 +113,7 @@ export default {
   content: {
     h: 'auto',
     background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
     body: {
       elements: [

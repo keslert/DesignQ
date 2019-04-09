@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 17,
@@ -14,7 +14,7 @@ export default {
     body: {
       bleed: { l: 1 },
       background: { 
-  color: solidColor('#3a3d58ee'),
+  color: basicColor('#3a3d58ee'),
 },
       alignX: 'left',
       textAlign: 'left',
@@ -24,7 +24,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Are you ready to indulge?'},
           ],
-          color: solidColor('#DFE0EC'),
+          color: basicColor('#DFE0EC'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.15,
@@ -41,7 +41,7 @@ export default {
             {type: 'eventName', text: 'Garnish Delight'},
             {type: 'eventName', text: 'Bakery is Open!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Playfair Display',
             letterSpacing: 0,
@@ -57,7 +57,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Now baking your favorite desserts in Oarstown!'},
           ],
-          color: solidColor('#DFE0EC'),
+          color: basicColor('#DFE0EC'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.03,
@@ -71,7 +71,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
           w: .25,
           h: 6,
@@ -82,7 +82,7 @@ export default {
             {type: 'descriptive', text: 'Visit Our Little Bakery On Our Grand'},
             {type: 'descriptive', text: 'Opening Day!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.15,
@@ -100,7 +100,7 @@ export default {
             {type: 'descriptive|time|location|website', text: 'Anywhere St., Any City. For our menu, visit'},
             {type: 'descriptive|time|location|website', text: 'www.reallygreatsite.com'},
           ],
-          color: solidColor('#DFE0EC'),
+          color: basicColor('#DFE0EC'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,

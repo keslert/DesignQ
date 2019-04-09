@@ -1,4 +1,5 @@
-import { solidColor, unitValue, striped } from '.'
+import { unitValue } from '.'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   title: 'Turn Fat Into Fit',
@@ -16,7 +17,7 @@ export default {
   border: {
     left: 8, 
     right: 8,
-    color: striped(0, '#fb7c00', 10, '#303030', 10),
+    color: stripedColor(0, '#fb7c00', 10, '#303030', 10),
   },
   content: {
     height: 'flex',
@@ -35,7 +36,7 @@ export default {
             {type: 'eventName', text: 'Into'},
             {type: 'eventName', text: 'Fit!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Bebas Neue',
             weight: 700,
@@ -49,9 +50,9 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           background: { 
-  color: solidColor('#fb7c00'),
+  color: basicColor('#fb7c00'),
 },
           lines: [
             {type: 'host', text: 'Bellar\'s Fitness Gym'},

@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'The Austfam Community'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.12,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'the Austfam'},
     {type: 'eventName', text: 'Charity'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Oswald',
     letterSpacing: 0.01,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Give sustenance to those who cannot afford it.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.04,
@@ -59,9 +59,9 @@ const heading = {
   divider: {
     type: 'dot',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Oswald',
     letterSpacing: 0.02,
@@ -77,7 +77,7 @@ const paragraph = {
     {type: 'details', text: 'The Austfam Community is in need of donations for the food drive.'},
     {type: 'details', text: 'All donations will be given to the Austfam Charity.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.02,
@@ -123,7 +123,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#81ba5b'),
+  color: basicColor('#81ba5b'),
 },
       bleed: { a: 1 },
       elements: [

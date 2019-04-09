@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Bring out the popcorn!'},
   ],
-  color: solidColor('#fefae8'),
+  color: basicColor('#fefae8'),
   font: {
     family: 'Aleo',
     letterSpacing: 0.17,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Sunday Blockbuster'},
     {type: 'eventName', text: 'Movie Night'},
   ],
-  color: solidColor('#fefae8'),
+  color: basicColor('#fefae8'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'A film showing of the greatest movies'},
     {type: 'descriptive', text: 'from 2019.'},
   ],
-  color: solidColor('#fefae8'),
+  color: basicColor('#fefae8'),
   font: {
     family: 'Aleo',
     letterSpacing: 0.08,
@@ -59,9 +59,9 @@ const heading = {
   divider: {
     type: 'dash',
     size: 1,
-    color: solidColor('#fefae8'),
+    color: basicColor('#fefae8'),
   },
-  color: solidColor('#fefae8'),
+  color: basicColor('#fefae8'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.064,
@@ -78,7 +78,7 @@ const paragraph = {
     {type: 'details', text: "not! We're bringing them back on Sunday"},
     {type: 'details', text: 'Blockbuster Movie Night!'},
   ],
-  color: solidColor('#fefae8'),
+  color: basicColor('#fefae8'),
   font: {
     family: 'Aleo',
     letterSpacing: 0.03,
@@ -95,7 +95,7 @@ export default {
   title: 'Sunday Blockbuster Movie Night',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#344355'),
+  color: basicColor('#344355'),
 },
   decor: {
     b: .4,

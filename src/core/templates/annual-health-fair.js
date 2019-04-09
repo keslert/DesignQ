@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from './'
+import { unitValue } from './'
+import { basicColor } from '../utils/color-utils';
 
 // TODO: Geometric borders
 export default {
@@ -7,7 +8,7 @@ export default {
   px: 1,
   py: 1,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     height: 'flex',
@@ -15,7 +16,7 @@ export default {
     body: {
       bleed: {all: true },
       background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
       textAlign: 'left',
       alignY: 'flex-end',
@@ -33,7 +34,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Brooklyn Community'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,
@@ -51,7 +52,7 @@ export default {
             {type: 'eventName', text: 'Health'},
             {type: 'eventName', text: 'Fair 2019'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -68,7 +69,7 @@ export default {
           lines: [
             {type: 'date-and-time', text: 'September 25-27 at 10AM'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

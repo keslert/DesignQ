@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 64,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-purple-and-green-earth-volunteer-flyer-MAC7mtoG_Mk.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-    color: solidColor('#2d1b4d'),
+    color: basicColor('#2d1b4d'),
   },
   content: {
     body: {
@@ -17,7 +17,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'A Call for Volunteers'},
           ],
-          color: solidColor('#e4fde1'),
+          color: basicColor('#e4fde1'),
           font: {
             family: 'Lato',
             letterSpacing: 0.15,
@@ -34,7 +34,7 @@ export default {
             {type: 'eventName', text: 'Save the Earth.'},
             {type: 'eventName', text: 'Save Lives.'},
           ],
-          color: solidColor('#94f9ce'),
+          color: basicColor('#94f9ce'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0,
@@ -50,7 +50,7 @@ export default {
           lines: [
             {type: 'time', text: 'The Beechtown Environmental Organization needs you.'},
           ],
-          color: solidColor('#e4fde1'),
+          color: basicColor('#e4fde1'),
           font: {
             family: 'Lato',
             letterSpacing: 0.03,
@@ -67,7 +67,7 @@ export default {
             {type: 'contact', text: 'Register Online at'},
             {type: 'contact', text: 'www.reallygreatsite.com'},
           ],
-          color: solidColor('#94f9ce'),
+          color: basicColor('#94f9ce'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.15,
@@ -101,12 +101,12 @@ export default {
     footer: {
       bleed: { a: 1 },
       background: { 
-        color: solidColor('#e4fde1'),
+        color: basicColor('#e4fde1'),
       },
       elements: [
         {
           type: 'paragraph',
-          color: solidColor('#2d1b4d'),
+          color: basicColor('#2d1b4d'),
           lines: [
             {type: 'details', text: 'The Beechtown Enfironmental Organization has been'},
             {type: 'details', text: 'protecting the environment for over 40 years. Will you join us?'},

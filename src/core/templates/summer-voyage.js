@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 25,
@@ -6,7 +7,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-brown-and-grey-illustrated-icons-summer-camp-flyer-MAC3XzSjncw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#fef8e9'),
+  color: basicColor('#fef8e9'),
 },
   decor: {
     t: .3,
@@ -17,7 +18,7 @@ export default {
       bleed: { a: 1 },
       alignY: 'bottom',
       background: { 
-  color: solidColor('#363440'),
+  color: basicColor('#363440'),
 },
       elements: [
         {
@@ -25,7 +26,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Summer Camp for Kids'},
           ],
-          color: solidColor('#fff8e9'),
+          color: basicColor('#fff8e9'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.12,
@@ -42,7 +43,7 @@ export default {
             {type: 'eventName', text: 'Summer Voyage:'},
             {type: 'eventName', text: 'Where to Next?'},
           ],
-          color: solidColor('#b7a986'),
+          color: basicColor('#b7a986'),
           font: {
             family: 'Lilita One',
             letterSpacing: 0.01,
@@ -59,7 +60,7 @@ export default {
             {type: 'descriptive', text: 'Are you ready for the most adventure-filled'},
             {type: 'descriptive', text: 'summer camp?'},
           ],
-          color: solidColor('#fff8e9'),
+          color: basicColor('#fff8e9'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.04,
@@ -76,7 +77,7 @@ export default {
             {type: 'date', text: 'July 15-16, 2020'},
             {type: 'location', text: 'South Winslough Camp Grounds'},
           ],
-          color: solidColor('#b7a986'),
+          color: basicColor('#b7a986'),
           font: {
             family: 'Lilita One',
             letterSpacing: 0.02,
@@ -93,7 +94,7 @@ export default {
             {type: 'details', text: 'If exploration and adventure are on the top of your summer bucketlist,'},
             {type: 'details', text: 'the Summer Voyage: Where to Next? is the camp to go to!'},
           ],
-          color: solidColor('#fff8e9'),
+          color: basicColor('#fff8e9'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,

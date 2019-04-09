@@ -1,4 +1,4 @@
-import { solidColor, unitValue, splitColor } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 28,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer', 'food-drive'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-cream-and-purple-icons-food-drive-flyer-MAC5t38U8lM.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
-    color: solidColor('#fff1d9'),
+    color: basicColor('#fff1d9'),
   },
   decor: {
     t: .75,
@@ -26,7 +26,7 @@ export default {
     body: {
       bleed: { l: 1 },
       background: { 
-        color: solidColor('#251a4b'),
+        color: basicColor('#251a4b'),
       },
       alignX: 'left',
       alignY: 'bottom',
@@ -38,7 +38,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'We Need Volunteers!'},
           ],
-          color: solidColor('#fff1d9'),
+          color: basicColor('#fff1d9'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -57,7 +57,7 @@ export default {
             {type: 'eventName', text: 'Food Drive'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#fff1d9'),
+          color: basicColor('#fff1d9'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.1,
@@ -73,7 +73,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'For the benefit of our less fortunate neighbors'},
           ],
-          color: solidColor('#fff1d9'),
+          color: basicColor('#fff1d9'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -91,7 +91,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#251a4b'),
+          color: basicColor('#251a4b'),
           lines: [
             {type: 'location', text: 'Located at 123 Anywhere St.'},
             {type: 'descriptive', text: 'Any City, Open Daily.'},
@@ -108,7 +108,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#251a4b'),
+          color: basicColor('#251a4b'),
           lines: [
             {type: 'details', text: 'The food drive is sponsored by Sandio'},
             {type: 'details', text: 'Foundation, TCEN Hotel, Bijou Solutions, Inc.'},

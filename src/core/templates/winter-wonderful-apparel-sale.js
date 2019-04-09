@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Lenderly Fashions'},
   ],
-  color: solidColor('#a33a20'),
+  color: basicColor('#a33a20'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.232,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'The Winter Wonderful'},
     {type: 'eventName', text: 'Apparel Sale'},
   ],
-  color: solidColor('#ad9f53'),
+  color: basicColor('#ad9f53'),
   font: {
     family: 'Abril Fatface',
     letterSpacing: 0.022,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: "The season's most awaited sales event is here!"},
   ],
-  color: solidColor('#ad9f53'),
+  color: basicColor('#ad9f53'),
   font: {
     family: 'Abril Fatface',
     letterSpacing: 0.025,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#a33a20'),
+    color: basicColor('#a33a20'),
   },
-  color: solidColor('#a33a20'),
+  color: basicColor('#a33a20'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.049,
@@ -76,7 +76,7 @@ const paragraph = {
     {type: 'details', text: 'Be the most stylish you can be without breaking the bank.'},
     {type: 'details', text: "Catch Lenderly's Winte Wonderful sale before it's over!"},
   ],
-  color: solidColor('#ad9f53'),
+  color: basicColor('#ad9f53'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.019,
@@ -93,7 +93,7 @@ export default {
   title: 'The Winter Wonderful Apparel Sale',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#fffaf0'),
+  color: basicColor('#fffaf0'),
 },
   content: {
     body: {

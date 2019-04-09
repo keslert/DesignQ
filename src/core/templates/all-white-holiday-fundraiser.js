@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 5,
@@ -6,13 +6,13 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-black-and-gold-all-white-party-flyer-MAC7msY4lpw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   border: {
     y: .01,
     yOffset: .03,
     background: { 
-  color: solidColor('#dfd7a6'),
+  color: basicColor('#dfd7a6'),
 },
   },
   content: {
@@ -23,7 +23,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'The 15th Annual'},
           ],
-          color: solidColor('#666'),
+          color: basicColor('#666'),
           font: {
             family: 'Libre Baskerville',
             letterSpacing: 0.23,
@@ -52,7 +52,7 @@ export default {
             {type: 'eventName', text: 'All-White Holiday'},
             {type: 'eventName', text: 'Fundraiser Party'},
           ],
-          color: solidColor('#666'),
+          color: basicColor('#666'),
           font: {
             family: 'Libre Baskerville',
             letterSpacing: 0,
@@ -69,7 +69,7 @@ export default {
             {type: 'descriptive', text: 'All proceeds will fund the Winslow'},
             {type: 'descriptive', text: 'Women\'s Organization'},
           ],
-          color: solidColor('#666'),
+          color: basicColor('#666'),
           font: {
             family: 'Libre Baskerville',
             letterSpacing: 0.03,
@@ -83,7 +83,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#dfd7a6'),
+  color: basicColor('#dfd7a6'),
 },
           w: .5,
           h: 4,
@@ -100,9 +100,9 @@ export default {
           divider: {
             type: 'line',
             size: 2,
-            color: solidColor('#666'),
+            color: basicColor('#666'),
           },
-          color: solidColor('#666'),
+          color: basicColor('#666'),
           font: {
             family: 'Libre Baskerville',
             letterSpacing: 0.23,
@@ -120,7 +120,7 @@ export default {
             {type: 'details', text: 'serenaded by the angelic voice of renowned jazz'},
             {type: 'details', text: 'singer Antonina Berkeley.'},
           ],
-          color: solidColor('#666'),
+          color: basicColor('#666'),
           font: {
             family: 'Libre Baskerville',
             letterSpacing: 0.03,

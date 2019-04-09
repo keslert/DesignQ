@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'I love you so',
@@ -22,7 +23,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'A Valentine\'s Celebration'},
           ],
@@ -44,7 +45,7 @@ export default {
             {type: 'eventName', text: 'you'},
             {type: 'eventName', text: 'so'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Voga',
             weight: 400,
@@ -69,11 +70,11 @@ export default {
               {type: 'time', text: 'Doors open at 7PM'},
             ]
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           divider: {
             type: 'line',
             size: 2,
-            color: solidColor('#D1BC8B'),
+            color: basicColor('#D1BC8B'),
           },
           mb: 1,
           font: {
@@ -98,7 +99,7 @@ export default {
         lines: [
           {type: 'contact', text: 'For more information contact Daniel Rose at 202 555 4321'},
         ],
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         font: {
           family: 'Muli',
           weight: 400,

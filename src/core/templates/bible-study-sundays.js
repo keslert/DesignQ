@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Araico Community Church'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.2,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Sundays'},
     {type: 'eventName', text: 'for Teens'},
   ],
-  color: solidColor('#c0b99c'),
+  color: basicColor('#c0b99c'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.1,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'A fun and interesting way to keep faith strong'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.1,
@@ -53,7 +53,7 @@ const heading = {
     {type: 'descriptive', text: 'Understand scripture'},
     {type: 'descriptive', text: 'and find inspiration in Him.'},
   ],
-  color: solidColor('#c0b99c'),
+  color: basicColor('#c0b99c'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.12,
@@ -70,7 +70,7 @@ const paragraph = {
     {type: 'details', text: 'continually!"- 1 Chronicles 16:11'},
     {type: 'details', text: 'Register at reallygreatsite.com'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0,

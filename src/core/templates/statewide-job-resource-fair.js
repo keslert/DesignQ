@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'descriptive', text: 'Attention, Job Hunters!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.12,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Resource and'},
     {type: 'eventName', text: 'Fair'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Spartan',
     letterSpacing: 0.05,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: 'Featuring over 200 companies and 50'},
     {type: 'descriptive', text: 'professionals.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.12,
@@ -60,9 +60,9 @@ const heading = {
   divider: {
     type: 'bar',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.18,
@@ -79,7 +79,7 @@ const paragraph = {
     {type: 'details', text: 'Participate in the events and figure out the right career'},
     {type: 'details', text: 'path for you!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.02,
@@ -97,7 +97,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-dark-blue-square-pattern-job-fair-flyer-MAC4WpalR-Y.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#123358'),
+  color: basicColor('#123358'),
 },
   decor: {
     t: .5,

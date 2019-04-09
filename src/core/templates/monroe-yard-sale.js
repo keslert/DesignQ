@@ -1,4 +1,5 @@
-import { striped, solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { stripedColor, basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Monroe Yard Sale',
@@ -27,7 +28,7 @@ export default {
             {type: 'eventName', text: 'Yard'},
             {type: 'eventName', text: 'Sale'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Permanent Marker',
             weight: 400,
@@ -41,7 +42,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#ff5145'),
+  color: basicColor('#ff5145'),
 },
           width: unitValue(60, '%'),
           height: unitValue(32, 'px'),
@@ -52,7 +53,7 @@ export default {
           lines: [
             {type: 'date', text: 'January 25 - 30, 2019', format: 'MMMM D, YYYY'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -69,7 +70,7 @@ export default {
             {type: 'time', text: '11:00 AM - 5:30 PM'},
             {type: 'location', text: 'The Monroe Residence'},
           ],
-          color: solidColor('#000'),
+          color: basicColor('#000'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,

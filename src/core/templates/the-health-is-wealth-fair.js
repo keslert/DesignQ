@@ -1,4 +1,5 @@
-import { solidColor, unitValue, striped } from '.'
+import { unitValue } from '.'
+import { basicColor, stripedColor } from '../utils/color-utils';
 
 export default {
   title: 'The Health is Wealth Fair',
@@ -7,7 +8,7 @@ export default {
   px: 48,
   py: 48,
   background: { 
-  color: solidColor('#58c4ce'),
+  color: basicColor('#58c4ce'),
 },
   content: {
     height: 'flex',
@@ -20,7 +21,7 @@ export default {
       elements: [
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Dr. Nathanial Morrison Presents'},
           ],
@@ -42,7 +43,7 @@ export default {
             {type: 'eventName', text: 'Health is'},
             {type: 'eventName', text: 'Wealth Fair'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Fredoka One',
             weight: 400,
@@ -56,9 +57,9 @@ export default {
         },
         { 
           type: 'small', 
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           background: { 
-  color: solidColor('#ff8b7b'),
+  color: basicColor('#ff8b7b'),
 },
           borderRadius: unitValue(8, 'px'),
           lines: [
@@ -71,7 +72,7 @@ export default {
           divider: {
             size: 2,
             type: 'dot',
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Nunito',

@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'University of El Dorado'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.1,
@@ -24,7 +24,7 @@ const dominant = {
     {type: 'eventName', text: 'Science'},
     {type: 'eventName', text: 'Fair'},
   ],
-  color: solidColor('#f3ed42'),
+  color: basicColor('#f3ed42'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: 'Discovering learning and'},
     {type: 'descriptive', text: 'reaching for the beyond'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.1,
@@ -57,7 +57,7 @@ const heading = {
     {type: 'time|location', text: '3PM at the'},
     {type: 'location', text: 'USD Event Hall'},
   ],
-  color: solidColor('#f3ed42'),
+  color: basicColor('#f3ed42'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.09,
@@ -75,7 +75,7 @@ const paragraph = {
     {type: 'details', text: 'and more await! Register at'},
     {type: 'details', text: 'reallygreatsite.com'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -93,7 +93,7 @@ export default {
   title: 'Annual Science Fair',
   tags: ['event', 'flyer'],
   background: { 
-    color: solidColor('#316a77'),
+    color: basicColor('#316a77'),
   },
   decor: {
     r: .5,

@@ -1,11 +1,12 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Happy Hour',
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#ED5B48'),
+  color: basicColor('#ED5B48'),
 },
   overlay: {
     img: {
@@ -34,9 +35,9 @@ export default {
           divider: {
             type: 'none',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           mb: 0.5,
           font: {
             family: 'Bebas Neue',
@@ -53,7 +54,7 @@ export default {
             {type: 'eventName', text: 'Happy'}, 
             {type: 'eventName', text: 'Hour'},
           ],
-          color: solidColor('#FFDB00'),
+          color: basicColor('#FFDB00'),
           font: {
             family: 'Bebas Neue',
             weight: 400,

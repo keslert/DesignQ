@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 16,
@@ -17,7 +17,7 @@ export default {
     body: {
       bleed: { a: 1 },
       background: { 
-  color: solidColor('#262c2a'),
+  color: basicColor('#262c2a'),
 },
       alignX: 'center',
       alignY: 'bottom',
@@ -28,7 +28,7 @@ export default {
             {type: 'eventName', text: 'Austham Charity'},
             {type: 'eventName', text: 'Food Drive'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.04,
@@ -45,7 +45,7 @@ export default {
             {type: 'descriptive', text: "Let's give a helping hand to the victims"},
             {type: 'descriptive', text: "of Typhoon Ovia."},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.04,
@@ -68,9 +68,9 @@ export default {
           divider: {
             type: 'blank',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -87,7 +87,7 @@ export default {
             {type: 'details', text: "Typhoon Ovia caused great damage to the community of San Clemence."},
             {type: 'details', text: "Hundreds of evacuees are in dire need of food."},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -104,7 +104,7 @@ export default {
       w: 'auto',
       bleed: { r: 1 },
       background: { 
-  color: solidColor('#262c2a'),
+  color: basicColor('#262c2a'),
 },
       pl: 3,
       py: 0.5,
@@ -113,7 +113,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'A Little Goes A'},
             {type: 'descriptive', text: 'Long Way!'},

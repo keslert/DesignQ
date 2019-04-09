@@ -116,7 +116,6 @@ const SelectableBox = styled.div(props => ({
   position: 'absolute',
   background: props.isDragging ? '#ccc' : null,
   border: props.selected ? '1px solid ' + props.theme.colors.blue : null,
-
   '&:hover': {
     border: props.selected ? undefined : '2px solid ' + props.theme.colors.blue,
     boxSizing: 'border-box',

@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Hermanos presents'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0.05,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Chili'},
     {type: 'eventName', text: 'Cook-off'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: '10.27.2018 Bring the heat! 5- 8:00PM'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -51,7 +51,7 @@ const heading = {
   lines: [
     {type: 'descriptive', text: ''},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Muli',
     letterSpacing: 0,
@@ -66,7 +66,7 @@ const paragraph = {
   lines: [
     {type: 'details', text: ''},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -82,7 +82,7 @@ export default {
   title: '',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     body: {

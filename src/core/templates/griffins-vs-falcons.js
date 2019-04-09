@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 18,
@@ -16,7 +17,7 @@ export default {
         grayscale: 0.4,
       },
     },
-    color: solidColor('#404040'),
+    color: basicColor('#404040'),
     backgroundBlendMode: 'multiply',
   },
   decor: {
@@ -35,7 +36,7 @@ export default {
             {type: 'eventName', text: 'WE Griffins vs'},
             {type: 'eventName', text: 'BU Falcons'},
           ],
-          color: solidColor('#f98e25'),
+          color: basicColor('#f98e25'),
           font: {
             family: 'Bebas Neue',
             letterSpacing: 0.01,
@@ -52,7 +53,7 @@ export default {
             {type: 'descriptive', text: 'A viewing party organized by'},
             {type: 'host', text: 'the Silton Football Circle'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0.04,
@@ -70,7 +71,7 @@ export default {
       elements: [
         {
           type: 'small',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Get Ready for Game Day!'},
           ],
@@ -97,9 +98,9 @@ export default {
             {type: 'location', text: 'The Curtain Sports Bar'},
           ],
           background: { 
-  color: solidColor('#f98e25'),
+  color: basicColor('#f98e25'),
 },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,
@@ -117,7 +118,7 @@ export default {
             {type: 'details', text: 'Get your tickets now! For other reservations and other'},
             {type: 'details', text: 'ticket-related inquiries, visit www.reallygreatsite.com.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Arvo',
             letterSpacing: 0,

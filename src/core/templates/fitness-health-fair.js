@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 91,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-green-medicine-icons-health-fair-flyer-MAC4Dj6eGos.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   decor: {
     t: .3,
@@ -26,7 +26,7 @@ export default {
             {type: 'host', text: 'Conrado Clinic'},
             {type: 'host', text: 'Presents'},
           ],
-          color: solidColor('#292a25'),
+          color: basicColor('#292a25'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.2,
@@ -44,7 +44,7 @@ export default {
             {type: 'eventName', text: 'Health Fair'},
             {type: 'eventName', text: '2020'},
           ],
-          color: solidColor('#52b24f'),
+          color: basicColor('#52b24f'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.014,
@@ -61,7 +61,7 @@ export default {
             {type: 'descriptive', text: 'A convention of informative talks and'},
             {type: 'descriptive', text: 'free health booths'},
           ],
-          color: solidColor('#292a25'),
+          color: basicColor('#292a25'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.024,
@@ -79,7 +79,7 @@ export default {
             {type: 'time', text: '9 am to 5 pm'},
             {type: 'location', text: 'Hisburgh Public Park'},
           ],
-          color: solidColor('#52b24f'),
+          color: basicColor('#52b24f'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.064,
@@ -98,7 +98,7 @@ export default {
             {type: 'details', text: 'Get a consulatation or medical test for'},
             {type: 'details', text: 'free at our health booths!'},
           ],
-          color: solidColor('#292a25'),
+          color: basicColor('#292a25'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.1,

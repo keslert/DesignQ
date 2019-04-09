@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'A Throwback Event'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.15,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: "to the 90's"},
     {type: 'eventName', text: 'Party'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Sifonn',
     letterSpacing: 0.05,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'A celebration organized by'},
     {type: 'descriptive', text: "Martha's Skate Club"},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.05,
@@ -61,9 +61,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Sifonn',
     letterSpacing: 0.13,
@@ -80,7 +80,7 @@ const paragraph = {
     {type: 'price|call-to-action', text: 'included. For tickets, call (123) 456-7890 or'},
     {type: 'price|call-to-action', text: 'email hello@reallygreatsite.com'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0,
@@ -117,7 +117,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-red-yellow-colorful-90s-photo-skate-party-flyer-MAC5uH-riCQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-    color: solidColor('#b80f04'),
+    color: basicColor('#b80f04'),
   },
   content: {
     body: {
@@ -134,7 +134,7 @@ export default {
     },
     footer: {
       background: { 
-        color: solidColor('#ffbb49'),
+        color: basicColor('#ffbb49'),
       },
       bleed: {a: 1},
       textAlign: 'left',

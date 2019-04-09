@@ -11,7 +11,7 @@ function TextElement({element}) {
     fontWeight: element.font.weight,
     fontStyle: element.font.style,
     lineHeight: 1,
-    color: resolveColor(element.color),
+    color: element.color && element.color._str,
   }
 
   const spacerStyle = {

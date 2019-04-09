@@ -4,25 +4,16 @@ import { getOptimalBackgroundColor, getOptimalForegroundColor } from '../generat
 import { DQ_FONTS } from '../utils/text-utils';
 import { getDescendants } from '../utils/template-utils';
 import _ from 'lodash';
-import { darkenColor } from '../templates';
-import { getSolidColors } from '../utils/color-utils';
+import { darkenColor, getBasicColors } from '../utils/color-utils';
 
-// Validation mutates template
+// Mutates template
 export function resolveItem(item, oldItem, update) {
-
-
-  // palette
-  // if(!_.isEqual(item._root.palette, oldItem._root.palette)) {
-    resolveTemplatePalette(item._root);
-    // resolvePaletteColors(item._root);
-  // }
+  resolveTemplatePalette(item._root);
   
-  // font
   if(item.lines && item.font.family !== oldItem.font.family) {
     resolveFont(item.font)
   }
 
-  // background and foreground colors
   if(!_.isEqual(item.background, oldItem.background)) {
     resolveItemColors(item);
   }
@@ -71,102 +62,83 @@ function resolveFont(font) {
 }
 
 function resolveTemplatePalette(template) {
-  const palette = _.chain(template._all)
-    .flatMap(item => [item.color, get(item, ['background', 'color'])])
-    .filter()
-    .flatMap(getSolidColors)
-    .uniqBy(color => color.paletteKey)
-    .map(color => [color.paletteKey, color.color])
-    .fromPairs()
-    .value();
+  // const palette = _.chain(template._all)
+  //   .flatMap(item => [item.color, get(item, ['background', 'color'])])
+  //   .filter()
+  //   .flatMap(getBasicColors)
+  //   .uniqBy(color => color.paletteKey)
+  //   .map(color => [color.paletteKey, color.color])
+  //   .fromPairs()
+  //   .value();
 
-  // Put back in the original colors
-  _.forEach(template.palette, (color, key) => {
-    if(!key.startsWith('user-defined')) {
-      palette[key] = color;
-    }
-  })
+  // // Put back in the original colors
+  // _.forEach(template.palette, (color, key) => {
+  //   if(!key.startsWith('user-defined')) {
+  //     palette[key] = color;
+  //   }
+  // })
 
-  template.palette = palette;
+  // template.palette = palette;
 }
 
-function resolvePaletteColors(template) {
-  // TODO: Ensure the palette has adequate contrasting colors?
-  // Repick darks and lights?
+// function resolvePaletteColors(template) {
+//   // TODO: Ensure the palette has adequate contrasting colors?
+//   // Repick darks and lights?
 
-  [...template._containers, ...template._elements].forEach(surface => {
-    const color = get(surface, ['background', 'color']);
-    if(color) {
-      getOptimalBackgroundColor(surface, template.palette, _.uniq([color.paletteKey, 'light', 'dark']));
-      // resolveBackgroundColor(color, template.palette, surface);
-    }
-  })
+//   [...template._containers, ...template._elements].forEach(surface => {
+//     const color = get(surface, ['background', 'color']);
+//     if(color) {
+//       getOptimalBackgroundColor(surface, template.palette, _.uniq([color.paletteKey, 'light', 'dark']));
+//       // resolveBackgroundColor(color, template.palette, surface);
+//     }
+//   })
   
-  template._elements.forEach(el => {
-    if(el.color) {
-      getOptimalForegroundColor(el, template.palette, _.uniq([el.color.paletteKey, 'light', 'dark']));
-      // resolveForegroundColor(el.color, template.palette, el);
-    }
-  })
-}
+//   template._elements.forEach(el => {
+//     if(el.color) {
+//       getOptimalForegroundColor(el, template.palette, _.uniq([el.color.paletteKey, 'light', 'dark']));
+//       // resolveForegroundColor(el.color, template.palette, el);
+//     }
+//   })
+// }
 
-function resolveColor(color, palette, surface, fallback) {
-  switch(color.type) {
-    case 'solid': 
-      return resolveSolidColor(color, palette, surface, fallback);
-    case 'linear':
-      return resolveLinearColor(color, palette, surface, fallback);
-  }
-}
+// function resolveSolidColor(color, palette, surface, fallback) {
+//   if(palette[color.paletteKey]) {
+//     return {
+//       ...color,
+//       color: palette[color.paletteKey]
+//     }
+//   }
+//   else {
+//     return fallback(surface, palette);
+//   }
+// }
 
-function resolveForegroundColor(color, palette, item) {
-  // TODO: Add minimal contrast?
-  return resolveColor(color, palette, item, getOptimalForegroundColor)
-}
+// function resolveLinearColor(color, palette, surface, fallback) {
+//   const c1 = resolveSolidColor(color.color, palette, surface, fallback);
 
-function resolveBackgroundColor(color, palette, surface) {
-  // TODO: Add minimal contrast?
-  return resolveColor(color, palette, surface, getOptimalBackgroundColor)
-}
+//   // TODO: This is going to mess up custom colors...
+//   const c2 = resolveSolidColor(color.colorB, palette, surface, () => {
+//     if(color.colorB.colorTransform) {
+//       const transform = color.colorB.colorTransform;
+//       const color = palette[transform.paletteKey] || c1.color;
+//       return {
+//         ...color.colorB,
+//         color: transformColor(color, transform)
+//       }
+//     }
+//     return darkenColor(c1);
+//   })
 
-function resolveSolidColor(color, palette, surface, fallback) {
-  if(palette[color.paletteKey]) {
-    return {
-      ...color,
-      color: palette[color.paletteKey]
-    }
-  }
-  else {
-    return fallback(surface, palette);
-  }
-}
+//   return {
+//     ...color,
+//     color: c1,
+//     colorB: c2,
+//   }
+// }
 
-function resolveLinearColor(color, palette, surface, fallback) {
-  const c1 = resolveSolidColor(color.color, palette, surface, fallback);
-
-  // TODO: This is going to mess up custom colors...
-  const c2 = resolveSolidColor(color.colorB, palette, surface, () => {
-    if(color.colorB.colorTransform) {
-      const transform = color.colorB.colorTransform;
-      const color = palette[transform.paletteKey] || c1.color;
-      return {
-        ...color.colorB,
-        color: transformColor(color, transform)
-      }
-    }
-    return darkenColor(c1);
-  })
-
-  return {
-    ...color,
-    color: c1,
-    colorB: c2,
-  }
-}
-
-function transformColor(colorStr, transform) {
-  if(transform.darken) {
-    return chroma(colorStr).darken(transform.darken);
-  }
-  return colorStr;
-}
+// function transformColor(colorStr, transform) {
+//   if(transform.darken) {
+//     return chroma(colorStr).darken(transform.darken);
+//   }
+//   return colorStr;
+// }

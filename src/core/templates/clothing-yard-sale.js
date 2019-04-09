@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Clothing Yard Sale',
@@ -7,7 +8,7 @@ export default {
   py: 48,
   border: {
     bottom: 10,
-    color: solidColor('#5ea9df'),
+    color: basicColor('#5ea9df'),
   },
   content: {
     height: 'flex',
@@ -18,7 +19,7 @@ export default {
       alignX: 'left',
       alignY: 'center',
       background: { 
-  color: solidColor('#ffeeca'),
+  color: basicColor('#ffeeca'),
 },
       bleed: { all: true },
       elements: [
@@ -35,9 +36,9 @@ export default {
             {type: 'eventName', text: 'Sale!'},
           ],
           background: { 
-  color: solidColor('#e64d45'),
+  color: basicColor('#e64d45'),
 },
-          color: solidColor('#fcda57'),
+          color: basicColor('#fcda57'),
           font: {
             transform: 'uppercase',
             size: 1,
@@ -58,7 +59,7 @@ export default {
             {type: 'descriptive', text: 'pre-loved clothing, shoes, home'},
             {type: 'descriptive', text: 'decor, books, stationary, and more...'},
           ],
-          color: solidColor('#e64d45'),
+          color: basicColor('#e64d45'),
           font: {
             size: 1.5,
             family: 'Muli',

@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Altercave Productions'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0.16,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Music'},
     {type: 'eventName', text: 'Festival'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Sifonn',
     letterSpacing: 0,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: "Music from the 50's to the 90's on"},
     {type: 'descriptive', text: 'different stages!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Montserrat',
     letterSpacing: 0,
@@ -56,7 +56,7 @@ const heading = {
     {type: 'time', text: '5:00 PM - 12:00 MN'},
     {type: 'location', text: 'Downtown Quarkwood'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Sifonn',
     letterSpacing: 0.09,
@@ -73,9 +73,9 @@ const paragraph = {
     {type: 'details', text: 'in the past! Walk to and from several music'},
     {type: 'details', text: 'venues hosting different musical eras!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   background: {
-    color: solidColor('#e369d2'),
+    color: basicColor('#e369d2'),
   },
   bleed: { a: 1 },
   w: 'fill',

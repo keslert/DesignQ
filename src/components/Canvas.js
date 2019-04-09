@@ -31,7 +31,7 @@ function Canvas(props) {
 
   // Only listen for keypresses when secondary is visible.
   const handleKeyPress = useCallback(
-    showSecondary ? makeHandleKeyPress(rootDispatch) : null, 
+    (showSecondary || showStageExhaused) ? makeHandleKeyPress(rootDispatch) : null, 
     [showSecondary]
   );
   useKeyDown(handleKeyPress);

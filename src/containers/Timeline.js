@@ -12,7 +12,6 @@ import theme from '../styles/theme';
 import { Box } from 'rebass';
 import { FixedSizeList as List } from 'react-window';
 import { DispatchContext } from './Queue';
-import { striped } from '../core/templates';
 import StarSvg from '../svg/star.svg';
 
 function Timeline({items, selected, width}) {
@@ -100,8 +99,7 @@ function TimelineItem({data, index, style}) {
   } = data;
 
   const item = items[index];
-  const striped = Array.isArray(item);
-  const stage = striped ? item[0].stage : item.stage;
+  const stage = item.stage;
   const color =  COLORS[stage.type];
   const showStar = !!item.upgradeTo
   return (
@@ -110,7 +108,6 @@ function TimelineItem({data, index, style}) {
         data-index={index}
         onMouseEnter={onMouseEnter}
         onClick={onClick}
-        striped={striped}
         selected={item === selected}
         color={color}
         children={showStar && <StarSvg fill="white" size={6} />}
@@ -128,9 +125,7 @@ const Block = styled(Box)(props => ({
   padding: '1px',
   lineHeight: '4px',
   borderTop: props.selected ? '2px solid ' + props.theme.colors[props.color + '_dark'] : null,
-  background: props.striped 
-    ? striped(45, props.theme.colors[props.color], 3, props.theme.colors[props.color + '_dark'], 2)
-    : props.theme.colors[props.color + '_med']
+  background: props.theme.colors[props.color + '_med']
 }))
 
 const Preview = styled.div(props => ({

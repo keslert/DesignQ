@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 7,
@@ -22,7 +22,7 @@ export default {
           src: '/heart.svg',
           fill: '#90c8cf',
           background: {
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
             borderRadius: 9999,
           },
           size: 1,
@@ -42,7 +42,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Winslough Medical Center'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.2,
@@ -60,7 +60,7 @@ export default {
             {type: 'eventName', text: 'Winslough Health'},
             {type: 'eventName', text: 'Fair 2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.07,
@@ -76,7 +76,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Drop by for free flu vaccinations and health screenings.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.05,
@@ -92,12 +92,12 @@ export default {
     footer: {
       bleed: { a: 1 },
       background: { 
-  color: solidColor('#90c8cf'),
+  color: basicColor('#90c8cf'),
 },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'October 13, 2020', format: 'MMMM D, YYYY'},
@@ -108,7 +108,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Glacial Indifference',
@@ -126,7 +126,7 @@ export default {
             {type: 'details', text: 'Winslough Elders Association covers the cost of vaccines for those'},
             {type: 'details', text: 'without insurance. Don\'t miss out on the opportunity!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.05,

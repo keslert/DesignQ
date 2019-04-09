@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Hisburgh High presents'},
   ],
-  color: solidColor('#46dbdd'),
+  color: basicColor('#46dbdd'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.07,
@@ -23,7 +23,7 @@ const dominant = {
     {type: 'eventName', text: 'Sketches to'},
     {type: 'eventName', text: 'Artworks'},
   ],
-  color: solidColor('#f43a76'),
+  color: basicColor('#f43a76'),
   font: {
     family: 'Nunito',
     letterSpacing: 0,
@@ -39,7 +39,7 @@ const bridge = {
     {type: 'descriptive', text: 'An illustration workshop organized by'},
     {type: 'descriptive', text: 'Michelle Saunders.'},
   ],
-  color: solidColor('#46dbdd'),
+  color: basicColor('#46dbdd'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.07,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'time', text: '1-3 PM'},
     {type: 'location', text: "Marissa's Art Corner"},
   ],
-  color: solidColor('#f43a76'),
+  color: basicColor('#f43a76'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.08,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'hello@reallygreatsite.com. More inforamtion at'},
     {type: 'details', text: 'www.reallygreatsite.com'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Quicksand',
     letterSpacing: 0.07,
@@ -101,7 +101,7 @@ export default {
       w: 'auto',
       pa: 3,
       background: {
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         borderRadius: 9999,
       },
       aspectRatio: 1,
@@ -114,7 +114,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#46dbdd'),
+  color: basicColor('#46dbdd'),
 },
       bleed: { a: 1 },
       elements: [

@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Zimcore Hubs Presents'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.12,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Annual'},
     {type: 'eventName', text: 'Career Fair'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'With more than 200 companies and 50'},
     {type: 'descriptive', text: 'professionals!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.08,
@@ -59,9 +59,9 @@ const heading = {
   divider: {
     type: 'bar',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.08,
@@ -78,7 +78,7 @@ const paragraph = {
     {type: 'details', text: 'Grab this opportunity to meet and connect'},
     {type: 'details', text: 'with companies that are looking to hire.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.08,
@@ -110,7 +110,7 @@ export default {
   },
   content: {
     background: { 
-  color: solidColor('#da3c33'),
+  color: basicColor('#da3c33'),
 },
     h: 'auto',
     w: 'auto',

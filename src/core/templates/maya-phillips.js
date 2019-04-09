@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 82,
@@ -13,7 +13,7 @@ export default {
   },
   content: {
     background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
     body: {
       elements: [
@@ -22,7 +22,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Celebrate With Us!'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
@@ -39,7 +39,7 @@ export default {
             {type: 'eventName', text: 'Maya Phillips'},
             {type: 'eventName', text: 'Is Twenty-One!'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Oswald',
             letterSpacing: 0.08,
@@ -56,7 +56,7 @@ export default {
             {type: 'descriptive', text: "We're having a party and"},
             {type: 'descriptive', text: 'we hope you can join us!'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -79,11 +79,11 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           background: { 
-  color: solidColor('#000000'),
+  color: basicColor('#000000'),
 },
           w: 'auto',
           py: 1.5,
@@ -104,7 +104,7 @@ export default {
             {type: 'descriptive', text: "Please come in black or pink."},
             {type: 'contact', text: 'Call Adora at 123-456-7890 to confirm.'},
           ],
-          color: solidColor('#000000'),
+          color: basicColor('#000000'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0,

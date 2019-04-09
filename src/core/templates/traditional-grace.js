@@ -1,4 +1,5 @@
-import { striped, solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { stripedColor, basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Traditional Grace',
@@ -22,7 +23,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'For Sale'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 700,
@@ -39,7 +40,7 @@ export default {
             {type: 'eventName', text: 'Traditional'},
             {type: 'eventName', text: 'Grace'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Roboto Condensed',
             weight: 700,
@@ -53,7 +54,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
           width: unitValue(60, 'px'),
           height: unitValue(5, 'px'),
@@ -67,7 +68,7 @@ export default {
             {type: 'descriptive', text: 'convenience. A beautiful home for those who wish'},
             {type: 'descriptive', text: 'for the quiet and quaint.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             weight: 400,

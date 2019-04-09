@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 56,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-event-flyer-MADKJzVJFo8.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#e33260'),
+  color: basicColor('#e33260'),
 },
   decor: {
     l: .2,
@@ -24,7 +24,7 @@ export default {
             {type: 'eventName', text: 'Craft'},
             {type: 'eventName', text: 'Fair'},
           ],
-          color: solidColor('#fef093'),
+          color: basicColor('#fef093'),
           font: {
             family: 'Kollektif',
             letterSpacing: -0.06,
@@ -40,7 +40,7 @@ export default {
           lines: [
             {type: 'date', text: 'April 14 & 15, 2018', format: 'MMMM D, YYYY'},
           ],
-          color: solidColor('#fef093'),
+          color: basicColor('#fef093'),
           font: {
             family: 'Quicksand',
             letterSpacing: -0.02,
@@ -58,7 +58,7 @@ export default {
             {type: 'host', text: 'at the Creative Corner'},
             {type: 'location', text: '5431 Sunny Lane, Nashville'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'Quicksand',
             letterSpacing: -0.02,
@@ -72,7 +72,7 @@ export default {
         {
           type: 'bar',
           background: { 
-  color: solidColor('#fef093'),
+  color: basicColor('#fef093'),
 },
           h: 2,
           w: .5,
@@ -97,9 +97,9 @@ export default {
           divider: {
             type: 'dot',
             size: 1,
-            color: solidColor('#ffffffcc'),
+            color: basicColor('#ffffffcc'),
           },
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'Quicksand',
             letterSpacing: -0.02,
@@ -115,7 +115,7 @@ export default {
           lines: [
             {type: 'website', text: 'www.craftfair2016.com'},
           ],
-          color: solidColor('#ffffffcc'),
+          color: basicColor('#ffffffcc'),
           font: {
             family: 'Quicksand',
             letterSpacing: -0.02,

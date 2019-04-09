@@ -1,5 +1,4 @@
 // https://www.canva.com/templates/flyers/event/
-import chroma from 'chroma-js';
 
 import { default as ACarolForTheHolidaySeason } from './a-carol-for-the-holiday-season';
 import { default as AdorasSundayGarageSale } from './adoras-sunday-garage-sale';
@@ -328,50 +327,6 @@ export const templates = {
   // SoccerVarsityTeam,
 }
 
-export function solidColor(color, alpha) {
-  return { type: 'solid', color, alpha }
-}
-
 export function unitValue(value, unit) {
   return { value, unit }
-}
-
-export function striped(deg, color, width, colorB, widthB) {
-  return {
-    type: 'striped',
-    deg,
-    color: (typeof color === 'string') ? solidColor(color) : color,
-    width,
-    colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
-    widthB
-  }
-}
-
-export function linear(deg, color, colorB) {
-  return {
-    type: 'linear',
-    deg,
-    color: (typeof color === 'string') ? solidColor(color) : color,
-    colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
-  }
-}
-
-export function splitColor(deg, color, colorB) {
-  return {
-    type: 'split-color',
-    deg,
-    color: (typeof color === 'string') ? solidColor(color) : color,
-    colorB: (typeof colorB === 'string') ? solidColor(colorB) : colorB,
-  }
-}
-
-export function darkenColor(color, amount=1) {
-  return {
-    ...color,
-    color: chroma(color.color).darken(amount).hex(),
-    colorTransform: {
-      paletteKey: color.paletteKey,
-      darken: amount,
-    }
-  }
 }

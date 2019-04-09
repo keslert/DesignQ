@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 40,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-white-and-charcoal-all-white-party-flyer-MAC7mt5CsZA.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   content: {
     body: {
@@ -28,7 +28,7 @@ export default {
           lines: [
             {type: 'host', text: 'Bijou Solutions, Inc.'},
           ],
-          color: solidColor('#373737'),
+          color: basicColor('#373737'),
           font: {
             family: 'Aileron',
             letterSpacing: 0.15,
@@ -45,7 +45,7 @@ export default {
             {type: 'eventName', text: 'Annual All-White'},
             {type: 'eventName', text: 'Charity Party'},
           ],
-          color: solidColor('#373737'),
+          color: basicColor('#373737'),
           font: {
             family: 'Norwester',
             letterSpacing: 0.01,
@@ -61,7 +61,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Break out your best all-white outfit and steal the show!'},
           ],
-          color: solidColor('#373737'),
+          color: basicColor('#373737'),
           font: {
             family: 'Aileron',
             letterSpacing: 0.03,
@@ -77,12 +77,12 @@ export default {
     footer: {
       bleed: { a: 1 },
       background: { 
-        color: solidColor('#373737'),
+        color: basicColor('#373737'),
       },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'October 12, 2020', format: 'MMMM D, YYYY'},
@@ -93,7 +93,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Aileron',
@@ -107,7 +107,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'This year, all proceeds from this event will go to the George'},
             {type: 'details', text: 'Hewes Foundation. Come and party for a good cause!'},

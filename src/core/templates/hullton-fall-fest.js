@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 8,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-blue-yellow-and-orange-leaves-fall-festival-flyer-MAC3ZKCrIds.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: {
-    color: solidColor('#23374a'),
+    color: basicColor('#23374a'),
   },
   decor: {
     t: .3,
@@ -18,7 +18,7 @@ export default {
     mb: 0,
     body: {
       background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
       elements: [
         {
@@ -26,7 +26,7 @@ export default {
           lines: [
             {type: 'host', text: 'Hullton Village Presents'},
           ],
-          color: solidColor('#23374a'),
+          color: basicColor('#23374a'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.15,
@@ -43,7 +43,7 @@ export default {
             {type: 'eventName', text: 'The Hullton Fall'},
             {type: 'eventName', text: 'Fest 2020'},
           ],
-          color: solidColor('#23374a'),
+          color: basicColor('#23374a'),
           font: {
             family: 'Norwester',
             letterSpacing: 0,
@@ -59,7 +59,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'A fun and exciting festival for the whole family'},
           ],
-          color: solidColor('#23374a'),
+          color: basicColor('#23374a'),
           font: {
             family: 'Aleo',
             letterSpacing: 0.03,
@@ -74,12 +74,12 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#23374a'),
+  color: basicColor('#23374a'),
 },
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ecda7d'),
+          color: basicColor('#ecda7d'),
           lines: [
             [
               {type: 'date', text: 'October 21, 2020'},
@@ -90,7 +90,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ecda7d'),
+            color: basicColor('#ecda7d'),
           },
           font: {
             family: 'Aleo',
@@ -104,7 +104,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'See you all at the Hullton Village Park for a fun day of food'},
             {type: 'details', text: 'games, shopping and prizes! Bringing of pets is highly'},

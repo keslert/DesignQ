@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 98,
@@ -13,7 +13,7 @@ export default {
         brightness: 0.8,
       }
     },
-    color: solidColor('#ffb2c4'),
+    color: basicColor('#ffb2c4'),
     backgroundBlendMode: 'overlay',
   },
   content: {
@@ -29,7 +29,7 @@ export default {
           lines: [
             {type: 'host', text: "Flora's Floral Society"},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0.180,
@@ -47,7 +47,7 @@ export default {
             {type: 'eventName', text: 'Garden'},
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0,
@@ -64,7 +64,7 @@ export default {
             {type: 'descriptive', text: 'Witness beauty in bloom at this year\'s'},
             {type: 'descriptive', text: 'floral festival!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             letterSpacing: 0,
@@ -84,7 +84,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'location', text: 'June 17-19, 2020', format: 'MMMM D, YYYY'},
             {type: 'location', text: '8 am to 4 pm'},
@@ -102,7 +102,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'cost', text: 'Entrance Fee: $6'},
             {type: 'descriptive', text: 'Includes free access to our food and beverage stalls.'},

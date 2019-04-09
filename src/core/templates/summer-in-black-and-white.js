@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 93,
@@ -30,7 +30,7 @@ export default {
           lines: [
             {type: 'host', text: 'Baks Clothing Company'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Glacial Indifference',
             lineHeight: 1.4,
@@ -48,7 +48,7 @@ export default {
             {type: 'eventName', text: 'In Black'},
             {type: 'eventName', text: 'And White'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Playfair Display',
             letterSpacing: 0,
@@ -64,7 +64,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Modified classic silhouettes. Timeless color stories.'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             size: 1,
             family: 'Glacial Indifference',
@@ -77,7 +77,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#000'),
+  color: basicColor('#000'),
 },
       bleed: { a: 1 },
       alignX: 'left',
@@ -86,7 +86,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'descriptive', text: 'Fashion show'},
             {type: 'date', text: 'June 20, 2020', format: 'MMMM D, YYYY'},
@@ -103,7 +103,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'A collection inspired by vintage music festival'},
             {type: 'details', text: 'photos, Summer in Black and White will feel'},

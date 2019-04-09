@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 29,
@@ -9,7 +9,7 @@ export default {
     b: .2,
   },
   background: { 
-    color: solidColor("#1f2534"),
+    color: basicColor("#1f2534"),
   },
   content: {
     body: {
@@ -27,9 +27,9 @@ export default {
           divider: {
             type: "line",
             size: 1.5,
-            color: solidColor("#fff"),
+            color: basicColor("#fff"),
           },
-          color: solidColor("#fff"),
+          color: basicColor("#fff"),
           font: {
             family: "Aileron",
             weight: 400,
@@ -46,7 +46,7 @@ export default {
             { type: "eventName", text: "The Science" },
             { type: "eventName", text: "Festival 2020" },
           ],
-          color: solidColor("#e7d244"),
+          color: basicColor("#e7d244"),
           mb: 0.75,
           font: {
             family: "Norwester",
@@ -69,7 +69,7 @@ export default {
             }
             
           ],
-          color: solidColor("#fff"),
+          color: basicColor("#fff"),
           font: {
             family: "Aileron",
             fitToWidth: false,
@@ -84,7 +84,7 @@ export default {
         {
           type: "bar",
           background: {
-            color: solidColor("#e7d244"),
+            color: basicColor("#e7d244"),
           },
           h: 5,
           w: .4,
@@ -111,9 +111,9 @@ export default {
           divider: {
             type: "line",
             size: 1.5,
-            color: solidColor("#e7d244"),
+            color: basicColor("#e7d244"),
           },
-          color: solidColor("#e7d244"),
+          color: basicColor("#e7d244"),
           font: {
             family: "Aileron",
             weight: 700,
@@ -136,7 +136,7 @@ export default {
               text: "from all over the country, plus listen to cool lectures!"
             }
           ],
-          color: solidColor("#fff"),
+          color: basicColor("#fff"),
           font: {
             family: "Aileron",
             fitToWidth: false,

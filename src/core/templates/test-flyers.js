@@ -1,15 +1,15 @@
-import { solidColor, unitValue } from '.'
+import { basicColor } from '../utils/color-utils'
 
 const makeBodyFlyer = (options, i) => ({
   title: 'B' + i,
   px: 1,
   py: 1,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     background: { 
-  color: solidColor('#5A142A'),
+  color: basicColor('#5A142A'),
 },
     h: 'fill',
     w: 'fill',
@@ -18,7 +18,7 @@ const makeBodyFlyer = (options, i) => ({
     ...options.content,
     body: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'fill',
       w: 'fill',
@@ -34,7 +34,7 @@ const makeBodyFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -235,11 +235,11 @@ const makeBodyFooterFlyer = (options, i) => ({
   px: 1,
   py: 1,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     background: { 
-  color: solidColor('#5A142A'),
+  color: basicColor('#5A142A'),
 },
     h: 'fill',
     w: 'fill',
@@ -248,7 +248,7 @@ const makeBodyFooterFlyer = (options, i) => ({
     ...options.content,
     body: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'fill',
       w: 'fill',
@@ -262,7 +262,7 @@ const makeBodyFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -278,7 +278,7 @@ const makeBodyFooterFlyer = (options, i) => ({
     },
     footer: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'auto',
       w: 'fill',
@@ -292,7 +292,7 @@ const makeBodyFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -417,11 +417,11 @@ const makeBodyHeaderFlyer = (options, i) => ({
   px: 1,
   py: 1,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     background: { 
-  color: solidColor('#5A142A'),
+  color: basicColor('#5A142A'),
 },
     h: 'fill',
     w: 'fill',
@@ -430,7 +430,7 @@ const makeBodyHeaderFlyer = (options, i) => ({
     ...options.content,
     body: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'fill',
       w: 'fill',
@@ -444,7 +444,7 @@ const makeBodyHeaderFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -460,7 +460,7 @@ const makeBodyHeaderFlyer = (options, i) => ({
     },
     header: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'auto',
       w: 'fill',
@@ -474,7 +474,7 @@ const makeBodyHeaderFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -568,11 +568,11 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
   px: 1,
   py: 1,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     background: { 
-  color: solidColor('#5A142A'),
+  color: basicColor('#5A142A'),
 },
     h: 'fill',
     w: 'fill',
@@ -581,7 +581,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
     ...options.content,
     body: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'fill',
       w: 'fill',
@@ -595,7 +595,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -611,7 +611,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
     },
     header: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'auto',
       w: 'fill',
@@ -625,7 +625,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -641,7 +641,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
     },
     footer: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'auto',
       w: 'fill',
@@ -655,7 +655,7 @@ const makeBodyHeaderFooterFlyer = (options, i) => ({
           lines: [
             {type: 'eventName', text: 'Body Test'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -810,11 +810,11 @@ const makeElementsFlyer = (options, i) => ({
   px: 1,
   py: 1,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     background: { 
-  color: solidColor('#5A142A'),
+  color: basicColor('#5A142A'),
 },
     h: 'fill',
     w: 'fill',
@@ -823,7 +823,7 @@ const makeElementsFlyer = (options, i) => ({
     ...options.content,
     body: {
       background: { 
-  color: solidColor('#8F1D2C'),
+  color: basicColor('#8F1D2C'),
 },
       h: 'fill',
       w: 'fill',
@@ -840,9 +840,9 @@ const makeElementsFlyer = (options, i) => ({
             {type: 'eventName', text: 'Body Test'},
           ],
           background: { 
-  color: solidColor('#ffffff99'),
+  color: basicColor('#ffffff99'),
 },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,
@@ -862,9 +862,9 @@ const makeElementsFlyer = (options, i) => ({
             {type: 'eventName', text: 'Body Test'},
           ],
           background: { 
-  color: solidColor('#ffffff99'),
+  color: basicColor('#ffffff99'),
 },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0,

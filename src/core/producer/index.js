@@ -7,44 +7,44 @@ import { computeBoundingBoxes } from './bounding-boxes';
 import { computeBackgrounds } from './backgrounds';
 import { calculateHeightResize } from './height';
 import _ from 'lodash';
+import { computeColors } from './colors';
+import { paletteColor } from '../utils/color-utils';
 
 
 let elementId = 100000;
 // Note the order of these is important.
 export const CONTENT_GROUPS = ['header', 'body', 'footer'];
 
-// Line breaks have already been determined at this point.
 export function produceFlyer(template) {
   const size = template.size;
-  console.log(`Producing ${template.title}`);
+  console.info(`Producing ${template.title}`);
 
   initSetup(template)
-  template.background = template.background;
+  template.background = template.background || {};
   if(!template.background.color && !template.background.img) {
-    template.background.color = {type: 'solid', color: template.palette.light, paletteKey: 'light'}
+    template.background.color = paletteColor('light');
   }
   template._computed.size = size;
-  // template._computed.template = template;
   
   computeBorders(template);
   computeDecor(template);
   computeEdges(template);
 
-  // Initial attempt isn't height constrained
+  // Initial render isn't height constrained
   computeSizes(template);
   computeSpacing(template);
   computeBoundingBoxes(template);
   
-  // Is the height an issue? 
   const resize = calculateHeightResize(template);
   if(resize < 1) {
-    computeEdges(template); // TODO: No need to recalculate this, but bounding box messes the edges up currently.
+    computeEdges(template); // TODO: We shouldn't need to recalculate this, but computeBoundingBoxes currently mutates edges.
     computeSizes(template, resize);
     computeSpacing(template);
     computeBoundingBoxes(template);
   }
 
   computeBackgrounds(template);
+  computeColors(template);
   
   return template;
 }
@@ -56,7 +56,6 @@ function initSetup(template) {
   
   template.content.id = 'content';
   template.content._computed = {};
-  // template.content._computed.template = template;
   _.defaults(template.content, {
     w: 'fill',
     h: 'fill',
@@ -71,7 +70,6 @@ function initSetup(template) {
     group.id = groupType;
     group._computed = {};
     group._computed.content = template.content;
-    // group._computed.template = template;
     initGroup(group, groupType);
   });
   
@@ -116,7 +114,6 @@ function initGroup(group, groupType) {
     el._computed.next = group.elements[i + 1];
     el._computed.group = group;
     el._computed.content = group._computed.content;
-    // el._computed.template = group._computed.template;
     normalize(el);
     _.defaults(el, {
       w: elementDefaultWidth(el),

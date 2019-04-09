@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Fall Festival',
@@ -23,7 +24,7 @@ export default {
             {type: 'eventName', text: 'Fall'}, 
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             weight: 700,
@@ -39,7 +40,7 @@ export default {
             {type: 'location', text: 'Orange County'},
             {type: 'location', text: 'Open Grounds'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             weight: 400,
@@ -61,9 +62,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             weight: 400,
@@ -79,7 +80,7 @@ export default {
       overlay: false,
       width: unitValue(100, '%'),
       background: { 
-  color: solidColor('#d26d32'),
+  color: basicColor('#d26d32'),
 },
       bleed: { all: true },
       elements: [{
@@ -87,7 +88,7 @@ export default {
         lines: [
           {type: 'descriptive', text: 'Come Join The Fun'},
         ],
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         font: {
           family: 'Josefin Slab',
           weight: 700,
@@ -102,7 +103,7 @@ export default {
       overlay: false,
       width: unitValue(100, '%'),
       background: { 
-  color: solidColor('#d26d32'),
+  color: basicColor('#d26d32'),
 },
       bleed: { all: true },
       elements: [{
@@ -110,7 +111,7 @@ export default {
         lines: [
           {type: 'descriptive', text: 'It\'s The Annual'},
         ],
-        color: solidColor('#ffffff'),
+        color: basicColor('#ffffff'),
         font: {
           family: 'Josefin Slab',
           weight: 700,

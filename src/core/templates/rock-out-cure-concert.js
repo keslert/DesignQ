@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -7,9 +7,9 @@ const small = {
     {type: 'descriptive', text: "Let's jam for a cause!"},
   ],
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
-  color: solidColor('#201f05'),
+  color: basicColor('#201f05'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.12,
@@ -25,7 +25,7 @@ const dominant = {
     {type: 'eventName', text: 'Rock Out for the'},
     {type: 'eventName', text: 'Cure Concert!'},
   ],
-  color: solidColor('#201f05'),
+  color: basicColor('#201f05'),
   font: {
     family: 'Sensei',
     letterSpacing: 0,
@@ -41,7 +41,7 @@ const bridge = {
     {type: 'descriptive', text: 'A benefit concert for the '},
     {type: 'descriptive', text: "Winslough Children's Foundation"},
   ],
-  color: solidColor('#201f05'),
+  color: basicColor('#201f05'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.08,
@@ -62,9 +62,9 @@ const heading = {
   divider: {
     type: 'bar',
     size: 1,
-    color: solidColor('#201f05'),
+    color: basicColor('#201f05'),
   },
-  color: solidColor('#201f05'),
+  color: basicColor('#201f05'),
   font: {
     family: 'Open Sans',
     letterSpacing: 0.12,
@@ -82,7 +82,7 @@ const paragraph = {
     {type: 'details', text: 'help cancer-stricken children in'},
     {type: 'details', text: 'developing countries.'},
   ],
-  color: solidColor('#201f05'),
+  color: basicColor('#201f05'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.06,
@@ -99,7 +99,7 @@ export default {
   title: 'Rock out for the cure concert',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#fcd901'),
+  color: basicColor('#fcd901'),
 },
   decor: {
     t: .5,

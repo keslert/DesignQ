@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Golden Lights Parish'},
   ],
-  color: solidColor('#353535'),
+  color: basicColor('#353535'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,
@@ -21,7 +21,7 @@ const dominant = {
     {type: 'eventName', text: 'Sing to God:'},
     {type: 'eventName', text: 'A Gospel Concert'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Vidaloka',
     letterSpacing: 0,
@@ -36,7 +36,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'Offer your singing voices in praise to the Lord!'},
   ],
-  color: solidColor('#353535'),
+  color: basicColor('#353535'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#ffffff'),
+    color: basicColor('#ffffff'),
   },
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.1,
@@ -76,7 +76,7 @@ const paragraph = {
     {type: 'details', text: 'Watch and sing along as the choir belts their hearts out. With special'},
     {type: 'details', text: 'performances and appearances by various celebrity guests.'},
   ],
-  color: solidColor('#353535'),
+  color: basicColor('#353535'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -93,7 +93,7 @@ export default {
   tags: ['event', 'flyer'],
   inspirtation: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-gold-with-white-ornament-gospel-concert-church-flyer-MAC7WYDUvHw.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#d5c590'),
+  color: basicColor('#d5c590'),
 },
   decor: {
     t: .5,

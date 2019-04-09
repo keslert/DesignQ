@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Learn To Brew Your Best Coffee',
@@ -6,7 +7,7 @@ export default {
   py: 72,
   background: {
     url: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: solidColor('#3c342d'),
+    color: basicColor('#3c342d'),
     backgroundBlendMode: 'exclusion',
     filters: {
       brightness: 0.5,
@@ -18,7 +19,7 @@ export default {
     body: {
       bleed: { left: true, top: true, bottom: true },
       background: { 
-  color: solidColor('#692a3b'),
+  color: basicColor('#692a3b'),
 },
       alignX: 'center',
       alignY: 'center',
@@ -33,7 +34,7 @@ export default {
             {type: 'eventName', text: 'Brew Your'},
             {type: 'eventName', text: 'Best Coffee'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Josefin Slab',
             letterSpacing: 0,
@@ -50,7 +51,7 @@ export default {
           lines: [
             {type: 'time', text: 'A coffee brewing session for the uninitiated'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -71,7 +72,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'July 15'},
@@ -83,7 +84,7 @@ export default {
           divider: {
             size: 1,
             type: 'dot',
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Josefin Slab',
@@ -98,7 +99,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Learn how to make brewed coffee right in the'},
             {type: 'details', text: 'comfort of your own home and experiment with'},
@@ -135,14 +136,14 @@ export default {
         },
         {
           type: 'small',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'host', text: 'Vigilatte Coffee Presents'},
           ],
           divider: {
             size: 1,
             type: 'dot',
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Muli',

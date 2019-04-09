@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Momay Event Productions'},
   ],
-  color: solidColor('#6d4d43'),
+  color: basicColor('#6d4d43'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.170,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: 'Chatswood Fall'},
     {type: 'eventName', text: 'Festival 2020'},
   ],
-  color: solidColor('#d59158'),
+  color: basicColor('#d59158'),
   font: {
     family: 'Norwester',
     letterSpacing: 0.028,
@@ -37,7 +37,7 @@ const bridge = {
   lines: [
     {type: 'descriptive', text: 'The hottest food and entertainment event for fall'},
   ],
-  color: solidColor('#6d4d43'),
+  color: basicColor('#6d4d43'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: .07,
@@ -58,9 +58,9 @@ const heading = {
   divider: {
     type: 'line',
     size: 1,
-    color: solidColor('#d59158'),
+    color: basicColor('#d59158'),
   },
-  color: solidColor('#d59158'),
+  color: basicColor('#d59158'),
   font: {
     family: 'Norwester',
     letterSpacing: 0,
@@ -77,7 +77,7 @@ const paragraph = {
     {type: 'details', text: "town. Find food, entertainment and more that's fit for the"},
     {type: 'details', text: 'season!'},
   ],
-  color: solidColor('#6d4d43'),
+  color: basicColor('#6d4d43'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -91,7 +91,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#6d4d43'),
+  color: basicColor('#6d4d43'),
 },
   w: .25,
   h: 8,
@@ -103,7 +103,7 @@ export default {
   title: 'Chatswood Fall Festival',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   decor: {
     y: .3,
@@ -111,7 +111,7 @@ export default {
   content: {
     h: 'auto',
     background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
     bleed: { a: 1 },
     body: {

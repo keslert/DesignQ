@@ -11,9 +11,9 @@ import {
 } from '../core/templates/test-flyers';
 import { produceFlyer } from '../core/producer';
 import _ from 'lodash';
-import { buildTemplatePalette } from '../core/generator/color';
 import { Swatch } from '../components/ColorPicker';
 import { linkTemplate } from '../core/utils/template-utils';
+import { extractColorStrsFromTemplate, generatePalette } from '../core/utils/color-utils';
 
 // const flyers = [
 //   templates.LookingForArtVolunteers,
@@ -36,7 +36,8 @@ function Gallery({flyerSize}) {
       produceFlyer(flyer, flyerSize);
     });
     setPalettes(_.map(flyers, f => {
-      const palette = buildTemplatePalette(f);
+      const colors = extractColorStrsFromTemplate(f);
+      const palette = generatePalette(colors);
       return Object.values(_.pick(palette, ['dark', 'primary', 'secondary', 'light']));
     }))
     setReady(true);

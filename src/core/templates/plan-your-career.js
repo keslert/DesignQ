@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 36,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-black-vector-job-fair-flyer-MAC7m4cpzFQ.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#fbab32'),
+  color: basicColor('#fbab32'),
 },
   content: {
     body: {
@@ -21,7 +21,7 @@ export default {
             {type: 'eventName', text: 'Career the'},
             {type: 'eventName', text: 'Right Way.'},
           ],
-          color: solidColor('#2b2b2b'),
+          color: basicColor('#2b2b2b'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.046,
@@ -38,7 +38,7 @@ export default {
           lines: [
             {type: 'host', text: 'Come to the EDU Job Fair and get into your dream company.'},
           ],
-          color: solidColor('#2b2b2b'),
+          color: basicColor('#2b2b2b'),
           font: {
             family: 'Lato',
             letterSpacing: 0,
@@ -57,7 +57,7 @@ export default {
       alignX: 'left',
       textAlign: 'left',
       background: { 
-  color: solidColor('#2b2b2b'),
+  color: basicColor('#2b2b2b'),
 },
       elements: [
         {
@@ -65,7 +65,7 @@ export default {
           lines: [
             {type: 'host', text: 'El Dorado University'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Lato',
             letterSpacing: 0.13,
@@ -96,9 +96,9 @@ export default {
           divider: {
             type: 'comma',
             size: 1,
-            color: solidColor('#2b2b2b'),
+            color: basicColor('#2b2b2b'),
           },
-          color: solidColor('#2b2b2b'),
+          color: basicColor('#2b2b2b'),
           font: {
             family: 'League Spartan',
             letterSpacing: 0.043,
@@ -116,7 +116,7 @@ export default {
             {type: 'details', text: 'The EDU Job Fair is an annual event where students can get to know'},
             {type: 'details', text: 'over 100 amazing companies in various fields of study.'},
           ],
-          color: solidColor('#2b2b2b'),
+          color: basicColor('#2b2b2b'),
           font: {
             family: 'Lato',
             letterSpacing: 0,

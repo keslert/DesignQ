@@ -1,11 +1,11 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 const small = {
   type: 'small',
   lines: [
     {type: 'host', text: 'Bromson Cake Café'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0.110,
@@ -24,7 +24,7 @@ const dominant = {
     {type: 'eventName', text: 'Dash!'},
     {type: 'eventName', text: 'Dash!'},
   ],
-  color: solidColor('#ffeaa2'),
+  color: basicColor('#ffeaa2'),
   font: {
     family: 'Aleo',
     letterSpacing: 0.074,
@@ -40,7 +40,7 @@ const bridge = {
     {type: 'descriptive', text: "We're donating 50% of the proceeds"},
     {type: 'descriptive', text: 'from our desserts.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -56,7 +56,7 @@ const heading = {
     {type: 'date', text: 'October 1-15, 2020', format: 'MMMM D-D, YYYY'},
     {type: 'time', text: 'Open daily from 8 AM - 9 PM'},
   ],
-  color: solidColor('#ffeaa2'),
+  color: basicColor('#ffeaa2'),
   font: {
     family: 'Aleo',
     letterSpacing: 0.08,
@@ -73,7 +73,7 @@ const paragraph = {
     {type: 'details', text: 'Restaurant Council and City Charity Office.'},
     {type: 'details', text: 'Join the movement!'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Glacial Indifference',
     letterSpacing: 0,
@@ -87,7 +87,7 @@ const paragraph = {
 const bar = {
   type: 'bar',
   background: { 
-  color: solidColor('#ffeaa2'),
+  color: basicColor('#ffeaa2'),
 },
   w: 1,
   h: 8,
@@ -107,7 +107,7 @@ export default {
   content: {
     h: 'auto',
     background: { 
-  color: solidColor('#212328cc'),
+  color: basicColor('#212328cc'),
 },
     body: {
       elements: [

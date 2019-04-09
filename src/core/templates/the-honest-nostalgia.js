@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 21,
@@ -13,7 +13,7 @@ export default {
   },
   content: {
     background: { 
-  color: solidColor('#fefaef'),
+  color: basicColor('#fefaef'),
 },
     body: {
       textAlign: 'left',
@@ -27,7 +27,7 @@ export default {
           lines: [
             {type: 'host', text: 'Natsukashi Art Gallery'},
           ],
-          color: solidColor('#21303b'),
+          color: basicColor('#21303b'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.1,
@@ -45,7 +45,7 @@ export default {
             {type: 'eventName', text: 'Nostalgia:'},
             {type: 'eventName', text: 'An Exhibit'},
           ],
-          color: solidColor('#e35e3e'),
+          color: basicColor('#e35e3e'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.02,
@@ -62,7 +62,7 @@ export default {
             {type: 'descriptive', text: 'Featuring the works of renowned'},
             {type: 'descriptive', text: 'artist, Tachibana Daishi'},
           ],
-          color: solidColor('#21303b'),
+          color: basicColor('#21303b'),
           font: {
             family: 'Montserrat',
             letterSpacing: 0.05,
@@ -82,7 +82,7 @@ export default {
       elements: [
         {
           type: 'heading',
-          color: solidColor('#21303b'),
+          color: basicColor('#21303b'),
           lines: [
             {type: 'date', text: '7-15 February 2020', format: 'D MMMM YYYY'},
             {type: 'time', text: '11am - 9pm'},
@@ -100,7 +100,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#21303b'),
+          color: basicColor('#21303b'),
           lines: [
             {type: 'details', text: 'Get an in-depth glimpse into the otherworldly'},
             {type: 'details', text: 'beauty of Tachibana\'s most popular Japanese-'},

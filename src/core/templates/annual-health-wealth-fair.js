@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'Quarkwood University'},
   ],
-  color: solidColor('#13b694'),
+  color: basicColor('#13b694'),
   font: {
     family: 'Aileron',
     letterSpacing: 0.15,
@@ -22,7 +22,7 @@ const dominant = {
     {type: 'eventName', text: '5th Annual Health'},
     {type: 'eventName', text: 'is Wealth Fair'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'Aileron',
     letterSpacing: -0.02,
@@ -38,7 +38,7 @@ const bridge = {
     {type: 'descriptive', text: 'Remember that you are wealthiest'},
     {type: 'descriptive', text: 'at your healthiest!'},
   ],
-  color: solidColor('#13b694'),
+  color: basicColor('#13b694'),
   font: {
     family: 'Aileron',
     letterSpacing: 0.05,
@@ -55,7 +55,7 @@ const heading = {
     {type: 'time', text: '10 AM - 5 PM'},
     {type: 'location', text: 'Quarkwood Events Hall A'},
   ],
-  color: solidColor('#0d2839'),
+  color: basicColor('#0d2839'),
   font: {
     family: 'Aileron',
     letterSpacing: 0.15,
@@ -72,7 +72,7 @@ const paragraph = {
     {type: 'details', text: 'membership, or try out some healthy recipes!'},
     {type: 'details', text: 'Drop by and start getting healthy!'},
   ],
-  color: solidColor('#0d2839'),
+  color: basicColor('#0d2839'),
   font: {
     family: 'Aileron',
     letterSpacing: 0.05,
@@ -96,7 +96,7 @@ export default {
         brightness: 0.7,
       }
     },
-    color: solidColor('#0d2839'),
+    color: basicColor('#0d2839'),
     backgroundBlendMode: 'luminosity',
   },
   content: {
@@ -110,7 +110,7 @@ export default {
     },
     footer: {
       background: { 
-  color: solidColor('#13b694'),
+  color: basicColor('#13b694'),
 },
       bleed: { a: 1 },
       elements: [

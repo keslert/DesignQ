@@ -160,7 +160,7 @@ function getProgress(stage, index) {
   const progress = 
     index > 150 || (index > 20 && percentage > .8)
       ? ProgressTypes.THOROUGHLY_EXPLORED
-      : index > 20 || (percentage > .4)
+      : index > 20 || (percentage > .10)
         ? ProgressTypes.EXPLORED
         : ProgressTypes.UNEXPLORED
 

@@ -17,6 +17,7 @@ function BorderPanel({surface, border={}, path}) {
   }), []);
 
   const color = get(border, ['background', 'color']);
+  const palette = surface._root.palette;
 
   return (
     <Box>
@@ -24,8 +25,8 @@ function BorderPanel({surface, border={}, path}) {
         label="Border Color"
         children={
           <ColorPicker
-            color={color ? resolveColor(color) : ''}
-            palette={Object.values(surface._root.palette)}
+            color={color ? palette[color.paletteKey] : ''}
+            palette={Object.values(palette)}
             onClear={() => update({'background': null})}
             onChangeComplete={({hex, rgb}) => update({
               'background': border.background || {},

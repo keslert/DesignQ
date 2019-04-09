@@ -1,4 +1,5 @@
-import { solidColor, unitValue, splitColor } from '.'
+import { unitValue } from '.'
+import { basicColor, splitColor } from '../utils/color-utils';
 
 export default {
   title: "Adora's Sunday Garage Sale",
@@ -10,7 +11,7 @@ export default {
     color: splitColor(0, '#fec458', '#ed5744'),
   },
   background: { 
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
 },
   content: {
     height: 'flex',
@@ -39,7 +40,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Everything Must Go!'},
           ],
-          color: solidColor('#ed5744'),
+          color: basicColor('#ed5744'),
           font: {
             family: 'Josefin Slab',
             letterSpacing: 0,
@@ -57,7 +58,7 @@ export default {
             {type: 'eventName', text: "Adora's Sunday"},
             {type: 'eventName', text: 'Garage Sale'},
           ],
-          color: solidColor('#ed5744'),
+          color: basicColor('#ed5744'),
           font: {
             family: 'Josefin Slab',
             letterSpacing: 0,
@@ -75,7 +76,7 @@ export default {
             {type: 'descriptive', text: 'Selling pre-loved clothes, appliances, and'},
             {type: 'descriptive', text: 'gadgets!'},
           ],
-          color: solidColor('#ed5744'),
+          color: basicColor('#ed5744'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -99,9 +100,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ed5744'),
+            color: basicColor('#ed5744'),
           },
-          color: solidColor('#ed5744'),
+          color: basicColor('#ed5744'),
           font: {
             family: 'Josefin Slab',
             letterSpacing: 0,
@@ -120,7 +121,7 @@ export default {
             {type: 'descriptive', text: 'clothes, gadgets, and appliances for cheap'},
             {type: 'descriptive', text: 'prices. All items are in good condition!'},
           ],
-          color: solidColor('#ed5744'),
+          color: basicColor('#ed5744'),
           font: {
             family: 'Muli',
             letterSpacing: 0,

@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: '',
@@ -6,7 +7,7 @@ export default {
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   content: {
     height: 'flex',
@@ -14,7 +15,7 @@ export default {
     body: {
       bleed: { all: true },
       background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
       alignX: 'center',
       alignY: 'center',
@@ -25,7 +26,7 @@ export default {
           lines: [
             {type: 'eventName', text: 'Annual'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: '',
             letterSpacing: 0,
@@ -42,7 +43,7 @@ export default {
           lines: [
             {type: 'time', text: '10AM'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -59,14 +60,14 @@ export default {
     footer: {
       bleed: { all: true },
       background: { 
-  color: solidColor('#6b6f39'),
+  color: basicColor('#6b6f39'),
 },
       width: unitValue(100, '%'),
       textAlign: 'left',
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'location', text: '123 Anywhere St.'},
           ],

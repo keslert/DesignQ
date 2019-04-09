@@ -7,12 +7,11 @@ import Field from './Field';
 import ImageCrop from '../ImageCrop';
 import mapKeys from 'lodash/mapKeys';
 import Button from '../Button';
-import chroma from 'chroma-js';
+import ImageSearch from '../../containers/ImageSearch';
 import { DispatchContext } from '../../containers/Queue';
 import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
-import ImageSearch from '../../containers/ImageSearch';
-import { darkenColor } from '../../core/templates';
+import { darkenColor } from '../../core/utils/color-utils';
 import { findPaletteKey, PLACEHOLDER_IMAGE } from '../../core/utils/color-utils';
 
 let paletteKeyId = 1; 
@@ -34,7 +33,8 @@ function BackgroundPanel({
   const [showSearch, setShowSearch] = useState(false);
 
   const img = background.img;
-  const paletteColors = Object.values(surface._root.palette);
+  const palette = surface._root.palette;
+  const paletteColors = Object.values(palette);
   const bgType = img ? 'image' : background.color ? background.color.type : 'none';
     
   return (
@@ -169,17 +169,17 @@ function BackgroundPanel({
         </React.Fragment>
       }
 
-      {(background.color && background.color.type === 'solid') &&
+      {(background.color && background.color.type === 'palette') &&
         <Field 
           label="Background Color"
           children={
             <ColorPicker
-              color={resolveColor(background.color)}
+              color={resolveColor(background.color, palette)}
               palette={paletteColors}
               onClear={() => update({'color': null})}
               onChangeComplete={color => update({
-                'color.type': 'solid',
-                'color.color': color.hex,
+                // 'color.type': 'solid',
+                // 'color.color': color.hex,
                 'color.alpha': color.rgb.a,
                 'color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
               })}

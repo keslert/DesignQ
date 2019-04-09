@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 4,
@@ -13,7 +13,7 @@ export default {
   },
   content: {
     background: { 
-  color: solidColor('#28373b'),
+  color: basicColor('#28373b'),
 },
     h: 'auto',
     py: 2,
@@ -29,7 +29,7 @@ export default {
           lines: [
             {type: 'host', text: 'Great Nature Foundation'},
           ],
-          color: solidColor('#f5f5f5'),
+          color: basicColor('#f5f5f5'),
           font: {
             family: 'Exo',
             letterSpacing: 0.1,
@@ -48,7 +48,7 @@ export default {
             {type: 'eventName', text: 'Relief Food'},
             {type: 'eventName', text: 'Drive'},
           ],
-          color: solidColor('#f5f5f5'),
+          color: basicColor('#f5f5f5'),
           font: {
             family: 'Peace Sans',
             letterSpacing: 0,
@@ -72,9 +72,9 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#f5f5f5'),
+            color: basicColor('#f5f5f5'),
           },
-          color: solidColor('#f5f5f5'),
+          color: basicColor('#f5f5f5'),
           font: {
             family: 'Exo',
             letterSpacing: 0.03,
@@ -92,7 +92,7 @@ export default {
             {type: 'descriptive', text: 'For the benefit of the'},
             {type: 'descriptive', text: 'victims of Hurricane Adam'},
           ],
-          color: solidColor('#f5f5f5'),
+          color: basicColor('#f5f5f5'),
           font: {
             family: 'Peace Sans',
             letterSpacing: 0.09,
@@ -111,7 +111,7 @@ export default {
             {type: 'details', text: 'million homes. Join our relief efforts to help'},
             {type: 'details', text: 'victims get back on their feet.'},
           ],
-          color: solidColor('#f5f5f5'),
+          color: basicColor('#f5f5f5'),
           font: {
             family: 'Exo',
             letterSpacing: 0.08,

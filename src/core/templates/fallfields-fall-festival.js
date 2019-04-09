@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   id: 60,
@@ -6,7 +6,7 @@ export default {
   tags: ['event', 'flyer'],
   inspiration: 'https://firebasestorage.googleapis.com/v0/b/design-q.appspot.com/o/inspiration%2Fcanva-orange-and-red-leaves-fall-festival-flyer-MAC5t4eyqbI.webp?alt=media&token=18b3dbbe-c2b4-418b-9579-ba7cf434bd08',
   background: { 
-  color: solidColor('#fdcf19'),
+  color: basicColor('#fdcf19'),
 },
   border: {
     r: .3,
@@ -24,7 +24,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'Come Join the Festival!'},
           ],
-          color: solidColor('#db4439'),
+          color: basicColor('#db4439'),
           font: {
             family: 'Roboto',
             letterSpacing: 0.12,
@@ -42,7 +42,7 @@ export default {
             {type: 'eventName', text: 'Fall'},
             {type: 'eventName', text: 'Festival'},
           ],
-          color: solidColor('#db4439'),
+          color: basicColor('#db4439'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0.03,
@@ -56,7 +56,7 @@ export default {
         {
           type: 'bar',
           background: {
-            color: solidColor('#db4439'),
+            color: basicColor('#db4439'),
           },
           h: 10,
           w: .33,
@@ -67,7 +67,7 @@ export default {
             {type: 'descriptive', text: 'We have a million reasons to'},
             {type: 'descriptive', text: 'celebrate the new season!'},
           ],
-          color: solidColor('#db4439'),
+          color: basicColor('#db4439'),
           font: {
             family: 'Roboto',
             letterSpacing: 0.01,
@@ -90,7 +90,7 @@ export default {
             {type: 'time', text: '10 AM - 9 PM'},
             {type: 'location', text: 'Fallfield Public Park'},
           ],
-          color: solidColor('#db4439'),
+          color: basicColor('#db4439'),
           font: {
             family: 'League Gothic',
             letterSpacing: 0.07,
@@ -109,7 +109,7 @@ export default {
             {type: 'details', text: 'performers. Admission is free and'},
             {type: 'details', text: 'everyone\'s invited!'},
           ],
-          color: solidColor('#db4439'),
+          color: basicColor('#db4439'),
           font: {
             family: 'Roboto',
             letterSpacing: 0,

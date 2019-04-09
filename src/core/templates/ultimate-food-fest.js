@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Ultimate Food Fest',
@@ -7,7 +8,7 @@ export default {
   py: 36,
   background: {
     url: 'https://images.unsplash.com/photo-1536487051162-1fcc4fdf4cc0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    color: solidColor('#253b58'),
+    color: basicColor('#253b58'),
     zoom: 1.2,
     x: 1, 
     y: 1,
@@ -30,7 +31,7 @@ export default {
           lines: [
             {type: 'host', text: 'Grinning Stomach Presents'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0.1,
@@ -48,7 +49,7 @@ export default {
             {type: 'eventName', text: 'The Ultimate Food'},
             {type: 'eventName', text: 'Fest 2020'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Chewy',
             letterSpacing: 0,
@@ -66,7 +67,7 @@ export default {
             {type: 'descriptive', text: 'A gathering of cuisines from all'},
             {type: 'descriptive', text: 'over the globe!'},
           ],
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           font: {
             family: 'Muli',
             letterSpacing: 0,
@@ -102,14 +103,14 @@ export default {
     footer: {
       bleed: { all: true },
       background: { 
-  color: solidColor('#f64b42'),
+  color: basicColor('#f64b42'),
 },
       width: unitValue(100, '%'),
       textAlign: 'center',
       elements: [
         {
           type: 'heading',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             [
               {type: 'date', text: 'May 13-15, 2020', format: 'MMMM D, YYYY'},
@@ -120,7 +121,7 @@ export default {
           divider: {
             type: 'line',
             size: 1,
-            color: solidColor('#ffffff'),
+            color: basicColor('#ffffff'),
           },
           font: {
             family: 'Muli',
@@ -135,7 +136,7 @@ export default {
         },
         {
           type: 'paragraph',
-          color: solidColor('#ffffff'),
+          color: basicColor('#ffffff'),
           lines: [
             {type: 'details', text: 'Call 123-456-7890 for tickets now! if you\'re interested in setting up'},
             {type: 'details', text: 'a booth, contact hello@reallygreatsite.com.'},

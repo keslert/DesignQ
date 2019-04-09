@@ -1,4 +1,4 @@
-import { solidColor } from './'
+import { basicColor } from '../utils/color-utils';
 
 
 const small = {
@@ -6,7 +6,7 @@ const small = {
   lines: [
     {type: 'host', text: 'The Union Club and Bar'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0.02,
@@ -25,7 +25,7 @@ const dominant = {
     {type: 'eventName', text: 'And Smooth'},
     {type: 'eventName', text: 'Jazz'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Gothic',
     letterSpacing: 0.01,
@@ -41,7 +41,7 @@ const bridge = {
     {type: 'descriptive', text: 'Listen, relax, and enjoy the'},
     {type: 'descriptive', text: 'hottest covers'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0.02,
@@ -57,7 +57,7 @@ const heading = {
     {type: 'descriptive', text: 'Brought to you by Amara Jazz Productions &'},
     {type: 'descriptive', text: 'Lightshow Co.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'League Gothic',
     letterSpacing: 0.08,
@@ -74,7 +74,7 @@ const paragraph = {
     {type: 'details', text: 'For table bookings and ticket packages, please feel'},
     {type: 'details', text: 'free to contact us.'},
   ],
-  color: solidColor('#ffffff'),
+  color: basicColor('#ffffff'),
   font: {
     family: 'BodoniFLF',
     letterSpacing: 0.02,
@@ -91,7 +91,7 @@ export default {
   title: 'Easy Listening and Smooth Jazz',
   tags: ['event', 'flyer'],
   background: { 
-  color: solidColor('#e54049'),
+  color: basicColor('#e54049'),
 },
   decor: {
     r: .3,

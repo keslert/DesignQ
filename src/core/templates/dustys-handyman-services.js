@@ -1,4 +1,5 @@
-import { solidColor, unitValue } from '.'
+import { unitValue } from '.'
+import { basicColor } from '../utils/color-utils';
 
 export default {
   title: 'Dusty\'s Handyman Services',
@@ -6,7 +7,7 @@ export default {
   px: 36,
   py: 36,
   background: { 
-  color: solidColor('#eaeff0'),
+  color: basicColor('#eaeff0'),
 },
   content: {
     height: 'flex',
@@ -25,7 +26,7 @@ export default {
             {type: 'eventName', text: 'Handyman'},
             {type: 'eventName', text: 'Services'},
           ],
-          color: solidColor('#8c463c'),
+          color: basicColor('#8c463c'),
           font: {
             family: 'Bebas Neue',
             weight: 400,
@@ -41,7 +42,7 @@ export default {
           lines: [
             {type: 'descriptive', text: 'We Improve Your House!'},
           ],
-            color: solidColor('#506974'),
+            color: basicColor('#506974'),
           font: {
             family: 'Roboto Condensed',
             weight: 400,
