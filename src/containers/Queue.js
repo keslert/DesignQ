@@ -405,14 +405,15 @@ function updateSelected(state, action, update={}) {
   const copySelected = getItemFromTemplate(selected, copy);
   Object.entries(action.update).forEach(([path, value]) => {
     if(path.includes('_root')) {
-      // HACK: This feels wrong, but... components don't have full control of the path.
-      const _path = path.split('_root')[1];
+      // HACK: This feels so wrong, but... edit panels don't have full control of the path.
+      const _path = path.split('_root.')[1];
       set(copy, _path, value);
     }
     else {
       set(copySelected, path, value);
     }
   })
+
   resolveItem(copySelected, selected, action.update);
   produceFlyer(copy);
 

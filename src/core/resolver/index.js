@@ -2,21 +2,23 @@ import get from 'lodash/get';
 import chroma from 'chroma-js';
 import { getOptimalBackgroundColor, getOptimalForegroundColor } from '../generator/color';
 import { DQ_FONTS } from '../utils/text-utils';
-import { getDescendants } from '../utils/template-utils';
+import { getDescendants, isCrudeEqual } from '../utils/template-utils';
 import _ from 'lodash';
 import { darkenColor, getBasicColors } from '../utils/color-utils';
 
 // Mutates template
 export function resolveItem(item, oldItem, update) {
-  // resolveTemplatePalette(item._root);
+  if(_.size(item._root.palette) !== _.size(oldItem._root.palette)) {
+    resolvePalette(item._root);
+  }
   
   if(item.lines && item.font.family !== oldItem.font.family) {
     resolveFont(item.font)
   }
 
-  // if(!_.isEqual(item.background, oldItem.background)) {
+  if(!isCrudeEqual(item.background, oldItem.background)) {
     resolveItemColors(item);
-  // }
+  }
 }
 
 export function resolveItemColors(item) {
@@ -33,7 +35,6 @@ export function resolveItemColors(item) {
     }
   }
   else { 
-    
     getDescendants(item).forEach(item => {
       const bgColor = get(item, ['background', 'color']);
       if(bgColor) {
@@ -73,24 +74,26 @@ function resolveFont(font) {
   }
 }
 
-function resolveTemplatePalette(template) {
-  // const palette = _.chain(template._all)
-  //   .flatMap(item => [item.color, get(item, ['background', 'color'])])
-  //   .filter()
-  //   .flatMap(getBasicColors)
-  //   .uniqBy(color => color.paletteKey)
-  //   .map(color => [color.paletteKey, color.color])
-  //   .fromPairs()
-  //   .value();
+function resolvePalette(template) {
+  const colors = template._textElements.map(el => el.color);
+	const bgColors = template._all.map(el => el.background && el.background.color);
 
-  // // Put back in the original colors
-  // _.forEach(template.palette, (color, key) => {
-  //   if(!key.startsWith('user-defined')) {
-  //     palette[key] = color;
-  //   }
-  // })
+  const palette = _.chain([...colors, ...bgColors])
+    .filter()
+    .flatMap(getBasicColors)
+    .uniqBy(color => color.paletteKey)
+    .map(color => [color.paletteKey, template.palette[color.paletteKey]])
+    .fromPairs()
+    .value();
 
-  // template.palette = palette;
+  // Put back in the original colors
+  _.forEach(template.palette, (color, key) => {
+    if(!key.startsWith('custom')) {
+      palette[key] = color;
+    }
+  })
+
+  template.palette = palette;
 }
 
 // function resolvePaletteColors(template) {

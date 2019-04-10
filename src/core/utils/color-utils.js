@@ -37,6 +37,11 @@ export function findPaletteKey(colorStr, palette) {
   return key;
 }
 
+let paletteKeyId = 1;
+export function findOrCreatePaletteKey(colorStr, palette) {
+  return findKey(palette, v => v === colorStr) || `custom-${paletteKeyId++}`
+}
+
 export function convertColorToPaletteColor(color, palette) {
   switch(color.type) {
     case 'basic': 
@@ -183,12 +188,12 @@ export function generatePlausiblePalettes(colors, limit=10) {
 
 export function getBasicColors(color) {
   switch(color.type) {
-    case 'basic': 
-      return color;
     case 'linear':
     case 'split-color':
     case 'striped':
       return [color.colorA, color.colorB];
+    default: 
+      return color;
   }
 }
 

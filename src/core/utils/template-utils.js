@@ -146,8 +146,16 @@ export function getTemplateTextTypes(template, force) {
   return template._textTypes;
 }
 
+export function isCrudeEqual(a, b) {
+  return _.isEqualWith(a, b, equalCustomizer)
+}
+
+function equalCustomizer(a, b, key) {
+  return _.isString(key) && key.startsWith('_') ? true : undefined;
+}
+
 export function copyTemplate(flyer, noLink) {
-  const clone = _.cloneDeepWith(flyer, customizer);
+  const clone = _.cloneDeepWith(flyer, copyCustomizer);
   if(!noLink) {
     linkTemplate(clone);
   }
@@ -155,7 +163,7 @@ export function copyTemplate(flyer, noLink) {
 }
 
 // If customizer returns undefined, cloning is handled by the method instead
-function customizer(value, key) {
+function copyCustomizer(value, key) {
   return _.isString(key) && key.startsWith('_') ? null : undefined;
 }
 

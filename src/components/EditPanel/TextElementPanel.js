@@ -11,6 +11,7 @@ import Checkbox from '../Checkbox';
 import { DispatchContext } from '../../containers/Queue';
 import BackgroundPanel from './BackgroundPanel';
 import { canControlWidth, WidthToText, TextToWidth } from '../../core/utils/template-utils';
+import { findOrCreatePaletteKey } from '../../core/utils/color-utils';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
@@ -23,6 +24,8 @@ function TextElementPanel({element}) {
   // TODO: Add translateXY for minor adjustments.
   // TODO: Add divider color.
 
+  const palette = element._root.palette;
+  const paletteColors = Object.values(palette);
   const uniqKey = element._root.id + element._parent._key + element._key
 
   return (
@@ -75,12 +78,14 @@ function TextElementPanel({element}) {
         <ColorPicker
           key={uniqKey}
           onChangeComplete={color => {
-            const hex = color.hex;
-            const alpha = color.alpha;
-            update({'color': {type: 'solid', color: hex, alpha}})
+            const key = findOrCreatePaletteKey(color.hex, palette)
+            update({
+              'color.paletteKey': key,
+              [`_root.palette.${key}`]: color.hex,
+            })
           }}
           color={element.color._str}
-          palette={Object.values(element._root.palette)}
+          palette={paletteColors}
           width={226}
         />
       </Field>

@@ -166,12 +166,26 @@ function generateAlternatePalettes(flyer, options) {
 	const colors = Object.values(flyer.palette);
 	if(colors.length > 4) {
 		const palettes = generatePlausiblePalettes(colors);
-		generated.push(...palettes.map(palette => {
-			const copy = copyTemplate(flyer);
-			copy.palette = palette;
-			resolveItemColors(copy);
-			return copy;
-		}))
+
+		generated.push(..._.flatMap(palettes.map(palette => {
+			const color = flyer.background.color || {};
+			const keys = [
+				'dark', 
+				'light', 
+				'accent', 
+				'accent2'
+			].filter(k => palette[k] && k !== color.paletteKey)
+
+			const alpha = color.alpha || (flyer.background.img ? .5 : undefined)
+
+			return keys.map(key => {
+				const copy = copyTemplate(flyer);
+				copy.palette = palette;
+				copy.background.color = paletteColor(key, alpha);
+				resolveItemColors(copy);
+				return copy;
+			})
+		})))
 	}
 
 	return generated;
