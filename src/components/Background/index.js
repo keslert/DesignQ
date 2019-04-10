@@ -1,5 +1,5 @@
 import React from 'react';
-import { getBackgroundImgStyle, resolveColor } from '../../core/utils/render-utils';
+import { getBackgroundImgStyle } from '../../core/utils/render-utils';
 
 function Background({background, bb, style: propStyle={}}) {
 

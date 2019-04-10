@@ -1,5 +1,4 @@
 import React, { useContext, useCallback } from 'react';
-import BackgroundPanel from './BackgroundPanel';
 import ColorPicker from '../ColorPicker';
 import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
@@ -7,7 +6,7 @@ import get from 'lodash/get';
 import mapKeys from 'lodash/mapKeys';
 import { Box } from 'rebass';
 import { DispatchContext } from '../../containers/Queue';
-import { resolveColor } from '../../core/utils/render-utils';
+import { paletteColor, findOrCreatePaletteKey } from '../../core/utils/color-utils';
 
 function BorderPanel({surface, border={}, path}) {
   const rootDispatch = useContext(DispatchContext)
@@ -25,21 +24,21 @@ function BorderPanel({surface, border={}, path}) {
         label="Border Color"
         children={
           <ColorPicker
-            color={color ? palette[color.paletteKey] : ''}
+            color={color ? color._str : ''}
             palette={Object.values(palette)}
             onClear={() => update({'background': null})}
-            onChangeComplete={({hex, rgb}) => update({
-              'background': border.background || {},
-              'background.color': {
-                type: 'solid',
-                color: hex,
-                alpha: rgb.a,
-              },
-              'l': color ? border.l : .05,
-              'r': color ? border.r : .05,
-              't': color ? border.t : .05,
-              'b': color ? border.b : .05,
-            })}
+            onChangeComplete={({hex, rgb}) => {
+              const key = findOrCreatePaletteKey(hex, palette)
+              update({
+                'background': border.background || {},
+                'background.color': paletteColor(key, rgb.a),
+                [`_root.palette.${key}`]: hex,
+                'l': color ? border.l : .05,
+                'r': color ? border.r : .05,
+                't': color ? border.t : .05,
+                'b': color ? border.b : .05,
+              })
+            }}
           />
         }
       />

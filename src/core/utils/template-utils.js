@@ -162,6 +162,10 @@ export function copyTemplate(flyer, noLink) {
   return clone;
 }
 
+export function cloneCrude(obj) {
+  return _.cloneDeepWith(obj, copyCustomizer);
+}
+
 // If customizer returns undefined, cloning is handled by the method instead
 function copyCustomizer(value, key) {
   return _.isString(key) && key.startsWith('_') ? null : undefined;

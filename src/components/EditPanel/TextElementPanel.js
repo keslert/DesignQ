@@ -81,6 +81,7 @@ function TextElementPanel({element}) {
             const key = findOrCreatePaletteKey(color.hex, palette)
             update({
               'color.paletteKey': key,
+              'color.alpha': color.rgb.a,
               [`_root.palette.${key}`]: color.hex,
             })
           }}

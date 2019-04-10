@@ -1,5 +1,4 @@
 import React from 'react';
-import { resolveColor } from '../../core/utils/render-utils';
 
 // clip-path solution (without svg)
 // https://bennettfeely.com/clippy/

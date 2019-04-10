@@ -1,5 +1,4 @@
 import React from 'react';
-import { resolveColor } from '../../core/utils/render-utils';
 import ListDivider from '../ListDivider';
 
 const debug = false;

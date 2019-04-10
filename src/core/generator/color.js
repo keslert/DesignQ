@@ -264,7 +264,7 @@ export function getOptimalBackgroundColor(surface, palette, preferences=[], alph
 	const backdropKey = getBackdropPaletteKey(surface);
 
 	if(surface.background && surface.background.img) {
-		return paletteColor('dark', get(surface, ['background', 'color', 'alpha']));
+		return paletteColor('dark', alpha || get(surface, ['background', 'color', 'alpha']));
 	}
 
 	let key = _.find(preferences, key => palette[key] && backdropKey !== key)

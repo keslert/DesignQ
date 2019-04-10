@@ -22,7 +22,8 @@ export function getBackdropPaletteKey(item) {
 	while(current = current._parent) {
 		const color = get(current, ['background', 'color']);
 		if(color && color.alpha !== 0) {
-			return color.paletteKey;
+      // HACK: We can do better than this.
+			return color.colorA ? color.colorA.paletteKey: color.paletteKey;
 		}
 		if(get(current, ['background', 'img'])) {
 			return 'dark'
@@ -197,7 +198,7 @@ export function getBasicColors(color) {
   }
 }
 
-export function paletteColor(key, alpha) {
+export function paletteColor(key, alpha=1) {
   return {
     type: 'palette',
     paletteKey: key, 
@@ -205,7 +206,7 @@ export function paletteColor(key, alpha) {
   }
 }
 
-export function basicColor(color, alpha) {
+export function basicColor(color, alpha=1) {
   return { type: 'basic', str: color, alpha };
 }
 
@@ -238,7 +239,7 @@ export function splitColor(deg, colorA, colorB) {
   };
 }
 
-export function darkenColor(color, amount = 1) {
+export function darkenColor(color, amount=1) {
   return {
     ...color,
     color: chroma(color.str).darken(amount).hex(),

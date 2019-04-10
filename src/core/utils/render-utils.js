@@ -22,23 +22,30 @@ export function textAlignToFlexAlign(align) {
   }
 }
 
-export function resolveColor(color, palette) {
+export function computeColor(color, palette) {
   if(!color) return null;
 
   switch(color.type) {
     case 'palette':
-      return color.alpha !== undefined 
-        ? chroma(palette[color.paletteKey]).alpha(color.alpha).css() 
-        : palette[color.paletteKey]
-    case 'solid':
-      console.assert("Shouldn't have solid colors");
-      return color.alpha !== undefined ? chroma(color.str).alpha(color.alpha).css() : color.str;
+      color._str = color.alpha === 1
+        ? palette[color.paletteKey]
+        : chroma(palette[color.paletteKey]).alpha(color.alpha).css() 
+      break;
     case 'linear':
-      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorA, palette)})`
+      computeColor(color.colorA, palette);
+      computeColor(color.colorB, palette);
+      color._str = `linear-gradient(${color.deg}deg, ${color.colorB._str}, ${color.colorA._str})`
+      break;
     case 'striped': 
-      return `repeating-linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorB, palette)} ${color.widthA}px, ${resolveColor(color.colorA, palette)} ${color.widthA}px, ${resolveColor(color.colorA, palette)} ${color.widthA + color.widthB}px)`
+      computeColor(color.colorA, palette);
+      computeColor(color.colorB, palette);
+      color._str = `repeating-linear-gradient(${color.deg}deg, ${color.colorB._str}, ${color.colorB._str} ${color.widthA}px, ${color.colorA._str} ${color.widthA}px, ${color.colorA._str} ${color.widthA + color.widthB}px)`
+      break;
     case 'split-color':
-      return `linear-gradient(${color.deg}deg, ${resolveColor(color.colorB, palette)}, ${resolveColor(color.colorB, palette)} 50%, ${resolveColor(color.colorA, palette)} 50%)`;
+      computeColor(color.colorA, palette);
+      computeColor(color.colorB, palette);
+      color._str = `linear-gradient(${color.deg}deg, ${color.colorB._str}, ${color.colorB._str} 50%, ${color.colorA._str} 50%)`;
+      break;
     default:
       throw Error("Unknown Color Type!")
   }

@@ -9,12 +9,10 @@ import mapKeys from 'lodash/mapKeys';
 import Button from '../Button';
 import ImageSearch from '../../containers/ImageSearch';
 import { DispatchContext } from '../../containers/Queue';
-import { resolveColor } from '../../core/utils/render-utils';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
-import { darkenColor } from '../../core/utils/color-utils';
-import { findPaletteKey, PLACEHOLDER_IMAGE } from '../../core/utils/color-utils';
-
-let paletteKeyId = 1; 
+import { darkenColor, findOrCreatePaletteKey, fixAlpha } from '../../core/utils/color-utils';
+import { PLACEHOLDER_IMAGE } from '../../core/utils/color-utils';
+import { cloneCrude } from '../../core/utils/template-utils';
 
 function BackgroundPanel({
   surface,
@@ -33,9 +31,10 @@ function BackgroundPanel({
   const [showSearch, setShowSearch] = useState(false);
 
   const img = background.img;
+  const bgColor = background.color || {};
   const palette = surface._root.palette;
   const paletteColors = Object.values(palette);
-  const bgType = img ? 'image' : background.color ? background.color.type : 'none';
+  const bgType = img ? 'image' : (bgColor.type || 'none');
     
   return (
     <Box>
@@ -50,29 +49,29 @@ function BackgroundPanel({
               options={bgOptions}
               onChange={e => {
                 const type = e.target.value;
-                const o = {};
+                const ret = {};
 
                 if(background.img && type !== 'image') {
-                  o.prevImg = img;
-                  o.img = null;
+                  ret.prevImg = img;
+                  ret.img = null;
                 }
 
                 if(type === 'none') {
-                  o._color = background.color;
-                  o.color = null;
+                  ret._color = background.color;
+                  ret.color = null;
                 }
                 else if(type === 'color') {
-                  o.color = getBasic(surface, background, surface._root.palette);
+                  ret.color = getBasic(surface, background, surface._root.palette);
                 }
                 else if(type === 'gradient') {
-                  o.color = getGradient(surface, background, surface._root.palette);
+                  ret.color = getGradient(surface, background, surface._root.palette);
                 }
                 else if(type === 'image') {
-                  o.img = img || background.prevImg || {...PLACEHOLDER_IMAGE};
-                  o._color = background.color;
-                  o.color = null;
+                  ret.img = img || background.prevImg || {...PLACEHOLDER_IMAGE};
+                  ret._color = background.color;
+                  ret.color = null;
                 }
-                update(o);
+                update(ret);
               }}
             />
           }
@@ -87,7 +86,7 @@ function BackgroundPanel({
               key={(surface._root.editId || surface._root.id) + img.src}
               img={img}
               size={bb || surface._computed.bb}
-              onComplete={(crop, pixelCrop) => {
+              onComplete={crop => {
                 const zoom = (Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100) || 1;
                 const x = (Math.round(crop.x / (100 - crop.width) * 100) / 100) || 0;
                 const y = (Math.round(crop.y / (100 - crop.height) * 100) / 100) || 0;
@@ -119,20 +118,28 @@ function BackgroundPanel({
               <ImageSearch
                 galleryStyle={imagePickerStyle}
                 onSelect={(e, {photo}) => {
-                  const o = {};
-                  const color = background.color;
-                  if(color && (!color.alpha || color.alpha === 1)) {
-                    o['color.alpha'] = 0.1;
+                  const ret = {};
+                  const color = background.color || {};
+                  if(color.type === 'palette' && color.alpha === 1) {
+                    ret['color.alpha'] = 0.1;
+                  }
+                  if(color.type === 'linear') { 
+                    if(color.colorA.alpha === 1) {
+                      ret['color.colorA.alpha'] = 0.1;
+                    }
+                    if(color.colorB.alpha === 1) {
+                      ret['color.colorB.alpha'] = 0.1;
+                    }
                   }
 
-                  o['img'] = {
+                  ret['img'] = {
                     ...photo,
                     zoom: 1,
                     x: 0.5,
                     y: 0.5,
                   };
 
-                  update(o);
+                  update(ret);
                 }}
 
               />
@@ -145,23 +152,23 @@ function BackgroundPanel({
               <Select
                 bg="dark"
                 color="white"
-                value={BackgroundTypeToText[background.color ? background.color.type : 'none']}
+                value={BackgroundTypeToText[bgColor.type || 'none']}
                 options={['none', 'color', 'gradient']}
                 onChange={e => {
                   const type = e.target.value;
-                  const o = {};
+                  const ret = {};
 
                   if(type === 'none') {
-                    o._color = background.color;
-                    o.color = null;
+                    ret._color = bgColor;
+                    ret.color = null;
                   }
                   else if(type === 'color') {
-                    o.color = getBasic(surface, background, surface._root.palette, .5);
+                    ret.color = getBasic(surface, background, surface._root.palette, .5);
                   }
                   else if(type === 'gradient') {
-                    o.color = getGradient(surface, background, surface._root.palette, .5);
+                    ret.color = getGradient(surface, background, surface._root.palette, .5);
                   }
-                  update(o);
+                  update(ret);
                 }}
               />
             }
@@ -169,39 +176,43 @@ function BackgroundPanel({
         </React.Fragment>
       }
 
-      {(background.color && background.color.type === 'palette') &&
+      {bgColor.type === 'palette' &&
         <Field 
           label="Background Color"
           children={
             <ColorPicker
-              color={resolveColor(background.color, palette)}
+              color={bgColor._str}
               palette={paletteColors}
               onClear={() => update({'color': null})}
-              onChangeComplete={color => update({
-                // 'color.type': 'basic',
-                // 'color.color': color.hex,
-                'color.alpha': color.rgb.a,
-                'color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
-              })}
+              onChangeComplete={color => {
+                const key = findOrCreatePaletteKey(color.hex, palette)
+                update({
+                  'color.paletteKey': key,
+                  'color.alpha': color.rgb.a,
+                  [`_root.palette.${key}`]: color.hex,
+                })
+              }}
             />
           }
         />
       }
 
-      {(background.color && background.color.type === 'linear') &&
+      {bgColor.type === 'linear' &&
         <React.Fragment>
           <Field 
             label="Background Color #1"
             children={
               <ColorPicker
-                color={resolveColor(background.color.color)}
+                color={bgColor.colorA._str}
                 palette={paletteColors}
-                onChangeComplete={color => update({
-                  'color.color.type': 'basic',
-                  'color.color.color': color.hex,
-                  'color.color.alpha': color.rgb.a,
-                  'color.color.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
-                })}
+                onChangeComplete={color => {
+                  const key = findOrCreatePaletteKey(color.hex, palette)
+                  update({
+                    'color.colorA.paletteKey': key,
+                    'color.colorA.alpha': color.rgb.a,
+                    [`_root.palette.${key}`]: color.hex,
+                  })
+                }}
               />
             }
           />
@@ -210,14 +221,16 @@ function BackgroundPanel({
             label="Background Color #2"
             children={
               <ColorPicker
-                color={resolveColor(background.color.colorB)}
+                color={bgColor.colorB._str}
                 palette={paletteColors}
-                onChangeComplete={color => update({
-                  'color.colorB.type': 'basic',
-                  'color.colorB.color': color.hex,
-                  'color.colorB.alpha': color.rgb.a,
-                  'color.colorB.paletteKey': findPaletteKey(color.hex, surface._root.palette) || `user-defined-${paletteKeyId++}`,
-                })}
+                onChangeComplete={color => {
+                  const key = findOrCreatePaletteKey(color.hex, palette)
+                  update({
+                    'color.colorB.paletteKey': key,
+                    'color.colorB.alpha': color.rgb.a,
+                    [`_root.palette.${key}`]: color.hex,
+                  })
+                }}
               />
             }
           />
@@ -230,7 +243,7 @@ function BackgroundPanel({
                 name="mb"
                 bg="dark"
                 color="white"
-                value={background.color.deg}
+                value={bgColor.deg}
                 step={15}
                 min={0}
                 max={360}
@@ -248,56 +261,53 @@ function BackgroundPanel({
 
 export default BackgroundPanel;
 
-function getBasic(surface, bg, palette, defaultAlpha=1) {
-  const type = 'basic';
+function getBasic(surface, bg, palette, alpha) {
   const c = bg.color || bg._color;
 
   if(!c) {
-    const optimalColor = getOptimalBackgroundColor(surface, palette);
-    return {...optimalColor, alpha: defaultAlpha}
+    return getOptimalBackgroundColor(surface, palette, [], alpha);
   }
-  else if(c.type === 'basic') {
-    const alpha = !(c.alpha < 1) ? defaultAlpha : c.alpha
-    return { ...c, alpha }
+  else if(c.type === 'palette') {
+    const copy = {...c};
+    fixAlpha(copy, alpha);
+    return copy;
   }
   else if(c.type === 'linear') {
-    const alpha = !(c.color.alpha < 1) ? defaultAlpha : c.color.alpha
-    
-    return { ...c.color, type, alpha }
+    const copy = {...c.colorA};
+    fixAlpha(copy, alpha);
+    return copy;
   }
 }
 
-function getGradient(surface, bg, palette, defaultAlpha=1) {
+function getGradient(surface, bg, palette, alpha) {
   const c = bg.color || bg._color;
 
   if(!c) {
-    const optimalColor = getOptimalBackgroundColor(surface, palette);
+    const color = getOptimalBackgroundColor(surface, palette, [], alpha);
 
     return {
       type: 'linear',
-      color: {...optimalColor, alpha: defaultAlpha},
-      colorB: darkenColor(optimalColor),
+      colorA: color,
+      colorB: cloneCrude(color),
       deg: 0,
     }
   }
-  else if(c.type === 'basic') {
-    const alpha = !(c.alpha < 1) ? defaultAlpha : c.alpha
+  else if(c.type === 'palette') {
+    const color = {...c, alpha};
 
     return {
       type: 'linear',
-      color: {...c, alpha },
-      colorB: darkenColor(c),
+      colorA: cloneCrude(color),
+      colorB: cloneCrude(color),
       deg: 0,
     }
   }
   else if(c.type === 'linear') {
-    const alpha = !(c.color.alpha < 1) ? defaultAlpha : c.color.alpha
-    const alphaB = !(c.colorB.alpha < 1) ? defaultAlpha : c.colorB.alpha
 
     return {
-      type: 'linear',
-      color: {...c.color, alpha},
-      colorB: {...c.colorB, alphaB},
+      ...c,
+      colorA: {...cloneCrude(c.colorA), alpha},
+      colorB: {...cloneCrude(c.colorB), alpha},
     }
   }
 }

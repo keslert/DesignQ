@@ -1,5 +1,4 @@
 import React from 'react';
-import { resolveColor } from '../../core/utils/render-utils';
 
 function BarElement({element}) {
   const c = element._computed;
