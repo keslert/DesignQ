@@ -298,6 +298,37 @@ function TextElementPanel({element}) {
 
       {element.background && 
         <Field 
+          label="Background Bleed"
+          hint="The number of edges this item's background extends across."
+          children={
+            <DirectionalInput
+              name="bleed"
+              min={0}
+              l={element._computed.canBleed.l ? (element.bleed.pl || 0) : 0}
+              r={element._computed.canBleed.r ? (element.bleed.pr || 0) : 0}
+              t={0}
+              b={0}
+              lMax={element._computed.edges.l.length}
+              rMax={element._computed.edges.r.length}
+              tMax={0}
+              bMax={0}
+              lDisabled={!element._computed.canBleed.l}
+              rDisabled={!element._computed.canBleed.r}
+              tDisabled={true}
+              bDisabled={true}
+              onChange={values => update({
+                'bleed.pl': values.l,
+                'bleed.pr': values.r,
+                'bleed.pt': values.t,
+                'bleed.pb': values.b,
+              })}
+            />
+          }
+        />
+      }
+
+      {element.background && 
+        <Field 
           label="Padding"
           hint="The amount of space between the background and the text."
           onExploreClick={() => null}
