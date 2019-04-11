@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import OpacityButton from '../OpacityButton';
 import { Box, Flex, Text } from 'rebass';
 import InfoSvg from '../../svg/info.svg';
+import styled from 'styled-components';
 
 function Field({
   label, 
   onExploreClick, 
   fontSize=2,
+  nested,
   hint,
   children, 
 }) {
   const [showHint, setShowHint] = useState(false);
 
   return (
-    <Box mb={4}>
+    <Box mb={4} pl={nested ? 4 : 0} className="relative">
+      {nested && <NestedLine />}
       <Flex justifyContent="space-between" alignItems="center" mb={2}>
         <Flex color="white">
           <Text
@@ -55,3 +58,14 @@ function Field({
 }
 
 export default Field;
+
+
+const NestedLine = styled.div({
+  position: 'absolute',
+  top: '12px',
+  left: '12px',
+  height: '32px',
+  width: '20px',
+  borderLeft: '2px solid rgba(255,255,255,.12)',
+  borderBottom: '2px solid rgba(255, 255, 255, 0.12)',
+})

@@ -12,6 +12,7 @@ import { DispatchContext } from '../../containers/Queue';
 import BackgroundPanel from './BackgroundPanel';
 import { canControlWidth, WidthToText, TextToWidth } from '../../core/utils/template-utils';
 import { findOrCreatePaletteKey } from '../../core/utils/color-utils';
+import ThematicBreak from './ThematicBreak';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
@@ -32,70 +33,77 @@ function TextElementPanel({element}) {
     <Box>
       <Field 
         label="Text"
-        onExploreClick={() => null}
-      >
-        <Textarea
-          key={uniqKey}
-          name="text"
-          bg="dark"
-          color="white"
-          defaultValue={element._text}
-          rows={4}
-          onChange={e => {
-            // TODO: What to do about empty lines?
-            // TODO: Estimate each line and list type.
-            const type = Array.isArray(element.lines[0]) ? element.lines[0][0].type : element.lines[0].type;
-            const lines = e.target.value.split('\n').map(line => {
-              const items = line.split('|');
-              if(items.length > 1) {
-                return items.map(item => ({type, text: item.trim()}));
-              }
-              return {type, text: line.trim()}
-            })
-            update({'lines': lines});
-          }}
-          style={textareaStyle}
-        />
-      </Field>
+        // hint="Force text onto new lines by "
+        children={
+          <Textarea
+            key={uniqKey}
+            name="text"
+            bg="dark"
+            color="white"
+            defaultValue={element._text}
+            rows={3}
+            onChange={e => {
+              // TODO: What to do about empty lines?
+              // TODO: Estimate each line and list type.
+              const type = Array.isArray(element.lines[0]) ? element.lines[0][0].type : element.lines[0].type;
+              const lines = e.target.value.split('\n').map(line => {
+                const items = line.split('|');
+                if(items.length > 1) {
+                  return items.map(item => ({type, text: item.trim()}));
+                }
+                return {type, text: line.trim()}
+              })
+              update({'lines': lines});
+            }}
+            style={textareaStyle}
+          />
+        }
+      />
 
-      <Field 
-        label="Font"
-        onExploreClick={() => null}
-      >
-        <Select
-          bg="dark"
-          color="white"
-          value={element.font.family}
-          options={FONT_FAMILIES}
-          onChange={e => update({'font.family': e.target.value})}
-        />
-      </Field>
+      <ThematicBreak />
 
       <Field 
         label="Color"
-        onExploreClick={() => null}
-      >
-        <ColorPicker
-          key={uniqKey}
-          onChangeComplete={color => {
-            const key = findOrCreatePaletteKey(color.hex, palette)
-            update({
-              'color.paletteKey': key,
-              'color.alpha': color.rgb.a,
-              [`_root.palette.${key}`]: color.hex,
-            })
-          }}
-          color={element.color._str}
-          palette={paletteColors}
-          width={226}
-        />
-      </Field>
+        children={
+          <ColorPicker
+            key={uniqKey}
+            onChangeComplete={color => {
+              const key = findOrCreatePaletteKey(color.hex, palette)
+              update({
+                'color.paletteKey': key,
+                'color.alpha': color.rgb.a,
+                [`_root.palette.${key}`]: color.hex,
+              })
+            }}
+            color={element.color._str}
+            palette={paletteColors}
+            width={226}
+          />
+        }
+      />
+
+      <ThematicBreak />
 
       <BackgroundPanel
         surface={element}
         background={element.background}
         bgOptions={['none', 'color', 'gradient']}
         path="background."
+      />
+
+      <ThematicBreak />
+
+      <Field 
+        label="Font"
+        children={
+          <Select
+            bg="dark"
+            color="white"
+            value={element.font.family}
+            options={FONT_FAMILIES}
+            onChange={e => update({'font.family': e.target.value})}
+          />
+        }
       />
 
       <Field 
@@ -247,28 +255,46 @@ function TextElementPanel({element}) {
         />
       }
 
+      {canControlWidth(element) &&
+        <Field 
+          label="Width"
+          onExploreClick={() => null}
+          children={
+            <Select
+              name="width"
+              bg="dark"
+              color="white"
+              value={WidthToText[element.w]}
+              options={['max', 'min']}
+              onChange={e => update({'w': TextToWidth[e.target.value]})}
+            />
+          }
+        />
+      }
+
       <Field 
         label="Bleed"
-        onExploreClick={() => null}
-      >
-        <DirectionalInput
-          name="bleed"
-          min={0}
-          l={element._computed.canBleed.l ? element.bleed.l : 0}
-          r={element._computed.canBleed.r ? element.bleed.r : 0}
-          t={0}
-          b={0}
-          lMax={element._computed.edges.l.length}
-          rMax={element._computed.edges.r.length}
-          tMax={0}
-          bMax={0}
-          lDisabled={!element._computed.canBleed.l}
-          rDisabled={!element._computed.canBleed.r}
-          tDisabled={true}
-          bDisabled={true}
-          onChange={values => update({'bleed': values})}
-        />
-      </Field>
+        hint="The number of edges this item extends across."
+        children={
+          <DirectionalInput
+            name="bleed"
+            min={0}
+            l={element._computed.canBleed.l ? element.bleed.l : 0}
+            r={element._computed.canBleed.r ? element.bleed.r : 0}
+            t={0}
+            b={0}
+            lMax={element._computed.edges.l.length}
+            rMax={element._computed.edges.r.length}
+            tMax={0}
+            bMax={0}
+            lDisabled={!element._computed.canBleed.l}
+            rDisabled={!element._computed.canBleed.r}
+            tDisabled={true}
+            bDisabled={true}
+            onChange={values => update({'bleed': values})}
+          />
+        }
+      />
 
       {element.background && 
         <Field 
@@ -292,22 +318,6 @@ function TextElementPanel({element}) {
             })}
           />
         </Field>
-      }
-      {canControlWidth(element) &&
-        <Field 
-          label="Width"
-          onExploreClick={() => null}
-          children={
-            <Select
-              name="width"
-              bg="dark"
-              color="white"
-              value={WidthToText[element.w]}
-              options={['max', 'min']}
-              onChange={e => update({'w': TextToWidth[e.target.value]})}
-            />
-          }
-        />
       }
 
       {false && (

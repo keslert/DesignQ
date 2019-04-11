@@ -18,8 +18,8 @@ const JOURNEYS = {
     ...basicLayoutStages,
     ...basicColorStages,
     ...basicTypographyStages,
-    ...basicDecorationStages,
-    ...basicPolishStages,
+    // ...basicDecorationStages,
+    // ...basicPolishStages,
     ...basicExportStages,
   ].map(stage => ({type: stage.type, key: stage.key}))
 }
@@ -31,8 +31,8 @@ export function getInitialJourney(type='basic') {
     ...STAGES.layout,
     ...STAGES.color,
     ...STAGES.typography,
-    ...STAGES.decoration,
-    ...STAGES.polish,
+    // ...STAGES.decoration,
+    // ...STAGES.polish,
     ...STAGES.export,
   ].map((stage, i) => ({
     type: stage.type, 

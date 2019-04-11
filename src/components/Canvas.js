@@ -37,6 +37,7 @@ function Canvas(props) {
   useKeyDown(handleKeyPress);
   
   const showNext = showPrimary && !showGallery && !showStageExhaused;
+  const showPrev = showPrimary && !showGallery;
   const showResume = false;
   const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED);
   const showUpgrade = showPrimary && props.secondary;
@@ -85,6 +86,7 @@ function Canvas(props) {
             viewMode={props.viewMode}
             show={!showContentForm}
             showNext={showNext}
+            showPrev={showPrev}
             showAdvance={showAdvance}
             showResume={showResume}
             showUpgrade={showUpgrade}

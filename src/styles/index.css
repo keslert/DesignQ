@@ -48,7 +48,7 @@ code {
 }
 
 .relative {
-  position: 'relative';
+  position: relative;
 }
 
 .selectable:hover {

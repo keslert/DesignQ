@@ -49,7 +49,8 @@ function computeGroupElementSpacing(group, spacing) {
     withSides(s => {
       const ps = `p${s}`;
       c[ps] += el.border._computed[s];
-      if((el.background || el.border._computed[s]) && el.lines) {
+      const bgColor = el.background && el.background.color;
+      if((bgColor || el.border._computed[s]) && el.lines) {
         c[ps] += pads[s];
       }
     })

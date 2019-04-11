@@ -13,6 +13,7 @@ const Button = styled(Flex)(props => ({
   borderTopRightRadius: props.btr ? '2px' : 0,
   borderBottomLeftRadius: props.bbr ? '2px' : 0,
   borderBottomRightRadius: props.bbr ? '2px' : 0,
+  borderTop: props.btr ? undefined : 'none',
   cursor: 'pointer',
   justifyContent: 'center',
   alignItems: 'center',
@@ -68,14 +69,13 @@ function CanvasButton({SvgComponent, label, onClick, footer, mb, ...props}) {
       </Button>
       {footer && 
         <Button
-          mt="-1px"
           mb={mb}
           bg="nearwhite_light"
           btr={false} 
           bbr={true}
-          // disabled={props.disabled}
+          disabled={footer.disabled}
           height="auto"
-          onClick={footer.onClick}
+          onClick={footer.disabled ? null : footer.onClick}
           children={
             <Text
               fontWeight="900"

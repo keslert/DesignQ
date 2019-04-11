@@ -55,33 +55,36 @@ function CanvasToolbar(props) {
           <Box mb={3}>
             <CanvasButton
               mb={2}
-              onClick={props.showAdvance ? () => dispatch({type: 'ADVANCE_STAGE'}) : null}
-              SvgComponent={<JourneySvg size={45} />}
-              label="Next Stage"
-              disabled={!props.showAdvance}
-              // highlight={props.highlightAdvance}
-            />
-          </Box>
-
-          <Box mb={3}>
-            <CanvasButton
-              mb={2}
-              onClick={() => dispatch({type: 'NEXT'})}
+              id="next-design-btn"
+              label="Next Design"
               SvgComponent={<RocketshipSvg size={40} />}
               disabled={!props.showNext}
-              label="Next Design"
+              onClick={() => dispatch({type: 'NEXT'})}
               footer={{
                 label: 'Previous',
+                disabled: !props.showPrev,
                 onClick: () => dispatch({type: 'PREV'}),
               }}
             />
 
             <CanvasButton
               mb={2}
+              id="upgrade-btn"
+              label="Upgrade"
+              SvgComponent={<ArrowSvg size={24} />}
               disabled={!props.showUpgrade}
               onClick={() => dispatch({type: 'STEP', upgrade: true})}
-              SvgComponent={<ArrowSvg size={24} />}
-              label="Upgrade"
+            />
+          </Box>
+
+          <Box mb={3}>
+            <CanvasButton
+              mb={2}
+              id="next-stage-btn"
+              label="Next Stage"
+              SvgComponent={<JourneySvg size={45} />}
+              disabled={!props.showAdvance}
+              onClick={props.showAdvance ? () => dispatch({type: 'ADVANCE_STAGE'}) : null}
             />
           </Box>
           

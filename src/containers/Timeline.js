@@ -110,7 +110,7 @@ function TimelineItem({data, index, style}) {
         onClick={onClick}
         selected={item === selected}
         color={color}
-        children={showStar && <StarSvg fill="white" size={6} />}
+        children={showStar && <StarSvg fill="white" size={8} />}
       />
     </div>
   )
@@ -120,8 +120,8 @@ const Block = styled(Box)(props => ({
   cursor: 'pointer',
   height: '100%',
   transition: 'transform .15s',
-  margin: "0 2px",
-  width: "8px",
+  margin: "0 1px",
+  width: "10px",
   padding: '1px',
   lineHeight: '4px',
   borderTop: props.selected ? '2px solid ' + props.theme.colors[props.color + '_dark'] : null,

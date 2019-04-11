@@ -159,14 +159,14 @@ function BackgroundPanel({
                   const ret = {};
 
                   if(type === 'none') {
-                    ret._color = bgColor;
-                    ret.color = null;
+                    ret['_color'] = bgColor;
+                    ret['color'] = null;
                   }
                   else if(type === 'color') {
-                    ret.color = getBasic(surface, background, surface._root.palette, .5);
+                    ret['color'] = getBasic(surface, background, surface._root.palette, .5);
                   }
                   else if(type === 'gradient') {
-                    ret.color = getGradient(surface, background, surface._root.palette, .5);
+                    ret['color'] = getGradient(surface, background, surface._root.palette, .5);
                   }
                   update(ret);
                 }}
@@ -178,7 +178,8 @@ function BackgroundPanel({
 
       {bgColor.type === 'palette' &&
         <Field 
-          label="Background Color"
+          label="Color"
+          nested={true}
           children={
             <ColorPicker
               color={bgColor._str}
@@ -200,7 +201,8 @@ function BackgroundPanel({
       {bgColor.type === 'linear' &&
         <React.Fragment>
           <Field 
-            label="Background Color #1"
+            label="Color #1"
+            nested={true}
             children={
               <ColorPicker
                 color={bgColor.colorA._str}
@@ -218,7 +220,8 @@ function BackgroundPanel({
           />
 
           <Field 
-            label="Background Color #2"
+            label="Color #2"
+            nested={true}
             children={
               <ColorPicker
                 color={bgColor.colorB._str}
@@ -237,6 +240,7 @@ function BackgroundPanel({
 
           <Field 
             label="Angle"
+            nested={true}
             onExploreClick={() => null}
             children={
               <Slider

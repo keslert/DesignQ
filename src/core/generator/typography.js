@@ -24,13 +24,13 @@ export const basicStages = [
 ]
 
 export const advancedStages = [
-  {
-    type: 'typography',
-    key: 'typography.size', 
-    label: 'Font Sizes',
-    satisfied: () => true,
-    generate: generateSecondary,
-  },
+  // {
+  //   type: 'typography',
+  //   key: 'typography.size', 
+  //   label: 'Font Sizes',
+  //   satisfied: () => true,
+  //   generate: generateSecondary,
+  // },
 ];
 export const optionalStages = []
 export const stages = [

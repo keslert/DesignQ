@@ -22,8 +22,8 @@ const stages = [
   {label: 'Layout', color: 'yellow', type: 'layout'},
   {label: 'Color', color: 'red', type: 'color'},
   {label: 'Typography', color: 'orange', type: 'typography'},
-  {label: 'Decoration', color: 'pink', type: 'decoration'},
-  {label: 'Polish', color: 'purple', type: 'polish'},
+  // {label: 'Decoration', color: 'pink', type: 'decoration'},
+  // {label: 'Polish', color: 'purple', type: 'polish'},
   {label: 'Export', color: 'blue', type: 'export'},
 ]
 
