@@ -13,22 +13,40 @@ export function computeBorders(template) {
 }
 
 export function computeBorder(b, flyerSize) {
-  b._computed = {
-    // the total space
-    l: getNormalizedValue(b.l + b.lOffset, flyerSize.w),
-    r: getNormalizedValue(b.r + b.rOffset, flyerSize.w),
-    t: getNormalizedValue(b.t + b.tOffset, flyerSize.w),
-    b: getNormalizedValue(b.b + b.bOffset, flyerSize.w),
-    
-    // helper variables for the individual parts
-    _l: getNormalizedValue(b.l, flyerSize.w),
-    _r: getNormalizedValue(b.r, flyerSize.w),
-    _t: getNormalizedValue(b.t, flyerSize.w),
-    _b: getNormalizedValue(b.b, flyerSize.w),
-    _lOffset: getNormalizedValue(b.lOffset, flyerSize.w),
-    _rOffset: getNormalizedValue(b.rOffset, flyerSize.w),
-    _tOffset: getNormalizedValue(b.tOffset, flyerSize.w),
-    _bOffset: getNormalizedValue(b.bOffset, flyerSize.w),
+  if(!b.background || !b.background.color) {
+    b._computed = {
+      l: 0,
+      r: 0,
+      t: 0,
+      b: 0,
+      _l: 0,
+      _r: 0,
+      _t: 0,
+      _b: 0,
+      _lOffset: 0,
+      _rOffset: 0,
+      _tOffset: 0,
+      _bOffset: 0,
+    }
+  }
+  else {
+    b._computed = {
+      // the total space
+      l: getNormalizedValue(b.l + b.lOffset, flyerSize.w),
+      r: getNormalizedValue(b.r + b.rOffset, flyerSize.w),
+      t: getNormalizedValue(b.t + b.tOffset, flyerSize.w),
+      b: getNormalizedValue(b.b + b.bOffset, flyerSize.w),
+      
+      // helper variables for the individual parts
+      _l: getNormalizedValue(b.l, flyerSize.w),
+      _r: getNormalizedValue(b.r, flyerSize.w),
+      _t: getNormalizedValue(b.t, flyerSize.w),
+      _b: getNormalizedValue(b.b, flyerSize.w),
+      _lOffset: getNormalizedValue(b.lOffset, flyerSize.w),
+      _rOffset: getNormalizedValue(b.rOffset, flyerSize.w),
+      _tOffset: getNormalizedValue(b.tOffset, flyerSize.w),
+      _bOffset: getNormalizedValue(b.bOffset, flyerSize.w),
+    }
   }
   b._computed.x = b._computed.l + b._computed.r;
   b._computed.y = b._computed.t + b._computed.b;

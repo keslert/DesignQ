@@ -13,6 +13,7 @@ import BackgroundPanel from './BackgroundPanel';
 import { canControlWidth, WidthToText, TextToWidth } from '../../core/utils/template-utils';
 import { findOrCreatePaletteKey } from '../../core/utils/color-utils';
 import ThematicBreak from './ThematicBreak';
+import BorderPanel from './BorderPanel';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
@@ -33,7 +34,6 @@ function TextElementPanel({element}) {
     <Box>
       <Field 
         label="Text"
-        // hint="Force text onto new lines by "
         children={
           <Textarea
             key={uniqKey}
@@ -107,84 +107,85 @@ function TextElementPanel({element}) {
 
       <Field 
         label="Size"
-        onExploreClick={() => null}
-      >
-        <Slider
-          name="size"
-          bg="dark"
-          color="white"
-          value={element.font.size}
-          step={.05}
-          min={0}
-          max={element.type === 'dominant' ? 1 : 2}
-          showValue={true}
-          onChange={e => update({'font.size': e.target.value})}
-        />
-      </Field>
+        children={
+          <Slider
+            name="size"
+            bg="dark"
+            color="white"
+            value={element.font.size}
+            step={.05}
+            min={0}
+            max={element.type === 'dominant' ? 1 : 2}
+            showValue={true}
+            onChange={e => update({'font.size': e.target.value})}
+          />
+        }
+      />
 
       <Field 
         label="Weight"
-        onExploreClick={() => null}
-      >
-        <Select
-          name="weight"
-          bg="dark"
-          color="white"
-          value={WeightToText[element.font.weight]}
-          options={DQ_FONTS[element.font.family].weights.map(w => WeightToText[w])}
-          onChange={e => update({'font.weight': TextToWeight[e.target.value]})}
-        />
-      </Field>
+        children={
+          <Select
+            name="weight"
+            bg="dark"
+            color="white"
+            value={WeightToText[element.font.weight]}
+            options={DQ_FONTS[element.font.family].weights.map(w => WeightToText[w])}
+            onChange={e => update({'font.weight': TextToWeight[e.target.value]})}
+          />
+        }
+      />
 
       <Field 
         label="Appearance"
-        onExploreClick={() => null}
-      >
-        <Select
-          name="transform"
-          bg="dark"
-          color="white"
-          value={element.font.transform}
-          options={["normal", "uppercase", "lowercase"]}
-          onChange={e => update({'font.transform': e.target.value})}
-        />
-      </Field>
+        children={
+          <Select
+            name="transform"
+            bg="dark"
+            color="white"
+            value={element.font.transform}
+            options={["normal", "uppercase", "lowercase"]}
+            onChange={e => update({'font.transform': e.target.value})}
+          />
+        }
+      />
 
       <Field 
         label="Style"
-        onExploreClick={() => null}
-      >
-        <Select
-          name="style"
-          bg="dark"
-          color="white"
-          value={element.font.style}
-          options={DQ_FONTS[element.font.family].styles}
-          onChange={e => update({'font.style': e.target.value})}
-        />
-      </Field>
+        children={
+          <Select
+            name="style"
+            bg="dark"
+            color="white"
+            value={element.font.style}
+            // Let people use a faux italic...
+            options={['normal', 'italic']}
+            // options={DQ_FONTS[element.font.family].styles}
+            onChange={e => update({'font.style': e.target.value})}
+          />
+        }
+      />
 
       <Field 
         label="Letter Spacing"
-        onExploreClick={() => null}
-      >
-        <Slider
-          name="letterSpacing"
-          bg="dark"
-          color="white"
-          value={element.font.letterSpacing}
-          step={.025}
-          min={-.1}
-          max={.4}
-          showValue={true}
-          onChange={e => update({'font.letterSpacing': e.target.value})}
-        />
-      </Field>
+        children={
+          <Slider
+            name="letterSpacing"
+            bg="dark"
+            color="white"
+            value={element.font.letterSpacing}
+            step={.025}
+            min={-.1}
+            max={.4}
+            showValue={true}
+            onChange={e => update({'font.letterSpacing': e.target.value})}
+          />
+        }
+      />
 
       <Field 
         label="Line Height"
         hint="The amount of space between each line of text in this element."
-        onExploreClick={() => null}
       >
         <Slider
           name="lineHeight"
@@ -256,7 +257,6 @@ function TextElementPanel({element}) {
         <Field 
           label="Margin Bottom"
           hint="The amount of space between this item and the item below it."
-          onExploreClick={() => null}
           children={
             <Slider
               name="mb"
@@ -289,6 +289,16 @@ function TextElementPanel({element}) {
           }
         />
       }
+
+      <ThematicBreak />
+
+      <BorderPanel
+        surface={element}
+        border={element.border}
+        path='border.'
+      />
+
+      <ThematicBreak />
 
       <Field 
         label="Bleed"
@@ -388,22 +398,6 @@ function TextElementPanel({element}) {
 }
 
 export default TextElementPanel;
-
-
-  // Background
-    // - Color
-    // - Image
-    // Blend Mode
-    // Filters
-  // Border
-    // r
-    // l
-    // t
-    // b
-    // rOffset
-    // lOffset
-    // bOffset
-    // tOffset
 
 const textareaStyle = {
   whiteSpace: 'pre',
