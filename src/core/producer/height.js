@@ -14,21 +14,43 @@ export function calculateHeightResize(template) {
 
   // ])
 
+  // const ratio = template.size.h / (headerHeight + bodyHeight + footerHeight);
+  // return ratio * ratio;
 
-  const top = header
-    ? header._computed.bb.t + header._computed.bb.h + header._computed.mb
-    : _.sumBy(body._computed.edges.t.map(e => Math.abs(e.value)))
-  overflow -= Math.max(0, top - body._computed.bb.t);
   
-  const bodyEndY = body._computed.bb.t + body._computed.bb.h + Math.abs(body._computed.mb);
-  const bottom = footer 
-    ? footer._computed.bb.t
-    : template._computed.bb.h - _.sumBy(body._computed.edges.b.map(e => e.value))
-  overflow -= Math.max(0, bodyEndY - bottom);
+  const top = header 
+    ? (header._computed.bb.t + header._computed.bb.h + header._computed.mb)
+    : _.sumBy(body._computed.edges.t, 'value')
 
-  const ratio = 1 + (overflow / template._computed.bb.h);
+  const bot = footer 
+    ? (footer._computed.bb.t - body._computed.mb)
+    : template.size.h - _.sumBy(body._computed.edges.b, 'value')
 
-  // TODO: Not everything will scale with the ratio...
-  // Should eventually figure out how to calculate what's going to scale.
-  return ratio * ratio; 
+  const bodyBB = body._computed.bb;
+  const overflowT = Math.max(0, top - bodyBB.t);
+  const overflowB = Math.max(0, (bodyBB.t + bodyBB.h) - bot);
+
+  const ratio =  template.size.h / (template.size.h + overflowT + overflowB);
+  return ratio * ratio;
+
+
+
+
+
+  // const top = header
+  //   ? header._computed.bb.t + header._computed.bb.h + header._computed.mb
+  //   : _.sumBy(body._computed.edges.t.map(e => Math.abs(e.value)))
+  // overflow -= Math.max(0, top - body._computed.bb.t);
+  
+  // const bodyEndY = body._computed.bb.t + body._computed.bb.h + Math.abs(body._computed.mb);
+  // const bottom = footer 
+  //   ? footer._computed.bb.t
+  //   : template._computed.bb.h - _.sumBy(body._computed.edges.b.map(e => e.value))
+  // overflow -= Math.max(0, bodyEndY - bottom);
+
+  // const ratio = 1 + (overflow / template._computed.bb.h);
+
+  // // TODO: Not everything will scale with the ratio...
+  // // Should eventually figure out how to calculate what's going to scale.
+  // return ratio * ratio; 
 }

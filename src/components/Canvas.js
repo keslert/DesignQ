@@ -68,7 +68,6 @@ function Canvas(props) {
             <Box>
               <FrameToolbar 
                 label="Primary Design"
-                // id={"#" + primary.id}
                 viewFavorites={true}
                 onClick={() => rootDispatch({type: 'VIEW_FAVORITES'})} 
               />

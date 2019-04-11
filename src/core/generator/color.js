@@ -25,7 +25,7 @@ export const basicStages = [
 	{
 		type: 'color',
 		key: "color.filters", 
-		label: 'Background Filters',
+		label: 'Background Overlays',
 		relevant: flyer => !!getProminantImageSurface(flyer),
 		satisfied: () => true,
 		generate: generateBackgroundFilters,
@@ -308,46 +308,47 @@ function getBackgroundColorSurfaceKindPreference(surface) {
 
 
 
-export function transferColors(flyer, template, extraImages=[]) {
+export function transferColors(flyer, template, images) {
 	
 	/* Step #1 Transfer images */
 	// TODO: Maybe sort this differently since we are giving highest priority to flyer.
-	const images = [
-		..._.filter(flyer._containers, s => s.background && s.background.img).map(s => s.background.img),
-		...extraImages,
-	]
-
 	let imageIndex = 0;
-	flyer._containers.forEach((fSurface, i) => {
-		const tSurface = template._containers[i];
-		if(tSurface && tSurface.background && tSurface.background.img) {
+	// const images = [
+	// 	// ..._.map(flyer._all, s => s.background && s.background.img).filter(i => i),
+	// 	...extraImages,
+	// ]
+
+	flyer._all.forEach(fItem => {
+		const tItem = getItemFromTemplate(fItem, template);
+		if(tItem && tItem.background && tItem.background.img) {
 			const img = images[imageIndex++] || {...PLACEHOLDER_IMAGE};
 
-			// fSurface.background = _.defaults(fSurface.background, tSurface.background);
-			fSurface.background = fSurface.background || {};
-			fSurface.background.img = img;
-			fixAlpha(fSurface.background.color);
+			fItem.background = fItem.background || {};
+			fItem.background.img = img;
+			fixAlpha(fItem.background.color);
 		} 
-		else if(fSurface.background) {
-			delete fSurface.background.img;
+		else if(fItem.background && fItem.kind !== 'element') {
+			delete fItem.background.img;
 		}
 	})
 	// We had images to use and we didn't use any.
 	if(images.length && !imageIndex) {
+		flyer.background = {...template.background, img: images[0]}
+		fixAlpha(flyer.background.color)
 		// Any images that should take it over?
-		const image = _.find(flyer._elements, el => el.type === 'image');
-		if(image) {
-			image.background.img = images[0];
-			delete image.background.color;
-		}
-		else if(flyer.decor && flyer.decor.background) {
-			flyer.decor.background.img = images[0];
-			fixAlpha(flyer.decor.background.color);
-		}
-		else {
-			flyer.background = {...template.background, img: images[0]}
-			fixAlpha(flyer.background.color)
-		}
+		// const image = _.find(flyer._elements, el => el.type === 'image');
+		// if(image) {
+		// 	image.background.img = images[0];
+		// 	delete image.background.color;
+		// }
+		// else if(flyer.decor && flyer.decor.background) {
+		// 	flyer.decor.background.img = images[0];
+		// 	fixAlpha(flyer.decor.background.color);
+		// }
+		// else {
+		// 	flyer.background = {...template.background, img: images[0]}
+		// 	fixAlpha(flyer.background.color)
+		// }
 	}
 
 	mimicBackgroundColors(flyer, template)

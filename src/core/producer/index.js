@@ -30,7 +30,7 @@ export function produceFlyer(template) {
   computeDecor(template);
   computeEdges(template);
 
-  // Initial render isn't height constrained
+  // Initial computation isn't height constrained
   computeSizes(template);
   computeSpacing(template);
   computeBoundingBoxes(template);

@@ -61,10 +61,10 @@ function BackgroundPanel({
                   ret.color = null;
                 }
                 else if(type === 'color') {
-                  ret.color = getBasic(surface, background, surface._root.palette);
+                  ret.color = getBasic(surface, background, surface._root.palette, 1);
                 }
                 else if(type === 'gradient') {
-                  ret.color = getGradient(surface, background, surface._root.palette);
+                  ret.color = getGradient(surface, background, surface._root.palette, 1);
                 }
                 else if(type === 'image') {
                   ret.img = img || background.prevImg || {...PLACEHOLDER_IMAGE};
@@ -88,8 +88,8 @@ function BackgroundPanel({
               size={bb || surface._computed.bb}
               onComplete={crop => {
                 const zoom = (Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100) || 1;
-                const x = (Math.round(crop.x / (100 - crop.width) * 100) / 100) || 0;
-                const y = (Math.round(crop.y / (100 - crop.height) * 100) / 100) || 0;
+                const x = (Math.round(crop.x / (100 - crop.width) * 100) / 100) || img.x || 0.5;
+                const y = (Math.round(crop.y / (100 - crop.height) * 100) / 100) || img.y || 0.5;
                 if(x !== img.x || y !== img.y || zoom !== img.zoom) {
                   update({'img.x': x, 'img.y': y, 'img.zoom': zoom})
                 }
@@ -103,13 +103,15 @@ function BackgroundPanel({
                 onClick={() => setShowSearch(!showSearch)}
                 children="Browse Images"
               />
-              <Button
-                variant="subtle"
-                fontSize={1}
-                px={1}
-                py={2}
-                children="Upload"
-              />
+              {false && 
+                <Button
+                  variant="subtle"
+                  fontSize={1}
+                  px={1}
+                  py={2}
+                  children="Upload"
+                />
+              }
             </Flex>
           </Box>
 
@@ -318,7 +320,7 @@ function getGradient(surface, bg, palette, alpha) {
 
 const BackgroundTypeToText = {
   none: 'none',
-  basic: 'color',
+  palette: 'color',
   linear: 'gradient',
   image: 'image',
 }

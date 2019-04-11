@@ -1,5 +1,3 @@
-
-
 Skipping stages if they are irrelevant.
 Soft-ejects: If the user starts absolutely positioning things, we stop controlling layout, but we continue to assist with X.
 
@@ -13,3 +11,14 @@ Validity Checks.
 
 # Using the visual sizes of fonts.
 http://westonthayer.com/writing/intro-to-font-metrics/
+
+Bulk Generation
+- Have a database of book images and titles. Create a design. Generate all flyers. Modify any individual design. If you find an even better design, easy to rerun all previous designs again.
+
+
+Presenting multiple designs when you don't know what the user wants. For example changing the image. Should you keep the old palette or update to the new image palette?
+
+Merging designs. Can show many possible ways of merging. You can also merge a design by looking at the upgrades between the two designs and merging across all of those updates. Similar to how 3D graphics tools allow you to change an earlier step and carry it forward.
+
+
+Locking.

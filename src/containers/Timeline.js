@@ -13,6 +13,7 @@ import { Box } from 'rebass';
 import { FixedSizeList as List } from 'react-window';
 import { DispatchContext } from './Queue';
 import StarSvg from '../svg/star.svg';
+import HeartSvg from '../svg/heart.svg';
 
 function Timeline({items, selected, width}) {
   const ref = useRef();
@@ -77,7 +78,7 @@ function Timeline({items, selected, width}) {
           items,
         }}
         className="tiny-scroll"
-        height={20}
+        height={21}
         width={width}
         itemCount={items.length}
         itemSize={12}
@@ -102,6 +103,7 @@ function TimelineItem({data, index, style}) {
   const stage = item.stage;
   const color =  COLORS[stage.type];
   const showStar = !!item.upgradeTo
+  const showHeart = item.favorited;
   return (
     <div style={style}>
       <Block
@@ -110,7 +112,13 @@ function TimelineItem({data, index, style}) {
         onClick={onClick}
         selected={item === selected}
         color={color}
-        children={showStar && <StarSvg fill="white" size={8} />}
+        children={
+          <React.Fragment>
+            {showStar && <StarSvg size={8} />}
+            {showHeart && <HeartSvg size={8} />}
+          </React.Fragment>
+        }
+
       />
     </div>
   )
@@ -122,10 +130,11 @@ const Block = styled(Box)(props => ({
   transition: 'transform .15s',
   margin: "0 1px",
   width: "10px",
-  padding: '1px',
-  lineHeight: '4px',
+  textAlign: 'center',
+  lineHeight: '6px',
   borderTop: props.selected ? '2px solid ' + props.theme.colors[props.color + '_dark'] : null,
-  background: props.theme.colors[props.color + '_med']
+  background: props.theme.colors[props.color + '_med'],
+  color: props.theme.colors[props.color + '_dark'],
 }))
 
 const Preview = styled.div(props => ({

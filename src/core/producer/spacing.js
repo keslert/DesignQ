@@ -45,7 +45,12 @@ function computeGroupElementSpacing(group, spacing) {
     // border and background padding
     const x = c.h / Math.log(c.h * .4);
     const y = c.h / Math.log(c.h * .3);
-    const pads = {l: x, r: x, t: y, b: y};
+    const pads = {
+      l: x * el.pl, 
+      r: x * el.pr, 
+      t: y * el.pt, 
+      b: y * el.pb,
+    };
     withSides(s => {
       const ps = `p${s}`;
       c[ps] += el.border._computed[s];

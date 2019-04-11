@@ -73,11 +73,11 @@ export function linkTemplate(template) {
   template._decors = _.filter(_.map(template._surfaces, 'decor'))
   template._borders = _.filter(_.map(template._surfaces, 'border'));
 
-  template._all = [
-    ...template._surfaces,
-    ...template._decors,
-    ...template._borders,
-  ]
+  template._all = _.filter(_.flatMap(template._surfaces, s => [
+    s,
+    s.decor,
+    s.border
+  ]))
 }
 
 function linkSurface(item) {
@@ -183,6 +183,7 @@ function getPath(item) {
 
 export function getItemFromTemplate(item, flyer) {
   if(item.kind === 'template') return flyer;
+  if(item.kind === 'element') return _.find(flyer._elements, el => el.type === item.type)
   
   const path = getPath(item).reverse().slice(1).join('.');
   return _.get(flyer, path);

@@ -15,7 +15,7 @@ function Field({
   const [showHint, setShowHint] = useState(false);
 
   return (
-    <Box mb={4} pl={nested ? 4 : 0} className="relative">
+    <Box mb={4} pl={nested ? 4 : 0} mt={nested ? -3 : 0} className="relative">
       {nested && <NestedLine />}
       <Flex justifyContent="space-between" alignItems="center" mb={2}>
         <Flex color="white">

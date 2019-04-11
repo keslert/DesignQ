@@ -48,8 +48,8 @@ const theme = {
 
 Object.entries(theme.colors).forEach(([color, value]) => {
   theme.colors[`${color}_darken`] = chroma(value).darken(.1).hex();
-  theme.colors[`${color}_dark`] = chroma(value).darken(2.5).hex();
-  theme.colors[`${color}_med`] = chroma.mix(value, 'white', .24).hex();
+  theme.colors[`${color}_dark`] = chroma(value).darken(2.25).hex();
+  theme.colors[`${color}_med`] = chroma.mix(value, 'white', .26).hex();
   theme.colors[`${color}_light`] = chroma.mix(value, 'white', .72).hex();
 })
 

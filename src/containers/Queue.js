@@ -124,7 +124,9 @@ function Queue(props) {
             />
           }
         </Flex>
-        <Onboarding state={state} />
+        {process.env.NODE_ENV === 'production' &&
+          <Onboarding state={state} />
+        }
         <style>{`
           body { 
             overflow: hidden; 
@@ -209,6 +211,7 @@ async function getInitialState(props, dispatch) {
     const startFlyer = starters[query.starter] || (
       process.env.NODE_ENV === 'production'  
         ? starters.empty 
+        // : starters.imageBackground
         : starters.simpleBody
         // : starters.empty
     )
@@ -318,6 +321,8 @@ function step(state, action, update={}) {
 }
 
 function setSecondary(state, action, update={}) {
+  if(!action.secondary) return state;
+
   _updateHistory(state, action, update);
   _updateList(state, action, update);
   _updateSecondary(state, action, update);
@@ -418,6 +423,7 @@ function updateSelected(state, action, update={}) {
   })
 
   resolveItem(copySelected, selected, action.update);
+  delete copy.stage.generationRound;
   produceFlyer(copy);
 
   update.secondary = copy;
@@ -492,13 +498,9 @@ function checkImageSearch(state, dispatch) {
 function initImageSearch(state, {query, userProvided, dispatch}) {
   fetchImageSearch(query).then(res => {
     const photos = res.data.photos;
-    photos.forEach(photo => {
-      if(!state.imageCache[photo.id]) {
-        processImage(photo.src.large, ({palette}) => {
-          dispatch({type: 'SET_IMAGE_CACHE_KEY', key: photo.id, value: {colors: palette}})
-        })
-      }
-    })
+    if(photos.length === 0) {
+      alert("The image search didn't return any results. Try a different keyword");
+    }
 
     const search = {
       query,
@@ -518,8 +520,6 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
       })),
     }
 
-    dispatch({type: 'SET_LAST_IMAGE_SEARCH', search})
-
     // Update stage: color.background
     const update = {};
     const stage = state.journey.stages.find(s => s.key === 'color.background');
@@ -536,6 +536,16 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
     if(!state.secondary || state.secondary.stage.key === 'color.background') {
       dispatch({type: 'SET_SECONDARY', secondary: update.journey.stage.currentGeneration[0]});
     }
+
+    dispatch({type: 'SET_LAST_IMAGE_SEARCH', search})
+
+    photos.forEach(photo => {
+      if(!state.imageCache[photo.id]) {
+        processImage(photo.src.large, ({palette}) => {
+          dispatch({type: 'SET_IMAGE_CACHE_KEY', key: photo.id, value: {colors: palette}})
+        })
+      }
+    })
 
   })
 

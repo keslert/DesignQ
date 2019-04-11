@@ -14,15 +14,15 @@ export default {
       img: {
         src: 'https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
         meta: { w: 800, h: 533 },
-        x: 0,
-        y: 0,
+        x: .5,
+        y: .5,
         zoom: 1,
       },
     }
   },
   pr: 2,
   content: {
-    bleed: { t: 1 },
+    bleed: { t: 2 },
     body: {
       bleed: { l: 1 },
       background: { 
@@ -58,6 +58,9 @@ export default {
             {type: 'eventName', text: '2020'},
           ],
           color: basicColor('#fff1d9'),
+          // background: {
+          //   color: basicColor('#ffffff'),
+          // },
           font: {
             family: 'League Spartan',
             letterSpacing: 0.1,

@@ -126,7 +126,7 @@ function SurfacePanel({surface, onUpdate}) {
         />
       }
 
-      {surface._computed.next && 
+      {(!surface._computed.next || (surface.h !== 'fill' && surface.alignY !== 'bottom')) ? null :
         <Field 
           label="Margin"
           hint="The amount of space between this item and the item below it."

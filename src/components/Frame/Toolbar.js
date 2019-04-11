@@ -7,7 +7,7 @@ import OpacityButton from '../OpacityButton';
 function Toolbar(props) {
 
   return (
-    <Flex width="100%" alignItems="center" mb="2px">
+    <Flex width="100%" alignItems="center" mb="3px" px="1px">
       <Box flex={1}>
         {false && 
           <OpacityButton onClick={props.onClick}>
@@ -15,7 +15,7 @@ function Toolbar(props) {
               alignItems="center" 
               color={props.favorited || props.viewFavorites ? 'red' : 'gray'}
             >
-              <HeartSvg size={16} />
+              <HeartSvg size={12} />
               <Text 
                 color="gray" 
                 ml={1} 

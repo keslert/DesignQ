@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { copyTemplate, safeIncrement, linkTemplate, getTemplateTextTypes } from '../utils/template-utils';
+import { copyTemplate, safeIncrement, linkTemplate, getTemplateTextTypes, cloneCrude } from '../utils/template-utils';
 import { getElementFont } from './typography';
 import { getElementColor, transferSurface, transferColors } from './color';
 
@@ -38,13 +38,9 @@ export function mimicTemplateLayout(flyer, template) {
   const f = groupTextContent(getTemplateTextTypes(flyer));
   const t = groupTextContent(getTemplateTextTypes(template));
   
-  const originalImages = _.chain([
-    ...flyer._containers,
-    ...flyer._elements,
-  ]).map(item => ([
-    _.get(item, ['background', 'img']), 
-    _.get(item, ['decor', 'background', 'img'])
-  ])).flatten().filter().value();
+  const originalImages = _.map(flyer._all, item => 
+    item.background && item.background.img
+  ).filter(i => i)
 
   f.all.forEach(s => s._match = null);
   const groupTypes = template._groups.map(g => g.type);
@@ -158,23 +154,30 @@ export function mimicTemplateLayout(flyer, template) {
     })
   })
 
-  // Add missing template images
+  // Add missing template image
   _.forEach(groups, (_elements, groupType) => {
     const fGroup = flyer.content[groupType];
     const tGroup = template.content[groupType]
-    const tImages = tGroup ? _.filter(tGroup.elements, el => el.type === 'image') : [];
-    tImages.forEach(el => {
-      transferSurface(el, el);
 
-      if(el._computed.isFirst) {
-        fGroup.elements.unshift(el);
-      } else if(el._computed.isLast) {
-        fGroup.elements.push(el);
+    // Note: We're assuming only one image per group...
+    const tImage = tGroup.elements.find(el => el.type === 'image');
+    if(tImage) {
+      const fImage = fGroup.elements.find(el => el.type === 'image');
+
+      const copy = cloneCrude(tImage);
+      if(fImage) {
+        copy.background.img = fImage.background.img
+      }
+
+      if(tImage._computed.isFirst) {
+        fGroup.elements.unshift(copy);
+      } else if(tImage._computed.isLast) {
+        fGroup.elements.push(copy);
       } else {
         // TODO: HACK WIP Where to put this?
-        fGroup.elements.splice(el._computed.index, 0, el);
+        fGroup.elements.splice(tImage._computed.index, 0, copy);
       }
-    })
+    }
   })
 
   // Delete groups that don't exist anymore
@@ -183,10 +186,6 @@ export function mimicTemplateLayout(flyer, template) {
     delete flyer.content[g];
   })
 
-  
-  // Mimic Colors
-  // const leftoverImages = _.filter(flyer._elements, el => !el._match && el.type === 'image')
-  //   .map(el => el.background.img);
   linkTemplate(flyer);
   transferColors(flyer, template, originalImages);
 }
