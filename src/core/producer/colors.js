@@ -2,10 +2,11 @@ import { computeColor } from "../utils/render-utils";
 
 export function computeColors(template) {
   template._all.forEach(item => {
-    if(item.color) {
-      computeColor(item.color, template.palette)
+    computeColor(item.color, template.palette)
+    if(item.divider) {
+      computeColor(item.divider.color, template.palette)
     }
-    if(item.background && item.background.color) {
+    if(item.background) {
       computeColor(item.background.color, template.palette);
     }
   })

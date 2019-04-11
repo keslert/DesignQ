@@ -77,7 +77,6 @@ function TextElementPanel({element}) {
             }}
             color={element.color._str}
             palette={paletteColors}
-            width={226}
           />
         }
       />
@@ -217,19 +216,40 @@ function TextElementPanel({element}) {
       </Field>
 
       {element._hasList && 
-        <Field 
-          label="List Divider"
-          onExploreClick={() => null}
-        >
-          <Select
-            name="divider-type"
-            bg="dark"
-            color="white"
-            value={element.divider.type}
-            options={["line", "dot"]}
-            onChange={e => update({'divider.type': e.target.value})}
+        <React.Fragment>
+          <Field 
+            label="List Divider"
+            children={
+              <Select
+                name="divider-type"
+                bg="dark"
+                color="white"
+                value={element.divider.type}
+                options={["line", "dot"]}
+                onChange={e => update({'divider.type': e.target.value})}
+              />
+            }
           />
-        </Field>
+          <Field 
+            label="Color"
+            nested={true}
+            children={
+              <ColorPicker
+                // key={uniqKey}
+                color={element.divider.color._str}
+                palette={paletteColors}
+                onChangeComplete={color => {
+                  const key = findOrCreatePaletteKey(color.hex, palette)
+                  update({
+                    'divider.color.paletteKey': key,
+                    'divider.color.alpha': color.rgb.a,
+                    [`_root.palette.${key}`]: color.hex,
+                  })
+                }}
+              />
+            }
+          />
+        </React.Fragment>
       }
 
       {element._computed.next &&

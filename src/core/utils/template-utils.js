@@ -228,7 +228,7 @@ export function convertV1Template(template, options={}) {
   
   // connect colors to palette
   template._all.forEach(item => {
-    const paths = [['color'], ['background', 'color']];
+    const paths = [['color'], ['background', 'color'], 'divider.color'];
     paths.forEach(path => {
       if(_.has(item, path)) {
         _.set(item, path, convertColorToPaletteColor(_.get(item, path), template.palette))

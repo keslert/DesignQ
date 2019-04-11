@@ -42,6 +42,14 @@ export const stages = [
 export function generatePrimary(flyer, {templates}) {
   const uniqTemplates = _.uniqBy(Object.values(templates), t => t._dominant.font.family);
 
+  // Sort by usage.
+  const fontStats = getFontStats();
+  uniqTemplates.sort((a, b) => (
+    fontStats["dominant"].families[a._dominant.font.family].count >
+    fontStats["dominant"].families[b._dominant.font.family].count
+    ? -1 : 1
+  ))
+
   const flyers = _.map(uniqTemplates, template => {
     const copy = copyTemplate(flyer);
     const textElements = _.filter(template._elements, el => el.lines);
@@ -78,8 +86,6 @@ export function generateSecondary(flyer, options) {
     const families = _.uniq(Object.values(fontStats.small.dominantPairing))
     secondaryFamilies = families;
   }
-
-
 
   const flyers = secondaryFamilies.map(family => {
     const copy = copyTemplate(flyer);

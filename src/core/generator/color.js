@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import get from 'lodash/get';
-import { mode, copyTemplate, getItemFromTemplate } from '../utils/template-utils';
+import { mode, copyTemplate, getItemFromTemplate, cloneCrude } from '../utils/template-utils';
 import {
 	paletteColor,
 	getContrast,
@@ -25,7 +25,7 @@ export const basicStages = [
 	{
 		type: 'color',
 		key: "color.filters", 
-		label: 'Background Overlays',
+		label: 'Background Overlay',
 		relevant: flyer => !!getProminantImageSurface(flyer),
 		satisfied: () => true,
 		generate: generateBackgroundFilters,
@@ -33,7 +33,7 @@ export const basicStages = [
 	{
 		type: 'color',
 		key: "color.palette", 
-		label: 'Alternate Palettes',
+		label: 'Palette',
 		satisfied: () => true,
 		generate: generateAlternatePalettes,
 	}
@@ -255,7 +255,7 @@ function mimicForegroundColors(flyer, template, preference='light') {
 		el.color = getOptimalForegroundColor(el, flyer.palette);
 		// TODO: This is not always true.
 		if(el.divider) {
-			el.divider.color = el.color;
+			el.divider.color = _.cloneDeep(el.color);
 		}
 	})
 }
