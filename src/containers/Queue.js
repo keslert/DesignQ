@@ -226,8 +226,8 @@ async function getInitialState(props, dispatch) {
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
         // : {type: 'content', key: 'content.text' } 
-        // : {type: 'color', key: 'color.background'}
-        : {type: 'layout', key: 'layout.structure'}
+        : {type: 'color', key: 'color.background'}
+        // : {type: 'layout', key: 'layout.structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -368,6 +368,15 @@ function _updateHistory(state, action, update) {
     state.secondary._inHistory = true;
     update.history = [...history, state.secondary];
   }
+
+  
+  // temporary check
+  const ids = (update.history || []).map(f => f.id);
+  if((new Set(ids)).size !== ids.length) {
+    console.assert('We got duplicates!');
+    throw new Error("We got duplicates here!")
+  }
+
 }
 
 function _updateList(state, action, update) {
@@ -472,6 +481,7 @@ function patchFlyer(flyer, type, cache) {
   const resolved = flyer.pending.filter(p => p.type === type && cache[p.cacheKey]);
   if(resolved.length) {
     const copy = copyTemplate(flyer);
+    copy._inHistory = flyer._inHistory;
     resolved.forEach(p => p.resolve(copy, cache[p.cacheKey].value))
     copy.pending = difference(flyer.pending, resolved);
     if(!copy.pending.length) {
@@ -508,12 +518,13 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
       userProvided,
       images: photos.map(photo => ({
         id: photo.id,
-        src: photo.src.large,
+        src: photo.src.large2x,
         meta: {
           w: photo.width,
           h: photo.height,
           photographer: photo.photographer,
           photographer_url: photo.photographer_url,
+          original_src: photo.src.original,
         },
         width: photo.width,
         height: photo.height,

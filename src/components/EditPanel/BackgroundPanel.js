@@ -13,6 +13,7 @@ import { getOptimalBackgroundColor } from '../../core/generator/color';
 import { darkenColor, findOrCreatePaletteKey, fixAlpha } from '../../core/utils/color-utils';
 import { PLACEHOLDER_IMAGE } from '../../core/utils/color-utils';
 import { cloneCrude } from '../../core/utils/template-utils';
+import isFinite from 'lodash/isFinite'
 
 function BackgroundPanel({
   surface,
@@ -88,8 +89,15 @@ function BackgroundPanel({
               size={bb || surface._computed.bb}
               onComplete={crop => {
                 const zoom = (Math.round(img.zoom * img._computed.cropW / crop.width * 100) / 100) || 1;
-                const x = (Math.round(crop.x / (100 - crop.width) * 100) / 100) || img.x || 0.5;
-                const y = (Math.round(crop.y / (100 - crop.height) * 100) / 100) || img.y || 0.5;
+                let x = Math.round(crop.x / (100 - crop.width) * 100) / 100;
+                let y = Math.round(crop.y / (100 - crop.height) * 100) / 100;
+                if(!isFinite(x)) {
+                  x = img.x || 0.5;
+                }
+                if(!isFinite(y)) {
+                  y = img.y || 0.5;
+                }
+
                 if(x !== img.x || y !== img.y || zoom !== img.zoom) {
                   update({'img.x': x, 'img.y': y, 'img.zoom': zoom})
                 }

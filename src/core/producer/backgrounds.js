@@ -47,8 +47,8 @@ function computeImgBackground(containerBB, bg) {
   bg.img._computed = {
     w,
     h,
-    x: offsetX,
-    y: offsetY,
+    x: Math.max(0, offsetX),
+    y: Math.max(0, offsetY),
     cropW,
     cropX,
     cropY,

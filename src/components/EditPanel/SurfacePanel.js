@@ -31,11 +31,14 @@ function SurfacePanel({surface, onUpdate}) {
       
       <ThematicBreak />
 
-      <PalettePanel 
-        template={surface._root} 
-      />
-
-      <ThematicBreak />
+      {surface.kind === 'template' && 
+        <React.Fragment>
+          <PalettePanel 
+            template={surface._root} 
+          />
+          <ThematicBreak />
+        </React.Fragment>
+      }
 
       {canControlWidth(surface) &&
         <React.Fragment>
