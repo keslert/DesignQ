@@ -133,7 +133,7 @@ function SelectionTree() {
                             )}
                           >
                             <TreeNode 
-                              label={el.lines[0].text}
+                              label={el.lines ? el.lines[0].text : 'Image'}
                               indent={3} 
                               type={el.type}
                               selected={selection === el}

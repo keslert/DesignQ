@@ -17,12 +17,7 @@ import BorderPanel from './BorderPanel';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
-function TextElementPanel({element}) {
-  const rootDispatch = useContext(DispatchContext);
-  const update = useCallback(update => {
-    rootDispatch({type: 'UPDATE_SELECTED', update});
-  }, []);
-
+function TextElementPanel({element, onUpdate}) {
   // TODO: Add translateXY for minor adjustments.
   // TODO: Add divider color.
 
@@ -53,7 +48,7 @@ function TextElementPanel({element}) {
                 }
                 return {type, text: line.trim()}
               })
-              update({'lines': lines});
+              onUpdate({'lines': lines});
             }}
             style={textareaStyle}
           />
@@ -69,7 +64,7 @@ function TextElementPanel({element}) {
             key={uniqKey}
             onChangeComplete={color => {
               const key = findOrCreatePaletteKey(color.hex, palette)
-              update({
+              onUpdate({
                 'color.paletteKey': key,
                 'color.alpha': color.rgb.a,
                 [`_root.palette.${key}`]: color.hex,
@@ -100,7 +95,7 @@ function TextElementPanel({element}) {
             color="white"
             value={element.font.family}
             options={FONT_FAMILIES}
-            onChange={e => update({'font.family': e.target.value})}
+            onChange={e => onUpdate({'font.family': e.target.value})}
           />
         }
       />
@@ -117,7 +112,7 @@ function TextElementPanel({element}) {
             min={0}
             max={element.type === 'dominant' ? 1 : 2}
             showValue={true}
-            onChange={e => update({'font.size': e.target.value})}
+            onChange={e => onUpdate({'font.size': e.target.value})}
           />
         }
       />
@@ -131,7 +126,7 @@ function TextElementPanel({element}) {
             color="white"
             value={WeightToText[element.font.weight]}
             options={DQ_FONTS[element.font.family].weights.map(w => WeightToText[w])}
-            onChange={e => update({'font.weight': TextToWeight[e.target.value]})}
+            onChange={e => onUpdate({'font.weight': TextToWeight[e.target.value]})}
           />
         }
       />
@@ -145,7 +140,7 @@ function TextElementPanel({element}) {
             color="white"
             value={element.font.transform}
             options={["normal", "uppercase", "lowercase"]}
-            onChange={e => update({'font.transform': e.target.value})}
+            onChange={e => onUpdate({'font.transform': e.target.value})}
           />
         }
       />
@@ -161,7 +156,7 @@ function TextElementPanel({element}) {
             // Let people use a faux italic...
             options={['normal', 'italic']}
             // options={DQ_FONTS[element.font.family].styles}
-            onChange={e => update({'font.style': e.target.value})}
+            onChange={e => onUpdate({'font.style': e.target.value})}
           />
         }
       />
@@ -178,7 +173,7 @@ function TextElementPanel({element}) {
             min={-.1}
             max={.4}
             showValue={true}
-            onChange={e => update({'font.letterSpacing': e.target.value})}
+            onChange={e => onUpdate({'font.letterSpacing': e.target.value})}
           />
         }
       />
@@ -196,25 +191,40 @@ function TextElementPanel({element}) {
           min={.8}
           max={2}
           showValue={true}
-          onChange={e => update({'font.lineHeight': e.target.value})}
+          onChange={e => onUpdate({'font.lineHeight': e.target.value})}
         />
         <Flex mt="2px" ml={1}>
           <Box mr={2}>
             <Checkbox 
               label="Ignore Ascenders"
               checked={!!element.font.ignoreAscenders}
-              onChange={e => update({'font.ignoreAscenders': e.target.checked})}
+              onChange={e => onUpdate({'font.ignoreAscenders': e.target.checked})}
             />
           </Box>
           <Box>
             <Checkbox 
               label="Ignore Descenders"
               checked={!!element.font.ignoreDescenders}
-              onChange={e => update({'font.ignoreDescenders': e.target.checked})}
+              onChange={e => onUpdate({'font.ignoreDescenders': e.target.checked})}
             />
           </Box>
         </Flex>
       </Field>
+
+      <Field 
+        label="Text Alignment"
+        onExploreClick={() => null}
+        children={
+          <Select
+            name="textAlign"
+            bg="dark"
+            color="white"
+            value={element._parent.textAlign}
+            options={['left', 'center', 'right']}
+            onChange={e => onUpdate({'_parent.textAlign': e.target.value})}
+          />
+        }
+      />
 
       {element._hasList && 
         <React.Fragment>
@@ -227,7 +237,7 @@ function TextElementPanel({element}) {
                 color="white"
                 value={element.divider.type}
                 options={["line", "dot"]}
-                onChange={e => update({'divider.type': e.target.value})}
+                onChange={e => onUpdate({'divider.type': e.target.value})}
               />
             }
           />
@@ -241,7 +251,7 @@ function TextElementPanel({element}) {
                 palette={paletteColors}
                 onChangeComplete={color => {
                   const key = findOrCreatePaletteKey(color.hex, palette)
-                  update({
+                  onUpdate({
                     'divider.color.paletteKey': key,
                     'divider.color.alpha': color.rgb.a,
                     [`_root.palette.${key}`]: color.hex,
@@ -267,7 +277,7 @@ function TextElementPanel({element}) {
               min={-.1}
               max={3}
               showValue={true}
-              onChange={e => update({'mb': e.target.value})}
+              onChange={e => onUpdate({'mb': e.target.value})}
             />
           }
         />
@@ -284,7 +294,7 @@ function TextElementPanel({element}) {
               color="white"
               value={WidthToText[element.w]}
               options={['max', 'min']}
-              onChange={e => update({'w': TextToWidth[e.target.value]})}
+              onChange={e => onUpdate({'w': TextToWidth[e.target.value]})}
             />
           }
         />
@@ -319,7 +329,7 @@ function TextElementPanel({element}) {
             rDisabled={!element._computed.canBleed.r}
             tDisabled={true}
             bDisabled={true}
-            onChange={values => update({'bleed': values})}
+            onChange={values => onUpdate({'bleed': values})}
           />
         }
       />
@@ -344,7 +354,7 @@ function TextElementPanel({element}) {
               rDisabled={!element._computed.canBleed.r}
               tDisabled={true}
               bDisabled={true}
-              onChange={values => update({
+              onChange={values => onUpdate({
                 'bleed.pl': values.l,
                 'bleed.pr': values.r,
                 'bleed.pt': values.t,
@@ -369,7 +379,7 @@ function TextElementPanel({element}) {
             r={element.pr}
             t={element.pt}
             b={element.pb}
-            onChange={values => update({
+            onChange={values => onUpdate({
               'pl': values.l,
               'pr': values.r,
               'pt': values.t,

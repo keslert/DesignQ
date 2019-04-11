@@ -45,7 +45,7 @@ function CanvasToolbar(props) {
                 // mb={1}
               />
               <SearchInput
-                borderColor="dark"
+                borderColor="red"
                 defaultValue={lastSearch.query}
                 onSubmit={handleSuggestion}
               />

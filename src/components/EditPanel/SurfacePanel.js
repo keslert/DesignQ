@@ -18,8 +18,6 @@ import PalettePanel from './PalettePanel';
 
 function SurfacePanel({surface, onUpdate}) {
   
-  // Palette
-
   return (
     <Box>
       <BackgroundPanel
@@ -74,8 +72,6 @@ function SurfacePanel({surface, onUpdate}) {
           }
         </React.Fragment>
       }
-      
-      
 
       {canControlHeight(surface) && 
         <React.Fragment>
@@ -129,7 +125,7 @@ function SurfacePanel({surface, onUpdate}) {
         />
       }
 
-      {(!surface._computed.next || (surface.h !== 'fill' && surface.alignY !== 'bottom')) ? null :
+      {(!surface._computed.next || surface.alignY !== 'bottom') ? null :
         <Field 
           label="Margin"
           hint="The amount of space between this item and the item below it."
@@ -177,7 +173,7 @@ function SurfacePanel({surface, onUpdate}) {
         />
       }
 
-      {surface.background && 
+      {(!surface.background || (!surface.background.color && !surface.background.img)) ? null :
         <Field 
           label="Padding"
           hint="The amount of space between this item and its children."
@@ -212,12 +208,13 @@ function SurfacePanel({surface, onUpdate}) {
 
       <ThematicBreak />
 
-      <DecorPanel
-        surface={surface}
-        decor={surface.decor}
-        path='decor.'
-      />
-
+      {surface.kind === 'template' && 
+        <DecorPanel
+          surface={surface}
+          decor={surface.decor}
+          path='decor.'
+        />
+      }
     </Box>
   )
 }

@@ -2,18 +2,11 @@ import { getNormalizedValue, withGroups } from './';
 
 export function computeBorders(template) {
   const size = template._computed.size;
-  computeBorder(template.border, size);
-  computeBorder(template.content.border, size);
-  withGroups(template, group => {
-    computeBorder(group.border, size);
-    group.elements.forEach(e => {
-      computeBorder(e.border, size);
-    })
-  })
+  template._borders.forEach(b => computeBorder(b, size));
 }
 
 export function computeBorder(b, flyerSize) {
-  if(!b.background || !b.background.color) {
+  if(!b.background || (!b.background.color && !b.background.img)) {
     b._computed = {
       l: 0,
       r: 0,

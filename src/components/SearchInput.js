@@ -17,9 +17,10 @@ const Input = styled.input(props => ({
   width: '100%',
   height: '36px',
   lineHeight: '36px',
-  '&:focus': {
-    borderColor: props.theme.colors.blue,
-  }
+  borderColor: props.theme.colors[props.borderColor],
+  // '&:focus': {
+  //   borderColor: props.theme.colors.blue,
+  // }
 }))
 
 const BackButton = styled.div(props => ({

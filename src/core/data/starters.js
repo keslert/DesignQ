@@ -107,7 +107,6 @@ export const simpleBody = {
   },
   content: {
     body: {
-      w: 'auto',
       elements: [
         small,
         dominant,
