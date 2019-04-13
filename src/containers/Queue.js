@@ -52,6 +52,11 @@ function Queue(props) {
     getInitialState(props, dispatch).then(state => {
       dispatch({type: 'INIT', state})
     });
+
+    if(props.location.search.includes('clear')) {
+      localStorage.clear();
+    }
+
     return;
   }, [])
 
