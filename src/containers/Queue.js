@@ -15,7 +15,7 @@ import {
   getInitialJourney,
   _updateJourney,
 } from '../core/journey';
-import { linkTemplate, copyTemplate, getItemFromTemplate } from '../core/utils/template-utils';
+import { linkTemplate, copyTemplate, getItemFromTemplate, cloneCrude } from '../core/utils/template-utils';
 import { resolveItem } from '../core/resolver';
 import set from 'lodash/set';
 import some from 'lodash/some';
@@ -57,9 +57,9 @@ function Queue(props) {
 
   useEffect(() => {
     if(state.primary && props.location.search.includes('backup')) {
-      const copied = copyTemplate(state.primary, true);
+      const copied = cloneCrude(state.primary);
       localStorage.setItem('savedPrimary', JSON.stringify(copied));
-      localStorage.setItem('savedHistory', JSON.stringify(state.history.slice(-50).map(f => copyTemplate(f, true))));
+      localStorage.setItem('savedHistory', JSON.stringify(state.history.slice(-50).map(f => cloneCrude(f))));
     }
   }, [state.primary])
 
@@ -349,23 +349,25 @@ function setList(state, action) {
 
 function _updatePrimary(state, action, update) {
   if(action.upgrade) {
-    const secondary = state.secondary._inHistory
-      ? copyFlyer(state.secondary) 
-      : state.secondary;
+    const secondary = copyFlyer(state.secondary);
     state.primary.upgradeTo = secondary.id
     secondary.upgradeFrom = state.primary.id;
     update.primary = secondary;
   }
 }
 
+function inHistory(flyer, history) {
+  return history.find(f => f.id === flyer.id);
+}
+
 function _updateHistory(state, action, update) {
   const history = update.history || state.history;
   if(action.upgrade) {
-    state.primary._inHistory = true;
+    // state.primary._inHistory = true;
     update.history = [...history, state.primary];
   }
-  else if(state.secondary && !state.secondary._inHistory && !action.skipHistory) {
-    state.secondary._inHistory = true;
+  else if(state.secondary && !action.skipHistory && !inHistory(state.secondary, state.history)) {
+    // state.secondary._inHistory = true;
     update.history = [...history, state.secondary];
   }
 
@@ -373,8 +375,7 @@ function _updateHistory(state, action, update) {
   // temporary check
   const ids = (update.history || []).map(f => f.id);
   if((new Set(ids)).size !== ids.length) {
-    console.assert('We got duplicates!');
-    throw new Error("We got duplicates here!")
+    console.assert(true, 'We got duplicates!');
   }
 
 }
@@ -416,8 +417,8 @@ function updateSelected(state, action, update={}) {
   const flyer = selected._root;
   
   const copy = copyTemplate(flyer);
-  copy.id = flyer.id; // I'm not sure the implications of this id switch...
-  flyer.id = window.__flyerId++;
+  copy.id = window.__flyerId++; // I'm not sure the implications of this id switch...
+  // flyer.id = window.__flyerId++;
 
   const copySelected = getItemFromTemplate(selected, copy);
   Object.entries(action.update).forEach(([path, value]) => {
@@ -438,8 +439,9 @@ function updateSelected(state, action, update={}) {
   update.secondary = copy;
   update.selection = copySelected;
   
-  if(!copy.editId || copy.editId !== state.primary.id) {
-    copy.editId = state.primary.id;
+  const editId = flyer.editId || flyer.id;
+  if(copy.editId !== editId) {
+    copy.editId = editId;
     _updateHistory(state, {}, update);
   }
 
@@ -481,7 +483,7 @@ function patchFlyer(flyer, type, cache) {
   const resolved = flyer.pending.filter(p => p.type === type && cache[p.cacheKey]);
   if(resolved.length) {
     const copy = copyTemplate(flyer);
-    copy._inHistory = flyer._inHistory;
+    // copy._inHistory = flyer._inHistory;
     resolved.forEach(p => p.resolve(copy, cache[p.cacheKey].value))
     copy.pending = difference(flyer.pending, resolved);
     if(!copy.pending.length) {

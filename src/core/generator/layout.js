@@ -15,7 +15,7 @@ export const basicStages = [
   {
     type: 'layout',
     key: 'layout.order', 
-    label: 'Alternate Layouts',
+    label: 'Minor Adjustments',
     generate: generateOrder,
     satisfied: () => true,
   },

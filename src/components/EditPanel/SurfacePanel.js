@@ -17,6 +17,8 @@ import {
 import PalettePanel from './PalettePanel';
 
 function SurfacePanel({surface, onUpdate}) {
+
+  if(!surface._computed) return null;
   
   return (
     <Box>
@@ -35,41 +37,6 @@ function SurfacePanel({surface, onUpdate}) {
             template={surface._root} 
           />
           <ThematicBreak />
-        </React.Fragment>
-      }
-
-      {canControlWidth(surface) &&
-        <React.Fragment>
-          <Field 
-            label="Width"
-            onExploreClick={() => null}
-            children={
-              <Select
-                name="width"
-                bg="dark"
-                color="white"
-                value={WidthToText[surface.w]}
-                options={['max', 'min']}
-                onChange={e => onUpdate({'w': TextToWidth[e.target.value]})}
-              />
-            }
-          />
-          {surface.w === 'auto' && 
-            <Field 
-              label="Horizontal Alignment"
-              onExploreClick={() => null}
-              children={
-                <Select
-                  name="alignX"
-                  bg="dark"
-                  color="white"
-                  value={surface.alignX}
-                  options={['left', 'center', 'right']}
-                  onChange={e => onUpdate({'alignX': e.target.value})}
-                />
-              }
-            />
-          }
         </React.Fragment>
       }
 
@@ -101,6 +68,44 @@ function SurfacePanel({surface, onUpdate}) {
                   value={surface.alignY}
                   options={['top', 'center', 'bottom']}
                   onChange={e => onUpdate({'alignY': e.target.value})}
+                />
+              }
+            />
+          }
+        </React.Fragment>
+      }
+
+      {canControlWidth(surface) &&
+        <React.Fragment>
+          <Field 
+            label="Width"
+            onExploreClick={() => null}
+            children={
+              <Select
+                name="width"
+                bg="dark"
+                color="white"
+                value={WidthToText[surface.w]}
+                options={['max', 'min']}
+                onChange={e => onUpdate({'w': TextToWidth[e.target.value]})}
+              />
+            }
+          />
+          {surface.w === 'auto' && 
+            <Field 
+              label="Horizontal Alignment"
+              onExploreClick={() => null}
+              children={
+                <Select
+                  name="alignX"
+                  bg="dark"
+                  color="white"
+                  value={surface.alignX}
+                  options={['left', 'center', 'right']}
+                  onChange={e => onUpdate({
+                    'alignX': e.target.value,
+                    'itemsAlignX': e.target.value,
+                  })}
                 />
               }
             />

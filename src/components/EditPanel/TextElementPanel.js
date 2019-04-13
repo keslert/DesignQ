@@ -24,6 +24,7 @@ function TextElementPanel({element, onUpdate}) {
   const palette = element._root.palette;
   const paletteColors = Object.values(palette);
   const uniqKey = element._root.id + element._parent._key + element._key
+  const editKey = element._root.editId || element._root.id;
 
   return (
     <Box>
@@ -61,7 +62,7 @@ function TextElementPanel({element, onUpdate}) {
         label="Color"
         children={
           <ColorPicker
-            key={uniqKey}
+            key={editKey}
             onChangeComplete={color => {
               const key = findOrCreatePaletteKey(color.hex, palette)
               onUpdate({
@@ -246,7 +247,7 @@ function TextElementPanel({element, onUpdate}) {
             nested={true}
             children={
               <ColorPicker
-                // key={uniqKey}
+                key={editKey}
                 color={element.divider.color._str}
                 palette={paletteColors}
                 onChangeComplete={color => {

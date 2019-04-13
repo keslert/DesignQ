@@ -154,11 +154,9 @@ function equalCustomizer(a, b, key) {
   return _.isString(key) && key.startsWith('_') ? true : undefined;
 }
 
-export function copyTemplate(flyer, noLink) {
+export function copyTemplate(flyer) {
   const clone = _.cloneDeepWith(flyer, copyCustomizer);
-  if(!noLink) {
-    linkTemplate(clone);
-  }
+  linkTemplate(clone);
   return clone;
 }
 

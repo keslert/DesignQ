@@ -36,6 +36,8 @@ function BackgroundPanel({
   const palette = surface._root.palette;
   const paletteColors = Object.values(palette);
   const bgType = img ? 'image' : (bgColor.type || 'none');
+
+  const editKey = surface._root.editId || surface._root.id;
     
   return (
     <Box>
@@ -192,6 +194,7 @@ function BackgroundPanel({
           nested={true}
           children={
             <ColorPicker
+              key={editKey}
               color={bgColor._str}
               palette={paletteColors}
               onClear={() => update({'color': null})}
@@ -215,6 +218,7 @@ function BackgroundPanel({
             nested={true}
             children={
               <ColorPicker
+                key={editKey}
                 color={bgColor.colorA._str}
                 palette={paletteColors}
                 onChangeComplete={color => {
@@ -234,6 +238,7 @@ function BackgroundPanel({
             nested={true}
             children={
               <ColorPicker
+                key={editKey}
                 color={bgColor.colorB._str}
                 palette={paletteColors}
                 onChangeComplete={color => {

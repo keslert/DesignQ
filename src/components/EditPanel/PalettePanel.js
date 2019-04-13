@@ -24,6 +24,8 @@ function PalettePanel({template}) {
 
   const palette = template.palette;
   const extraColors = Object.values(omit(palette, Object.keys(swatches)));
+  const editKey = template.editId || template.id;
+  
     
   return (
     <Box>
@@ -39,7 +41,7 @@ function PalettePanel({template}) {
               mr={1}
             />
             <ColorPicker
-              key={template.id}
+              key={editKey}
               color={palette[swatch.key] || ''}
               palette={extraColors}
               hideAlpha={true}
