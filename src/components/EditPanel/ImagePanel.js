@@ -1,16 +1,11 @@
-import React, { useContext, useCallback } from 'react';
+import React from 'react';
 import { Flex, Box } from 'rebass';
-import Slider from '../Slider';
-import Select from '../Select';
 import DirectionalInput from '../DirectionalInput';
 import Field from './Field';
-import { DispatchContext } from '../../containers/Queue';
 import BackgroundPanel from './BackgroundPanel';
 import BorderPanel from './BorderPanel';
 import ThematicBreak from './ThematicBreak';
-import DecorPanel from './DecorPanel';
 import Checkbox from '../Checkbox';
-
 
 function ImagePanel({image, onUpdate}) {
 

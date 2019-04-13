@@ -4,10 +4,10 @@ import { getOptimalBackgroundColor, getOptimalForegroundColor } from '../generat
 import { DQ_FONTS } from '../utils/text-utils';
 import { getDescendants, isCrudeEqual } from '../utils/template-utils';
 import _ from 'lodash';
-import { darkenColor, getBasicColors } from '../utils/color-utils';
+import { darkenColor, getBasicColors, addColorsToPalette, findOrCreatePaletteKey, extractPaletteKeysFromTemplate } from '../utils/color-utils';
 
 // Mutates template
-export function resolveItem(item, oldItem, update) {
+export function resolveItem(item, oldItem, update, state) {
   if(_.size(item._root.palette) !== _.size(oldItem._root.palette)) {
     resolvePalette(item._root);
   }
@@ -17,12 +17,27 @@ export function resolveItem(item, oldItem, update) {
   }
 
   if(!isCrudeEqual(item.background, oldItem.background)) {
-    resolveItemColors(item);
+    resolveItemColors(item, oldItem, state);
   }
 }
 
-export function resolveItemColors(item) {
+export function resolveItemColors(item, oldItem, state) {
   const palette = item._root.palette;
+
+  // Check for new image
+  const src = item.background && item.background.img && item.background.img.src;
+  const oldSrc = oldItem && oldItem.background && oldItem.background.img && oldItem.background.img.src;
+  if(src && src !== oldSrc) {
+    const { value: { colors=[] }} = state.imageCache[item.background.img.id] || {value: {}};
+    const keys = extractPaletteKeysFromTemplate(item._root);
+    const palette_ = _.pick(palette, ['dark', 'light', 'accent', 'accent2', ...keys])
+    colors.forEach(color => {
+      const key = findOrCreatePaletteKey(color, palette, 'img');
+      palette_[key] = color;
+    })
+    item._root.palette = palette_;
+  }
+  
 
   if(item.kind === 'element') {
     if(item.color) {

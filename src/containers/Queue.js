@@ -433,7 +433,7 @@ function updateSelected(state, action, update={}) {
   })
   delete copy.stage.generationRound;
   linkTemplate(copy);
-  resolveItem(copySelected, selected, action.update);
+  resolveItem(copySelected, selected, action.update, state);
   produceFlyer(copy);
 
   update.secondary = copy;

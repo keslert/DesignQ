@@ -32,6 +32,8 @@ export function getBackdropPaletteKey(item) {
 	return 'light'
 }
 
+
+
 export function findPaletteKey(colorStr, palette) {
   const key = findKey(palette, v => v === colorStr);
   console.assert(key, 'Missing key!');
@@ -39,8 +41,8 @@ export function findPaletteKey(colorStr, palette) {
 }
 
 let paletteKeyId = 1;
-export function findOrCreatePaletteKey(colorStr, palette) {
-  return findKey(palette, v => v === colorStr) || `custom-${paletteKeyId++}`
+export function findOrCreatePaletteKey(colorStr, palette, prefix='custom') {
+  return findKey(palette, v => v === colorStr) || `${prefix}-${paletteKeyId++}`
 }
 
 export function convertColorToPaletteColor(color, palette) {
@@ -265,6 +267,19 @@ export function extractColorStrsFromTemplate(template) {
   return basicColors;
 }
 
+export function extractPaletteKeysFromTemplate(template) {
+  const colors = template._textElements.map(el => el.color);
+	const bgColors = template._all.map(el => el.background && el.background.color);
+
+  const basicColors = _.chain([...colors, ...bgColors])
+    .filter()
+    .flatMap(getBasicColors)
+    .map('paletteKey')
+    .uniq()
+    .value()
+
+  return basicColors;
+}
 
 
 /**

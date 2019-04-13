@@ -10,8 +10,8 @@ import Button from '../Button';
 import ImageSearch from '../../containers/ImageSearch';
 import { DispatchContext } from '../../containers/Queue';
 import { getOptimalBackgroundColor } from '../../core/generator/color';
-import { darkenColor, findOrCreatePaletteKey, fixAlpha } from '../../core/utils/color-utils';
-import { PLACEHOLDER_IMAGE } from '../../core/utils/color-utils';
+import { findOrCreatePaletteKey, fixAlpha } from '../../core/utils/color-utils';
+import { PLACEHOLDER_IMAGE, addColorsToPalette } from '../../core/utils/color-utils';
 import { cloneCrude } from '../../core/utils/template-utils';
 import isFinite from 'lodash/isFinite'
 
@@ -30,14 +30,13 @@ function BackgroundPanel({
       update: mapKeys(update, (v, k) => path + k),
   }), []);
   const [showSearch, setShowSearch] = useState(false);
-
+  
+  const editKey = surface._root.editId || surface._root.id;
   const img = background.img;
   const bgColor = background.color || {};
   const palette = surface._root.palette;
   const paletteColors = Object.values(palette);
   const bgType = img ? 'image' : (bgColor.type || 'none');
-
-  const editKey = surface._root.editId || surface._root.id;
     
   return (
     <Box>
@@ -143,7 +142,7 @@ function BackgroundPanel({
                       ret['color.colorB.alpha'] = 0.1;
                     }
                   }
-
+                  
                   ret['img'] = {
                     ...photo,
                     zoom: 1,

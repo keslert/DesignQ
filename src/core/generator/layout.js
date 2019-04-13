@@ -8,7 +8,7 @@ export const basicStages = [
   {
     type: 'layout',
     key: 'layout.structure', 
-    label: 'Structure',
+    label: 'Major Changes',
     generate: generateStructure,
     satisfied: () => true,
   },
@@ -44,7 +44,7 @@ function generateStructure(flyer, {history, templates, multiple}) {
   return flyers;
 }
 
-function generateOrder(flyer, {templates}) {
+function generateOrder(flyer, {templates, state}) {
 
   const templatesWithSameGroups = _.filter(templates, t => {
     return !t.body === !flyer.body
@@ -74,7 +74,7 @@ function generateOrder(flyer, {templates}) {
       copy.content[g.type].elements = g.elements;
     })
     linkTemplate(copy);
-    resolveItemColors(copy);
+    resolveItemColors(copy, {}, state);
     return copy;
   })
 

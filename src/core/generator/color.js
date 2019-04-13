@@ -119,7 +119,7 @@ function generateBackground(flyer, {templates, state}) {
 	return generated;
 }
 
-function generateBackgroundFilters(flyer, {templates}) {
+function generateBackgroundFilters(flyer, {templates, state}) {
 	// if we have an image
 	// multi color backgrounds
 	const prominantImageSurface = getProminantImageSurface(flyer);
@@ -130,14 +130,14 @@ function generateBackgroundFilters(flyer, {templates}) {
 			{color: paletteColor(paletteKey, .5)},
 			{color: paletteColor(paletteKey, .7)},
 			{color: paletteColor(paletteKey, .85)},
-			{color: linearColor(0, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
-			{color: linearColor(45, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
-			{color: linearColor(135, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
-			{color: linearColor(180, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
+			// {color: linearColor(0, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
+			// {color: linearColor(90, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
+			// {color: linearColor(180, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
+			// {color: linearColor(270, paletteColor(paletteKey, 0.1), paletteColor(paletteKey, 0.4))},
 			{color: linearColor(0, paletteColor(paletteKey, 0.3), paletteColor(paletteKey, 0.7))},
-			{color: linearColor(45, paletteColor(paletteKey, 0.3), paletteColor(paletteKey, 0.7))},
-			{color: linearColor(135, paletteColor(paletteKey, 0.3), paletteColor(paletteKey, 0.7))},
+			{color: linearColor(90, paletteColor(paletteKey, 0.3), paletteColor(paletteKey, 0.7))},
 			{color: linearColor(180, paletteColor(paletteKey, 0.3), paletteColor(paletteKey, 0.7))},
+			{color: linearColor(270, paletteColor(paletteKey, 0.3), paletteColor(paletteKey, 0.7))},
 		]))
 
 		flyers.push(...filters.map(filter => {
@@ -146,14 +146,14 @@ function generateBackgroundFilters(flyer, {templates}) {
 			surface.background.backgroundBlendMode = filter.blendMode;
 			surface.background.color = filter.color;
 			surface.background.img.filters = filter.filters;
-			resolveItemColors({_root: copy, _parent: copy});
+			resolveItemColors({_root: copy, _parent: copy}, {}, state);
 			return copy;
 		}))
 	}
 	return flyers;
 }
 
-function generateAlternatePalettes(flyer, options) {
+function generateAlternatePalettes(flyer, {state}) {
 	// complements
 	// tertiary
 	// monochrome
@@ -182,7 +182,7 @@ function generateAlternatePalettes(flyer, options) {
 				const copy = copyTemplate(flyer);
 				copy.palette = palette;
 				copy.background.color = paletteColor(key, alpha);
-				resolveItemColors(copy);
+				resolveItemColors(copy, {}, state);
 				return copy;
 			})
 		})))
