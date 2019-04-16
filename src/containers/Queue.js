@@ -355,7 +355,7 @@ function setList(state, action) {
 function _updatePrimary(state, action, update) {
   if(action.upgrade) {
     const secondary = copyFlyer(state.secondary);
-    state.primary._upgradeTo = secondary.id
+    state.primary.upgradeTo = secondary.id
     secondary.upgradeFrom = state.primary.id;
     update.primary = secondary;
   }

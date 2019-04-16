@@ -102,7 +102,7 @@ function TimelineItem({data, index, style}) {
   const item = items[index];
   const stage = item.stage;
   const color =  COLORS[stage.type];
-  const showStar = !!item._upgradeTo
+  const showStar = !!item.upgradeTo
   const showHeart = item.favorited;
   return (
     <div style={style}>

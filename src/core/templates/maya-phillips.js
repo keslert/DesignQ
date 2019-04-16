@@ -13,8 +13,8 @@ export default {
   },
   content: {
     background: { 
-  color: basicColor('#ffffff'),
-},
+      color: basicColor('#ffffff'),
+    },
     body: {
       elements: [
         {
@@ -83,10 +83,10 @@ export default {
           },
           color: basicColor('#ffffff'),
           background: { 
-  color: basicColor('#000000'),
-},
+            color: basicColor('#000000'),
+          },
           w: 'auto',
-          py: 1.5,
+          py: 1.25,
           font: {
             family: 'Montserrat',
             letterSpacing: 0.12,
