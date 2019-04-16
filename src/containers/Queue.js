@@ -231,8 +231,8 @@ async function getInitialState(props, dispatch) {
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
         // : {type: 'content', key: 'content.text' } 
-        : {type: 'color', key: 'color.background'}
-        // : {type: 'layout', key: 'layout.structure'}
+        // : {type: 'color', key: 'color.background'}
+        : {type: 'layout', key: 'layout.structure'}
     const state = step({
       primary: startFlyer,
       secondary: null,

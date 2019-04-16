@@ -27,7 +27,7 @@ export const stages = [
 // The purpose of generateContent is to focus the user on content
 function generateContent(flyer, { userInput }) {
   const copy = copyTemplate(flyer);
-  copy._textTypes = userInput ? userInput.text : [];
+  copy._textTypes = userInput ? userInput.text : copy._textTypes;
   copy.keywords = userInput ? userInput.keywords : '';
   mimicTemplateLayout(copy, flyer); 
 
@@ -219,7 +219,7 @@ function convertTextsToShape(texts, shape) {
   const strs = texts.map(t => t.text);
   for(let i = 0; i < strs.length; i++) {
     if(shape.includesList) {
-      const list = makeList(strs.slice(i), shape.firstLineCharacters * 1.05)
+      const list = makeList(strs.slice(i), shape.maxLineCharacters * 1.05)
       if(list.length > 1) {
         lines.push(list.map(text => ({text, type: texts[i].type})));
         i += (list.length - 1);
@@ -228,7 +228,7 @@ function convertTextsToShape(texts, shape) {
     }
 
     const optimalCharacters = _.clamp(
-      shape.firstLineCharacters * 1.05,
+      shape.maxLineCharacters * 1.05,
       (texts[i].text.length / 3), 
       MAX_CHARACTERS
     )
@@ -285,16 +285,19 @@ function makeList(texts, maxCharacters) {
 
 function getElementShape(el) {
   const lineCount = el.lines.length;
-  const firstLine = el.lines[0];
-  const firstLineText = _.isArray(firstLine) ? firstLine.map(t => t.text).join(' | ') : firstLine.text;
-  const firstLineCharacters = firstLineText.length;
-  
 
+  const lineCharacters = el.lines.map(line => (
+    _.isArray(line) 
+      ? line.map(t => t.text).join(' | ').length
+      : line.text.length
+  ))
+  
   return {
     lineCount,
-    firstLineCharacters,
+    firstLineCharacters: lineCharacters[0],
+    maxLineCharacters: _.max(lineCharacters),
     includesList: _.some(el.lines, _.isArray),
-    ratio: firstLineCharacters / lineCount,
+    ratio: lineCharacters[0] / lineCount,
   }
 }
 
@@ -306,6 +309,7 @@ function getAverageElementShape(elementType) {
   return {
     lineCount,
     firstLineCharacters,
+    maxLineCharacters: firstLineCharacters,
     includesList: info.avgContainsList >= 0.33,
     ratio: firstLineCharacters / lineCount,
   }

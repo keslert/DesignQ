@@ -14,6 +14,8 @@ import { canControlWidth, WidthToText, TextToWidth } from '../../core/utils/temp
 import { findOrCreatePaletteKey } from '../../core/utils/color-utils';
 import ThematicBreak from './ThematicBreak';
 import BorderPanel from './BorderPanel';
+import get from 'lodash/get';
+import last from 'lodash/last';
 
 const FONT_FAMILIES = Object.keys(DQ_FONTS).sort()
 
@@ -41,13 +43,23 @@ function TextElementPanel({element, onUpdate}) {
             onChange={e => {
               // TODO: What to do about empty lines?
               // TODO: Estimate each line and list type.
-              const type = Array.isArray(element.lines[0]) ? element.lines[0][0].type : element.lines[0].type;
-              const lines = e.target.value.split('\n').map(line => {
+              let prevType;
+              const lines = e.target.value.split('\n').map((line, i) => {
                 const items = line.split('|');
                 if(items.length > 1) {
-                  return items.map(item => ({type, text: item.trim()}));
+                  return items.map((item, j) => {
+                    prevType = get(element.lines, [i, j, 'type']) || prevType
+                    return {
+                      type: prevType,
+                      text: item.trim()
+                    }
+                  });
                 }
-                return {type, text: line.trim()}
+                prevType = get(element.lines, [i, 'type']) || prevType
+                return {
+                  type: prevType,
+                  text: line.trim()
+                }
               })
               onUpdate({'lines': lines});
             }}

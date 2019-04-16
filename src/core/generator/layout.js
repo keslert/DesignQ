@@ -12,6 +12,10 @@ export const basicStages = [
     generate: generateStructure,
     satisfied: () => true,
   },
+]
+
+export const advancedStages = [];
+export const optionalStages = [
   {
     type: 'layout',
     key: 'layout.order', 
@@ -20,9 +24,6 @@ export const basicStages = [
     satisfied: () => true,
   },
 ]
-
-export const advancedStages = [];
-export const optionalStages = []
 export const stages = [
   ...basicStages,
   ...advancedStages,

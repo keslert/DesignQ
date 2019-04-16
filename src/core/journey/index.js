@@ -99,8 +99,9 @@ function getUpdatedStage(stage, primary, action, state) {
   const isMasterDesign = stage.currentGenerationMasterDesign === primary;
   const isFromStage = primary.stage.key === stage.key;
   const isFromGeneration = isFromStage && primary.stage.generationRound === stage.currentGenerationRound;
+  const isContentStage = stage.type === 'content';
 
-  if(action.forceGeneration || (!isMasterDesign && !isFromGeneration)) {
+  if(action.forceGeneration || isContentStage || (!isMasterDesign && !isFromGeneration)) {
     const flyers = generateFlyers(primary, stage, {...action, state});
     flyers.forEach(f => {
       if(!f.pending) {

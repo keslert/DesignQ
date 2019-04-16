@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import produce from 'immer'
 import { DispatchContext } from './Queue';
 import { getTemplateTextTypes } from '../core/utils/template-utils';
+import isEqual from 'lodash/isEqual';
 
 const reducer = produce((draft, {name, value}) => {
   draft[name] = value;
@@ -25,16 +26,17 @@ const TEXT_STAGE = {type: 'content', key: 'content.text'}
 
 function ContentForm({flyer}) {
   const rootDispatch = useContext(DispatchContext);
-  const [state, dispatch] = useReducer(reducer, {})
-
-  useEffect(() => {
-    const content = getTemplateTextTypes(flyer, true);
-    content.forEach(c => dispatch({name: c.type, value: c.text}));
+  const initState = React.useMemo(() => {
+    const textTypes = getTemplateTextTypes(flyer, true);
+    const entries = textTypes.map(t => ([t.type, t.text]))
+    debugger;
+    return Object.fromEntries(entries)
   }, [])
 
+  const [state, dispatch] = useReducer(reducer, initState)
+
   useEffect(() => {
-    // When the state changes, update the flyer
-    console.log("UPDATING FLYER");
+    if(isEqual(state, initState)) return;
 
     const text = Object.entries(state)
       .filter(([type, text]) => text.trim().length && type !== 'keywords')
@@ -42,7 +44,7 @@ function ContentForm({flyer}) {
 
     rootDispatch({
       type: 'STEP', 
-      stage: TEXT_STAGE, 
+      stage: TEXT_STAGE,
       skipHistory: true,
       forceGeneration: true,
       userInput: {text, keywords: state.keywords}
