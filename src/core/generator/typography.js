@@ -113,7 +113,9 @@ export function getElementFont(template, group, elementType) {
 function getDefaultFontProps(dominantFamily, elementType, family) {
   const fontStats = getFontStats();
   const typeStats = fontStats[elementType];
-  const familyStats = typeStats.families[family] || typeStats.families[typeStats.dominantPairing[dominantFamily]]
+  const familyStats = typeStats.families[family] 
+    || typeStats.families[typeStats.dominantPairing[dominantFamily]]
+    || typeStats.families[Object.keys(typeStats.families)[0]]
   const lettercase = _.maxBy(LETTERCASE, l => familyStats.lettercase[l]);
 
   return {

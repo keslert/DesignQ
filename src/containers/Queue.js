@@ -216,8 +216,8 @@ async function getInitialState(props, dispatch) {
     const startFlyer = starters[query.starter] || (
       process.env.NODE_ENV === 'production'  
         ? starters.empty 
-        : starters.empty
-        // : starters.simpleBody
+        // : starters.empty
+        : starters.simpleBody
         // : starters.imageBackground
     )
     linkTemplate(startFlyer);
@@ -230,8 +230,8 @@ async function getInitialState(props, dispatch) {
       ? {type: query.stage.split('.')[0], key: query.stage}
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
-        : {type: 'content', key: 'content.text' } 
-        // : {type: 'layout', key: 'layout.structure'}
+        // : {type: 'content', key: 'content.text' } 
+        : {type: 'layout', key: 'layout.structure'}
         // : {type: 'color', key: 'color.background'}
     const state = step({
       primary: startFlyer,
