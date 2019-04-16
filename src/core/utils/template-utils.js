@@ -139,7 +139,7 @@ export function getTemplateTextTypes(template, force) {
       return types;
     })
 
-    types.forEach(t => t.element._text = {text: t.text, type: t.type});
+    // types.forEach(t => t.element._text = {text: t.text, type: t.type});
     template._textTypes = types;
   }
 
