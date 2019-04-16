@@ -78,7 +78,7 @@ export default {
             borderRadius: 8,
           },
           w: 'auto',
-          pl: 2,
+          px: 2,
           py: 1.5,
           lines: [
             [

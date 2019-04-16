@@ -211,14 +211,15 @@ function SurfacePanel({surface, onUpdate}) {
         path='border.'
       />
 
-      <ThematicBreak />
-
       {surface.kind === 'template' && 
-        <DecorPanel
-          surface={surface}
-          decor={surface.decor}
-          path='decor.'
-        />
+        <React.Fragment>
+          <ThematicBreak />
+          <DecorPanel
+            surface={surface}
+            decor={surface.decor}
+            path='decor.'
+          />
+        </React.Fragment>
       }
     </Box>
   )

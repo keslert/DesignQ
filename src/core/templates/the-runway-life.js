@@ -46,7 +46,7 @@ export default {
             transform: 'uppercase',
             weight: 300,
           },
-          pl: 2,
+          px: 2,
         },
         {
           type: 'dominant',
