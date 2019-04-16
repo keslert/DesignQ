@@ -22,3 +22,6 @@ Merging designs. Can show many possible ways of merging. You can also merge a de
 
 
 Locking.
+
+Sticky Lines paper.
+- This tool would benefit greatly from direct manipulation supported by sticky lines.

@@ -102,7 +102,7 @@ function TimelineItem({data, index, style}) {
   const item = items[index];
   const stage = item.stage;
   const color =  COLORS[stage.type];
-  const showStar = !!item.upgradeTo
+  const showStar = !!item._upgradeTo
   const showHeart = item.favorited;
   return (
     <div style={style}>
@@ -143,7 +143,6 @@ const Preview = styled.div(props => ({
   bottom: '21px',
   left: props.left + 'px',
 }))
-
 
 const COLORS = {
   content: 'green',

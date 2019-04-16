@@ -25,8 +25,8 @@ function TextElementPanel({element, onUpdate}) {
 
   const palette = element._root.palette;
   const paletteColors = Object.values(palette);
-  // const uniqKey = element._root.id + element._parent._key + element._key
-  const editKey = element._root.editId || element._root.id;
+  // const uniqKey = element._root.id + 
+  const editKey = (element._root.editId || element._root.id) + element._parent._key + element._key;
 
   return (
     <Box>
@@ -34,7 +34,7 @@ function TextElementPanel({element, onUpdate}) {
         label="Text"
         children={
           <Textarea
-            key={editKey + element._parent._key + element._key}
+            key={editKey}
             name="text"
             bg="dark"
             color="white"
