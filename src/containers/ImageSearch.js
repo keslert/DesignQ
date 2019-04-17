@@ -1,12 +1,11 @@
-import React, { useContext, useState } from 'react';
-import SearchInput from '../components/SearchInput';
+import React, { useContext } from 'react';
 import ImagePicker from './ImagePicker';
 import MDSpinner from 'react-md-spinner';
 import { Flex, Box } from 'rebass';
-import { ImageContext, DispatchContext } from './Queue';
+import { ImageContext } from './Queue';
+import ImageSearchInput from '../components/ImageSearchInput';
 
 function ImageSearch(props) {
-  const dispatch = useContext(DispatchContext);
   const {cache, lastSearch} = useContext(ImageContext);
 
   const images = lastSearch.images.filter(img => cache[img.id])
@@ -15,17 +14,7 @@ function ImageSearch(props) {
   return (
     <React.Fragment>
       <Box style={{position: 'relative', zIndex: 999}}>
-        <SearchInput
-          placeholder={"Search..."}
-          hasBackButton={false}
-          defaultValue={lastSearch.query}
-          onSubmit={value => dispatch({
-            type: 'INIT_IMAGE_SEARCH', 
-            dispatch, 
-            query: value,
-            userProvided: true,
-          })}
-        />
+        <ImageSearchInput />
       </Box>
       <Box style={props.galleryStyle}>
         {!images.length &&

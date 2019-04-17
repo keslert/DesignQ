@@ -331,6 +331,10 @@ export function processImage(src, cb) {
   }
 }
 
+export function clearImageProcessingQueue() {
+  imgQueue.splice(0, imgQueue.length);
+}
+
   
   // const imgEl = new Image();
   // imgEl.crossOrigin = "Anonymous";

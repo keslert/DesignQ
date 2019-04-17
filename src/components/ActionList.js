@@ -27,7 +27,6 @@ function ActionList(props) {
       <div>
         <SearchInput 
           placeholder={"Search Actions"}
-          hasBackButton={false}
           {...getInputProps()}
         />
 

@@ -22,7 +22,7 @@ import some from 'lodash/some';
 import difference from 'lodash/difference';
 import debounce from 'lodash/debounce';
 import { fetchImageSearch } from '../core/fetch';
-import { processImage } from '../core/utils/color-utils';
+import { processImage, clearImageProcessingQueue } from '../core/utils/color-utils';
 import loadState from '../core/data/load-states/celebrate'
 import Onboarding from '../components/Onboarding';
 
@@ -231,8 +231,8 @@ async function getInitialState(props, dispatch) {
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
         // : {type: 'content', key: 'content.text' } 
-        : {type: 'layout', key: 'layout.structure'}
-        // : {type: 'color', key: 'color.background'}
+        // : {type: 'layout', key: 'layout.structure'}
+        : {type: 'color', key: 'color.background'}
     const state = step({
       primary: startFlyer,
       secondary: null,
@@ -508,7 +508,8 @@ function checkImageSearch(state, dispatch) {
 } 
 
 function initImageSearch(state, {query, userProvided, dispatch}) {
-  fetchImageSearch(query).then(res => {
+  fetchImageSearch(query)
+  .then(res => {
     const photos = res.data.photos;
     if(photos.length === 0) {
       alert("The image search didn't return any results. Try a different keyword");
@@ -552,6 +553,7 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
 
     dispatch({type: 'SET_LAST_IMAGE_SEARCH', search})
 
+    clearImageProcessingQueue();
     photos.forEach(photo => {
       if(!state.imageCache[photo.id]) {
         processImage(photo.src.large, ({palette}) => {
@@ -561,8 +563,17 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
     })
 
   })
+  .catch(err => {
+    console.log('Image search failed', err);
+    dispatch({type: 'SET_LAST_IMAGE_SEARCH', search: {
+      query,
+      fetching: false,
+      userProvided,
+      images: [],
+    }})
+  })
 
-  return {...state, imageSearch: {
+  return {...state, lastImageSearch: {
     query,
     fetching: true,
     userProvided,
