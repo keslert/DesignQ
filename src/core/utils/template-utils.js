@@ -157,6 +157,8 @@ function equalCustomizer(a, b, key) {
 export function copyTemplate(flyer) {
   const clone = _.cloneDeepWith(flyer, copyCustomizer);
   linkTemplate(clone);
+  delete clone.upgradeTo;
+  delete clone.favorited;
   return clone;
 }
 

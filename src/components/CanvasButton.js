@@ -30,7 +30,6 @@ const Button = styled(Flex)(props => ({
   ...(props.disabled ? {
     cursor: 'not-allowed',
     color: props.theme.colors.dark_light,
-    // transform: 'scale(0.9)',
   } : {
     '&:active': {
       boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',

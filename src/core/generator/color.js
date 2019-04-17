@@ -222,7 +222,7 @@ export function getElementColor(template, group, elementType) {
 function mimicBackgroundColors(flyer, template, preference) {
 	flyer._all.forEach(fItem => {
 		const tItem = getItemFromTemplate(fItem, template);
-		if(tItem) {
+		if(tItem && (!fItem.background || !fItem.background._locked)) {
 			mimicBackgroundColor(fItem, tItem, preference)
 		}
 	})
@@ -308,7 +308,7 @@ function getBackgroundColorSurfaceKindPreference(surface) {
 
 
 
-export function transferColors(flyer, template, images) {
+export function transferColors(flyer, template, bgsWithImages) {
 	
 	/* Step #1 Transfer images */
 	// TODO: Maybe sort this differently since we are giving highest priority to flyer.
@@ -321,20 +321,25 @@ export function transferColors(flyer, template, images) {
 	flyer._all.forEach(fItem => {
 		const tItem = getItemFromTemplate(fItem, template);
 		if(tItem && tItem.background && tItem.background.img) {
-			const img = images[imageIndex++] || {...PLACEHOLDER_IMAGE};
+			const bg = bgsWithImages[imageIndex++] || {img: {...PLACEHOLDER_IMAGE}};
 
-			fItem.background = fItem.background || {};
-			fItem.background.img = img;
-			fixAlpha(fItem.background.color);
+			// It may be true that all backgrounds with images are locked during this, so
+			// instead of locking, maybe we just check that instead?
+			bg._locked = true;
+			fItem.background = bg;
+
+			// fItem.background.img = img;
+			// fixAlpha(fItem.background.color);
 		} 
 		else if(fItem.background && fItem.kind !== 'element') {
 			delete fItem.background.img;
 		}
 	})
 	// We had images to use and we didn't use any.
-	if(images.length && !imageIndex) {
-		flyer.background = {...template.background, img: images[0]}
-		fixAlpha(flyer.background.color)
+	if(bgsWithImages.length && !imageIndex) {
+		flyer.background = bgsWithImages[0];// {...template.background, img: images[0]}
+		flyer.background._locked = true;
+		// fixAlpha(flyer.background.color)
 		// Any images that should take it over?
 		// const image = _.find(flyer._elements, el => el.type === 'image');
 		// if(image) {

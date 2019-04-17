@@ -38,8 +38,8 @@ export function mimicTemplateLayout(flyer, template) {
   const f = groupTextContent(getTemplateTextTypes(flyer));
   const t = groupTextContent(getTemplateTextTypes(template));
   
-  const originalImages = _.map(flyer._all, item => 
-    item.background && item.background.img
+  const originalImageBgs = _.map(flyer._all, item => 
+    (item.background && item.background.img) ? cloneCrude(item.background) : null
   ).filter(i => i)
 
   f.all.forEach(s => s._match = null);
@@ -187,7 +187,7 @@ export function mimicTemplateLayout(flyer, template) {
   })
 
   linkTemplate(flyer);
-  transferColors(flyer, template, originalImages);
+  transferColors(flyer, template, originalImageBgs);
 }
 
 function buildDefaultGroup(template, groupType) {

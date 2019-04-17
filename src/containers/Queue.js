@@ -267,27 +267,25 @@ async function getInitialState(props, dispatch) {
 }
 
 function viewFavorites(state) {
-  const favorites = Object.values(state.favorites)
+  const favorites = state.history.filter(f => f.favorited);
+
   return {
     ...state,
-    ephemeral: favorites,
-    list: 'ephemeral',
+    // ephemeral: favorites,
+    list: favorites,
   }
 }
 
-function toggleFavorite(state, flyer) {
-  const favorites = {...state.favorites};
-  if(favorites[flyer.id]) {
-    delete favorites[flyer.id];
-  } 
+function toggleFavorite(state, flyer, update={}) {
+  flyer.favorited = !flyer.favorited;
+  if(inHistory(flyer, state.history)) {
+    update.history = state.history.map(f => f.id === flyer.id ? flyer : f);
+  }
   else {
-    favorites[flyer.id] = flyer;
+    _addToHistory(flyer, state.history, update);
   }
-
-  return {
-    ...state,
-    favorites,
-  }
+  
+  return {...state, ...update};
 }
 
 function updateJourney(state, action, update={}) {
@@ -337,18 +335,18 @@ function setSecondary(state, action, update={}) {
 }
 
 function setList(state, action) {
-  if(action.list === state.generation) {
-    return {
-      ...state,
-      list: [],
-      viewMode: 'grid',
-    }
-  }
+  // if(action.list === state.generation) {
+  //   return {
+  //     ...state,
+  //     list: [],
+  //     viewMode: 'grid',
+  //   }
+  // }
 
   return {
     ...state,
     list: action.list,
-    history: action.skipHistory ? state.history : [...state.history, action.list],
+    // history: action.skipHistory ? state.history : [...state.history, action.list],
   }
 }
 
@@ -368,21 +366,18 @@ function inHistory(flyer, history) {
 function _updateHistory(state, action, update) {
   const history = update.history || state.history;
   if(action.upgrade) {
-    // state.primary._inHistory = true;
-    update.history = [...history, state.primary];
+    _addToHistory(state.primary, history, update);
   }
-  else if(state.secondary && !action.skipHistory && !inHistory(state.secondary, state.history)) {
-    // state.secondary._inHistory = true;
-    update.history = [...history, state.secondary];
+  else if(state.secondary && !action.skipHistory) {
+    _addToHistory(state.secondary, history, update);
   }
 
-  
-  // temporary check
-  const ids = (update.history || []).map(f => f.id);
-  if((new Set(ids)).size !== ids.length) {
-    console.assert(true, 'We got duplicates!');
-  }
+}
 
+function _addToHistory(flyer, history, update) {
+  if(!inHistory(flyer, history)) {
+    update.history = [...history, flyer];
+  }
 }
 
 function _updateList(state, action, update) {

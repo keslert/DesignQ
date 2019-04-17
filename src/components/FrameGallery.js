@@ -4,6 +4,8 @@ import { Box, Flex } from 'rebass';
 import { FixedSizeGrid as Grid } from 'react-window';
 import { DispatchContext } from '../containers/Queue';
 import Toolbar from './Frame/Toolbar';
+import OpacityButton from './OpacityButton';
+import CloseSvg from '../svg/close.svg';
 
 const GridItem = ({ columnIndex, rowIndex, style, data }) => {
   const { flyers, selected, scale, onClick, onFavorite } = data;
@@ -18,7 +20,7 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
       >
         <Toolbar 
           onClick={() => onFavorite(flyer)} 
-          favorite={flyer._favorite} 
+          favorited={flyer.favorited}
           id={"#" + flyer.id}
         />
         <Frame 
@@ -38,7 +40,7 @@ const FLYER_PY = 20;
 const PL = 12 + 36; // CanvasButton.width/2
 const PR = 12;
 const COLUMNS = 2;
-function FrameGallery({flyers, size, selected}) {
+function FrameGallery({flyers, size, selected, ...props}) {
   const ref = useRef();
   const dispatch = useContext(DispatchContext);
   const width = size.width - PL - PR;
@@ -65,7 +67,13 @@ function FrameGallery({flyers, size, selected}) {
   }
 
   return (
-    <Flex flexWrap="wrap" pl={PL} pr={PR} justifyContent="center">
+    <Flex 
+      flexWrap="wrap" 
+      pl={PL} 
+      pr={PR} 
+      justifyContent="center" 
+      className="relative"
+    >
       <Grid
         ref={ref}
         itemData={data}
@@ -79,12 +87,27 @@ function FrameGallery({flyers, size, selected}) {
           type: 'ON_GRID_SCROLL', 
           scrolledToIndex: r.visibleRowStopIndex * COLUMNS,
         })}
-        style={{padding: '40px'}}
       >
         {GridItem}
       </Grid>
+      {props.canClose &&
+        <OpacityButton 
+          color="dark"
+          onClick={props.onCloseClick}
+          style={closeStyle}
+          children={
+            <CloseSvg size={26} />
+          }
+        />
+      }
     </Flex>
   )
 }
 
 export default memo(FrameGallery);
+
+const closeStyle = {
+  position: 'absolute',
+  right: 10,
+  top: 10,
+}

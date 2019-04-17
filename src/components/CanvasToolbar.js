@@ -95,7 +95,7 @@ function CanvasToolbar(props) {
             onMouseDown={props.showCompare && props.onCompareDown}
             onMouseUp={props.showCompare && props.onCompareUp}
             onMouseLeave={props.showCompare && props.onCompareUp}
-            SvgComponent={<EyeSvg size={28} />}
+            SvgComponent={<EyeSvg size={32} />}
             inset={true}
             label="Compare"
           />

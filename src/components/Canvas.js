@@ -39,7 +39,7 @@ function Canvas(props) {
   const showNext = showPrimary && !showGallery && !showStageExhaused;
   const showPrev = showPrimary && !showGallery;
   const showResume = false;
-  const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED);
+  const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED) && !haveList;
   const showUpgrade = showPrimary && props.secondary;
   const showCompare = showPrimary && props.secondary;
   const showSearch = props.stage.key === 'color.background';
@@ -109,7 +109,7 @@ function Canvas(props) {
                 <FrameToolbar 
                   label={`Exploratory Design`} 
                   id={"#" + secondary.id}
-                  favorited={secondary._favorited}
+                  favorited={secondary.favorited}
                   onClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
                 />
                 <Frame 
@@ -130,10 +130,13 @@ function Canvas(props) {
             {!showGallery ? null :
               <FrameGallery
                 flyers={haveList ? props.list : props.stage.currentGeneration}
+                canClose={haveList}
+                onCloseClick={() => rootDispatch({type: 'SET_LIST', list: null})}
                 selected={secondary}
+                onFavorite={flyer => rootDispatch({type: 'TOGGLE_FAVORITE', flyer})}
                 size={{
                   width: (props.size.width / 2) - 1,
-                  height: props.size.height,
+                  height: props.size.height - 1,
                 }}
               />
             }

@@ -9,7 +9,7 @@ function Toolbar(props) {
   return (
     <Flex width="100%" alignItems="center" mb="3px" px="1px">
       <Box flex={1}>
-        {false && 
+        {true && 
           <OpacityButton onClick={props.onClick}>
             <Flex 
               alignItems="center" 
