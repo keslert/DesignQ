@@ -31,7 +31,7 @@ function CanvasToolbar(props) {
       justifyContent="center" 
       alignItems="center" 
       pt={3}
-      style={{position: 'relative'}}
+      style={{position: 'relative', zIndex: 100}}
     >
       {props.show && 
         <React.Fragment>

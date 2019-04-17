@@ -42,7 +42,7 @@ function Canvas(props) {
   const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED) && !haveList;
   const showUpgrade = showPrimary && props.secondary;
   const showCompare = showPrimary && props.secondary;
-  const showSearch = props.stage.key === 'color.background';
+  const showSearch = props.stage.key === 'color.background' && !haveList;
   const showGridBtn = showPrimary && !haveList;
   const showMerge = false && showPrimary;
   

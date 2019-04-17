@@ -17,11 +17,12 @@ Bulk Generation
 
 
 Presenting multiple designs when you don't know what the user wants. For example changing the image. Should you keep the old palette or update to the new image palette?
-
-Merging designs. Can show many possible ways of merging. You can also merge a design by looking at the upgrades between the two designs and merging across all of those updates. Similar to how 3D graphics tools allow you to change an earlier step and carry it forward.
+- Merging designs. Can show many possible ways of merging. You can also merge a design by looking at the upgrades between the two designs and merging across all of those updates. Similar to how 3D graphics tools allow you to change an earlier step and carry it forward.
+- Copying & Pasting. Lots of ways to do it. Present a dialog or just show the different possibilities.
 
 
 Locking.
 
 Sticky Lines paper.
 - This tool would benefit greatly from direct manipulation supported by sticky lines.
+
