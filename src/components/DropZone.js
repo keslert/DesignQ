@@ -21,18 +21,14 @@ function DropZone({
         pointerEvents: draggedItem ? 'all' : 'none',
         top: (item._computed.bb.t + (isAfter
           ? item._computed.bb.h
-          : - height)
+          : -height)
         ),
-        // background: '#00ff0033',
       }}
       children={
         <Box 
           bg={highlight ? "blue" : null}
           width={1} 
-          style={{
-            height: height, 
-            // marginTop: (height - 4) / 2,
-          }} 
+          style={{height}}
         />
       }
     />
@@ -46,7 +42,9 @@ const target = {
   canDrop(props, monitor) {
     const item = monitor.getItem();
     return props.item.kind === item.kind
-      && props.item._root.id === item._root.id;
+      && props.item._root.id === item._root.id
+      && item !== props.item
+      && item._computed.prev !== props.item
   },
 }
 
