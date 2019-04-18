@@ -29,7 +29,6 @@ function ContentForm({flyer}) {
   const initState = React.useMemo(() => {
     const textTypes = getTemplateTextTypes(flyer, true);
     const entries = textTypes.map(t => ([t.type, t.text]))
-    debugger;
     return Object.fromEntries(entries)
   }, [])
 

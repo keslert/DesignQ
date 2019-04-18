@@ -41,7 +41,7 @@ function Queue(props) {
   const [state, dispatch] = useReducer(reducer, {loading: true});
 
   const showExport = state.journey && state.journey.stage.type === 'export';
-  const showSidebar = !showExport && state.selection;
+  const showSidebar = !showExport && state.selection && state.journey.stage.type !== 'content' && !showExport;
   const canvasSize = useMemo(() => ({
     width: windowSize.width - (showSidebar ? 280 : 0),
     height: windowSize.height - 91 - 21, // - navbar - timeline

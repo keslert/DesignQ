@@ -7,9 +7,9 @@ import React, {
   memo,
 } from 'react';
 import Frame from '../components/Frame';
-import styled from 'styled-components';
 import theme from '../styles/theme';
-import { Box } from 'rebass';
+import styled from 'styled-components';
+import { Box, Text } from 'rebass';
 import { FixedSizeList as List } from 'react-window';
 import { DispatchContext } from './Queue';
 import StarSvg from '../svg/star.svg';
@@ -69,6 +69,10 @@ function Timeline({items, selected, width}) {
           />
         </Preview>
       }
+      <div
+        children="history timeline"
+        style={textStyle}
+      />
       <List
         ref={ref}
         itemData={{
@@ -140,6 +144,7 @@ const Block = styled(Box)(props => ({
 const Preview = styled.div(props => ({
   display: 'flex',
   position: 'absolute',
+  zIndex: 9999,
   bottom: '21px',
   left: props.left + 'px',
 }))
@@ -155,3 +160,14 @@ const COLORS = {
   upgrade: 'dark',
   merge: 'off_dark',
 };
+
+const textStyle = {
+  position: 'absolute',
+  bottom: 5,
+  width: '100%',
+  textAlign: 'center',
+  userSelect: 'none',
+  fontStyle: 'italic',
+  fontSize: 10,
+  color: '#9296A0',
+}

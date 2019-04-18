@@ -30,6 +30,10 @@ export const basicStages = [
 		satisfied: () => true,
 		generate: generateBackgroundFilters,
 	},
+];
+
+export const advancedStages = [];
+export const optionalStages = [
 	{
 		type: 'color',
 		key: "color.palette", 
@@ -37,10 +41,7 @@ export const basicStages = [
 		satisfied: () => true,
 		generate: generateAlternatePalettes,
 	}
-];
-
-export const advancedStages = [];
-export const optionalStages = []
+]
 export const stages = [
   ...basicStages,
   ...advancedStages,

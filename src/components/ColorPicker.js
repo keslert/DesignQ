@@ -3,7 +3,6 @@ import { Flex, Box } from 'rebass';
 import { 
   Alpha, 
   ColorWrap,
-  EditableInput, 
   Hue, 
   Saturation, 
 } from 'react-color/lib/components/common';
@@ -11,6 +10,8 @@ import colorHelper from 'react-color/lib/helpers/color';
 import { Input } from './FormInput'
 import styled from 'styled-components';
 import chroma from 'chroma-js';
+import CloseSvg from '../svg/close.svg';
+import OpacityButton from './OpacityButton';
 
 function ColorPicker(props) {
   const [open, setOpen] = useState(false);
@@ -54,6 +55,14 @@ function ColorPicker(props) {
             }
           }}
         />
+        {props.onClear && 
+          <OpacityButton 
+            style={{position: 'absolute', top: '8px', right: '8px'}} 
+            color="gray"
+            onClick={props.onClear}
+            children={<CloseSvg size={16} />}
+          />
+        }
       </Box>
 
       {open && 

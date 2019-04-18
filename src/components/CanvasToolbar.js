@@ -55,7 +55,7 @@ function CanvasToolbar(props) {
             <CanvasButton
               mb={2}
               id="upgrade-btn"
-              label="Upgrade"
+              label="Update"
               SvgComponent={<ArrowSvg size={24} />}
               disabled={!props.showUpgrade}
               onClick={() => dispatch({type: 'STEP', upgrade: true})}

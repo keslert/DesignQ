@@ -68,7 +68,7 @@ export function _updateJourney(state, action, update) {
   };
   const j = update.journey;
   j.stages = mapReplace(state.journey.stages, stage, j.stage)
-  j.recommendedStage = getRecommendedStage(j.stages, primary);
+  j.recommendedStage = getRecommendedStage(j.stage, j.stages, primary);
 
   // The user clicked ahead. Skip any stages of the current type before this new stage
   if(action.stage && stage.index > state.journey.stage.index) {
@@ -84,7 +84,7 @@ export function _updateJourney(state, action, update) {
   // Turned off automatic stage proceeding for now...
   if(action.advanceStage || (false && j.stage.exhausted && canAutomaticallyProceed(state))) {
     j.stage.progress = getMaxProgress(j.stage.progress, ProgressTypes.USER_SKIPPED);
-    const nextRecommended = getRecommendedStage(j.stages, primary); // Necessary when recommended is the same as updatedStage
+    const nextRecommended = getRecommendedStage(j.stage, j.stages, primary); // Necessary when recommended is the same as updatedStage
 
     if(nextRecommended) {
       const updatedRecommended = getUpdatedStage(nextRecommended, primary, {stage: nextRecommended}, state);
@@ -175,17 +175,25 @@ function getMaxProgress(p1, p2) {
   )]
 }
 
-function getRecommendedStage(stages, primary) {
+function getRecommendedStage(currentStage, stages, primary) {
+
+
+
   const stage = _.find(stages, stage => {
     // Confidence
     // Progress
     // Satisfied
     return (
       stage.inJourney
+      && stage.index >  currentStage.index
       && (
         !stage.satisfied(primary)
-        || (stage.progress === ProgressTypes.UNEXPLORED && stage.type !== 'content')
+        || stage.type !== 'content'
       )
+      // && (
+      //   !stage.satisfied(primary)
+      //   || (stage.progress === ProgressTypes.UNEXPLORED && stage.type !== 'content')
+      // )
     )
   })
   return stage;
