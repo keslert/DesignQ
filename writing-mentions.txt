@@ -26,3 +26,12 @@ Locking.
 Sticky Lines paper.
 - This tool would benefit greatly from direct manipulation supported by sticky lines.
 
+
+The cost of switching
+- Even in DesignQ, Jingyi was hesitant to switch to a new layout because not enough of her current design transferred over.
+- This is pretty much a guaranteed cost with Canva.
+
+
+
+The fixation is real. People get fixated quickly and want to dive deep on something or tweak it without doing a thorough exploration first.
+If someone discovers the sidepanel too early and begings to make many changes (especially layout changes) this can be suboptimal. This may be an education opportunity. You could hide this functionality. Or, you could make the smart path much easier to go down.

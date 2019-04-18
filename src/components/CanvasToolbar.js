@@ -62,16 +62,18 @@ function CanvasToolbar(props) {
             />
           </Box>
 
-          <Box mb={3}>
-            <CanvasButton
-              mb={2}
-              id="next-stage-btn"
-              label="Next Stage"
-              SvgComponent={<JourneySvg size={45} />}
-              disabled={!props.showAdvance}
-              onClick={props.showAdvance ? () => dispatch({type: 'ADVANCE_STAGE'}) : null}
-            />
-          </Box>
+          {false && 
+            <Box mb={3}>
+              <CanvasButton
+                mb={2}
+                id="next-stage-btn"
+                label="Next Stage"
+                SvgComponent={<JourneySvg size={45} />}
+                disabled={!props.showAdvance}
+                onClick={props.showAdvance ? () => dispatch({type: 'ADVANCE_STAGE'}) : null}
+              />
+            </Box>
+          }
           
           <CanvasButton
             mb={2}

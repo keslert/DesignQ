@@ -238,7 +238,7 @@ async function getInitialState(props, dispatch) {
       secondary: null,
       list: [],
       history: [],
-      viewMode: 'comparison',
+      viewMode: 'grid',
       journey: getInitialJourney('basic'),
       imageCache: {},
       lastImageSearch: {
