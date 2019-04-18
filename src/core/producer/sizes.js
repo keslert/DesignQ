@@ -89,7 +89,7 @@ function computeGroupSizes(template, group, dominant) {
 
 function computeElementsFontSizes(elements, settings) {
   if(!elements || !elements.length) return;
-    
+
   const largestWidth = _.max(elements.map(measureText))
 
   const maxWidth = _.sortBy(elements, el => el.maxW)[0]._computed.maxW;
@@ -182,7 +182,7 @@ export function measureText(t) {
     const isArray = Array.isArray(line.text);
     const str = isArray ? line.text.join('') : line.text;
     
-    line.w = measureTextWidth(str, t.font);
+    line.w = measureTextWidth(str, t.font) || 999;
     line.ratio = FONT_MEASURE_SIZE / line.w;
 
     if(t.font.letterSpacing) {
