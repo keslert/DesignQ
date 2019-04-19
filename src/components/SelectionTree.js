@@ -71,7 +71,7 @@ function SelectionTree() {
   }, [flyer]);
 
   return (
-    <Box>
+    <Box style={{borderTop: '1px solid hsla(222, 19%, 24%, 1)'}}>
       <OpacityButton onClick={() => setOpen(!open)}>
         <Text
           px="16px"

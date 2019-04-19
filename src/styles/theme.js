@@ -80,7 +80,8 @@ theme.buttons = {
     '&:hover': {
       background: theme.colors.lightgray_darken,
     }
-  }
+  },
+  plain: {},
 }
 
 

@@ -13,7 +13,7 @@ function ImageSearchInput() {
       disabled={lastSearch.fetching}
       searching={lastSearch.fetching}
       defaultValue={lastSearch.query}
-      borderColor="red"
+      borderColor="yellow"
       onSubmit={value => dispatch({
         type: 'INIT_IMAGE_SEARCH', 
         dispatch, 

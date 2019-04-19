@@ -13,7 +13,7 @@ const NavItem = styled(Flex)(props => ({
 }))
 
 NavItem.defaultProps = {
-  p: "18px",
+  p: "22px",
   flex: 1,
   color: 'white',
   justifyContent: 'center',

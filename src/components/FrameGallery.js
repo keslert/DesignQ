@@ -21,7 +21,7 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
   return (
     <div style={style}>
       <Box 
-        mt={data.frameMarginT + 'px'}
+        my={data.frameMarginY + 'px'}
         mx={data.frameMarginX + 'px'} 
       >
         <Frame 
@@ -56,7 +56,7 @@ function FrameGallery({
   canDownload=true,
   canFavorite=true,
   hideToolbar,
-  frameMarginT=20,
+  frameMarginY=20,
   frameMarginX=12,
   ...props
 }) {
@@ -65,7 +65,7 @@ function FrameGallery({
   const columnWidth = size.width / columns;
   const flyerSize = flyers[0] ? flyers[0].size : {};
   const scale = (columnWidth - frameMarginX * 2) / flyerSize.w;
-  const rowHeight = flyerSize.h * scale + frameMarginT + (hideToolbar ? 0 : TOOLBAR_HEIGHT);
+  const rowHeight = flyerSize.h * scale + frameMarginY * 2 + (hideToolbar ? 0 : TOOLBAR_HEIGHT);
 
   useLayoutEffect(() => {
     const index = Math.max(flyers.indexOf(selected), 0)
@@ -78,7 +78,7 @@ function FrameGallery({
     selected,
     columns,
     hideToolbar,
-    frameMarginT,
+    frameMarginY,
     frameMarginX,
     onClick: props.onSelect,
     onCompareDown: !canCompare ? null : flyer => {

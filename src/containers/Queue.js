@@ -40,12 +40,13 @@ function Queue(props) {
   const windowSize = useWindowSize();
   const [state, dispatch] = useReducer(reducer, {loading: true});
 
-  const showExport = state.journey && state.journey.stage.type === 'export';
-  const showSidebar = !showExport && state.selection && state.journey.stage.type !== 'content' && !showExport;
+  const hideSidebar = !state.journey || state.journey.stage.type === 'content';
+  const sidebarOpen = !hideSidebar && state.sidebarOpen;
+
   const canvasSize = useMemo(() => ({
-    width: windowSize.width - (showSidebar ? 280 : 0),
-    height: windowSize.height - 91, // - navbar
-  }), [windowSize, showSidebar]);
+    width: windowSize.width - (sidebarOpen ? 280 : 0),
+    height: windowSize.height - 99, // - navbar
+  }), [windowSize, sidebarOpen]);
 
   // Do initial loading
   useLayoutEffect(() => {
@@ -102,23 +103,19 @@ function Queue(props) {
         <Flex flex={1}>
           <Flex flex={1} flexDirection="column">
             <Box flex={1}>
-              {showExport
-                ? <Export
-                    primary={state.primary}
-                  />
-                : <Canvas
-                    size={canvasSize}
-                    stage={state.journey.stage}
-                    primary={state.primary}
-                    secondary={state.secondary}
-                    list={state.list}
-                    viewMode={state.viewMode}
-                  />
-              }
+              <Canvas
+                size={canvasSize}
+                stage={state.journey.stage}
+                primary={state.primary}
+                secondary={state.secondary}
+                list={state.list}
+                viewMode={state.viewMode}
+              />
             </Box>
           </Flex>
-          {true && 
+          {!hideSidebar && 
             <Sidebar
+              open={sidebarOpen}
               size={canvasSize}
               history={state.history}
               panel={state.sidebarPanel}
@@ -181,12 +178,19 @@ const reducer = (state, action) => {
       return {...state, viewMode: action.viewMode}
     case 'SET_LIST':
       return setList(state, action);
+    case 'SET_SIDEBAR_PANEL':
+      return {...state, sidebarPanel: action.panel, sidebarOpen: true}
+    case 'TOGGLE_SIDEBAR':
+      return {...state, 
+        sidebarOpen: !state.sidebarOpen, 
+        selected: state.sidebarOpen ? null : state.selected
+      }
     case 'VIEW_FAVORITES':
       return viewFavorites(state)
     case 'TOGGLE_FAVORITE':
       return toggleFavorite(state, action.flyer)
     case 'SELECT':
-      return {...state, selection: action.selection};
+      return select(state, action);
     case 'UPDATE_SELECTED':
       return updateSelected(state, action);
     case 'INIT_IMAGE_SEARCH':
@@ -241,6 +245,7 @@ async function getInitialState(props, dispatch) {
       list: [],
       history: [],
       sidebarPanel: 'history',
+      sidebarOpen: true,
       viewMode: 'comparison',
       journey: getInitialJourney('basic'),
       imageCache: {},
@@ -297,21 +302,23 @@ function updateJourney(state, action, update={}) {
 }
 
 function next(state, action) {
-  let index = state.history.indexOf(state.secondary) + 1;
-  if(index === 0 || index >= state.history.length) {
+  // let index = state.history.indexOf(state.secondary) + 1;
+  // if(index === 0 || index >= state.history.length) {
     return step(state, action);
-  }
-  return setSecondary(state, {secondary: state.history[index]})
+  // }
+  // return setSecondary(state, {secondary: state.history[index]})
 }
 
 function prev(state, action) {
-  let index = state.history.indexOf(state.secondary);
-  if(index === -1) {
-    index = state.history.length;
-  }
-  index = Math.max(0, index - 1);
-  const secondary = state.history[index];
-  return secondary ? setSecondary(state, {secondary}) : state;
+  // let index = state.history.indexOf(state.secondary);
+  // if(index === -1) {
+  //   index = state.history.length;
+  // }
+  // index = Math.max(0, index - 1);
+  // const secondary = state.history[index];
+  // return secondary ? setSecondary(state, {secondary}) : state;
+  // const secondary = state.journey.state.
+  return step(state, {prev: true});
 }
 
 // A step in our hero's journey.
@@ -371,15 +378,15 @@ function _updateHistory(state, action, update) {
   if(action.upgrade) {
     _addToHistory(state.primary, history, update);
   }
-  else if(state.secondary && !action.skipHistory) {
-    _addToHistory(state.secondary, history, update);
-  }
+  // else if(state.secondary && !action.skipHistory) {
+  //   _addToHistory(state.secondary, history, update);
+  // }
 
 }
 
 function _addToHistory(flyer, history, update) {
   if(!inHistory(flyer, history)) {
-    update.history = [...history, flyer];
+    update.history = [flyer, ...history];
   }
 }
 
@@ -597,6 +604,29 @@ function updateJourneyStage(state, action) {
     stages,
     stage: stages.find(s => s.key === state.journey.stage.key),
   }}
+}
+
+function select(state, action) {
+  if(!action.selection) {
+    return {...state, selection: null};
+  }
+
+  if(action.selection._root === state.primary) {
+    const copy = copyFlyer(state.primary);
+    const selection = getItemFromTemplate(action.selection, copy);
+    return {...state, 
+      selection,
+      secondary: copy,
+      sidebarOpen: true,
+      sidebarPanel: 'edit',
+    }
+  }
+
+  return {...state,
+    selection: action.selection,
+    sidebarOpen: true,
+    sidebarPanel: 'edit',
+  }
 }
 
 function reorder(state, {source, target, isAfter}) {

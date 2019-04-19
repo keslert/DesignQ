@@ -126,6 +126,14 @@ function getUpdatedStage(stage, primary, action, state) {
       exhausted: false,
     }
   }
+
+  if(action.prev) {
+    return {
+      ...stage,
+      currentGenerationIndex: Math.max(0, stage.currentGenerationIndex - 1),
+      exhausted: false,
+    }
+  }
   
   if(stage.exhausted && action.stage) {
     return {

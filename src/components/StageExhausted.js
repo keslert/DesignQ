@@ -3,14 +3,17 @@ import { Flex, Box, Text } from 'rebass';
 import Button from './Button';
 import MountainSvg from '../svg/mountain';
 import { DispatchContext } from '../containers/Queue';
+import { STAGE_COLORS } from '../core/utils/color-utils';
 
-function StageExhausted() {
+function StageExhausted(props) {
   const dispatch = useContext(DispatchContext);
+
+  const color = STAGE_COLORS[props.stage.type];
 
   return (
     <Flex flex={1} justifyContent="center" pr={4} pl={5} alignItems="center" flexDirection="column">
-      <Box color="lightgray_darken" mb={4}>
-        <MountainSvg size={280} />
+      <Box color={color + "_dark"} mb={4}>
+        <MountainSvg size={280} opacity={.1} />
       </Box>
 
       <Text
@@ -24,6 +27,8 @@ function StageExhausted() {
 
       <Box>
         <Button 
+          variant="plain"
+          bg={color}
           onClick={() => dispatch({type: 'ADVANCE_STAGE'})}
           children="Advance to next stage"
           width={260}

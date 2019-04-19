@@ -151,7 +151,7 @@ function Canvas(props) {
             }
 
             {!showStageExhaused ? null :
-              <StageExhausted />
+              <StageExhausted stage={props.stage} />
             }
 
           </Flex>

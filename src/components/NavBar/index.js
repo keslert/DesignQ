@@ -81,7 +81,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   return (
     <Box>
       <Flex style={{position: 'relative', zIndex: 1000}} ref={ref} bg="dark">
-        <NavItem flex={0} py={0} bg={marker.color} width={50} mr="1px">
+        <NavItem flex={0} py={0} bg={marker.color} width={58} mr="1px">
           <QSvg fill='currentColor' size={20} />
         </NavItem>
         {stages.map((stage, i) => (
@@ -96,7 +96,8 @@ function NavBar({stage, recommendedStage, stageProgress}) {
               <NavText
                 text={stage.label}
                 visible={
-                  stageCueVisible 
+                  false 
+                  && stageCueVisible 
                   && !stageFociVisible 
                   && recommendedStage && recommendedStage.type === stage.type
                 }
