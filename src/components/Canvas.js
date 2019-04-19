@@ -136,7 +136,7 @@ function Canvas(props) {
             }
 
             {!showGallery ? null :
-              <Box pl={12 + 36} pr={12}>
+              <Box pl={48 + 36} pr={48}>
                 <FrameGallery
                   flyers={haveList ? props.list : props.stage.currentGeneration}
                   canClose={haveList}
@@ -147,7 +147,7 @@ function Canvas(props) {
                   frameMarginY={20}
                   selected={secondary}
                   size={{
-                    width: (props.size.width / 2) - 1 - 12 - 12 - 36,
+                    width: (props.size.width / 2) - 1 - 48 - 48 - 36,
                     height: props.size.height - 1,
                   }}
                 />

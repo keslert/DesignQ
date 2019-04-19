@@ -37,20 +37,23 @@ function CanvasToolbar(props) {
             </Box>
           }
 
+          
           <Box mb={3}>
-            <CanvasButton
-              mb={2}
-              id="next-design-btn"
-              label="Next Design"
-              SvgComponent={<RocketshipSvg size={40} />}
-              disabled={!props.showNext}
-              onClick={() => dispatch({type: 'NEXT'})}
-              footer={{
-                label: 'Previous',
-                disabled: !props.showPrev,
-                onClick: () => dispatch({type: 'PREV'}),
-              }}
-            />
+            {props.viewMode !== 'grid' && 
+              <CanvasButton
+                mb={2}
+                id="next-design-btn"
+                label="Next Design"
+                SvgComponent={<RocketshipSvg size={40} />}
+                disabled={!props.showNext}
+                onClick={() => dispatch({type: 'NEXT'})}
+                footer={{
+                  label: 'Previous',
+                  disabled: !props.showPrev,
+                  onClick: () => dispatch({type: 'PREV'}),
+                }}
+              />
+            }
 
             <CanvasButton
               mb={2}
@@ -68,7 +71,7 @@ function CanvasToolbar(props) {
                 SvgComponent={<GridSvg size={28} />}
                 color={props.viewMode === 'grid' ? 'blue' : 'dark'}
                 highlight={props.viewMode === 'grid'}
-                label="Grid View"
+                label="Show Grid"
               />
             }
           </Box>

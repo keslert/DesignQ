@@ -16,6 +16,7 @@ import { ProgressTypes } from "../../core/journey";
 import SubNavItem from './SubNavItem';
 import NavText from './NavText';
 import { STAGES } from '../../core/generator';
+import { STAGE_COLORS } from '../../core/utils/color-utils';
 
 const stages = [
   {label: 'Text', color: 'green', type: 'content'}, 
@@ -77,6 +78,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
 
   const foci = STAGES[stage.type].length !== 1 ? STAGES[stage.type] : [];
 
+  const color = STAGE_COLORS[stage.type];
 
   return (
     <Box>
@@ -89,7 +91,8 @@ function NavBar({stage, recommendedStage, stageProgress}) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             key={stage.label}
-            color={stage.color}
+            color={color}
+            // bg={i === selectedIndex ? color : 'dark'}
             selected={i === selectedIndex}
             onClick={() => handleClick(stage.type)}
             children={
@@ -147,7 +150,8 @@ function NavBar({stage, recommendedStage, stageProgress}) {
                 <NavText
                   text={label}
                   visible={
-                    stageCueVisible 
+                    false
+                    && stageCueVisible 
                     && stageFociVisible 
                     && key === recommendedStage.key
                   }

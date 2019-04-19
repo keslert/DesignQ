@@ -32,7 +32,7 @@ export const stages = [
   ...optionalStages,
 ]
 
-function generateAlternatePalettes(flyer, {state}) {
+function generateAlternatePalettes(flyer, {state, templates}) {
 	// complements
 	// tertiary
 	// monochrome
@@ -66,6 +66,21 @@ function generateAlternatePalettes(flyer, {state}) {
 			})
 		})))
 	}
+
+	const uniqPalettes = _.uniqBy(Object.values(templates), t => t.palette.dark)
+	const alpha = _.get(flyer, ['background', 'color', 'alpha'], .5);
+	generated.push(...uniqPalettes.map(t => {
+		const copy = copyTemplate(flyer);
+		copy.background.color = t.background.color;
+		if(copy.background.img) {
+			fixAlpha(copy.background.color, alpha);
+		}
+		copy.palette = t.palette;
+		mimicBackgroundColors(copy, flyer);
+		mimicForegroundColors(copy, flyer);
+		return copy;
+	}))
+
 
 	return generated;
 }
