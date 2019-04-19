@@ -6,6 +6,7 @@ import { DispatchContext } from '../containers/Queue';
 import Toolbar from './Frame/Toolbar';
 import OpacityButton from './OpacityButton';
 import CloseSvg from '../svg/close.svg';
+import { exportFlyer } from '../core/utils/export-utils';
 
 const GridItem = ({ columnIndex, rowIndex, style, data }) => {
   const { 
@@ -24,15 +25,10 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
         my={data.frameMarginY + 'px'}
         mx={data.frameMarginX + 'px'} 
       >
-        <Frame 
-          onClick={() => onClick(flyer)}
-          className={`selectable ${selected === flyer && 'selected'}`}
-          flyer={flyer}
-          scale={scale}
-        />
         {!data.hideToolbar &&
           <Toolbar
             id={"#" + flyer.id}
+            iconSize={0.8}
             onDownloadClick={() => data.onDownload(flyer)}
             onCompareDown={() => data.onCompareDown(flyer)}
             onCompareUp={data.onCompareUp}
@@ -40,6 +36,12 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
             onFavoriteClick={() => data.onFavorite(flyer)}
           />
         }
+        <Frame 
+          onClick={() => onClick(flyer)}
+          className={`selectable ${selected === flyer && 'selected'}`}
+          flyer={flyer}
+          scale={scale}
+        />
       </Box>
     </div>
   )
@@ -88,7 +90,8 @@ function FrameGallery({
       dispatch({type: 'SET_COMPARISON', flyer: null});
     },
     onDownload: !canDownload ? null : flyer => {
-      dispatch({type: 'DOWNLOAD_FLYER', flyer});
+      exportFlyer(flyer);
+      // dispatch({type: 'DOWNLOAD_FLYER', flyer});
     },
     onFavorite: !canFavorite ? null : flyer => {
       dispatch({type: 'TOGGLE_FAVORITE', flyer});

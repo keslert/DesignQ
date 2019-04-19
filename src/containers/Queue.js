@@ -1,9 +1,7 @@
 import React, { useReducer, useMemo, useLayoutEffect, useEffect } from 'react';
 import Canvas from '../components/Canvas';
-import Export from './Export';
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
-import Timeline from './Timeline';
 import * as starters from '../core/data/starters';
 import { produceFlyer } from '../core/producer';
 import { Flex, Box } from 'rebass';
@@ -25,6 +23,7 @@ import { fetchImageSearch } from '../core/fetch';
 import { processImage, clearImageProcessingQueue } from '../core/utils/color-utils';
 import loadState from '../core/data/load-states/celebrate'
 import Onboarding from '../components/Onboarding';
+import { exportFlyer } from '../core/utils/export-utils';
 
 export const DispatchContext = React.createContext();
 export const SelectionContext = React.createContext();
@@ -108,6 +107,7 @@ function Queue(props) {
                 stage={state.journey.stage}
                 primary={state.primary}
                 secondary={state.secondary}
+                comparison={state.comparison}
                 list={state.list}
                 viewMode={state.viewMode}
               />
@@ -151,7 +151,6 @@ const reducer = (state, action) => {
       return action.state;
     case 'STEP':
       return step(state, {...action, nextDesign: true})
-
     case 'NEXT':
       return next(state, {...action, nextDesign: true});
     case 'PREV':
@@ -162,12 +161,10 @@ const reducer = (state, action) => {
       return step(state, {...action, advanceStage: true})
     case 'ON_GRID_SCROLL':
       return updateJourney(state, action);
-
-
     case 'SET_SECONDARY':
       return setSecondary(state, action);
     case 'SET_COMPARISON':
-      return {...state, comparison: state.flyer}
+      return {...state, comparison: action.flyer}
     case 'SET_HISTORY':
       return {...state, history: action.history}
     case 'UPDATE_JOURNEY_STAGE':
@@ -189,6 +186,8 @@ const reducer = (state, action) => {
       return viewFavorites(state)
     case 'TOGGLE_FAVORITE':
       return toggleFavorite(state, action.flyer)
+    case 'TOGGLE_FAVORITE_SECONDARY':
+      return toggleFavorite(state, state.secondary);
     case 'SELECT':
       return select(state, action);
     case 'UPDATE_SELECTED':
@@ -246,7 +245,7 @@ async function getInitialState(props, dispatch) {
       history: [],
       sidebarPanel: 'history',
       sidebarOpen: true,
-      viewMode: 'comparison',
+      viewMode: 'grid',
       journey: getInitialJourney('basic'),
       imageCache: {},
       lastImageSearch: {
@@ -318,7 +317,7 @@ function prev(state, action) {
   // const secondary = state.history[index];
   // return secondary ? setSecondary(state, {secondary}) : state;
   // const secondary = state.journey.state.
-  return step(state, {prev: true});
+  return step(state, {prevDesign: true});
 }
 
 // A step in our hero's journey.
@@ -619,6 +618,7 @@ function select(state, action) {
       secondary: copy,
       sidebarOpen: true,
       sidebarPanel: 'edit',
+      viewMode: 'comparison',
     }
   }
 
@@ -626,6 +626,7 @@ function select(state, action) {
     selection: action.selection,
     sidebarOpen: true,
     sidebarPanel: 'edit',
+    viewMode: 'comparison',
   }
 }
 

@@ -10,10 +10,10 @@ import { useKeyDown } from '../core/lib/hooks';
 import { ProgressTypes } from '../core/journey';
 import StageExhausted from './StageExhausted';
 import { STAGE_COLORS } from '../core/utils/color-utils';
+import { exportFlyer } from '../core/utils/export-utils';
 
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
-  const [comparison, setComparison] = useState(null);
   const clearSelection = useCallback(e => {
     if(e.target === e.currentTarget) {
       rootDispatch({type: 'SELECT', selection: null});
@@ -42,7 +42,7 @@ function Canvas(props) {
   useKeyDown(handleKeyPress);
   
   const showNext = showPrimary && !showGallery && !showStageExhaused;
-  const showPrev = showPrimary && !showGallery;
+  const showPrev = showPrimary && !showGallery && props.stage.currentGenerationIndex !== 0;
   const showResume = false;
   const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED) && !haveList;
   const showUpgrade = showPrimary && props.secondary;
@@ -51,6 +51,7 @@ function Canvas(props) {
   const showGridBtn = showPrimary && !haveList;
   const showMerge = false && showPrimary;
   
+  const comparison = props.comparison;
   const primary = comparison || (!showPrimary ? props.secondary : props.primary)
   const secondary = props.secondary;
 
@@ -73,7 +74,7 @@ function Canvas(props) {
                 label="Primary Design"
                 favorited={primary.favorited}
                 onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: primary})}
-                onDownloadClick={() => null}
+                onDownloadClick={() => exportFlyer(primary)}
               />
               
               <Frame 
@@ -114,8 +115,8 @@ function Canvas(props) {
                   id={"#" + secondary.id}
                   label="Exploratory Design"
                   favorited={secondary.favorited}
-                  onCompareDown={() => setComparison(secondary)}
-                  onCompareUp={() => setComparison(null)}
+                  onCompareDown={() => rootDispatch({type: 'SET_COMPARISON', flyer: secondary})}
+                  onCompareUp={() => rootDispatch({type: 'SET_COMPARISON', flyer: null})}
                   onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
                   onDownloadClick={() => null}
                 />
@@ -141,6 +142,9 @@ function Canvas(props) {
                   canClose={haveList}
                   onCloseClick={() => rootDispatch({type: 'SET_LIST', list: null})}
                   onSelect={handleGridSelectFlyer}
+                  columns={2}
+                  frameMarginX={12}
+                  frameMarginY={20}
                   selected={secondary}
                   size={{
                     width: (props.size.width / 2) - 1 - 12 - 12 - 36,
@@ -179,4 +183,8 @@ const makeHandleKeyPress = dispatch => e => {
     e.preventDefault();
     dispatch({type: 'STEP', upgrade: true});
   }
+  else if(e.code === 'KeyL') {
+    dispatch({type: 'TOGGLE_FAVORITE_SECONDARY'});
+  }
+  console.log(e.code);
 }

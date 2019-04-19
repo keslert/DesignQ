@@ -133,6 +133,11 @@ function NavBar({stage, recommendedStage, stageProgress}) {
           boxShadow: '0 0px 1px rgba(0,0,0,.25)'
         }}
       >
+        <div style={{
+            flexShrink: 1,
+            width: marker.l - 50,
+          }}
+        />
         {foci.map(({type, key, label}) => (
           <Box key={key} mr={1}>
             <SubNavItem

@@ -7,6 +7,7 @@ import DownloadSvg from '../../svg/download.svg';
 
 
 function Toolbar({
+  iconSize=1,
   canFavorite=true,
   canCompare=true,
   canDownload=true,
@@ -14,7 +15,7 @@ function Toolbar({
 }) {
 
   return (
-    <Flex width="100%" alignItems="center" mt="1px" px="1px">
+    <Flex width="100%" alignItems="center" mb="1px" px="1px">
       {/* <Flex flex={1}>
                   
       </Flex> */}
@@ -33,7 +34,7 @@ function Toolbar({
             title="Favorite"
             color={props.favorited ? 'red' : 'gray'}
             onClick={props.onFavoriteClick}
-            children={<HeartSvg size={18} />}
+            children={<HeartSvg size={18 * iconSize} />}
           />
         }
         
@@ -45,7 +46,7 @@ function Toolbar({
             onMouseDown={props.onCompareDown}
             onMouseUp={props.onCompareUp}
             onMouseLeave={props.onCompareUp}
-            children={<EyeSvg size={18} />}
+            children={<EyeSvg size={18 * iconSize} />}
           />
         }
 
@@ -55,7 +56,7 @@ function Toolbar({
             color='gray'
             title="Download"
             onClick={props.onDownloadClick}
-            children={<DownloadSvg size={15} />}
+            children={<DownloadSvg size={15 * iconSize} />}
           />
         }
       </Flex>

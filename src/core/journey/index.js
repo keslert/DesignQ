@@ -127,7 +127,7 @@ function getUpdatedStage(stage, primary, action, state) {
     }
   }
 
-  if(action.prev) {
+  if(action.prevDesign) {
     return {
       ...stage,
       currentGenerationIndex: Math.max(0, stage.currentGenerationIndex - 1),
