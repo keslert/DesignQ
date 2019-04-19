@@ -68,11 +68,11 @@ function Queue(props) {
     }
   }, [state.primary])
 
-  useEffect(() => {
-    if(state.primary) {
-      checkImageSearch(state, dispatch);
-    }
-  }, [state.primary])
+  // useEffect(() => {
+  //   if(state.primary) {
+  //     checkImageSearch(state, dispatch);
+  //   }
+  // }, [state.primary])
 
   useEffect(() => {
     if(state.imageCache) {
@@ -220,8 +220,8 @@ async function getInitialState(props, dispatch) {
     const startFlyer = starters[query.starter] || (
       process.env.NODE_ENV === 'production'  
         ? starters.empty 
-        // : starters.empty
-        : starters.simpleBody
+        : starters.empty
+        // : starters.simpleBody
         // : starters.imageBackground
     )
     linkTemplate(startFlyer);
@@ -234,8 +234,8 @@ async function getInitialState(props, dispatch) {
       ? {type: query.stage.split('.')[0], key: query.stage}
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
-        // : {type: 'content', key: 'content.text' } 
-        : {type: 'layout', key: 'layout.structure'}
+        : {type: 'content', key: 'content.text' } 
+        // : {type: 'layout', key: 'layout.structure'}
         // : {type: 'color', key: 'image.image'}
     const state = step({
       primary: startFlyer,
@@ -325,8 +325,8 @@ function step(state, action, update={}) {
   _updatePrimary(state, action, update);
   _updateList(state, action, update);
   _updateJourney(state, action, update);
-  _updateHistory(state, action, update);
   _updateSecondary(state, action, update);
+  _updateHistory(state, action, update);
   _updateSelection(state, action, update);
 
   return {...state, ...update}
@@ -335,9 +335,9 @@ function step(state, action, update={}) {
 function setSecondary(state, action, update={}) {
   if(!action.secondary) return state;
 
+  _updateSecondary(state, action, update);
   _updateHistory(state, action, update);
   _updateList(state, action, update);
-  _updateSecondary(state, action, update);
   _updateSelection(state, action, update);
 
   return {...state, ...update};
@@ -375,11 +375,16 @@ function inHistory(flyer, history) {
 function _updateHistory(state, action, update) {
   const history = update.history || state.history;
   if(action.upgrade) {
-    _addToHistory(state.primary, history, update);
+    if(state.primary.id !== 1) {
+      _addToHistory(state.primary, history, update);
+    }
   }
-  // else if(state.secondary && !action.skipHistory) {
-  //   _addToHistory(state.secondary, history, update);
-  // }
+  else if(state.secondary && !action.skipHistory) {
+    const secondary = update.secondary || {};
+    if(secondary.editId !== state.secondary.editId) {
+      _addToHistory(state.secondary, history, update);
+    }
+  }
 
 }
 
@@ -505,18 +510,20 @@ function patchFlyer(flyer, type, cache) {
   return flyer;
 }
 
-function checkImageSearch(state, dispatch) {
-  const search = state.lastImageSearch;
-  const text = state.primary.keywords;
-  if(!search.userProvided && text && text !== search.text) {
-    const query = text; // getKeyword(text);
-    if(query !== search.query) {
-      initImageSearch(state, {query, userProvided: false, dispatch});
-    }
-  }
-} 
+// function checkImageSearch(state, dispatch) {
+//   const search = state.lastImageSearch;
+//   const text = state.primary.keywords;
+//   if(!search.userProvided && text && text !== search.text) {
+//     const query = text; // getKeyword(text);
+//     initImageSearch(state, {query, userProvided: false, dispatch});
+//   }
+// } 
 
-function initImageSearch(state, {query, userProvided, dispatch}) {
+export function initImageSearch(state, {query, userProvided, dispatch}) {
+  if(!query || !query.trim().length || query === state.lastImageSearch.query) {
+    return state;
+  }
+
   fetchImageSearch(query)
   .then(res => {
     const photos = res.data.photos;

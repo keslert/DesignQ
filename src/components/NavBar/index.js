@@ -135,7 +135,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
       >
         <div style={{
             flexShrink: 1,
-            width: marker.l - 50,
+            width: (marker.l || 0) - 50,
           }}
         />
         {foci.map(({type, key, label}) => (

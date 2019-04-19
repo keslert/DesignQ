@@ -6,6 +6,7 @@ import produce from 'immer'
 import { DispatchContext } from './Queue';
 import { getTemplateTextTypes } from '../core/utils/template-utils';
 import isEqual from 'lodash/isEqual';
+import { useDebounce } from '../core/lib/hooks';
 
 const reducer = produce((draft, {name, value}) => {
   draft[name] = value;
@@ -29,10 +30,14 @@ function ContentForm({flyer}) {
   const initState = React.useMemo(() => {
     const textTypes = getTemplateTextTypes(flyer, true);
     const entries = textTypes.map(t => ([t.type, t.text]))
-    return Object.fromEntries(entries)
+    const state = Object.fromEntries(entries)
+    state.keywords = flyer.keywords;
+    return state;
   }, [])
 
   const [state, dispatch] = useReducer(reducer, initState)
+
+  const keywords = useDebounce(state.keywords, 3000);
 
   useEffect(() => {
     if(isEqual(state, initState)) return;
@@ -49,6 +54,18 @@ function ContentForm({flyer}) {
       userInput: {text, keywords: state.keywords}
     })
   }, [state])
+
+  useEffect(() => {
+    if(keywords) {
+      rootDispatch({type: 'INIT_IMAGE_SEARCH',
+        userProvided: true,
+        query: keywords,
+        dispatch: rootDispatch,
+      })
+      // TODO: Switch this to a debounceCallback instead of a debounced value, 
+      // since this won't get called if the user exits the form before the debounce time.
+    }
+  }, [keywords]);
 
   const handleDone = useCallback(() => {
     // Clear the stage so the generator can take over.

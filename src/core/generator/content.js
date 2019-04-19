@@ -28,7 +28,7 @@ export const stages = [
 function generateContent(flyer, { userInput }) {
   const copy = copyTemplate(flyer);
   copy._textTypes = userInput ? userInput.text : copy._textTypes;
-  copy.keywords = userInput ? userInput.keywords : '';
+  copy.keywords = userInput ? userInput.keywords : (copy.keywords || '');
   mimicTemplateLayout(copy, flyer); 
 
   return [copy];
