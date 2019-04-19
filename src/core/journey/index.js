@@ -1,5 +1,6 @@
 import { generateFlyers, STAGES } from '../generator';
 import { basicStages as basicContentStages } from '../generator/content';
+import { basicStages as basicImageStages } from '../generator/image';
 import { basicStages as basicLayoutStages } from '../generator/layout';
 import { basicStages as basicTypographyStages } from '../generator/typography';
 import { basicStages as basicColorStages } from '../generator/color';
@@ -15,12 +16,13 @@ window.__flyerId = 3; // eslint-disable-line no-restricted-globals
 const JOURNEYS = {
   basic: [
     ...basicContentStages,
+    ...basicImageStages,
     ...basicLayoutStages,
     ...basicColorStages,
     ...basicTypographyStages,
     // ...basicDecorationStages,
     // ...basicPolishStages,
-    ...basicExportStages,
+    // ...basicExportStages,
   ].map(stage => ({type: stage.type, key: stage.key}))
 }
 
@@ -28,12 +30,13 @@ export function getInitialJourney(type='basic') {
   const journey = JOURNEYS[type];
   const stages = [
     ...STAGES.content,
+    ...STAGES.image,
     ...STAGES.layout,
     ...STAGES.color,
     ...STAGES.typography,
     // ...STAGES.decoration,
     // ...STAGES.polish,
-    ...STAGES.export,
+    // ...STAGES.export,
   ].map((stage, i) => ({
     type: stage.type, 
     key: stage.key,

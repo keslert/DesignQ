@@ -60,53 +60,20 @@ function CanvasToolbar(props) {
               disabled={!props.showUpgrade}
               onClick={() => dispatch({type: 'STEP', upgrade: true})}
             />
-          </Box>
 
-          {false && 
-            <Box mb={3}>
+            {props.showGrid &&
               <CanvasButton
                 mb={2}
-                id="next-stage-btn"
-                label="Next Stage"
-                SvgComponent={<JourneySvg size={45} />}
-                disabled={!props.showAdvance}
-                onClick={props.showAdvance ? () => dispatch({type: 'ADVANCE_STAGE'}) : null}
+                onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
+                SvgComponent={<GridSvg size={28} />}
+                color={props.viewMode === 'grid' ? 'blue' : 'dark'}
+                highlight={props.viewMode === 'grid'}
+                label="Grid View"
               />
-            </Box>
-          }
-          
-          <CanvasButton
-            mb={2}
-            small={true}
-            disabled={!props.showCompare}
-            onMouseDown={props.showCompare && props.onCompareDown}
-            onMouseUp={props.showCompare && props.onCompareUp}
-            onMouseLeave={props.showCompare && props.onCompareUp}
-            SvgComponent={<EyeSvg size={32} />}
-            inset={true}
-            label="Compare"
-          />
+            }
+          </Box>
 
-          {props.showGrid &&
-            <CanvasButton
-              mb={2}
-              small={true}
-              onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
-              SvgComponent={<GridSvg size={28} />}
-              color={props.viewMode === 'grid' ? 'blue' : 'dark'}
-              highlight={props.viewMode === 'grid'}
-              label="Grid View"
-            />
-          }
-          {props.showMerge && 
-            <CanvasButton
-              small={true}
-              mb={2}
-              onClick={() => dispatch({type: 'MERGE'})}
-              SvgComponent={<MergeSvg size={38} />}
-              label={"Merge"}
-            />
-          }
+          
         </React.Fragment>
       }
     </Flex>

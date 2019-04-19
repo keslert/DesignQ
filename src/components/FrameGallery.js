@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect, useLayoutEffect, memo } from 'react';
+import React, { useContext, useRef, useLayoutEffect, memo } from 'react';
 import Frame from './Frame';
 import { Box, Flex } from 'rebass';
 import { FixedSizeGrid as Grid } from 'react-window';
@@ -8,88 +8,112 @@ import OpacityButton from './OpacityButton';
 import CloseSvg from '../svg/close.svg';
 
 const GridItem = ({ columnIndex, rowIndex, style, data }) => {
-  const { flyers, selected, scale, onClick, onFavorite } = data;
-  const flyer = flyers[rowIndex * COLUMNS + columnIndex];
+  const { 
+    flyers, 
+    selected, 
+    scale, 
+    onClick, 
+    columns,
+  } = data;
+  const flyer = flyers[rowIndex * columns + columnIndex];
   if(!flyer) return null;
 
   return (
     <div style={style}>
       <Box 
-        my={FLYER_PY} 
-        mx={FLYER_PX} 
+        mt={data.frameMarginT + 'px'}
+        mx={data.frameMarginX + 'px'} 
       >
-        <Toolbar 
-          onClick={() => onFavorite(flyer)} 
-          favorited={flyer.favorited}
-          id={"#" + flyer.id}
-        />
         <Frame 
           onClick={() => onClick(flyer)}
           className={`selectable ${selected === flyer && 'selected'}`}
           flyer={flyer}
           scale={scale}
         />
+        {!data.hideToolbar &&
+          <Toolbar
+            id={"#" + flyer.id}
+            onDownloadClick={() => data.onDownload(flyer)}
+            onCompareDown={() => data.onCompareDown(flyer)}
+            onCompareUp={data.onCompareUp}
+            favorited={flyer.favorited}
+            onFavoriteClick={() => data.onFavorite(flyer)}
+          />
+        }
       </Box>
     </div>
   )
 };
 
 const TOOLBAR_HEIGHT = 16;
-const FLYER_PX = 12;
-const FLYER_PY = 20;
-const PL = 12 + 36; // CanvasButton.width/2
-const PR = 12;
-const COLUMNS = 2;
-function FrameGallery({flyers, size, selected, ...props}) {
+
+function FrameGallery({
+  flyers, 
+  size, 
+  selected, 
+  columns,
+  canCompare=true,
+  canDownload=true,
+  canFavorite=true,
+  hideToolbar,
+  frameMarginT=20,
+  frameMarginX=12,
+  ...props
+}) {
   const ref = useRef();
   const dispatch = useContext(DispatchContext);
-  const width = size.width - PL - PR;
-  const columnWidth = width / COLUMNS
+  const columnWidth = size.width / columns;
   const flyerSize = flyers[0] ? flyers[0].size : {};
-  const scale = (columnWidth - FLYER_PX * 2) / flyerSize.w;
-  const flyerHeight = flyerSize.h * scale + FLYER_PY * 2 + TOOLBAR_HEIGHT;
+  const scale = (columnWidth - frameMarginX * 2) / flyerSize.w;
+  const rowHeight = flyerSize.h * scale + frameMarginT + (hideToolbar ? 0 : TOOLBAR_HEIGHT);
 
   useLayoutEffect(() => {
     const index = Math.max(flyers.indexOf(selected), 0)
-    ref.current.scrollToItem({rowIndex: Math.floor(index / COLUMNS + .01), columnIndex: 0, align: 'center'})
+    ref.current.scrollToItem({rowIndex: Math.floor(index / columns + .01), columnIndex: 0, align: 'center'})
   }, [flyers[0]])
 
   const data = {
     scale,
     flyers, 
     selected,
-    onClick: flyer => {
-      dispatch({type: 'SET_SECONDARY', secondary: flyer, preserveList: true});
+    columns,
+    hideToolbar,
+    frameMarginT,
+    frameMarginX,
+    onClick: props.onSelect,
+    onCompareDown: !canCompare ? null : flyer => {
+      dispatch({type: 'SET_COMPARISON', flyer});
     },
-    onFavorite: flyer => {
+    onCompareUp: !canCompare ? null : () => {
+      dispatch({type: 'SET_COMPARISON', flyer: null});
+    },
+    onDownload: !canDownload ? null : flyer => {
+      dispatch({type: 'DOWNLOAD_FLYER', flyer});
+    },
+    onFavorite: !canFavorite ? null : flyer => {
       dispatch({type: 'TOGGLE_FAVORITE', flyer});
     }
   }
 
   return (
-    <Flex 
-      flexWrap="wrap" 
-      pl={PL} 
-      pr={PR} 
-      justifyContent="center" 
-      className="relative"
-    >
+    <Box className="relative">
       <Grid
         ref={ref}
         itemData={data}
-        columnCount={COLUMNS}
+        columnCount={columns}
         columnWidth={columnWidth}
         height={size.height}
-        rowCount={Math.ceil(flyers.length / COLUMNS)}
-        rowHeight={flyerHeight}
-        width={width}
+        rowCount={Math.ceil(flyers.length / columns)}
+        rowHeight={rowHeight}
+        width={size.width}
         onItemsRendered={r => dispatch({
           type: 'ON_GRID_SCROLL', 
-          scrolledToIndex: r.visibleRowStopIndex * COLUMNS,
+          scrolledToIndex: r.visibleRowStopIndex * columns,
         })}
       >
         {GridItem}
       </Grid>
+
       {props.canClose &&
         <OpacityButton 
           color="dark"
@@ -100,7 +124,7 @@ function FrameGallery({flyers, size, selected, ...props}) {
           }
         />
       }
-    </Flex>
+    </Box>
   )
 }
 

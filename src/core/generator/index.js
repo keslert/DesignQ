@@ -3,6 +3,7 @@ import WebFontLoader from 'webfontloader';
 import { WebFontConfig } from './web-fonts';
 
 import { stages as contentStages, computeContentStats } from './content';
+import { stages as imageStages } from './image';
 import { stages as layoutStages } from './layout';
 import { stages as typographyStages, computeTypographyStats } from './typography';
 import { stages as colorStages, computeColorStats } from './color';
@@ -45,12 +46,13 @@ export function generateFlyers(flyer, stage, options={}) {
 // TODO: Update to use all stages.
 export const STAGES = {
   content: contentStages,
+  image: imageStages,
   layout: layoutStages,
   typography: typographyStages,
   color: colorStages,
-  decoration: decorationStages,
-  polish: polishStages,
-  export: exportStages,
+  // decoration: decorationStages,
+  // polish: polishStages,
+  // export: exportStages,
 }
 
 // function generateStage(flyer, history, stage) {

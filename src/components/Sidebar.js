@@ -6,6 +6,7 @@ import Tabs from './Tabs';
 import ActionList from './ActionList';
 import EditPanel from './EditPanel';
 import { DispatchContext } from '../containers/Queue';
+import Timeline from '../containers/Timeline';
 
 function Sidebar(props) {
   const rootDispatch = useContext(DispatchContext);
@@ -20,24 +21,34 @@ function Sidebar(props) {
       style={{position: 'relative'}}
     >
       <Box 
-        onClick={() => rootDispatch({type: 'SELECT', selected: null})}
         style={tabStyle}
+        onClick={() => rootDispatch({type: 'SELECT', selected: null})}
         children={<TabSvg size={90} />}
       />
 
-      <Box mx="-16px" px={16} flex={1} pt={3} style={scrollStyle}>
-        {true && 
+      {props.panel === 'edit' && 
+        <Box mx="-16px" px={16} flex={1} pt={3} style={scrollStyle}>
           <EditPanel 
             selection={props.selection}
           />
-        }
-      </Box>
+        </Box>
+      }
 
-      <Box mx="-16px" bg="dark">
-        <SelectionTree
-          flyer={props.selection._root}
+      {props.panel === 'history' && 
+        <Timeline
+          size={props.size}
+          flyers={props.history}
+          selected={props.secondary}
         />
-      </Box>
+      }
+
+      {props.selection && 
+        <Box mx="-16px" bg="dark">
+          <SelectionTree
+            flyer={props.selection._root}
+          />
+        </Box>
+      }
     </Flex>
   )
 }

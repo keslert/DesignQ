@@ -18,13 +18,14 @@ import NavText from './NavText';
 import { STAGES } from '../../core/generator';
 
 const stages = [
-  {label: 'Content', color: 'green', type: 'content'}, 
-  {label: 'Layout', color: 'yellow', type: 'layout'},
+  {label: 'Text', color: 'green', type: 'content'}, 
+  {label: 'Image', color: 'yellow', type: 'image'},
+  {label: 'Layout', color: 'orange', type: 'layout'},
   {label: 'Color', color: 'red', type: 'color'},
-  {label: 'Typography', color: 'orange', type: 'typography'},
+  {label: 'Typography', color: 'pink', type: 'typography'},
   // {label: 'Decoration', color: 'pink', type: 'decoration'},
   // {label: 'Polish', color: 'purple', type: 'polish'},
-  {label: 'Export', color: 'blue', type: 'export'},
+  // {label: 'Export', color: 'blue', type: 'export'},
 ]
 
 const getUpdate = (target, color) => {
@@ -74,7 +75,8 @@ function NavBar({stage, recommendedStage, stageProgress}) {
   const stageCueHighlighted = stage.progress === ProgressTypes.THOROUGHLY_EXPLORED;
   const stageCueFlashing = stage.exhausted;
 
-  const foci = STAGES[stage.type];
+  const foci = STAGES[stage.type].length !== 1 ? STAGES[stage.type] : [];
+
 
   return (
     <Box>

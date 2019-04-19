@@ -6,9 +6,10 @@ const NavItem = styled(Flex)(props => ({
   cursor: 'pointer',
   fontWeight: 'bold',
   fontSize: props.theme.fontSizes[1] + 'px',
-  letterSpacing: '.05em',
+  letterSpacing: '.06em',
   textTransform: 'uppercase',
-  transition: 'background .3s'
+  transition: 'background .3s',
+  maxWidth: '220px',
 }))
 
 NavItem.defaultProps = {

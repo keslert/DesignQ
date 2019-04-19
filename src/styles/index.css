@@ -52,12 +52,12 @@ code {
 }
 
 .selectable:hover {
-  box-shadow: 0 0 0 1px #2A81F4 !important;
+  box-shadow: 0 0 0 2px #2A81F4 !important;
   cursor: pointer;
 }
 
 .selectable.selected {
-  box-shadow: 0 0 0 2px #2A81F4 !important;
+  box-shadow: 0 0 0 3px #2A81F4 !important;
 }
 
 input[type=number]::-webkit-inner-spin-button,

@@ -44,7 +44,7 @@ function Queue(props) {
   const showSidebar = !showExport && state.selection && state.journey.stage.type !== 'content' && !showExport;
   const canvasSize = useMemo(() => ({
     width: windowSize.width - (showSidebar ? 280 : 0),
-    height: windowSize.height - 91 - 21, // - navbar - timeline
+    height: windowSize.height - 91, // - navbar
   }), [windowSize, showSidebar]);
 
   // Do initial loading
@@ -116,20 +116,18 @@ function Queue(props) {
                   />
               }
             </Box>
-
-            <Timeline
-              width={canvasSize.width}
-              selected={state.secondary}
-              items={state.history}
-            />
           </Flex>
-          {showSidebar && 
-            <Sidebar 
+          {true && 
+            <Sidebar
+              size={canvasSize}
+              history={state.history}
+              panel={state.sidebarPanel}
               selection={state.selection}
+              secondary={state.secondary}
             />
           }
         </Flex>
-        {process.env.NODE_ENV === 'production' &&
+        {(true || process.env.NODE_ENV === 'production') &&
           <Onboarding state={state} />
         }
         <style>{`
@@ -168,8 +166,11 @@ const reducer = (state, action) => {
     case 'ON_GRID_SCROLL':
       return updateJourney(state, action);
 
+
     case 'SET_SECONDARY':
       return setSecondary(state, action);
+    case 'SET_COMPARISON':
+      return {...state, comparison: state.flyer}
     case 'SET_HISTORY':
       return {...state, history: action.history}
     case 'UPDATE_JOURNEY_STAGE':
@@ -231,14 +232,16 @@ async function getInitialState(props, dispatch) {
       : process.env.NODE_ENV === 'production' 
         ? {type: 'content', key: 'content.text' } 
         // : {type: 'content', key: 'content.text' } 
-        // : {type: 'layout', key: 'layout.structure'}
-        : {type: 'color', key: 'color.background'}
+        : {type: 'layout', key: 'layout.structure'}
+        // : {type: 'color', key: 'image.image'}
     const state = step({
       primary: startFlyer,
       secondary: null,
+      comparison: null, // for when holding down compare buttons
       list: [],
       history: [],
-      viewMode: 'grid',
+      sidebarPanel: 'history',
+      viewMode: 'comparison',
       journey: getInitialJourney('basic'),
       imageCache: {},
       lastImageSearch: {
@@ -463,9 +466,9 @@ const patchImageFlyers = debounce((state, dispatch) => {
     dispatch({type: 'SET_SECONDARY', secondary});
   }
 
-  const stage = state.journey.stages.find(s => s.key === 'color.background');
+  const stage = state.journey.stages.find(s => s.key === 'image.image');
   const stageUpdate = {
-    key: 'color.background',
+    key: 'image.image',
     currentGeneration: stage.currentGeneration.map(flyer => patchFlyer(flyer, 'image', cache)),
   }
 
@@ -534,20 +537,20 @@ function initImageSearch(state, {query, userProvided, dispatch}) {
       })),
     }
 
-    // Update stage: color.background
+    // Update stage: image.image
     const update = {};
-    const stage = state.journey.stages.find(s => s.key === 'color.background');
+    const stage = state.journey.stages.find(s => s.key === 'image.image');
     _updateJourney({...state, lastImageSearch: search}, {stage, forceGeneration: true}, update)
 
     const stageUpdate = {
-      key: 'color.background',
+      key: 'image.image',
       currentGeneration: update.journey.stage.currentGeneration, 
       currentGenerationIndex: 0,
     }
     dispatch({type: 'UPDATE_JOURNEY_STAGE', stage: stageUpdate});
 
     // Update secondary if part of previous stage
-    if(!state.secondary || state.secondary.stage.key === 'color.background') {
+    if(!state.secondary || state.secondary.stage.key === 'image.image') {
       dispatch({type: 'SET_SECONDARY', secondary: update.journey.stage.currentGeneration[0]});
     }
 

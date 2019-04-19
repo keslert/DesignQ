@@ -2,49 +2,63 @@ import React from 'react';
 import HeartSvg from '../../svg/heart.svg';
 import { Flex, Box, Text } from 'rebass';
 import OpacityButton from '../OpacityButton';
+import EyeSvg from '../../svg/eye2.svg';
+import DownloadSvg from '../../svg/download.svg';
 
 
-function Toolbar(props) {
+function Toolbar({
+  canFavorite=true,
+  canCompare=true,
+  canDownload=true,
+  ...props
+}) {
 
   return (
-    <Flex width="100%" alignItems="center" mb="3px" px="1px">
-      <Box flex={1}>
-        {true && 
-          <OpacityButton onClick={props.onClick}>
-            <Flex 
-              alignItems="center" 
-              color={props.favorited || props.viewFavorites ? 'red' : 'gray'}
-            >
-              <HeartSvg size={12} />
-              <Text 
-                color="gray" 
-                ml={1} 
-                fontSize={0} 
-                fontWeight="bold" 
-                children={props.viewFavorites ? "View Favorites" : "Favorite"}
-              />
-            </Flex>
-          </OpacityButton>
-        }
-      </Box>
+    <Flex width="100%" alignItems="center" mt="1px" px="1px">
+      {/* <Flex flex={1}>
+                  
+      </Flex> */}
 
       <Text 
-        fontSize={0} 
+        fontSize={1} 
         color="gray" 
         children={props.label} 
         fontWeight="bold" 
       />
         
-      <Box flex={1}>
-        <Text 
-          mr="1px"
-          textAlign="right"
-          fontSize={0} 
-          color="gray" 
-          children={props.id} 
-          fontWeight="bold" 
-        />
-      </Box>
+      <Flex flex={1} justifyContent="flex-end">
+        {props.onFavoriteClick && 
+          <OpacityButton 
+            ml={2}
+            title="Favorite"
+            color={props.favorited ? 'red' : 'gray'}
+            onClick={props.onFavoriteClick}
+            children={<HeartSvg size={18} />}
+          />
+        }
+        
+        {props.onCompareDown && 
+          <OpacityButton 
+            ml={2}
+            color='gray'
+            title="Compare"
+            onMouseDown={props.onCompareDown}
+            onMouseUp={props.onCompareUp}
+            onMouseLeave={props.onCompareUp}
+            children={<EyeSvg size={18} />}
+          />
+        }
+
+        {props.onDownloadClick && 
+          <OpacityButton 
+            ml={2}
+            color='gray'
+            title="Download"
+            onClick={props.onDownloadClick}
+            children={<DownloadSvg size={15} />}
+          />
+        }
+      </Flex>
     </Flex>
   )
 }

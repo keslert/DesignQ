@@ -23,7 +23,7 @@ function Onboarding({state}) {
 
   let nextId = null;
   if(state.history.length === 1) {
-    nextId = 'next-design-btn';
+    nextId = 'next-design-bt';
   }
   else if(state.primary.upgradeFrom === 1) {
     nextId = 'upgrade-btn';

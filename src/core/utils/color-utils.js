@@ -16,6 +16,17 @@ export const PLACEHOLDER_IMAGE = {
   y: 0.5,
 }
 
+
+export const STAGE_COLORS = {
+  content: 'green',
+  image: 'yellow',
+  layout: 'orange',
+  color: 'red',
+  typography: 'pink',
+  decoration: 'purple',
+  polish: 'blue',
+};
+
 // The background of the closest ancestor
 export function getBackdropPaletteKey(item) {
 	let current = item;

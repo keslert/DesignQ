@@ -9,15 +9,20 @@ import { Flex, Box, Text } from 'rebass';
 import { useKeyDown } from '../core/lib/hooks';
 import { ProgressTypes } from '../core/journey';
 import StageExhausted from './StageExhausted';
+import { STAGE_COLORS } from '../core/utils/color-utils';
 
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
-  const [showComparison, setShowComparison] = useState(false);
+  const [comparison, setComparison] = useState(null);
   const clearSelection = useCallback(e => {
     if(e.target === e.currentTarget) {
       rootDispatch({type: 'SELECT', selection: null});
     }
   }, [])
+
+  const handleGridSelectFlyer = useCallback(flyer => {
+    rootDispatch({type: 'SET_SECONDARY', secondary: flyer, preserveList: true});
+  })
 
   const scale = 0.75;
 
@@ -42,13 +47,11 @@ function Canvas(props) {
   const showAdvance = showPrimary && (props.stage && props.stage.progress !== ProgressTypes.UNEXPLORED) && !haveList;
   const showUpgrade = showPrimary && props.secondary;
   const showCompare = showPrimary && props.secondary;
-  const showSearch = props.stage.key === 'color.background' && !haveList;
+  const showSearch = props.stage.key === 'image.image' && !haveList;
   const showGridBtn = showPrimary && !haveList;
   const showMerge = false && showPrimary;
   
-  const primary = (showComparison || !showPrimary)
-    ? props.secondary
-    : props.primary
+  const primary = comparison || (!showPrimary ? props.secondary : props.primary)
   const secondary = props.secondary;
 
   return (
@@ -68,9 +71,11 @@ function Canvas(props) {
             <Box>
               <FrameToolbar 
                 label="Primary Design"
-                viewFavorites={true}
-                onClick={() => rootDispatch({type: 'VIEW_FAVORITES'})} 
+                favorited={primary.favorited}
+                onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: primary})}
+                onDownloadClick={() => null}
               />
+              
               <Frame 
                 scale={scale} 
                 width={primary.size.w} 
@@ -78,6 +83,7 @@ function Canvas(props) {
                 flyer={primary}
                 selectable={primary === props.primary}
               />
+              
             </Box>
           </Flex>
           
@@ -93,13 +99,11 @@ function Canvas(props) {
             showGrid={showGridBtn}
             showSearch={showSearch}
             showMerge={showMerge}
-            onCompareDown={() => setShowComparison(true)}
-            onCompareUp={() => setShowComparison(false)}
           />
 
           <Flex 
             flex={1} 
-            bg="nearwhite" 
+            bg={`${STAGE_COLORS[props.stage.type]}_white`}
             alignItems="center" 
             justifyContent="center" 
             onClick={clearSelection}
@@ -107,10 +111,13 @@ function Canvas(props) {
             {!showSecondary ? null : 
               <Box>
                 <FrameToolbar 
-                  label={`Exploratory Design`} 
                   id={"#" + secondary.id}
+                  label="Exploratory Design"
                   favorited={secondary.favorited}
-                  onClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
+                  onCompareDown={() => setComparison(secondary)}
+                  onCompareUp={() => setComparison(null)}
+                  onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: secondary})}
+                  onDownloadClick={() => null}
                 />
                 <Frame 
                   scale={scale} 
@@ -128,17 +135,19 @@ function Canvas(props) {
             }
 
             {!showGallery ? null :
-              <FrameGallery
-                flyers={haveList ? props.list : props.stage.currentGeneration}
-                canClose={haveList}
-                onCloseClick={() => rootDispatch({type: 'SET_LIST', list: null})}
-                selected={secondary}
-                onFavorite={flyer => rootDispatch({type: 'TOGGLE_FAVORITE', flyer})}
-                size={{
-                  width: (props.size.width / 2) - 1,
-                  height: props.size.height - 1,
-                }}
-              />
+              <Box pl={12 + 36} pr={12}>
+                <FrameGallery
+                  flyers={haveList ? props.list : props.stage.currentGeneration}
+                  canClose={haveList}
+                  onCloseClick={() => rootDispatch({type: 'SET_LIST', list: null})}
+                  onSelect={handleGridSelectFlyer}
+                  selected={secondary}
+                  size={{
+                    width: (props.size.width / 2) - 1 - 12 - 12 - 36,
+                    height: props.size.height - 1,
+                  }}
+                />
+              </Box>
             }
 
             {!showStageExhaused ? null :
