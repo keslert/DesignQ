@@ -11,6 +11,7 @@ import {
 	generatePlausiblePalettes,
 	getBackdropPaletteKey,
 	generatePalette,
+	getBasicColors,
 } from '../utils/color-utils';
 import { resolveItemColors } from '../resolver';
 
@@ -76,8 +77,7 @@ function generateAlternatePalettes(flyer, {state, templates}) {
 			fixAlpha(copy.background.color, alpha);
 		}
 		copy.palette = t.palette;
-		mimicBackgroundColors(copy, flyer);
-		mimicForegroundColors(copy, flyer);
+		resolveItemColors(copy, {}, state);
 		return copy;
 	}))
 
@@ -110,11 +110,13 @@ function mimicBackgroundColor(fItem, tItem, preference) {
 			preference,
 		])
 
+		// TODO: Check for linear colors
+		const basicColors = getBasicColors(tItem.background.color);
 		fItem.background.color = getOptimalBackgroundColor(
 			fItem, 
 			fItem._root.palette, 
 			preferences,
-			tItem.background.color.alpha,
+			basicColors[0].alpha,
 		)
 	}
 	else if(fItem.background) {
@@ -136,7 +138,7 @@ export function getOptimalBackgroundColor(surface, palette, preferences=[], alph
 	const backdropKey = getBackdropPaletteKey(surface);
 
 	if(surface.background && surface.background.img) {
-		return paletteColor('dark', alpha || get(surface, ['background', 'color', 'alpha']));
+		return paletteColor('dark', alpha || get(surface, ['background', 'color', 'alpha'], 1));
 	}
 
 	let key = _.find(preferences, key => palette[key] && backdropKey !== key)

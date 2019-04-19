@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { copyTemplate, getItemFromTemplate } from '../utils/template-utils';
+import { copyTemplate, getItemFromTemplate, cloneCrude } from '../utils/template-utils';
 import {
 	paletteColor,
 	fixAlpha,
@@ -108,13 +108,14 @@ function generateImage(flyer, {templates, state}) {
 	return generated;
 }
 
-function generateImageOverlay(flyer, {templates, state}) {
+function generateImageOverlay(flyer, {state}) {
 	// if we have an image
 	// multi color backgrounds
-	const prominantImageSurface = getProminantImageSurface(flyer);
+	const prominantSurface = getProminantImageSurface(flyer);
 	const flyers = [];
-	if(prominantImageSurface) {
-		const filters = _.flatMap(flyer.palette, (color, paletteKey) => ([
+	if(prominantSurface) {
+		const validKeys = _.filter(Object.keys(flyer.palette), k => flyer.palette[k]);
+		const filters = _.flatMap(validKeys, paletteKey => ([
 			{color: paletteColor(paletteKey, .3)},
 			{color: paletteColor(paletteKey, .5)},
 			{color: paletteColor(paletteKey, .7)},
@@ -127,11 +128,9 @@ function generateImageOverlay(flyer, {templates, state}) {
 
 		flyers.push(...filters.map(filter => {
 			const copy = copyTemplate(flyer);
-			const surface = getProminantImageSurface(copy);
-			surface.background.backgroundBlendMode = filter.blendMode;
-			surface.background.color = filter.color;
-			surface.background.img.filters = filter.filters;
-			resolveItemColors({_root: copy, _parent: copy}, {}, state);
+			const surface = getItemFromTemplate(prominantSurface, copy);
+			surface.background.color = cloneCrude(filter.color);
+			resolveItemColors(surface, prominantSurface, state);
 			return copy;
 		}))
 	}

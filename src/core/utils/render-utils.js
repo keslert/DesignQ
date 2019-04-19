@@ -27,9 +27,12 @@ export function computeColor(color, palette) {
 
   switch(color.type) {
     case 'palette':
+      const paletteColor = palette[color.paletteKey]
+      console.assert(paletteColor, 'Palette Key is missing!');
+
       color._str = color.alpha === 1
-        ? palette[color.paletteKey]
-        : chroma(palette[color.paletteKey]).alpha(color.alpha).css() 
+        ? paletteColor
+        : chroma(paletteColor).alpha(color.alpha).css() 
       break;
     case 'linear':
       computeColor(color.colorA, palette);

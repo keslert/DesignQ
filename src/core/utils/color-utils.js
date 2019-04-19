@@ -207,7 +207,7 @@ export function getBasicColors(color) {
     case 'striped':
       return [color.colorA, color.colorB];
     default: 
-      return color;
+      return [color];
   }
 }
 
