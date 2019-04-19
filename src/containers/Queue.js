@@ -21,9 +21,8 @@ import difference from 'lodash/difference';
 import debounce from 'lodash/debounce';
 import { fetchImageSearch } from '../core/fetch';
 import { processImage, clearImageProcessingQueue } from '../core/utils/color-utils';
-import loadState from '../core/data/load-states/celebrate'
+import loadState from '../core/data/load-states/patterns'
 import Onboarding from '../components/Onboarding';
-import { exportFlyer } from '../core/utils/export-utils';
 
 export const DispatchContext = React.createContext();
 export const SelectionContext = React.createContext();
