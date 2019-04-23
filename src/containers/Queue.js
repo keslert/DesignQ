@@ -99,6 +99,16 @@ function Queue(props) {
           recommendedStage={state.journey.recommendedStage}
         />
         <Flex flex={1}>
+          {!hideSidebar && 
+            <Sidebar
+              open={sidebarOpen}
+              size={canvasSize}
+              history={state.history}
+              panel={state.sidebarPanel}
+              selection={state.selection}
+              secondary={state.secondary}
+            />
+          }
           <Flex flex={1} flexDirection="column">
             <Box flex={1}>
               <Canvas
@@ -112,16 +122,6 @@ function Queue(props) {
               />
             </Box>
           </Flex>
-          {!hideSidebar && 
-            <Sidebar
-              open={sidebarOpen}
-              size={canvasSize}
-              history={state.history}
-              panel={state.sidebarPanel}
-              selection={state.selection}
-              secondary={state.secondary}
-            />
-          }
         </Flex>
         {(false && process.env.NODE_ENV === 'production') &&
           <Onboarding state={state} />
@@ -244,7 +244,7 @@ async function getInitialState(props, dispatch) {
       history: [],
       sidebarPanel: 'history',
       sidebarOpen: true,
-      viewMode: 'comparison',
+      viewMode: 'grid',
       journey: getInitialJourney('basic'),
       imageCache: {},
       lastImageSearch: {

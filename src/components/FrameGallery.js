@@ -14,8 +14,8 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
     selected, 
     scale, 
     onClick,
-    onMouseEnter,
-    onMouseLeave,
+    onMouseDown,
+    onMouseUp,
     columns,
   } = data;
   const flyer = flyers[rowIndex * columns + columnIndex];
@@ -43,8 +43,9 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
           />
         }
         <Frame 
-          onMouseEnter={() => onMouseEnter(flyer)}
-          onMouseLeave={onMouseLeave}
+          onMouseDown={() => onMouseDown(flyer)}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseUp}
           onClick={() => onClick(flyer)}
           className={`selectable ${selected === flyer && 'selected'}`}
           flyer={flyer}
@@ -112,10 +113,10 @@ function FrameGallery({
     onFavorite: !canFavorite ? null : flyer => {
       dispatch({type: 'TOGGLE_FAVORITE', flyer});
     },
-    onMouseEnter: flyer => {
+    onMouseDown: flyer => {
       dispatch({type: 'SET_COMPARISON', flyer});
     },
-    onMouseLeave: () => {
+    onMouseUp: () => {
       dispatch({type: 'SET_COMPARISON', flyer: null});
     }
   }

@@ -65,49 +65,6 @@ function Canvas(props) {
         onClick={clearSelection}
       >
         <Flex flex={1} style={{height:"100%"}}>
-          <Flex 
-            flex={1} 
-            alignItems="center"
-            justifyContent="center" 
-            onClick={clearSelection}
-          >
-            <Box>
-              <FrameToolbar 
-                label="Primary Design"
-                canFavorite={false}
-                // favorited={primary.favorited}
-                // onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: primary})}
-                onDownloadClick={() => exportFlyer(primary)}
-              />
-              
-              <Frame 
-                scale={scale} 
-                width={primary.size.w} 
-                height={primary.size.h} 
-                flyer={primary}
-                selectable={primary === props.primary}
-              />
-              <div style={{height: 60}}>
-                {/* placeholder */}
-              </div>
-              
-            </Box>
-          </Flex>
-          
-          <CanvasToolbar
-            viewMode={props.viewMode}
-            show={!showContentForm}
-            showNext={showNext}
-            showPrev={showPrev}
-            showAdvance={showAdvance}
-            showResume={showResume}
-            showUpgrade={showUpgrade}
-            // highlightUpgrade={secondary.editId === primary.id}
-            showCompare={showCompare}
-            showGrid={showGridBtn}
-            showSearch={showSearch}
-            showMerge={showMerge}
-          />
 
           <Flex 
             flex={1} 
@@ -179,7 +136,7 @@ function Canvas(props) {
             }
 
             {!showGallery ? null :
-              <Box mr="1px">
+              <Box mr="1px" pr="64px">
                 <FrameGallery
                   
                   flyers={haveList ? props.list : props.stage.currentGeneration}
@@ -187,13 +144,13 @@ function Canvas(props) {
                   onCloseClick={() => rootDispatch({type: 'SET_LIST', list: null})}
                   onSelect={handleGridSelectFlyer}
                   columns={2}
-                  marginL={36 + 36}
-                  marginR={36}
+                  marginL={36}
+                  marginR={8}
                   itemMarginX={12}
                   itemMarginY={12}
                   selected={secondary}
                   size={{
-                    width: (props.size.width / 2) - 2,
+                    width: (props.size.width / 2) - 2 - 64,
                     height: props.size.height - 1,
                   }}
                 />
@@ -205,7 +162,7 @@ function Canvas(props) {
             }
 
             {!showContentForm && 
-              <Box style={{position: 'absolute', bottom: 10, left: 10}} width={50}>
+              <Box style={{position: 'absolute', bottom: 10, right: 10}} width={50}>
                 <OpacityButton
                   onClick={() => rootDispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
                   children={
@@ -226,6 +183,52 @@ function Canvas(props) {
             }
 
           </Flex>
+
+          <CanvasToolbar
+            viewMode={props.viewMode}
+            show={!showContentForm}
+            showNext={showNext}
+            showPrev={showPrev}
+            showAdvance={showAdvance}
+            showResume={showResume}
+            showUpgrade={showUpgrade}
+            // highlightUpgrade={secondary.editId === primary.id}
+            showCompare={showCompare}
+            showGrid={showGridBtn}
+            showSearch={showSearch}
+            showMerge={showMerge}
+          />
+
+          <Flex 
+            flex={1} 
+            alignItems="center"
+            justifyContent="center" 
+            onClick={clearSelection}
+            pl="32px"
+          >
+            <Box>
+              <FrameToolbar 
+                label="Primary Design"
+                canFavorite={false}
+                // favorited={primary.favorited}
+                // onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: primary})}
+                onDownloadClick={() => exportFlyer(primary)}
+              />
+              
+              <Frame 
+                scale={scale} 
+                width={primary.size.w} 
+                height={primary.size.h} 
+                flyer={primary}
+                selectable={primary === props.primary}
+              />
+              <div style={{height: 60}}>
+                {/* placeholder */}
+              </div>
+              
+            </Box>
+          </Flex>
+          
         </Flex>
       </Flex>
   )

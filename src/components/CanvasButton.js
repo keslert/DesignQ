@@ -20,8 +20,9 @@ const Button = styled(Flex)(props => ({
   flexDirection: 'column',
   flexShrink: 0,
   letterSpacing: '.025em',
+  textAlign: 'center',
   userSelect: 'none',
-  padding: '8px 0', 
+  padding: '8px 4px 6px', 
   ...(!props.highlight ? {} : {
     boxShadow: 'inset 0 1px 2px 0px rgb(178, 186, 204)',
     border: 'none',

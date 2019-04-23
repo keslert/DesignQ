@@ -34,7 +34,7 @@ function Sidebar(props) {
       />
       <Box
         color="white"
-        style={{...chevronStyle, transform: props.open ? null : 'rotateY(180deg)'}}
+        style={{...chevronStyle, transform: props.open ? 'rotateY(180deg)' : null}}
         children={<ChevronSvg size={10} />}
       />
 
@@ -88,8 +88,8 @@ function Sidebar(props) {
 
 export default Sidebar;
 
-const tabStyle = {position: 'absolute', left: "-16px", top: '40px', cursor: 'pointer'}
-const chevronStyle = {position: 'absolute', left: "-10px", top: '75px', pointerEvents: 'none'}
+const tabStyle = {position: 'absolute', right: "-16px", top: '40px', cursor: 'pointer', zIndex: 9999}
+const chevronStyle = {position: 'absolute', right: "-10px", top: '75px', pointerEvents: 'none', zIndex: 9999}
 const scrollStyle = {overflowY: 'auto', height: 200};
 
 

@@ -79,8 +79,13 @@ function ContentForm({flyer}) {
   })
 
   return (
-    <Box px={4}>
-      
+    <Box pr={5} pl={5}>
+      <Text
+        fontSize={4}
+        children="Add your information below to get started."
+        textAlign="center"
+        mb={4}
+      />
       <Flex mb={4} mx={-2}>
         <Box width={1/2} px={2}>
           <FormInput

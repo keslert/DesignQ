@@ -58,8 +58,8 @@ function CanvasToolbar(props) {
             <CanvasButton
               mb={3}
               id="upgrade-btn"
-              label="Update"
-              SvgComponent={<ArrowSvg size={24} />}
+              label="Apply Changes"
+              SvgComponent={<div style={{transform: 'rotateY(180deg)'}}><ArrowSvg size={24} /></div>}
               disabled={!props.showUpgrade}
               color={props.highlightUpgrade ? 'blue' : 'dark'}
               onClick={() => dispatch({type: 'STEP', upgrade: true})}
