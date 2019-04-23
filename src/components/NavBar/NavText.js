@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Text } from 'rebass';
 
 function NavText({text, highlight, visible}) {
 
@@ -9,7 +10,7 @@ function NavText({text, highlight, visible}) {
         visible={visible}
         highlight={highlight} 
       />
-      <span>{text}</span>
+      <Text color="white">{text}</Text>
     </React.Fragment>
   )
 }

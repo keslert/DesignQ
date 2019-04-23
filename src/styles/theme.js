@@ -28,6 +28,7 @@ const theme = {
 
   },
   gradients: {
+    dark: 'linear-gradient(91.29deg, hsla(222, 19%, 24%, 1), hsla(222, 17%, 29%, 1))',
     mello_yellow: 'linear-gradient(145deg, #f8ff00 0%, #3ad59f 100%)',
     red: 'linear-gradient( 135deg, #FCCF31 10%, #F55555 100%)',
     purple: 'linear-gradient(to bottom, #30cfd0 0%, #330867 100%)',

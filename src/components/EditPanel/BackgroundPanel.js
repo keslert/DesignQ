@@ -106,7 +106,7 @@ function BackgroundPanel({
             />
             <Flex mt={2} justifyContent="space-between">
               <Button
-                fontSize={1}
+                fontSize={0}
                 px={1}
                 py={2}
                 onClick={() => setShowSearch(!showSearch)}

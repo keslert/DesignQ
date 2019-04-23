@@ -19,7 +19,7 @@ const fields = [
   {name: 'location', label: 'Location', width: 1/3, hint: "123 Anywhere St., Phil’s House"},
   {name: 'host', label: 'host', width: 1/3, hint: "Presented by ACME Corp, ACME Corp Presents, ACME Corp"},
   // {name: 'cost', label: 'Cost', width: 1/3, hint: "$15, $5 per person"},
-  {name: 'descriptive', label: 'Descriptive Text', width: 2/3, hint: "Come Join Us!, It's going to be a blast!, A special concert for the Rigby Foundation"},
+  {name: 'descriptive', label: 'Subtitle', width: 2/3, hint: "Come Join Us!, It's going to be a blast!, A special concert for the Rigby Foundation"},
   {name: 'details', label: 'Details', width: 1, rows: 3, hint: "Provide a description of the event with any details someone might need to know."},
 ]
 
@@ -94,9 +94,9 @@ function ContentForm({flyer}) {
         </Box>
         <Box width={1/2} px={2}>
           <FormInput
-            label="Keyword (for image searches)"
+            label="Keywords (for image searches)"
             value={state.keywords || ''}
-            placeholder="Volleyball, Birthday Party"
+            placeholder="Volleyball, Patterns, Blue, Birthday Party"
             name="keywords"
             hint="What word(s) should we use to search for images."
             onChange={handleInputChange}

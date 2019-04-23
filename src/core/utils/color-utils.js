@@ -18,7 +18,7 @@ export const PLACEHOLDER_IMAGE = {
 
 
 export const STAGE_COLORS = {
-  content: 'green',
+  content: 'blue',
   image: 'yellow',
   layout: 'orange',
   color: 'red',

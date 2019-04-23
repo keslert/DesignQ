@@ -8,7 +8,7 @@ export const basicStages = [
   {
     type: 'layout',
     key: 'layout.structure', 
-    label: 'Structure',
+    label: 'Primary',
     generate: generateStructure,
     satisfied: () => true,
   },
@@ -19,7 +19,7 @@ export const optionalStages = [
   {
     type: 'layout',
     key: 'layout.order', 
-    label: 'Adjustments',
+    label: 'Secondary',
     generate: generateOrder,
     satisfied: () => true,
   },

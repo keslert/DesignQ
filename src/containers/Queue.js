@@ -43,7 +43,7 @@ function Queue(props) {
 
   const canvasSize = useMemo(() => ({
     width: windowSize.width - (sidebarOpen ? 280 : 0),
-    height: windowSize.height - 99, // - navbar
+    height: windowSize.height - 51 - 42, // - navbar
   }), [windowSize, sidebarOpen]);
 
   // Do initial loading
@@ -244,7 +244,7 @@ async function getInitialState(props, dispatch) {
       history: [],
       sidebarPanel: 'history',
       sidebarOpen: true,
-      viewMode: 'grid',
+      viewMode: 'comparison',
       journey: getInitialJourney('basic'),
       imageCache: {},
       lastImageSearch: {
@@ -290,6 +290,7 @@ function toggleFavorite(state, flyer, update={}) {
   else {
     _addToHistory(flyer, state.history, update);
   }
+  update.sidebarPanel = 'history';
   
   return {...state, ...update};
 }

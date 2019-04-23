@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useLayoutEffect, memo } from 'react';
 import Frame from './Frame';
 import { Box, Flex } from 'rebass';
-import { FixedSizeGrid as Grid } from 'react-window';
+import { VariableSizeGrid as Grid } from 'react-window';
 import { DispatchContext } from '../containers/Queue';
 import Toolbar from './Frame/Toolbar';
 import OpacityButton from './OpacityButton';
@@ -13,30 +13,38 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
     flyers, 
     selected, 
     scale, 
-    onClick, 
+    onClick,
+    onMouseEnter,
+    onMouseLeave,
     columns,
   } = data;
   const flyer = flyers[rowIndex * columns + columnIndex];
   if(!flyer) return null;
 
+  const ml = data.itemMarginX + (columnIndex === 0 ? data.marginL : 0);
+  const mr = data.itemMarginX + (columnIndex === (columns - 1) ? data.marginR: 0)
+
   return (
     <div style={style}>
       <Box 
-        my={data.frameMarginY + 'px'}
-        mx={data.frameMarginX + 'px'} 
+        my={data.itemMarginY + 'px'}
+        ml={ml + 'px'} 
+        mr={mr + 'px'} 
       >
         {!data.hideToolbar &&
           <Toolbar
             id={"#" + flyer.id}
             iconSize={0.8}
             onDownloadClick={() => data.onDownload(flyer)}
-            onCompareDown={() => data.onCompareDown(flyer)}
-            onCompareUp={data.onCompareUp}
+            // onCompareDown={() => data.onCompareDown(flyer)}
+            // onCompareUp={data.onCompareUp}
             favorited={flyer.favorited}
             onFavoriteClick={() => data.onFavorite(flyer)}
           />
         }
         <Frame 
+          onMouseEnter={() => onMouseEnter(flyer)}
+          onMouseLeave={onMouseLeave}
           onClick={() => onClick(flyer)}
           className={`selectable ${selected === flyer && 'selected'}`}
           flyer={flyer}
@@ -48,6 +56,7 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
 };
 
 const TOOLBAR_HEIGHT = 16;
+const SCROLLBAR_WIDTH = 8;
 
 function FrameGallery({
   flyers, 
@@ -58,16 +67,22 @@ function FrameGallery({
   canDownload=true,
   canFavorite=true,
   hideToolbar,
-  frameMarginY=20,
-  frameMarginX=12,
+  marginL=0,
+  marginR=0,
+  itemMarginY=20,
+  itemMarginX=12,
   ...props
 }) {
   const ref = useRef();
   const dispatch = useContext(DispatchContext);
-  const columnWidth = size.width / columns;
+  const columnWidth = (size.width - marginL - marginR - SCROLLBAR_WIDTH) / columns;
   const flyerSize = flyers[0] ? flyers[0].size : {};
-  const scale = (columnWidth - frameMarginX * 2) / flyerSize.w;
-  const rowHeight = flyerSize.h * scale + frameMarginY * 2 + (hideToolbar ? 0 : TOOLBAR_HEIGHT);
+  const scale = (columnWidth - itemMarginX * 2) / flyerSize.w;
+  const rowHeight = flyerSize.h * scale + itemMarginY * 2 + (hideToolbar ? 0 : TOOLBAR_HEIGHT);
+
+  const columnWidths = new Array(columns).fill().map((v, i) => (
+    columnWidth + (i === 0 ? marginL : 0) + (i === columns - 1 ? marginR : 0)
+  ))
 
   useLayoutEffect(() => {
     const index = Math.max(flyers.indexOf(selected), 0)
@@ -80,21 +95,28 @@ function FrameGallery({
     selected,
     columns,
     hideToolbar,
-    frameMarginY,
-    frameMarginX,
+    marginL,
+    marginR: marginR + SCROLLBAR_WIDTH,
+    itemMarginY,
+    itemMarginX,
     onClick: props.onSelect,
-    onCompareDown: !canCompare ? null : flyer => {
-      dispatch({type: 'SET_COMPARISON', flyer});
-    },
-    onCompareUp: !canCompare ? null : () => {
-      dispatch({type: 'SET_COMPARISON', flyer: null});
-    },
+    // onCompareDown: !canCompare ? null : flyer => {
+    //   dispatch({type: 'SET_COMPARISON', flyer});
+    // },
+    // onCompareUp: !canCompare ? null : () => {
+    //   dispatch({type: 'SET_COMPARISON', flyer: null});
+    // },
     onDownload: !canDownload ? null : flyer => {
       exportFlyer(flyer);
-      // dispatch({type: 'DOWNLOAD_FLYER', flyer});
     },
     onFavorite: !canFavorite ? null : flyer => {
       dispatch({type: 'TOGGLE_FAVORITE', flyer});
+    },
+    onMouseEnter: flyer => {
+      dispatch({type: 'SET_COMPARISON', flyer});
+    },
+    onMouseLeave: () => {
+      dispatch({type: 'SET_COMPARISON', flyer: null});
     }
   }
 
@@ -104,10 +126,10 @@ function FrameGallery({
         ref={ref}
         itemData={data}
         columnCount={columns}
-        columnWidth={columnWidth}
+        columnWidth={i => columnWidths[i]}
         height={size.height}
         rowCount={Math.ceil(flyers.length / columns)}
-        rowHeight={rowHeight}
+        rowHeight={() => rowHeight}
         width={size.width}
         onItemsRendered={r => dispatch({
           type: 'ON_GRID_SCROLL', 

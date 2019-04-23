@@ -4,7 +4,7 @@ import { DispatchContext } from './Queue';
 import FrameGallery from '../components/FrameGallery';
 import HistoryDocSvg from '../svg/history-doc.svg';
 
-const WIDTH = 260;
+const WIDTH = 270;
 
 function Timeline({flyers, selected, size}) {
   const rootDispatch = useContext(DispatchContext);
@@ -14,14 +14,14 @@ function Timeline({flyers, selected, size}) {
 
       {flyers.length 
         ? (
-          <Box mx="-6px">
+          <Box ml="-6px" mr="-14px">
             <FrameGallery
               flyers={flyers}
               selected={selected}
               hideToolbar={true}
               columns={2}
-              frameMarginX={6}
-              frameMarginY={6}
+              itemMarginX={6}
+              itemMarginY={6}
               onSelect={flyer => {
                 rootDispatch({type: 'SET_VIEW_MODE', viewMode: 'comparison'});
                 rootDispatch({type: 'SET_SECONDARY', secondary: flyer});

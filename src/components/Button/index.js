@@ -7,12 +7,14 @@ const Button = styled(RebassButton)(props => ({
   opacity: props.disabled ? 0.5 : 1,
   pointerEvents: props.disabled ? 'none' : 'all',
   userSelect: 'none',
+  textTransform: 'uppercase',
 }))
 
 Button.defaultProps = {
   variant: 'primary',
   py: 3,
   px: 3,
+  fontSize: 1,
 }
 
 
@@ -20,7 +22,7 @@ export const SmallButton = styled(Button)
 SmallButton.defaultProps = {
   py: 1,
   px: 1,
-  fontSize: 1,
+  fontSize: 0,
 }
 
 export default Button;

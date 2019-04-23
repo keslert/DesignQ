@@ -25,7 +25,7 @@ function EditPanel(props) {
         <Text
           color="rgba(255,255,255,.5)"
           fontSize={2}
-          children="This is the edit panel where you can manually edit your design. Select an element to get started."
+          children="This is the edit panel where you can manually edit your design. To get started, click on one of the text elements in your primary design."
         />
       </Flex>
     )

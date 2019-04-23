@@ -17,30 +17,6 @@ code {
     monospace;
 }
 
-/* .tiny-scroll::-webkit-scrollbar {
-  height: 4px;
-} */
-
-.tiny-scroll::-webkit-scrollbar-track {
-  background: #262d3c;
-}
-
-.tiny-scroll:hover::-webkit-scrollbar {
-  height: 4px;
-}
-
-/* Handle */
-.tiny-scroll::-webkit-scrollbar-thumb {
-  background: #2A81F4; 
-  border-radius: 0;
-}
-
-/* Handle on hover */
-.tiny-scroll::-webkit-scrollbar-thumb:hover {
-  /* background: #fff;  */
-  
-}
-
 .sibling-divider + .sibling-divider:before {
   content: '·';
   margin: 0 4px;
@@ -63,4 +39,18 @@ code {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+  /* display: block; */
+  /* width: 10em; */
+  /* overflow: auto; */
+  /* height: 2em; */
+  width: 8px;
+  /* background: pink; */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9296A0;
+  border-radius: 2px;
 }

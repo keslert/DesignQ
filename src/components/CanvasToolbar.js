@@ -20,7 +20,7 @@ function CanvasToolbar(props) {
       flexDirection="column"
       justifyContent="center" 
       alignItems="center" 
-      pt={3}
+      pb={5}
       style={{position: 'relative', zIndex: 100}}
     >
       {props.show && 
@@ -38,10 +38,10 @@ function CanvasToolbar(props) {
           }
 
           
-          <Box mb={3}>
-            {props.viewMode !== 'grid' && 
+          <Box>
+            {(false && props.viewMode !== 'grid') && 
               <CanvasButton
-                mb={2}
+                mb={3}
                 id="next-design-btn"
                 label="Next Design"
                 SvgComponent={<RocketshipSvg size={40} />}
@@ -56,15 +56,16 @@ function CanvasToolbar(props) {
             }
 
             <CanvasButton
-              mb={2}
+              mb={3}
               id="upgrade-btn"
               label="Update"
               SvgComponent={<ArrowSvg size={24} />}
               disabled={!props.showUpgrade}
+              color={props.highlightUpgrade ? 'blue' : 'dark'}
               onClick={() => dispatch({type: 'STEP', upgrade: true})}
             />
 
-            {props.showGrid &&
+            {(false && props.showGrid) &&
               <CanvasButton
                 mb={2}
                 onClick={() => dispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}

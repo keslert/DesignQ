@@ -23,6 +23,7 @@ function Selectables({items}) {
 
   return (
     <React.Fragment>
+
       {items.map((item, i) => (
         <Selectable
           key={item.id}
@@ -33,7 +34,6 @@ function Selectables({items}) {
           onReorder={handleReorder}
         />
       ))}
-
       
       {elements.map((item, i) => (
         <React.Fragment key={item.id}>

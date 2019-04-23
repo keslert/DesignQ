@@ -9,8 +9,10 @@ import { Flex, Box, Text } from 'rebass';
 import { useKeyDown } from '../core/lib/hooks';
 import { ProgressTypes } from '../core/journey';
 import StageExhausted from './StageExhausted';
-import { STAGE_COLORS } from '../core/utils/color-utils';
 import { exportFlyer } from '../core/utils/export-utils';
+import OpacityButton from './OpacityButton';
+import ArrowSvg from '../svg/arrow.svg';
+import GridSvg from '../svg/grid.svg';
 
 function Canvas(props) {
   const rootDispatch = useContext(DispatchContext)
@@ -72,8 +74,9 @@ function Canvas(props) {
             <Box>
               <FrameToolbar 
                 label="Primary Design"
-                favorited={primary.favorited}
-                onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: primary})}
+                canFavorite={false}
+                // favorited={primary.favorited}
+                // onFavoriteClick={() => rootDispatch({type: 'TOGGLE_FAVORITE', flyer: primary})}
                 onDownloadClick={() => exportFlyer(primary)}
               />
               
@@ -84,6 +87,9 @@ function Canvas(props) {
                 flyer={primary}
                 selectable={primary === props.primary}
               />
+              <div style={{height: 60}}>
+                {/* placeholder */}
+              </div>
               
             </Box>
           </Flex>
@@ -96,6 +102,7 @@ function Canvas(props) {
             showAdvance={showAdvance}
             showResume={showResume}
             showUpgrade={showUpgrade}
+            // highlightUpgrade={secondary.editId === primary.id}
             showCompare={showCompare}
             showGrid={showGridBtn}
             showSearch={showSearch}
@@ -104,9 +111,10 @@ function Canvas(props) {
 
           <Flex 
             flex={1} 
-            bg={`${STAGE_COLORS[props.stage.type]}_white`}
+            bg='nearwhite'
             alignItems="center" 
             justifyContent="center" 
+            className="relative"
             onClick={clearSelection}
           >
             {!showSecondary ? null : 
@@ -127,6 +135,41 @@ function Canvas(props) {
                   flyer={secondary}
                   selectable={true}
                 />
+                <Flex style={{height: 60}} justifyContent="center" color="gray" pt={2}>
+                  <OpacityButton
+                    mx={2}
+                    onClick={() => rootDispatch({type: 'PREV'})}
+                    disabed={props.stage.currentGenerationIndex === 0}
+                    children={<ArrowSvg size={20} />}
+                  />
+                  <Flex>
+                    <Text
+                      color="gray"
+                      fontSize={2}
+                      children={props.stage.currentGenerationIndex + 1}
+                    />
+                      
+                    <Text
+                      mx={1}
+                      color="gray"
+                      fontSize={2}
+                      children="/"
+                    />
+                    <Text 
+                      color="gray"
+                      fontSize={2}
+                      children={props.stage.currentGeneration.length}
+                    />
+                  </Flex>
+                  <OpacityButton
+                    mx={2}
+                    onClick={() => rootDispatch({type: 'NEXT'})}
+                    disabed={props.stage.currentGenerationIndex === props.stage.currentGeneration.length - 1}
+                    style={{transform: 'rotateY(-180deg)'}}
+                    children={<ArrowSvg size={20} />}
+                  />
+                </Flex>
+
               </Box>
             }
             {!showContentForm ? null :
@@ -136,18 +179,21 @@ function Canvas(props) {
             }
 
             {!showGallery ? null :
-              <Box pl={48 + 36} pr={48}>
+              <Box mr="1px">
                 <FrameGallery
+                  
                   flyers={haveList ? props.list : props.stage.currentGeneration}
                   canClose={haveList}
                   onCloseClick={() => rootDispatch({type: 'SET_LIST', list: null})}
                   onSelect={handleGridSelectFlyer}
                   columns={2}
-                  frameMarginX={12}
-                  frameMarginY={20}
+                  marginL={36 + 36}
+                  marginR={36}
+                  itemMarginX={12}
+                  itemMarginY={12}
                   selected={secondary}
                   size={{
-                    width: (props.size.width / 2) - 1 - 48 - 48 - 36,
+                    width: (props.size.width / 2) - 2,
                     height: props.size.height - 1,
                   }}
                 />
@@ -156,6 +202,27 @@ function Canvas(props) {
 
             {!showStageExhaused ? null :
               <StageExhausted stage={props.stage} />
+            }
+
+            {!showContentForm && 
+              <Box style={{position: 'absolute', bottom: 10, left: 10}} width={50}>
+                <OpacityButton
+                  onClick={() => rootDispatch({type: 'SET_VIEW_MODE', viewMode: props.viewMode === 'grid' ? 'comparison' : 'grid'})}
+                  children={
+                    <Flex color={props.viewMode === 'grid' ? 'blue' : 'dark'} flexDirection="column" alignItems="center">
+                      <GridSvg size={36} />
+                      <Text 
+                        mt={2}
+                        fontSize="8px" 
+                        fontWeight="bold"
+                        style={{textTransform: 'uppercase'}}
+                        children={props.viewMode === 'grid' ? 'Grid On' : 'Grid Off'}
+                      />
+                    </Flex>
+                  }
+
+                />
+              </Box>
             }
 
           </Flex>
@@ -186,5 +253,4 @@ const makeHandleKeyPress = dispatch => e => {
   else if(e.code === 'KeyL') {
     dispatch({type: 'TOGGLE_FAVORITE_SECONDARY'});
   }
-  console.log(e.code);
 }

@@ -10,7 +10,7 @@ function DropZone({
   connectDropTarget,
 }) {
 
-  const height = item._computed.mb || 40;
+  const height = (item._computed.mb) || 40;
   return connectDropTarget(
     <div 
       style={{
