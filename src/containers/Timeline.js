@@ -14,20 +14,20 @@ function Timeline({flyers, selected, size}) {
 
       {flyers.length 
         ? (
-          <Box ml="-6px" mr="-14px">
+          <Box ml="-6px" mr="-12px">
             <FrameGallery
               flyers={flyers}
               selected={selected}
               hideToolbar={true}
-              columns={2}
-              itemMarginX={6}
-              itemMarginY={6}
+              columns={1}
+              itemMarginX={50}
+              itemMarginY={12}
               onSelect={flyer => {
                 rootDispatch({type: 'SET_VIEW_MODE', viewMode: 'comparison'});
                 rootDispatch({type: 'SET_SECONDARY', secondary: flyer});
               }}
               size={{
-                width: WIDTH,
+                width: WIDTH - 2,
                 height: size.height - 1,
               }}
             />

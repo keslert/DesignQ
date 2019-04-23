@@ -25,7 +25,7 @@ function Sidebar(props) {
       flexDirection="column"
       bg="off_dark"
       color="off_dark"
-      style={{position: 'relative'}}
+      style={{position: 'relative', borderTop: '1px solid #262d3c'}}
     >
       <Box 
         style={tabStyle}
