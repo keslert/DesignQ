@@ -96,7 +96,8 @@ function Canvas(props) {
                   <OpacityButton
                     mx={2}
                     onClick={() => rootDispatch({type: 'PREV'})}
-                    disabed={props.stage.currentGenerationIndex === 0}
+                    style={{transform: 'rotateY(-180deg)'}}
+                    disabled={props.stage.currentGenerationIndex === 0}
                     children={<ArrowSvg size={20} />}
                   />
                   <Flex>
@@ -121,8 +122,7 @@ function Canvas(props) {
                   <OpacityButton
                     mx={2}
                     onClick={() => rootDispatch({type: 'NEXT'})}
-                    disabed={props.stage.currentGenerationIndex === props.stage.currentGeneration.length - 1}
-                    style={{transform: 'rotateY(-180deg)'}}
+                    disabled={props.stage.currentGenerationIndex === props.stage.currentGeneration.length - 1}
                     children={<ArrowSvg size={20} />}
                   />
                 </Flex>

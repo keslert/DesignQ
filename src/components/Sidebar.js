@@ -75,7 +75,7 @@ function Sidebar(props) {
           <Timeline
             size={{
               width: props.size.width,
-              height: props.size.height - 42
+              height: props.size.height - 44
             }}
             flyers={props.history}
             selected={props.secondary}

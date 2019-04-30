@@ -60,6 +60,7 @@ function NavBar({stage, recommendedStage, stageProgress}) {
     const nextStage = key ? {type, key} : STAGES[type][0];
     
     rootDispatch({type: 'SET_STAGE', stage: nextStage, upgrade: stage.type === 'content'});
+    rootDispatch({type: 'SET_VIEW_MODE', viewMode: 'grid'});
   }, [stage])
 
   useEffect(() => {

@@ -103,7 +103,7 @@ function ContentForm({flyer}) {
             value={state.keywords || ''}
             placeholder="Volleyball, Patterns, Blue, Birthday Party"
             name="keywords"
-            hint="What word(s) should we use to search for images."
+            hint="What words should we use to search for images."
             onChange={handleInputChange}
           />
         </Box>
@@ -122,7 +122,7 @@ function ContentForm({flyer}) {
         color="dark"
         style={{fontStyle: 'italic'}}
         mb={3}
-        children="Only complete the relevant fields and don't worry about layout during this stage."
+        children="Only complete relevant fields. Don't worry about layout during this stage."
       />
 
       <Flex mx={-2} mb={3} flexWrap="wrap">

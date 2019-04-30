@@ -123,7 +123,7 @@ function getUpdatedStage(stage, primary, action, state) {
       currentGenerationIndex: 0,
       currentGenerationMasterDesign: primary,
       currentGenerationRound: stage.currentGenerationRound + 1,
-      exhausted: false,
+      exhausted: flyers.length > 0,
     }
   }
 
@@ -144,13 +144,13 @@ function getUpdatedStage(stage, primary, action, state) {
   }
   
   if(action.nextDesign || action.stage) {
-    const index = stage.currentGenerationIndex + 1;
+    const index = Math.min(stage.currentGenerationIndex + 1, stage.currentGeneration.length - 1);
     const highest = Math.max(stage.highestViewedIndex, index);
     return {
       ...stage,
-      currentGenerationIndex: Math.min(stage.currentGeneration.length, index),
+      currentGenerationIndex: index,
       highestViewedIndex: highest,
-      exhausted: index >= stage.currentGeneration.length,
+      // exhausted: index >= stage.currentGeneration.length,
       progress: getProgress(stage, highest),
     }
   }

@@ -59,7 +59,7 @@ function CanvasToolbar(props) {
               mb={3}
               id="upgrade-btn"
               label="Make Primary"
-              SvgComponent={<div style={{transform: 'rotateY(180deg)'}}><ArrowSvg size={24} /></div>}
+              SvgComponent={<ArrowSvg size={24} />}
               disabled={!props.showUpgrade}
               color={props.highlightUpgrade ? 'blue' : 'dark'}
               onClick={() => dispatch({type: 'STEP', upgrade: true})}

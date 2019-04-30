@@ -4,6 +4,7 @@ import { Flex, Box, Text } from 'rebass';
 import OpacityButton from '../OpacityButton';
 import EyeSvg from '../../svg/eye2.svg';
 import DownloadSvg from '../../svg/download.svg';
+import ArrowSvg from '../../svg/arrow.svg';
 
 
 function Toolbar({
@@ -16,9 +17,6 @@ function Toolbar({
 
   return (
     <Flex width="100%" alignItems="center" mb="1px" px="1px">
-      {/* <Flex flex={1}>
-                  
-      </Flex> */}
 
       <Text 
         fontSize={1} 
@@ -35,6 +33,15 @@ function Toolbar({
             color={props.favorited ? 'red' : 'gray'}
             onClick={props.onFavoriteClick}
             children={<HeartSvg size={18 * iconSize} />}
+          />
+        }
+        {props.onMakePrimary && 
+          <OpacityButton 
+            ml={2}
+            title="Make Primary"
+            color='gray'
+            onClick={props.onMakePrimary}
+            children={<ArrowSvg size={16 * iconSize} />}
           />
         }
         

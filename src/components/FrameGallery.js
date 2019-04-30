@@ -35,6 +35,7 @@ const GridItem = ({ columnIndex, rowIndex, style, data }) => {
           <Toolbar
             id={"#" + flyer.id}
             iconSize={0.8}
+            onMakePrimary={() => data.onMakePrimary(flyer)}
             onDownloadClick={() => data.onDownload(flyer)}
             // onCompareDown={() => data.onCompareDown(flyer)}
             // onCompareUp={data.onCompareUp}
@@ -67,6 +68,7 @@ function FrameGallery({
   canCompare=true,
   canDownload=true,
   canFavorite=true,
+  canMakePrimary=true,
   hideToolbar,
   marginL=0,
   marginR=0,
@@ -80,6 +82,7 @@ function FrameGallery({
   const flyerSize = flyers[0] ? flyers[0].size : {};
   const scale = (columnWidth - itemMarginX * 2) / flyerSize.w;
   const rowHeight = flyerSize.h * scale + itemMarginY * 2 + (hideToolbar ? 0 : TOOLBAR_HEIGHT);
+  console.log(columnWidth);
 
   const columnWidths = new Array(columns).fill().map((v, i) => (
     columnWidth + (i === 0 ? marginL : 0) + (i === columns - 1 ? marginR : 0)
@@ -113,6 +116,9 @@ function FrameGallery({
     onFavorite: !canFavorite ? null : flyer => {
       dispatch({type: 'TOGGLE_FAVORITE', flyer});
     },
+    onMakePrimary: !canMakePrimary ? null : flyer => {
+      dispatch({type: 'SET_PRIMARY', primary: flyer});
+    },
     onMouseDown: flyer => {
       dispatch({type: 'SET_COMPARISON', flyer});
     },
@@ -124,6 +130,7 @@ function FrameGallery({
   return (
     <Box className="relative">
       <Grid
+        key={columnWidth} // This might be a dumb thing to do...
         ref={ref}
         itemData={data}
         columnCount={columns}

@@ -162,6 +162,8 @@ const reducer = (state, action) => {
       return updateJourney(state, action);
     case 'SET_SECONDARY':
       return setSecondary(state, action);
+    case 'SET_PRIMARY':
+      return setPrimary(state, action);
     case 'SET_COMPARISON':
       return {...state, comparison: action.flyer}
     case 'SET_HISTORY':
@@ -332,6 +334,18 @@ function step(state, action, update={}) {
   return {...state, ...update}
 }
 
+function setPrimary(state, action, update={}) {
+  if(!action.primary) return state;
+
+  _updatePrimary(state, action, update);
+  _updateJourney(state, action, update);
+  _updateSecondary(state, action, update);
+  _updateHistory(state, {upgrade: true}, update);
+  _updateSelection(state, action, update);
+
+  return {...state, ...update}
+}
+
 function setSecondary(state, action, update={}) {
   if(!action.secondary) return state;
 
@@ -360,8 +374,8 @@ function setList(state, action) {
 }
 
 function _updatePrimary(state, action, update) {
-  if(action.upgrade) {
-    const secondary = copyFlyer(state.secondary);
+  if(action.upgrade || action.primary) {
+    const secondary = copyFlyer(action.primary || state.secondary);
     state.primary.upgradeTo = secondary.id
     secondary.upgradeFrom = state.primary.id;
     update.primary = secondary;
@@ -417,7 +431,7 @@ function _updateSelection(state, action, update) {
   if(!state.selection) return;
 
   const selectedFlyer = state.selection._root;
-  if(update.primary) {
+  if(update.primary && selectedFlyer === state.primary) {
     update.selection = getItemFromTemplate(state.selection, update.primary);
   }
   else if(update.secondary && selectedFlyer === state.secondary) {
