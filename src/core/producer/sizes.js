@@ -37,7 +37,7 @@ function computeGroupSizes(template, group, dominant) {
     minFontSize: MIN_FONT_SIZE,
   }
 
-  if(types.heading) {
+  if(types.heading) { // h2
     const headingSettings = {
       ...baseSettings,
       maxOptimalFontSize: 21.3,
@@ -46,21 +46,21 @@ function computeGroupSizes(template, group, dominant) {
     computeElementsFontSizes(types.heading, headingSettings)
   }
 
-  computeElementsFontSizes(types.bridge, {
+  computeElementsFontSizes(types.bridge, { // subtitle
     ...baseSettings,
     maxOptimalFontSize: 21.2, // (smallSize || smallSettings.maxOptimalFontSize) * 1.25
     optimalFontSize: 0.0844872 * dominantFontSize + 7.86252
   })
   
   const bridge = types.bridge && types.bridge[0];
-  computeElementsFontSizes(types.small, {
+  computeElementsFontSizes(types.small, { // kicker
     ...baseSettings,
     maxOptimalFontSize: 18.6,
     optimalFontSize: bridge && (0.489407 * bridge._computed.fontSize + 5.22648),
     optimalWidth: dominantWidth,
   })
     
-  computeElementsFontSizes(types.paragraph, {
+  computeElementsFontSizes(types.paragraph, { // paragraph
     ...baseSettings,
     maxOptimalFontSize: 16,
     optimalFontSize: bridge && (0.438561 * bridge._computed.fontSize + 4.55792),

@@ -25,7 +25,7 @@ function Sidebar(props) {
       flexDirection="column"
       bg="off_dark"
       color="off_dark"
-      style={{position: 'relative', borderTop: '1px solid #262d3c'}}
+      style={{position: 'relative', borderTop: '1px solid #262d3c', height: '100%'}}
     >
       <Box 
         style={tabStyle}
@@ -75,7 +75,7 @@ function Sidebar(props) {
           <Timeline
             size={{
               width: props.size.width,
-              height: props.size.height - 44
+              height: props.size.height - 44,
             }}
             flyers={props.history}
             selected={props.secondary}
@@ -90,7 +90,7 @@ export default Sidebar;
 
 const tabStyle = {position: 'absolute', right: "-16px", top: '40px', cursor: 'pointer', zIndex: 9999}
 const chevronStyle = {position: 'absolute', right: "-10px", top: '75px', pointerEvents: 'none', zIndex: 9999}
-const scrollStyle = {overflowY: 'auto', height: 200};
+const scrollStyle = {overflowY: 'auto'};
 
 
 const Tab = styled(Flex)(props => ({

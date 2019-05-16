@@ -101,9 +101,8 @@ function ContentForm({flyer}) {
           <FormInput
             label="Keywords (for image searches)"
             value={state.keywords || ''}
-            placeholder="Volleyball, Patterns, Blue, Birthday Party"
             name="keywords"
-            hint="What words should we use to search for images."
+            hint="Volleyball, Patterns, Blue, Birthday Party"
             onChange={handleInputChange}
           />
         </Box>
